@@ -20,13 +20,13 @@ export default function IndexPage() {
         <div className="container-wrapper relative">
           <div className="container flex flex-col items-center gap-8 py-20 text-center md:py-28 lg:py-36">
             <h1 className="max-w-7xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl from-foreground via-foreground to-foreground/65 bg-linear-to-b bg-clip-text text-transparent">
-              Beautiful terminal UIs, made simple
+              Beautiful emails, made simple
             </h1>
 
             <p className="max-w-2xl text-lg text-muted-foreground sm:text-xl">
-              Ready to use, customizable terminal components for React.
+              Ready to use, customizable email components for React.
               <br className="hidden sm:block" />
-              Built on Ink. Distributed via shadcn.
+              Built on React Email. Distributed via shadcn.
             </p>
 
             <CommandBox command={installCommand} />
