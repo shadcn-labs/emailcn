@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { useTheme } from "next-themes";
+import * as React from "react";
 
 import { useMetaColor } from "@/hooks/use-meta-color";
 
@@ -20,7 +20,12 @@ export const useThemeToggle = () => {
   // Listen for the D key to toggle theme.
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if ((e.key === "d" || e.key === "D") && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      if (
+        (e.key === "d" || e.key === "D") &&
+        !e.metaKey &&
+        !e.ctrlKey &&
+        !e.altKey
+      ) {
         if (
           (e.target instanceof HTMLElement && e.target.isContentEditable) ||
           e.target instanceof HTMLInputElement ||

@@ -1,3 +1,5 @@
+import { ROUTES } from "@/constants/routes";
+
 export interface NavItem {
   title: string;
   href?: string;
@@ -43,3 +45,6 @@ export const docsConfig: DocsConfig = {
     },
   ],
 };
+
+export const docsContentRoute = `${ROUTES.LLMS_MDX}${ROUTES.DOCS}`;
+export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
