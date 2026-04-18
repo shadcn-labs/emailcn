@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-testimonial",
+  "type": "registry:component",
+  "title": "Email Testimonial",
+  "description": "Testimonial section with quote and avatar for email templates",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "files": [
+    {
+      "path": "registry/components/testimonial.tsx",
+      "content": "import { Column, Img, Row, Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface TestimonialProps {\n  theme?: EmailTheme;\n  avatarUrl?: string;\n  name?: string;\n  role?: string;\n  quote?: string;\n  companyLogoUrl?: string;\n}\n\nexport const Testimonial = ({\n  theme = defaultTheme,\n  avatarUrl,\n  name = \"John Doe\",\n  role = \"CEO, Acme\",\n  quote = \"This product has transformed how we work.\",\n  companyLogoUrl,\n}: TestimonialProps) => {\n  const style = {\n    avatar: {\n      borderRadius: \"50%\",\n      height: 56,\n      objectFit: \"cover\" as const,\n      width: 56,\n    },\n    companyLogo: {\n      height: \"auto\",\n      marginTop: theme.spacingBase,\n      maxWidth: 80,\n    } as const,\n    info: {\n      paddingLeft: theme.spacingBase,\n    },\n    name: {\n      color: theme.colorText,\n      fontSize: theme.fontSizeBase,\n      fontWeight: theme.fontWeightMedium,\n      marginBottom: \"4px\",\n    },\n    quote: {\n      color: theme.colorText,\n      fontSize: theme.fontSizeLg,\n      fontStyle: \"italic\",\n      lineHeight: theme.lineHeightBase,\n      marginTop: theme.spacingBase,\n    },\n    role: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n    },\n    section: {\n      backgroundColor: theme.colorBackgroundMuted,\n      border: `1px solid ${theme.colorBorder}`,\n      borderRadius: theme.borderRadius,\n      padding: theme.spacingLg,\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      <Text style={style.quote}>\"{quote}\"</Text>\n      <Row style={{ marginTop: theme.spacingBase }}>\n        <Column>{avatarUrl && <Img src={avatarUrl} alt={name} style={style.avatar} />}</Column>\n        <Column style={style.info}>\n          <Text style={style.name}>{name}</Text>\n          <Text style={style.role}>{role}</Text>\n        </Column>\n      </Row>\n      {companyLogoUrl && <Img src={companyLogoUrl} alt=\"Company\" style={style.companyLogo} />}\n    </Section>\n  );\n};\n\nTestimonial.PreviewProps = {\n  avatarUrl: \"https://example.com/avatar.jpg\",\n  companyLogoUrl: \"https://example.com/company.png\",\n  name: \"Sarah Smith\",\n  quote: \"This tool has saved us countless hours and made our team more productive.\",\n  role: \"Product Manager, TechCorp\",\n  theme: defaultTheme,\n} satisfies TestimonialProps;\n\nexport default Testimonial;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["email-component"]
+}

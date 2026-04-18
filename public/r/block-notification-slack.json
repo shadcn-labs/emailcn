@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "block-notification-slack",
+  "type": "registry:block",
+  "title": "Notification — Slack",
+  "description": "Slack workspace invite notification",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-slack.json"],
+  "files": [
+    {
+      "path": "registry/blocks/notification-slack.tsx",
+      "content": "// Subject: You're now part of the {teamName} workspace\n\nimport { Body, Button, Container, Head, Html, Preview, Section, Text } from \"react-email\";\nimport { theme as slackTheme } from \"../themes/slack\";\n\ninterface Props {\n  logoUrl?: string;\n  actorName?: string;\n  actorAvatarUrl?: string;\n  action?: string;\n  targetName?: string;\n  teamName?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  productName?: string;\n}\n\nexport const NotificationSlack = ({\n  _logoUrl,\n  actorName = \"Someone\",\n  _actorAvatarUrl,\n  _action = \"invited you\",\n  _targetName = \"workspace\",\n  teamName = \"Acme\",\n  ctaLabel = \"Join Workspace\",\n  ctaHref = \"#\",\n  _productName = \"Slack\",\n}: Props) => {\n  const t = slackTheme;\n\n  const style = {\n    cta: {\n      backgroundColor: t.button.primary.backgroundColor,\n      borderRadius: t.button.primary.borderRadius,\n      color: t.button.primary.color,\n      display: \"inline-block\",\n      fontSize: t.button.primary.fontSize,\n      fontWeight: t.button.primary.fontWeight,\n      paddingX: t.button.primary.paddingX,\n      paddingY: t.button.primary.paddingY,\n      textDecoration: \"none\",\n    } as const,\n    heading: {\n      color: t.colorText,\n      fontSize: t.fontSizeXl,\n      fontWeight: t.fontWeightMedium,\n      marginBottom: t.spacingBase,\n    },\n    section: { padding: `${t.spacingXl} 0` },\n    text: {\n      color: t.colorTextMuted,\n      fontSize: t.fontSizeBase,\n      lineHeight: t.lineHeightBase,\n      marginBottom: t.spacingBase,\n    },\n  };\n\n  return (\n    <Html>\n      <Head />\n      <Preview>Join {teamName}</Preview>\n      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>\n        <Container\n          style={{\n            margin: \"0 auto\",\n            maxWidth: t.containerWidth,\n            padding: t.spacingLg,\n          }}\n        >\n          <Section style={style.section}>\n            <Text style={style.heading}>You're in!</Text>\n            <Text style={style.text}>\n              {actorName} invited you to join the {teamName} workspace on {productName}.\n            </Text>\n            <Text style={style.text}>Connect with your team and start collaborating.</Text>\n          </Section>\n\n          {ctaLabel && ctaHref && (\n            <Button href={ctaHref} style={style.cta}>\n              {ctaLabel}\n            </Button>\n          )}\n        </Container>\n      </Body>\n    </Html>\n  );\n};\n\nNotificationSlack.PreviewProps = {\n  action: \"invited you\",\n  actorAvatarUrl: \"https://example.com/avatar.jpg\",\n  actorName: \"Sarah\",\n  ctaHref: \"https://slack.com\",\n  ctaLabel: \"Join Workspace\",\n  logoUrl: \"https://example.com/logo.png\",\n  productName: \"Slack\",\n  targetName: \"workspace\",\n  teamName: \"Acme\",\n} satisfies Props;\n\nexport default NotificationSlack;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["notification"]
+}

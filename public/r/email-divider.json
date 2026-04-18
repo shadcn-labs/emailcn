@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-divider",
+  "type": "registry:component",
+  "title": "Email Divider",
+  "description": "Horizontal divider for email templates",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "files": [
+    {
+      "path": "registry/components/divider.tsx",
+      "content": "import { Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface DividerProps {\n  theme?: EmailTheme;\n  label?: string;\n}\n\nexport const Divider = ({ theme = defaultTheme, label }: DividerProps) => {\n  const style = {\n    label: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n      textAlign: \"center\" as const,\n    },\n    line: {\n      borderBottom: `1px solid ${theme.colorBorder}`,\n    },\n    section: {\n      padding: `${theme.spacingBase} 0`,\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      {label ? <Text style={style.label}>{label}</Text> : <Section style={style.line} />}\n    </Section>\n  );\n};\n\nDivider.PreviewProps = {\n  label: \"— or —\",\n  theme: defaultTheme,\n} satisfies DividerProps;\n\nexport default Divider;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["email-component"]
+}

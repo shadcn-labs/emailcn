@@ -1,0 +1,14 @@
+export const ROUTES = {
+  DOCS: "/docs",
+  DOCS_CHANGELOG: "/docs/changelog",
+  DOCS_COMPONENTS: "/docs/components",
+  DOCS_EXAMPLES: "/docs/examples",
+  DOCS_INSTALLATION: "/docs/installation",
+  DOCS_REGISTRY: "/docs/registry",
+  DOCS_THEMING: "/docs/theming",
+  HOME: "/",
+  LLMS: "/llms.txt",
+  LLMS_FULL: "/llms-full.txt",
+  LLMS_MDX: "/llms.mdx",
+  OG: "/og",
+} as const;

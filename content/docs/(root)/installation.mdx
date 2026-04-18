@@ -1,0 +1,100 @@
+---
+title: Installation
+description: How to install and use emailcn components in your project.
+---
+
+## Quick Start
+
+### 1. Install react-email
+
+First, ensure you have react-email installed in your project:
+
+```bash
+npm install react-email
+# or
+pnpm add react-email
+```
+
+### 2. Add a Theme
+
+Install a theme to style your emails:
+
+```bash
+npx shadcn@latest add https://emailcn.com/r/email-theme-default.json
+```
+
+### 3. Add Components
+
+Install individual components:
+
+```bash
+# Add a hero component
+npx shadcn@latest add https://emailcn.com/r/email-hero.json
+
+# Add a footer component
+npx shadcn@latest add https://emailcn.com/r/email-footer.json
+```
+
+### 4. Add Blocks
+
+Install complete email templates:
+
+```bash
+# Add a welcome email
+npx shadcn@latest add https://emailcn.com/r/block-onboarding-default.json
+
+# Add an auth magic link email
+npx shadcn@latest add https://emailcn.com/r/block-auth-magic-link-default.json
+```
+
+---
+
+## Usage
+
+After installation, import and use components in your emails:
+
+```tsx
+import { Html, Head, Body, Container } from "react-email";
+import { Hero } from "@/registry/components/hero";
+import { Footer } from "@/registry/components/footer";
+import { theme } from "@/lib/email-themes/default";
+
+export function WelcomeEmail() {
+  return (
+    <Html>
+      <Head />
+      <Body style={{ backgroundColor: theme.colorBackground }}>
+        <Container>
+          <Hero theme={theme} heading="Welcome!" subheading="Thanks for joining us." />
+          <Footer theme={theme} companyName="Acme" />
+        </Container>
+      </Body>
+    </Html>
+  );
+}
+```
+
+---
+
+## Available Themes
+
+- **Default** — Clean, minimal design
+- **Vercel** — Dark theme with white text
+- **Linear** — Purple accent, modern
+- **Stripe** — Indigo accent, professional
+- **GitHub** — Dark theme for developers
+- **Notion** — Minimal, clean aesthetic
+- **Raycast** — Dark with coral accent
+- **Twitch** — Purple accent
+- **Airbnb** — Coral/red accent
+- **Slack** — Purple accent
+
+---
+
+## Registry Structure
+
+- **Themes** — Brand token files (`lib/email-themes/`)
+- **Components** — Reusable email sections (`registry/components/`)
+- **Blocks** — Complete email templates (`registry/blocks/`)
+
+All items are compatible with `npx shadcn add` and can be installed individually.

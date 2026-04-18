@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-content-grid",
+  "type": "registry:component",
+  "title": "Email Content Grid",
+  "description": "Grid layout for showcasing features or content in email templates",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "files": [
+    {
+      "path": "registry/components/content-grid.tsx",
+      "content": "import { Column, Img, Row, Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface ContentGridProps {\n  theme?: EmailTheme;\n  columnCount?: 2 | 3;\n  columns?: {\n    iconUrl?: string;\n    title: string;\n    description: string;\n  }[];\n}\n\nexport const ContentGrid = ({\n  theme = defaultTheme,\n  columnCount = 2,\n  columns = [\n    { description: \"Description for feature 1\", title: \"Feature 1\" },\n    { description: \"Description for feature 2\", title: \"Feature 2\" },\n  ],\n}: ContentGridProps) => {\n  const style = {\n    column: {\n      padding: theme.spacingBase,\n      verticalAlign: \"top\" as const,\n    },\n    description: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeBase,\n      lineHeight: theme.lineHeightBase,\n    },\n    icon: {\n      height: 48,\n      marginBottom: theme.spacingBase,\n      objectFit: \"contain\" as const,\n      width: 48,\n    },\n    section: {\n      padding: `${theme.spacingXl} 0`,\n    },\n    title: {\n      color: theme.colorText,\n      fontSize: theme.fontSizeLg,\n      fontWeight: theme.fontWeightMedium,\n      marginBottom: \"8px\",\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      <Row>\n        {columns.slice(0, columnCount).map((col, index) => (\n          <Column key={index} style={style.column}>\n            {col.iconUrl && <Img src={col.iconUrl} style={style.icon} alt={col.title} />}\n            <Text style={style.title}>{col.title}</Text>\n            <Text style={style.description}>{col.description}</Text>\n          </Column>\n        ))}\n      </Row>\n    </Section>\n  );\n};\n\nContentGrid.PreviewProps = {\n  columnCount: 2,\n  columns: [\n    {\n      description: \"Lightning-fast load times for your emails.\",\n      iconUrl: \"https://example.com/icon1.png\",\n      title: \"Fast Performance\",\n    },\n    {\n      description: \"Simple API to get started in minutes.\",\n      iconUrl: \"https://example.com/icon2.png\",\n      title: \"Easy Integration\",\n    },\n  ],\n  theme: defaultTheme,\n} satisfies ContentGridProps;\n\nexport default ContentGrid;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["email-component"]
+}

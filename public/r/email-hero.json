@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-hero",
+  "type": "registry:component",
+  "title": "Email Hero",
+  "description": "Hero section with heading, subheading, and CTA for email templates",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "files": [
+    {
+      "path": "registry/components/hero.tsx",
+      "content": "import { Button, Container, Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface HeroProps {\n  theme?: EmailTheme;\n  heading?: string;\n  subheading?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  align?: \"left\" | \"center\";\n}\n\nexport const Hero = ({\n  theme = defaultTheme,\n  heading = \"Welcome\",\n  subheading = \"Get started with your account\",\n  ctaLabel = \"Get Started\",\n  ctaHref = \"#\",\n  align = \"center\",\n}: HeroProps) => {\n  const style = {\n    cta: {\n      backgroundColor: theme.button.primary.backgroundColor,\n      borderRadius: theme.button.primary.borderRadius,\n      color: theme.button.primary.color,\n      display: \"inline-block\",\n      fontSize: theme.button.primary.fontSize,\n      fontWeight: theme.button.primary.fontWeight,\n      paddingX: theme.button.primary.paddingX,\n      paddingY: theme.button.primary.paddingY,\n      textDecoration: \"none\",\n    } as const,\n    heading: {\n      color: theme.colorText,\n      fontSize: theme.fontSizeHeading,\n      fontWeight: theme.fontWeightBold,\n      lineHeight: theme.lineHeightBase,\n      margin: 0,\n      textAlign: align as \"left\" | \"center\",\n    } as const,\n    section: {\n      padding: `${theme.spacingXl} 0`,\n    },\n    subheading: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeLg,\n      lineHeight: theme.lineHeightBase,\n      margin: `${theme.spacingBase} 0 ${theme.spacingLg}`,\n      textAlign: align as \"left\" | \"center\",\n    } as const,\n  };\n\n  return (\n    <Section style={style.section}>\n      <Container align={align}>\n        <Text style={style.heading}>{heading}</Text>\n        <Text style={style.subheading}>{subheading}</Text>\n        {ctaLabel && ctaHref && (\n          <Button href={ctaHref} style={style.cta}>\n            {ctaLabel}\n          </Button>\n        )}\n      </Container>\n    </Section>\n  );\n};\n\nHero.PreviewProps = {\n  align: \"center\",\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Get Started\",\n  heading: \"Welcome to Acme\",\n  subheading: \"Build faster with the tools you love.\",\n  theme: defaultTheme,\n} satisfies HeroProps;\n\nexport default Hero;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["email-component"]
+}

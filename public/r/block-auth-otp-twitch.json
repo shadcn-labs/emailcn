@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "block-auth-otp-twitch",
+  "type": "registry:block",
+  "title": "Auth OTP — Twitch",
+  "description": "Twitch-style OTP verification code email",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-twitch.json"],
+  "files": [
+    {
+      "path": "registry/blocks/auth-otp-twitch.tsx",
+      "content": "// Subject: Your verification code for {productName}\n\nimport { Body, Container, Head, Html, Preview, Section, Text } from \"react-email\";\nimport { theme as twitchTheme } from \"../themes/twitch\";\n\ninterface Props {\n  logoUrl?: string;\n  logoAlt?: string;\n  otpCode?: string;\n  expiresInMinutes?: number;\n  recipientEmail?: string;\n  productName?: string;\n}\n\nexport const AuthOtpTwitch = ({\n  _logoUrl,\n  _logoAlt = \"Logo\",\n  otpCode = \"123456\",\n  expiresInMinutes = 10,\n  _recipientEmail = \"you@example.com\",\n  _productName = \"Twitch\",\n}: Props) => {\n  const t = twitchTheme;\n\n  const style = {\n    code: {\n      color: t.colorText,\n      fontFamily: t.fontFamilyMono,\n      fontSize: \"32px\",\n      fontWeight: t.fontWeightBold,\n      letterSpacing: \"8px\",\n      textAlign: \"center\" as const,\n    },\n    codeContainer: {\n      backgroundColor: t.colorBackgroundMuted,\n      borderRadius: t.borderRadius,\n      marginTop: t.spacingBase,\n      padding: t.spacingLg,\n    },\n    footer: {\n      color: t.colorTextMuted,\n      fontSize: t.fontSizeSm,\n      marginTop: t.spacingLg,\n    },\n    heading: {\n      color: t.colorText,\n      fontSize: t.fontSizeXl,\n      fontWeight: t.fontWeightMedium,\n      marginBottom: t.spacingBase,\n    },\n    section: { padding: `${t.spacingXl} 0` },\n    text: {\n      color: t.colorTextMuted,\n      fontSize: t.fontSizeBase,\n      lineHeight: t.lineHeightBase,\n      marginBottom: t.spacingBase,\n    },\n  };\n\n  const codeDigits = [...otpCode];\n\n  return (\n    <Html>\n      <Head />\n      <Preview>Your verification code</Preview>\n      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>\n        <Container\n          style={{\n            margin: \"0 auto\",\n            maxWidth: t.containerWidth,\n            padding: t.spacingLg,\n          }}\n        >\n          <Section style={style.section}>\n            <Text style={style.heading}>Your verification code</Text>\n            <Text style={style.text}>\n              Enter this code to sign in to your {productName} account. This code expires in{\" \"}\n              {expiresInMinutes} minutes.\n            </Text>\n          </Section>\n\n          <Section style={style.codeContainer}>\n            <Text style={style.code}>\n              {codeDigits.map((digit, index) => (\n                <span key={index}>{digit}</span>\n              ))}\n            </Text>\n          </Section>\n\n          <Text style={style.footer}>\n            If you didn't request this, you can safely ignore this email.\n          </Text>\n        </Container>\n      </Body>\n    </Html>\n  );\n};\n\nAuthOtpTwitch.PreviewProps = {\n  expiresInMinutes: 10,\n  logoAlt: \"Twitch\",\n  logoUrl: \"https://example.com/logo.png\",\n  otpCode: \"123456\",\n  productName: \"Twitch\",\n  recipientEmail: \"you@example.com\",\n} satisfies Props;\n\nexport default AuthOtpTwitch;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["auth"]
+}

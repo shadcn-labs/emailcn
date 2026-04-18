@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-footer",
+  "type": "registry:component",
+  "title": "Email Footer",
+  "description": "Footer with company info and links for email templates",
+  "dependencies": ["react-email"],
+  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "files": [
+    {
+      "path": "registry/components/footer.tsx",
+      "content": "import { Column, Link, Row, Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface FooterProps {\n  theme?: EmailTheme;\n  companyName?: string;\n  address?: string;\n  links?: { label: string; href: string }[];\n  unsubscribeHref?: string;\n}\n\nexport const Footer = ({\n  theme = defaultTheme,\n  companyName = \"Acme\",\n  address = \"123 Main St, San Francisco, CA\",\n  links = [\n    { href: \"#\", label: \"Privacy\" },\n    { href: \"#\", label: \"Terms\" },\n  ],\n  unsubscribeHref = \"#\",\n}: FooterProps) => {\n  const style = {\n    link: {\n      color: theme.colorTextMuted,\n      fontFamily: theme.fontFamily,\n      fontSize: theme.fontSizeSm,\n      marginRight: theme.spacingBase,\n      textDecoration: \"none\",\n    } as const,\n    section: {\n      borderTop: `1px solid ${theme.colorBorder}`,\n      padding: `${theme.spacingXl} 0 ${theme.spacingBase}`,\n    },\n    text: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n      lineHeight: theme.lineHeightBase,\n    },\n    unsubscribe: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n      textDecoration: \"underline\",\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      <Text style={{ ...style.text, marginBottom: \"8px\" }}>\n        © {new Date().getFullYear()} {companyName}. All rights reserved.\n      </Text>\n      {address && <Text style={{ ...style.text, marginBottom: \"8px\" }}>{address}</Text>}\n      <Row>\n        {links.map((link, index) => (\n          <Column key={index}>\n            <Link href={link.href} style={style.link}>\n              {link.label}\n            </Link>\n          </Column>\n        ))}\n      </Row>\n      <Text style={{ marginTop: theme.spacingBase }}>\n        <Link href={unsubscribeHref} style={style.unsubscribe}>\n          Unsubscribe\n        </Link>\n      </Text>\n    </Section>\n  );\n};\n\nFooter.PreviewProps = {\n  address: \"123 Main Street, San Francisco, CA 94105\",\n  companyName: \"Acme Inc.\",\n  links: [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  theme: defaultTheme,\n  unsubscribeHref: \"#unsubscribe\",\n} satisfies FooterProps;\n\nexport default Footer;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["email-component"]
+}

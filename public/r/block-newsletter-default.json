@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "block-newsletter-default",
+  "type": "registry:block",
+  "title": "Newsletter — Default",
+  "description": "Default newsletter email with article grid",
+  "dependencies": ["react-email"],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json",
+    "https://emailcn.com/r/email-content-grid.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/newsletter-default.tsx",
+      "content": "// Subject: {preheader}\n\nimport { Body, Container, Head, Html, Preview, Section, Text } from \"react-email\";\nimport { ContentGrid } from \"../components/content-grid\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\ninterface Article {\n  title: string;\n  summary: string;\n  href: string;\n  imageUrl?: string;\n}\n\ninterface Props {\n  logoUrl?: string;\n  logoAlt?: string;\n  issueNumber?: string;\n  preheader?: string;\n  articles?: Article[];\n  productName?: string;\n}\n\nexport const NewsletterDefault = ({\n  _logoUrl,\n  logoAlt = \"Newsletter\",\n  issueNumber = \"1\",\n  preheader = \"Your weekly update\",\n  articles = [\n    { href: \"#\", summary: \"Summary of article 1\", title: \"Article 1\" },\n    { href: \"#\", summary: \"Summary of article 2\", title: \"Article 2\" },\n    { href: \"#\", summary: \"Summary of article 3\", title: \"Article 3\" },\n  ],\n  _productName = \"Newsletter\",\n}: Props) => {\n  const t = defaultTheme;\n\n  const style = {\n    footer: {\n      color: t.colorTextMuted,\n      fontSize: t.fontSizeSm,\n      marginTop: t.spacingLg,\n    },\n    heading: {\n      color: t.colorText,\n      fontSize: t.fontSizeHeading,\n      fontWeight: t.fontWeightBold,\n      marginBottom: t.spacingLg,\n    },\n    issueNumber: {\n      color: t.colorTextMuted,\n      fontSize: t.fontSizeSm,\n      marginBottom: \"8px\",\n    },\n    section: { padding: `${t.spacingXl} 0` },\n    viewOnWeb: {\n      color: t.colorTextMuted,\n      marginRight: \"16px\",\n      textDecoration: \"underline\",\n    } as const,\n  };\n\n  const gridColumns = articles.map((article) => ({\n    description: article.summary,\n    title: article.title,\n  }));\n\n  return (\n    <Html>\n      <Head />\n      <Preview>{preheader}</Preview>\n      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>\n        <Container\n          style={{\n            margin: \"0 auto\",\n            maxWidth: t.containerWidth,\n            padding: t.spacingLg,\n          }}\n        >\n          <Section style={style.section}>\n            <Text style={style.issueNumber}>Issue #{issueNumber}</Text>\n            <Text style={style.heading}>{productName}</Text>\n          </Section>\n\n          <ContentGrid theme={t} columnCount={3} columns={gridColumns} />\n\n          <Section style={{ padding: `${t.spacingBase} 0` }}>\n            <Text style={style.footer}>\n              <a href=\"#\" style={style.viewOnWeb}>\n                View this email online\n              </a>\n              <a href=\"#\">Unsubscribe</a>\n            </Text>\n          </Section>\n        </Container>\n      </Body>\n    </Html>\n  );\n};\n\nNewsletterDefault.PreviewProps = {\n  articles: [\n    {\n      href: \"#\",\n      summary: \"How to get the most out of our platform\",\n      title: \"Getting Started\",\n    },\n    {\n      href: \"#\",\n      summary: \"Check out what we just shipped\",\n      title: \"New Features\",\n    },\n    { href: \"#\", summary: \"Become a power user\", title: \"Tips & Tricks\" },\n  ],\n  issueNumber: \"42\",\n  logoAlt: \"Newsletter\",\n  logoUrl: \"https://example.com/logo.png\",\n  preheader: \"Your weekly update from Acme\",\n  productName: \"Acme Newsletter\",\n} satisfies Props;\n\nexport default NewsletterDefault;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["newsletter"]
+}

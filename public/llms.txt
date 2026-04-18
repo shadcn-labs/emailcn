@@ -1,0 +1,43 @@
+# emailcn
+
+> A shadcn/ui-compatible registry of React Email components and blocks.
+
+## What is this?
+
+emailcn provides beautiful, accessible, and customizable email components built on React Email v6. All components are compatible with shadcn/ui and can be installed via `npx shadcn add`.
+
+## How it works
+
+1. Install react-email: `npm install react-email`
+2. Add a theme: `npx shadcn@latest add https://emailcn.com/r/email-theme-default.json`
+3. Add components: `npx shadcn@latest add https://emailcn.com/r/email-hero.json`
+4. Or add complete email blocks
+
+## Installation
+
+Users can install components from emailcn:
+
+```bash
+npx shadcn@latest add https://emailcn.com/r/email-hero.json
+```
+
+## Available Themes
+
+- Default, Vercel, Linear, Stripe, GitHub, Notion, Raycast, Twitch, Airbnb, Slack
+
+## Links
+
+- Documentation: https://emailcn.com/docs
+- GitHub: https://github.com/Aniket-508/emailcn
+- React Email: https://react.email
+- shadcn docs: https://ui.shadcn.com/docs/registry
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Fumadocs (documentation)
+- shadcn/ui
+- React Email v6

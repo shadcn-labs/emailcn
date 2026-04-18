@@ -1,0 +1,64 @@
+---
+title: Introduction
+description: A template for building and publishing your own shadcn registry components.
+---
+
+A **ready-to-use template** for creating and publishing custom components to the [shadcn registry](https://ui.shadcn.com/docs/registry).
+
+## What You Get
+
+- 📦 **Simple structure** - One component file + one config file
+- 📚 **Documentation site** - Powered by Fumadocs
+- 🎨 **Registry compatible** - Works with `npx shadcn add`
+- 🚀 **Deploy ready** - Deploy anywhere
+
+## How It Works
+
+1. Edit your component at `registry/new-york/your-component.tsx`
+2. Update `registry.json` with your component name and details
+3. Run `pnpm registry:build`
+
+That's it. Deploy your app and users can install your component:
+
+```bash
+npx shadcn@latest add https://your-site.com/r/your-component.json
+```
+
+## FAQ
+
+<Accordion type="multiple">
+
+<AccordionItem value="faq-1">
+<AccordionTrigger>
+Why copy/paste instead of npm packages?
+</AccordionTrigger>
+<AccordionContent>
+
+The shadcn philosophy gives you **ownership** of the code. You can customize components to your exact needs without fighting library constraints.
+
+</AccordionContent>
+</AccordionItem>
+
+<AccordionItem value="faq-2">
+<AccordionTrigger>
+Which frameworks are supported?
+</AccordionTrigger>
+<AccordionContent>
+
+Any React framework: Next.js, Remix, Astro, Gatsby, Vite, etc.
+
+</AccordionContent>
+</AccordionItem>
+
+<AccordionItem value="faq-3">
+<AccordionTrigger>
+Can I publish multiple components?
+</AccordionTrigger>
+<AccordionContent>
+
+Yes! Add more files to `registry/new-york/` and list them in `registry.json`.
+
+</AccordionContent>
+</AccordionItem>
+
+</Accordion>
