@@ -1,15 +1,24 @@
-// Subject: Your verification code for {productName}
+// Subject: Your verification code for {_productName}
 
-import { Body, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { theme as twitchTheme } from "../themes/twitch";
 
 interface Props {
   logoUrl?: string;
-  logoAlt?: string;
+  _logoAlt?: string;
   otpCode?: string;
   expiresInMinutes?: number;
-  recipientEmail?: string;
-  productName?: string;
+  _recipientEmail?: string;
+  _productName?: string;
 }
 
 export const AuthOtpTwitch = ({
@@ -63,7 +72,9 @@ export const AuthOtpTwitch = ({
     <Html>
       <Head />
       <Preview>Your verification code</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -74,8 +85,8 @@ export const AuthOtpTwitch = ({
           <Section style={style.section}>
             <Text style={style.heading}>Your verification code</Text>
             <Text style={style.text}>
-              Enter this code to sign in to your {productName} account. This code expires in{" "}
-              {expiresInMinutes} minutes.
+              Enter this code to sign in to your {_productName} account. This
+              code expires in {expiresInMinutes} minutes.
             </Text>
           </Section>
 
@@ -97,12 +108,12 @@ export const AuthOtpTwitch = ({
 };
 
 AuthOtpTwitch.PreviewProps = {
+  _logoAlt: "Twitch",
+  _productName: "Twitch",
+  _recipientEmail: "you@example.com",
   expiresInMinutes: 10,
-  logoAlt: "Twitch",
   logoUrl: "https://example.com/logo.png",
   otpCode: "123456",
-  productName: "Twitch",
-  recipientEmail: "you@example.com",
 } satisfies Props;
 
 export default AuthOtpTwitch;

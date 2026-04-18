@@ -1,6 +1,15 @@
-// Subject: Welcome to {productName} — let's get you started
+// Subject: Welcome to {_productName} — let's get you started
 
-import { Body, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { ContentGrid } from "../components/content-grid";
 import { CTABanner } from "../components/cta-banner";
 import { Footer } from "../components/footer";
@@ -8,19 +17,19 @@ import { Hero } from "../components/hero";
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
-  firstName?: string;
-  productName?: string;
+  _firstName?: string;
+  _productName?: string;
   ctaHref?: string;
-  senderName?: string;
-  senderTitle?: string;
+  _senderName?: string;
+  _senderTitle?: string;
   senderAvatarUrl?: string;
 }
 
 export const OnboardingDefault = ({
-  firstName = "there",
+  _firstName = "there",
   _productName = "Acme",
   ctaHref = "https://example.com",
-  senderName = "Team",
+  _senderName = "Team",
   _senderTitle = "Team",
   _senderAvatarUrl,
 }: Props) => {
@@ -30,9 +39,11 @@ export const OnboardingDefault = ({
     <Html>
       <Head />
       <Preview>
-        Welcome to {productName}, {firstName}
+        Welcome to {_productName}, {_firstName}
       </Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -48,14 +59,14 @@ export const OnboardingDefault = ({
                 fontWeight: t.fontWeightBold,
               }}
             >
-              {productName}
+              {_productName}
             </Text>
           </Section>
 
           <Hero
             theme={t}
-            heading={`Welcome, ${firstName}`}
-            subheading={`We're excited to have you on board at ${productName}. Let's get you set up for success.`}
+            heading={`Welcome, ${_firstName}`}
+            subheading={`We're excited to have you on board at ${_productName}. Let's get you set up for success.`}
             ctaLabel="Get Started"
             ctaHref={ctaHref}
             align="left"
@@ -90,11 +101,11 @@ export const OnboardingDefault = ({
 
           <Section style={{ padding: `${t.spacingBase} 0` }}>
             <Text style={{ color: t.colorTextMuted, fontSize: t.fontSizeSm }}>
-              Sent by {senderName}
+              Sent by {_senderName}
             </Text>
           </Section>
 
-          <Footer theme={t} companyName={productName} />
+          <Footer theme={t} companyName={_productName} />
         </Container>
       </Body>
     </Html>
@@ -102,12 +113,12 @@ export const OnboardingDefault = ({
 };
 
 OnboardingDefault.PreviewProps = {
+  _firstName: "Aniket",
+  _productName: "Acme",
+  _senderName: "The team",
+  _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",
-  firstName: "Aniket",
-  productName: "Acme",
   senderAvatarUrl: "https://example.com/avatar.jpg",
-  senderName: "The team",
-  senderTitle: "Team",
 } satisfies Props;
 
 export default OnboardingDefault;

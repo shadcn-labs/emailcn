@@ -1,4 +1,5 @@
 import { Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -24,7 +25,11 @@ export const Divider = ({ theme = defaultTheme, label }: DividerProps) => {
 
   return (
     <Section style={style.section}>
-      {label ? <Text style={style.label}>{label}</Text> : <Section style={style.line} />}
+      {label ? (
+        <Text style={style.label}>{label}</Text>
+      ) : (
+        <Section style={style.line} />
+      )}
     </Section>
   );
 };

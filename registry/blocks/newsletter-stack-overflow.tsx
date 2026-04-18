@@ -1,6 +1,16 @@
 // Subject: {preheader}
 
-import { Body, Container, Head, Html, Link, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Link,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { ContentGrid } from "../components/content-grid";
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
@@ -14,11 +24,11 @@ interface Article {
 
 interface Props {
   logoUrl?: string;
-  logoAlt?: string;
+  _logoAlt?: string;
   issueNumber?: string;
   preheader?: string;
   articles?: Article[];
-  productName?: string;
+  _productName?: string;
 }
 
 const getStackOverflowTheme = (t: EmailTheme): EmailTheme => ({
@@ -79,7 +89,9 @@ export const NewsletterStackOverflow = ({
     <Html>
       <Head />
       <Preview>{preheader}</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -89,14 +101,15 @@ export const NewsletterStackOverflow = ({
         >
           <Section style={style.section}>
             <Text style={style.issueNumber}>Issue #{issueNumber}</Text>
-            <Text style={style.heading}>{productName}</Text>
+            <Text style={style.heading}>{_productName}</Text>
           </Section>
 
           <ContentGrid theme={t} columnCount={3} columns={gridColumns} />
 
           <Section style={{ padding: `${t.spacingBase} 0` }}>
             <Text style={style.footer}>
-              <Link href="#">View this email online</Link> • <Link href="#">Unsubscribe</Link>
+              <Link href="#">View this email online</Link> •{" "}
+              <Link href="#">Unsubscribe</Link>
             </Text>
           </Section>
         </Container>
@@ -106,6 +119,8 @@ export const NewsletterStackOverflow = ({
 };
 
 NewsletterStackOverflow.PreviewProps = {
+  _logoAlt: "Stack Overflow",
+  _productName: "Stack Overflow",
   articles: [
     {
       href: "#",
@@ -120,10 +135,8 @@ NewsletterStackOverflow.PreviewProps = {
     { href: "#", summary: "Popular tags this week", title: "Tags to Watch" },
   ],
   issueNumber: "42",
-  logoAlt: "Stack Overflow",
   logoUrl: "https://example.com/logo.png",
   preheader: "Stack Overflow Weekly Digest",
-  productName: "Stack Overflow",
 } satisfies Props;
 
 export default NewsletterStackOverflow;

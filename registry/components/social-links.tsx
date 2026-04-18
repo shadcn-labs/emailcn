@@ -1,11 +1,18 @@
 import { Column, Link, Row, Section } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
 export interface SocialLinksProps {
   theme?: EmailTheme;
   links?: {
-    platform: "twitter" | "github" | "linkedin" | "youtube" | "instagram" | "discord";
+    platform:
+      | "twitter"
+      | "github"
+      | "linkedin"
+      | "youtube"
+      | "instagram"
+      | "discord";
     href: string;
   }[];
 }

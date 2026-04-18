@@ -1,4 +1,5 @@
 import { Column, Img, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -63,13 +64,17 @@ export const Testimonial = ({
     <Section style={style.section}>
       <Text style={style.quote}>"{quote}"</Text>
       <Row style={{ marginTop: theme.spacingBase }}>
-        <Column>{avatarUrl && <Img src={avatarUrl} alt={name} style={style.avatar} />}</Column>
+        <Column>
+          {avatarUrl && <Img src={avatarUrl} alt={name} style={style.avatar} />}
+        </Column>
         <Column style={style.info}>
           <Text style={style.name}>{name}</Text>
           <Text style={style.role}>{role}</Text>
         </Column>
       </Row>
-      {companyLogoUrl && <Img src={companyLogoUrl} alt="Company" style={style.companyLogo} />}
+      {companyLogoUrl && (
+        <Img src={companyLogoUrl} alt="Company" style={style.companyLogo} />
+      )}
     </Section>
   );
 };
@@ -78,7 +83,8 @@ Testimonial.PreviewProps = {
   avatarUrl: "https://example.com/avatar.jpg",
   companyLogoUrl: "https://example.com/company.png",
   name: "Sarah Smith",
-  quote: "This tool has saved us countless hours and made our team more productive.",
+  quote:
+    "This tool has saved us countless hours and made our team more productive.",
   role: "Product Manager, TechCorp",
   theme: defaultTheme,
 } satisfies TestimonialProps;

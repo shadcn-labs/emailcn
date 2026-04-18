@@ -1,4 +1,5 @@
 import { Column, Img, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -52,7 +53,9 @@ export const ContentGrid = ({
       <Row>
         {columns.slice(0, columnCount).map((col, index) => (
           <Column key={index} style={style.column}>
-            {col.iconUrl && <Img src={col.iconUrl} style={style.icon} alt={col.title} />}
+            {col.iconUrl && (
+              <Img src={col.iconUrl} style={style.icon} alt={col.title} />
+            )}
             <Text style={style.title}>{col.title}</Text>
             <Text style={style.description}>{col.description}</Text>
           </Column>

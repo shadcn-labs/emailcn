@@ -1,4 +1,5 @@
 import { Column, Img, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -69,7 +70,9 @@ export const ProductCard = ({
     <Section style={style.section}>
       <Row>
         <Column style={style.imageContainer}>
-          {imageUrl && <Img src={imageUrl} alt={name} style={style.image} width={100} />}
+          {imageUrl && (
+            <Img src={imageUrl} alt={name} style={style.image} width={100} />
+          )}
         </Column>
         <Column style={style.info}>
           <Text style={style.name}>{name}</Text>

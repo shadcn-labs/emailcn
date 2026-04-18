@@ -1,4 +1,5 @@
 import { Button, Column, Container, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -94,7 +95,10 @@ export const PricingTable = ({
       <Container>
         <Row>
           {plans.map((plan, index) => (
-            <Column key={index} style={plan.highlighted ? style.highlightedCard : style.card}>
+            <Column
+              key={index}
+              style={plan.highlighted ? style.highlightedCard : style.card}
+            >
               <Text style={style.planName}>{plan.name}</Text>
               <Text style={style.price}>
                 {plan.price}

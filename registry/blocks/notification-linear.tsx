@@ -1,4 +1,4 @@
-// Subject: [{issueNumber}] {action} — {targetName}
+// Subject: [{issueNumber}] {_action} — {_targetName}
 
 import {
   Body,
@@ -13,18 +13,19 @@ import {
   Section,
   Text,
 } from "react-email";
+
 import { theme as linearTheme } from "../themes/linear";
 
 interface Props {
   logoUrl?: string;
   actorName?: string;
   actorAvatarUrl?: string;
-  action?: string;
-  targetName?: string;
+  _action?: string;
+  _targetName?: string;
   issueNumber?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 export const NotificationLinear = ({
@@ -41,10 +42,16 @@ export const NotificationLinear = ({
   const t = linearTheme;
 
   const style = {
-    action: {
+    _action: {
       color: t.colorTextMuted,
       fontSize: t.fontSizeBase,
       marginBottom: "4px",
+    },
+    _targetName: {
+      color: t.colorText,
+      fontSize: t.fontSizeXl,
+      fontWeight: t.fontWeightMedium,
+      marginBottom: t.spacingBase,
     },
     actorInfo: {
       paddingLeft: t.spacingBase,
@@ -83,19 +90,15 @@ export const NotificationLinear = ({
       padding: "4px 8px",
     } as const,
     section: { padding: `${t.spacingXl} 0` },
-    targetName: {
-      color: t.colorText,
-      fontSize: t.fontSizeXl,
-      fontWeight: t.fontWeightMedium,
-      marginBottom: t.spacingBase,
-    },
   };
 
   return (
     <Html>
       <Head />
       <Preview>New notification</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -107,18 +110,22 @@ export const NotificationLinear = ({
             <Row style={style.actorRow}>
               <Column>
                 {actorAvatarUrl && (
-                  <Img src={actorAvatarUrl} alt={actorName} style={style.avatar} />
+                  <Img
+                    src={actorAvatarUrl}
+                    alt={actorName}
+                    style={style.avatar}
+                  />
                 )}
               </Column>
               <Column style={style.actorInfo}>
                 <Text style={style.actorName}>{actorName}</Text>
-                <Text style={style.action}>{action}</Text>
+                <Text style={style.action}>{_action}</Text>
               </Column>
             </Row>
 
             <Text style={style.targetName}>
               <span style={style.issueTag}>#{issueNumber}</span>
-              {targetName}
+              {_targetName}
             </Text>
 
             {ctaLabel && ctaHref && (
@@ -134,15 +141,15 @@ export const NotificationLinear = ({
 };
 
 NotificationLinear.PreviewProps = {
-  action: "commented on",
+  _action: "commented on",
+  _productName: "Linear",
+  _targetName: "Bug in login flow",
   actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "Sarah",
   ctaHref: "https://linear.app/issue/42",
   ctaLabel: "View Issue",
   issueNumber: "42",
   logoUrl: "https://example.com/logo.png",
-  productName: "Linear",
-  targetName: "Bug in login flow",
 } satisfies Props;
 
 export default NotificationLinear;

@@ -1,4 +1,5 @@
 import { Column, Container, Img, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 

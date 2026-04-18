@@ -1,15 +1,25 @@
-// Subject: Your login link for {productName}
+// Subject: Your login link for {_productName}
 
-import { Body, Button, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { theme as stripeTheme } from "../themes/stripe";
 
 interface Props {
   logoUrl?: string;
-  logoAlt?: string;
+  _logoAlt?: string;
   magicLinkHref?: string;
   expiresInMinutes?: number;
-  recipientEmail?: string;
-  productName?: string;
+  _recipientEmail?: string;
+  _productName?: string;
 }
 
 export const AuthMagicLinkStripe = ({
@@ -58,7 +68,9 @@ export const AuthMagicLinkStripe = ({
     <Html>
       <Head />
       <Preview>Your login link</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -67,10 +79,10 @@ export const AuthMagicLinkStripe = ({
           }}
         >
           <Section style={style.section}>
-            <Text style={style.heading}>Sign in to {productName}</Text>
+            <Text style={style.heading}>Sign in to {_productName}</Text>
             <Text style={style.text}>
-              Click the button below to sign in to your {productName} account. This link expires in{" "}
-              {expiresInMinutes} minutes.
+              Click the button below to sign in to your {_productName} account.
+              This link expires in {expiresInMinutes} minutes.
             </Text>
             <Text style={{ ...style.text, marginTop: t.spacingBase }}>
               If you didn't request this, you can safely ignore this email.
@@ -79,13 +91,13 @@ export const AuthMagicLinkStripe = ({
 
           <Section style={style.section}>
             <Button href={magicLinkHref} style={style.button}>
-              Sign in to {productName}
+              Sign in to {_productName}
             </Button>
           </Section>
 
           <Text style={style.footer}>
-            This link will expire in {expiresInMinutes} minutes. If you need help, reply to this
-            email.
+            This link will expire in {expiresInMinutes} minutes. If you need
+            help, reply to this email.
           </Text>
         </Container>
       </Body>
@@ -94,12 +106,12 @@ export const AuthMagicLinkStripe = ({
 };
 
 AuthMagicLinkStripe.PreviewProps = {
+  _logoAlt: "Stripe",
+  _productName: "Stripe",
+  _recipientEmail: "you@example.com",
   expiresInMinutes: 30,
-  logoAlt: "Stripe",
   logoUrl: "https://example.com/logo.png",
   magicLinkHref: "https://example.com/login?token=abc123",
-  productName: "Stripe",
-  recipientEmail: "you@example.com",
 } satisfies Props;
 
 export default AuthMagicLinkStripe;

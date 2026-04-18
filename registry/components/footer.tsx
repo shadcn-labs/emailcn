@@ -1,4 +1,5 @@
 import { Column, Link, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -49,7 +50,9 @@ export const Footer = ({
       <Text style={{ ...style.text, marginBottom: "8px" }}>
         © {new Date().getFullYear()} {companyName}. All rights reserved.
       </Text>
-      {address && <Text style={{ ...style.text, marginBottom: "8px" }}>{address}</Text>}
+      {address && (
+        <Text style={{ ...style.text, marginBottom: "8px" }}>{address}</Text>
+      )}
       <Row>
         {links.map((link, index) => (
           <Column key={index}>

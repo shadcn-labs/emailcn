@@ -1,6 +1,15 @@
-// Subject: Welcome to {productName} — let's get you started
+// Subject: Welcome to {_productName} — let's get you started
 
-import { Body, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { ContentGrid } from "../components/content-grid";
 import { CTABanner } from "../components/cta-banner";
 import { Footer } from "../components/footer";
@@ -9,19 +18,19 @@ import { LogoHeader } from "../components/logo-header";
 import { theme as vercelTheme } from "../themes/vercel";
 
 interface Props {
-  firstName?: string;
-  productName?: string;
+  _firstName?: string;
+  _productName?: string;
   ctaHref?: string;
-  senderName?: string;
-  senderTitle?: string;
+  _senderName?: string;
+  _senderTitle?: string;
   senderAvatarUrl?: string;
 }
 
 export const OnboardingVercel = ({
-  firstName = "there",
+  _firstName = "there",
   _productName = "Vercel",
   ctaHref = "https://vercel.com",
-  senderName = "Vercel Team",
+  _senderName = "Vercel Team",
   _senderTitle = "Team",
   _senderAvatarUrl,
 }: Props) => {
@@ -31,9 +40,11 @@ export const OnboardingVercel = ({
     <Html>
       <Head />
       <Preview>
-        Welcome to {productName}, {firstName}
+        Welcome to {_productName}, {_firstName}
       </Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -41,11 +52,11 @@ export const OnboardingVercel = ({
             padding: t.spacingLg,
           }}
         >
-          <LogoHeader theme={t} logoAlt={productName} />
+          <LogoHeader theme={t} _logoAlt={_productName} />
 
           <Hero
             theme={t}
-            heading={`Welcome, ${firstName}`}
+            heading={`Welcome, ${_firstName}`}
             subheading={`You're now part of the fastest-growing platform for frontend developers.`}
             ctaLabel="Deploy your first project"
             ctaHref={ctaHref}
@@ -81,11 +92,11 @@ export const OnboardingVercel = ({
 
           <Section style={{ padding: `${t.spacingBase} 0` }}>
             <Text style={{ color: t.colorTextMuted, fontSize: t.fontSizeSm }}>
-              Sent by {senderName}
+              Sent by {_senderName}
             </Text>
           </Section>
 
-          <Footer theme={t} companyName={productName} />
+          <Footer theme={t} companyName={_productName} />
         </Container>
       </Body>
     </Html>
@@ -93,12 +104,12 @@ export const OnboardingVercel = ({
 };
 
 OnboardingVercel.PreviewProps = {
+  _firstName: "Aniket",
+  _productName: "Vercel",
+  _senderName: "Vercel Team",
+  _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",
-  firstName: "Aniket",
-  productName: "Vercel",
   senderAvatarUrl: "https://example.com/avatar.jpg",
-  senderName: "Vercel Team",
-  senderTitle: "Team",
 } satisfies Props;
 
 export default OnboardingVercel;

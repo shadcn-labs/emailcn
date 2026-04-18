@@ -1,4 +1,4 @@
-// Subject: {action} — {targetName}
+// Subject: {_action} — {_targetName}
 
 import {
   Body,
@@ -13,17 +13,18 @@ import {
   Section,
   Text,
 } from "react-email";
+
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
   logoUrl?: string;
   actorName?: string;
   actorAvatarUrl?: string;
-  action?: string;
-  targetName?: string;
+  _action?: string;
+  _targetName?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 export const NotificationDefault = ({
@@ -39,10 +40,16 @@ export const NotificationDefault = ({
   const t = defaultTheme;
 
   const style = {
-    action: {
+    _action: {
       color: t.colorTextMuted,
       fontSize: t.fontSizeBase,
       marginBottom: "4px",
+    },
+    _targetName: {
+      color: t.colorText,
+      fontSize: t.fontSizeXl,
+      fontWeight: t.fontWeightMedium,
+      marginBottom: t.spacingBase,
     },
     actorInfo: {
       paddingLeft: t.spacingBase,
@@ -72,19 +79,15 @@ export const NotificationDefault = ({
       textDecoration: "none",
     } as const,
     section: { padding: `${t.spacingXl} 0` },
-    targetName: {
-      color: t.colorText,
-      fontSize: t.fontSizeXl,
-      fontWeight: t.fontWeightMedium,
-      marginBottom: t.spacingBase,
-    },
   };
 
   return (
     <Html>
       <Head />
       <Preview>New notification</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -96,16 +99,20 @@ export const NotificationDefault = ({
             <Row style={style.actorRow}>
               <Column>
                 {actorAvatarUrl && (
-                  <Img src={actorAvatarUrl} alt={actorName} style={style.avatar} />
+                  <Img
+                    src={actorAvatarUrl}
+                    alt={actorName}
+                    style={style.avatar}
+                  />
                 )}
               </Column>
               <Column style={style.actorInfo}>
                 <Text style={style.actorName}>{actorName}</Text>
-                <Text style={style.action}>{action}</Text>
+                <Text style={style.action}>{_action}</Text>
               </Column>
             </Row>
 
-            <Text style={style.targetName}>{targetName}</Text>
+            <Text style={style.targetName}>{_targetName}</Text>
 
             {ctaLabel && ctaHref && (
               <Button href={ctaHref} style={style.cta}>
@@ -120,14 +127,14 @@ export const NotificationDefault = ({
 };
 
 NotificationDefault.PreviewProps = {
-  action: "commented on your post",
+  _action: "commented on your post",
+  _productName: "Acme",
+  _targetName: "New comment on your project",
   actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "Sarah",
   ctaHref: "https://example.com/notification",
   ctaLabel: "View Comment",
   logoUrl: "https://example.com/logo.png",
-  productName: "Acme",
-  targetName: "New comment on your project",
 } satisfies Props;
 
 export default NotificationDefault;

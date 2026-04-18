@@ -1,6 +1,18 @@
-// Subject: Your receipt from {productName}
+// Subject: Your receipt from {_productName}
 
-import { Body, Column, Container, Head, Hr, Html, Preview, Row, Section, Text } from "react-email";
+import {
+  Body,
+  Column,
+  Container,
+  Head,
+  Hr,
+  Html,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "react-email";
+
 import { ProductCard } from "../components/product-card";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -19,7 +31,7 @@ interface Props {
   tax?: string;
   total?: string;
   supportHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 export const ReceiptDefault = ({
@@ -90,7 +102,9 @@ export const ReceiptDefault = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -156,6 +170,7 @@ export const ReceiptDefault = ({
 };
 
 ReceiptDefault.PreviewProps = {
+  _productName: "Acme",
   customerName: "John Doe",
   items: [
     {
@@ -172,7 +187,6 @@ ReceiptDefault.PreviewProps = {
     },
   ],
   orderNumber: "ORD-12345",
-  productName: "Acme",
   subtotal: "$199.00",
   supportHref: "https://example.com/support",
   tax: "$15.92",

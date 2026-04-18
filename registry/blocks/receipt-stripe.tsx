@@ -1,6 +1,18 @@
-// Subject: Your receipt from {productName}
+// Subject: Your receipt from {_productName}
 
-import { Body, Column, Container, Head, Hr, Html, Preview, Row, Section, Text } from "react-email";
+import {
+  Body,
+  Column,
+  Container,
+  Head,
+  Hr,
+  Html,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "react-email";
+
 import { ProductCard } from "../components/product-card";
 import { theme as stripeTheme } from "../themes/stripe";
 
@@ -19,7 +31,7 @@ interface Props {
   tax?: string;
   total?: string;
   supportHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 export const ReceiptStripe = ({
@@ -87,7 +99,9 @@ export const ReceiptStripe = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -153,10 +167,10 @@ export const ReceiptStripe = ({
 };
 
 ReceiptStripe.PreviewProps = {
+  _productName: "Stripe",
   customerName: "John Doe",
   items: [{ name: "Subscription", price: "$99.00", quantity: 1 }],
   orderNumber: "INV-12345",
-  productName: "Stripe",
   subtotal: "$99.00",
   supportHref: "https://example.com/support",
   tax: "$7.92",

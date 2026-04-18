@@ -1,6 +1,16 @@
 // Subject: {preheader}
 
-import { Body, Container, Head, Html, Link, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Link,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { ContentGrid } from "../components/content-grid";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -13,11 +23,11 @@ interface Article {
 
 interface Props {
   logoUrl?: string;
-  logoAlt?: string;
+  _logoAlt?: string;
   issueNumber?: string;
   preheader?: string;
   articles?: Article[];
-  productName?: string;
+  _productName?: string;
 }
 
 export const NewsletterDefault = ({
@@ -68,7 +78,9 @@ export const NewsletterDefault = ({
     <Html>
       <Head />
       <Preview>{preheader}</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -78,7 +90,7 @@ export const NewsletterDefault = ({
         >
           <Section style={style.section}>
             <Text style={style.issueNumber}>Issue #{issueNumber}</Text>
-            <Text style={style.heading}>{productName}</Text>
+            <Text style={style.heading}>{_productName}</Text>
           </Section>
 
           <ContentGrid theme={t} columnCount={3} columns={gridColumns} />
@@ -98,6 +110,8 @@ export const NewsletterDefault = ({
 };
 
 NewsletterDefault.PreviewProps = {
+  _logoAlt: "Newsletter",
+  _productName: "Acme Newsletter",
   articles: [
     {
       href: "#",
@@ -112,10 +126,8 @@ NewsletterDefault.PreviewProps = {
     { href: "#", summary: "Become a power user", title: "Tips & Tricks" },
   ],
   issueNumber: "42",
-  logoAlt: "Newsletter",
   logoUrl: "https://example.com/logo.png",
   preheader: "Your weekly update from Acme",
-  productName: "Acme Newsletter",
 } satisfies Props;
 
 export default NewsletterDefault;

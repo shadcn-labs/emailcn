@@ -104,7 +104,8 @@ export const theme: EmailTheme = {
   colorWarning: "#f59e0b",
 
   containerWidth: "600px",
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   fontFamilyMono: '"Menlo", "Monaco", "Courier New", monospace',
 
   fontSizeBase: "14px",

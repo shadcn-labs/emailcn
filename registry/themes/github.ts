@@ -45,7 +45,8 @@ export const theme: EmailTheme = {
 
   containerWidth: "600px",
   fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
-  fontFamilyMono: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
+  fontFamilyMono:
+    '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
 
   fontSizeBase: "14px",
   fontSizeHeading: "28px",

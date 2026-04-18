@@ -1,6 +1,15 @@
-// Subject: Welcome to {productName} — let's get you started
+// Subject: Welcome to {_productName} — let's get you started
 
-import { Body, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { ContentGrid } from "../components/content-grid";
 import { CTABanner } from "../components/cta-banner";
 import { Footer } from "../components/footer";
@@ -9,19 +18,19 @@ import { LogoHeader } from "../components/logo-header";
 import { theme as linearTheme } from "../themes/linear";
 
 interface Props {
-  firstName?: string;
-  productName?: string;
+  _firstName?: string;
+  _productName?: string;
   ctaHref?: string;
-  senderName?: string;
-  senderTitle?: string;
+  _senderName?: string;
+  _senderTitle?: string;
   senderAvatarUrl?: string;
 }
 
 export const OnboardingLinear = ({
-  firstName = "there",
+  _firstName = "there",
   _productName = "Linear",
   ctaHref = "https://linear.app",
-  senderName = "Linear Team",
+  _senderName = "Linear Team",
   _senderTitle = "Team",
   _senderAvatarUrl,
 }: Props) => {
@@ -31,9 +40,11 @@ export const OnboardingLinear = ({
     <Html>
       <Head />
       <Preview>
-        Welcome to {productName}, {firstName}
+        Welcome to {_productName}, {_firstName}
       </Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -41,11 +52,11 @@ export const OnboardingLinear = ({
             padding: t.spacingLg,
           }}
         >
-          <LogoHeader theme={t} logoAlt={productName} />
+          <LogoHeader theme={t} _logoAlt={_productName} />
 
           <Hero
             theme={t}
-            heading={`Welcome, ${firstName}`}
+            heading={`Welcome, ${_firstName}`}
             subheading={`Track issues, manage sprints, and ship faster.`}
             ctaLabel="Open Linear"
             ctaHref={ctaHref}
@@ -81,11 +92,11 @@ export const OnboardingLinear = ({
 
           <Section style={{ padding: `${t.spacingBase} 0` }}>
             <Text style={{ color: t.colorTextMuted, fontSize: t.fontSizeSm }}>
-              Sent by {senderName}
+              Sent by {_senderName}
             </Text>
           </Section>
 
-          <Footer theme={t} companyName={productName} />
+          <Footer theme={t} companyName={_productName} />
         </Container>
       </Body>
     </Html>
@@ -93,12 +104,12 @@ export const OnboardingLinear = ({
 };
 
 OnboardingLinear.PreviewProps = {
+  _firstName: "Aniket",
+  _productName: "Linear",
+  _senderName: "Linear Team",
+  _senderTitle: "Team",
   ctaHref: "https://linear.app",
-  firstName: "Aniket",
-  productName: "Linear",
   senderAvatarUrl: "https://example.com/avatar.jpg",
-  senderName: "Linear Team",
-  senderTitle: "Team",
 } satisfies Props;
 
 export default OnboardingLinear;

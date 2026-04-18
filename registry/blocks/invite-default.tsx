@@ -13,6 +13,7 @@ import {
   Section,
   Text,
 } from "react-email";
+
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
@@ -89,7 +90,9 @@ export const InviteDefault = ({
     <Html>
       <Head />
       <Preview>You're invited to join {teamName}</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -101,7 +104,11 @@ export const InviteDefault = ({
             <Row style={style.inviterRow}>
               <Column>
                 {inviterAvatarUrl && (
-                  <Img src={inviterAvatarUrl} alt={inviterName} style={style.avatar} />
+                  <Img
+                    src={inviterAvatarUrl}
+                    alt={inviterName}
+                    style={style.avatar}
+                  />
                 )}
               </Column>
               <Column style={style.inviterInfo}>
@@ -112,7 +119,8 @@ export const InviteDefault = ({
 
             <Text style={style.heading}>{teamName}</Text>
             <Text style={style.text}>
-              Click the button below to accept this invitation and join the team.
+              Click the button below to accept this invitation and join the
+              team.
             </Text>
             <Text style={{ ...style.text, marginTop: t.spacingBase }}>
               This invitation expires in {expiresInHours} hours.

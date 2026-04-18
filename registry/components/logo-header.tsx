@@ -1,4 +1,5 @@
 import { Column, Img, Link, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -42,7 +43,12 @@ export const LogoHeader = ({
     <Section style={style.container}>
       <Column align="left">
         {logoUrl ? (
-          <Img src={logoUrl} alt={logoAlt} width={logoWidth} style={style.logo} />
+          <Img
+            src={logoUrl}
+            alt={logoAlt}
+            width={logoWidth}
+            style={style.logo}
+          />
         ) : (
           <Text
             style={{

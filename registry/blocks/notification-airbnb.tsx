@@ -1,17 +1,27 @@
-// Subject: Share your experience at {targetName}
+// Subject: Share your experience at {_targetName}
 
-import { Body, Button, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { theme as airbnbTheme } from "../themes/airbnb";
 
 interface Props {
   logoUrl?: string;
   actorName?: string;
   actorAvatarUrl?: string;
-  action?: string;
-  targetName?: string;
+  _action?: string;
+  _targetName?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 export const NotificationAirbnb = ({
@@ -57,7 +67,9 @@ export const NotificationAirbnb = ({
     <Html>
       <Head />
       <Preview>Share your experience</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -68,8 +80,8 @@ export const NotificationAirbnb = ({
           <Section style={style.section}>
             <Text style={style.heading}>How was your trip?</Text>
             <Text style={style.text}>
-              {actorName} recently stayed at {targetName} and we'd love to hear about their
-              experience.
+              {actorName} recently stayed at {_targetName} and we'd love to hear
+              about their experience.
             </Text>
             <Text style={style.text}>
               Your review helps other travelers and supports your host.
@@ -88,14 +100,14 @@ export const NotificationAirbnb = ({
 };
 
 NotificationAirbnb.PreviewProps = {
-  action: "completed their stay",
+  _action: "completed their stay",
+  _productName: "Airbnb",
+  _targetName: "your place",
   actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "John",
   ctaHref: "https://airbnb.com/reviews",
   ctaLabel: "Leave a Review",
   logoUrl: "https://example.com/logo.png",
-  productName: "Airbnb",
-  targetName: "your place",
 } satisfies Props;
 
 export default NotificationAirbnb;

@@ -1,18 +1,28 @@
 // Subject: You're now part of the {teamName} workspace
 
-import { Body, Button, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { theme as slackTheme } from "../themes/slack";
 
 interface Props {
   logoUrl?: string;
   actorName?: string;
   actorAvatarUrl?: string;
-  action?: string;
-  targetName?: string;
+  _action?: string;
+  _targetName?: string;
   teamName?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 export const NotificationSlack = ({
@@ -59,7 +69,9 @@ export const NotificationSlack = ({
     <Html>
       <Head />
       <Preview>Join {teamName}</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -70,9 +82,12 @@ export const NotificationSlack = ({
           <Section style={style.section}>
             <Text style={style.heading}>You're in!</Text>
             <Text style={style.text}>
-              {actorName} invited you to join the {teamName} workspace on {productName}.
+              {actorName} invited you to join the {teamName} workspace on{" "}
+              {_productName}.
             </Text>
-            <Text style={style.text}>Connect with your team and start collaborating.</Text>
+            <Text style={style.text}>
+              Connect with your team and start collaborating.
+            </Text>
           </Section>
 
           {ctaLabel && ctaHref && (
@@ -87,14 +102,14 @@ export const NotificationSlack = ({
 };
 
 NotificationSlack.PreviewProps = {
-  action: "invited you",
+  _action: "invited you",
+  _productName: "Slack",
+  _targetName: "workspace",
   actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "Sarah",
   ctaHref: "https://slack.com",
   ctaLabel: "Join Workspace",
   logoUrl: "https://example.com/logo.png",
-  productName: "Slack",
-  targetName: "workspace",
   teamName: "Acme",
 } satisfies Props;
 

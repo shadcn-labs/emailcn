@@ -1,4 +1,5 @@
 import { Column, Img, Row, Section, Text } from "react-email";
+
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -42,10 +43,14 @@ export const FeatureRow = ({
   };
 
   const leftImage = (
-    <Column>{imageSrc && <Img src={imageSrc} alt={imageAlt} style={style.image} />}</Column>
+    <Column>
+      {imageSrc && <Img src={imageSrc} alt={imageAlt} style={style.image} />}
+    </Column>
   );
   const rightImage = (
-    <Column>{imageSrc && <Img src={imageSrc} alt={imageAlt} style={style.image} />}</Column>
+    <Column>
+      {imageSrc && <Img src={imageSrc} alt={imageAlt} style={style.image} />}
+    </Column>
   );
   const content = (
     <Column>

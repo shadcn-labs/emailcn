@@ -1,6 +1,18 @@
 // Subject: Your receipt from Nike
 
-import { Body, Column, Container, Head, Hr, Html, Preview, Row, Section, Text } from "react-email";
+import {
+  Body,
+  Column,
+  Container,
+  Head,
+  Hr,
+  Html,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "react-email";
+
 import { ProductCard } from "../components/product-card";
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
@@ -20,7 +32,7 @@ interface Props {
   tax?: string;
   total?: string;
   supportHref?: string;
-  productName?: string;
+  _productName?: string;
 }
 
 const getNikeTheme = (t: EmailTheme): EmailTheme => ({
@@ -109,7 +121,9 @@ export const ReceiptNike = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -175,6 +189,7 @@ export const ReceiptNike = ({
 };
 
 ReceiptNike.PreviewProps = {
+  _productName: "Nike",
   customerName: "John Doe",
   items: [
     {
@@ -185,7 +200,6 @@ ReceiptNike.PreviewProps = {
     },
   ],
   orderNumber: "ORD-12345",
-  productName: "Nike",
   subtotal: "$149.00",
   supportHref: "https://example.com/support",
   tax: "$11.92",

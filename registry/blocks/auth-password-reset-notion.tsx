@@ -1,14 +1,24 @@
-// Subject: Reset your password for {productName}
+// Subject: Reset your password for {_productName}
 
-import { Body, Button, Container, Head, Html, Preview, Section, Text } from "react-email";
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+} from "react-email";
+
 import { theme as notionTheme } from "../themes/notion";
 
 interface Props {
   logoUrl?: string;
-  logoAlt?: string;
+  _logoAlt?: string;
   resetHref?: string;
   expiresInMinutes?: number;
-  productName?: string;
+  _productName?: string;
 }
 
 export const AuthPasswordResetNotion = ({
@@ -56,7 +66,9 @@ export const AuthPasswordResetNotion = ({
     <Html>
       <Head />
       <Preview>Reset your password</Preview>
-      <Body style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}>
+      <Body
+        style={{ backgroundColor: t.colorBackground, fontFamily: t.fontFamily }}
+      >
         <Container
           style={{
             margin: "0 auto",
@@ -67,8 +79,8 @@ export const AuthPasswordResetNotion = ({
           <Section style={style.section}>
             <Text style={style.heading}>Reset your password</Text>
             <Text style={style.text}>
-              Click the button below to reset your {productName} password. This link expires in{" "}
-              {expiresInMinutes} minutes.
+              Click the button below to reset your {_productName} password. This
+              link expires in {expiresInMinutes} minutes.
             </Text>
             <Text style={{ ...style.text, marginTop: t.spacingBase }}>
               If you didn't request this, you can safely ignore this email.
@@ -82,7 +94,8 @@ export const AuthPasswordResetNotion = ({
           </Section>
 
           <Text style={style.footer}>
-            Didn't request this? If you didn't ask for a password reset, you can ignore this email.
+            Didn't request this? If you didn't ask for a password reset, you can
+            ignore this email.
           </Text>
         </Container>
       </Body>
@@ -91,10 +104,10 @@ export const AuthPasswordResetNotion = ({
 };
 
 AuthPasswordResetNotion.PreviewProps = {
+  _logoAlt: "Notion",
+  _productName: "Notion",
   expiresInMinutes: 60,
-  logoAlt: "Notion",
   logoUrl: "https://example.com/logo.png",
-  productName: "Notion",
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
 
