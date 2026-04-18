@@ -6,7 +6,6 @@ import { CornerDownLeftIcon, SquareDashedIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 
-import { copyToClipboardWithMeta } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -26,8 +25,10 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { useConfig } from "@/hooks/use-config";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
+import { trackEvent } from "@/lib/events";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
@@ -102,6 +103,17 @@ export const CommandMenu = ({
   const [copyPayload, setCopyPayload] = React.useState("");
   const packageManager = config.packageManager || "pnpm";
 
+  const { copyToClipboard } = useCopyToClipboard({
+    onCopy: () => {
+      if (copyPayload) {
+        trackEvent({
+          name: "copy_npm_command",
+          properties: { command: copyPayload, pm: packageManager },
+        });
+      }
+    },
+  });
+
   const handlePageHighlight = React.useCallback(
     (isComponent: boolean, item: { url: string; name?: React.ReactNode }) => {
       if (isComponent) {
@@ -148,27 +160,13 @@ export const CommandMenu = ({
       }
 
       if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
-        runCommand(() => {
-          if (selectedType === "block") {
-            copyToClipboardWithMeta(copyPayload, {
-              name: "copy_npm_command",
-              properties: { command: copyPayload, pm: packageManager },
-            });
-          }
-
-          if (selectedType === "page" || selectedType === "component") {
-            copyToClipboardWithMeta(copyPayload, {
-              name: "copy_npm_command",
-              properties: { command: copyPayload, pm: packageManager },
-            });
-          }
-        });
+        runCommand(() => copyToClipboard(copyPayload));
       }
     };
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [copyPayload, runCommand, selectedType, packageManager]);
+  }, [copyPayload, runCommand, copyToClipboard]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

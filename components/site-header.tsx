@@ -1,8 +1,8 @@
-import { PackageIcon } from "lucide-react";
 import Link from "next/link";
 
 import { CommandMenu } from "@/components/command-menu";
 import { GitHubLink } from "@/components/github-link";
+import { LogoMark } from "@/components/logo";
 import { MainNav } from "@/components/main-nav";
 import { MobileNav } from "@/components/mobile-nav";
 import { ModeSwitcher } from "@/components/mode-switcher";
@@ -35,7 +35,7 @@ export const SiteHeader = () => {
             className="hidden size-8 lg:flex"
           >
             <Link href="/">
-              <PackageIcon className="size-5" />
+              <LogoMark className="size-5" />
               <span className="sr-only">{SITE.NAME}</span>
             </Link>
           </Button>
