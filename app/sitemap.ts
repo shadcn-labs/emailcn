@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { siteConfig } from "@/lib/config";
+import { SITE } from "@/constants/site";
 import { source } from "@/lib/source";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       lastModified: new Date(),
       priority: 1,
-      url: siteConfig.url,
+      url: SITE.URL,
     },
   ];
 
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     lastModified: new Date(),
     priority: page.url === "/docs" ? 0.9 : 0.8,
-    url: `${siteConfig.url}${page.url}`,
+    url: `${SITE.URL}${page.url}`,
   }));
 
   return [...staticPages, ...docPages];

@@ -3,12 +3,15 @@ import { ImageResponse } from "next/og";
 const loadAssets = async (): Promise<
   { name: string; data: Buffer; weight: 400 | 600; style: "normal" }[]
 > => {
-  const [{ base64Font: normal }, { base64Font: mono }, { base64Font: semibold }] =
-    await Promise.all([
-      import("./geist-regular-otf.json").then((mod) => mod.default || mod),
-      import("./geistmono-regular-otf.json").then((mod) => mod.default || mod),
-      import("./geist-semibold-otf.json").then((mod) => mod.default || mod),
-    ]);
+  const [
+    { base64Font: normal },
+    { base64Font: mono },
+    { base64Font: semibold },
+  ] = await Promise.all([
+    import("./geist-regular-otf.json").then((mod) => mod.default || mod),
+    import("./geistmono-regular-otf.json").then((mod) => mod.default || mod),
+    import("./geist-semibold-otf.json").then((mod) => mod.default || mod),
+  ]);
 
   return [
     {
@@ -40,15 +43,28 @@ export const GET = async (request: Request) => {
   const fonts = await loadAssets();
 
   return new ImageResponse(
-    <div tw="flex h-full w-full bg-black text-white" style={{ fontFamily: "Geist Sans" }}>
+    <div
+      tw="flex h-full w-full bg-black text-white"
+      style={{ fontFamily: "Geist Sans" }}
+    >
       <div tw="flex border absolute border-stone-700 border-dashed inset-y-0 left-16 w-[1px]" />
       <div tw="flex border absolute border-stone-700 border-dashed inset-y-0 right-16 w-[1px]" />
       <div tw="flex border absolute border-stone-700 inset-x-0 h-[1px] top-16" />
       <div tw="flex border absolute border-stone-700 inset-x-0 h-[1px] bottom-16" />
       <div tw="flex absolute flex-row bottom-24 right-24 text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width={48} height={48}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          width={48}
+          height={48}
+        >
           <rect width="256" height="256" rx="32" fill="none" />
-          <path d="M32 72h192v112H32z" fill="none" stroke="currentColor" strokeWidth="16" />
+          <path
+            d="M32 72h192v112H32z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="16"
+          />
           <path
             d="M32 72l96 80 96-80"
             fill="none"
@@ -86,6 +102,6 @@ export const GET = async (request: Request) => {
       fonts,
       height: 628,
       width: 1200,
-    },
+    }
   );
 };

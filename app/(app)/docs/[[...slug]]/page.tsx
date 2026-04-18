@@ -1,5 +1,8 @@
-import { mdxComponents } from "@/mdx-components";
-import { IconArrowLeft, IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconArrowUpRight,
+} from "@tabler/icons-react";
 import { findNeighbour } from "fumadocs-core/page-tree";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -9,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { source } from "@/lib/source";
 import { absoluteUrl } from "@/lib/utils";
+import { mdxComponents } from "@/mdx-components";
 
 export const revalidate = false;
 export const dynamic = "force-static";
@@ -16,7 +20,9 @@ export const dynamicParams = false;
 
 export const generateStaticParams = () => source.generateParams();
 
-export const generateMetadata = async (props: { params: Promise<{ slug?: string[] }> }) => {
+export const generateMetadata = async (props: {
+  params: Promise<{ slug?: string[] }>;
+}) => {
   const params = await props.params;
   const page = source.getPage(params.slug);
 
@@ -37,7 +43,7 @@ export const generateMetadata = async (props: { params: Promise<{ slug?: string[
       images: [
         {
           url: `/og?title=${encodeURIComponent(
-            doc.title,
+            doc.title
           )}&description=${encodeURIComponent(doc.description)}`,
         },
       ],
@@ -53,7 +59,7 @@ export const generateMetadata = async (props: { params: Promise<{ slug?: string[
       images: [
         {
           url: `/og?title=${encodeURIComponent(
-            doc.title,
+            doc.title
           )}&description=${encodeURIComponent(doc.description)}`,
         },
       ],
@@ -62,7 +68,9 @@ export const generateMetadata = async (props: { params: Promise<{ slug?: string[
   };
 };
 
-export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
+export default async function Page(props: {
+  params: Promise<{ slug?: string[] }>;
+}) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) {
@@ -70,15 +78,17 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   }
 
   const doc = page.data;
-  // @ts-expect-error - revisit fumadocs types.
   const MDX = doc.body;
   const neighbours = await findNeighbour(source.pageTree, page.url);
 
-  // @ts-expect-error - revisit fumadocs types.
-  const { links } = doc;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { links } = doc as any;
 
   return (
-    <div data-slot="docs" className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full">
+    <div
+      data-slot="docs"
+      className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
+    >
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="h-(--top-spacing) shrink-0" />
         <div className="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
@@ -120,14 +130,24 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
         </div>
         <div className="mx-auto hidden h-16 w-full max-w-2xl items-center gap-2 px-4 sm:flex md:px-0">
           {neighbours.previous && (
-            <Button variant="secondary" size="sm" asChild className="shadow-none">
+            <Button
+              variant="secondary"
+              size="sm"
+              asChild
+              className="shadow-none"
+            >
               <Link href={neighbours.previous.url}>
                 <IconArrowLeft /> {neighbours.previous.name}
               </Link>
             </Button>
           )}
           {neighbours.next && (
-            <Button variant="secondary" size="sm" className="ml-auto shadow-none" asChild>
+            <Button
+              variant="secondary"
+              size="sm"
+              className="ml-auto shadow-none"
+              asChild
+            >
               <Link href={neighbours.next.url}>
                 {neighbours.next.name} <IconArrowRight />
               </Link>
@@ -137,10 +157,8 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
       </div>
       <div className="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--footer-height)+2rem)] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div className="h-(--top-spacing) shrink-0" />
-        {/* @ts-expect-error - revisit fumadocs types. */}
         {doc.toc?.length ? (
           <div className="no-scrollbar overflow-y-auto px-8">
-            {/* @ts-expect-error - revisit fumadocs types. */}
             <DocsTableOfContents toc={doc.toc} />
             <div className="h-12" />
           </div>

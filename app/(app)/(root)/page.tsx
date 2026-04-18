@@ -2,15 +2,15 @@ import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { CommandBox } from "@/components/command-box";
-import { siteConfig } from "@/lib/config";
+import { Button } from "@/components/ui/button";
+import { SITE } from "@/constants/site";
 
 const title = "EmailCN";
 const description =
   "A starter kit for building and publishing your own email components. Fork, customize, and deploy.";
 
-const installCommand = `npx shadcn@latest add ${siteConfig.url}/r/email-hero.json`;
+const installCommand = `npx shadcn@latest add ${SITE.URL}/r/email-hero.json`;
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: `/og?title=${encodeURIComponent(
-          title,
+          title
         )}&description=${encodeURIComponent(description)}`,
       },
     ],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: `/og?title=${encodeURIComponent(
-          title,
+          title
         )}&description=${encodeURIComponent(description)}`,
       },
     ],
@@ -48,7 +48,9 @@ export default function IndexPage() {
             {title}
           </h1>
 
-          <p className="max-w-2xl text-lg text-zinc-400 sm:text-xl">{description}</p>
+          <p className="max-w-2xl text-lg text-zinc-400 sm:text-xl">
+            {description}
+          </p>
 
           <CommandBox command={installCommand} />
 
