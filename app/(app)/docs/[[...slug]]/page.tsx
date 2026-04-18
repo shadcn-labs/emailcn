@@ -13,10 +13,11 @@ import { DocsTableOfContents } from "@/components/docs-toc";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatTitleFromSlug } from "@/lib/docs";
-import { source } from "@/lib/source";
+import { getPageImage, source } from "@/lib/source";
 import { absoluteUrl } from "@/lib/utils";
 import { mdxComponents } from "@/mdx-components";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
+import { createPageMetadata } from "@/seo/metadata";
 
 export const revalidate = false;
 export const dynamic = "force-static";
@@ -35,41 +36,15 @@ export const generateMetadata = async (props: {
   }
 
   const doc = page.data;
+  const ogImage = getPageImage(page).url;
 
-  if (!doc.title || !doc.description) {
-    notFound();
-  }
-
-  return {
+  return createPageMetadata({
     description: doc.description,
-    openGraph: {
-      description: doc.description,
-      images: [
-        {
-          url: `/og?title=${encodeURIComponent(
-            doc.title
-          )}&description=${encodeURIComponent(doc.description)}`,
-        },
-      ],
-      title: doc.title,
-      type: "article",
-      url: absoluteUrl(page.url),
-    },
+    ogImage,
+    ogType: "article",
+    path: page.url,
     title: doc.title,
-    twitter: {
-      card: "summary_large_image",
-      creator: "@alaymanguy",
-      description: doc.description,
-      images: [
-        {
-          url: `/og?title=${encodeURIComponent(
-            doc.title
-          )}&description=${encodeURIComponent(doc.description)}`,
-        },
-      ],
-      title: doc.title,
-    },
-  };
+  });
 };
 
 const buildBreadcrumbs = (
