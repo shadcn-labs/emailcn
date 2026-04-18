@@ -30,6 +30,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "front-matter": "^4.0.2",
     "fumadocs-core": "^16.4.3",
     "fumadocs-mdx": "^14.2.4",
     "jotai": "^2.1.0",
@@ -44,7 +45,8 @@
     "shadcn": "3.2.1",
     "shiki": "^1.10.1",
     "sonner": "^2.0.0",
-    "tailwind-merge": "^3.0.1"
+    "tailwind-merge": "^3.0.1",
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
