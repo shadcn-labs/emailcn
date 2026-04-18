@@ -1,4 +1,4 @@
-export const FALLBACK_SITE_ORIGIN = "https://emailcn.com" as const;
+export const FALLBACK_SITE_ORIGIN = "https://emailcn.dev" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {
@@ -34,4 +34,9 @@ export const SITE = {
   OG_IMAGE: `${getBaseUrl()}/og.png`,
   REGISTRY: "emailcn",
   URL: getBaseUrl(),
+};
+
+export const META_THEME_COLORS = {
+  dark: "#0a0a0a",
+  light: "#ffffff",
 };

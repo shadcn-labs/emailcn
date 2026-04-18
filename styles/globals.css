@@ -329,7 +329,11 @@
       width: 2px;
       height: 100%;
       content: "";
-      background-color: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
+      background-color: color-mix(
+        in oklab,
+        var(--muted-foreground) 50%,
+        transparent
+      );
     }
   }
 

@@ -30,13 +30,23 @@ export const mdxComponents = {
   AspectRatio,
   Button,
   Callout,
-  CodeBlock: ({ className, ...props }: React.ComponentProps<typeof CodeBlock>) => (
+  CodeBlock: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof CodeBlock>) => (
     <div className={cn("mt-6", className)}>
       <CodeBlock {...props} />
     </div>
   ),
   CodeTabs,
-  Image: ({ src, className, width, height, alt, ...props }: React.ComponentProps<"img">) => (
+  Image: ({
+    src,
+    className,
+    width,
+    height,
+    alt,
+    ...props
+  }: React.ComponentProps<"img">) => (
     <Image
       className={cn("mt-6 rounded-md border", className)}
       src={src?.toString() || ""}
@@ -47,25 +57,34 @@ export const mdxComponents = {
     />
   ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
-    <Link className={cn("font-medium underline underline-offset-4", className)} {...props} />
+    <Link
+      className={cn("font-medium underline underline-offset-4", className)}
+      {...props}
+    />
   ),
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
         "bg-surface text-surface-foreground hover:bg-surface/80 flex w-full flex-col items-center rounded-xl p-6 transition-colors sm:p-10",
-        className,
+        className
       )}
       {...props}
     />
   ),
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
-      className={cn("font-heading mt-8 scroll-m-32 text-xl font-medium tracking-tight", className)}
+      className={cn(
+        "font-heading mt-8 scroll-m-32 text-xl font-medium tracking-tight",
+        className
+      )}
       {...props}
     />
   ),
   Steps: ({ ...props }) => (
-    <div className="[&>h3]:step steps mb-12 [counter-reset:step] *:[h3]:first:!mt-0" {...props} />
+    <div
+      className="[&>h3]:step steps mb-12 [counter-reset:step] *:[h3]:first:!mt-0"
+      {...props}
+    />
   ),
   Tab: ({ className, ...props }: React.ComponentProps<"div">) => (
     <div className={cn(className)} {...props} />
@@ -73,35 +92,53 @@ export const mdxComponents = {
   Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
     <Tabs className={cn("relative mt-6 w-full", className)} {...props} />
   ),
-  TabsContent: ({ className, ...props }: React.ComponentProps<typeof TabsContent>) => (
+  TabsContent: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsContent>) => (
     <TabsContent
       className={cn(
         "relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-medium *:[figure]:first:mt-0 [&>.steps]:mt-6",
-        className,
+        className
       )}
       {...props}
     />
   ),
-  TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
+  TabsList: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsList>) => (
     <TabsList
-      className={cn("justify-start gap-4 rounded-none bg-transparent px-0", className)}
+      className={cn(
+        "justify-start gap-4 rounded-none bg-transparent px-0",
+        className
+      )}
       {...props}
     />
   ),
-  TabsTrigger: ({ className, ...props }: React.ComponentProps<typeof TabsTrigger>) => (
+  TabsTrigger: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
         "text-muted-foreground data-[state=active]:text-foreground data-[state=active]:border-primary dark:data-[state=active]:border-primary hover:text-primary rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 pb-3 text-base data-[state=active]:bg-transparent data-[state=active]:shadow-none dark:data-[state=active]:bg-transparent",
-        className,
+        className
       )}
       {...props}
     />
   ),
   a: ({ className, ...props }: React.ComponentProps<"a">) => (
-    <a className={cn("font-medium underline underline-offset-4", className)} {...props} />
+    <a
+      className={cn("font-medium underline underline-offset-4", className)}
+      {...props}
+    />
   ),
   blockquote: ({ className, ...props }: React.ComponentProps<"blockquote">) => (
-    <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)} {...props} />
+    <blockquote
+      className={cn("mt-6 border-l-2 pl-6 italic", className)}
+      {...props}
+    />
   ),
   code: ({
     className,
@@ -126,7 +163,7 @@ export const mdxComponents = {
         <code
           className={cn(
             "bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none",
-            className,
+            className
           )}
           {...props}
         />
@@ -137,7 +174,12 @@ export const mdxComponents = {
     const isNpmCommand = __npm__ && __yarn__ && __pnpm__ && __bun__;
     if (isNpmCommand) {
       return (
-        <CodeBlock __npm__={__npm__} __yarn__={__yarn__} __pnpm__={__pnpm__} __bun__={__bun__} />
+        <CodeBlock
+          __npm__={__npm__}
+          __yarn__={__yarn__}
+          __pnpm__={__pnpm__}
+          __bun__={__bun__}
+        />
       );
     }
 
@@ -149,7 +191,11 @@ export const mdxComponents = {
       </>
     );
   },
-  figcaption: ({ className, children, ...props }: React.ComponentProps<"figcaption">) => {
+  figcaption: ({
+    className,
+    children,
+    ...props
+  }: React.ComponentProps<"figcaption">) => {
     const iconExtension =
       "data-language" in props && typeof props["data-language"] === "string"
         ? getIconForLanguageExtension(props["data-language"])
@@ -159,7 +205,7 @@ export const mdxComponents = {
       <figcaption
         className={cn(
           "text-code-foreground [&_svg]:text-code-foreground flex items-center gap-2 [&_svg]:size-4 [&_svg]:opacity-70",
-          className,
+          className
         )}
         {...props}
       >
@@ -173,7 +219,10 @@ export const mdxComponents = {
   ),
   h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
     <h1
-      className={cn("font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight", className)}
+      className={cn(
+        "font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight",
+        className
+      )}
       {...props}
     />
   ),
@@ -187,7 +236,7 @@ export const mdxComponents = {
         .toLowerCase()}
       className={cn(
         "font-heading mt-8 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-8 [&+p]:!mt-4 *:[code]:text-xl",
-        className,
+        className
       )}
       {...props}
     />
@@ -196,7 +245,7 @@ export const mdxComponents = {
     <h3
       className={cn(
         "font-heading mt-8 scroll-m-28 text-lg font-medium tracking-tight *:[code]:text-xl",
-        className,
+        className
       )}
       {...props}
     />
@@ -205,24 +254,32 @@ export const mdxComponents = {
     <h4
       className={cn(
         "font-heading mt-8 scroll-m-28 text-base font-medium tracking-tight",
-        className,
+        className
       )}
       {...props}
     />
   ),
   h5: ({ className, ...props }: React.ComponentProps<"h5">) => (
     <h5
-      className={cn("mt-8 scroll-m-28 text-base font-medium tracking-tight", className)}
+      className={cn(
+        "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+        className
+      )}
       {...props}
     />
   ),
   h6: ({ className, ...props }: React.ComponentProps<"h6">) => (
     <h6
-      className={cn("mt-8 scroll-m-28 text-base font-medium tracking-tight", className)}
+      className={cn(
+        "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+        className
+      )}
       {...props}
     />
   ),
-  hr: ({ ...props }: React.ComponentProps<"hr">) => <hr className="my-4 md:my-8" {...props} />,
+  hr: ({ ...props }: React.ComponentProps<"hr">) => (
+    <hr className="my-4 md:my-8" {...props} />
+  ),
   img: ({ className, alt, ...props }: React.ComponentProps<"img">) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img className={cn("rounded-md", className)} alt={alt} {...props} />
@@ -234,13 +291,16 @@ export const mdxComponents = {
     <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
   ),
   p: ({ className, ...props }: React.ComponentProps<"p">) => (
-    <p className={cn("leading-relaxed [&:not(:first-child)]:mt-6", className)} {...props} />
+    <p
+      className={cn("leading-relaxed [&:not(:first-child)]:mt-6", className)}
+      {...props}
+    />
   ),
   pre: ({ className, children, ...props }: React.ComponentProps<"pre">) => (
     <pre
       className={cn(
         "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
-        className,
+        className
       )}
       {...props}
     >
@@ -253,7 +313,10 @@ export const mdxComponents = {
   table: ({ className, ...props }: React.ComponentProps<"table">) => (
     <div className="my-6 w-full overflow-y-auto">
       <table
-        className={cn("relative w-full overflow-hidden border-none text-sm", className)}
+        className={cn(
+          "relative w-full overflow-hidden border-none text-sm",
+          className
+        )}
         {...props}
       />
     </div>
@@ -262,7 +325,7 @@ export const mdxComponents = {
     <td
       className={cn(
         "px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-        className,
+        className
       )}
       {...props}
     />
@@ -271,13 +334,16 @@ export const mdxComponents = {
     <th
       className={cn(
         "px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-        className,
+        className
       )}
       {...props}
     />
   ),
   tr: ({ className, ...props }: React.ComponentProps<"tr">) => (
-    <tr className={cn("last:border-b-none m-0 border-b", className)} {...props} />
+    <tr
+      className={cn("last:border-b-none m-0 border-b", className)}
+      {...props}
+    />
   ),
   ul: ({ className, ...props }: React.ComponentProps<"ul">) => (
     <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />

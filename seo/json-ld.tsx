@@ -85,7 +85,8 @@ export const FAQJsonLd = () => {
       question: `How do I use ${SITE.NAME}?`,
     },
     {
-      answer: "Yes. The source is on GitHub and released under the MIT License.",
+      answer:
+        "Yes. The source is on GitHub and released under the MIT License.",
       question: `Is ${SITE.NAME} open source?`,
     },
   ];
@@ -105,7 +106,11 @@ export const FAQJsonLd = () => {
   return <JsonLdScript data={data} />;
 };
 
-export const BreadcrumbJsonLd = ({ items }: { items: { name: string; path: string }[] }) => {
+export const BreadcrumbJsonLd = ({
+  items,
+}: {
+  items: { name: string; path: string }[];
+}) => {
   const data = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
