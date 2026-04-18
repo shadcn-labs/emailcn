@@ -24,7 +24,7 @@ const useActiveItem = (itemIds: string[]) => {
           }
         }
       },
-      { rootMargin: "0% 0% -80% 0%" },
+      { rootMargin: "0% 0% -80% 0%" }
     );
 
     for (const id of itemIds ?? []) {
@@ -61,7 +61,10 @@ export const DocsTableOfContents = ({
   className?: string;
 }) => {
   const [open, setOpen] = React.useState(false);
-  const itemIds = React.useMemo(() => toc.map((item) => item.url.replace("#", "")), [toc]);
+  const itemIds = React.useMemo(
+    () => toc.map((item) => item.url.replace("#", "")),
+    [toc]
+  );
   const activeHeading = useActiveItem(itemIds);
 
   if (!toc?.length) {
@@ -72,11 +75,18 @@ export const DocsTableOfContents = ({
     return (
       <DropdownMenu open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm" className={cn("h-8 md:h-7", className)}>
+          <Button
+            variant="outline"
+            size="sm"
+            className={cn("h-8 md:h-7", className)}
+          >
             <IconMenu3 /> On This Page
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="no-scrollbar max-h-[70svh]">
+        <DropdownMenuContent
+          align="start"
+          className="no-scrollbar max-h-[70svh]"
+        >
           {toc.map((item) => (
             <DropdownMenuItem
               key={item.url}
@@ -97,7 +107,9 @@ export const DocsTableOfContents = ({
 
   return (
     <div className={cn("flex flex-col gap-2 p-4 pt-0 text-sm", className)}>
-      <p className="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
+      <p className="text-muted-foreground bg-background sticky top-0 h-6 text-xs">
+        On This Page
+      </p>
       {toc.map((item) => (
         <a
           key={item.url}

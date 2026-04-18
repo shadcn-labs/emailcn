@@ -21,7 +21,9 @@ import type { DocsConfig } from "@/lib/docs";
 export const DocsSidebar = ({
   tree,
   ...props
-}: React.ComponentProps<typeof Sidebar> & { tree: DocsConfig["sidebarNav"] }) => {
+}: React.ComponentProps<typeof Sidebar> & {
+  tree: DocsConfig["sidebarNav"];
+}) => {
   const pathname = usePathname();
 
   return (
@@ -57,7 +59,9 @@ export const DocsSidebar = ({
                               isActive={subItem.href === pathname}
                               className="data-[active=true]:bg-accent data-[active=true]:border-accent relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
                             >
-                              <Link href={subItem.href ?? ""}>{subItem.title}</Link>
+                              <Link href={subItem.href ?? ""}>
+                                {subItem.title}
+                              </Link>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         ))}

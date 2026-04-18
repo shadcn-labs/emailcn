@@ -19,10 +19,14 @@ export const ActiveThemeProvider = ({
   children: ReactNode;
   initialTheme?: string;
 }) => {
-  const [activeTheme, setActiveTheme] = useState<string>(() => initialTheme || DEFAULT_THEME);
+  const [activeTheme, setActiveTheme] = useState<string>(
+    () => initialTheme || DEFAULT_THEME
+  );
 
   useEffect(() => {
-    for (const className of [...document.body.classList].filter((cn) => cn.startsWith("theme-"))) {
+    for (const className of [...document.body.classList].filter((cn) =>
+      cn.startsWith("theme-")
+    )) {
       document.body.classList.remove(className);
     }
     document.body.classList.add(`theme-${activeTheme}`);
@@ -41,7 +45,9 @@ export const ActiveThemeProvider = ({
 export const useThemeConfig = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("useThemeConfig must be used within an ActiveThemeProvider");
+    throw new Error(
+      "useThemeConfig must be used within an ActiveThemeProvider"
+    );
   }
   return context;
 };

@@ -3,14 +3,17 @@ import { Suspense } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { siteConfig } from "@/lib/config";
+import { GITHUB, LINK } from "@/constants/links";
+
 import { GithubIcon } from "./icons";
 
 export const StarsCount = async () => {
-  const repoPath = siteConfig.links.github.replace("https://github.com/", "");
-  const data = await fetch(`https://api.github.com/repos/${repoPath}`, {
-    next: { revalidate: 86_400 },
-  });
+  const data = await fetch(
+    `https://api.github.com/repos/${GITHUB.user}/${GITHUB.repo}`,
+    {
+      next: { revalidate: 86_400 },
+    }
+  );
   const json = await data.json();
 
   return (
@@ -24,7 +27,7 @@ export const StarsCount = async () => {
 
 export const GitHubLink = () => (
   <Button asChild size="sm" variant="ghost" className="h-8 shadow-none">
-    <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+    <Link href={LINK.GITHUB} target="_blank" rel="noreferrer">
       <GithubIcon />
       <Suspense fallback={<Skeleton className="h-4" />}>
         <StarsCount />

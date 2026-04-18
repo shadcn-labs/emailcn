@@ -13,7 +13,10 @@ export const CommandBox = ({ command }: CommandBoxProps) => (
       <code className="no-scrollbar flex-1 overflow-x-auto whitespace-nowrap text-left font-mono text-sm text-zinc-700 dark:text-zinc-300">
         {command}
       </code>
-      <CopyButton value={command} className="static size-7 shrink-0 bg-transparent" />
+      <CopyButton
+        value={command}
+        className="static size-7 shrink-0 bg-transparent"
+      />
     </div>
   </div>
 );

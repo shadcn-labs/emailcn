@@ -47,7 +47,9 @@ export const CodeBlock = ({
   preview,
 }: CodeBlockProps) => {
   const [config, setConfig] = useConfig();
-  const [highlightedCode, setHighlightedCode] = React.useState<string | null>(null);
+  const [highlightedCode, setHighlightedCode] = React.useState<string | null>(
+    null
+  );
 
   const isCommandMode = Boolean(__npm__ || __yarn__ || __pnpm__ || __bun__);
   const isCodeMode = Boolean(__ts__);
@@ -79,7 +81,7 @@ export const CodeBlock = ({
       pnpm: __pnpm__,
       yarn: __yarn__,
     }),
-    [__npm__, __pnpm__, __yarn__, __bun__],
+    [__npm__, __pnpm__, __yarn__, __bun__]
   );
 
   const copyValue = React.useMemo(() => {
@@ -120,7 +122,10 @@ export const CodeBlock = ({
             {Object.entries(commandTabs).map(([key, value]) => (
               <TabsContent key={key} value={key} className="mt-0 px-4 py-3.5">
                 <pre>
-                  <code className="relative font-mono text-sm leading-none" data-language="bash">
+                  <code
+                    className="relative font-mono text-sm leading-none"
+                    data-language="bash"
+                  >
                     {value}
                   </code>
                 </pre>
@@ -159,10 +164,15 @@ export const CodeBlock = ({
           </div>
           <div className="no-scrollbar overflow-x-auto">
             <TabsContent value="preview" className="mt-0 px-4 py-3.5">
-              <div className="flex min-h-[200px] items-center justify-center">{preview}</div>
+              <div className="flex min-h-[200px] items-center justify-center">
+                {preview}
+              </div>
             </TabsContent>
             <TabsContent value="code" className="mt-0 px-4 py-3.5">
-              <CodeContent code={__ts__ ?? ""} highlightedCode={highlightedCode} />
+              <CodeContent
+                code={__ts__ ?? ""}
+                highlightedCode={highlightedCode}
+              />
             </TabsContent>
           </div>
         </Tabs>

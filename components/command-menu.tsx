@@ -60,7 +60,7 @@ const CommandMenuItem = ({
       ref={ref}
       className={cn(
         "data-[selected=true]:border-input data-[selected=true]:bg-input/50 h-9 rounded-md border border-transparent !px-3 font-medium",
-        className,
+        className
       )}
       {...props}
     >
@@ -69,11 +69,14 @@ const CommandMenuItem = ({
   );
 };
 
-const CommandMenuKbd = ({ className, ...props }: React.ComponentProps<"kbd">) => (
+const CommandMenuKbd = ({
+  className,
+  ...props
+}: React.ComponentProps<"kbd">) => (
   <kbd
     className={cn(
       "bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&_svg:not([class*='size-'])]:size-3",
-      className,
+      className
     )}
     {...props}
   />
@@ -93,9 +96,9 @@ export const CommandMenu = ({
   const isMac = useIsMac();
   const [config] = useConfig();
   const [open, setOpen] = React.useState(false);
-  const [selectedType, setSelectedType] = React.useState<"page" | "component" | "block" | null>(
-    null,
-  );
+  const [selectedType, setSelectedType] = React.useState<
+    "page" | "component" | "block" | null
+  >(null);
   const [copyPayload, setCopyPayload] = React.useState("");
   const packageManager = config.packageManager || "pnpm";
 
@@ -104,13 +107,15 @@ export const CommandMenu = ({
       if (isComponent) {
         const componentName = item.url.split("/").pop();
         setSelectedType("component");
-        setCopyPayload(`${packageManager} dlx shadcn@latest add ${componentName}`);
+        setCopyPayload(
+          `${packageManager} dlx shadcn@latest add ${componentName}`
+        );
       } else {
         setSelectedType("page");
         setCopyPayload("");
       }
     },
-    [packageManager],
+    [packageManager]
   );
 
   const handleBlockHighlight = React.useCallback(
@@ -118,7 +123,7 @@ export const CommandMenu = ({
       setSelectedType("block");
       setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
     },
-    [packageManager],
+    [packageManager]
   );
 
   const runCommand = React.useCallback((command: () => unknown) => {
@@ -171,7 +176,7 @@ export const CommandMenu = ({
         <Button
           variant="secondary"
           className={cn(
-            "bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64",
+            "bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
           )}
           onClick={() => setOpen(true)}
           {...props}
@@ -245,9 +250,15 @@ export const CommandMenu = ({
                       return (
                         <CommandMenuItem
                           key={item.url}
-                          value={item.name?.toString() ? `${group.name} ${item.name}` : ""}
+                          value={
+                            item.name?.toString()
+                              ? `${group.name} ${item.name}`
+                              : ""
+                          }
                           keywords={isComponent ? ["component"] : undefined}
-                          onHighlight={() => handlePageHighlight(isComponent, item)}
+                          onHighlight={() =>
+                            handlePageHighlight(isComponent, item)
+                          }
                           onSelect={() => {
                             runCommand(() => router.push(item.url));
                           }}
@@ -266,7 +277,10 @@ export const CommandMenu = ({
               </CommandGroup>
             ))}
             {blocks?.length ? (
-              <CommandGroup heading="Blocks" className="!p-0 [&_[cmdk-group-heading]]:!p-3">
+              <CommandGroup
+                heading="Blocks"
+                className="!p-0 [&_[cmdk-group-heading]]:!p-3"
+              >
                 {blocks.map((block) => (
                   <CommandMenuItem
                     key={block.name}
@@ -274,9 +288,18 @@ export const CommandMenu = ({
                     onHighlight={() => {
                       handleBlockHighlight(block);
                     }}
-                    keywords={["block", block.name, block.description, ...block.categories]}
+                    keywords={[
+                      "block",
+                      block.name,
+                      block.description,
+                      ...block.categories,
+                    ]}
                     onSelect={() => {
-                      runCommand(() => router.push(`/blocks/${block.categories[0]}#${block.name}`));
+                      runCommand(() =>
+                        router.push(
+                          `/blocks/${block.categories[0]}#${block.name}`
+                        )
+                      );
                     }}
                   >
                     <SquareDashedIcon />
@@ -295,7 +318,9 @@ export const CommandMenu = ({
             <CommandMenuKbd>
               <CornerDownLeftIcon />
             </CommandMenuKbd>{" "}
-            {selectedType === "page" || selectedType === "component" ? "Go to Page" : null}
+            {selectedType === "page" || selectedType === "component"
+              ? "Go to Page"
+              : null}
           </div>
           {copyPayload && (
             <>
