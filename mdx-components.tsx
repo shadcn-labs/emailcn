@@ -3,7 +3,7 @@ import Link from "next/link";
 import * as React from "react";
 
 import { Callout } from "@/components/callout";
-import { CodeBlock } from "@/components/code-block";
+import { CodeBlockCommand } from "@/components/code-block-command";
 import { CodeTabs } from "@/components/code-tabs";
 import { CopyButton } from "@/components/copy-button";
 import { getIconForLanguageExtension } from "@/components/icons";
@@ -30,14 +30,6 @@ export const mdxComponents = {
   AspectRatio,
   Button,
   Callout,
-  CodeBlock: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof CodeBlock>) => (
-    <div className={cn("mt-6", className)}>
-      <CodeBlock {...props} />
-    </div>
-  ),
   CodeTabs,
   Image: ({
     src,
@@ -174,7 +166,7 @@ export const mdxComponents = {
     const isNpmCommand = __npm__ && __yarn__ && __pnpm__ && __bun__;
     if (isNpmCommand) {
       return (
-        <CodeBlock
+        <CodeBlockCommand
           __npm__={__npm__}
           __yarn__={__yarn__}
           __pnpm__={__pnpm__}
