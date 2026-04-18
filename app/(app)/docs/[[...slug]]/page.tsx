@@ -14,11 +14,9 @@ export const revalidate = false;
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return source.generateParams();
-}
+export const generateStaticParams = () => source.generateParams();
 
-export async function generateMetadata(props: { params: Promise<{ slug?: string[] }> }) {
+export const generateMetadata = async (props: { params: Promise<{ slug?: string[] }> }) => {
   const params = await props.params;
   const page = source.getPage(params.slug);
 
@@ -62,7 +60,7 @@ export async function generateMetadata(props: { params: Promise<{ slug?: string[
       title: doc.title,
     },
   };
-}
+};
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params;

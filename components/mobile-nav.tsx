@@ -7,7 +7,6 @@ import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { showMcpDocs } from "@/lib/flags";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +26,34 @@ const TOP_LEVEL_SECTIONS = [
   },
 ];
 
-export function MobileNav({
+const MobileLink = ({
+  href,
+  onOpenChange,
+  className,
+  children,
+  ...props
+}: LinkProps & {
+  onOpenChange?: (open: boolean) => void;
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const router = useRouter();
+  return (
+    <Link
+      href={href}
+      onClick={() => {
+        router.push(href.toString());
+        onOpenChange?.(false);
+      }}
+      className={cn("text-2xl font-medium", className)}
+      {...props}
+    >
+      {children}
+    </Link>
+  );
+};
+
+export const MobileNav = ({
   tree,
   items,
   className,
@@ -35,7 +61,7 @@ export function MobileNav({
   tree: typeof source.pageTree;
   items: { href: string; label: string }[];
   className?: string;
-}) {
+}) => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -92,76 +118,41 @@ export function MobileNav({
           <div className="flex flex-col gap-4">
             <div className="text-muted-foreground text-sm font-medium">Sections</div>
             <div className="flex flex-col gap-3">
-              {TOP_LEVEL_SECTIONS.map(({ name, href }) => {
-                if (!showMcpDocs && href.includes("/mcp")) {
-                  return null;
-                }
-                return (
-                  <MobileLink key={name} href={href} onOpenChange={setOpen}>
-                    {name}
-                  </MobileLink>
-                );
-              })}
+              {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
+                <MobileLink key={name} href={href} onOpenChange={setOpen}>
+                  {name}
+                </MobileLink>
+              ))}
             </div>
           </div>
           <div className="flex flex-col gap-8">
             {tree?.children?.map((group, index) => {
-              if (group.type === "folder") {
-                return (
-                  <div key={index} className="flex flex-col gap-4">
-                    <div className="text-muted-foreground text-sm font-medium">{group.name}</div>
-                    <div className="flex flex-col gap-3">
-                      {group.children.map((item) => {
-                        if (item.type === "page") {
-                          if (!showMcpDocs && item.url.includes("/mcp")) {
-                            return null;
-                          }
-                          return (
-                            <MobileLink
-                              key={`${item.url}-${index}`}
-                              href={item.url}
-                              onOpenChange={setOpen}
-                            >
-                              {item.name}
-                            </MobileLink>
-                          );
-                        }
-                      })}
-                    </div>
-                  </div>
-                );
+              if (group.type !== "folder") {
+                return null;
               }
+
+              return (
+                <div key={index} className="flex flex-col gap-4">
+                  <div className="text-muted-foreground text-sm font-medium">{group.name}</div>
+                  <div className="flex flex-col gap-3">
+                    {group.children
+                      .filter((childItem) => childItem.type === "page")
+                      .map((childItem) => (
+                        <MobileLink
+                          key={`${childItem.url}-${index}`}
+                          href={childItem.url}
+                          onOpenChange={setOpen}
+                        >
+                          {childItem.name}
+                        </MobileLink>
+                      ))}
+                  </div>
+                </div>
+              );
             })}
           </div>
         </div>
       </PopoverContent>
     </Popover>
   );
-}
-
-function MobileLink({
-  href,
-  onOpenChange,
-  className,
-  children,
-  ...props
-}: LinkProps & {
-  onOpenChange?: (open: boolean) => void;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const router = useRouter();
-  return (
-    <Link
-      href={href}
-      onClick={() => {
-        router.push(href.toString());
-        onOpenChange?.(false);
-      }}
-      className={cn("text-2xl font-medium", className)}
-      {...props}
-    >
-      {children}
-    </Link>
-  );
-}
+};

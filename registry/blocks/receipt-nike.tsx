@@ -23,20 +23,18 @@ interface Props {
   productName?: string;
 }
 
-function getNikeTheme(t: EmailTheme): EmailTheme {
-  return {
-    ...t,
-    button: {
-      ...t.button,
-      primary: {
-        ...t.button.primary,
-        backgroundColor: "#111",
-        color: "#ffffff",
-      },
+const getNikeTheme = (t: EmailTheme): EmailTheme => ({
+  ...t,
+  button: {
+    ...t.button,
+    primary: {
+      ...t.button.primary,
+      backgroundColor: "#111",
+      color: "#ffffff",
     },
-    colorPrimary: "#111",
-  };
-}
+  },
+  colorPrimary: "#111",
+});
 
 export const ReceiptNike = ({
   orderNumber = "ORD-123",

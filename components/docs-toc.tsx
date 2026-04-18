@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
-function useActiveItem(itemIds: string[]) {
+const useActiveItem = (itemIds: string[]) => {
   const [activeId, setActiveId] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -45,9 +45,9 @@ function useActiveItem(itemIds: string[]) {
   }, [itemIds]);
 
   return activeId;
-}
+};
 
-export function DocsTableOfContents({
+export const DocsTableOfContents = ({
   toc,
   variant = "list",
   className,
@@ -59,7 +59,7 @@ export function DocsTableOfContents({
   }[];
   variant?: "dropdown" | "list";
   className?: string;
-}) {
+}) => {
   const [open, setOpen] = React.useState(false);
   const itemIds = React.useMemo(() => toc.map((item) => item.url.replace("#", "")), [toc]);
   const activeHeading = useActiveItem(itemIds);
@@ -111,4 +111,4 @@ export function DocsTableOfContents({
       ))}
     </div>
   );
-}
+};

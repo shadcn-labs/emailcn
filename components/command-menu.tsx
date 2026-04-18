@@ -28,11 +28,58 @@ import { Separator } from "@/components/ui/separator";
 import { useConfig } from "@/hooks/use-config";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
-import { showMcpDocs } from "@/lib/flags";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
-export function CommandMenu({
+const CommandMenuItem = ({
+  children,
+  className,
+  onHighlight,
+  ...props
+}: React.ComponentProps<typeof CommandItem> & {
+  onHighlight?: () => void;
+  "data-selected"?: string;
+  "aria-selected"?: string;
+}) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  useMutationObserver(ref, (mutations) => {
+    for (const mutation of mutations) {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "aria-selected" &&
+        ref.current?.getAttribute("aria-selected") === "true"
+      ) {
+        onHighlight?.();
+      }
+    }
+  });
+
+  return (
+    <CommandItem
+      ref={ref}
+      className={cn(
+        "data-[selected=true]:border-input data-[selected=true]:bg-input/50 h-9 rounded-md border border-transparent !px-3 font-medium",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </CommandItem>
+  );
+};
+
+const CommandMenuKbd = ({ className, ...props }: React.ComponentProps<"kbd">) => (
+  <kbd
+    className={cn(
+      "bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&_svg:not([class*='size-'])]:size-3",
+      className,
+    )}
+    {...props}
+  />
+);
+
+export const CommandMenu = ({
   tree,
   blocks,
   navItems,
@@ -41,7 +88,7 @@ export function CommandMenu({
   tree: typeof source.pageTree;
   blocks?: { name: string; description: string; categories: string[] }[];
   navItems?: { href: string; label: string }[];
-}) {
+}) => {
   const router = useRouter();
   const isMac = useIsMac();
   const [config] = useConfig();
@@ -92,7 +139,7 @@ export function CommandMenu({
         }
 
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen((prev) => !prev);
       }
 
       if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
@@ -195,10 +242,6 @@ export function CommandMenu({
                     if (item.type === "page") {
                       const isComponent = item.url.includes("/components/");
 
-                      if (!showMcpDocs && item.url.includes("/mcp")) {
-                        return null;
-                      }
-
                       return (
                         <CommandMenuItem
                           key={item.url}
@@ -268,54 +311,4 @@ export function CommandMenu({
       </DialogContent>
     </Dialog>
   );
-}
-
-function CommandMenuItem({
-  children,
-  className,
-  onHighlight,
-  ...props
-}: React.ComponentProps<typeof CommandItem> & {
-  onHighlight?: () => void;
-  "data-selected"?: string;
-  "aria-selected"?: string;
-}) {
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  useMutationObserver(ref, (mutations) => {
-    mutations.forEach((mutation) => {
-      if (
-        mutation.type === "attributes" &&
-        mutation.attributeName === "aria-selected" &&
-        ref.current?.getAttribute("aria-selected") === "true"
-      ) {
-        onHighlight?.();
-      }
-    });
-  });
-
-  return (
-    <CommandItem
-      ref={ref}
-      className={cn(
-        "data-[selected=true]:border-input data-[selected=true]:bg-input/50 h-9 rounded-md border border-transparent !px-3 font-medium",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </CommandItem>
-  );
-}
-
-function CommandMenuKbd({ className, ...props }: React.ComponentProps<"kbd">) {
-  return (
-    <kbd
-      className={cn(
-        "bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&_svg:not([class*='size-'])]:size-3",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+};

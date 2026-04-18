@@ -3,9 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/config";
-
 import { CommandBox } from "@/components/command-box";
+import { siteConfig } from "@/lib/config";
 
 const title = "EmailCN";
 const description =
@@ -68,9 +67,8 @@ export default function IndexPage() {
       </div>
 
       <div className="flex flex-col items-center gap-6">
-        <YourComponent className="w-full max-w-md" />
+        <div className="w-full max-w-md" />
       </div>
     </section>
   );
 }
-import { YourComponent } from "@/registry/new-york/your-component";

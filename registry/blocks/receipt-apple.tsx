@@ -23,12 +23,10 @@ interface Props {
   productName?: string;
 }
 
-function getAppleTheme(t: EmailTheme): EmailTheme {
-  return {
-    ...t,
-    colorBackgroundMuted: "#f5f5f7",
-  };
-}
+const getAppleTheme = (t: EmailTheme): EmailTheme => ({
+  ...t,
+  colorBackgroundMuted: "#f5f5f7",
+});
 
 export const ReceiptApple = ({
   orderNumber = "ORD-123",

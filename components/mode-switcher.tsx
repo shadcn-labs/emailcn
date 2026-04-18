@@ -1,22 +1,10 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import * as React from "react";
-
 import { Button } from "@/components/ui/button";
-import { useMetaColor } from "@/hooks/use-meta-color";
+import { useThemeToggle } from "@/hooks/use-theme-toggle";
 
-export function ModeSwitcher() {
-  const { setTheme, resolvedTheme } = useTheme();
-  const { setMetaColor, metaColor } = useMetaColor();
-
-  React.useEffect(() => {
-    setMetaColor(metaColor);
-  }, [metaColor, setMetaColor]);
-
-  const toggleTheme = React.useCallback(() => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  }, [resolvedTheme, setTheme]);
+export const ModeSwitcher = () => {
+  const { toggleTheme } = useThemeToggle();
 
   return (
     <Button
@@ -48,4 +36,4 @@ export function ModeSwitcher() {
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
-}
+};

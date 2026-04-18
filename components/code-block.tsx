@@ -16,14 +16,36 @@ interface CodeBlockProps extends React.ComponentProps<"pre"> {
   preview?: React.ReactNode;
 }
 
-export function CodeBlock({
+const CodeContent = ({
+  code,
+  highlightedCode,
+}: {
+  code: string;
+  highlightedCode: string | null;
+}) => {
+  if (highlightedCode) {
+    return (
+      <div
+        className="max-h-[400px] overflow-auto text-sm [&_pre]:bg-transparent! [&_code]:block [&_span]:text-(--shiki-light) dark:[&_span]:text-(--shiki-dark)"
+        dangerouslySetInnerHTML={{ __html: highlightedCode }}
+      />
+    );
+  }
+  return (
+    <pre>
+      <code className="relative font-mono text-sm leading-none">{code}</code>
+    </pre>
+  );
+};
+
+export const CodeBlock = ({
   __npm__,
   __yarn__,
   __pnpm__,
   __bun__,
   __ts__,
   preview,
-}: CodeBlockProps) {
+}: CodeBlockProps) => {
   const [config, setConfig] = useConfig();
   const [highlightedCode, setHighlightedCode] = React.useState<string | null>(null);
 
@@ -34,9 +56,9 @@ export function CodeBlock({
     if (!__ts__) {
       return;
     }
-    async function highlight() {
+    const highlight = async () => {
       const { codeToHtml } = await import("shiki");
-      const html = await codeToHtml(__ts__!, {
+      const html = await codeToHtml(__ts__ ?? "", {
         defaultColor: false,
         lang: "tsx",
         themes: {
@@ -45,7 +67,7 @@ export function CodeBlock({
         },
       });
       setHighlightedCode(html);
-    }
+    };
     highlight();
   }, [__ts__]);
 
@@ -140,7 +162,7 @@ export function CodeBlock({
               <div className="flex min-h-[200px] items-center justify-center">{preview}</div>
             </TabsContent>
             <TabsContent value="code" className="mt-0 px-4 py-3.5">
-              <CodeContent code={__ts__!} highlightedCode={highlightedCode} />
+              <CodeContent code={__ts__ ?? ""} highlightedCode={highlightedCode} />
             </TabsContent>
           </div>
         </Tabs>
@@ -163,7 +185,7 @@ export function CodeBlock({
           <span className="text-muted-foreground text-sm">TypeScript</span>
         </div>
         <div className="no-scrollbar overflow-x-auto px-4 py-3.5">
-          <CodeContent code={__ts__!} highlightedCode={highlightedCode} />
+          <CodeContent code={__ts__ ?? ""} highlightedCode={highlightedCode} />
         </div>
         <CopyButton
           value={copyValue}
@@ -174,20 +196,4 @@ export function CodeBlock({
   }
 
   return null;
-}
-
-function CodeContent({ code, highlightedCode }: { code: string; highlightedCode: string | null }) {
-  if (highlightedCode) {
-    return (
-      <div
-        className="max-h-[400px] overflow-auto text-sm [&_pre]:bg-transparent! [&_code]:block [&_span]:text-(--shiki-light) dark:[&_span]:text-(--shiki-dark)"
-        dangerouslySetInnerHTML={{ __html: highlightedCode }}
-      />
-    );
-  }
-  return (
-    <pre>
-      <code className="relative font-mono text-sm leading-none">{code}</code>
-    </pre>
-  );
-}
+};

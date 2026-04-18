@@ -12,21 +12,19 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ActiveThemeProvider({
+export const ActiveThemeProvider = ({
   children,
   initialTheme,
 }: {
   children: ReactNode;
   initialTheme?: string;
-}) {
+}) => {
   const [activeTheme, setActiveTheme] = useState<string>(() => initialTheme || DEFAULT_THEME);
 
   useEffect(() => {
-    [...document.body.classList]
-      .filter((className) => className.startsWith("theme-"))
-      .forEach((className) => {
-        document.body.classList.remove(className);
-      });
+    for (const className of [...document.body.classList].filter((cn) => cn.startsWith("theme-"))) {
+      document.body.classList.remove(className);
+    }
     document.body.classList.add(`theme-${activeTheme}`);
     if (activeTheme.endsWith("-scaled")) {
       document.body.classList.add("theme-scaled");
@@ -38,12 +36,12 @@ export function ActiveThemeProvider({
       {children}
     </ThemeContext.Provider>
   );
-}
+};
 
-export function useThemeConfig() {
+export const useThemeConfig = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     throw new Error("useThemeConfig must be used within an ActiveThemeProvider");
   }
   return context;
-}
+};

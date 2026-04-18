@@ -1,6 +1,6 @@
 // Subject: {preheader}
 
-import { Body, Container, Head, Html, Preview, Section, Text } from "react-email";
+import { Body, Container, Head, Html, Link, Preview, Section, Text } from "react-email";
 import { ContentGrid } from "../components/content-grid";
 import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
@@ -21,25 +21,23 @@ interface Props {
   productName?: string;
 }
 
-function getStackOverflowTheme(t: EmailTheme): EmailTheme {
-  return {
-    ...t,
-    button: {
-      ...t.button,
-      primary: {
-        ...t.button.primary,
-        backgroundColor: "#f48024",
-        color: "#ffffff",
-      },
+const getStackOverflowTheme = (t: EmailTheme): EmailTheme => ({
+  ...t,
+  button: {
+    ...t.button,
+    primary: {
+      ...t.button.primary,
+      backgroundColor: "#f48024",
+      color: "#ffffff",
     },
-    colorPrimary: "#f48024",
-    colorPrimaryForeground: "#ffffff",
-  };
-}
+  },
+  colorPrimary: "#f48024",
+  colorPrimaryForeground: "#ffffff",
+});
 
 export const NewsletterStackOverflow = ({
   _logoUrl,
-  logoAlt = "Newsletter",
+  _logoAlt = "Newsletter",
   issueNumber = "1",
   preheader = "Stack Overflow Weekly",
   articles = [
@@ -98,7 +96,7 @@ export const NewsletterStackOverflow = ({
 
           <Section style={{ padding: `${t.spacingBase} 0` }}>
             <Text style={style.footer}>
-              <a href="#">View this email online</a> • <a href="#">Unsubscribe</a>
+              <Link href="#">View this email online</Link> • <Link href="#">Unsubscribe</Link>
             </Text>
           </Section>
         </Container>

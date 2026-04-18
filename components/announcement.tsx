@@ -3,13 +3,11 @@ import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 
-export function Announcement() {
-  return (
-    <Badge asChild variant="secondary" className="bg-transparent">
-      <Link href="https://ui.shadcn.com" target="_blank" rel="noreferrer">
-        <span className="flex size-2 rounded-full bg-blue-500" title="New" />
-        Built with shadcn registry <ArrowRightIcon />
-      </Link>
-    </Badge>
-  );
-}
+export const Announcement = () => (
+  <Badge asChild variant="secondary" className="bg-transparent">
+    <Link href="https://ui.shadcn.com" target="_blank" rel="noreferrer">
+      <span className="flex size-2 rounded-full bg-blue-500" title="New" />
+      Built with shadcn registry <ArrowRightIcon />
+    </Link>
+  </Badge>
+);

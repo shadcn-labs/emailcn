@@ -181,9 +181,9 @@ export const mdxComponents = {
     <h2
       id={props.children
         ?.toString()
-        .replaceAll(' ', "-")
-        .replaceAll('\'', "")
-        .replaceAll('?', "")
+        .replaceAll(" ", "-")
+        .replaceAll("'", "")
+        .replaceAll("?", "")
         .toLowerCase()}
       className={cn(
         "font-heading mt-8 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-8 [&+p]:!mt-4 *:[code]:text-xl",

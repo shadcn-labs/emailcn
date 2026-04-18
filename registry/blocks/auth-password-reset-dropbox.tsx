@@ -12,21 +12,19 @@ interface Props {
   productName?: string;
 }
 
-function getDropboxTheme(t: EmailTheme): EmailTheme {
-  return {
-    ...t,
-    button: {
-      ...t.button,
-      primary: {
-        ...t.button.primary,
-        backgroundColor: "#0061ff",
-        color: "#ffffff",
-      },
+const getDropboxTheme = (t: EmailTheme): EmailTheme => ({
+  ...t,
+  button: {
+    ...t.button,
+    primary: {
+      ...t.button.primary,
+      backgroundColor: "#0061ff",
+      color: "#ffffff",
     },
-    colorPrimary: "#0061ff",
-    colorPrimaryForeground: "#ffffff",
-  };
-}
+  },
+  colorPrimary: "#0061ff",
+  colorPrimaryForeground: "#ffffff",
+});
 
 export const AuthPasswordResetDropbox = ({
   _logoUrl,

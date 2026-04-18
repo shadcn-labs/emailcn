@@ -1,6 +1,6 @@
 // Subject: {preheader}
 
-import { Body, Container, Head, Html, Preview, Section, Text } from "react-email";
+import { Body, Container, Head, Html, Link, Preview, Section, Text } from "react-email";
 import { ContentGrid } from "../components/content-grid";
 import { theme as defaultTheme } from "../themes/default";
 
@@ -22,7 +22,7 @@ interface Props {
 
 export const NewsletterDefault = ({
   _logoUrl,
-  logoAlt = "Newsletter",
+  _logoAlt = "Newsletter",
   issueNumber = "1",
   preheader = "Your weekly update",
   articles = [
@@ -85,10 +85,10 @@ export const NewsletterDefault = ({
 
           <Section style={{ padding: `${t.spacingBase} 0` }}>
             <Text style={style.footer}>
-              <a href="#" style={style.viewOnWeb}>
+              <Link href="#" style={style.viewOnWeb}>
                 View this email online
-              </a>
-              <a href="#">Unsubscribe</a>
+              </Link>
+              <Link href="#">Unsubscribe</Link>
             </Text>
           </Section>
         </Container>

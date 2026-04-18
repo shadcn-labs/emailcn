@@ -9,14 +9,14 @@ import type { Event } from "@/lib/events";
 import { trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
 
-export function copyToClipboardWithMeta(value: string, event?: Event) {
+export const copyToClipboardWithMeta = (value: string, event?: Event) => {
   navigator.clipboard.writeText(value);
   if (event) {
     trackEvent(event);
   }
-}
+};
 
-export function CopyButton({
+export const CopyButton = ({
   value,
   className,
   variant = "ghost",
@@ -27,7 +27,7 @@ export function CopyButton({
   value: string;
   src?: string;
   event?: Event["name"];
-}) {
+}) => {
   const [hasCopied, setHasCopied] = React.useState(false);
 
   React.useEffect(() => {
@@ -71,4 +71,4 @@ export function CopyButton({
       <TooltipContent>{hasCopied ? "Copied" : "Copy to Clipboard"}</TooltipContent>
     </Tooltip>
   );
-}
+};
