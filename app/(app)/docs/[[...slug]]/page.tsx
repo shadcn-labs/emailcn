@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 
 import { DocsCopyPage } from "@/components/docs-copy-page";
 import { DocsTableOfContents } from "@/components/docs-toc";
+import { DocsTocFooter } from "@/components/docs-toc-footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatTitleFromSlug } from "@/lib/docs";
@@ -203,6 +204,9 @@ export default async function Page(props: {
               <div className="h-12" />
             </div>
           ) : null}
+          <div className="hidden flex-col gap-6 px-6 xl:flex">
+            <DocsTocFooter />
+          </div>
         </div>
       </div>
     </>
