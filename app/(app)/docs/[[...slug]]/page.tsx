@@ -1,10 +1,5 @@
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconArrowUpRight,
-} from "@tabler/icons-react";
 import { findNeighbour } from "fumadocs-core/page-tree";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -151,14 +146,14 @@ export default async function Page(props: {
                   {links?.doc && (
                     <Badge asChild variant="secondary">
                       <Link href={links.doc} target="_blank" rel="noreferrer">
-                        Docs <IconArrowUpRight />
+                        Docs <ArrowUpRightIcon />
                       </Link>
                     </Badge>
                   )}
                   {links?.api && (
                     <Badge asChild variant="secondary">
                       <Link href={links.api} target="_blank" rel="noreferrer">
-                        API Reference <IconArrowUpRight />
+                        API Reference <ArrowUpRightIcon />
                       </Link>
                     </Badge>
                   )}
@@ -178,7 +173,7 @@ export default async function Page(props: {
                 className="shadow-none"
               >
                 <Link href={neighbours.previous.url}>
-                  <IconArrowLeft /> {neighbours.previous.name}
+                  <ArrowLeftIcon /> {neighbours.previous.name}
                 </Link>
               </Button>
             )}
@@ -190,7 +185,7 @@ export default async function Page(props: {
                 asChild
               >
                 <Link href={neighbours.next.url}>
-                  {neighbours.next.name} <IconArrowRight />
+                  {neighbours.next.name} <ArrowRightIcon />
                 </Link>
               </Button>
             )}
