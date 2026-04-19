@@ -1,17 +1,23 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-social-links",
-  "type": "registry:component",
   "title": "Email Social Links",
   "description": "Social media links for email footers",
-  "dependencies": ["react-email"],
-  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
   "files": [
     {
       "path": "registry/components/social-links.tsx",
-      "content": "import { Column, Link, Row, Section } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface SocialLinksProps {\n  theme?: EmailTheme;\n  links?: {\n    platform: \"twitter\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\" | \"discord\";\n    href: string;\n  }[];\n}\n\nconst platformLabels: Record<\n  \"twitter\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\" | \"discord\",\n  string\n> = {\n  discord: \"Discord\",\n  github: \"GitHub\",\n  instagram: \"Instagram\",\n  linkedin: \"LinkedIn\",\n  twitter: \"Twitter\",\n  youtube: \"YouTube\",\n};\n\nexport const SocialLinks = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n  ],\n}: SocialLinksProps) => {\n  const style = {\n    link: {\n      color: theme.colorTextMuted,\n      fontFamily: theme.fontFamily,\n      fontSize: theme.fontSizeSm,\n      marginRight: theme.spacingBase,\n      textDecoration: \"none\",\n    } as const,\n    section: {\n      padding: `${theme.spacingBase} 0`,\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      <Row>\n        <Column>\n          {links.map((link, index) => (\n            <Link key={index} href={link.href} style={style.link}>\n              {platformLabels[link.platform]}\n            </Link>\n          ))}\n        </Column>\n      </Row>\n    </Section>\n  );\n};\n\nSocialLinks.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n    { href: \"https://linkedin.com\", platform: \"linkedin\" },\n  ],\n  theme: defaultTheme,\n} satisfies SocialLinksProps;\n\nexport default SocialLinks;\n",
+      "content": "import { Column, Link, Row, Section } from \"react-email\";\n\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface SocialLinksProps {\n  theme?: EmailTheme;\n  links?: {\n    platform:\n      | \"twitter\"\n      | \"github\"\n      | \"linkedin\"\n      | \"youtube\"\n      | \"instagram\"\n      | \"discord\";\n    href: string;\n  }[];\n}\n\nconst platformLabels: Record<\n  \"twitter\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\" | \"discord\",\n  string\n> = {\n  discord: \"Discord\",\n  github: \"GitHub\",\n  instagram: \"Instagram\",\n  linkedin: \"LinkedIn\",\n  twitter: \"Twitter\",\n  youtube: \"YouTube\",\n};\n\nexport const SocialLinks = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n  ],\n}: SocialLinksProps) => {\n  const style = {\n    link: {\n      color: theme.colorTextMuted,\n      fontFamily: theme.fontFamily,\n      fontSize: theme.fontSizeSm,\n      marginRight: theme.spacingBase,\n      textDecoration: \"none\",\n    } as const,\n    section: {\n      padding: `${theme.spacingBase} 0`,\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      <Row>\n        <Column>\n          {links.map((link, index) => (\n            <Link key={index} href={link.href} style={style.link}>\n              {platformLabels[link.platform]}\n            </Link>\n          ))}\n        </Column>\n      </Row>\n    </Section>\n  );\n};\n\nSocialLinks.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n    { href: \"https://linkedin.com\", platform: \"linkedin\" },\n  ],\n  theme: defaultTheme,\n} satisfies SocialLinksProps;\n\nexport default SocialLinks;\n",
       "type": "registry:component"
     }
   ],
-  "categories": ["email-component"]
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
 }

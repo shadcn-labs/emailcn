@@ -1,17 +1,23 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-avatar-row",
-  "type": "registry:component",
   "title": "Email Avatar Row",
   "description": "Avatar with name and title for email templates",
-  "dependencies": ["react-email"],
-  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
   "files": [
     {
       "path": "registry/components/avatar-row.tsx",
-      "content": "import { Column, Container, Img, Row, Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface AvatarRowProps {\n  theme?: EmailTheme;\n  avatarUrl?: string;\n  name?: string;\n  title?: string;\n  companyName?: string;\n}\n\nexport const AvatarRow = ({\n  theme = defaultTheme,\n  avatarUrl,\n  name = \"John Doe\",\n  title = \"Product Designer\",\n  companyName = \"Acme Inc.\",\n}: AvatarRowProps) => {\n  const style = {\n    avatar: {\n      borderRadius: \"50%\",\n      height: 64,\n      objectFit: \"cover\" as const,\n      width: 64,\n    },\n    company: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n      marginTop: \"4px\",\n    },\n    info: {\n      paddingLeft: theme.spacingBase,\n    },\n    name: {\n      color: theme.colorText,\n      fontSize: theme.fontSizeLg,\n      fontWeight: theme.fontWeightMedium,\n      marginBottom: \"4px\",\n    },\n    title: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeBase,\n    },\n  };\n\n  return (\n    <Section>\n      <Container>\n        <Row>\n          <Column>\n            {avatarUrl ? (\n              <Img src={avatarUrl} alt={name} style={style.avatar} />\n            ) : (\n              <Text\n                style={{\n                  ...style.avatar,\n                  backgroundColor: theme.colorPrimary,\n                  color: theme.colorPrimaryForeground,\n                  lineHeight: \"64px\",\n                  textAlign: \"center\",\n                }}\n              >\n                {name.charAt(0)}\n              </Text>\n            )}\n          </Column>\n          <Column style={style.info}>\n            <Text style={style.name}>{name}</Text>\n            <Text style={style.title}>{title}</Text>\n            {companyName && <Text style={style.company}>{companyName}</Text>}\n          </Column>\n        </Row>\n      </Container>\n    </Section>\n  );\n};\n\nAvatarRow.PreviewProps = {\n  avatarUrl: \"https://example.com/avatar.jpg\",\n  companyName: \"TechCorp\",\n  name: \"Alex Johnson\",\n  theme: defaultTheme,\n  title: \"Senior Engineer\",\n} satisfies AvatarRowProps;\n\nexport default AvatarRow;\n",
+      "content": "import { Column, Container, Img, Row, Section, Text } from \"react-email\";\n\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface AvatarRowProps {\n  theme?: EmailTheme;\n  avatarUrl?: string;\n  name?: string;\n  title?: string;\n  companyName?: string;\n}\n\nexport const AvatarRow = ({\n  theme = defaultTheme,\n  avatarUrl,\n  name = \"John Doe\",\n  title = \"Product Designer\",\n  companyName = \"Acme Inc.\",\n}: AvatarRowProps) => {\n  const style = {\n    avatar: {\n      borderRadius: \"50%\",\n      height: 64,\n      objectFit: \"cover\" as const,\n      width: 64,\n    },\n    company: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n      marginTop: \"4px\",\n    },\n    info: {\n      paddingLeft: theme.spacingBase,\n    },\n    name: {\n      color: theme.colorText,\n      fontSize: theme.fontSizeLg,\n      fontWeight: theme.fontWeightMedium,\n      marginBottom: \"4px\",\n    },\n    title: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeBase,\n    },\n  };\n\n  return (\n    <Section>\n      <Container>\n        <Row>\n          <Column>\n            {avatarUrl ? (\n              <Img src={avatarUrl} alt={name} style={style.avatar} />\n            ) : (\n              <Text\n                style={{\n                  ...style.avatar,\n                  backgroundColor: theme.colorPrimary,\n                  color: theme.colorPrimaryForeground,\n                  lineHeight: \"64px\",\n                  textAlign: \"center\",\n                }}\n              >\n                {name.charAt(0)}\n              </Text>\n            )}\n          </Column>\n          <Column style={style.info}>\n            <Text style={style.name}>{name}</Text>\n            <Text style={style.title}>{title}</Text>\n            {companyName && <Text style={style.company}>{companyName}</Text>}\n          </Column>\n        </Row>\n      </Container>\n    </Section>\n  );\n};\n\nAvatarRow.PreviewProps = {\n  avatarUrl: \"https://example.com/avatar.jpg\",\n  companyName: \"TechCorp\",\n  name: \"Alex Johnson\",\n  theme: defaultTheme,\n  title: \"Senior Engineer\",\n} satisfies AvatarRowProps;\n\nexport default AvatarRow;\n",
       "type": "registry:component"
     }
   ],
-  "categories": ["email-component"]
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
 }

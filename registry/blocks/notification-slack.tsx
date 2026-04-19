@@ -14,9 +14,9 @@ import {
 import { theme as slackTheme } from "../themes/slack";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   actorName?: string;
-  actorAvatarUrl?: string;
+  _actorAvatarUrl?: string;
   _action?: string;
   _targetName?: string;
   teamName?: string;
@@ -103,13 +103,13 @@ export const NotificationSlack = ({
 
 NotificationSlack.PreviewProps = {
   _action: "invited you",
+  _actorAvatarUrl: "https://example.com/avatar.jpg",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Slack",
   _targetName: "workspace",
-  actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "Sarah",
   ctaHref: "https://slack.com",
   ctaLabel: "Join Workspace",
-  logoUrl: "https://example.com/logo.png",
   teamName: "Acme",
 } satisfies Props;
 

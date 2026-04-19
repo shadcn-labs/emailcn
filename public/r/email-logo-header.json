@@ -1,17 +1,23 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-logo-header",
-  "type": "registry:component",
   "title": "Email Logo Header",
   "description": "Company logo with optional navigation links for email templates",
-  "dependencies": ["react-email"],
-  "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"],
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
   "files": [
     {
       "path": "registry/components/logo-header.tsx",
-      "content": "import { Column, Img, Link, Section, Text } from \"react-email\";\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface LogoHeaderProps {\n  theme?: EmailTheme;\n  logoUrl?: string;\n  logoAlt?: string;\n  logoWidth?: number;\n  links?: { label: string; href: string }[];\n}\n\nexport const LogoHeader = ({\n  theme = defaultTheme,\n  logoUrl,\n  logoAlt = \"Logo\",\n  logoWidth = 120,\n  links = [],\n}: LogoHeaderProps) => {\n  const style = {\n    container: {\n      padding: `${theme.spacingBase} 0`,\n    },\n    link: {\n      color: theme.colorTextMuted,\n      fontFamily: theme.fontFamily,\n      fontSize: theme.fontSizeSm,\n      textDecoration: \"none\",\n    },\n    logo: {\n      display: \"block\",\n      height: \"auto\",\n      maxWidth: logoWidth,\n    } as const,\n    nav: {\n      display: \"flex\",\n      gap: theme.spacingBase,\n    },\n  };\n\n  return (\n    <Section style={style.container}>\n      <Column align=\"left\">\n        {logoUrl ? (\n          <Img src={logoUrl} alt={logoAlt} width={logoWidth} style={style.logo} />\n        ) : (\n          <Text\n            style={{\n              ...style.link,\n              color: theme.colorText,\n              fontWeight: theme.fontWeightBold,\n            }}\n          >\n            {logoAlt}\n          </Text>\n        )}\n      </Column>\n      {links.length > 0 && (\n        <Column align=\"right\" style={style.nav}>\n          {links.map((link, index) => (\n            <Link key={index} href={link.href} style={style.link}>\n              {link.label}\n            </Link>\n          ))}\n        </Column>\n      )}\n    </Section>\n  );\n};\n\nLogoHeader.PreviewProps = {\n  links: [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  logoAlt: \"Acme\",\n  logoUrl: \"https://example.com/logo.png\",\n  logoWidth: 120,\n  theme: defaultTheme,\n} satisfies LogoHeaderProps;\n\nexport default LogoHeader;\n",
+      "content": "import { Column, Img, Link, Section, Text } from \"react-email\";\n\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface LogoHeaderProps {\n  theme?: EmailTheme;\n  logoUrl?: string;\n  logoAlt?: string;\n  logoWidth?: number;\n  links?: { label: string; href: string }[];\n}\n\nexport const LogoHeader = ({\n  theme = defaultTheme,\n  logoUrl,\n  logoAlt = \"Logo\",\n  logoWidth = 120,\n  links = [],\n}: LogoHeaderProps) => {\n  const style = {\n    container: {\n      padding: `${theme.spacingBase} 0`,\n    },\n    link: {\n      color: theme.colorTextMuted,\n      fontFamily: theme.fontFamily,\n      fontSize: theme.fontSizeSm,\n      textDecoration: \"none\",\n    },\n    logo: {\n      display: \"block\",\n      height: \"auto\",\n      maxWidth: logoWidth,\n    } as const,\n    nav: {\n      display: \"flex\",\n      gap: theme.spacingBase,\n    },\n  };\n\n  return (\n    <Section style={style.container}>\n      <Column align=\"left\">\n        {logoUrl ? (\n          <Img\n            src={logoUrl}\n            alt={logoAlt}\n            width={logoWidth}\n            style={style.logo}\n          />\n        ) : (\n          <Text\n            style={{\n              ...style.link,\n              color: theme.colorText,\n              fontWeight: theme.fontWeightBold,\n            }}\n          >\n            {logoAlt}\n          </Text>\n        )}\n      </Column>\n      {links.length > 0 && (\n        <Column align=\"right\" style={style.nav}>\n          {links.map((link, index) => (\n            <Link key={index} href={link.href} style={style.link}>\n              {link.label}\n            </Link>\n          ))}\n        </Column>\n      )}\n    </Section>\n  );\n};\n\nLogoHeader.PreviewProps = {\n  links: [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  logoAlt: \"Acme\",\n  logoUrl: \"https://example.com/logo.png\",\n  logoWidth: 120,\n  theme: defaultTheme,\n} satisfies LogoHeaderProps;\n\nexport default LogoHeader;\n",
       "type": "registry:component"
     }
   ],
-  "categories": ["email-component"]
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
 }

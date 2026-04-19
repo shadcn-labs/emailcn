@@ -17,9 +17,9 @@ import {
 import { theme as linearTheme } from "../themes/linear";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   actorName?: string;
-  actorAvatarUrl?: string;
+  _actorAvatarUrl?: string;
   _action?: string;
   _targetName?: string;
   issueNumber?: string;
@@ -109,9 +109,9 @@ export const NotificationLinear = ({
           <Section style={style.section}>
             <Row style={style.actorRow}>
               <Column>
-                {actorAvatarUrl && (
+                {_actorAvatarUrl && (
                   <Img
-                    src={actorAvatarUrl}
+                    src={_actorAvatarUrl}
                     alt={actorName}
                     style={style.avatar}
                   />
@@ -119,11 +119,11 @@ export const NotificationLinear = ({
               </Column>
               <Column style={style.actorInfo}>
                 <Text style={style.actorName}>{actorName}</Text>
-                <Text style={style.action}>{_action}</Text>
+                <Text style={style._action}>{_action}</Text>
               </Column>
             </Row>
 
-            <Text style={style.targetName}>
+            <Text style={style._targetName}>
               <span style={style.issueTag}>#{issueNumber}</span>
               {_targetName}
             </Text>
@@ -142,14 +142,14 @@ export const NotificationLinear = ({
 
 NotificationLinear.PreviewProps = {
   _action: "commented on",
+  _actorAvatarUrl: "https://example.com/avatar.jpg",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Linear",
   _targetName: "Bug in login flow",
-  actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "Sarah",
   ctaHref: "https://linear.app/issue/42",
   ctaLabel: "View Issue",
   issueNumber: "42",
-  logoUrl: "https://example.com/logo.png",
 } satisfies Props;
 
 export default NotificationLinear;

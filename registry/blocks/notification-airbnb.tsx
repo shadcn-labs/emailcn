@@ -14,9 +14,9 @@ import {
 import { theme as airbnbTheme } from "../themes/airbnb";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   actorName?: string;
-  actorAvatarUrl?: string;
+  _actorAvatarUrl?: string;
   _action?: string;
   _targetName?: string;
   ctaLabel?: string;
@@ -101,13 +101,13 @@ export const NotificationAirbnb = ({
 
 NotificationAirbnb.PreviewProps = {
   _action: "completed their stay",
+  _actorAvatarUrl: "https://example.com/avatar.jpg",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Airbnb",
   _targetName: "your place",
-  actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "John",
   ctaHref: "https://airbnb.com/reviews",
   ctaLabel: "Leave a Review",
-  logoUrl: "https://example.com/logo.png",
 } satisfies Props;
 
 export default NotificationAirbnb;

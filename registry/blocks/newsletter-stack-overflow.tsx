@@ -23,7 +23,7 @@ interface Article {
 }
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   issueNumber?: string;
   preheader?: string;
@@ -120,6 +120,7 @@ export const NewsletterStackOverflow = ({
 
 NewsletterStackOverflow.PreviewProps = {
   _logoAlt: "Stack Overflow",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Stack Overflow",
   articles: [
     {
@@ -135,7 +136,6 @@ NewsletterStackOverflow.PreviewProps = {
     { href: "#", summary: "Popular tags this week", title: "Tags to Watch" },
   ],
   issueNumber: "42",
-  logoUrl: "https://example.com/logo.png",
   preheader: "Stack Overflow Weekly Digest",
 } satisfies Props;
 

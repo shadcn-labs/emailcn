@@ -14,7 +14,7 @@ import {
 import { theme as stripeTheme } from "../themes/stripe";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   magicLinkHref?: string;
   expiresInMinutes?: number;
@@ -107,10 +107,10 @@ export const AuthMagicLinkStripe = ({
 
 AuthMagicLinkStripe.PreviewProps = {
   _logoAlt: "Stripe",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Stripe",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,
-  logoUrl: "https://example.com/logo.png",
   magicLinkHref: "https://example.com/login?token=abc123",
 } satisfies Props;
 

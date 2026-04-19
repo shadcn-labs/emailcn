@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-theme-linear",
-  "type": "registry:file",
   "title": "Linear Email Theme",
   "description": "Linear-style email theme tokens with purple accent",
   "files": [
@@ -12,5 +11,8 @@
       "target": "lib/email-themes/linear.ts"
     }
   ],
-  "categories": ["theme"]
+  "categories": [
+    "theme"
+  ],
+  "type": "registry:file"
 }

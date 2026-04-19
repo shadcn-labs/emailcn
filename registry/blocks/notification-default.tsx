@@ -17,9 +17,9 @@ import {
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   actorName?: string;
-  actorAvatarUrl?: string;
+  _actorAvatarUrl?: string;
   _action?: string;
   _targetName?: string;
   ctaLabel?: string;
@@ -98,9 +98,9 @@ export const NotificationDefault = ({
           <Section style={style.section}>
             <Row style={style.actorRow}>
               <Column>
-                {actorAvatarUrl && (
+                {_actorAvatarUrl && (
                   <Img
-                    src={actorAvatarUrl}
+                    src={_actorAvatarUrl}
                     alt={actorName}
                     style={style.avatar}
                   />
@@ -108,11 +108,11 @@ export const NotificationDefault = ({
               </Column>
               <Column style={style.actorInfo}>
                 <Text style={style.actorName}>{actorName}</Text>
-                <Text style={style.action}>{_action}</Text>
+                <Text style={style._action}>{_action}</Text>
               </Column>
             </Row>
 
-            <Text style={style.targetName}>{_targetName}</Text>
+            <Text style={style._targetName}>{_targetName}</Text>
 
             {ctaLabel && ctaHref && (
               <Button href={ctaHref} style={style.cta}>
@@ -128,13 +128,13 @@ export const NotificationDefault = ({
 
 NotificationDefault.PreviewProps = {
   _action: "commented on your post",
+  _actorAvatarUrl: "https://example.com/avatar.jpg",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Acme",
   _targetName: "New comment on your project",
-  actorAvatarUrl: "https://example.com/avatar.jpg",
   actorName: "Sarah",
   ctaHref: "https://example.com/notification",
   ctaLabel: "View Comment",
-  logoUrl: "https://example.com/logo.png",
 } satisfies Props;
 
 export default NotificationDefault;

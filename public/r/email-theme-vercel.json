@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-theme-vercel",
-  "type": "registry:file",
   "title": "Vercel Email Theme",
   "description": "Dark Vercel-style email theme tokens",
   "files": [
@@ -12,5 +11,8 @@
       "target": "lib/email-themes/vercel.ts"
     }
   ],
-  "categories": ["theme"]
+  "categories": [
+    "theme"
+  ],
+  "type": "registry:file"
 }

@@ -15,7 +15,7 @@ import type { EmailTheme } from "../themes/default";
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   resetHref?: string;
   expiresInMinutes?: number;
@@ -121,9 +121,9 @@ export const AuthPasswordResetDropbox = ({
 
 AuthPasswordResetDropbox.PreviewProps = {
   _logoAlt: "Dropbox",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Dropbox",
   expiresInMinutes: 60,
-  logoUrl: "https://example.com/logo.png",
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
 

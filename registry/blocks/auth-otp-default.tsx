@@ -13,7 +13,7 @@ import {
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   otpCode?: string;
   expiresInMinutes?: number;
@@ -109,10 +109,10 @@ export const AuthOtpDefault = ({
 
 AuthOtpDefault.PreviewProps = {
   _logoAlt: "Acme",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Acme",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,
-  logoUrl: "https://example.com/logo.png",
   otpCode: "123456",
 } satisfies Props;
 

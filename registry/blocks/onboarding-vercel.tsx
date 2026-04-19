@@ -23,7 +23,7 @@ interface Props {
   ctaHref?: string;
   _senderName?: string;
   _senderTitle?: string;
-  senderAvatarUrl?: string;
+  _senderAvatarUrl?: string;
 }
 
 export const OnboardingVercel = ({
@@ -52,7 +52,7 @@ export const OnboardingVercel = ({
             padding: t.spacingLg,
           }}
         >
-          <LogoHeader theme={t} _logoAlt={_productName} />
+          <LogoHeader theme={t} logoAlt={_productName} />
 
           <Hero
             theme={t}
@@ -106,10 +106,10 @@ export const OnboardingVercel = ({
 OnboardingVercel.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Vercel",
+  _senderAvatarUrl: "https://example.com/avatar.jpg",
   _senderName: "Vercel Team",
   _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",
-  senderAvatarUrl: "https://example.com/avatar.jpg",
 } satisfies Props;
 
 export default OnboardingVercel;

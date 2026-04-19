@@ -22,7 +22,7 @@ interface Props {
   ctaHref?: string;
   _senderName?: string;
   _senderTitle?: string;
-  senderAvatarUrl?: string;
+  _senderAvatarUrl?: string;
 }
 
 export const OnboardingDefault = ({
@@ -115,10 +115,10 @@ export const OnboardingDefault = ({
 OnboardingDefault.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Acme",
+  _senderAvatarUrl: "https://example.com/avatar.jpg",
   _senderName: "The team",
   _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",
-  senderAvatarUrl: "https://example.com/avatar.jpg",
 } satisfies Props;
 
 export default OnboardingDefault;

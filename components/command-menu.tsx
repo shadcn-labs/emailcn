@@ -1,6 +1,5 @@
 "use client";
 
-import type { DialogProps } from "@radix-ui/react-dialog";
 import { IconArrowRight } from "@tabler/icons-react";
 import { CornerDownLeftIcon, SquareDashedIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -88,7 +87,7 @@ export const CommandMenu = ({
   blocks,
   navItems,
   ...props
-}: DialogProps & {
+}: React.ComponentProps<typeof Dialog> & {
   tree: typeof source.pageTree;
   blocks?: { name: string; description: string; categories: string[] }[];
   navItems?: { href: string; label: string }[];
@@ -215,7 +214,7 @@ export const CommandMenu = ({
                 heading="Pages"
                 className="!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1"
               >
-                {navItems.map((item) => (
+                {navItems.map((item: { href: string; label: string }) => (
                   <CommandMenuItem
                     key={item.href}
                     value={`Navigation ${item.label}`}
@@ -234,7 +233,7 @@ export const CommandMenu = ({
                 ))}
               </CommandGroup>
             )}
-            {tree.children.map((group) => (
+            {tree.children.map((group: (typeof tree.children)[number]) => (
               <CommandGroup
                 key={group.$id}
                 heading={group.name}
@@ -279,34 +278,40 @@ export const CommandMenu = ({
                 heading="Blocks"
                 className="!p-0 [&_[cmdk-group-heading]]:!p-3"
               >
-                {blocks.map((block) => (
-                  <CommandMenuItem
-                    key={block.name}
-                    value={block.name}
-                    onHighlight={() => {
-                      handleBlockHighlight(block);
-                    }}
-                    keywords={[
-                      "block",
-                      block.name,
-                      block.description,
-                      ...block.categories,
-                    ]}
-                    onSelect={() => {
-                      runCommand(() =>
-                        router.push(
-                          `/blocks/${block.categories[0]}#${block.name}`
-                        )
-                      );
-                    }}
-                  >
-                    <SquareDashedIcon />
-                    {block.description}
-                    <span className="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
-                      {block.name}
-                    </span>
-                  </CommandMenuItem>
-                ))}
+                {blocks.map(
+                  (block: {
+                    name: string;
+                    description: string;
+                    categories: string[];
+                  }) => (
+                    <CommandMenuItem
+                      key={block.name}
+                      value={block.name}
+                      onHighlight={() => {
+                        handleBlockHighlight(block);
+                      }}
+                      keywords={[
+                        "block",
+                        block.name,
+                        block.description,
+                        ...block.categories,
+                      ]}
+                      onSelect={() => {
+                        runCommand(() =>
+                          router.push(
+                            `/blocks/${block.categories[0]}#${block.name}`
+                          )
+                        );
+                      }}
+                    >
+                      <SquareDashedIcon />
+                      {block.description}
+                      <span className="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
+                        {block.name}
+                      </span>
+                    </CommandMenuItem>
+                  )
+                )}
               </CommandGroup>
             ) : null}
           </CommandList>

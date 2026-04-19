@@ -14,7 +14,7 @@ import {
 import { theme as notionTheme } from "../themes/notion";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   resetHref?: string;
   expiresInMinutes?: number;
@@ -105,9 +105,9 @@ export const AuthPasswordResetNotion = ({
 
 AuthPasswordResetNotion.PreviewProps = {
   _logoAlt: "Notion",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Notion",
   expiresInMinutes: 60,
-  logoUrl: "https://example.com/logo.png",
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
 

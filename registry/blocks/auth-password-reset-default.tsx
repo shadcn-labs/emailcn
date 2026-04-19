@@ -14,7 +14,7 @@ import {
 import { theme as defaultTheme } from "../themes/default";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   resetHref?: string;
   expiresInMinutes?: number;
@@ -105,9 +105,9 @@ export const AuthPasswordResetDefault = ({
 
 AuthPasswordResetDefault.PreviewProps = {
   _logoAlt: "Acme",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Acme",
   expiresInMinutes: 60,
-  logoUrl: "https://example.com/logo.png",
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
 

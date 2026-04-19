@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-theme-raycast",
-  "type": "registry:file",
   "title": "Raycast Email Theme",
   "description": "Raycast-style dark email theme tokens",
   "files": [
@@ -12,5 +11,8 @@
       "target": "lib/email-themes/raycast.ts"
     }
   ],
-  "categories": ["theme"]
+  "categories": [
+    "theme"
+  ],
+  "type": "registry:file"
 }

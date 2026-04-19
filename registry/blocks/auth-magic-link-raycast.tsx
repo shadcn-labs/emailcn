@@ -14,7 +14,7 @@ import {
 import { theme as raycastTheme } from "../themes/raycast";
 
 interface Props {
-  logoUrl?: string;
+  _logoUrl?: string;
   _logoAlt?: string;
   magicLinkHref?: string;
   expiresInMinutes?: number;
@@ -107,10 +107,10 @@ export const AuthMagicLinkRaycast = ({
 
 AuthMagicLinkRaycast.PreviewProps = {
   _logoAlt: "Raycast",
+  _logoUrl: "https://example.com/logo.png",
   _productName: "Raycast",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,
-  logoUrl: "https://example.com/logo.png",
   magicLinkHref: "https://example.com/login?token=abc123",
 } satisfies Props;
 

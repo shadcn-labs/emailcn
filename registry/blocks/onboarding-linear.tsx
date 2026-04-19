@@ -23,7 +23,7 @@ interface Props {
   ctaHref?: string;
   _senderName?: string;
   _senderTitle?: string;
-  senderAvatarUrl?: string;
+  _senderAvatarUrl?: string;
 }
 
 export const OnboardingLinear = ({
@@ -52,7 +52,7 @@ export const OnboardingLinear = ({
             padding: t.spacingLg,
           }}
         >
-          <LogoHeader theme={t} _logoAlt={_productName} />
+          <LogoHeader theme={t} logoAlt={_productName} />
 
           <Hero
             theme={t}
@@ -106,10 +106,10 @@ export const OnboardingLinear = ({
 OnboardingLinear.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Linear",
+  _senderAvatarUrl: "https://example.com/avatar.jpg",
   _senderName: "Linear Team",
   _senderTitle: "Team",
   ctaHref: "https://linear.app",
-  senderAvatarUrl: "https://example.com/avatar.jpg",
 } satisfies Props;
 
 export default OnboardingLinear;
