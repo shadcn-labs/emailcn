@@ -1,0 +1,48 @@
+---
+title: Onboarding Emails
+description: Pre-built onboarding email templates for new users.
+---
+
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="onboarding" kind="blocks" />
+
+Onboarding emails help new users get started with your product.
+
+## Variants
+
+### Default
+
+Simple welcome email with getting started steps.
+
+```tsx title="registry/blocks/onboarding-default.tsx"
+// Subject: Welcome to {_productName}
+// ...
+```
+
+### Linear
+
+Onboarding styled like Linear's welcome emails.
+
+```tsx title="registry/blocks/onboarding-linear.tsx"
+// ...
+```
+
+### Vercel
+
+Onboarding styled like Vercel's getting started emails.
+
+```tsx title="registry/blocks/onboarding-vercel.tsx"
+// ...
+```
+
+## Props
+
+| Prop           | Type                                | Default         | Description             |
+| -------------- | ----------------------------------- | --------------- | ----------------------- |
+| `logoUrl`      | `string`                            | -               | URL of the product logo |
+| `userName`     | `string`                            | `"User"`        | User's name             |
+| `_productName` | `string`                            | `"Acme"`        | Product name            |
+| `features`     | `Array<{icon, title, description}>` | -               | Feature list            |
+| `ctaLabel`     | `string`                            | `"Get Started"` | CTA button label        |
+| `ctaHref`      | `string`                            | `"#"`           | CTA button link         |

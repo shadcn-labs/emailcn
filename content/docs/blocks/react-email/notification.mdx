@@ -1,0 +1,108 @@
+---
+title: Notification Emails
+description: Pre-built notification email templates for various use cases.
+---
+
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="react-email" component="notification" kind="blocks" />
+
+Notification emails alert users about activity in your application.
+
+## Variants
+
+### Default
+
+Simple notification with actor info, action, and CTA button.
+
+```tsx title="registry/blocks/notification-default.tsx"
+import {
+  Body,
+  Button,
+  Column,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "react-email";
+
+import { theme as defaultTheme } from "../themes/default";
+
+interface Props {
+  logoUrl?: string;
+  actorName?: string;
+  actorAvatarUrl?: string;
+  _action?: string;
+  _targetName?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  _productName?: string;
+}
+
+export const NotificationDefault = (
+  {
+    // ...
+  }: Props
+) => {
+  // ...
+};
+```
+
+**Preview Props:**
+
+```ts
+{
+  _action: "commented on your post",
+  _productName: "Acme",
+  _targetName: "New comment on your project",
+  actorAvatarUrl: "https://example.com/avatar.jpg",
+  actorName: "Sarah",
+  ctaHref: "https://example.com/notification",
+  ctaLabel: "View Comment",
+  logoUrl: "https://example.com/logo.png",
+}
+```
+
+### Airbnb
+
+Similar to Airbnb's notification style with avatar and action.
+
+```tsx title="registry/blocks/notification-airbnb.tsx"
+// Subject: {_action} — {_targetName}
+// ...
+```
+
+### Linear
+
+Minimal notification with Linear's clean design.
+
+```tsx title="registry/blocks/notification-linear.tsx"
+// Subject: {_action} — {_targetName}
+// ...
+```
+
+### Slack
+
+Notification styled like Slack messages.
+
+```tsx title="registry/blocks/notification-slack.tsx"
+// Subject: Slack: {_action}
+// ...
+```
+
+## Props
+
+| Prop             | Type     | Default          | Description                               |
+| ---------------- | -------- | ---------------- | ----------------------------------------- |
+| `logoUrl`        | `string` | -                | URL of the product logo                   |
+| `actorName`      | `string` | `"Someone"`      | Name of the user who performed the action |
+| `actorAvatarUrl` | `string` | -                | URL of the user's avatar                  |
+| `_action`        | `string` | `"notified you"` | Action description                        |
+| `_targetName`    | `string` | `"your update"`  | Name of the notification target           |
+| `ctaLabel`       | `string` | `"View"`         | CTA button label                          |
+| `ctaHref`        | `string` | `"#"`            | CTA button link                           |
+| `_productName`   | `string` | `"Acme"`         | Product name                              |

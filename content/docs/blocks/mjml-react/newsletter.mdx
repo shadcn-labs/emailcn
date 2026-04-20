@@ -1,0 +1,41 @@
+---
+title: Newsletter Emails
+description: Pre-built newsletter email templates for updates and announcements.
+---
+
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="newsletter" kind="blocks" />
+
+Newsletter emails are used for regular updates and announcements.
+
+## Variants
+
+### Default
+
+Simple newsletter with featured article.
+
+```tsx title="registry/blocks/newsletter-default.tsx"
+// Subject: {_productName} Newsletter: {_title}
+// ...
+```
+
+### Stack Overflow
+
+Newsletter styled like Stack Overflow newsletters.
+
+```tsx title="registry/blocks/newsletter-stack-overflow.tsx"
+// ...
+```
+
+## Props
+
+| Prop             | Type                                          | Default        | Description             |
+| ---------------- | --------------------------------------------- | -------------- | ----------------------- |
+| `logoUrl`        | `string`                                      | -              | URL of the product logo |
+| `headerImageUrl` | `string`                                      | -              | Header image URL        |
+| `title`          | `string`                                      | `"Newsletter"` | Newsletter title        |
+| `preheader`      | `string`                                      | -              | Preview text            |
+| `_productName`   | `string`                                      | `"Acme"`       | Product name            |
+| `articles`       | `Array<{title, description, imageUrl, href}>` | -              | Featured articles       |
+| `ctaLabel`       | `string`                                      | `"Read More"`  | CTA button label        |

@@ -1,0 +1,17 @@
+{
+  "title": "MJML React",
+  "pages": [
+    "hero",
+    "testimonial",
+    "cta-banner",
+    "product-card",
+    "logo-header",
+    "divider",
+    "footer",
+    "content-grid",
+    "avatar-row",
+    "pricing-table",
+    "social-links",
+    "feature-row"
+  ]
+}

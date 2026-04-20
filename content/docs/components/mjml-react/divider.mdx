@@ -1,0 +1,31 @@
+---
+title: Divider
+description: A horizontal divider line.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="divider" />
+
+The Divider component displays a horizontal line to separate sections in an email.
+
+## Usage
+
+```tsx
+import { Divider } from "@/registry/bases/mjml-react/ui/divider";
+
+export default function Email() {
+  return <Divider />;
+}
+```
+
+## Props
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Preview
+
+<ComponentPreview base="mjml-react" name="divider-demo" title="divider" />

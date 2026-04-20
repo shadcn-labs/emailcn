@@ -1,0 +1,72 @@
+---
+title: Pricing Table
+description: A pricing comparison table for subscription plans.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="react-email" component="pricing-table" />
+
+The Pricing Table component displays pricing plans in a comparison table.
+
+## Usage
+
+```tsx
+import {
+  PricingTable,
+  PricingTier,
+} from "@/registry/bases/react-email/ui/pricing-table";
+
+export default function Email() {
+  return (
+    <PricingTable>
+      <PricingTier
+        name="Basic"
+        price="$9"
+        description="For individuals"
+        features={["Feature 1", "Feature 2"]}
+        ctaLabel="Get Started"
+        ctaHref="https://example.com"
+      />
+      <PricingTier
+        name="Pro"
+        price="$29"
+        description="For teams"
+        features={["Feature 1", "Feature 2", "Feature 3"]}
+        ctaLabel="Get Started"
+        ctaHref="https://example.com"
+        popular
+      />
+    </PricingTable>
+  );
+}
+```
+
+## Props
+
+### PricingTable
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+### PricingTier
+
+| Prop          | Type       | Default | Description          |
+| ------------- | ---------- | ------- | -------------------- |
+| `name`        | `string`   | -       | Tier name            |
+| `price`       | `string`   | -       | Price                |
+| `description` | `string`   | -       | Tier description     |
+| `features`    | `string[]` | -       | Feature list         |
+| `ctaLabel`    | `string`   | -       | CTA button label     |
+| `ctaHref`     | `string`   | `"#"`   | CTA button link      |
+| `popular`     | `boolean`  | `false` | Mark as popular tier |
+
+## Preview
+
+<ComponentPreview
+  base="react-email"
+  name="pricing-table-demo"
+  title="pricing-table"
+/>

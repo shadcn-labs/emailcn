@@ -1,0 +1,46 @@
+---
+title: Testimonial
+description: A customer testimonial section with avatar and quote.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="testimonial" />
+
+The Testimonial component displays a customer quote with their avatar and name.
+
+## Usage
+
+```tsx
+import { Testimonial } from "@/registry/bases/mjml-react/ui/testimonial";
+
+export default function Email() {
+  return (
+    <Testimonial
+      quote="This product changed how we work."
+      author="Jane Doe"
+      role="CEO at Company"
+      avatarUrl="https://example.com/avatar.jpg"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop        | Type         | Default        | Description            |
+| ----------- | ------------ | -------------- | ---------------------- |
+| `quote`     | `string`     | -              | Testimonial quote text |
+| `author`    | `string`     | -              | Author name            |
+| `role`      | `string`     | -              | Author role/company    |
+| `avatarUrl` | `string`     | -              | Author avatar URL      |
+| `theme`     | `EmailTheme` | `defaultTheme` | Email theme styling    |
+
+## Preview
+
+<ComponentPreview
+  base="mjml-react"
+  name="testimonial-demo"
+  title="testimonial"
+/>

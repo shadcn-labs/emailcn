@@ -1,0 +1,48 @@
+---
+title: Hero
+description: A hero section with heading, subheading, and CTA button.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="react-email" component="hero" />
+
+The Hero component displays a prominent heading with a subheading and optional CTA button.
+
+## Usage
+
+```tsx
+import { Hero } from "@/registry/bases/react-email/ui/hero";
+
+export default function Email() {
+  return (
+    <Hero
+      heading="Welcome to Acme"
+      subheading="Build faster with the tools you love."
+      ctaLabel="Get Started"
+      ctaHref="https://example.com"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop         | Type                 | Default                           | Description         |
+| ------------ | -------------------- | --------------------------------- | ------------------- |
+| `theme`      | `EmailTheme`         | `defaultTheme`                    | Email theme styling |
+| `heading`    | `string`             | `"Welcome"`                       | Main heading text   |
+| `subheading` | `string`             | `"Get started with your account"` | Subheading text     |
+| `ctaLabel`   | `string`             | `"Get Started"`                   | CTA button label    |
+| `ctaHref`    | `string`             | `"#"`                             | CTA button link     |
+| `align`      | `"left" \| "center"` | `"center"`                        | Text alignment      |
+
+## Preview
+
+<Callout>
+  Try different alignments and customize the heading/subheading to match your
+  brand.
+</Callout>
+
+<ComponentPreview base="react-email" name="hero-demo" title="Hero" />

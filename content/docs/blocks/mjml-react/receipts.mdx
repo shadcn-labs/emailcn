@@ -1,0 +1,58 @@
+---
+title: Receipt Emails
+description: Pre-built receipt and invoice email templates.
+---
+
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="receipts" kind="blocks" />
+
+Receipt emails confirm purchases and transactions.
+
+## Variants
+
+### Default
+
+Simple receipt with order summary.
+
+```tsx title="registry/blocks/receipt-default.tsx"
+// Subject: Your receipt from {_productName}
+// ...
+```
+
+### Apple
+
+Receipt styled like Apple purchases.
+
+```tsx title="registry/blocks/receipt-apple.tsx"
+// ...
+```
+
+### Nike
+
+Receipt styled like Nike orders.
+
+```tsx title="registry/blocks/receipt-nike.tsx"
+// ...
+```
+
+### Stripe
+
+Receipt styled like Stripe invoices.
+
+```tsx title="registry/blocks/receipt-stripe.tsx"
+// ...
+```
+
+## Props
+
+| Prop           | Type                                     | Default  | Description             |
+| -------------- | ---------------------------------------- | -------- | ----------------------- |
+| `logoUrl`      | `string`                                 | -        | URL of the product logo |
+| `logoAlt`      | `string`                                 | `"Logo"` | Alt text for logo       |
+| `items`        | `Array<{description, amount, quantity}>` | -        | Line items              |
+| `subtotal`     | `string`                                 | -        | Subtotal amount         |
+| `tax`          | `string`                                 | -        | Tax amount              |
+| `total`        | `string`                                 | -        | Total amount            |
+| `currency`     | `string`                                 | `"USD"`  | Currency code           |
+| `_productName` | `string`                                 | `"Acme"` | Product name            |

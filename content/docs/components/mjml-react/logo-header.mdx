@@ -1,0 +1,44 @@
+---
+title: Logo Header
+description: A header with company logo.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="logo-header" />
+
+The Logo Header component displays a company logo at the top of an email.
+
+## Usage
+
+```tsx
+import { LogoHeader } from "@/registry/bases/mjml-react/ui/logo-header";
+
+export default function Email() {
+  return (
+    <LogoHeader
+      logoUrl="https://example.com/logo.png"
+      logoAlt="Acme"
+      href="https://example.com"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop      | Type         | Default        | Description         |
+| --------- | ------------ | -------------- | ------------------- |
+| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
+| `logoUrl` | `string`     | -              | Logo image URL      |
+| `logoAlt` | `string`     | `"Logo"`       | Alt text for logo   |
+| `href`    | `string`     | `"#"`          | Logo link URL       |
+
+## Preview
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-header-demo"
+  title="logo-header"
+/>

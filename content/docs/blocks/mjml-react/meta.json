@@ -1,0 +1,11 @@
+{
+  "title": "MJML React",
+  "pages": [
+    "authentication",
+    "notification",
+    "newsletter",
+    "invites",
+    "receipts",
+    "onboarding"
+  ]
+}

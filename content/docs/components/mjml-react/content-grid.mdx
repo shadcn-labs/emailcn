@@ -1,0 +1,45 @@
+---
+title: Content Grid
+description: A grid layout for displaying multiple content items.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="content-grid" />
+
+The Content Grid component displays content in a responsive grid layout.
+
+## Usage
+
+```tsx
+import {
+  ContentGrid,
+  ContentGridItem,
+} from "@/registry/bases/mjml-react/ui/content-grid";
+
+export default function Email() {
+  return (
+    <ContentGrid>
+      <ContentGridItem>Item 1</ContentGridItem>
+      <ContentGridItem>Item 2</ContentGridItem>
+    </ContentGrid>
+  );
+}
+```
+
+## Props
+
+| Prop      | Type         | Default        | Description         |
+| --------- | ------------ | -------------- | ------------------- |
+| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
+| `columns` | `number`     | `2`            | Number of columns   |
+| `gap`     | `string`     | -              | Gap between items   |
+
+## Preview
+
+<ComponentPreview
+  base="mjml-react"
+  name="content-grid-demo"
+  title="content-grid"
+/>

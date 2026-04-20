@@ -1,0 +1,44 @@
+---
+title: Avatar Row
+description: A row of user avatars with optional names.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="react-email" component="avatar-row" />
+
+The Avatar Row component displays a row of user avatars, useful for showing team members or recent activity.
+
+## Usage
+
+```tsx
+import { AvatarRow } from "@/registry/bases/react-email/ui/avatar-row";
+
+export default function Email() {
+  return (
+    <AvatarRow
+      users={[
+        { name: "John", avatarUrl: "https://example.com/avatar1.jpg" },
+        { name: "Jane", avatarUrl: "https://example.com/avatar2.jpg" },
+        { name: "Bob", avatarUrl: "https://example.com/avatar3.jpg" },
+      ]}
+    />
+  );
+}
+```
+
+## Props
+
+| Prop    | Type                       | Default        | Description         |
+| ------- | -------------------------- | -------------- | ------------------- |
+| `theme` | `EmailTheme`               | `defaultTheme` | Email theme styling |
+| `users` | `Array<{name, avatarUrl}>` | -              | List of users       |
+
+## Preview
+
+<ComponentPreview
+  base="react-email"
+  name="avatar-row-demo"
+  title="avatar-row"
+/>

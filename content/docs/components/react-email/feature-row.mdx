@@ -1,0 +1,45 @@
+---
+title: Feature Row
+description: A feature display with icon, title, and description.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="react-email" component="feature-row" />
+
+The Feature Row component displays a feature with an icon, title, and description.
+
+## Usage
+
+```tsx
+import { FeatureRow } from "@/registry/bases/react-email/ui/feature-row";
+
+export default function Email() {
+  return (
+    <FeatureRow
+      icon="🚀"
+      title="Fast Setup"
+      description="Get started in minutes."
+    />
+  );
+}
+```
+
+## Props
+
+| Prop          | Type                 | Default        | Description         |
+| ------------- | -------------------- | -------------- | ------------------- |
+| `theme`       | `EmailTheme`         | `defaultTheme` | Email theme styling |
+| `icon`        | `string`             | -              | Icon emoji or URL   |
+| `title`       | `string`             | -              | Feature title       |
+| `description` | `string`             | -              | Feature description |
+| `align`       | `"left" \| "center"` | `"left"`       | Text alignment      |
+
+## Preview
+
+<ComponentPreview
+  base="react-email"
+  name="feature-row-demo"
+  title="feature-row"
+/>

@@ -1,0 +1,11 @@
+{
+  "title": "React Email",
+  "pages": [
+    "authentication",
+    "notification",
+    "newsletter",
+    "invites",
+    "receipts",
+    "onboarding"
+  ]
+}

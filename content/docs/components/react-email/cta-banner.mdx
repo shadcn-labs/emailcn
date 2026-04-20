@@ -1,0 +1,47 @@
+---
+title: CTA Banner
+description: A call-to-action banner for promotions.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="react-email" component="cta-banner" />
+
+The CTA Banner component displays a promotional banner with heading, description, and CTA button.
+
+## Usage
+
+```tsx
+import { CtaBanner } from "@/registry/bases/react-email/ui/cta-banner";
+import { Button } from "react-email";
+
+export default function Email() {
+  return (
+    <CtaBanner
+      heading="Special Offer"
+      description="Get 50% off your first month."
+      ctaLabel="Claim Now"
+      ctaHref="https://example.com"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop          | Type         | Default        | Description         |
+| ------------- | ------------ | -------------- | ------------------- |
+| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling |
+| `heading`     | `string`     | -              | Banner heading      |
+| `description` | `string`     | -              | Banner description  |
+| `ctaLabel`    | `string`     | -              | CTA button label    |
+| `ctaHref`     | `string`     | `"#"`          | CTA button link     |
+
+## Preview
+
+<ComponentPreview
+  base="react-email"
+  name="cta-banner-demo"
+  title="cta-banner"
+/>

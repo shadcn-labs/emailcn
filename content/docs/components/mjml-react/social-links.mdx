@@ -1,0 +1,46 @@
+---
+title: Social Links
+description: A row of social media links with icons.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="social-links" />
+
+The Social Links component displays social media icons in a row.
+
+## Usage
+
+```tsx
+import { SocialLinks } from "@/registry/bases/mjml-react/ui/social-links";
+
+export default function Email() {
+  return (
+    <SocialLinks
+      twitterUrl="https://twitter.com/example"
+      linkedinUrl="https://linkedin.com/company/example"
+      githubUrl="https://github.com/example"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop           | Type         | Default        | Description         |
+| -------------- | ------------ | -------------- | ------------------- |
+| `theme`        | `EmailTheme` | `defaultTheme` | Email theme styling |
+| `twitterUrl`   | `string`     | -              | Twitter/X link      |
+| `linkedinUrl`  | `string`     | -              | LinkedIn link       |
+| `githubUrl`    | `string`     | -              | GitHub link         |
+| `facebookUrl`  | `string`     | -              | Facebook link       |
+| `instagramUrl` | `string`     | -              | Instagram link      |
+
+## Preview
+
+<ComponentPreview
+  base="mjml-react"
+  name="social-links-demo"
+  title="social-links"
+/>

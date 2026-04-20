@@ -1,0 +1,44 @@
+---
+title: Footer
+description: An email footer with company info and links.
+---
+
+import { ComponentPreview } from "@/components/component-preview";
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="footer" />
+
+The Footer component displays a footer with company information and optional links.
+
+## Usage
+
+```tsx
+import { Footer } from "@/registry/bases/mjml-react/ui/footer";
+
+export default function Email() {
+  return (
+    <Footer
+      companyName="Acme Inc."
+      companyAddress="123 Street, City, Country"
+      unsubscribeUrl="https://example.com/unsubscribe"
+      privacyUrl="https://example.com/privacy"
+      termsUrl="https://example.com/terms"
+    />
+  );
+}
+```
+
+## Props
+
+| Prop             | Type         | Default        | Description           |
+| ---------------- | ------------ | -------------- | --------------------- |
+| `theme`          | `EmailTheme` | `defaultTheme` | Email theme styling   |
+| `companyName`    | `string`     | -              | Company name          |
+| `companyAddress` | `string`     | -              | Company address       |
+| `unsubscribeUrl` | `string`     | -              | Unsubscribe link      |
+| `privacyUrl`     | `string`     | -              | Privacy policy link   |
+| `termsUrl`       | `string`     | -              | Terms of service link |
+
+## Preview
+
+<ComponentPreview base="mjml-react" name="footer-demo" title="footer" />

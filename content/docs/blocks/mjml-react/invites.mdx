@@ -1,0 +1,42 @@
+---
+title: Invitation Emails
+description: Pre-built invitation email templates for team and project invites.
+---
+
+import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+
+<DocsBaseSwitcher base="mjml-react" component="invites" kind="blocks" />
+
+Invitation emails are used to invite users to teams, projects, or organizations.
+
+## Variants
+
+### Default
+
+Simple team invitation with inviter info and CTA.
+
+```tsx title="registry/blocks/invite-default.tsx"
+// Subject: You're invited to join {_teamName}
+// ...
+```
+
+### Vercel
+
+Invitation styled like Vercel's team invites.
+
+```tsx title="registry/blocks/invite-vercel.tsx"
+// ...
+```
+
+## Props
+
+| Prop               | Type     | Default       | Description             |
+| ------------------ | -------- | ------------- | ----------------------- |
+| `logoUrl`          | `string` | -             | URL of the product logo |
+| `inviterName`      | `string` | `"Someone"`   | Name of the inviter     |
+| `inviterAvatarUrl` | `string` | -             | URL of inviter's avatar |
+| `_teamName`        | `string` | `"Acme Team"` | Team or project name    |
+| `role`             | `string` | `"Member"`    | Invited role            |
+| `ctaLabel`         | `string` | `"Join Team"` | CTA button label        |
+| `ctaHref`          | `string` | `"#"`         | CTA button link         |
+| `_productName`     | `string` | `"Acme"`      | Product name            |
