@@ -1,5 +1,6 @@
 import { ROUTES } from "@/constants/routes";
 
+import type { PageTreeFolder } from "./page-tree";
 import { formatLabelFromSlug } from "./utils";
 
 export interface NavItem {
@@ -47,6 +48,18 @@ export const docsConfig: DocsConfig = {
     },
   ],
 };
+
+export const EXCLUDED_SECTIONS = new Set([
+  "installation",
+  "changelog",
+  "(root)",
+]);
+
+export const isComponentsFolder = (folder: PageTreeFolder) =>
+  folder.$id === "components" || folder.name === "Components";
+
+export const isBlocksFolder = (folder: PageTreeFolder) =>
+  folder.$id === "blocks" || folder.name === "Blocks";
 
 export const docsContentRoute = `${ROUTES.LLMS_MDX}${ROUTES.DOCS}`;
 export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;

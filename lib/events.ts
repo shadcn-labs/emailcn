@@ -15,6 +15,7 @@ const eventSchema = z.object({
     "copy_chart_theme",
     "copy_chart_data",
     "copy_color",
+    "copy_email_html",
     "set_layout",
   ]),
   properties: z

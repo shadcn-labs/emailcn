@@ -29,7 +29,6 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { SITE } from "@/constants/site";
-import { themePrimaryBySlug } from "@/constants/theme-primary";
 import { useConfig } from "@/hooks/use-config";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { useIsMac } from "@/hooks/use-is-mac";
@@ -47,6 +46,8 @@ import {
 } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
+import { THEME_PRIMARY_BY_NAME } from "@/registry/themes";
+import type { RegistryThemeName } from "@/registry/themes";
 
 type DocUrlKind =
   | { kind: "theme"; slug: string }
@@ -98,7 +99,7 @@ const buildDocPageKeywords = (
 
 const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
   if (parsed.kind === "theme") {
-    const color = themePrimaryBySlug[parsed.slug];
+    const color = THEME_PRIMARY_BY_NAME[parsed.slug as RegistryThemeName];
     return (
       <span
         className="border-border/60 size-4 shrink-0 rounded-sm border"
