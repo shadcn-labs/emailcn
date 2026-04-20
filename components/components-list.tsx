@@ -4,7 +4,6 @@ import { isBlocksFolder, isComponentsFolder } from "@/lib/docs";
 import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
 import { getCategoryFoldersForBase, getPagesFromFolder } from "@/lib/page-tree";
 import { source } from "@/lib/source";
-import { PUBLIC_BASE_NAME } from "@/registry/bases";
 
 const getFolder = (name: string): PageTreeFolder | undefined => {
   for (const node of source.pageTree.children) {
@@ -51,7 +50,7 @@ const CategoryGrid = ({ categories }: { categories: PageTreeFolder[] }) => (
 export const ComponentsList = ({
   folderName = "Components",
   category,
-  base = PUBLIC_BASE_NAME,
+  base,
 }: {
   folderName?: string;
   category?: string;
@@ -70,7 +69,7 @@ export const ComponentsList = ({
     return <ComponentGrid pages={pages} />;
   }
 
-  const categories = getCategoryFoldersForBase(folder, base);
+  const categories = getCategoryFoldersForBase(folder, base ?? "");
 
   if (category) {
     const match = categories.find(
