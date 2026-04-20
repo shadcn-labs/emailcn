@@ -1,13 +1,9 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
-import { CommandBox } from "@/components/command-box";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/constants/routes";
-import { SITE } from "@/constants/site";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
-
-const installCommand = `npx shadcn@latest add ${SITE.URL}/r/email-hero.json`;
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -28,8 +24,6 @@ export default function IndexPage() {
               <br className="hidden sm:block" />
               Built on React Email. Distributed via shadcn.
             </p>
-
-            <CommandBox command={installCommand} />
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <Button asChild size="lg">

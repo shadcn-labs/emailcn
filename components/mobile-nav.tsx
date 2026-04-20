@@ -1,9 +1,10 @@
 "use client";
 
+import type { Root as PageTreeRoot } from "fumadocs-core/page-tree";
 import type { LinkProps } from "next/link";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import * as React from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,24 +12,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import type { source } from "@/lib/source";
+import { ROUTES } from "@/constants/routes";
+import {
+  EXCLUDED_SECTIONS,
+  isBlocksFolder,
+  isComponentsFolder,
+} from "@/lib/docs";
+import {
+  getCategoryFoldersForBase,
+  getCurrentBase,
+  getPagesFromFolder,
+} from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
-
-const TOP_LEVEL_SECTIONS = [
-  { href: "/docs", name: "Get Started" },
-  {
-    href: "/docs/components",
-    name: "Components",
-  },
-  {
-    href: "/docs/registry",
-    name: "Registry",
-  },
-  {
-    href: "/docs/mcp",
-    name: "MCP Server",
-  },
-];
 
 const MobileLink = ({
   href,
@@ -42,13 +37,15 @@ const MobileLink = ({
   className?: string;
 }) => {
   const router = useRouter();
+  const handleClick = useCallback(() => {
+    router.push(href.toString());
+    onOpenChange?.(false);
+  }, [router, href, onOpenChange]);
+
   return (
     <Link
       href={href}
-      onClick={() => {
-        router.push(href.toString());
-        onOpenChange?.(false);
-      }}
+      onClick={handleClick}
       className={cn("text-2xl font-medium", className)}
       {...props}
     >
@@ -57,16 +54,44 @@ const MobileLink = ({
   );
 };
 
+const MobileNavGroup = ({
+  label,
+  pages,
+  setOpen,
+}: {
+  label: React.ReactNode;
+  pages: { url: string; name: React.ReactNode }[];
+  setOpen: (open: boolean) => void;
+}) => {
+  if (pages.length === 0) {
+    return null;
+  }
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="text-muted-foreground text-sm font-medium">{label}</div>
+      <div className="flex flex-col gap-3">
+        {pages.map((page) => (
+          <MobileLink key={page.url} href={page.url} onOpenChange={setOpen}>
+            {page.name}
+          </MobileLink>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const MobileNav = ({
-  tree,
   items,
+  tree,
   className,
 }: {
-  tree: typeof source.pageTree;
   items: { href: string; label: string }[];
+  tree: PageTreeRoot;
   className?: string;
 }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const currentBase = getCurrentBase(pathname);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -113,56 +138,54 @@ export const MobileNav = ({
               Menu
             </div>
             <div className="flex flex-col gap-3">
-              <MobileLink href="/" onOpenChange={setOpen}>
+              <MobileLink href={ROUTES.HOME} onOpenChange={setOpen}>
                 Home
               </MobileLink>
-              {items.map((item, index) => (
-                <MobileLink key={index} href={item.href} onOpenChange={setOpen}>
+              {items.map((item) => (
+                <MobileLink
+                  key={item.href}
+                  href={item.href}
+                  onOpenChange={setOpen}
+                >
                   {item.label}
                 </MobileLink>
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="text-muted-foreground text-sm font-medium">
-              Sections
-            </div>
-            <div className="flex flex-col gap-3">
-              {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
-                <MobileLink key={name} href={href} onOpenChange={setOpen}>
-                  {name}
-                </MobileLink>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-8">
-            {tree?.children?.map((group, index) => {
-              if (group.type !== "folder") {
-                return null;
-              }
+          {tree.children.map((item) => {
+            if (item.type !== "folder") {
+              return null;
+            }
+            if (EXCLUDED_SECTIONS.has(item.$id ?? "")) {
+              return null;
+            }
 
-              return (
-                <div key={index} className="flex flex-col gap-4">
-                  <div className="text-muted-foreground text-sm font-medium">
-                    {group.name}
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    {group.children
-                      .filter((childItem) => childItem.type === "page")
-                      .map((childItem) => (
-                        <MobileLink
-                          key={`${childItem.url}-${index}`}
-                          href={childItem.url}
-                          onOpenChange={setOpen}
-                        >
-                          {childItem.name}
-                        </MobileLink>
-                      ))}
-                  </div>
-                </div>
+            if (isComponentsFolder(item) || isBlocksFolder(item)) {
+              return getCategoryFoldersForBase(item, currentBase).map(
+                (category) => (
+                  <MobileNavGroup
+                    key={`${item.$id}-${category.$id}`}
+                    label={
+                      isComponentsFolder(item)
+                        ? `Components · ${category.name}`
+                        : `Blocks · ${category.name}`
+                    }
+                    pages={getPagesFromFolder(category)}
+                    setOpen={setOpen}
+                  />
+                )
               );
-            })}
-          </div>
+            }
+
+            return (
+              <MobileNavGroup
+                key={item.$id}
+                label={item.name}
+                pages={getPagesFromFolder(item)}
+                setOpen={setOpen}
+              />
+            );
+          })}
         </div>
       </PopoverContent>
     </Popover>

@@ -2,11 +2,13 @@
 
 import {
   ArrowRightIcon,
+  CircleDashedIcon,
   CornerDownLeftIcon,
+  LayoutGrid,
   SquareDashedIcon,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import * as React from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,13 +28,109 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
+import { SITE } from "@/constants/site";
+import { themePrimaryBySlug } from "@/constants/theme-primary";
 import { useConfig } from "@/hooks/use-config";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
+import {
+  EXCLUDED_SECTIONS,
+  isBlocksFolder,
+  isComponentsFolder,
+} from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
+import {
+  getCategoryFoldersForBase,
+  getCurrentBase,
+  getPagesFromFolder,
+} from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
+
+type DocUrlKind =
+  | { kind: "theme"; slug: string }
+  | { kind: "component"; slug: string }
+  | { kind: "block"; slug: string }
+  | { kind: "template"; slug: string }
+  | { kind: "page" };
+
+const GROUP_HEADING_CLS =
+  "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
+
+const parseDocPageUrl = (url: string): DocUrlKind => {
+  const parts = url.split("/").filter(Boolean);
+  const themesIdx = parts.indexOf("themes");
+  if (themesIdx !== -1 && parts[themesIdx + 1]) {
+    return { kind: "theme", slug: parts[themesIdx + 1] };
+  }
+  const componentsIdx = parts.indexOf("components");
+  if (componentsIdx !== -1 && parts[componentsIdx + 1]) {
+    return { kind: "component", slug: parts.at(-1) ?? "" };
+  }
+  const blocksIdx = parts.indexOf("blocks");
+  if (blocksIdx !== -1 && parts[blocksIdx + 1]) {
+    return { kind: "block", slug: parts.at(-1) ?? "" };
+  }
+  const templatesIdx = parts.indexOf("templates");
+  if (templatesIdx !== -1 && parts[templatesIdx + 1]) {
+    return { kind: "template", slug: parts.at(-1) ?? "" };
+  }
+  return { kind: "page" };
+};
+
+const searchKeywordsFromUrl = (url: string) => {
+  const segments = url.split("/").filter(Boolean);
+  return segments.flatMap((segment) =>
+    segment.includes("-") ? [segment, ...segment.split("-")] : [segment]
+  );
+};
+
+const buildDocPageKeywords = (
+  parsed: DocUrlKind,
+  url: string,
+  breadcrumb: string[]
+): string[] => [
+  ...(parsed.kind === "page" ? [] : [parsed.kind]),
+  ...breadcrumb.filter(Boolean).flatMap((s) => [s, s.toLowerCase()]),
+  ...searchKeywordsFromUrl(url),
+];
+
+const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
+  if (parsed.kind === "theme") {
+    const color = themePrimaryBySlug[parsed.slug];
+    return (
+      <span
+        className="border-border/60 size-4 shrink-0 rounded-sm border"
+        style={color ? { backgroundColor: color } : undefined}
+        aria-hidden
+      />
+    );
+  }
+  if (parsed.kind === "component") {
+    return <CircleDashedIcon />;
+  }
+  if (parsed.kind === "block") {
+    return <LayoutGrid className="size-4 shrink-0 opacity-70" />;
+  }
+  if (parsed.kind === "template") {
+    return <SquareDashedIcon />;
+  }
+  return <ArrowRightIcon />;
+};
+
+const CommandMenuKbd = ({
+  className,
+  ...props
+}: React.ComponentProps<"kbd">) => (
+  <kbd
+    className={cn(
+      "bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&_svg:not([class*='size-'])]:size-3",
+      className
+    )}
+    {...props}
+  />
+);
 
 const CommandMenuItem = ({
   children,
@@ -44,7 +142,7 @@ const CommandMenuItem = ({
   "data-selected"?: string;
   "aria-selected"?: string;
 }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useMutationObserver(ref, (mutations) => {
     for (const mutation of mutations) {
@@ -72,19 +170,6 @@ const CommandMenuItem = ({
   );
 };
 
-const CommandMenuKbd = ({
-  className,
-  ...props
-}: React.ComponentProps<"kbd">) => (
-  <kbd
-    className={cn(
-      "bg-background text-muted-foreground pointer-events-none flex h-5 items-center justify-center gap-1 rounded border px-1 font-sans text-[0.7rem] font-medium select-none [&_svg:not([class*='size-'])]:size-3",
-      className
-    )}
-    {...props}
-  />
-);
-
 export const CommandMenu = ({
   tree,
   blocks,
@@ -96,14 +181,14 @@ export const CommandMenu = ({
   navItems?: { href: string; label: string }[];
 }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const isMac = useIsMac();
   const [config] = useConfig();
-  const [open, setOpen] = React.useState(false);
-  const [selectedType, setSelectedType] = React.useState<
-    "page" | "component" | "block" | null
-  >(null);
-  const [copyPayload, setCopyPayload] = React.useState("");
+  const [open, setOpen] = useState(false);
+  const [showGoToPage, setShowGoToPage] = useState(false);
+  const [copyPayload, setCopyPayload] = useState("");
   const packageManager = config.packageManager || "pnpm";
+  const currentBase = getCurrentBase(pathname);
 
   const { copyToClipboard } = useCopyToClipboard({
     onCopy: () => {
@@ -116,36 +201,125 @@ export const CommandMenu = ({
     },
   });
 
-  const handlePageHighlight = React.useCallback(
-    (isComponent: boolean, item: { url: string; name?: React.ReactNode }) => {
-      if (isComponent) {
-        const componentName = item.url.split("/").pop();
-        setSelectedType("component");
-        setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${componentName}`
-        );
-      } else {
-        setSelectedType("page");
-        setCopyPayload("");
+  const treeGroups = useMemo(() => {
+    const groups: { label: string; pages: { url: string; name: string }[] }[] =
+      [];
+    for (const item of tree.children) {
+      if (item.type !== "folder") {
+        continue;
       }
+      if (EXCLUDED_SECTIONS.has(item.$id ?? "")) {
+        continue;
+      }
+
+      if (isComponentsFolder(item) || isBlocksFolder(item)) {
+        for (const category of getCategoryFoldersForBase(item, currentBase)) {
+          const pages = getPagesFromFolder(category).map((p) => ({
+            name: typeof p.name === "string" ? p.name : String(p.name),
+            url: p.url,
+          }));
+          if (pages.length > 0) {
+            const catName =
+              typeof category.name === "string"
+                ? category.name
+                : String(category.name);
+            groups.push({
+              label: isComponentsFolder(item)
+                ? `Components · ${catName}`
+                : `Blocks · ${catName}`,
+              pages,
+            });
+          }
+        }
+      } else {
+        const pages = getPagesFromFolder(item).map((p) => ({
+          name: typeof p.name === "string" ? p.name : String(p.name),
+          url: p.url,
+        }));
+        if (pages.length > 0) {
+          groups.push({
+            label:
+              typeof item.name === "string" ? item.name : String(item.name),
+            pages,
+          });
+        }
+      }
+    }
+    return groups;
+  }, [tree, currentBase]);
+
+  const handleDocPageHighlight = useCallback(
+    (item: { url: string; name?: string }) => {
+      setShowGoToPage(true);
+      const parsed = parseDocPageUrl(item.url);
+      if (parsed.kind === "theme") {
+        setCopyPayload(
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/theme-${parsed.slug}`
+        );
+        return;
+      }
+      if (parsed.kind === "block") {
+        setCopyPayload("");
+        return;
+      }
+      if (parsed.kind === "component" || parsed.kind === "template") {
+        setCopyPayload(
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
+        );
+        return;
+      }
+      setCopyPayload("");
     },
     [packageManager]
   );
 
-  const handleBlockHighlight = React.useCallback(
+  const handleBlockHighlight = useCallback(
     (block: { name: string; description: string; categories: string[] }) => {
-      setSelectedType("block");
+      setShowGoToPage(true);
       setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
     },
     [packageManager]
   );
 
-  const runCommand = React.useCallback((command: () => unknown) => {
+  const runCommand = useCallback((command: () => unknown) => {
     setOpen(false);
     command();
   }, []);
 
-  React.useEffect(() => {
+  const handleOpenClick = useCallback(() => setOpen(true), []);
+
+  const handleFilter = useCallback(
+    (value: string, search: string, keywords?: string[]) => {
+      const extendValue = `${value} ${keywords?.join(" ") || ""}`;
+      if (extendValue.toLowerCase().includes(search.toLowerCase())) {
+        return 1;
+      }
+      return 0;
+    },
+    []
+  );
+
+  const renderDocPageItem = (
+    title: string,
+    url: string,
+    breadcrumb: string[]
+  ) => {
+    const parsed = parseDocPageUrl(url);
+    return (
+      <CommandMenuItem
+        key={url}
+        keywords={buildDocPageKeywords(parsed, url, breadcrumb)}
+        value={[...breadcrumb, title].filter(Boolean).join(" ")}
+        onHighlight={() => handleDocPageHighlight({ name: title, url })}
+        onSelect={() => runCommand(() => router.push(url))}
+      >
+        <DocPageLeadingIcon parsed={parsed} />
+        {title}
+      </CommandMenuItem>
+    );
+  };
+
+  useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
         if (
@@ -178,7 +352,7 @@ export const CommandMenu = ({
           className={cn(
             "bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
           )}
-          onClick={() => setOpen(true)}
+          onClick={handleOpenClick}
           {...props}
         >
           <span className="hidden lg:inline-flex">Search documentation...</span>
@@ -199,13 +373,7 @@ export const CommandMenu = ({
         </DialogHeader>
         <Command
           className="**:data-[slot=command-input-wrapper]:bg-input/50 **:data-[slot=command-input-wrapper]:border-input rounded-none bg-transparent **:data-[slot=command-input]:!h-9 **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:!h-9 **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border"
-          filter={(value, search, keywords) => {
-            const extendValue = `${value} ${keywords?.join(" ") || ""}`;
-            if (extendValue.toLowerCase().includes(search.toLowerCase())) {
-              return 1;
-            }
-            return 0;
-          }}
+          filter={handleFilter}
         >
           <CommandInput placeholder="Search documentation..." />
           <CommandList className="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
@@ -213,22 +381,17 @@ export const CommandMenu = ({
               No results found.
             </CommandEmpty>
             {navItems && navItems.length > 0 && (
-              <CommandGroup
-                heading="Pages"
-                className="!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1"
-              >
-                {navItems.map((item: { href: string; label: string }) => (
+              <CommandGroup heading="Pages" className={GROUP_HEADING_CLS}>
+                {navItems.map((item) => (
                   <CommandMenuItem
                     key={item.href}
                     value={`Navigation ${item.label}`}
                     keywords={["nav", "navigation", item.label.toLowerCase()]}
                     onHighlight={() => {
-                      setSelectedType("page");
+                      setShowGoToPage(true);
                       setCopyPayload("");
                     }}
-                    onSelect={() => {
-                      runCommand(() => router.push(item.href));
-                    }}
+                    onSelect={() => runCommand(() => router.push(item.href))}
                   >
                     <ArrowRightIcon />
                     {item.label}
@@ -236,85 +399,48 @@ export const CommandMenu = ({
                 ))}
               </CommandGroup>
             )}
-            {tree.children.map((group: (typeof tree.children)[number]) => (
+            {treeGroups.map((group) => (
               <CommandGroup
-                key={group.$id}
-                heading={group.name}
-                className="!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1"
+                key={group.label}
+                className={GROUP_HEADING_CLS}
+                heading={group.label}
               >
-                {group.type === "folder" &&
-                  group.children.map((item) => {
-                    if (item.type === "page") {
-                      const isComponent = item.url.includes("/components/");
-
-                      return (
-                        <CommandMenuItem
-                          key={item.url}
-                          value={
-                            item.name?.toString()
-                              ? `${group.name} ${item.name}`
-                              : ""
-                          }
-                          keywords={isComponent ? ["component"] : undefined}
-                          onHighlight={() =>
-                            handlePageHighlight(isComponent, item)
-                          }
-                          onSelect={() => {
-                            runCommand(() => router.push(item.url));
-                          }}
-                        >
-                          {isComponent ? (
-                            <div className="border-muted-foreground aspect-square size-4 rounded-full border border-dashed" />
-                          ) : (
-                            <ArrowRightIcon />
-                          )}
-                          {item.name}
-                        </CommandMenuItem>
-                      );
-                    }
-                    return null;
-                  })}
+                {group.pages.map((page) =>
+                  renderDocPageItem(page.name, page.url, [group.label])
+                )}
               </CommandGroup>
             ))}
             {blocks?.length ? (
               <CommandGroup
                 heading="Blocks"
-                className="!p-0 [&_[cmdk-group-heading]]:!p-3"
+                className="p-0! **:[[cmdk-group-heading]]:p-3!"
               >
-                {blocks.map(
-                  (block: {
-                    name: string;
-                    description: string;
-                    categories: string[];
-                  }) => (
-                    <CommandMenuItem
-                      key={block.name}
-                      value={block.name}
-                      onHighlight={() => {
-                        handleBlockHighlight(block);
-                      }}
-                      keywords={[
-                        "block",
-                        block.name,
-                        block.description,
-                        ...block.categories,
-                      ]}
-                      onSelect={() => {
-                        runCommand(() =>
-                          router.push(
-                            `/blocks/${block.categories[0]}#${block.name}`
-                          )
-                        );
-                      }}
-                    >
-                      <SquareDashedIcon />
-                      {block.description}
-                      <span className="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
-                        {block.name}
-                      </span>
-                    </CommandMenuItem>
-                  )
-                )}
+                {blocks.map((block) => (
+                  <CommandMenuItem
+                    key={block.name}
+                    value={block.name}
+                    onHighlight={() => handleBlockHighlight(block)}
+                    keywords={[
+                      "block",
+                      block.name,
+                      block.description,
+                      ...block.categories,
+                    ]}
+                    onSelect={() =>
+                      runCommand(() =>
+                        router.push(
+                          `/blocks/${block.categories[0]}#${block.name}`
+                        )
+                      )
+                    }
+                  >
+                    <SquareDashedIcon />
+                    {block.description}
+                    <span className="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
+                      {block.name}
+                    </span>
+                  </CommandMenuItem>
+                ))}
               </CommandGroup>
             ) : null}
           </CommandList>
@@ -324,17 +450,19 @@ export const CommandMenu = ({
             <CommandMenuKbd>
               <CornerDownLeftIcon />
             </CommandMenuKbd>{" "}
-            {selectedType === "page" || selectedType === "component"
-              ? "Go to Page"
-              : null}
+            {showGoToPage ? (
+              <span className="min-w-0 truncate">Go to Page</span>
+            ) : null}
           </div>
           {copyPayload && (
             <>
-              <Separator orientation="vertical" className="!h-4" />
-              <div className="flex items-center gap-1">
-                <CommandMenuKbd>{isMac ? "⌘" : "Ctrl"}</CommandMenuKbd>
-                <CommandMenuKbd>C</CommandMenuKbd>
-                {copyPayload}
+              <Separator orientation="vertical" className="h-4!" />
+              <div className="flex min-w-0 items-center gap-1">
+                <CommandMenuKbd className="shrink-0">
+                  {isMac ? "⌘" : "Ctrl"}
+                </CommandMenuKbd>
+                <CommandMenuKbd className="shrink-0">C</CommandMenuKbd>
+                <span className="min-w-0 truncate">{copyPayload}</span>
               </div>
             </>
           )}

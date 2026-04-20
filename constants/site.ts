@@ -16,8 +16,8 @@ export const SITE = {
     TWITTER: "@alaymanguy",
   },
   DESCRIPTION: {
-    LONG: "A shadcn/ui-compatible registry of React Email components and blocks. Beautiful, accessible, and customizable email templates for any brand.",
-    SHORT: "Beautiful React Email components, made simple",
+    LONG: "A collection of beautifully designed, accessible, and customizable email components. Built on React Email. Works with shadcn/ui.",
+    SHORT: "Beautiful emails, made simple",
   },
   KEYWORDS: [
     "react-email",
@@ -32,7 +32,7 @@ export const SITE = {
   ] as const,
   NAME: "emailcn",
   OG_IMAGE: `${getBaseUrl()}/og.png`,
-  REGISTRY: "emailcn",
+  REGISTRY: "@emailcn",
   URL: getBaseUrl(),
 };
 

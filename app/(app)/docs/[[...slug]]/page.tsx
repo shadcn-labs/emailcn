@@ -196,7 +196,6 @@ export default async function Page(props: {
           {doc.toc?.length ? (
             <div className="no-scrollbar overflow-y-auto px-8">
               <DocsTableOfContents toc={doc.toc} />
-              <div className="h-12" />
             </div>
           ) : null}
           <div className="hidden flex-col gap-6 px-6 xl:flex">

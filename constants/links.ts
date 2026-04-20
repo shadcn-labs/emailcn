@@ -12,5 +12,7 @@ export const LINK = {
   PORTFOLIO: "https://aniketpawar.com",
   ROADMAP: "https://github.com/users/Aniket-508/projects/1",
   SPONSOR: `https://github.com/sponsors/${GITHUB.user}`,
+  TERMCN:
+    "https://www.termcn.dev?ref=emailcn&utm_source=emailcn&utm_medium=website&utm_campaign=docs_sidebar",
   X: "https://x.com/alaymanguy",
 } as const;

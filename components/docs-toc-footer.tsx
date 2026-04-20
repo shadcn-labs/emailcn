@@ -1,46 +1,35 @@
-import Link from "next/link";
-
+import { Button } from "@/components/ui/button";
 import { LINK } from "@/constants/links";
+import { cn } from "@/lib/utils";
 
-const progressValue = 15;
-
-export const DocsTocFooter = () => (
-  <Link
-    href={LINK.ROADMAP}
-    target="_blank"
-    rel="noreferrer"
-    className="border-border/80 bg-card/70 hover:border-foreground/15 hover:bg-card hover:shadow-foreground/5 focus-visible:ring-ring group flex items-center gap-3 rounded-md border px-3 py-2 transition-shadow duration-75 ease-out will-change-transform hover:-translate-y-px hover:shadow-sm focus-visible:ring-2 focus-visible:outline-none"
+export const DocsTocFooter = ({ className }: React.ComponentProps<"div">) => (
+  <div
+    className={cn(
+      "group relative flex flex-col gap-2 rounded-lg bg-surface p-6 text-sm text-surface-foreground",
+      className
+    )}
   >
-    <svg
-      aria-hidden="true"
-      className="size-8 shrink-0 -rotate-90 transition-transform duration-75"
-      viewBox="0 0 32 32"
-    >
-      <circle
-        cx="16"
-        cy="16"
-        r="12.5"
-        fill="none"
-        className="stroke-border"
-        strokeWidth="5"
-      />
-      <circle
-        cx="16"
-        cy="16"
-        r="12.5"
-        fill="none"
-        stroke="color-mix(in oklab, var(--color-foreground) 65%, transparent)"
-        strokeWidth="5"
-        strokeDasharray={`${(progressValue / 100) * 2 * Math.PI * 12.5} ${2 * Math.PI * 12.5}`}
-      />
-    </svg>
-    <div className="min-w-0">
-      <p className="text-foreground/80 group-hover:text-foreground/90 text-xs leading-4 font-medium transition-colors duration-75">
-        Roadmap to v1
-      </p>
-      <p className="text-muted-foreground text-[0.65rem] leading-4">
-        {progressValue}% complete
-      </p>
+    <div className="text-base leading-tight font-semibold text-balance group-hover:underline">
+      Beautiful terminal UIs, made simple
     </div>
-  </Link>
+    <p className="text-muted-foreground leading-snug">
+      Ready-to-use React components for the terminal, built on <u>Ink</u>,
+      distributed via shadcn.
+    </p>
+    <Button variant="outline" size="sm" className="mt-2">
+      Go to termcn.dev
+    </Button>
+    <a
+      href={LINK.TERMCN}
+      target="_blank"
+      rel="noreferrer"
+      className="absolute inset-0 rounded-lg"
+      aria-hidden
+      tabIndex={-1}
+    >
+      <span className="sr-only">
+        Open TermCN components documentation (termcn.dev)
+      </span>
+    </a>
+  </div>
 );
