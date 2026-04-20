@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-hero",
+  "title": "Email Hero (MJML)",
+  "description": "Hero section with heading, subheading, and CTA for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/hero.tsx",
+      "content": "import {\n  MjmlButton,\n  MjmlColumn,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface HeroProps {\n  theme?: EmailTheme;\n  heading?: string;\n  subheading?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  align?: \"left\" | \"center\";\n}\n\nexport const Hero = ({\n  theme = defaultTheme,\n  heading = \"Welcome\",\n  subheading = \"Get started with your account\",\n  ctaLabel = \"Get Started\",\n  ctaHref = \"#\",\n  align = \"center\",\n}: HeroProps) => {\n  const t = resolveEmailTheme(theme);\n  const py = t.spacing[\"2xl\"] ?? \"48px\";\n\n  return (\n    <MjmlSection backgroundColor={t.colors.background} padding={`${py} 0`}>\n      <MjmlColumn>\n        <MjmlText\n          align={align}\n          color={t.colors.foreground}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.heading ?? \"28px\"}\n          fontWeight={t.fontWeight.bold ?? \"700\"}\n          paddingBottom={t.spacing.md ?? \"16px\"}\n        >\n          {heading}\n        </MjmlText>\n        <MjmlText\n          align={align}\n          color={t.colors[\"foreground-muted\"]}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.lg ?? \"16px\"}\n          lineHeight={t.lineHeight.snug}\n          paddingBottom={t.spacing.xl ?? \"24px\"}\n        >\n          {subheading}\n        </MjmlText>\n        {ctaLabel && ctaHref ? (\n          <MjmlButton\n            align={align}\n            backgroundColor={t.colors.primary}\n            borderRadius={t.borderRadius.md ?? \"6px\"}\n            color={t.colors[\"primary-fg\"] ?? \"#ffffff\"}\n            fontFamily={t.fontFamily.sans}\n            fontSize={t.fontSize.sm ?? \"14px\"}\n            fontWeight={t.fontWeight.medium ?? \"500\"}\n            href={ctaHref}\n            innerPadding={`${t.spacing.sm ?? \"12px\"} ${t.spacing.lg ?? \"24px\"}`}\n          >\n            {ctaLabel}\n          </MjmlButton>\n        ) : null}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nHero.PreviewProps = {\n  align: \"center\",\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Get Started\",\n  heading: \"Welcome to Acme\",\n  subheading: \"Build faster with the tools you love.\",\n  theme: defaultTheme,\n} satisfies HeroProps;\n\nexport default Hero;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

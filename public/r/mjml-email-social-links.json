@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-social-links",
+  "title": "Email Social Links (MJML)",
+  "description": "Social media links for email footers",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/social-links.tsx",
+      "content": "import { MjmlSection, MjmlText } from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface SocialLinksProps {\n  theme?: EmailTheme;\n  links?: {\n    platform:\n      | \"twitter\"\n      | \"github\"\n      | \"linkedin\"\n      | \"youtube\"\n      | \"instagram\"\n      | \"discord\";\n    href: string;\n  }[];\n}\n\nconst platformLabels: Record<\n  \"twitter\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\" | \"discord\",\n  string\n> = {\n  discord: \"Discord\",\n  github: \"GitHub\",\n  instagram: \"Instagram\",\n  linkedin: \"LinkedIn\",\n  twitter: \"Twitter\",\n  youtube: \"YouTube\",\n};\n\nexport const SocialLinks = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n  ],\n}: SocialLinksProps) => {\n  const t = resolveEmailTheme(theme);\n\n  return (\n    <MjmlSection padding={`${t.spacing.md ?? \"16px\"} 0`}>\n      <MjmlText>\n        {links.map((link) => (\n          <span key={`${link.href}-${link.platform}`}>\n            <a\n              href={link.href}\n              style={{\n                color: t.colors[\"foreground-muted\"],\n                fontFamily: t.fontFamily.sans,\n                fontSize: t.fontSize.sm ?? \"12px\",\n                marginRight: 24,\n                textDecoration: \"none\",\n              }}\n            >\n              {platformLabels[link.platform]}\n            </a>\n          </span>\n        ))}\n      </MjmlText>\n    </MjmlSection>\n  );\n};\n\nSocialLinks.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n    { href: \"https://linkedin.com\", platform: \"linkedin\" },\n  ],\n  theme: defaultTheme,\n} satisfies SocialLinksProps;\n\nexport default SocialLinks;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

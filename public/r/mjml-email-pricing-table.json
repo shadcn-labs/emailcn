@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-pricing-table",
+  "title": "Email Pricing Table (MJML)",
+  "description": "Pricing table with plans for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/pricing-table.tsx",
+      "content": "import {\n  MjmlButton,\n  MjmlColumn,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface PricingTableProps {\n  theme?: EmailTheme;\n  plans?: {\n    name: string;\n    price: string;\n    period: string;\n    features: string[];\n    ctaLabel: string;\n    ctaHref: string;\n    highlighted?: boolean;\n  }[];\n}\n\nexport const PricingTable = ({\n  theme = defaultTheme,\n  plans = [\n    {\n      ctaHref: \"#\",\n      ctaLabel: \"Get Started\",\n      features: [\"1 user\", \"5 projects\"],\n      name: \"Basic\",\n      period: \"/mo\",\n      price: \"$9\",\n    },\n    {\n      ctaHref: \"#\",\n      ctaLabel: \"Get Started\",\n      features: [\"5 users\", \"Unlimited projects\", \"Priority support\"],\n      highlighted: true,\n      name: \"Pro\",\n      period: \"/mo\",\n      price: \"$29\",\n    },\n  ],\n}: PricingTableProps) => {\n  const t = resolveEmailTheme(theme);\n  const pct = `${100 / Math.min(plans.length, 3)}%`;\n\n  return (\n    <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n      {plans.slice(0, 3).map((plan) => (\n        <MjmlColumn key={plan.name} padding={t.spacing.sm} width={pct}>\n          <MjmlSection\n            backgroundColor={\n              plan.highlighted\n                ? t.colors[\"background-muted\"]\n                : t.colors.background\n            }\n            border={\n              plan.highlighted\n                ? `2px solid ${t.colors.primary}`\n                : `1px solid ${t.colors.border}`\n            }\n            borderRadius={t.borderRadius.md}\n            padding={t.spacing.lg ?? \"24px\"}\n          >\n            <MjmlText\n              color={t.colors.foreground}\n              fontFamily={t.fontFamily.sans}\n              fontSize={t.fontSize.lg ?? \"16px\"}\n              fontWeight={t.fontWeight.medium ?? \"500\"}\n              paddingBottom={t.spacing.sm}\n            >\n              {plan.name}\n            </MjmlText>\n            <MjmlText paddingBottom={t.spacing.md}>\n              <span\n                style={{\n                  fontSize: t.fontSize.heading ?? \"28px\",\n                  fontWeight: 700,\n                }}\n              >\n                {plan.price}\n              </span>\n              <span\n                style={{ color: t.colors[\"foreground-muted\"], fontSize: 14 }}\n              >\n                {plan.period}\n              </span>\n            </MjmlText>\n            {plan.features.map((feature) => (\n              <MjmlText\n                key={`${plan.name}-${feature}`}\n                color={t.colors[\"foreground-muted\"]}\n                fontFamily={t.fontFamily.sans}\n                fontSize={t.fontSize.base ?? \"14px\"}\n                paddingBottom={t.spacing.sm}\n              >\n                • {feature}\n              </MjmlText>\n            ))}\n            <MjmlButton\n              align=\"center\"\n              backgroundColor={t.colors.primary}\n              borderRadius={t.borderRadius.md}\n              color={t.colors[\"primary-fg\"] ?? \"#ffffff\"}\n              fontFamily={t.fontFamily.sans}\n              fontSize={t.fontSize.sm ?? \"14px\"}\n              fontWeight={t.fontWeight.medium ?? \"500\"}\n              href={plan.ctaHref}\n              innerPadding={`${t.spacing.sm ?? \"12px\"} ${t.spacing.lg ?? \"24px\"}`}\n              paddingTop={t.spacing.md}\n            >\n              {plan.ctaLabel}\n            </MjmlButton>\n          </MjmlSection>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nPricingTable.PreviewProps = {\n  theme: defaultTheme,\n} satisfies PricingTableProps;\n\nexport default PricingTable;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

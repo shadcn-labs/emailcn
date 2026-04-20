@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-cta-banner",
+  "title": "Email CTA Banner (MJML)",
+  "description": "Call-to-action banner for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/cta-banner.tsx",
+      "content": "import {\n  MjmlButton,\n  MjmlColumn,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface CTABannerProps {\n  theme?: EmailTheme;\n  heading?: string;\n  subtext?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: \"filled\" | \"outline\";\n}\n\nexport const CTABanner = ({\n  theme = defaultTheme,\n  heading = \"Get Started\",\n  subtext = \"Join thousands of happy users.\",\n  ctaLabel = \"Get Started\",\n  ctaHref = \"#\",\n  variant = \"filled\",\n}: CTABannerProps) => {\n  const t = resolveEmailTheme(theme);\n  const isFilled = variant === \"filled\";\n  const boxBg = isFilled ? t.colors.primary : \"transparent\";\n  const boxBorder = isFilled\n    ? \"none\"\n    : `1px solid ${t.colors.border ?? \"#e5e7eb\"}`;\n  const titleColor = isFilled\n    ? (t.colors[\"primary-fg\"] ?? \"#ffffff\")\n    : t.colors.foreground;\n  const subColor = isFilled\n    ? (t.colors[\"primary-fg\"] ?? \"#ffffff\")\n    : t.colors[\"foreground-muted\"];\n  const btnBg = isFilled\n    ? (t.colors[\"primary-fg\"] ?? \"#ffffff\")\n    : t.colors.primary;\n  const btnFg = isFilled\n    ? t.colors.primary\n    : (t.colors[\"primary-fg\"] ?? \"#ffffff\");\n\n  return (\n    <MjmlSection\n      backgroundColor={boxBg}\n      border={boxBorder}\n      borderRadius={t.borderRadius.md}\n      padding={t.spacing.xl ?? \"24px\"}\n    >\n      <MjmlColumn>\n        <MjmlText\n          align=\"center\"\n          color={titleColor}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.xl ?? \"20px\"}\n          fontWeight={t.fontWeight.medium ?? \"500\"}\n          paddingBottom={t.spacing.sm}\n        >\n          {heading}\n        </MjmlText>\n        <MjmlText\n          align=\"center\"\n          color={subColor}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.base ?? \"14px\"}\n          paddingBottom={t.spacing.lg}\n        >\n          {subtext}\n        </MjmlText>\n        {ctaLabel && ctaHref ? (\n          <MjmlButton\n            align=\"center\"\n            backgroundColor={btnBg}\n            borderRadius={t.borderRadius.md}\n            color={btnFg}\n            fontFamily={t.fontFamily.sans}\n            fontSize={t.fontSize.sm ?? \"14px\"}\n            fontWeight={t.fontWeight.medium ?? \"500\"}\n            href={ctaHref}\n            innerPadding={`${t.spacing.sm ?? \"12px\"} ${t.spacing.lg ?? \"24px\"}`}\n          >\n            {ctaLabel}\n          </MjmlButton>\n        ) : null}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nCTABanner.PreviewProps = {\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Start Building Free\",\n  heading: \"Ready to get started?\",\n  subtext: \"Join 10,000+ developers building with our tools.\",\n  theme: defaultTheme,\n  variant: \"filled\",\n} satisfies CTABannerProps;\n\nexport default CTABanner;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

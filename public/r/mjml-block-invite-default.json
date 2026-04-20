@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-block-invite-default",
+  "title": "Team Invite — Default (MJML)",
+  "description": "Default team invitation email",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/blocks/invite-default.tsx",
+      "content": "// MJML parity block — mirrored from react-email (invite-default.tsx)\nimport { MjmlColumn, MjmlSection, MjmlText } from \"@faire/mjml-react\";\n\nimport { MjmlEmailDocument } from \"@/registry/bases/mjml-react/lib/document\";\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\ninterface Props {}\n\nexport const InviteDefault = (_props: Props) => {\n  const theme = defaultTheme;\n  const t = resolveEmailTheme(theme);\n  return (\n    <MjmlEmailDocument preview=\"Email preview\" theme={theme}>\n      <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n        <MjmlColumn>\n          <MjmlText color={t.colors.foreground} fontFamily={t.fontFamily.sans}>\n            MJML parity placeholder for invite-default.tsx — replace with full\n            markup.\n          </MjmlText>\n        </MjmlColumn>\n      </MjmlSection>\n    </MjmlEmailDocument>\n  );\n};\n\nInviteDefault.PreviewProps = {} satisfies Props;\nexport default InviteDefault;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "invite"
+  ],
+  "type": "registry:block"
+}

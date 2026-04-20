@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-block-receipt-apple",
+  "title": "Receipt — Apple (MJML)",
+  "description": "Apple-style receipt email",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json",
+    "https://emailcn.com/r/email-product-card.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/blocks/receipt-apple.tsx",
+      "content": "// MJML parity block — mirrored from react-email (receipt-apple.tsx)\nimport { MjmlColumn, MjmlSection, MjmlText } from \"@faire/mjml-react\";\n\nimport { MjmlEmailDocument } from \"@/registry/bases/mjml-react/lib/document\";\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\nimport { mergeEmailThemes } from \"@/registry/themes/merge\";\n\ninterface Props {}\n\nexport const ReceiptApple = (_props: Props) => {\n  const theme = mergeEmailThemes(defaultTheme, {\n    theme: {\n      extend: {\n        colors: {\n          background: {\n            muted: \"#f5f5f7\",\n          },\n        },\n      },\n    },\n  });\n  const t = resolveEmailTheme(theme);\n  return (\n    <MjmlEmailDocument preview=\"Email preview\" theme={theme}>\n      <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n        <MjmlColumn>\n          <MjmlText color={t.colors.foreground} fontFamily={t.fontFamily.sans}>\n            MJML parity placeholder for receipt-apple.tsx — replace with full\n            markup.\n          </MjmlText>\n        </MjmlColumn>\n      </MjmlSection>\n    </MjmlEmailDocument>\n  );\n};\n\nReceiptApple.PreviewProps = {} satisfies Props;\nexport default ReceiptApple;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "receipt"
+  ],
+  "type": "registry:block"
+}

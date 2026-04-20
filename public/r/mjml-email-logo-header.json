@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-logo-header",
+  "title": "Email Logo Header (MJML)",
+  "description": "Company logo with optional navigation links for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/logo-header.tsx",
+      "content": "import {\n  MjmlColumn,\n  MjmlImage,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface LogoHeaderProps {\n  theme?: EmailTheme;\n  logoUrl?: string;\n  logoAlt?: string;\n  logoWidth?: number;\n  links?: { label: string; href: string }[];\n}\n\nexport const LogoHeader = ({\n  theme = defaultTheme,\n  logoUrl,\n  logoAlt = \"Logo\",\n  logoWidth = 120,\n  links = [],\n}: LogoHeaderProps) => {\n  const t = resolveEmailTheme(theme);\n\n  return (\n    <MjmlSection padding={`${t.spacing.md ?? \"16px\"} 0`}>\n      <MjmlColumn width=\"50%\">\n        {logoUrl ? (\n          <MjmlImage alt={logoAlt} src={logoUrl} width={logoWidth} />\n        ) : (\n          <MjmlText\n            color={t.colors.foreground}\n            fontFamily={t.fontFamily.sans}\n            fontSize={t.fontSize.base ?? \"14px\"}\n            fontWeight={t.fontWeight.bold ?? \"700\"}\n          >\n            {logoAlt}\n          </MjmlText>\n        )}\n      </MjmlColumn>\n      <MjmlColumn width=\"50%\">\n        <MjmlText align=\"right\">\n          {links.map((link, index) => (\n            <span key={`${link.href}-${link.label}`}>\n              <a\n                href={link.href}\n                style={{\n                  color: t.colors[\"foreground-muted\"],\n                  fontFamily: t.fontFamily.sans,\n                  fontSize: t.fontSize.sm ?? \"12px\",\n                  marginLeft: index === 0 ? 0 : 16,\n                  textDecoration: \"none\",\n                }}\n              >\n                {link.label}\n              </a>\n            </span>\n          ))}\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nLogoHeader.PreviewProps = {\n  links: [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  logoAlt: \"Acme\",\n  logoUrl: \"https://example.com/logo.png\",\n  logoWidth: 120,\n  theme: defaultTheme,\n} satisfies LogoHeaderProps;\n\nexport default LogoHeader;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

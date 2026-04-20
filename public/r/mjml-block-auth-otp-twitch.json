@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-block-auth-otp-twitch",
+  "title": "Auth OTP — Twitch (MJML)",
+  "description": "Twitch-style OTP verification code email",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-twitch.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/blocks/auth-otp-twitch.tsx",
+      "content": "// MJML parity block — mirrored from react-email (auth-otp-twitch.tsx)\nimport { MjmlColumn, MjmlSection, MjmlText } from \"@faire/mjml-react\";\n\nimport { MjmlEmailDocument } from \"@/registry/bases/mjml-react/lib/document\";\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { theme as twitchTheme } from \"@/registry/themes/twitch\";\n\ninterface Props {}\n\nexport const AuthOtpTwitch = (_props: Props) => {\n  const theme = twitchTheme;\n  const t = resolveEmailTheme(theme);\n  return (\n    <MjmlEmailDocument preview=\"Email preview\" theme={theme}>\n      <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n        <MjmlColumn>\n          <MjmlText color={t.colors.foreground} fontFamily={t.fontFamily.sans}>\n            MJML parity placeholder for auth-otp-twitch.tsx — replace with full\n            markup.\n          </MjmlText>\n        </MjmlColumn>\n      </MjmlSection>\n    </MjmlEmailDocument>\n  );\n};\n\nAuthOtpTwitch.PreviewProps = {} satisfies Props;\nexport default AuthOtpTwitch;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "auth"
+  ],
+  "type": "registry:block"
+}

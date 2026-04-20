@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-footer",
+  "title": "Email Footer (MJML)",
+  "description": "Footer with company info and links for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/footer.tsx",
+      "content": "import {\n  MjmlColumn,\n  MjmlDivider,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface FooterProps {\n  theme?: EmailTheme;\n  companyName?: string;\n  address?: string;\n  links?: { label: string; href: string }[];\n  unsubscribeHref?: string;\n}\n\nexport const Footer = ({\n  theme = defaultTheme,\n  companyName = \"Acme\",\n  address = \"123 Main St, San Francisco, CA\",\n  links = [\n    { href: \"#\", label: \"Privacy\" },\n    { href: \"#\", label: \"Terms\" },\n  ],\n  unsubscribeHref = \"#\",\n}: FooterProps) => {\n  const t = resolveEmailTheme(theme);\n\n  return (\n    <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n      <MjmlDivider borderColor={t.colors.border} paddingBottom={t.spacing.md} />\n      <MjmlColumn>\n        <MjmlText\n          color={t.colors[\"foreground-muted\"]}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.sm ?? \"12px\"}\n          lineHeight={t.lineHeight.snug}\n        >\n          © {new Date().getFullYear()} {companyName}. All rights reserved.\n        </MjmlText>\n        {address ? (\n          <MjmlText\n            color={t.colors[\"foreground-muted\"]}\n            fontFamily={t.fontFamily.sans}\n            fontSize={t.fontSize.sm ?? \"12px\"}\n            paddingTop={t.spacing.sm}\n          >\n            {address}\n          </MjmlText>\n        ) : null}\n        <MjmlText\n          color={t.colors[\"foreground-muted\"]}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.sm ?? \"12px\"}\n          paddingTop={t.spacing.sm}\n        >\n          {links.map((link) => (\n            <span key={`${link.href}-${link.label}`}>\n              <a href={link.href} style={{ color: \"inherit\", marginRight: 24 }}>\n                {link.label}\n              </a>\n            </span>\n          ))}\n        </MjmlText>\n        <MjmlText paddingTop={t.spacing.lg}>\n          <a\n            href={unsubscribeHref}\n            style={{\n              color: t.colors[\"foreground-muted\"],\n              fontSize: t.fontSize.sm ?? \"12px\",\n              textDecoration: \"underline\",\n            }}\n          >\n            Unsubscribe\n          </a>\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nFooter.PreviewProps = {\n  address: \"123 Main Street, San Francisco, CA 94105\",\n  companyName: \"Acme Inc.\",\n  links: [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  theme: defaultTheme,\n  unsubscribeHref: \"#unsubscribe\",\n} satisfies FooterProps;\n\nexport default Footer;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

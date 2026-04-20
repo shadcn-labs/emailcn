@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-feature-row",
+  "title": "Email Feature Row (MJML)",
+  "description": "Feature row with image and text for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/feature-row.tsx",
+      "content": "import {\n  MjmlColumn,\n  MjmlImage,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface FeatureRowProps {\n  theme?: EmailTheme;\n  imageSrc?: string;\n  imageAlt?: string;\n  heading?: string;\n  body?: string;\n  imagePosition?: \"left\" | \"right\";\n}\n\nexport const FeatureRow = ({\n  theme = defaultTheme,\n  imageSrc,\n  imageAlt = \"Feature\",\n  heading = \"Feature\",\n  body = \"Description of the feature.\",\n  imagePosition = \"left\",\n}: FeatureRowProps) => {\n  const t = resolveEmailTheme(theme);\n\n  const imageCol = imageSrc ? (\n    <MjmlColumn width=\"40%\">\n      <MjmlImage\n        alt={imageAlt}\n        borderRadius={t.borderRadius.md}\n        src={imageSrc}\n        width=\"100%\"\n      />\n    </MjmlColumn>\n  ) : null;\n\n  const textCol = (\n    <MjmlColumn width={imageSrc ? \"60%\" : \"100%\"}>\n      <MjmlText\n        color={t.colors.foreground}\n        fontFamily={t.fontFamily.sans}\n        fontSize={t.fontSize.xl ?? \"20px\"}\n        fontWeight={t.fontWeight.medium ?? \"500\"}\n        paddingBottom={t.spacing.sm}\n      >\n        {heading}\n      </MjmlText>\n      <MjmlText\n        color={t.colors[\"foreground-muted\"]}\n        fontFamily={t.fontFamily.sans}\n        fontSize={t.fontSize.base ?? \"14px\"}\n        lineHeight={t.lineHeight.snug}\n      >\n        {body}\n      </MjmlText>\n    </MjmlColumn>\n  );\n\n  return (\n    <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n      {imagePosition === \"left\" ? (\n        <>\n          {imageCol}\n          {textCol}\n        </>\n      ) : (\n        <>\n          {textCol}\n          {imageCol}\n        </>\n      )}\n    </MjmlSection>\n  );\n};\n\nFeatureRow.PreviewProps = {\n  body: \"Everything you need to build amazing emails.\",\n  heading: \"Powerful Features\",\n  imageAlt: \"Feature Image\",\n  imagePosition: \"left\",\n  imageSrc: \"https://example.com/feature.png\",\n  theme: defaultTheme,\n} satisfies FeatureRowProps;\n\nexport default FeatureRow;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

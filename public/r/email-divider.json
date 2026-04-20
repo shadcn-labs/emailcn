@@ -11,8 +11,8 @@
   ],
   "files": [
     {
-      "path": "registry/components/divider.tsx",
-      "content": "import { Section, Text } from \"react-email\";\n\nimport type { EmailTheme } from \"../themes/default\";\nimport { theme as defaultTheme } from \"../themes/default\";\n\nexport interface DividerProps {\n  theme?: EmailTheme;\n  label?: string;\n}\n\nexport const Divider = ({ theme = defaultTheme, label }: DividerProps) => {\n  const style = {\n    label: {\n      color: theme.colorTextMuted,\n      fontSize: theme.fontSizeSm,\n      textAlign: \"center\" as const,\n    },\n    line: {\n      borderBottom: `1px solid ${theme.colorBorder}`,\n    },\n    section: {\n      padding: `${theme.spacingBase} 0`,\n    },\n  };\n\n  return (\n    <Section style={style.section}>\n      {label ? (\n        <Text style={style.label}>{label}</Text>\n      ) : (\n        <Section style={style.line} />\n      )}\n    </Section>\n  );\n};\n\nDivider.PreviewProps = {\n  label: \"— or —\",\n  theme: defaultTheme,\n} satisfies DividerProps;\n\nexport default Divider;\n",
+      "path": "registry/bases/react-email/ui/divider.tsx",
+      "content": "import { Section, Tailwind, Text } from \"react-email\";\n\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface DividerProps {\n  theme?: EmailTheme;\n  label?: string;\n}\n\nexport const Divider = ({ theme = defaultTheme, label }: DividerProps) => (\n  <Tailwind config={theme}>\n    <Section className=\"py-6\">\n      {label ? (\n        <Text className=\"text-center text-sm text-foreground-muted\">\n          {label}\n        </Text>\n      ) : (\n        <Section className=\"border-b border-border\" />\n      )}\n    </Section>\n  </Tailwind>\n);\n\nDivider.PreviewProps = {\n  label: \"— or —\",\n  theme: defaultTheme,\n} satisfies DividerProps;\n\nexport default Divider;\n",
       "type": "registry:component"
     }
   ],

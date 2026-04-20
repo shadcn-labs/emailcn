@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-email-product-card",
+  "title": "Email Product Card (MJML)",
+  "description": "Product card with image, name, and price for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/email-theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/product-card.tsx",
+      "content": "import {\n  MjmlColumn,\n  MjmlImage,\n  MjmlSection,\n  MjmlText,\n} from \"@faire/mjml-react\";\n\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface ProductCardProps {\n  theme?: EmailTheme;\n  imageUrl?: string;\n  name?: string;\n  price?: string;\n  quantity?: number;\n  ctaLabel?: string;\n  ctaHref?: string;\n}\n\nexport const ProductCard = ({\n  theme = defaultTheme,\n  imageUrl,\n  name = \"Product Name\",\n  price = \"$99.00\",\n  quantity = 1,\n  ctaLabel = \"View Details\",\n  ctaHref = \"#\",\n}: ProductCardProps) => {\n  const t = resolveEmailTheme(theme);\n\n  return (\n    <MjmlSection\n      border={`1px solid ${t.colors.border ?? \"#e5e7eb\"}`}\n      borderRadius={t.borderRadius.md}\n      padding={t.spacing.md ?? \"16px\"}\n    >\n      <MjmlColumn width=\"120px\">\n        {imageUrl ? (\n          <MjmlImage\n            alt={name}\n            borderRadius={t.borderRadius.md}\n            src={imageUrl}\n            width={100}\n          />\n        ) : null}\n      </MjmlColumn>\n      <MjmlColumn>\n        <MjmlText\n          color={t.colors.foreground}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.base ?? \"14px\"}\n          fontWeight={t.fontWeight.medium ?? \"500\"}\n          paddingBottom={t.spacing.sm}\n        >\n          {name}\n        </MjmlText>\n        <MjmlText\n          color={t.colors.foreground}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.lg ?? \"16px\"}\n          fontWeight={t.fontWeight.bold ?? \"700\"}\n        >\n          {price}\n          {quantity > 1 ? (\n            <span style={{ color: t.colors[\"foreground-muted\"], fontSize: 12 }}>\n              {\" \"}\n              x {quantity}\n            </span>\n          ) : null}\n        </MjmlText>\n        {ctaLabel ? (\n          <MjmlText paddingTop={t.spacing.sm}>\n            <a\n              href={ctaHref}\n              style={{\n                color: t.colors.primary,\n                fontFamily: t.fontFamily.sans,\n                fontSize: t.fontSize.sm ?? \"12px\",\n                textDecoration: \"none\",\n              }}\n            >\n              {ctaLabel}\n            </a>\n          </MjmlText>\n        ) : null}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nProductCard.PreviewProps = {\n  imageUrl: \"https://example.com/p.jpg\",\n  name: \"Premium Sneakers\",\n  price: \"$149.00\",\n  quantity: 1,\n  theme: defaultTheme,\n} satisfies ProductCardProps;\n\nexport default ProductCard;\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}
