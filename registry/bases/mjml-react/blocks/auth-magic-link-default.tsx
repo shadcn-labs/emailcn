@@ -18,6 +18,7 @@ import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
 import { defaultTheme } from "@/registry/themes/default";
 
 import { getLayoutTokens } from "../lib/get-layout-tokens";
+
 interface Props {
   _logoUrl?: string;
   _logoAlt?: string;

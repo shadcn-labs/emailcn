@@ -4,10 +4,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { DocsCopyPage } from "@/components/docs-copy-page";
+import { DocsKeyboardShortcuts } from "@/components/docs-keyboard-shortcuts";
+import { DocsShareMenu } from "@/components/docs-share-menu";
 import { DocsTableOfContents } from "@/components/docs-toc";
 import { DocsTocFooter } from "@/components/docs-toc-footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Kbd } from "@/components/ui/kbd";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ROUTES } from "@/constants/routes";
 import { formatTitleFromSlug } from "@/lib/docs";
 import { getPageImage, source } from "@/lib/source";
 import { absoluteUrl } from "@/lib/utils";
@@ -55,9 +64,9 @@ const buildBreadcrumbs = (
     return items;
   }
 
-  items.push({ name: "Docs", path: "/docs" });
+  items.push({ name: "Docs", path: ROUTES.DOCS });
 
-  let currentPath = "/docs";
+  let currentPath = ROUTES.DOCS;
   for (let i = 0; i < slugs.length - 1; i += 1) {
     currentPath += `/${slugs[i]}`;
     items.push({ name: formatTitleFromSlug(slugs[i]), path: currentPath });
@@ -72,6 +81,7 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
+
   if (!page) {
     notFound();
   }
@@ -88,6 +98,12 @@ export default async function Page(props: {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbs} />
+
+      <DocsKeyboardShortcuts
+        next={neighbours.next ? neighbours.next.url : null}
+        previous={neighbours.previous ? neighbours.previous.url : null}
+      />
+
       <div
         data-slot="docs"
         className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
@@ -106,40 +122,68 @@ export default async function Page(props: {
                       <DocsCopyPage page={raw} url={absoluteUrl(page.url)} />
                     </div>
                     <div className="ml-auto flex gap-2">
+                      <DocsShareMenu
+                        title={doc.title}
+                        url={absoluteUrl(page.url)}
+                      />
                       {neighbours.previous && (
-                        <Button
-                          variant="secondary"
-                          size="icon"
-                          className="extend-touch-target size-8 shadow-none md:size-7"
-                          asChild
-                        >
-                          <Link href={neighbours.previous.url}>
-                            <ArrowLeftIcon />
-                            <span className="sr-only">Previous</span>
-                          </Link>
-                        </Button>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="secondary"
+                              size="icon"
+                              className="extend-touch-target size-8 shadow-none md:size-7"
+                              asChild
+                            >
+                              <Link href={neighbours.previous.url}>
+                                <ArrowLeftIcon />
+                                <span className="sr-only">Previous</span>
+                              </Link>
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent className="pr-2 pl-3">
+                            <div className="flex items-center gap-3">
+                              Previous Component
+                              <Kbd>
+                                <ArrowLeftIcon />
+                              </Kbd>
+                            </div>
+                          </TooltipContent>
+                        </Tooltip>
                       )}
                       {neighbours.next && (
-                        <Button
-                          variant="secondary"
-                          size="icon"
-                          className="extend-touch-target size-8 shadow-none md:size-7"
-                          asChild
-                        >
-                          <Link href={neighbours.next.url}>
-                            <span className="sr-only">Next</span>
-                            <ArrowRightIcon />
-                          </Link>
-                        </Button>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="secondary"
+                              size="icon"
+                              className="extend-touch-target size-8 shadow-none md:size-7"
+                              asChild
+                            >
+                              <Link href={neighbours.next.url}>
+                                <span className="sr-only">Next</span>
+                                <ArrowRightIcon />
+                              </Link>
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent className="pr-2 pl-3">
+                            <div className="flex items-center gap-3">
+                              Next Component
+                              <Kbd>
+                                <ArrowRightIcon />
+                              </Kbd>
+                            </div>
+                          </TooltipContent>
+                        </Tooltip>
                       )}
                     </div>
                   </div>
+                  {doc.description && (
+                    <p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+                      {doc.description}
+                    </p>
+                  )}
                 </div>
-                {doc.description && (
-                  <p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-                    {doc.description}
-                  </p>
-                )}
               </div>
               {links ? (
                 <div className="flex items-center space-x-2 pt-4">

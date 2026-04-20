@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { LINK } from "@/constants/links";
+import { UTM_PARAMS } from "@/constants/site";
+import { addQueryParams } from "@/lib/url";
 import { cn } from "@/lib/utils";
 
 export const DocsTocFooter = ({ className }: React.ComponentProps<"div">) => (
@@ -10,17 +12,17 @@ export const DocsTocFooter = ({ className }: React.ComponentProps<"div">) => (
     )}
   >
     <div className="text-base leading-tight font-semibold text-balance group-hover:underline">
-      Beautiful terminal UIs, made simple
+      Beautiful emails, made simple
     </div>
     <p className="text-muted-foreground leading-snug">
-      Ready-to-use React components for the terminal, built on <u>Ink</u>,
+      Ready-to-use React components for email, built on <u>React Email</u>,
       distributed via shadcn.
     </p>
     <Button variant="outline" size="sm" className="mt-2">
-      Go to termcn.dev
+      Go to emailcn.dev
     </Button>
     <a
-      href={LINK.TERMCN}
+      href={addQueryParams(LINK.EMAILCN, UTM_PARAMS)}
       target="_blank"
       rel="noreferrer"
       className="absolute inset-0 rounded-lg"
@@ -28,7 +30,7 @@ export const DocsTocFooter = ({ className }: React.ComponentProps<"div">) => (
       tabIndex={-1}
     >
       <span className="sr-only">
-        Open TermCN components documentation (termcn.dev)
+        Open EmailCN components documentation (emailcn.dev)
       </span>
     </a>
   </div>

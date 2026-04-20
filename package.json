@@ -34,6 +34,7 @@
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "react-email": "^6.0.0",
+    "react-hotkeys-hook": "^5.2.4",
     "rehype-pretty-code": "^0.14.3",
     "shadcn": "4.3.0",
     "shiki": "^4.0.2",
