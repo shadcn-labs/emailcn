@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -79,5 +79,3 @@ AuthMagicLinkDefault.PreviewProps = {
   expiresInMinutes: 30,
   magicLinkHref: "https://example.com/login?token=abc123",
 } satisfies Props;
-
-export default AuthMagicLinkDefault;

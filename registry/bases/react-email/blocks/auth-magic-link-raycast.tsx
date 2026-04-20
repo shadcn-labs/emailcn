@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as raycastTheme } from "@/registry/themes/raycast";
+import { raycastTheme } from "@/registry/themes/raycast";
 
 interface Props {
   _logoUrl?: string;
@@ -79,5 +79,3 @@ AuthMagicLinkRaycast.PreviewProps = {
   expiresInMinutes: 30,
   magicLinkHref: "https://example.com/login?token=abc123",
 } satisfies Props;
-
-export default AuthMagicLinkRaycast;

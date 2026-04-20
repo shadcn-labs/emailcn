@@ -11,7 +11,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as twitchTheme } from "@/registry/themes/twitch";
+import { twitchTheme } from "@/registry/themes/twitch";
 
 interface Props {
   _logoUrl?: string;
@@ -73,5 +73,3 @@ AuthOtpTwitch.PreviewProps = {
   expiresInMinutes: 10,
   otpCode: "123456",
 } satisfies Props;
-
-export default AuthOtpTwitch;

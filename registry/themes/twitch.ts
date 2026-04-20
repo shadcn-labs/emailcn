@@ -57,6 +57,4 @@ const tokens = {
   spacingXl: "48px",
 } satisfies EmailThemeTokens;
 
-export const theme = defineEmailTheme(tokens);
-export type EmailTheme = typeof theme;
-export default theme;
+export const twitchTheme = defineEmailTheme(tokens);

@@ -1,7 +1,6 @@
 import { pixelBasedPreset } from "react-email";
 import type { TailwindConfig } from "react-email";
 
-/** Input shape matches the previous `EmailTheme` token object. */
 export interface EmailThemeTokens {
   borderRadius: string;
   borderRadiusLg: string;
@@ -123,3 +122,5 @@ export const defineEmailTheme = (t: EmailThemeTokens): TailwindConfig => ({
     },
   },
 });
+
+export type EmailTheme = ReturnType<typeof defineEmailTheme>;

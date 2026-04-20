@@ -15,7 +15,7 @@ import { ContentGrid } from "@/registry/bases/react-email/ui/content-grid";
 import { CTABanner } from "@/registry/bases/react-email/ui/cta-banner";
 import { Footer } from "@/registry/bases/react-email/ui/footer";
 import { Hero } from "@/registry/bases/react-email/ui/hero";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _firstName?: string;
@@ -112,5 +112,3 @@ OnboardingDefault.PreviewProps = {
   _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",
 } satisfies Props;
-
-export default OnboardingDefault;

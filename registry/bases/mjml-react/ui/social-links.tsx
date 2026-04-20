@@ -1,8 +1,18 @@
-import { MjmlSection, MjmlText } from "@faire/mjml-react";
+import {
+  Mjml,
+  MjmlAll,
+  MjmlAttributes,
+  MjmlBody,
+  MjmlHead,
+  MjmlPreview,
+  MjmlSection,
+  MjmlText,
+  MjmlWrapper,
+} from "@faire/mjml-react";
 
 import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface SocialLinksProps {
   theme?: EmailTheme;
@@ -39,27 +49,52 @@ export const SocialLinks = ({
 }: SocialLinksProps) => {
   const t = resolveEmailTheme(theme);
 
+  const container =
+    typeof t.maxWidth.container === "string"
+      ? Number.parseInt(String(t.maxWidth.container).replaceAll(/\D/g, ""), 10)
+      : 600;
+  const width = Number.isFinite(container) && container > 0 ? container : 600;
+
+  const fg = t.colors.foreground ?? "#111827";
+  const bg = t.colors.background ?? "#ffffff";
+  const sans = t.fontFamily.sans ?? "sans-serif";
+  const baseFs = t.fontSize.base ?? "14px";
+  const lh = t.lineHeight.snug ?? "1.375";
+
   return (
-    <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
-      <MjmlText>
-        {links.map((link) => (
-          <span key={`${link.href}-${link.platform}`}>
-            <a
-              href={link.href}
-              style={{
-                color: t.colors["foreground-muted"],
-                fontFamily: t.fontFamily.sans,
-                fontSize: t.fontSize.sm ?? "12px",
-                marginRight: 24,
-                textDecoration: "none",
-              }}
-            >
-              {platformLabels[link.platform]}
-            </a>
-          </span>
-        ))}
-      </MjmlText>
-    </MjmlSection>
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>social-links</MjmlPreview>
+        <MjmlAttributes>
+          <MjmlAll color={fg} fontFamily={sans} />
+          <MjmlText fontSize={baseFs} lineHeight={lh} />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody backgroundColor={bg} width={width}>
+        <MjmlWrapper padding="0">
+          <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
+            <MjmlText>
+              {links.map((link) => (
+                <span key={`${link.href}-${link.platform}`}>
+                  <a
+                    href={link.href}
+                    style={{
+                      color: t.colors["foreground-muted"],
+                      fontFamily: t.fontFamily.sans,
+                      fontSize: t.fontSize.sm ?? "12px",
+                      marginRight: 24,
+                      textDecoration: "none",
+                    }}
+                  >
+                    {platformLabels[link.platform]}
+                  </a>
+                </span>
+              ))}
+            </MjmlText>
+          </MjmlSection>
+        </MjmlWrapper>
+      </MjmlBody>
+    </Mjml>
   );
 };
 
@@ -71,5 +106,3 @@ SocialLinks.PreviewProps = {
   ],
   theme: defaultTheme,
 } satisfies SocialLinksProps;
-
-export default SocialLinks;

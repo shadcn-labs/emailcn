@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as airbnbTheme } from "@/registry/themes/airbnb";
+import { airbnbTheme } from "@/registry/themes/airbnb";
 
 interface Props {
   _logoUrl?: string;
@@ -89,5 +89,3 @@ NotificationAirbnb.PreviewProps = {
   ctaHref: "https://airbnb.com/reviews",
   ctaLabel: "Leave a Review",
 } satisfies Props;
-
-export default NotificationAirbnb;

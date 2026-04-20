@@ -1,7 +1,7 @@
 import { Column, Link, Row, Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface FooterProps {
   theme?: EmailTheme;
@@ -65,5 +65,3 @@ Footer.PreviewProps = {
   theme: defaultTheme,
   unsubscribeHref: "#unsubscribe",
 } satisfies FooterProps;
-
-export default Footer;

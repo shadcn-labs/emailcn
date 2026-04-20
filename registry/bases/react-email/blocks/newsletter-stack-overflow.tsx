@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { ContentGrid } from "@/registry/bases/react-email/ui/content-grid";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 import { mergeEmailThemes } from "@/registry/themes/merge";
 
 interface Article {
@@ -122,5 +122,3 @@ NewsletterStackOverflow.PreviewProps = {
   issueNumber: "42",
   preheader: "Stack Overflow Weekly Digest",
 } satisfies Props;
-
-export default NewsletterStackOverflow;

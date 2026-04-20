@@ -16,7 +16,7 @@ import { CTABanner } from "@/registry/bases/react-email/ui/cta-banner";
 import { Footer } from "@/registry/bases/react-email/ui/footer";
 import { Hero } from "@/registry/bases/react-email/ui/hero";
 import { LogoHeader } from "@/registry/bases/react-email/ui/logo-header";
-import { theme as linearTheme } from "@/registry/themes/linear";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
   _firstName?: string;
@@ -109,5 +109,3 @@ OnboardingLinear.PreviewProps = {
   _senderTitle: "Team",
   ctaHref: "https://linear.app",
 } satisfies Props;
-
-export default OnboardingLinear;

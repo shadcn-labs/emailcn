@@ -15,7 +15,7 @@ Notification emails alert users about activity in your application.
 
 Simple notification with actor info, action, and CTA button.
 
-```tsx title="registry/blocks/notification-default.tsx"
+```tsx title="registry/bases/react-email/blocks/notification-default.tsx"
 import {
   Body,
   Button,
@@ -27,10 +27,11 @@ import {
   Preview,
   Row,
   Section,
+  Tailwind,
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "../themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   logoUrl?: string;
@@ -71,7 +72,7 @@ export const NotificationDefault = (
 
 Similar to Airbnb's notification style with avatar and action.
 
-```tsx title="registry/blocks/notification-airbnb.tsx"
+```tsx title="registry/bases/react-email/blocks/notification-airbnb.tsx"
 // Subject: {_action} — {_targetName}
 // ...
 ```
@@ -80,7 +81,7 @@ Similar to Airbnb's notification style with avatar and action.
 
 Minimal notification with Linear's clean design.
 
-```tsx title="registry/blocks/notification-linear.tsx"
+```tsx title="registry/bases/react-email/blocks/notification-linear.tsx"
 // Subject: {_action} — {_targetName}
 // ...
 ```
@@ -89,7 +90,7 @@ Minimal notification with Linear's clean design.
 
 Notification styled like Slack messages.
 
-```tsx title="registry/blocks/notification-slack.tsx"
+```tsx title="registry/bases/react-email/blocks/notification-slack.tsx"
 // Subject: Slack: {_action}
 // ...
 ```

@@ -1,28 +1,54 @@
 // MJML parity block — mirrored from react-email (notification-default.tsx)
-import { MjmlColumn, MjmlSection, MjmlText } from "@faire/mjml-react";
+import {
+  Mjml,
+  MjmlAll,
+  MjmlAttributes,
+  MjmlBody,
+  MjmlColumn,
+  MjmlHead,
+  MjmlPreview,
+  MjmlSection,
+  MjmlText,
+  MjmlWrapper,
+} from "@faire/mjml-react";
 
-import { MjmlEmailDocument } from "@/registry/bases/mjml-react/lib/document";
 import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
-interface Props {}
+import { getLayoutTokens } from "../lib/get-layout-tokens";
+type Props = Record<string, never>;
 
 export const NotificationDefault = (_props: Props) => {
   const theme = defaultTheme;
   const t = resolveEmailTheme(theme);
+  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
+
   return (
-    <MjmlEmailDocument preview="Email preview" theme={theme}>
-      <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
-        <MjmlColumn>
-          <MjmlText color={t.colors.foreground} fontFamily={t.fontFamily.sans}>
-            MJML parity placeholder for notification-default.tsx — replace with
-            full markup.
-          </MjmlText>
-        </MjmlColumn>
-      </MjmlSection>
-    </MjmlEmailDocument>
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>Email preview</MjmlPreview>
+        <MjmlAttributes>
+          <MjmlAll color={fg} fontFamily={sans} />
+          <MjmlText fontSize={baseFs} lineHeight={lh} />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody backgroundColor={bg} width={width}>
+        <MjmlWrapper padding="0">
+          <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+            <MjmlColumn>
+              <MjmlText
+                color={t.colors.foreground}
+                fontFamily={t.fontFamily.sans}
+              >
+                MJML parity placeholder for notification-default.tsx — replace
+                with full markup.
+              </MjmlText>
+            </MjmlColumn>
+          </MjmlSection>
+        </MjmlWrapper>
+      </MjmlBody>
+    </Mjml>
   );
 };
 
 NotificationDefault.PreviewProps = {} satisfies Props;
-export default NotificationDefault;

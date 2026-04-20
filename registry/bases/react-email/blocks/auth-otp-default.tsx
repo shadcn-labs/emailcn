@@ -11,7 +11,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -73,5 +73,3 @@ AuthOtpDefault.PreviewProps = {
   expiresInMinutes: 10,
   otpCode: "123456",
 } satisfies Props;
-
-export default AuthOtpDefault;

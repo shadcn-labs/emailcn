@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   inviterName?: string;
@@ -103,5 +103,3 @@ InviteDefault.PreviewProps = {
   inviterName: "Sarah",
   teamName: "Acme Team",
 } satisfies Props;
-
-export default InviteDefault;

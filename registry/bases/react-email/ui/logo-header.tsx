@@ -1,7 +1,7 @@
 import { Column, Img, Link, Row, Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface LogoHeaderProps {
   theme?: EmailTheme;
@@ -64,5 +64,3 @@ LogoHeader.PreviewProps = {
   logoWidth: 120,
   theme: defaultTheme,
 } satisfies LogoHeaderProps;
-
-export default LogoHeader;

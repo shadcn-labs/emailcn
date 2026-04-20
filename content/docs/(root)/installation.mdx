@@ -54,25 +54,25 @@ npx shadcn@latest add https://emailcn.com/r/block-auth-magic-link-default.json
 After installation, import and use components in your emails:
 
 ```tsx
-import { Html, Head, Body, Container } from "react-email";
-import { Hero } from "@/registry/components/hero";
-import { Footer } from "@/registry/components/footer";
-import { theme } from "@/lib/email-themes/default";
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+
+import { Hero } from "@/registry/bases/react-email/ui/hero";
+import { Footer } from "@/registry/bases/react-email/ui/footer";
+import { defaultTheme } from "@/registry/themes/default";
 
 export function WelcomeEmail() {
   return (
     <Html>
       <Head />
-      <Body style={{ backgroundColor: theme.colorBackground }}>
-        <Container>
-          <Hero
-            theme={theme}
-            heading="Welcome!"
-            subheading="Thanks for joining us."
-          />
-          <Footer theme={theme} companyName="Acme" />
-        </Container>
-      </Body>
+      <Preview>Welcome</Preview>
+      <Tailwind config={defaultTheme}>
+        <Body className="bg-background font-sans">
+          <Container className="mx-auto max-w-container">
+            <Hero heading="Welcome!" subheading="Thanks for joining us." />
+            <Footer companyName="Acme" />
+          </Container>
+        </Body>
+      </Tailwind>
     </Html>
   );
 }
@@ -97,8 +97,10 @@ export function WelcomeEmail() {
 
 ## Registry Structure
 
-- **Themes** — Brand token files (`lib/email-themes/`)
-- **Components** — Reusable email sections (`registry/components/`)
-- **Blocks** — Complete email templates (`registry/blocks/`)
+In this repo, themes and email UI live under **`registry/`**:
+
+- **Themes** — Tailwind configs generated from tokens (`registry/themes/`)
+- **Components** — Reusable sections per stack (`registry/bases/react-email/ui/` and `registry/bases/mjml-react/ui/`)
+- **Blocks** — Full templates (`registry/bases/react-email/blocks/` and `registry/bases/mjml-react/blocks/`)
 
 All items are compatible with `npx shadcn add` and can be installed individually.

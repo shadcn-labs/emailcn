@@ -1,11 +1,5 @@
-import { MjmlEmailDocument } from "@/registry/bases/mjml-react/lib/document";
-import PricingTable from "@/registry/bases/mjml-react/ui/pricing-table";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { PricingTable } from "@/registry/bases/mjml-react/ui/pricing-table";
 
 export default function PricingTableDemo() {
-  return (
-    <MjmlEmailDocument preview="pricing-table" theme={defaultTheme}>
-      <PricingTable {...PricingTable.PreviewProps} />
-    </MjmlEmailDocument>
-  );
+  return <PricingTable {...PricingTable.PreviewProps} />;
 }

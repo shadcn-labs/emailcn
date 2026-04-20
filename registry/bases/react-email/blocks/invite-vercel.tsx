@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as vercelTheme } from "@/registry/themes/vercel";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   inviterName?: string;
@@ -103,5 +103,3 @@ InviteVercel.PreviewProps = {
   inviterName: "Sarah",
   teamName: "Vercel",
 } satisfies Props;
-
-export default InviteVercel;

@@ -1,7 +1,7 @@
 import { Button, Container, Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface HeroProps {
   theme?: EmailTheme;
@@ -60,5 +60,3 @@ Hero.PreviewProps = {
   subheading: "Build faster with the tools you love.",
   theme: defaultTheme,
 } satisfies HeroProps;
-
-export default Hero;

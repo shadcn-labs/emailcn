@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as notionTheme } from "@/registry/themes/notion";
+import { notionTheme } from "@/registry/themes/notion";
 
 interface Props {
   _logoUrl?: string;
@@ -77,5 +77,3 @@ AuthPasswordResetNotion.PreviewProps = {
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
-
-export default AuthPasswordResetNotion;

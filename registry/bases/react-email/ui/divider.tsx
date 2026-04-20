@@ -1,7 +1,7 @@
 import { Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface DividerProps {
   theme?: EmailTheme;
@@ -26,5 +26,3 @@ Divider.PreviewProps = {
   label: "— or —",
   theme: defaultTheme,
 } satisfies DividerProps;
-
-export default Divider;

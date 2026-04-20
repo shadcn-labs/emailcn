@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as stripeTheme } from "@/registry/themes/stripe";
+import { stripeTheme } from "@/registry/themes/stripe";
 
 interface Props {
   _logoUrl?: string;
@@ -79,5 +79,3 @@ AuthMagicLinkStripe.PreviewProps = {
   expiresInMinutes: 30,
   magicLinkHref: "https://example.com/login?token=abc123",
 } satisfies Props;
-
-export default AuthMagicLinkStripe;

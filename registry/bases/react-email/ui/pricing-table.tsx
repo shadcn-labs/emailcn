@@ -8,8 +8,8 @@ import {
   Text,
 } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface PricingTableProps {
   theme?: EmailTheme;
@@ -95,5 +95,3 @@ export const PricingTable = ({
 PricingTable.PreviewProps = {
   theme: defaultTheme,
 } satisfies PricingTableProps;
-
-export default PricingTable;

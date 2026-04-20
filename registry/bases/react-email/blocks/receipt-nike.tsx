@@ -15,7 +15,7 @@ import {
 } from "react-email";
 
 import { ProductCard } from "@/registry/bases/react-email/ui/product-card";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 import { mergeEmailThemes } from "@/registry/themes/merge";
 
 interface ReceiptItem {
@@ -168,5 +168,3 @@ ReceiptNike.PreviewProps = {
   tax: "$11.92",
   total: "$160.92",
 } satisfies Props;
-
-export default ReceiptNike;

@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as slackTheme } from "@/registry/themes/slack";
+import { slackTheme } from "@/registry/themes/slack";
 
 interface Props {
   _logoUrl?: string;
@@ -92,5 +92,3 @@ NotificationSlack.PreviewProps = {
   ctaLabel: "Join Workspace",
   teamName: "Acme",
 } satisfies Props;
-
-export default NotificationSlack;

@@ -1,7 +1,7 @@
 import { Column, Img, Row, Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface ProductCardProps {
   theme?: EmailTheme;
@@ -73,5 +73,3 @@ ProductCard.PreviewProps = {
   quantity: 1,
   theme: defaultTheme,
 } satisfies ProductCardProps;
-
-export default ProductCard;

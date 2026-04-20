@@ -15,40 +15,56 @@ Notification emails alert users about activity in your application.
 
 Simple notification with actor info, action, and CTA button.
 
-```tsx title="registry/blocks/notification-default.tsx"
+```tsx title="registry/bases/mjml-react/blocks/notification-default.tsx"
 import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "react-email";
+  Mjml,
+  MjmlAll,
+  MjmlAttributes,
+  MjmlBody,
+  MjmlColumn,
+  MjmlHead,
+  MjmlPreview,
+  MjmlSection,
+  MjmlText,
+  MjmlWrapper,
+} from "@faire/mjml-react";
 
-import { theme as defaultTheme } from "../themes/default";
+import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
+import { defaultTheme } from "@/registry/themes/default";
+import { emailMjmlLayoutVars } from "../email-mjml-layout";
 
-interface Props {
-  logoUrl?: string;
-  actorName?: string;
-  actorAvatarUrl?: string;
-  _action?: string;
-  _targetName?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  _productName?: string;
-}
+type Props = Record<string, never>;
 
-export const NotificationDefault = (
-  {
-    // ...
-  }: Props
-) => {
-  // ...
+export const NotificationDefault = (_props: Props) => {
+  const theme = defaultTheme;
+  const t = resolveEmailTheme(theme);
+  const { baseFs, bg, fg, lh, sans, width } = emailMjmlLayoutVars(t);
+
+  return (
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>Email preview</MjmlPreview>
+        <MjmlAttributes>
+          <MjmlAll color={fg} fontFamily={sans} />
+          <MjmlText fontSize={baseFs} lineHeight={lh} />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody backgroundColor={bg} width={width}>
+        <MjmlWrapper padding="0">
+          <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+            <MjmlColumn>
+              <MjmlText
+                color={t.colors.foreground}
+                fontFamily={t.fontFamily.sans}
+              >
+                {/* … */}
+              </MjmlText>
+            </MjmlColumn>
+          </MjmlSection>
+        </MjmlWrapper>
+      </MjmlBody>
+    </Mjml>
+  );
 };
 ```
 
@@ -71,7 +87,7 @@ export const NotificationDefault = (
 
 Similar to Airbnb's notification style with avatar and action.
 
-```tsx title="registry/blocks/notification-airbnb.tsx"
+```tsx title="registry/bases/mjml-react/blocks/notification-airbnb.tsx"
 // Subject: {_action} — {_targetName}
 // ...
 ```
@@ -80,7 +96,7 @@ Similar to Airbnb's notification style with avatar and action.
 
 Minimal notification with Linear's clean design.
 
-```tsx title="registry/blocks/notification-linear.tsx"
+```tsx title="registry/bases/mjml-react/blocks/notification-linear.tsx"
 // Subject: {_action} — {_targetName}
 // ...
 ```
@@ -89,7 +105,7 @@ Minimal notification with Linear's clean design.
 
 Notification styled like Slack messages.
 
-```tsx title="registry/blocks/notification-slack.tsx"
+```tsx title="registry/bases/mjml-react/blocks/notification-slack.tsx"
 // Subject: Slack: {_action}
 // ...
 ```

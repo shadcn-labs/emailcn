@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 import { mergeEmailThemes } from "@/registry/themes/merge";
 
 interface Props {
@@ -92,5 +92,3 @@ AuthPasswordResetDropbox.PreviewProps = {
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
-
-export default AuthPasswordResetDropbox;

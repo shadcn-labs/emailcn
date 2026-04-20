@@ -16,7 +16,7 @@ import { CTABanner } from "@/registry/bases/react-email/ui/cta-banner";
 import { Footer } from "@/registry/bases/react-email/ui/footer";
 import { Hero } from "@/registry/bases/react-email/ui/hero";
 import { LogoHeader } from "@/registry/bases/react-email/ui/logo-header";
-import { theme as vercelTheme } from "@/registry/themes/vercel";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   _firstName?: string;
@@ -109,5 +109,3 @@ OnboardingVercel.PreviewProps = {
   _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",
 } satisfies Props;
-
-export default OnboardingVercel;

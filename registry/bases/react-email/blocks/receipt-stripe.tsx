@@ -15,7 +15,7 @@ import {
 } from "react-email";
 
 import { ProductCard } from "@/registry/bases/react-email/ui/product-card";
-import { theme as stripeTheme } from "@/registry/themes/stripe";
+import { stripeTheme } from "@/registry/themes/stripe";
 
 interface ReceiptItem {
   name: string;
@@ -139,5 +139,3 @@ ReceiptStripe.PreviewProps = {
   tax: "$7.92",
   total: "$106.92",
 } satisfies Props;
-
-export default ReceiptStripe;

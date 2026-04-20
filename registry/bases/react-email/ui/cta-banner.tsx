@@ -1,7 +1,7 @@
 import { Button, Container, Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface CTABannerProps {
   theme?: EmailTheme;
@@ -76,5 +76,3 @@ CTABanner.PreviewProps = {
   theme: defaultTheme,
   variant: "filled",
 } satisfies CTABannerProps;
-
-export default CTABanner;

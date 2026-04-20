@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -98,5 +98,3 @@ NotificationDefault.PreviewProps = {
   ctaHref: "https://example.com/notification",
   ctaLabel: "View Comment",
 } satisfies Props;
-
-export default NotificationDefault;

@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -73,5 +73,3 @@ AuthPasswordResetDefault.PreviewProps = {
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",
 } satisfies Props;
-
-export default AuthPasswordResetDefault;

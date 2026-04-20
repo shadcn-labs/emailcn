@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "registry/bases/react-email/ui/divider.tsx",
-      "content": "import { Section, Tailwind, Text } from \"react-email\";\n\nimport type { EmailTheme } from \"@/registry/themes/default\";\nimport { theme as defaultTheme } from \"@/registry/themes/default\";\n\nexport interface DividerProps {\n  theme?: EmailTheme;\n  label?: string;\n}\n\nexport const Divider = ({ theme = defaultTheme, label }: DividerProps) => (\n  <Tailwind config={theme}>\n    <Section className=\"py-6\">\n      {label ? (\n        <Text className=\"text-center text-sm text-foreground-muted\">\n          {label}\n        </Text>\n      ) : (\n        <Section className=\"border-b border-border\" />\n      )}\n    </Section>\n  </Tailwind>\n);\n\nDivider.PreviewProps = {\n  label: \"— or —\",\n  theme: defaultTheme,\n} satisfies DividerProps;\n\nexport default Divider;\n",
+      "content": "import { Section, Tailwind, Text } from \"react-email\";\n\nimport { defaultTheme } from \"@/registry/themes/default\";\nimport type { EmailTheme } from \"@/registry/themes/define\";\n\nexport interface DividerProps {\n  theme?: EmailTheme;\n  label?: string;\n}\n\nexport const Divider = ({ theme = defaultTheme, label }: DividerProps) => (\n  <Tailwind config={theme}>\n    <Section className=\"py-6\">\n      {label ? (\n        <Text className=\"text-center text-sm text-foreground-muted\">\n          {label}\n        </Text>\n      ) : (\n        <Section className=\"border-b border-border\" />\n      )}\n    </Section>\n  </Tailwind>\n);\n\nDivider.PreviewProps = {\n  label: \"— or —\",\n  theme: defaultTheme,\n} satisfies DividerProps;\n",
       "type": "registry:component"
     }
   ],

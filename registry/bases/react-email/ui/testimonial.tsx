@@ -1,7 +1,7 @@
 import { Column, Img, Row, Section, Tailwind, Text } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface TestimonialProps {
   theme?: EmailTheme;
@@ -64,5 +64,3 @@ Testimonial.PreviewProps = {
   role: "Product Manager, TechCorp",
   theme: defaultTheme,
 } satisfies TestimonialProps;
-
-export default Testimonial;

@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { theme as linearTheme } from "@/registry/themes/linear";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
   _logoUrl?: string;
@@ -109,5 +109,3 @@ NotificationLinear.PreviewProps = {
   ctaLabel: "View Issue",
   issueNumber: "42",
 } satisfies Props;
-
-export default NotificationLinear;

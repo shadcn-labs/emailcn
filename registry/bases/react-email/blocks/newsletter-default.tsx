@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { ContentGrid } from "@/registry/bases/react-email/ui/content-grid";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Article {
   title: string;
@@ -106,5 +106,3 @@ NewsletterDefault.PreviewProps = {
   issueNumber: "42",
   preheader: "Your weekly update from Acme",
 } satisfies Props;
-
-export default NewsletterDefault;

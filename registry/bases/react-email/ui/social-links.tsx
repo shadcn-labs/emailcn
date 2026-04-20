@@ -1,7 +1,7 @@
 import { Column, Link, Row, Section, Tailwind } from "react-email";
 
-import type { EmailTheme } from "@/registry/themes/default";
-import { theme as defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
 export interface SocialLinksProps {
   theme?: EmailTheme;
@@ -63,5 +63,3 @@ SocialLinks.PreviewProps = {
   ],
   theme: defaultTheme,
 } satisfies SocialLinksProps;
-
-export default SocialLinks;

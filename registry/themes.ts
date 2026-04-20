@@ -1,18 +1,18 @@
 import { BASE_NAMES } from "@/registry/bases";
 import type { BaseName } from "@/registry/bases";
 import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import type { EmailTheme } from "@/registry/themes/default";
+import type { EmailTheme } from "@/registry/themes/define";
 
-import { theme as airbnbTheme } from "./themes/airbnb";
-import { theme as defaultThemeRef } from "./themes/default";
-import { theme as githubTheme } from "./themes/github";
-import { theme as linearTheme } from "./themes/linear";
-import { theme as notionTheme } from "./themes/notion";
-import { theme as raycastTheme } from "./themes/raycast";
-import { theme as slackTheme } from "./themes/slack";
-import { theme as stripeTheme } from "./themes/stripe";
-import { theme as twitchTheme } from "./themes/twitch";
-import { theme as vercelTheme } from "./themes/vercel";
+import { airbnbTheme } from "./themes/airbnb";
+import { defaultTheme } from "./themes/default";
+import { githubTheme } from "./themes/github";
+import { linearTheme } from "./themes/linear";
+import { notionTheme } from "./themes/notion";
+import { raycastTheme } from "./themes/raycast";
+import { slackTheme } from "./themes/slack";
+import { stripeTheme } from "./themes/stripe";
+import { twitchTheme } from "./themes/twitch";
+import { vercelTheme } from "./themes/vercel";
 
 export interface RegistryThemeDefinition {
   bases: readonly BaseName[];
@@ -28,7 +28,7 @@ export const THEMES = [
     bases: BASE_NAMES,
     description: "Neutral grayscale palette suitable for transactional mail.",
     name: "default",
-    theme: defaultThemeRef,
+    theme: defaultTheme,
     title: "Default",
     type: "registry:theme",
   },
