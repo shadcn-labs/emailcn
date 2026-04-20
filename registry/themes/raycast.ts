@@ -1,8 +1,7 @@
-import type { EmailTheme } from "./default";
+import { defineEmailTheme } from "./define";
+import type { EmailThemeTokens } from "./define";
 
-export type { EmailTheme } from "./default";
-
-export const theme: EmailTheme = {
+const tokens = {
   borderRadius: "6px",
   borderRadiusLg: "12px",
   button: {
@@ -34,36 +33,29 @@ export const theme: EmailTheme = {
   colorDanger: "#ff453a",
   colorPrimary: "#ff6363",
   colorPrimaryForeground: "#ffffff",
-
   colorPrimaryHover: "#ff8181",
   colorSuccess: "#30d158",
   colorText: "#ffffff",
-
   colorTextMuted: "#98989d",
   colorTextSubtle: "#6b6b6b",
   colorWarning: "#ffd60a",
-
   containerWidth: "600px",
   fontFamily: '"SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif',
   fontFamilyMono: '"SF Mono", Menlo, Monaco, monospace',
-
   fontSizeBase: "14px",
   fontSizeHeading: "28px",
-
   fontSizeLg: "16px",
   fontSizeSm: "12px",
   fontSizeXl: "20px",
-
   fontWeightBold: "600",
   fontWeightMedium: "500",
   fontWeightNormal: "400",
-
   lineHeightBase: "1.6",
   spacingBase: "24px",
-
   spacingLg: "32px",
-
   spacingXl: "48px",
-};
+} satisfies EmailThemeTokens;
 
+export const theme = defineEmailTheme(tokens);
+export type EmailTheme = typeof theme;
 export default theme;

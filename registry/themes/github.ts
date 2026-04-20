@@ -1,8 +1,7 @@
-import type { EmailTheme } from "./default";
+import { defineEmailTheme } from "./define";
+import type { EmailThemeTokens } from "./define";
 
-export type { EmailTheme } from "./default";
-
-export const theme: EmailTheme = {
+const tokens = {
   borderRadius: "6px",
   borderRadiusLg: "12px",
   button: {
@@ -34,37 +33,30 @@ export const theme: EmailTheme = {
   colorDanger: "#f85149",
   colorPrimary: "#2ea44f",
   colorPrimaryForeground: "#ffffff",
-
   colorPrimaryHover: "#2c974b",
   colorSuccess: "#2ea44f",
   colorText: "#e1e4e8",
-
   colorTextMuted: "#959da5",
   colorTextSubtle: "#6b7280",
   colorWarning: "#d29922",
-
   containerWidth: "600px",
   fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
   fontFamilyMono:
     '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
-
   fontSizeBase: "14px",
   fontSizeHeading: "28px",
-
   fontSizeLg: "16px",
   fontSizeSm: "12px",
   fontSizeXl: "20px",
-
   fontWeightBold: "600",
   fontWeightMedium: "500",
   fontWeightNormal: "400",
-
   lineHeightBase: "1.6",
   spacingBase: "24px",
-
   spacingLg: "32px",
-
   spacingXl: "48px",
-};
+} satisfies EmailThemeTokens;
 
+export const theme = defineEmailTheme(tokens);
+export type EmailTheme = typeof theme;
 export default theme;
