@@ -1,40 +1,61 @@
 ---
-title: Avatar Row
-description: A row of user avatars with optional names.
+title: "Avatar Row"
+description: "A row of user avatars with optional names."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" name="avatar-row-demo" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="avatar-row" />
+## Installation
 
-The Avatar Row component displays a row of user avatars, useful for showing team members or recent activity.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-avatar-row
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="mjml-react"
+  name="avatar-row"
+  title="components/ui/avatar-row.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { AvatarRow } from "@/registry/bases/mjml-react/ui/avatar-row";
-
-export default function Email() {
-  return (
-    <AvatarRow
-      users={[
-        { name: "John", avatarUrl: "https://example.com/avatar1.jpg" },
-        { name: "Jane", avatarUrl: "https://example.com/avatar2.jpg" },
-        { name: "Bob", avatarUrl: "https://example.com/avatar3.jpg" },
-      ]}
-    />
-  );
-}
+import { AvatarRow } from "@/components/ui/avatar-row";
 ```
 
-## Props
+```tsx
+<AvatarRow {...AvatarRow.PreviewProps} />
+```
+
+## API Reference
+
+### Avatar Row
 
 | Prop    | Type                       | Default        | Description         |
 | ------- | -------------------------- | -------------- | ------------------- |
 | `theme` | `EmailTheme`               | `defaultTheme` | Email theme styling |
 | `users` | `Array<{name, avatarUrl}>` | -              | List of users       |
-
-## Preview
-
-<ComponentPreview base="mjml-react" name="avatar-row-demo" title="avatar-row" />

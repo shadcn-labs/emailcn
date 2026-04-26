@@ -1,82 +1,58 @@
 ---
-title: Authentication Emails
-description: Pre-built authentication email templates for various use cases.
+title: "Authentication Emails"
+description: "Pre-built authentication email templates for various use cases."
 ---
 
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" kind="blocks" name="auth-otp-default" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="authentication" kind="blocks" />
+## Installation
 
-Authentication emails are used for user verification and account security.
+<CodeTabs>
 
-## Variants
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-### OTP Default
-
-One-time password email with verification code.
-
-```tsx title="registry/bases/react-email/blocks/auth-otp-default.tsx"
-// Subject: Your verification code for {_productName}
-// ...
+```bash
+npx shadcn@latest add @emailcn/block-auth-otp-default
 ```
 
-### OTP Twitch
+</TabsContent>
 
-OTP styled like Twitch's verification emails.
+<TabsContent value="manual">
 
-```tsx title="registry/bases/react-email/blocks/auth-otp-twitch.tsx"
-// ...
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/blocks/auth-otp-default.tsx"
+  title="components/ui/auth-otp-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AuthOtpDefault } from "@/components/ui/auth-otp-default";
 ```
 
-### Magic Link Default
-
-Simple magic link for passwordless login.
-
-```tsx title="registry/bases/react-email/blocks/auth-magic-link-default.tsx"
-// ...
+```tsx
+<AuthOtpDefault {...AuthOtpDefault.PreviewProps} />
 ```
 
-### Magic Link Raycast
+## API Reference
 
-Magic link styled like Raycast's emails.
-
-```tsx title="registry/bases/react-email/blocks/auth-magic-link-raycast.tsx"
-// ...
-```
-
-### Magic Link Stripe
-
-Magic link styled like Stripe's authentication emails.
-
-```tsx title="registry/bases/react-email/blocks/auth-magic-link-stripe.tsx"
-// ...
-```
-
-### Password Reset Default
-
-Password reset instructions.
-
-```tsx title="registry/bases/react-email/blocks/auth-password-reset-default.tsx"
-// ...
-```
-
-### Password Reset Dropbox
-
-Password reset styled like Dropbox emails.
-
-```tsx title="registry/bases/react-email/blocks/auth-password-reset-dropbox.tsx"
-// ...
-```
-
-### Password Reset Notion
-
-Password reset styled like Notion's emails.
-
-```tsx title="registry/bases/react-email/blocks/auth-password-reset-notion.tsx"
-// ...
-```
-
-## Props
+### Authentication Emails
 
 | Prop               | Type     | Default             | Description             |
 | ------------------ | -------- | ------------------- | ----------------------- |

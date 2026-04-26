@@ -1,34 +1,58 @@
 ---
-title: Invitation Emails
-description: Pre-built invitation email templates for team and project invites.
+title: "Invitation Emails"
+description: "Pre-built invitation email templates for team and project invites."
 ---
 
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" kind="blocks" name="invite-default" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="invites" kind="blocks" />
+## Installation
 
-Invitation emails are used to invite users to teams, projects, or organizations.
+<CodeTabs>
 
-## Variants
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-### Default
-
-Simple team invitation with inviter info and CTA.
-
-```tsx title="registry/bases/mjml-react/blocks/invite-default.tsx"
-// Subject: You're invited to join {_teamName}
-// ...
+```bash
+npx shadcn@latest add @emailcn/block-invite-default
 ```
 
-### Vercel
+</TabsContent>
 
-Invitation styled like Vercel's team invites.
+<TabsContent value="manual">
 
-```tsx title="registry/bases/mjml-react/blocks/invite-vercel.tsx"
-// ...
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/blocks/invite-default.tsx"
+  title="components/ui/invite-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { InviteDefault } from "@/components/ui/invite-default";
 ```
 
-## Props
+```tsx
+<InviteDefault {...InviteDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Invitation Emails
 
 | Prop               | Type     | Default       | Description             |
 | ------------------ | -------- | ------------- | ----------------------- |

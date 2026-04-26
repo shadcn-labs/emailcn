@@ -1,32 +1,59 @@
 ---
-title: Social Links
-description: A row of social media links with icons.
+title: "Social Links"
+description: "A row of social media links with icons."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" name="social-links-demo" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="social-links" />
+## Installation
 
-The Social Links component displays social media icons in a row.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-social-links
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="mjml-react"
+  name="social-links"
+  title="components/ui/social-links.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { SocialLinks } from "@/registry/bases/mjml-react/ui/social-links";
-
-export default function Email() {
-  return (
-    <SocialLinks
-      twitterUrl="https://twitter.com/example"
-      linkedinUrl="https://linkedin.com/company/example"
-      githubUrl="https://github.com/example"
-    />
-  );
-}
+import { SocialLinks } from "@/components/ui/social-links";
 ```
 
-## Props
+```tsx
+<SocialLinks {...SocialLinks.PreviewProps} />
+```
+
+## API Reference
+
+### Social Links
 
 | Prop           | Type         | Default        | Description         |
 | -------------- | ------------ | -------------- | ------------------- |
@@ -36,11 +63,3 @@ export default function Email() {
 | `githubUrl`    | `string`     | -              | GitHub link         |
 | `facebookUrl`  | `string`     | -              | Facebook link       |
 | `instagramUrl` | `string`     | -              | Instagram link      |
-
-## Preview
-
-<ComponentPreview
-  base="mjml-react"
-  name="social-links-demo"
-  title="social-links"
-/>

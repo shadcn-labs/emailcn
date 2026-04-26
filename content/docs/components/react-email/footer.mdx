@@ -1,34 +1,59 @@
 ---
-title: Footer
-description: An email footer with company info and links.
+title: "Footer"
+description: "An email footer with company info and links."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" name="footer-demo" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="footer" />
+## Installation
 
-The Footer component displays a footer with company information and optional links.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-footer
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="react-email"
+  name="footer"
+  title="components/ui/footer.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Footer } from "@/registry/bases/react-email/ui/footer";
-
-export default function Email() {
-  return (
-    <Footer
-      companyName="Acme Inc."
-      companyAddress="123 Street, City, Country"
-      unsubscribeUrl="https://example.com/unsubscribe"
-      privacyUrl="https://example.com/privacy"
-      termsUrl="https://example.com/terms"
-    />
-  );
-}
+import { Footer } from "@/components/ui/footer";
 ```
 
-## Props
+```tsx
+<Footer {...Footer.PreviewProps} />
+```
+
+## API Reference
+
+### Footer
 
 | Prop             | Type         | Default        | Description           |
 | ---------------- | ------------ | -------------- | --------------------- |
@@ -38,7 +63,3 @@ export default function Email() {
 | `unsubscribeUrl` | `string`     | -              | Unsubscribe link      |
 | `privacyUrl`     | `string`     | -              | Privacy policy link   |
 | `termsUrl`       | `string`     | -              | Terms of service link |
-
-## Preview
-
-<ComponentPreview base="react-email" name="footer-demo" title="footer" />

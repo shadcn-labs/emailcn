@@ -1,34 +1,58 @@
 ---
-title: Newsletter Emails
-description: Pre-built newsletter email templates for updates and announcements.
+title: "Newsletter Emails"
+description: "Pre-built newsletter email templates for updates and announcements."
 ---
 
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" kind="blocks" name="newsletter-default" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="newsletter" kind="blocks" />
+## Installation
 
-Newsletter emails are used for regular updates and announcements.
+<CodeTabs>
 
-## Variants
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-### Default
-
-Simple newsletter with featured article.
-
-```tsx title="registry/bases/react-email/blocks/newsletter-default.tsx"
-// Subject: {_productName} Newsletter: {_title}
-// ...
+```bash
+npx shadcn@latest add @emailcn/block-newsletter-default
 ```
 
-### Stack Overflow
+</TabsContent>
 
-Newsletter styled like Stack Overflow newsletters.
+<TabsContent value="manual">
 
-```tsx title="registry/bases/react-email/blocks/newsletter-stack-overflow.tsx"
-// ...
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/blocks/newsletter-default.tsx"
+  title="components/ui/newsletter-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { NewsletterDefault } from "@/components/ui/newsletter-default";
 ```
 
-## Props
+```tsx
+<NewsletterDefault {...NewsletterDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Newsletter Emails
 
 | Prop             | Type                                          | Default        | Description             |
 | ---------------- | --------------------------------------------- | -------------- | ----------------------- |

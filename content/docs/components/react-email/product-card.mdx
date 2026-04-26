@@ -1,35 +1,59 @@
 ---
-title: Product Card
-description: A product display card with image and details.
+title: "Product Card"
+description: "A product display card with image and details."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" name="product-card-demo" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="product-card" />
+## Installation
 
-The Product Card component displays a product with image, title, price, and optional CTA.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-product-card
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="react-email"
+  name="product-card"
+  title="components/ui/product-card.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { ProductCard } from "@/registry/bases/react-email/ui/product-card";
-
-export default function Email() {
-  return (
-    <ProductCard
-      productImageUrl="https://example.com/product.jpg"
-      productName="Premium Widget"
-      productDescription="The best widget for your needs."
-      price="$99"
-      ctaLabel="Buy Now"
-      ctaHref="https://example.com"
-    />
-  );
-}
+import { ProductCard } from "@/components/ui/product-card";
 ```
 
-## Props
+```tsx
+<ProductCard {...ProductCard.PreviewProps} />
+```
+
+## API Reference
+
+### Product Card
 
 | Prop                 | Type         | Default        | Description         |
 | -------------------- | ------------ | -------------- | ------------------- |
@@ -40,11 +64,3 @@ export default function Email() {
 | `price`              | `string`     | -              | Product price       |
 | `ctaLabel`           | `string`     | -              | CTA button label    |
 | `ctaHref`            | `string`     | `"#"`          | CTA button link     |
-
-## Preview
-
-<ComponentPreview
-  base="react-email"
-  name="product-card-demo"
-  title="product-card"
-/>

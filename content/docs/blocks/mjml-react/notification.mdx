@@ -1,116 +1,58 @@
 ---
-title: Notification Emails
-description: Pre-built notification email templates for various use cases.
+title: "Notification Emails"
+description: "Pre-built notification email templates for various use cases."
 ---
 
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" kind="blocks" name="notification-default" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="notification" kind="blocks" />
+## Installation
 
-Notification emails alert users about activity in your application.
+<CodeTabs>
 
-## Variants
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-### Default
-
-Simple notification with actor info, action, and CTA button.
-
-```tsx title="registry/bases/mjml-react/blocks/notification-default.tsx"
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import { emailMjmlLayoutVars } from "../email-mjml-layout";
-
-type Props = Record<string, never>;
-
-export const NotificationDefault = (_props: Props) => {
-  const theme = defaultTheme;
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = emailMjmlLayoutVars(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText
-                color={t.colors.foreground}
-                fontFamily={t.fontFamily.sans}
-              >
-                {/* … */}
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+```bash
+npx shadcn@latest add @emailcn/block-notification-default
 ```
 
-**Preview Props:**
+</TabsContent>
 
-```ts
-{
-  _action: "commented on your post",
-  _productName: "Acme",
-  _targetName: "New comment on your project",
-  actorAvatarUrl: "https://example.com/avatar.jpg",
-  actorName: "Sarah",
-  ctaHref: "https://example.com/notification",
-  ctaLabel: "View Comment",
-  logoUrl: "https://example.com/logo.png",
-}
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/blocks/notification-default.tsx"
+  title="components/ui/notification-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { NotificationDefault } from "@/components/ui/notification-default";
 ```
 
-### Airbnb
-
-Similar to Airbnb's notification style with avatar and action.
-
-```tsx title="registry/bases/mjml-react/blocks/notification-airbnb.tsx"
-// Subject: {_action} — {_targetName}
-// ...
+```tsx
+<NotificationDefault {...NotificationDefault.PreviewProps} />
 ```
 
-### Linear
+## API Reference
 
-Minimal notification with Linear's clean design.
-
-```tsx title="registry/bases/mjml-react/blocks/notification-linear.tsx"
-// Subject: {_action} — {_targetName}
-// ...
-```
-
-### Slack
-
-Notification styled like Slack messages.
-
-```tsx title="registry/bases/mjml-react/blocks/notification-slack.tsx"
-// Subject: Slack: {_action}
-// ...
-```
-
-## Props
+### Notification Emails
 
 | Prop             | Type     | Default          | Description                               |
 | ---------------- | -------- | ---------------- | ----------------------------------------- |

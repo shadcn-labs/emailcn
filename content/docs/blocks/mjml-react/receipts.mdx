@@ -1,50 +1,58 @@
 ---
-title: Receipt Emails
-description: Pre-built receipt and invoice email templates.
+title: "Receipt Emails"
+description: "Pre-built receipt and invoice email templates."
 ---
 
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" kind="blocks" name="receipt-default" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="receipts" kind="blocks" />
+## Installation
 
-Receipt emails confirm purchases and transactions.
+<CodeTabs>
 
-## Variants
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-### Default
-
-Simple receipt with order summary.
-
-```tsx title="registry/bases/mjml-react/blocks/receipt-default.tsx"
-// Subject: Your receipt from {_productName}
-// ...
+```bash
+npx shadcn@latest add @emailcn/block-receipt-default
 ```
 
-### Apple
+</TabsContent>
 
-Receipt styled like Apple purchases.
+<TabsContent value="manual">
 
-```tsx title="registry/bases/mjml-react/blocks/receipt-apple.tsx"
-// ...
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/blocks/receipt-default.tsx"
+  title="components/ui/receipt-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ReceiptDefault } from "@/components/ui/receipt-default";
 ```
 
-### Nike
-
-Receipt styled like Nike orders.
-
-```tsx title="registry/bases/mjml-react/blocks/receipt-nike.tsx"
-// ...
+```tsx
+<ReceiptDefault {...ReceiptDefault.PreviewProps} />
 ```
 
-### Stripe
+## API Reference
 
-Receipt styled like Stripe invoices.
-
-```tsx title="registry/bases/mjml-react/blocks/receipt-stripe.tsx"
-// ...
-```
-
-## Props
+### Receipt Emails
 
 | Prop           | Type                                     | Default  | Description             |
 | -------------- | ---------------------------------------- | -------- | ----------------------- |

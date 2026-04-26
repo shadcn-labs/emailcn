@@ -1,6 +1,7 @@
 {
   "title": "React Email",
   "pages": [
+    "index",
     "hero",
     "testimonial",
     "cta-banner",

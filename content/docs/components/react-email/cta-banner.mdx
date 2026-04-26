@@ -1,34 +1,59 @@
 ---
-title: CTA Banner
-description: A call-to-action banner for promotions.
+title: "CTA Banner"
+description: "A call-to-action banner for promotions."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" name="cta-banner-demo" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="cta-banner" />
+## Installation
 
-The CTA Banner component displays a promotional banner with heading, description, and CTA button.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-cta-banner
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="react-email"
+  name="cta-banner"
+  title="components/ui/cta-banner.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { CtaBanner } from "@/registry/bases/react-email/ui/cta-banner";
-import { Button } from "react-email";
-
-export default function Email() {
-  return (
-    <CtaBanner
-      heading="Special Offer"
-      description="Get 50% off your first month."
-      ctaLabel="Claim Now"
-      ctaHref="https://example.com"
-    />
-  );
-}
+import { CtaBanner } from "@/components/ui/cta-banner";
 ```
 
-## Props
+```tsx
+<CtaBanner {...CtaBanner.PreviewProps} />
+```
+
+## API Reference
+
+### CTA Banner
 
 | Prop          | Type         | Default        | Description         |
 | ------------- | ------------ | -------------- | ------------------- |
@@ -37,11 +62,3 @@ export default function Email() {
 | `description` | `string`     | -              | Banner description  |
 | `ctaLabel`    | `string`     | -              | CTA button label    |
 | `ctaHref`     | `string`     | `"#"`          | CTA button link     |
-
-## Preview
-
-<ComponentPreview
-  base="react-email"
-  name="cta-banner-demo"
-  title="cta-banner"
-/>

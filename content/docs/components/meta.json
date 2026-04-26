@@ -1,4 +1,4 @@
 {
   "title": "Email Components",
-  "pages": ["react-email", "mjml-react"]
+  "pages": ["index", "react-email", "mjml-react"]
 }

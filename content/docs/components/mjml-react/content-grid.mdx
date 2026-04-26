@@ -1,45 +1,62 @@
 ---
-title: Content Grid
-description: A grid layout for displaying multiple content items.
+title: "Content Grid"
+description: "A grid layout for displaying multiple content items."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" name="content-grid-demo" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="content-grid" />
+## Installation
 
-The Content Grid component displays content in a responsive grid layout.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-content-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="mjml-react"
+  name="content-grid"
+  title="components/ui/content-grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import {
-  ContentGrid,
-  ContentGridItem,
-} from "@/registry/bases/mjml-react/ui/content-grid";
-
-export default function Email() {
-  return (
-    <ContentGrid>
-      <ContentGridItem>Item 1</ContentGridItem>
-      <ContentGridItem>Item 2</ContentGridItem>
-    </ContentGrid>
-  );
-}
+import { ContentGrid } from "@/components/ui/content-grid";
 ```
 
-## Props
+```tsx
+<ContentGrid {...ContentGrid.PreviewProps} />
+```
+
+## API Reference
+
+### Content Grid
 
 | Prop      | Type         | Default        | Description         |
 | --------- | ------------ | -------------- | ------------------- |
 | `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
 | `columns` | `number`     | `2`            | Number of columns   |
 | `gap`     | `string`     | -              | Gap between items   |
-
-## Preview
-
-<ComponentPreview
-  base="mjml-react"
-  name="content-grid-demo"
-  title="content-grid"
-/>

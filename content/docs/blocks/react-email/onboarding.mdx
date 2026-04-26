@@ -1,42 +1,58 @@
 ---
-title: Onboarding Emails
-description: Pre-built onboarding email templates for new users.
+title: "Onboarding Emails"
+description: "Pre-built onboarding email templates for new users."
 ---
 
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" kind="blocks" name="onboarding-default" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="onboarding" kind="blocks" />
+## Installation
 
-Onboarding emails help new users get started with your product.
+<CodeTabs>
 
-## Variants
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-### Default
-
-Simple welcome email with getting started steps.
-
-```tsx title="registry/bases/react-email/blocks/onboarding-default.tsx"
-// Subject: Welcome to {_productName}
-// ...
+```bash
+npx shadcn@latest add @emailcn/block-onboarding-default
 ```
 
-### Linear
+</TabsContent>
 
-Onboarding styled like Linear's welcome emails.
+<TabsContent value="manual">
 
-```tsx title="registry/bases/react-email/blocks/onboarding-linear.tsx"
-// ...
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/blocks/onboarding-default.tsx"
+  title="components/ui/onboarding-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OnboardingDefault } from "@/components/ui/onboarding-default";
 ```
 
-### Vercel
-
-Onboarding styled like Vercel's getting started emails.
-
-```tsx title="registry/bases/react-email/blocks/onboarding-vercel.tsx"
-// ...
+```tsx
+<OnboardingDefault {...OnboardingDefault.PreviewProps} />
 ```
 
-## Props
+## API Reference
+
+### Onboarding Emails
 
 | Prop           | Type                                | Default         | Description             |
 | -------------- | ----------------------------------- | --------------- | ----------------------- |

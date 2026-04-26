@@ -1,32 +1,59 @@
 ---
-title: Feature Row
-description: A feature display with icon, title, and description.
+title: "Feature Row"
+description: "A feature display with icon, title, and description."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="react-email" name="feature-row-demo" hideCode />
 
-<DocsBaseSwitcher base="react-email" component="feature-row" />
+## Installation
 
-The Feature Row component displays a feature with an icon, title, and description.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-feature-row
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="react-email"
+  name="feature-row"
+  title="components/ui/feature-row.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { FeatureRow } from "@/registry/bases/react-email/ui/feature-row";
-
-export default function Email() {
-  return (
-    <FeatureRow
-      icon="🚀"
-      title="Fast Setup"
-      description="Get started in minutes."
-    />
-  );
-}
+import { FeatureRow } from "@/components/ui/feature-row";
 ```
 
-## Props
+```tsx
+<FeatureRow {...FeatureRow.PreviewProps} />
+```
+
+## API Reference
+
+### Feature Row
 
 | Prop          | Type                 | Default        | Description         |
 | ------------- | -------------------- | -------------- | ------------------- |
@@ -35,11 +62,3 @@ export default function Email() {
 | `title`       | `string`             | -              | Feature title       |
 | `description` | `string`             | -              | Feature description |
 | `align`       | `"left" \| "center"` | `"left"`       | Text alignment      |
-
-## Preview
-
-<ComponentPreview
-  base="react-email"
-  name="feature-row-demo"
-  title="feature-row"
-/>

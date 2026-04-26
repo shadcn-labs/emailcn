@@ -1,33 +1,59 @@
 ---
-title: Hero
-description: A hero section with heading, subheading, and CTA button.
+title: "Hero"
+description: "A hero section with heading, subheading, and CTA button."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" name="hero-demo" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="hero" />
+## Installation
 
-The Hero component displays a prominent heading with a subheading and optional CTA button.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-hero
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="mjml-react"
+  name="hero"
+  title="components/ui/hero.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Hero } from "@/registry/bases/mjml-react/ui/hero";
-
-export default function Email() {
-  return (
-    <Hero
-      heading="Welcome to Acme"
-      subheading="Build faster with the tools you love."
-      ctaLabel="Get Started"
-      ctaHref="https://example.com"
-    />
-  );
-}
+import { Hero } from "@/components/ui/hero";
 ```
 
-## Props
+```tsx
+<Hero {...Hero.PreviewProps} />
+```
+
+## API Reference
+
+### Hero
 
 | Prop         | Type                 | Default                           | Description         |
 | ------------ | -------------------- | --------------------------------- | ------------------- |
@@ -37,12 +63,3 @@ export default function Email() {
 | `ctaLabel`   | `string`             | `"Get Started"`                   | CTA button label    |
 | `ctaHref`    | `string`             | `"#"`                             | CTA button link     |
 | `align`      | `"left" \| "center"` | `"center"`                        | Text alignment      |
-
-## Preview
-
-<Callout>
-  Try different alignments and customize the heading/subheading to match your
-  brand.
-</Callout>
-
-<ComponentPreview base="mjml-react" name="hero-demo" title="hero" />

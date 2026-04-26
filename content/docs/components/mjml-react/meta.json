@@ -1,6 +1,7 @@
 {
   "title": "MJML React",
   "pages": [
+    "index",
     "hero",
     "testimonial",
     "cta-banner",

@@ -1,31 +1,60 @@
 ---
-title: Divider
-description: A horizontal divider line.
+title: "Divider"
+description: "A horizontal divider line."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" name="divider-demo" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="divider" />
+## Installation
 
-The Divider component displays a horizontal line to separate sections in an email.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-divider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="mjml-react"
+  name="divider"
+  title="components/ui/divider.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Divider } from "@/registry/bases/mjml-react/ui/divider";
-
-export default function Email() {
-  return <Divider />;
-}
+import { Divider } from "@/components/ui/divider";
 ```
 
-## Props
+```tsx
+<Divider {...Divider.PreviewProps} />
+```
+
+## API Reference
+
+### Divider
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |
 | `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Preview
-
-<ComponentPreview base="mjml-react" name="divider-demo" title="divider" />

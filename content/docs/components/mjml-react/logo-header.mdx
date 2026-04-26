@@ -1,32 +1,59 @@
 ---
-title: Logo Header
-description: A header with company logo.
+title: "Logo Header"
+description: "A header with company logo."
 ---
 
-import { ComponentPreview } from "@/components/component-preview";
-import { DocsBaseSwitcher } from "@/components/docs-base-switcher";
+<ComponentPreview base="mjml-react" name="logo-header-demo" hideCode />
 
-<DocsBaseSwitcher base="mjml-react" component="logo-header" />
+## Installation
 
-The Logo Header component displays a company logo at the top of an email.
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/email-logo-header
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  base="mjml-react"
+  name="logo-header"
+  title="components/ui/logo-header.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
 ```tsx
-import { LogoHeader } from "@/registry/bases/mjml-react/ui/logo-header";
-
-export default function Email() {
-  return (
-    <LogoHeader
-      logoUrl="https://example.com/logo.png"
-      logoAlt="Acme"
-      href="https://example.com"
-    />
-  );
-}
+import { LogoHeader } from "@/components/ui/logo-header";
 ```
 
-## Props
+```tsx
+<LogoHeader {...LogoHeader.PreviewProps} />
+```
+
+## API Reference
+
+### Logo Header
 
 | Prop      | Type         | Default        | Description         |
 | --------- | ------------ | -------------- | ------------------- |
@@ -34,11 +61,3 @@ export default function Email() {
 | `logoUrl` | `string`     | -              | Logo image URL      |
 | `logoAlt` | `string`     | `"Logo"`       | Alt text for logo   |
 | `href`    | `string`     | `"#"`          | Logo link URL       |
-
-## Preview
-
-<ComponentPreview
-  base="mjml-react"
-  name="logo-header-demo"
-  title="logo-header"
-/>
