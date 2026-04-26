@@ -354,7 +354,7 @@ export const CommandMenu = ({
   }, [copyPayload, runCommand, copyToClipboard, copyFeedback]);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={setOpen} sounds>
       <DialogTrigger asChild>
         <Button
           variant="secondary"
