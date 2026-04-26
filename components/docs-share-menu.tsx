@@ -1,10 +1,12 @@
 "use client";
 
-import { EllipsisIcon, LinkIcon, ShareIcon } from "lucide-react";
-import { useMemo } from "react";
+import { EllipsisIcon, LinkIcon } from "lucide-react";
+import { useCallback, useMemo, useRef } from "react";
 import { toast } from "sonner";
 
-import { LinkedInIcon, XIcon } from "@/components/icons";
+import type { ShareIconHandle } from "@/components/animated-icons/share";
+import { ShareIcon } from "@/components/animated-icons/share";
+import { XIcon, LinkedInIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -21,6 +23,7 @@ export const DocsShareMenu = ({
   title: string;
   url: string;
 }) => {
+  const shareIconRef = useRef<ShareIconHandle>(null);
   const { copyToClipboard } = useCopyToClipboard();
 
   const absoluteUrl = useMemo(() => {
@@ -33,17 +36,27 @@ export const DocsShareMenu = ({
     return url;
   }, [url]);
 
+  const handleMouseEnter = useCallback(() => {
+    shareIconRef.current?.startAnimation();
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    shareIconRef.current?.stopAnimation();
+  }, []);
+
   const urlEncoded = encodeURIComponent(absoluteUrl);
 
   return (
-    <DropdownMenu>
+    <DropdownMenu sounds>
       <DropdownMenuTrigger asChild>
         <Button
-          className="size-7 border-none active:scale-none"
+          className="hidden sm:flex size-7 border-none active:scale-none"
           variant="secondary"
           size="icon-sm"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-          <ShareIcon />
+          <ShareIcon ref={shareIconRef} />
         </Button>
       </DropdownMenuTrigger>
 
@@ -54,6 +67,7 @@ export const DocsShareMenu = ({
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         <DropdownMenuItem
+          sound="copy"
           onClick={() => {
             copyToClipboard(absoluteUrl);
             toast.success("Link copied");
@@ -63,7 +77,7 @@ export const DocsShareMenu = ({
           Copy link
         </DropdownMenuItem>
 
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem asChild sound="click">
           <a
             href={`https://x.com/intent/tweet?url=${urlEncoded}`}
             target="_blank"
@@ -74,7 +88,7 @@ export const DocsShareMenu = ({
           </a>
         </DropdownMenuItem>
 
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem asChild sound="click">
           <a
             href={`https://www.linkedin.com/sharing/share-offsite?url=${urlEncoded}`}
             target="_blank"
@@ -87,6 +101,7 @@ export const DocsShareMenu = ({
 
         {typeof navigator !== "undefined" && "share" in navigator && (
           <DropdownMenuItem
+            sound="click"
             onClick={(e) => {
               e.preventDefault();
               navigator.share({ title, url: absoluteUrl });

@@ -29,10 +29,11 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { SITE } from "@/constants/site";
-import { useConfig } from "@/hooks/use-config";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { useFeedback } from "@/hooks/use-feedback";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
+import { usePackageManager } from "@/hooks/use-package-manager";
 import {
   EXCLUDED_SECTIONS,
   isBlocksFolder,
@@ -184,12 +185,12 @@ export const CommandMenu = ({
   const router = useRouter();
   const pathname = usePathname();
   const isMac = useIsMac();
-  const [config] = useConfig();
+  const [packageManager] = usePackageManager();
   const [open, setOpen] = useState(false);
   const [showGoToPage, setShowGoToPage] = useState(false);
   const [copyPayload, setCopyPayload] = useState("");
-  const packageManager = config.packageManager || "pnpm";
   const currentBase = getCurrentBase(pathname);
+  const copyFeedback = useFeedback({ sound: "copy" });
 
   const { copyToClipboard } = useCopyToClipboard({
     onCopy: () => {
@@ -336,14 +337,21 @@ export const CommandMenu = ({
         setOpen((prev) => !prev);
       }
 
-      if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
-        runCommand(() => copyToClipboard(copyPayload));
+      if (
+        e.key === "c" &&
+        (e.metaKey || e.ctrlKey) &&
+        copyPayload.includes("shadcn@latest")
+      ) {
+        runCommand(() => {
+          copyFeedback();
+          copyToClipboard(copyPayload);
+        });
       }
     };
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [copyPayload, runCommand, copyToClipboard]);
+  }, [copyPayload, runCommand, copyToClipboard, copyFeedback]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

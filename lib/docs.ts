@@ -3,51 +3,7 @@ import { ROUTES } from "@/constants/routes";
 import type { PageTreeFolder } from "./page-tree";
 import { formatLabelFromSlug } from "./utils";
 
-export interface NavItem {
-  title: string;
-  href?: string;
-  disabled?: boolean;
-  external?: boolean;
-  label?: string;
-}
-
-export interface NavItemWithChildren extends NavItem {
-  items: NavItemWithChildren[];
-}
-
-export interface DocsConfig {
-  sidebarNav: NavItemWithChildren[];
-}
-
-export const docsConfig: DocsConfig = {
-  sidebarNav: [
-    {
-      items: [
-        {
-          href: "/docs",
-          items: [],
-          title: "Introduction",
-        },
-        {
-          href: "/docs/installation",
-          items: [],
-          title: "Installation",
-        },
-      ],
-      title: "Getting Started",
-    },
-    {
-      items: [
-        {
-          href: "/docs/examples/basic",
-          items: [],
-          title: "Basic Usage",
-        },
-      ],
-      title: "Examples",
-    },
-  ],
-};
+export const DOCS_DIR = `content${ROUTES.DOCS}`;
 
 export const EXCLUDED_SECTIONS = new Set([
   "installation",
@@ -61,6 +17,7 @@ export const isComponentsFolder = (folder: PageTreeFolder) =>
 export const isBlocksFolder = (folder: PageTreeFolder) =>
   folder.$id === "blocks" || folder.name === "Blocks";
 
+export const homeContentRoute = `${ROUTES.LLMS_MDX}/content.md`;
 export const docsContentRoute = `${ROUTES.LLMS_MDX}${ROUTES.DOCS}`;
 export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
 

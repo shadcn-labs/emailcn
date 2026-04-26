@@ -4,7 +4,14 @@ import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 import { Slot } from "radix-ui";
-import * as React from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +30,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import type { FeedbackType } from "@/hooks/use-feedback";
+import { useFeedback } from "@/hooks/use-feedback";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
@@ -43,10 +52,10 @@ interface SidebarContextProps {
   toggleSidebar: () => void;
 }
 
-const SidebarContext = React.createContext<SidebarContextProps | null>(null);
+const SidebarContext = createContext<SidebarContextProps | null>(null);
 
 const useSidebar = () => {
-  const context = React.useContext(SidebarContext);
+  const context = useContext(SidebarContext);
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
@@ -68,13 +77,15 @@ const SidebarProvider = ({
   onOpenChange?: (open: boolean) => void;
 }) => {
   const isMobile = useIsMobile();
-  const [openMobile, setOpenMobile] = React.useState(false);
+  const [openMobile, setOpenMobile] = useState(false);
 
-  const [_open, _setOpen] = React.useState(defaultOpen);
-  const isOpen = openProp ?? _open;
-  const setOpen = React.useCallback(
+  // This is the internal state of the sidebar.
+  // We use openProp and setOpenProp for control from outside the component.
+  const [_open, _setOpen] = useState(defaultOpen);
+  const open = openProp ?? _open;
+  const setOpen = useCallback(
     (value: boolean | ((value: boolean) => boolean)) => {
-      const openState = typeof value === "function" ? value(isOpen) : value;
+      const openState = typeof value === "function" ? value(open) : value;
       if (setOpenProp) {
         setOpenProp(openState);
       } else {
@@ -84,18 +95,18 @@ const SidebarProvider = ({
       // eslint-disable-next-line unicorn/no-document-cookie
       document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
     },
-    [setOpenProp, isOpen]
+    [setOpenProp, open]
   );
 
-  const toggleSidebar = React.useCallback(
+  // Helper to toggle the sidebar.
+  const toggleSidebar = useCallback(
     () =>
-      isMobile
-        ? setOpenMobile((currentOpen) => !currentOpen)
-        : setOpen((currentOpen) => !currentOpen),
+      isMobile ? setOpenMobile((prev) => !prev) : setOpen((prev) => !prev),
     [isMobile, setOpen]
   );
 
-  React.useEffect(() => {
+  // Adds a keyboard shortcut to toggle the sidebar.
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
         event.key === SIDEBAR_KEYBOARD_SHORTCUT &&
@@ -110,19 +121,21 @@ const SidebarProvider = ({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [toggleSidebar]);
 
-  const state = isOpen ? "expanded" : "collapsed";
+  // We add a state so that we can do data-state="expanded" or "collapsed".
+  // This makes it easier to style the sidebar with Tailwind classes.
+  const state = open ? "expanded" : "collapsed";
 
-  const contextValue = React.useMemo<SidebarContextProps>(
+  const contextValue = useMemo<SidebarContextProps>(
     () => ({
       isMobile,
-      open: isOpen,
+      open,
       openMobile,
       setOpen,
       setOpenMobile,
       state,
       toggleSidebar,
     }),
-    [state, isOpen, setOpen, isMobile, openMobile, toggleSidebar]
+    [state, open, setOpen, isMobile, openMobile, toggleSidebar]
   );
 
   return (
@@ -181,7 +194,7 @@ const Sidebar = ({
 
   if (isMobile) {
     return (
-      <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+      <Sheet open={openMobile} onOpenChange={setOpenMobile} sounds {...props}>
         <SheetContent
           data-sidebar="sidebar"
           data-slot="sidebar"
@@ -259,6 +272,14 @@ const SidebarTrigger = ({
 }: React.ComponentProps<typeof Button>) => {
   const { toggleSidebar } = useSidebar();
 
+  const handleClick = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      onClick?.(event);
+      toggleSidebar();
+    },
+    [onClick, toggleSidebar]
+  );
+
   return (
     <Button
       data-sidebar="trigger"
@@ -266,10 +287,7 @@ const SidebarTrigger = ({
       variant="ghost"
       size="icon"
       className={cn("size-7", className)}
-      onClick={(event) => {
-        onClick?.(event);
-        toggleSidebar();
-      }}
+      onClick={handleClick}
       {...props}
     >
       <PanelLeftIcon />
@@ -286,6 +304,7 @@ const SidebarRail = ({
 
   return (
     <button
+      type="button"
       data-sidebar="rail"
       data-slot="sidebar-rail"
       aria-label="Toggle Sidebar"
@@ -499,14 +518,27 @@ const SidebarMenuButton = ({
   size = "default",
   tooltip,
   className,
+  sound,
+  haptic,
+  onClick,
   ...props
 }: React.ComponentProps<"button"> & {
   asChild?: boolean;
   isActive?: boolean;
   tooltip?: string | React.ComponentProps<typeof TooltipContent>;
+  sound?: FeedbackType;
+  haptic?: boolean;
 } & VariantProps<typeof sidebarMenuButtonVariants>) => {
-  const Comp = asChild ? Slot.Root : "button";
   const { isMobile, state } = useSidebar();
+
+  const play = useFeedback({ haptic, sound });
+
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    play();
+    onClick?.(e);
+  };
+
+  const Comp = asChild ? Slot.Root : "button";
 
   const button = (
     <Comp
@@ -515,6 +547,7 @@ const SidebarMenuButton = ({
       data-size={size}
       data-active={isActive}
       className={cn(sidebarMenuButtonVariants({ size, variant }), className)}
+      onClick={handleClick}
       {...props}
     />
   );
@@ -599,10 +632,7 @@ const SidebarMenuSkeleton = ({
   showIcon?: boolean;
 }) => {
   // Random width between 50 to 90%.
-  const width = React.useMemo(
-    () => `${Math.floor(Math.random() * 40) + 50}%`,
-    []
-  );
+  const width = useMemo(() => `${Math.floor(Math.random() * 40) + 50}%`, []);
 
   return (
     <div

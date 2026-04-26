@@ -1,14 +1,15 @@
 "use client";
 
-import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-react";
-import { useCallback } from "react";
+import { ChevronDownIcon } from "lucide-react";
 
 import {
   ChatGptIcon,
   ClaudeIcon,
   CursorIcon,
+  GeminiIcon,
   GrokIcon,
   MarkdownDocIcon,
+  PerplexityIcon,
   SciraIcon,
   V0Icon,
 } from "@/components/icons";
@@ -26,7 +27,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+
+import { CopyButton } from "./copy-button";
 
 const getPromptUrl = (baseURL: string, url: string, param = "q") =>
   `${baseURL}?${param}=${encodeURIComponent(
@@ -59,6 +61,19 @@ const MENU_ITEMS: [string, (url: string) => React.ReactNode][] = [
     ),
   ],
   [
+    "cursor",
+    (url) => (
+      <a
+        href={getPromptUrl("https://cursor.com/link/prompt", url, "text")}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <CursorIcon />
+        Open in Cursor
+      </a>
+    ),
+  ],
+  [
     "chatgpt",
     (url) => (
       <a
@@ -85,15 +100,28 @@ const MENU_ITEMS: [string, (url: string) => React.ReactNode][] = [
     ),
   ],
   [
-    "cursor",
+    "perplexity",
     (url) => (
       <a
-        href={getPromptUrl("https://cursor.com/link/prompt", url, "text")}
+        href={getPromptUrl("https://perplexity.ai", url)}
         rel="noopener noreferrer"
         target="_blank"
       >
-        <CursorIcon />
-        Open in Cursor
+        <PerplexityIcon />
+        Open in Perplexity
+      </a>
+    ),
+  ],
+  [
+    "gemini",
+    (url) => (
+      <a
+        href={getPromptUrl("https://gemini.google.com/app", url)}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <GeminiIcon />
+        Open in Gemini
       </a>
     ),
   ],
@@ -101,7 +129,7 @@ const MENU_ITEMS: [string, (url: string) => React.ReactNode][] = [
     "grok",
     (url) => (
       <a
-        href={getPromptUrl("https://grok.com/new", url)}
+        href={getPromptUrl("https://grok.com", url)}
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -127,12 +155,6 @@ const MENU_ITEMS: [string, (url: string) => React.ReactNode][] = [
 ];
 
 export const DocsCopyPage = ({ page, url }: { page: string; url: string }) => {
-  const { copyToClipboard, isCopied } = useCopyToClipboard();
-
-  const handleCopyPage = useCallback(async () => {
-    await copyToClipboard(page);
-  }, [page, copyToClipboard]);
-
   const trigger = (
     <Button
       variant="secondary"
@@ -144,19 +166,19 @@ export const DocsCopyPage = ({ page, url }: { page: string; url: string }) => {
   );
 
   return (
-    <Popover>
+    <Popover sounds>
       <div className="group/buttons relative flex rounded-lg bg-secondary *:data-[slot=button]:focus-visible:relative *:data-[slot=button]:focus-visible:z-10">
         <PopoverAnchor />
-        <Button
+        <CopyButton
+          value={page}
+          showTooltip={false}
+          sound="copy"
           variant="secondary"
-          size="sm"
           className="md:h-7 md:text-[0.8rem]"
-          onClick={handleCopyPage}
         >
-          {isCopied ? <CheckIcon /> : <CopyIcon />}
           Copy Page
-        </Button>
-        <DropdownMenu>
+        </CopyButton>
+        <DropdownMenu sounds>
           <DropdownMenuTrigger asChild className="hidden sm:flex">
             {trigger}
           </DropdownMenuTrigger>
@@ -165,7 +187,7 @@ export const DocsCopyPage = ({ page, url }: { page: string; url: string }) => {
             className="animate-none! rounded-lg shadow-none"
           >
             {MENU_ITEMS.map(([key, render]) => (
-              <DropdownMenuItem key={key} asChild>
+              <DropdownMenuItem key={key} asChild sound="click">
                 {render(url)}
               </DropdownMenuItem>
             ))}
@@ -188,6 +210,7 @@ export const DocsCopyPage = ({ page, url }: { page: string; url: string }) => {
               size="lg"
               asChild
               key={key}
+              sound="click"
               className="w-full justify-start text-base font-normal *:[svg]:text-muted-foreground"
             >
               {render(url)}

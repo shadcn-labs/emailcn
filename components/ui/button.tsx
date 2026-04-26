@@ -1,8 +1,11 @@
+"use client";
+
 import { cva } from "class-variance-authority";
 import type { VariantProps } from "class-variance-authority";
 import { Slot } from "radix-ui";
-import * as React from "react";
 
+import type { FeedbackType } from "@/hooks/use-feedback";
+import { useFeedback } from "@/hooks/use-feedback";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -37,16 +40,30 @@ const buttonVariants = cva(
   }
 );
 
+interface ButtonProps
+  extends React.ComponentProps<"button">, VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  sound?: FeedbackType;
+  haptic?: boolean;
+}
+
 const Button = ({
   className,
   variant,
   size,
   asChild = false,
+  sound,
+  haptic,
+  onClick,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) => {
+}: ButtonProps) => {
+  const play = useFeedback({ haptic, sound });
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    play();
+    onClick?.(e);
+  };
+
   const Comp = asChild ? Slot.Root : "button";
 
   return (
@@ -55,6 +72,7 @@ const Button = ({
       data-size={size}
       data-variant={variant}
       className={cn(buttonVariants({ className, size, variant }))}
+      onClick={handleClick}
       {...props}
     />
   );

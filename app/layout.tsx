@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { ActiveThemeProvider } from "@/components/active-theme";
 import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -43,11 +42,9 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider>
-          <ActiveThemeProvider>
-            {children}
-            <Toaster position="top-center" />
-            <Analytics />
-          </ActiveThemeProvider>
+          {children}
+          <Toaster position="top-center" />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

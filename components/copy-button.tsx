@@ -1,6 +1,8 @@
 "use client";
 
 import { CheckIcon, CopyIcon } from "lucide-react";
+import type { HTMLMotionProps, Variants } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useCallback } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -14,25 +16,51 @@ import type { Event } from "@/lib/events";
 import { trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
 
+export const motionIconVariants: Variants = {
+  animate: { filter: "blur(0px)", opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.8 },
+  initial: { filter: "blur(2px)", opacity: 0, scale: 0.8 },
+};
+
+export const motionIconProps: HTMLMotionProps<"span"> = {
+  animate: "animate",
+  exit: "exit",
+  initial: "initial",
+  transition: { duration: 0.15, ease: "easeOut" },
+  variants: motionIconVariants,
+};
+
+export interface CopyButtonProps extends Omit<
+  React.ComponentProps<typeof Button>,
+  "value"
+> {
+  value: string | (() => string);
+  src?: string;
+  event?: Event["name"];
+  showTooltip?: boolean;
+}
+
 export const CopyButton = ({
   value,
   className,
   variant = "ghost",
   event,
   children,
+  showTooltip = true,
   ...props
-}: React.ComponentProps<typeof Button> & {
-  value: string;
-  src?: string;
-  event?: Event["name"];
-}) => {
+}: CopyButtonProps) => {
+  const getValue = useCallback(
+    () => (typeof value === "function" ? value() : value),
+    [value]
+  );
+
   const { copyToClipboard, isCopied } = useCopyToClipboard({
     onCopy: () => {
       if (event) {
         trackEvent({
           name: event,
           properties: {
-            code: value,
+            code: getValue(),
           },
         });
       }
@@ -41,34 +69,47 @@ export const CopyButton = ({
   });
 
   const handleCopy = useCallback(async () => {
-    await copyToClipboard(value);
-  }, [value, copyToClipboard]);
+    await copyToClipboard(getValue());
+  }, [copyToClipboard, getValue]);
+
+  const copyButton = (
+    <Button
+      data-slot="copy-button"
+      size={children ? "sm" : "icon"}
+      variant={variant}
+      className={cn(
+        children
+          ? ""
+          : "bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100",
+        className
+      )}
+      sound="copy"
+      onClick={handleCopy}
+      {...props}
+    >
+      <span className="sr-only">Copy</span>
+      <AnimatePresence mode="popLayout" initial={false}>
+        {isCopied ? (
+          <motion.span key="done" {...motionIconProps}>
+            <CheckIcon strokeWidth={3} />
+          </motion.span>
+        ) : (
+          <motion.span key="idle" {...motionIconProps}>
+            <CopyIcon />
+          </motion.span>
+        )}
+      </AnimatePresence>
+      {children}
+    </Button>
+  );
+
+  if (!showTooltip) {
+    return copyButton;
+  }
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          data-slot="copy-button"
-          size={children ? "sm" : "icon"}
-          variant={variant}
-          className={cn(
-            children
-              ? ""
-              : "bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100",
-            className
-          )}
-          onClick={handleCopy}
-          {...props}
-        >
-          <span className="sr-only">Copy</span>
-          {isCopied ? (
-            <CheckIcon className="size-4" />
-          ) : (
-            <CopyIcon className="size-4" />
-          )}
-          {children}
-        </Button>
-      </TooltipTrigger>
+      <TooltipTrigger asChild>{copyButton}</TooltipTrigger>
       <TooltipContent>
         {isCopied ? "Copied" : "Copy to Clipboard"}
       </TooltipContent>
