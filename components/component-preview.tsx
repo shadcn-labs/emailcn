@@ -2,28 +2,45 @@ import { renderToMjml } from "@faire/mjml-react/utils/renderToMjml";
 import { render as renderReactEmail } from "@react-email/render";
 import mjml2html from "mjml-browser";
 
-import { EmailPreviewTabs } from "@/components/code-tabs";
+import { ComponentPreviewNav } from "@/components/component-preview-nav";
 import { ComponentSource } from "@/components/component-source";
-import { CopyButton } from "@/components/copy-button";
-import { EmailSendButton } from "@/components/email-send-button";
 import { Badge } from "@/components/ui/badge";
-import { highlightCode } from "@/lib/highlight-code";
-import { getDemoSource } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import type { BaseName } from "@/registry/bases";
 
 interface ComponentPreviewProps {
   base?: BaseName;
+  kind?: "blocks" | "components";
   name: string;
   title?: string;
   badge?: string;
-  defaultSubject?: string;
   className?: string;
   hideCode?: boolean;
   height?: number;
 }
 
-const loadDemo = async (base: BaseName, name: string) => {
+const toPascalCase = (value: string) =>
+  value
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join("");
+
+const loadDemo = async (
+  base: BaseName,
+  name: string,
+  kind: ComponentPreviewProps["kind"]
+) => {
+  if (kind === "blocks") {
+    if (base === "mjml-react") {
+      const mod = await import(
+        `@/registry/bases/mjml-react/blocks/${name}.tsx`
+      );
+      return mod.default ?? mod[toPascalCase(name)];
+    }
+    const mod = await import(`@/registry/bases/react-email/blocks/${name}.tsx`);
+    return mod.default ?? mod[toPascalCase(name)];
+  }
+
   if (base === "mjml-react") {
     const mod = await import(`@/examples/mjml-react/${name}.tsx`);
     return mod.default;
@@ -34,15 +51,15 @@ const loadDemo = async (base: BaseName, name: string) => {
 
 export const ComponentPreview = async ({
   base = "react-email",
+  kind = "components",
   name,
   title,
   badge,
-  defaultSubject,
   className,
   hideCode = false,
   height = 640,
 }: ComponentPreviewProps) => {
-  const Demo = await loadDemo(base, name);
+  const Demo = await loadDemo(base, name, kind);
   const result =
     base === "mjml-react"
       ? mjml2html(renderToMjml(<Demo />), {
@@ -55,12 +72,6 @@ export const ComponentPreview = async ({
     base === "mjml-react"
       ? (result?.html ?? "")
       : await renderReactEmail(<Demo />, { pretty: true });
-
-  const tsx = (await getDemoSource(name, base)) ?? "";
-  const tsxHighlighted = hideCode ? undefined : await highlightCode(tsx, "tsx");
-  const htmlHighlighted = hideCode
-    ? undefined
-    : await highlightCode(html, "html");
 
   const sourceName = name.replace(/-demo$/, "");
 
@@ -79,22 +90,12 @@ export const ComponentPreview = async ({
         </div>
       )}
 
-      <EmailPreviewTabs
+      <ComponentPreviewNav
         height={height}
+        htmlCode={hideCode ? undefined : html}
         hideCode={hideCode}
-        htmlHighlightedHtml={htmlHighlighted}
         iframeTitle={title ?? name}
         previewHtml={html}
-        trailing={
-          <>
-            <CopyButton event="copy_email_html" value={html} />
-            <EmailSendButton
-              defaultSubject={defaultSubject ?? title ?? name}
-              markup={html}
-            />
-          </>
-        }
-        tsxHighlightedHtml={tsxHighlighted}
       />
 
       {!hideCode && (
