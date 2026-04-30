@@ -5,6 +5,7 @@ import type { VariantProps } from "class-variance-authority";
 import { Toggle as TogglePrimitive } from "radix-ui";
 import * as React from "react";
 
+import { useFeedback } from "@/hooks/use-feedback";
 import { cn } from "@/lib/utils";
 
 const toggleVariants = cva(
@@ -17,13 +18,19 @@ const toggleVariants = cva(
     variants: {
       size: {
         default: "h-9 min-w-9 px-2",
+        icon: "size-9",
+        "icon-sm": "size-8",
         lg: "h-10 min-w-10 px-2.5",
         sm: "h-8 min-w-8 px-1.5",
       },
       variant: {
         default: "bg-transparent",
+        ghost:
+          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 data-[state=on]:bg-accent/80 data-[state=on]:text-accent-foreground",
         outline:
           "border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 data-[state=on]:bg-secondary/60",
       },
     },
   }
@@ -33,14 +40,30 @@ const Toggle = ({
   className,
   variant,
   size,
+  onPressedChange,
   ...props
 }: React.ComponentProps<typeof TogglePrimitive.Root> &
-  VariantProps<typeof toggleVariants>) => (
-  <TogglePrimitive.Root
-    data-slot="toggle"
-    className={cn(toggleVariants({ className, size, variant }))}
-    {...props}
-  />
-);
+  VariantProps<typeof toggleVariants>) => {
+  const playOn = useFeedback({ sound: "toggleOn" });
+  const playOff = useFeedback({ sound: "toggleOff" });
+
+  const handlePressedChange = (pressed: boolean) => {
+    if (pressed) {
+      playOn();
+    } else {
+      playOff();
+    }
+    onPressedChange?.(pressed);
+  };
+
+  return (
+    <TogglePrimitive.Root
+      data-slot="toggle"
+      className={cn(toggleVariants({ className, size, variant }))}
+      onPressedChange={handlePressedChange}
+      {...props}
+    />
+  );
+};
 
 export { Toggle, toggleVariants };
