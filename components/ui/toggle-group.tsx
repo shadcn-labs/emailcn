@@ -5,6 +5,7 @@ import { ToggleGroup as ToggleGroupPrimitive } from "radix-ui";
 import * as React from "react";
 
 import { toggleVariants } from "@/components/ui/toggle";
+import { useFeedback } from "@/hooks/use-feedback";
 import { cn } from "@/lib/utils";
 
 const ToggleGroupContext = React.createContext<
@@ -27,24 +28,34 @@ const ToggleGroup = ({
 }: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
   VariantProps<typeof toggleVariants> & {
     spacing?: number;
-  }) => (
-  <ToggleGroupPrimitive.Root
-    data-slot="toggle-group"
-    data-variant={variant}
-    data-size={size}
-    data-spacing={spacing}
-    style={{ "--gap": spacing } as React.CSSProperties}
-    className={cn(
-      "group/toggle-group flex w-fit items-center gap-[--spacing(var(--gap))] rounded-md data-[spacing=default]:data-[variant=outline]:shadow-xs",
-      className
-    )}
-    {...props}
-  >
-    <ToggleGroupContext.Provider value={{ size, spacing, variant }}>
-      {children}
-    </ToggleGroupContext.Provider>
-  </ToggleGroupPrimitive.Root>
-);
+  }) => {
+  const playSound = useFeedback({ sound: "toggleOn" });
+
+  const handleValueChange = (value: string & string[]) => {
+    playSound();
+    props.onValueChange?.(value);
+  };
+
+  return (
+    <ToggleGroupPrimitive.Root
+      data-slot="toggle-group"
+      data-variant={variant}
+      data-size={size}
+      data-spacing={spacing}
+      style={{ "--gap": spacing } as React.CSSProperties}
+      className={cn(
+        "group/toggle-group flex w-fit items-center gap-[--spacing(var(--gap))] rounded-md data-[spacing=default]:data-[variant=outline]:shadow-xs",
+        className
+      )}
+      {...props}
+      onValueChange={handleValueChange}
+    >
+      <ToggleGroupContext.Provider value={{ size, spacing, variant }}>
+        {children}
+      </ToggleGroupContext.Provider>
+    </ToggleGroupPrimitive.Root>
+  );
+};
 
 const ToggleGroupItem = ({
   className,

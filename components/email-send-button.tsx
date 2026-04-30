@@ -64,7 +64,7 @@ export const EmailSendButton = ({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button className={cn("h-7", className)} size="sm">
+        <Button className={cn(className)} size="sm">
           <SendIcon className="size-3.5" /> Send
         </Button>
       </PopoverTrigger>

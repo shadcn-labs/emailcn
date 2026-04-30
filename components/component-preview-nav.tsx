@@ -1,7 +1,9 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+"use client";
 
-import { CopyButton } from "./copy-button";
-import { EmailSendButton } from "./email-send-button";
+import { CopyButton } from "@/components/copy-button";
+import { EmailSendButton } from "@/components/email-send-button";
+import { EmailViewportToggle } from "@/components/email-viewport-toggle";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const CodeTab = ({ code, value }: { code: string; value: string }) => (
   <TabsContent
@@ -43,13 +45,8 @@ export const ComponentPreviewNav = ({
             </TabsTrigger>
           ) : null}
         </TabsList>
-        <div className="flex items-center gap-1">
-          {/* <EmailViewportToggle
-            value="desktop"
-            onValueChange={() => {
-              return;
-            }}
-          /> */}
+        <div className="flex items-center gap-2">
+          <EmailViewportToggle />
           <CopyButton event="copy_email_html" value={previewHtml} />
           <EmailSendButton defaultSubject={iframeTitle} markup={previewHtml} />
         </div>
