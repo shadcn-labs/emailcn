@@ -25,12 +25,13 @@ export const SponsorLink = () => {
       size="sm"
       variant="ghost"
       sound="heart"
+      className="max-sm:size-8"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <a href={LINK.SPONSOR} target="_blank" rel="noopener noreferrer">
         <HeartHandshakeIcon className="text-pink-500" ref={heartRef} />
-        Sponsor
+        <span className="max-sm:sr-only">Sponsor</span>
       </a>
     </Button>
   );
