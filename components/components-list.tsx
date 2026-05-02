@@ -7,7 +7,10 @@ import { source } from "@/lib/source";
 
 const getFolder = (name: string): PageTreeFolder | undefined => {
   for (const node of source.pageTree.children) {
-    if (node.type === "folder" && node.name === name) {
+    if (
+      node.type === "folder" &&
+      (node.name === name || node.$id === name.toLowerCase())
+    ) {
       return node;
     }
   }
@@ -27,26 +30,6 @@ const ComponentGrid = ({ pages }: { pages: PageTreePage[] }) => (
   </div>
 );
 
-const CategoryGrid = ({ categories }: { categories: PageTreeFolder[] }) => (
-  <div className="flex flex-col gap-10">
-    {categories.map((cat) => {
-      const pages = getPagesFromFolder(cat);
-      if (pages.length === 0) {
-        return null;
-      }
-
-      return (
-        <div key={cat.$id}>
-          <h3 className="font-heading mb-4 text-lg font-medium tracking-tight">
-            {cat.name}
-          </h3>
-          <ComponentGrid pages={pages} />
-        </div>
-      );
-    })}
-  </div>
-);
-
 export const ComponentsList = ({
   folderName = "Components",
   category,
@@ -62,14 +45,15 @@ export const ComponentsList = ({
   }
 
   if (!isComponentsFolder(folder) && !isBlocksFolder(folder)) {
-    const pages = getPagesFromFolder(folder);
+    const pages = getPagesFromFolder(folder, { includeIndex: false });
     if (pages.length === 0) {
       return null;
     }
     return <ComponentGrid pages={pages} />;
   }
 
-  const categories = getCategoryFoldersForBase(folder, base ?? "");
+  const effectiveBase = base ?? "react-email";
+  const categories = getCategoryFoldersForBase(folder, effectiveBase);
 
   if (category) {
     const match = categories.find(
@@ -82,12 +66,25 @@ export const ComponentsList = ({
     if (!match) {
       return null;
     }
-    return <ComponentGrid pages={getPagesFromFolder(match)} />;
+    return (
+      <ComponentGrid
+        pages={getPagesFromFolder(match, { includeIndex: false })}
+      />
+    );
   }
 
   if (categories.length === 0) {
     return null;
   }
 
-  return <CategoryGrid categories={categories} />;
+  const allPages: PageTreePage[] = [];
+  for (const cat of categories) {
+    allPages.push(...getPagesFromFolder(cat, { includeIndex: false }));
+  }
+
+  if (allPages.length === 0) {
+    return null;
+  }
+
+  return <ComponentGrid pages={allPages} />;
 };

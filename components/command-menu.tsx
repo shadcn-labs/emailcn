@@ -203,17 +203,22 @@ export const CommandMenu = ({
       }
 
       if (isComponentsFolder(item) || isBlocksFolder(item)) {
-        for (const category of getCategoryFoldersForBase(item, currentBase)) {
-          const pages = getPagesFromFolder(category).map((p) => ({
+        const categories = getCategoryFoldersForBase(item, currentBase);
+        const allPages: { url: string; name: string }[] = [];
+        for (const category of categories) {
+          const pages = getPagesFromFolder(category, {
+            includeIndex: false,
+          }).map((p) => ({
             name: typeof p.name === "string" ? p.name : String(p.name),
             url: p.url,
           }));
-          if (pages.length > 0) {
-            groups.push({
-              label: isComponentsFolder(item) ? `Components` : `Blocks`,
-              pages,
-            });
-          }
+          allPages.push(...pages);
+        }
+        if (allPages.length > 0) {
+          groups.push({
+            label: isComponentsFolder(item) ? `Components` : `Blocks`,
+            pages: allPages,
+          });
         }
       } else {
         const pages = getPagesFromFolder(item).map((p) => ({

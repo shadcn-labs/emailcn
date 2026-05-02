@@ -14,7 +14,11 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
-import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
+import {
+  EXCLUDED_SECTIONS,
+  isBlocksFolder,
+  isComponentsFolder,
+} from "@/lib/docs";
 import {
   getCategoryFoldersForBase,
   getCurrentBase,
@@ -121,16 +125,26 @@ export const DocsSidebar = ({
             return null;
           }
 
-          if (isComponentsFolder(item)) {
-            return getCategoryFoldersForBase(item, currentBase).map(
-              (category) => (
-                <SidebarPageGroup
-                  key={category.$id}
-                  label={category.name}
-                  pages={getPagesFromFolder(category)}
-                  pathname={pathname}
-                />
-              )
+          if (isComponentsFolder(item) || isBlocksFolder(item)) {
+            const categories = getCategoryFoldersForBase(item, currentBase);
+            const allPages: { url: string; name: React.ReactNode }[] = [];
+            for (const category of categories) {
+              const pages = getPagesFromFolder(category, {
+                includeIndex: false,
+              });
+              for (const page of pages) {
+                allPages.push({ name: page.name, url: page.url });
+              }
+            }
+            if (allPages.length === 0) {
+              return null;
+            }
+            return (
+              <SidebarPageGroup
+                label={isComponentsFolder(item) ? "Components" : "Blocks"}
+                pages={allPages}
+                pathname={pathname}
+              />
             );
           }
 

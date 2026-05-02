@@ -161,19 +161,26 @@ export const MobileNav = ({
             }
 
             if (isComponentsFolder(item) || isBlocksFolder(item)) {
-              return getCategoryFoldersForBase(item, currentBase).map(
-                (category) => (
-                  <MobileNavGroup
-                    key={`${item.$id}-${category.$id}`}
-                    label={
-                      isComponentsFolder(item)
-                        ? `Components · ${category.name}`
-                        : `Blocks · ${category.name}`
-                    }
-                    pages={getPagesFromFolder(category)}
-                    setOpen={setOpen}
-                  />
-                )
+              const categories = getCategoryFoldersForBase(item, currentBase);
+              const allPages: { url: string; name: React.ReactNode }[] = [];
+              for (const category of categories) {
+                const pages = getPagesFromFolder(category, {
+                  includeIndex: false,
+                });
+                for (const page of pages) {
+                  allPages.push({ name: page.name, url: page.url });
+                }
+              }
+              if (allPages.length === 0) {
+                return null;
+              }
+              return (
+                <MobileNavGroup
+                  key={item.$id}
+                  label={isComponentsFolder(item) ? "Components" : "Blocks"}
+                  pages={allPages}
+                  setOpen={setOpen}
+                />
               );
             }
 
