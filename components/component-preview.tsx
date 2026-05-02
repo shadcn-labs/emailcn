@@ -1,5 +1,5 @@
 import { renderToMjml } from "@faire/mjml-react/utils/renderToMjml";
-import { render as renderReactEmail } from "@react-email/render";
+import { render as renderReactEmail, toPlainText } from "@react-email/render";
 import mjml2html from "mjml-browser";
 
 import { ComponentPreviewNav } from "@/components/component-preview-nav";
@@ -75,6 +75,8 @@ export const ComponentPreview = async ({
 
   const sourceName = name.replace(/-demo$/, "");
 
+  const plainText = base === "react-email" ? toPlainText(html) : null;
+
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
       {(title || badge) && (
@@ -92,10 +94,9 @@ export const ComponentPreview = async ({
 
       <ComponentPreviewNav
         height={height}
-        htmlCode={hideCode ? undefined : html}
-        hideCode={hideCode}
         iframeTitle={title ?? name}
-        previewHtml={html}
+        html={html}
+        plainText={plainText}
       />
 
       {!hideCode && (

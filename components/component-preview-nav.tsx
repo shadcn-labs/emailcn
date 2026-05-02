@@ -1,54 +1,103 @@
 "use client";
 
+import { DownloadIcon } from "lucide-react";
+import { useState } from "react";
+
 import { CopyButton } from "@/components/copy-button";
 import { EmailSendButton } from "@/components/email-send-button";
 import { EmailViewportToggle } from "@/components/email-viewport-toggle";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const CodeTab = ({ code, value }: { code: string; value: string }) => (
-  <TabsContent
-    className="bg-code m-0 max-h-[640px] overflow-auto p-4 text-code-foreground"
-    value={value}
-  >
-    <pre className="whitespace-pre font-mono text-sm leading-relaxed">
-      <code>{code}</code>
-    </pre>
-  </TabsContent>
-);
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+
+const CodeTab = ({
+  code,
+  value,
+  language,
+}: {
+  code: string;
+  value: string;
+  language: string;
+}) => {
+  const handleDownload = () => {
+    const blob = new Blob([code], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${language}-code.${language === "html" ? "html" : "txt"}`;
+    document.body.append(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <TabsContent
+      className="bg-code relative m-0 max-h-[640px] overflow-auto p-4 text-code-foreground"
+      value={value}
+    >
+      <CopyButton
+        value={code}
+        event={language === "html" ? "copy_email_html" : "copy_email_text"}
+      />
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="size-7 bg-code hover:opacity-100 focus-visible:opacity-100 absolute top-3 right-10 z-10"
+            onClick={handleDownload}
+          >
+            <span className="sr-only">Download</span>
+            <DownloadIcon />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          Download {language === "html" ? "HTML" : "Plain Text"}
+        </TooltipContent>
+      </Tooltip>
+      <pre className="whitespace-pre font-mono text-sm leading-relaxed">
+        <code>{code}</code>
+      </pre>
+    </TabsContent>
+  );
+};
 
 export const ComponentPreviewNav = ({
   height,
-  hideCode = false,
-  htmlCode,
   iframeTitle,
-  previewHtml,
+  html,
+  plainText,
 }: {
   height: number;
-  hideCode?: boolean;
-  htmlCode?: string;
   iframeTitle: string;
-  previewHtml: string;
-  tsxCode?: string;
+  html: string;
+  plainText: string | null;
 }) => {
-  const defaultTab = hideCode ? "preview" : "preview";
-
+  const [activeTab, setActiveTab] = useState("preview");
   return (
-    <Tabs className="mt-4" value={defaultTab}>
+    <Tabs className="mt-4" value={activeTab} onValueChange={setActiveTab}>
       <div className="flex items-center justify-between gap-2">
         <TabsList className="h-8">
           <TabsTrigger className="h-6 px-2.5 text-xs" value="preview">
             Preview
           </TabsTrigger>
-          {!hideCode && htmlCode ? (
+          {html ? (
             <TabsTrigger className="h-6 px-2.5 text-xs" value="html">
               HTML
+            </TabsTrigger>
+          ) : null}
+          {plainText ? (
+            <TabsTrigger className="h-6 px-2.5 text-xs" value="text">
+              Plain Text
             </TabsTrigger>
           ) : null}
         </TabsList>
         <div className="flex items-center gap-2">
           <EmailViewportToggle />
-          <CopyButton event="copy_email_html" value={previewHtml} />
-          <EmailSendButton defaultSubject={iframeTitle} markup={previewHtml} />
+          <CopyButton event="copy_email_html" value={html} />
+          <EmailSendButton defaultSubject={iframeTitle} markup={html} />
         </div>
       </div>
 
@@ -57,11 +106,14 @@ export const ComponentPreviewNav = ({
           className="w-full bg-white rounded-xl"
           height={height}
           sandbox=""
-          srcDoc={previewHtml}
+          srcDoc={html}
           title={iframeTitle}
         />
       </TabsContent>
-      {!hideCode && htmlCode ? <CodeTab code={htmlCode} value="html" /> : null}
+      {html ? <CodeTab language="html" code={html} value="html" /> : null}
+      {plainText ? (
+        <CodeTab language="text" code={plainText} value="text" />
+      ) : null}
     </Tabs>
   );
 };
