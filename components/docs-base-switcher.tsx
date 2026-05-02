@@ -12,7 +12,7 @@ export const DocsBaseSwitcher = ({
   base: string;
   component: string;
   className?: string;
-  kind?: "blocks" | "components";
+  kind?: string;
 }) => {
   const activeBase = getBase(base as (typeof BASES)[number]["name"]);
 

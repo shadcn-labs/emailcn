@@ -178,13 +178,14 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
               {/* <DocsAdPlacement type="card" showOnMobile showOnDesktop={false} /> */}
               <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
                 {params.slug &&
-                  params.slug[0] === "components" &&
+                  ["components", "blocks"].includes(params.slug[0]) &&
                   params.slug[1] &&
                   params.slug[2] && (
                     <DocsBaseSwitcher
                       base={params.slug[1]}
                       component={params.slug.slice(2).join("/")}
                       className="mb-4"
+                      kind={params.slug[0]}
                     />
                   )}
                 <MdxContent components={mdxComponents} />
