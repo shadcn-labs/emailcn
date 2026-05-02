@@ -4,8 +4,8 @@ import { z } from "zod";
 const eventSchema = z.object({
   name: z.enum([
     "copy_npm_command",
-    "copy_email_html",
-    "copy_email_text",
+    "copy_email",
+    "download_email",
     "copy_usage_code",
     "copy_primitive_code",
     "keyboard_shortcut_navigate",

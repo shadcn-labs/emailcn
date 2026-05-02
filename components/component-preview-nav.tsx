@@ -2,12 +2,14 @@
 
 import { DownloadIcon } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 import { CopyButton } from "@/components/copy-button";
 import { EmailSendButton } from "@/components/email-send-button";
 import { EmailViewportToggle } from "@/components/email-viewport-toggle";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { trackEvent } from "@/lib/events";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
@@ -30,17 +32,21 @@ const CodeTab = ({
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
+    trackEvent({
+      name: "download_email",
+      properties: {
+        language,
+      },
+    });
+    toast.success(`Downloaded ${language === "html" ? "HTML" : "Plain Text"}`);
   };
 
   return (
     <TabsContent
-      className="bg-code relative m-0 max-h-[640px] overflow-auto p-4 text-code-foreground"
+      className="bg-code relative m-0 max-h-[640px] overflow-auto p-4 rounded-lg text-code-foreground"
       value={value}
     >
-      <CopyButton
-        value={code}
-        event={language === "html" ? "copy_email_html" : "copy_email_text"}
-      />
+      <CopyButton value={code} event="copy_email" />
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
@@ -96,7 +102,7 @@ export const ComponentPreviewNav = ({
         </TabsList>
         <div className="flex items-center gap-2">
           <EmailViewportToggle />
-          <CopyButton event="copy_email_html" value={html} />
+          <CopyButton event="copy_email" value={html} />
           <EmailSendButton defaultSubject={iframeTitle} markup={html} />
         </div>
       </div>
