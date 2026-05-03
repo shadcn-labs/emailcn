@@ -3,7 +3,7 @@
   "homepage": "https://emailcn.com",
   "items": [
     {
-      "name": "email-theme-default",
+      "name": "theme-default",
       "type": "registry:file",
       "title": "Default Email Theme",
       "description": "Default email theme tokens for emailcn components",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "name": "email-theme-vercel",
+      "name": "theme-vercel",
       "type": "registry:file",
       "title": "Vercel Email Theme",
       "description": "Dark Vercel-style email theme tokens",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "name": "email-theme-linear",
+      "name": "theme-linear",
       "type": "registry:file",
       "title": "Linear Email Theme",
       "description": "Linear-style email theme tokens with purple accent",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "name": "email-theme-stripe",
+      "name": "theme-stripe",
       "type": "registry:file",
       "title": "Stripe Email Theme",
       "description": "Stripe-style email theme tokens",
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "name": "email-theme-github",
+      "name": "theme-github",
       "type": "registry:file",
       "title": "GitHub Email Theme",
       "description": "GitHub-style dark email theme tokens",
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "name": "email-theme-notion",
+      "name": "theme-notion",
       "type": "registry:file",
       "title": "Notion Email Theme",
       "description": "Notion-style minimal email theme tokens",
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "name": "email-theme-raycast",
+      "name": "theme-raycast",
       "type": "registry:file",
       "title": "Raycast Email Theme",
       "description": "Raycast-style dark email theme tokens",
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "name": "email-theme-twitch",
+      "name": "theme-twitch",
       "type": "registry:file",
       "title": "Twitch Email Theme",
       "description": "Twitch-style email theme tokens with purple accent",
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "name": "email-theme-airbnb",
+      "name": "theme-airbnb",
       "type": "registry:file",
       "title": "Airbnb Email Theme",
       "description": "Airbnb-style email theme tokens",
@@ -129,7 +129,7 @@
       ]
     },
     {
-      "name": "email-theme-slack",
+      "name": "theme-slack",
       "type": "registry:file",
       "title": "Slack Email Theme",
       "description": "Slack-style email theme tokens",
@@ -143,7 +143,7 @@
       ]
     },
     {
-      "name": "email-default-fonts",
+      "name": "default-fonts",
       "type": "registry:file",
       "title": "Email Default Fonts",
       "description": "Inter webfont declarations for React Email templates (use inside Head)",
@@ -158,7 +158,7 @@
       "dependencies": ["react-email"]
     },
     {
-      "name": "email-font-collage",
+      "name": "collage-fonts",
       "type": "registry:file",
       "title": "Collage Fonts (React Email)",
       "description": "Inter weights for React Email — from Resend Matte collage-fonts demo",
@@ -173,7 +173,7 @@
       "dependencies": ["react-email"]
     },
     {
-      "name": "email-font-dither",
+      "name": "dither-fonts",
       "type": "registry:file",
       "title": "Dither Fonts (React Email)",
       "description": "IBM Plex Sans Condensed + Inter — from Resend Protocol dither-fonts demo",
@@ -188,7 +188,7 @@
       "dependencies": ["react-email"]
     },
     {
-      "name": "email-font-skin",
+      "name": "skin-fonts",
       "type": "registry:file",
       "title": "Skin Fonts (React Email)",
       "description": "Instrument Serif + Inter — from Resend Arcane skin-fonts demo",
@@ -203,7 +203,7 @@
       "dependencies": ["react-email"]
     },
     {
-      "name": "email-font-tech",
+      "name": "tech-fonts",
       "type": "registry:file",
       "title": "Tech Fonts (React Email)",
       "description": "Geist + Inter — from Resend Studio tech-fonts demo",
@@ -218,7 +218,7 @@
       "dependencies": ["react-email"]
     },
     {
-      "name": "email-logo-header",
+      "name": "logo-header",
       "type": "registry:component",
       "title": "Email Logo Header",
       "description": "Company logo with optional navigation links for email templates",
@@ -232,12 +232,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-hero",
+      "name": "hero",
       "type": "registry:component",
       "title": "Email Hero",
       "description": "Hero section with heading, subheading, and CTA for email templates",
@@ -251,12 +251,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-content-grid",
+      "name": "content-grid",
       "type": "registry:component",
       "title": "Email Content Grid",
       "description": "Grid layout for showcasing features or content in email templates",
@@ -270,12 +270,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-feature-row",
+      "name": "feature-row",
       "type": "registry:component",
       "title": "Email Feature Row",
       "description": "Feature row with image and text for email templates",
@@ -289,12 +289,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-pricing-table",
+      "name": "pricing-table",
       "type": "registry:component",
       "title": "Email Pricing Table",
       "description": "Pricing table with plans for email templates",
@@ -308,12 +308,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-testimonial",
+      "name": "testimonial",
       "type": "registry:component",
       "title": "Email Testimonial",
       "description": "Testimonial section with quote and avatar for email templates",
@@ -327,12 +327,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-social-links",
+      "name": "social-links",
       "type": "registry:component",
       "title": "Email Social Links",
       "description": "Social media links for email footers",
@@ -346,12 +346,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-footer",
+      "name": "footer",
       "type": "registry:component",
       "title": "Email Footer",
       "description": "Footer with company info and links for email templates",
@@ -365,12 +365,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-cta-banner",
+      "name": "cta-banner",
       "type": "registry:component",
       "title": "Email CTA Banner",
       "description": "Call-to-action banner for email templates",
@@ -384,12 +384,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-divider",
+      "name": "divider",
       "type": "registry:component",
       "title": "Email Divider",
       "description": "Horizontal divider for email templates",
@@ -403,12 +403,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-avatar-row",
+      "name": "avatar-row",
       "type": "registry:component",
       "title": "Email Avatar Row",
       "description": "Avatar with name and title for email templates",
@@ -422,12 +422,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
-      "name": "email-product-card",
+      "name": "product-card",
       "type": "registry:component",
       "title": "Email Product Card",
       "description": "Product card with image, name, and price for email templates",
@@ -441,8 +441,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-default-fonts.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
       ]
     },
     {
@@ -460,12 +460,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-avatar-row.json",
-        "https://emailcn.com/r/email-hero.json",
-        "https://emailcn.com/r/email-content-grid.json",
-        "https://emailcn.com/r/email-cta-banner.json",
-        "https://emailcn.com/r/email-footer.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/avatar-row.json",
+        "https://emailcn.com/r/hero.json",
+        "https://emailcn.com/r/content-grid.json",
+        "https://emailcn.com/r/cta-banner.json",
+        "https://emailcn.com/r/footer.json"
       ]
     },
     {
@@ -483,12 +483,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-vercel.json",
-        "https://emailcn.com/r/email-logo-header.json",
-        "https://emailcn.com/r/email-hero.json",
-        "https://emailcn.com/r/email-content-grid.json",
-        "https://emailcn.com/r/email-cta-banner.json",
-        "https://emailcn.com/r/email-footer.json"
+        "https://emailcn.com/r/theme-vercel.json",
+        "https://emailcn.com/r/logo-header.json",
+        "https://emailcn.com/r/hero.json",
+        "https://emailcn.com/r/content-grid.json",
+        "https://emailcn.com/r/cta-banner.json",
+        "https://emailcn.com/r/footer.json"
       ]
     },
     {
@@ -506,12 +506,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-linear.json",
-        "https://emailcn.com/r/email-logo-header.json",
-        "https://emailcn.com/r/email-hero.json",
-        "https://emailcn.com/r/email-content-grid.json",
-        "https://emailcn.com/r/email-cta-banner.json",
-        "https://emailcn.com/r/email-footer.json"
+        "https://emailcn.com/r/theme-linear.json",
+        "https://emailcn.com/r/logo-header.json",
+        "https://emailcn.com/r/hero.json",
+        "https://emailcn.com/r/content-grid.json",
+        "https://emailcn.com/r/cta-banner.json",
+        "https://emailcn.com/r/footer.json"
       ]
     },
     {
@@ -528,7 +528,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "block-auth-magic-link-stripe",
@@ -544,7 +544,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-stripe.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-stripe.json"]
     },
     {
       "name": "block-auth-magic-link-raycast",
@@ -560,7 +560,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-raycast.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-raycast.json"]
     },
     {
       "name": "block-auth-otp-default",
@@ -576,7 +576,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "block-auth-otp-twitch",
@@ -592,7 +592,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-twitch.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-twitch.json"]
     },
     {
       "name": "block-auth-password-reset-default",
@@ -608,7 +608,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "block-auth-password-reset-notion",
@@ -624,7 +624,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-notion.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-notion.json"]
     },
     {
       "name": "block-auth-password-reset-dropbox",
@@ -640,7 +640,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "block-receipt-default",
@@ -657,8 +657,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -676,8 +676,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-stripe.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-stripe.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -695,8 +695,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -714,8 +714,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -732,7 +732,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "block-notification-linear",
@@ -748,7 +748,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-linear.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-linear.json"]
     },
     {
       "name": "block-notification-airbnb",
@@ -764,7 +764,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-airbnb.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-airbnb.json"]
     },
     {
       "name": "block-notification-slack",
@@ -780,7 +780,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-slack.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-slack.json"]
     },
     {
       "name": "block-newsletter-default",
@@ -797,8 +797,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-content-grid.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/content-grid.json"
       ]
     },
     {
@@ -816,8 +816,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-content-grid.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/content-grid.json"
       ]
     },
     {
@@ -834,7 +834,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "block-invite-vercel",
@@ -850,10 +850,10 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-vercel.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-vercel.json"]
     },
     {
-      "name": "mjml-email-logo-header",
+      "name": "mjml-logo-header",
       "type": "registry:component",
       "title": "Email Logo Header (MJML)",
       "description": "Company logo with optional navigation links for email templates",
@@ -866,10 +866,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-hero",
+      "name": "mjml-hero",
       "type": "registry:component",
       "title": "Email Hero (MJML)",
       "description": "Hero section with heading, subheading, and CTA for email templates",
@@ -882,10 +882,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-content-grid",
+      "name": "mjml-content-grid",
       "type": "registry:component",
       "title": "Email Content Grid (MJML)",
       "description": "Grid layout for showcasing features or content in email templates",
@@ -898,10 +898,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-feature-row",
+      "name": "mjml-feature-row",
       "type": "registry:component",
       "title": "Email Feature Row (MJML)",
       "description": "Feature row with image and text for email templates",
@@ -914,10 +914,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-pricing-table",
+      "name": "mjml-pricing-table",
       "type": "registry:component",
       "title": "Email Pricing Table (MJML)",
       "description": "Pricing table with plans for email templates",
@@ -930,10 +930,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-testimonial",
+      "name": "mjml-testimonial",
       "type": "registry:component",
       "title": "Email Testimonial (MJML)",
       "description": "Testimonial section with quote and avatar for email templates",
@@ -946,10 +946,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-social-links",
+      "name": "mjml-social-links",
       "type": "registry:component",
       "title": "Email Social Links (MJML)",
       "description": "Social media links for email footers",
@@ -962,10 +962,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-footer",
+      "name": "mjml-footer",
       "type": "registry:component",
       "title": "Email Footer (MJML)",
       "description": "Footer with company info and links for email templates",
@@ -978,10 +978,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-cta-banner",
+      "name": "mjml-cta-banner",
       "type": "registry:component",
       "title": "Email CTA Banner (MJML)",
       "description": "Call-to-action banner for email templates",
@@ -994,10 +994,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-divider",
+      "name": "mjml-divider",
       "type": "registry:component",
       "title": "Email Divider (MJML)",
       "description": "Horizontal divider for email templates",
@@ -1010,10 +1010,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-avatar-row",
+      "name": "mjml-avatar-row",
       "type": "registry:component",
       "title": "Email Avatar Row (MJML)",
       "description": "Avatar with name and title for email templates",
@@ -1026,10 +1026,10 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
-      "name": "mjml-email-product-card",
+      "name": "mjml-product-card",
       "type": "registry:component",
       "title": "Email Product Card (MJML)",
       "description": "Product card with image, name, and price for email templates",
@@ -1042,7 +1042,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-onboarding-default",
@@ -1059,12 +1059,12 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-avatar-row.json",
-        "https://emailcn.com/r/email-hero.json",
-        "https://emailcn.com/r/email-content-grid.json",
-        "https://emailcn.com/r/email-cta-banner.json",
-        "https://emailcn.com/r/email-footer.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/avatar-row.json",
+        "https://emailcn.com/r/hero.json",
+        "https://emailcn.com/r/content-grid.json",
+        "https://emailcn.com/r/cta-banner.json",
+        "https://emailcn.com/r/footer.json"
       ]
     },
     {
@@ -1082,12 +1082,12 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-vercel.json",
-        "https://emailcn.com/r/email-logo-header.json",
-        "https://emailcn.com/r/email-hero.json",
-        "https://emailcn.com/r/email-content-grid.json",
-        "https://emailcn.com/r/email-cta-banner.json",
-        "https://emailcn.com/r/email-footer.json"
+        "https://emailcn.com/r/theme-vercel.json",
+        "https://emailcn.com/r/logo-header.json",
+        "https://emailcn.com/r/hero.json",
+        "https://emailcn.com/r/content-grid.json",
+        "https://emailcn.com/r/cta-banner.json",
+        "https://emailcn.com/r/footer.json"
       ]
     },
     {
@@ -1105,12 +1105,12 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-linear.json",
-        "https://emailcn.com/r/email-logo-header.json",
-        "https://emailcn.com/r/email-hero.json",
-        "https://emailcn.com/r/email-content-grid.json",
-        "https://emailcn.com/r/email-cta-banner.json",
-        "https://emailcn.com/r/email-footer.json"
+        "https://emailcn.com/r/theme-linear.json",
+        "https://emailcn.com/r/logo-header.json",
+        "https://emailcn.com/r/hero.json",
+        "https://emailcn.com/r/content-grid.json",
+        "https://emailcn.com/r/cta-banner.json",
+        "https://emailcn.com/r/footer.json"
       ]
     },
     {
@@ -1127,7 +1127,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-auth-magic-link-stripe",
@@ -1143,7 +1143,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-stripe.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-stripe.json"]
     },
     {
       "name": "mjml-block-auth-magic-link-raycast",
@@ -1159,7 +1159,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-raycast.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-raycast.json"]
     },
     {
       "name": "mjml-block-auth-otp-default",
@@ -1175,7 +1175,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-auth-otp-twitch",
@@ -1191,7 +1191,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-twitch.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-twitch.json"]
     },
     {
       "name": "mjml-block-auth-password-reset-default",
@@ -1207,7 +1207,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-auth-password-reset-notion",
@@ -1223,7 +1223,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-notion.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-notion.json"]
     },
     {
       "name": "mjml-block-auth-password-reset-dropbox",
@@ -1239,7 +1239,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-receipt-default",
@@ -1256,8 +1256,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -1275,8 +1275,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-stripe.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-stripe.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -1294,8 +1294,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -1313,8 +1313,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-product-card.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/product-card.json"
       ]
     },
     {
@@ -1331,7 +1331,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-notification-linear",
@@ -1347,7 +1347,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-linear.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-linear.json"]
     },
     {
       "name": "mjml-block-notification-airbnb",
@@ -1363,7 +1363,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-airbnb.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-airbnb.json"]
     },
     {
       "name": "mjml-block-notification-slack",
@@ -1379,7 +1379,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-slack.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-slack.json"]
     },
     {
       "name": "mjml-block-newsletter-default",
@@ -1396,8 +1396,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-content-grid.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/content-grid.json"
       ]
     },
     {
@@ -1415,8 +1415,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/email-theme-default.json",
-        "https://emailcn.com/r/email-content-grid.json"
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/content-grid.json"
       ]
     },
     {
@@ -1433,7 +1433,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
     },
     {
       "name": "mjml-block-invite-vercel",
@@ -1449,7 +1449,7 @@
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-vercel.json"]
+      "registryDependencies": ["https://emailcn.com/r/theme-vercel.json"]
     }
   ]
 }
