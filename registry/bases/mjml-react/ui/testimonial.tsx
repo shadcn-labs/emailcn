@@ -41,29 +41,26 @@ export const Testimonial = ({
       : 600;
   const width = Number.isFinite(container) && container > 0 ? container : 600;
 
-  const fg = t.colors.foreground ?? "#111827";
-  const bg = t.colors.background ?? "#ffffff";
-  const sans = t.fontFamily.sans ?? "sans-serif";
-  const baseFs = t.fontSize.base ?? "14px";
-  const lh = t.lineHeight.snug ?? "1.375";
-
   return (
     <Mjml>
       <MjmlHead>
         <MjmlPreview>testimonial</MjmlPreview>
         <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
+          <MjmlAll
+            color={t.colors.foreground}
+            fontFamily={t.colors.background}
+          />
+          <MjmlText fontSize={t.fontSize.base} lineHeight={t.lineHeight.snug} />
         </MjmlAttributes>
       </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <MjmlSection
-            backgroundColor={t.colors["background-muted"]}
-            border={`1px solid ${t.colors.border}`}
-            borderRadius={t.borderRadius.md}
-            padding={t.spacing.lg ?? "24px"}
-          >
+      <MjmlBody backgroundColor={t.colors.background} width={width}>
+        <MjmlWrapper
+          backgroundColor={t.colors["background-muted"]}
+          border={`1px solid ${t.colors.border}`}
+          borderRadius={t.borderRadius.md}
+          padding={t.spacing.lg ?? "24px"}
+        >
+          <MjmlSection padding="0">
             <MjmlColumn>
               <MjmlText
                 color={t.colors.foreground}
@@ -71,51 +68,57 @@ export const Testimonial = ({
                 fontSize={t.fontSize.lg ?? "16px"}
                 fontStyle="italic"
                 lineHeight={t.lineHeight.snug}
-                paddingBottom={t.spacing.lg}
+                padding={`0 0 ${t.spacing.lg ?? "24px"}`}
               >
                 &ldquo;{quote}&rdquo;
               </MjmlText>
-              <MjmlSection padding="0">
-                <MjmlColumn width="56px">
-                  {avatarUrl ? (
-                    <MjmlImage
-                      alt={name}
-                      borderRadius="999px"
-                      height={56}
-                      src={avatarUrl}
-                      width={56}
-                    />
-                  ) : null}
-                </MjmlColumn>
-                <MjmlColumn>
-                  <MjmlText
-                    color={t.colors.foreground}
-                    fontFamily={t.fontFamily.sans}
-                    fontSize={t.fontSize.base ?? "14px"}
-                    fontWeight={t.fontWeight.medium ?? "500"}
-                    paddingBottom={t.spacing.sm}
-                  >
-                    {name}
-                  </MjmlText>
-                  <MjmlText
-                    color={t.colors["foreground-muted"]}
-                    fontFamily={t.fontFamily.sans}
-                    fontSize={t.fontSize.sm ?? "12px"}
-                  >
-                    {role}
-                  </MjmlText>
-                </MjmlColumn>
-              </MjmlSection>
-              {companyLogoUrl ? (
+            </MjmlColumn>
+          </MjmlSection>
+          <MjmlSection padding="0">
+            <MjmlColumn width="56px">
+              {avatarUrl ? (
                 <MjmlImage
-                  alt="Company"
-                  paddingTop={t.spacing.lg}
-                  src={companyLogoUrl}
-                  width={80}
+                  alt={name}
+                  borderRadius="999px"
+                  height={56}
+                  padding="0"
+                  src={avatarUrl}
+                  width={56}
                 />
               ) : null}
             </MjmlColumn>
+            <MjmlColumn>
+              <MjmlText
+                color={t.colors.foreground}
+                fontFamily={t.fontFamily.sans}
+                fontSize={t.fontSize.base ?? "14px"}
+                fontWeight={t.fontWeight.medium ?? "500"}
+                padding={`0 0 ${t.spacing.sm ?? "12px"} ${t.spacing.md ?? "24px"}`}
+              >
+                {name}
+              </MjmlText>
+              <MjmlText
+                color={t.colors["foreground-muted"]}
+                fontFamily={t.fontFamily.sans}
+                fontSize={t.fontSize.sm ?? "12px"}
+                padding={`0 0 0 ${t.spacing.md ?? "24px"}`}
+              >
+                {role}
+              </MjmlText>
+            </MjmlColumn>
           </MjmlSection>
+          {companyLogoUrl ? (
+            <MjmlSection padding={`${t.spacing.lg ?? "24px"} 0 0`}>
+              <MjmlColumn>
+                <MjmlImage
+                  alt="Company"
+                  padding="0"
+                  src={companyLogoUrl}
+                  width={80}
+                />
+              </MjmlColumn>
+            </MjmlSection>
+          ) : null}
         </MjmlWrapper>
       </MjmlBody>
     </Mjml>

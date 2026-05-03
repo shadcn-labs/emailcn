@@ -49,7 +49,7 @@ const FeatureRowSection = ({
         alt={imageAlt}
         borderRadius={t.borderRadius.md}
         src={imageSrc}
-        width="100%"
+        width={220}
       />
     </MjmlColumn>
   ) : null;

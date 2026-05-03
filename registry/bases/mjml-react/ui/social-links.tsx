@@ -3,6 +3,7 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
+  MjmlColumn,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
@@ -73,24 +74,26 @@ export const SocialLinks = ({
       <MjmlBody backgroundColor={bg} width={width}>
         <MjmlWrapper padding="0">
           <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
-            <MjmlText>
-              {links.map((link) => (
-                <span key={`${link.href}-${link.platform}`}>
-                  <a
-                    href={link.href}
-                    style={{
-                      color: t.colors["foreground-muted"],
-                      fontFamily: t.fontFamily.sans,
-                      fontSize: t.fontSize.sm ?? "12px",
-                      marginRight: 24,
-                      textDecoration: "none",
-                    }}
-                  >
-                    {platformLabels[link.platform]}
-                  </a>
-                </span>
-              ))}
-            </MjmlText>
+            <MjmlColumn>
+              <MjmlText>
+                {links.map((link) => (
+                  <span key={`${link.href}-${link.platform}`}>
+                    <a
+                      href={link.href}
+                      style={{
+                        color: t.colors["foreground-muted"],
+                        fontFamily: t.fontFamily.sans,
+                        fontSize: t.fontSize.sm ?? "12px",
+                        marginRight: 24,
+                        textDecoration: "none",
+                      }}
+                    >
+                      {platformLabels[link.platform]}
+                    </a>
+                  </span>
+                ))}
+              </MjmlText>
+            </MjmlColumn>
           </MjmlSection>
         </MjmlWrapper>
       </MjmlBody>

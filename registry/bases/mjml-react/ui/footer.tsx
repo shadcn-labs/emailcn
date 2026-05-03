@@ -60,11 +60,11 @@ export const Footer = ({
       <MjmlBody backgroundColor={bg} width={width}>
         <MjmlWrapper padding="0">
           <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
-            <MjmlDivider
-              borderColor={t.colors.border}
-              paddingBottom={t.spacing.md}
-            />
             <MjmlColumn>
+              <MjmlDivider
+                borderColor={t.colors.border}
+                paddingBottom={t.spacing.md}
+              />
               <MjmlText
                 color={t.colors["foreground-muted"]}
                 fontFamily={t.fontFamily.sans}

@@ -3,6 +3,7 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
+  MjmlColumn,
   MjmlDivider,
   MjmlHead,
   MjmlPreview,
@@ -47,18 +48,20 @@ export const Divider = ({ theme = defaultTheme, label }: DividerProps) => {
       <MjmlBody backgroundColor={bg} width={width}>
         <MjmlWrapper padding="0">
           <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
-            {label ? (
-              <MjmlText
-                align="center"
-                color={t.colors["foreground-muted"]}
-                fontFamily={t.fontFamily.sans}
-                fontSize={t.fontSize.sm ?? "12px"}
-              >
-                {label}
-              </MjmlText>
-            ) : (
-              <MjmlDivider borderColor={t.colors.border} />
-            )}
+            <MjmlColumn>
+              {label ? (
+                <MjmlText
+                  align="center"
+                  color={t.colors["foreground-muted"]}
+                  fontFamily={t.fontFamily.sans}
+                  fontSize={t.fontSize.sm ?? "12px"}
+                >
+                  {label}
+                </MjmlText>
+              ) : (
+                <MjmlDivider borderColor={t.colors.border} />
+              )}
+            </MjmlColumn>
           </MjmlSection>
         </MjmlWrapper>
       </MjmlBody>
