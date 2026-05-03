@@ -1,26 +1,7 @@
-export {
-  AutoThemeProvider,
-  createTheme,
-  detectColorScheme,
-  isNoUnicode,
-  isReducedMotion,
-  MotionContext,
-  ThemeProvider,
-  UnicodeContext,
-  useMotion,
-  useTheme,
-  useThemeUpdater,
-  useUnicode,
-} from "@/registry/bases/ink/ui/theme-provider";
+"use client";
 
-export type {
-  AutoThemeProviderProps,
-  BorderTokens,
-  ColorTokens,
-  MotionContextValue,
-  SpacingTokens,
-  Theme,
-  ThemeProviderProps,
-  TypographyTokens,
-  UnicodeContextValue,
-} from "@/registry/bases/ink/ui/theme-provider";
+/**
+ * Re-export next-themes for shadcn/ui compatibility.
+ * App layout uses `@/components/theme-provider` with the same defaults.
+ */
+export { ThemeProvider, useTheme } from "next-themes";
