@@ -25,8 +25,28 @@ npx shadcn@latest add @emailcn/product-card
 
 <Steps>
 
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
 <Step>Copy and paste the following code into your project.</Step>
 
+<ComponentSource
+  src="registry/themes/define.ts"
+  title="components/emails/themes/define.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/default.tsx"
+  title="components/emails/fonts/default.tsx"
+/>
 <ComponentSource
   base="react-email"
   name="product-card"

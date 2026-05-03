@@ -30,8 +30,33 @@ npx shadcn@latest add @emailcn/block-notification-default
 
 <Steps>
 
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
 <Step>Copy and paste the following code into your project.</Step>
 
+<ComponentSource
+  src="registry/lib/resolve-theme.ts"
+  title="components/emails/lib/resolve-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/lib/get-layout-tokens.ts"
+  title="components/emails/lib/get-layout-tokens.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/define.ts"
+  title="components/emails/themes/define.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
 <ComponentSource
   src="registry/bases/mjml-react/blocks/notification-default.tsx"
   title="components/emails/notification-default.tsx"
