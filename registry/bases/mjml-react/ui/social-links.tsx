@@ -11,9 +11,12 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
+import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
 import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
 import { defaultTheme } from "@/registry/themes/default";
 import type { EmailTheme } from "@/registry/themes/define";
+
+import { getLayoutTokens } from "../lib/get-layout-tokens";
 
 export interface SocialLinksProps {
   theme?: EmailTheme;
@@ -41,6 +44,37 @@ const platformLabels: Record<
   youtube: "YouTube",
 };
 
+const SocialLinksSection = ({
+  links,
+  t,
+}: {
+  links: NonNullable<SocialLinksProps["links"]>;
+  t: ResolvedEmailTheme;
+}) => (
+  <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
+    <MjmlColumn>
+      <MjmlText>
+        {links.map((link) => (
+          <span key={`${link.href}-${link.platform}`}>
+            <a
+              href={link.href}
+              style={{
+                color: t.colors["foreground-muted"],
+                fontFamily: t.fontFamily.sans,
+                fontSize: t.fontSize.sm ?? "12px",
+                marginRight: 24,
+                textDecoration: "none",
+              }}
+            >
+              {platformLabels[link.platform]}
+            </a>
+          </span>
+        ))}
+      </MjmlText>
+    </MjmlColumn>
+  </MjmlSection>
+);
+
 export const SocialLinks = ({
   theme = defaultTheme,
   links = [
@@ -49,18 +83,7 @@ export const SocialLinks = ({
   ],
 }: SocialLinksProps) => {
   const t = resolveEmailTheme(theme);
-
-  const container =
-    typeof t.maxWidth.container === "string"
-      ? Number.parseInt(String(t.maxWidth.container).replaceAll(/\D/g, ""), 10)
-      : 600;
-  const width = Number.isFinite(container) && container > 0 ? container : 600;
-
-  const fg = t.colors.foreground ?? "#111827";
-  const bg = t.colors.background ?? "#ffffff";
-  const sans = t.fontFamily.sans ?? "sans-serif";
-  const baseFs = t.fontSize.base ?? "14px";
-  const lh = t.lineHeight.snug ?? "1.375";
+  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
 
   return (
     <Mjml>
@@ -73,28 +96,7 @@ export const SocialLinks = ({
       </MjmlHead>
       <MjmlBody backgroundColor={bg} width={width}>
         <MjmlWrapper padding="0">
-          <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
-            <MjmlColumn>
-              <MjmlText>
-                {links.map((link) => (
-                  <span key={`${link.href}-${link.platform}`}>
-                    <a
-                      href={link.href}
-                      style={{
-                        color: t.colors["foreground-muted"],
-                        fontFamily: t.fontFamily.sans,
-                        fontSize: t.fontSize.sm ?? "12px",
-                        marginRight: 24,
-                        textDecoration: "none",
-                      }}
-                    >
-                      {platformLabels[link.platform]}
-                    </a>
-                  </span>
-                ))}
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
+          <SocialLinksSection links={links} t={t} />
         </MjmlWrapper>
       </MjmlBody>
     </Mjml>

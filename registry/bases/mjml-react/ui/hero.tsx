@@ -54,7 +54,7 @@ const HeroPrimaryCta = ({
   </MjmlButton>
 );
 
-const HeroMainSection = ({
+const HeroSection = ({
   align,
   ctaHref,
   ctaLabel,
@@ -128,7 +128,7 @@ export const Hero = ({
       </MjmlHead>
       <MjmlBody backgroundColor={bg} width={width}>
         <MjmlWrapper padding="0">
-          <HeroMainSection
+          <HeroSection
             align={align}
             ctaHref={ctaHref}
             ctaLabel={ctaLabel}

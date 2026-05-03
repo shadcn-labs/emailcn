@@ -41,7 +41,7 @@ const ctaBannerStyles = (isFilled: boolean, t: ResolvedEmailTheme) => {
   };
 };
 
-const CTABannerInner = ({
+const CTABannerSection = ({
   ctaHref,
   ctaLabel,
   heading,
@@ -125,7 +125,7 @@ export const CTABanner = ({
       </MjmlHead>
       <MjmlBody backgroundColor={bg} width={width}>
         <MjmlWrapper padding="0">
-          <CTABannerInner
+          <CTABannerSection
             ctaHref={ctaHref}
             ctaLabel={ctaLabel}
             heading={heading}
