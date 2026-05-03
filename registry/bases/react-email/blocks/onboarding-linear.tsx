@@ -11,11 +11,11 @@ import {
   Text,
 } from "react-email";
 
-import { ContentGrid } from "@/registry/bases/react-email/ui/content-grid";
-import { CTABanner } from "@/registry/bases/react-email/ui/cta-banner";
-import { Footer } from "@/registry/bases/react-email/ui/footer";
-import { Hero } from "@/registry/bases/react-email/ui/hero";
-import { LogoHeader } from "@/registry/bases/react-email/ui/logo-header";
+import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
+import { CTABannerSection } from "@/registry/bases/react-email/ui/cta-banner";
+import { FooterSection } from "@/registry/bases/react-email/ui/footer";
+import { HeroSection } from "@/registry/bases/react-email/ui/hero";
+import { LogoHeaderSection } from "@/registry/bases/react-email/ui/logo-header";
 import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
@@ -49,10 +49,9 @@ export const OnboardingLinear = ({
       <Tailwind config={t}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
-            <LogoHeader theme={t} logoAlt={_productName} />
+            <LogoHeaderSection logoAlt={_productName} />
 
-            <Hero
-              theme={t}
+            <HeroSection
               heading={`Welcome, ${_firstName}`}
               subheading={`Track issues, manage sprints, and ship faster.`}
               ctaLabel="Open Linear"
@@ -60,8 +59,7 @@ export const OnboardingLinear = ({
               align="left"
             />
 
-            <ContentGrid
-              theme={t}
+            <ContentGridSection
               columnCount={3}
               columns={[
                 {
@@ -79,8 +77,7 @@ export const OnboardingLinear = ({
               ]}
             />
 
-            <CTABanner
-              theme={t}
+            <CTABannerSection
               heading="Start tracking"
               subtext="Your workspace is ready."
               ctaLabel="Open Workspace"
@@ -93,7 +90,7 @@ export const OnboardingLinear = ({
               </Text>
             </Section>
 
-            <Footer theme={t} companyName={_productName} />
+            <FooterSection companyName={_productName} />
           </Container>
         </Body>
       </Tailwind>

@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { ContentGrid } from "@/registry/bases/react-email/ui/content-grid";
+import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
 import { defaultTheme } from "@/registry/themes/default";
 import { mergeEmailThemes } from "@/registry/themes/merge";
 
@@ -82,7 +82,7 @@ export const NewsletterStackOverflow = ({
               </Text>
             </Section>
 
-            <ContentGrid theme={t} columnCount={3} columns={gridColumns} />
+            <ContentGridSection columnCount={3} columns={gridColumns} />
 
             <Section className="py-4">
               <Text className="mt-8 text-sm text-foreground-muted">

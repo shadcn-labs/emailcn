@@ -14,7 +14,7 @@ import {
   Text,
 } from "react-email";
 
-import { ProductCard } from "@/registry/bases/react-email/ui/product-card";
+import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
 import { defaultTheme } from "@/registry/themes/default";
 import { mergeEmailThemes } from "@/registry/themes/merge";
 
@@ -89,9 +89,8 @@ export const ReceiptNike = ({
 
             <Section>
               {items.map((item, index) => (
-                <ProductCard
+                <ProductCardSection
                   key={index}
-                  theme={t}
                   imageUrl={item.imageUrl}
                   name={item.name}
                   price={item.price}

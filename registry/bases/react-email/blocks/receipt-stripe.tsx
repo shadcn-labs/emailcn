@@ -14,7 +14,7 @@ import {
   Text,
 } from "react-email";
 
-import { ProductCard } from "@/registry/bases/react-email/ui/product-card";
+import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
 import { stripeTheme } from "@/registry/themes/stripe";
 
 interface ReceiptItem {
@@ -67,9 +67,8 @@ export const ReceiptStripe = ({
 
             <Section>
               {items.map((item, index) => (
-                <ProductCard
+                <ProductCardSection
                   key={index}
-                  theme={t}
                   imageUrl={item.imageUrl}
                   name={item.name}
                   price={item.price}
