@@ -1,5 +1,16 @@
-import { Button, Container, Section, Tailwind, Text } from "react-email";
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Tailwind,
+  Text,
+} from "react-email";
 
+import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/themes/default";
 import type { EmailTheme } from "@/registry/themes/define";
 
@@ -12,6 +23,43 @@ export interface HeroProps {
   align?: "left" | "center";
 }
 
+export const HeroSection = ({
+  align = "center",
+  ctaHref = "#",
+  ctaLabel = "Get Started",
+  heading = "Welcome",
+  subheading = "Get started with your account",
+}: Omit<HeroProps, "theme">) => {
+  const alignClass = align === "center" ? "text-center" : "text-left";
+
+  return (
+    <Section className="bg-background py-12">
+      <Container align={align} className="mx-auto max-w-container">
+        <Text
+          className={`m-0 font-bold text-heading leading-snug text-foreground ${alignClass}`}
+        >
+          {heading}
+        </Text>
+        <Text
+          className={`mt-6 mb-8 text-lg leading-snug text-foreground-muted ${alignClass}`}
+        >
+          {subheading}
+        </Text>
+        {ctaLabel && ctaHref ? (
+          <div className={alignClass}>
+            <Button
+              href={ctaHref}
+              className="inline-block rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-fg no-underline"
+            >
+              {ctaLabel}
+            </Button>
+          </div>
+        ) : null}
+      </Container>
+    </Section>
+  );
+};
+
 export const Hero = ({
   theme = defaultTheme,
   heading = "Welcome",
@@ -19,38 +67,25 @@ export const Hero = ({
   ctaLabel = "Get Started",
   ctaHref = "#",
   align = "center",
-}: HeroProps) => {
-  const alignClass = align === "center" ? "text-center" : "text-left";
-
-  return (
+}: HeroProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>{heading}</Preview>
     <Tailwind config={theme}>
-      <Section className="bg-background py-12">
-        <Container align={align} className="mx-auto max-w-container">
-          <Text
-            className={`m-0 font-bold text-heading leading-snug text-foreground ${alignClass}`}
-          >
-            {heading}
-          </Text>
-          <Text
-            className={`mt-6 mb-8 text-lg leading-snug text-foreground-muted ${alignClass}`}
-          >
-            {subheading}
-          </Text>
-          {ctaLabel && ctaHref ? (
-            <div className={alignClass}>
-              <Button
-                href={ctaHref}
-                className="inline-block rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-fg no-underline"
-              >
-                {ctaLabel}
-              </Button>
-            </div>
-          ) : null}
-        </Container>
-      </Section>
+      <Body className="m-0 bg-background font-sans">
+        <HeroSection
+          align={align}
+          ctaHref={ctaHref}
+          ctaLabel={ctaLabel}
+          heading={heading}
+          subheading={subheading}
+        />
+      </Body>
     </Tailwind>
-  );
-};
+  </Html>
+);
 
 Hero.PreviewProps = {
   align: "center",

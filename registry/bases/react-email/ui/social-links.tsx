@@ -1,5 +1,16 @@
-import { Column, Link, Row, Section, Tailwind } from "react-email";
+import {
+  Body,
+  Column,
+  Head,
+  Html,
+  Link,
+  Preview,
+  Row,
+  Section,
+  Tailwind,
+} from "react-email";
 
+import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/themes/default";
 import type { EmailTheme } from "@/registry/themes/define";
 
@@ -29,6 +40,29 @@ const platformLabels: Record<
   youtube: "YouTube",
 };
 
+export const SocialLinksSection = ({
+  links = [
+    { href: "https://twitter.com", platform: "twitter" },
+    { href: "https://github.com", platform: "github" },
+  ],
+}: Pick<SocialLinksProps, "links">) => (
+  <Section className="py-6">
+    <Row>
+      <Column>
+        {links.map((link) => (
+          <Link
+            key={`${link.href}-${link.platform}`}
+            href={link.href}
+            className="mr-6 text-sm text-foreground-muted no-underline"
+          >
+            {platformLabels[link.platform]}
+          </Link>
+        ))}
+      </Column>
+    </Row>
+  </Section>
+);
+
 export const SocialLinks = ({
   theme = defaultTheme,
   links = [
@@ -36,23 +70,17 @@ export const SocialLinks = ({
     { href: "https://github.com", platform: "github" },
   ],
 }: SocialLinksProps) => (
-  <Tailwind config={theme}>
-    <Section className="py-6">
-      <Row>
-        <Column>
-          {links.map((link, index) => (
-            <Link
-              key={index}
-              href={link.href}
-              className="mr-6 text-sm text-foreground-muted no-underline"
-            >
-              {platformLabels[link.platform]}
-            </Link>
-          ))}
-        </Column>
-      </Row>
-    </Section>
-  </Tailwind>
+  <Html>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>Social links</Preview>
+    <Tailwind config={theme}>
+      <Body className="m-0 bg-background font-sans">
+        <SocialLinksSection links={links} />
+      </Body>
+    </Tailwind>
+  </Html>
 );
 
 SocialLinks.PreviewProps = {

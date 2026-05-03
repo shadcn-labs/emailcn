@@ -1,5 +1,17 @@
-import { Column, Img, Row, Section, Tailwind, Text } from "react-email";
+import {
+  Body,
+  Column,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Row,
+  Section,
+  Tailwind,
+  Text,
+} from "react-email";
 
+import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/themes/default";
 import type { EmailTheme } from "@/registry/themes/define";
 
@@ -12,14 +24,13 @@ export interface FeatureRowProps {
   imagePosition?: "left" | "right";
 }
 
-export const FeatureRow = ({
-  theme = defaultTheme,
+export const FeatureRowSection = ({
   imageSrc,
   imageAlt = "Feature",
   heading = "Feature",
   body = "Description of the feature.",
   imagePosition = "left",
-}: FeatureRowProps) => {
+}: Omit<FeatureRowProps, "theme">) => {
   const imageBlock = imageSrc ? (
     <Column>
       <Img
@@ -42,25 +53,50 @@ export const FeatureRow = ({
   );
 
   return (
-    <Tailwind config={theme}>
-      <Section className="py-12">
-        <Row>
-          {imagePosition === "left" ? (
-            <>
-              {imageBlock}
-              {content}
-            </>
-          ) : (
-            <>
-              {content}
-              {imageBlock}
-            </>
-          )}
-        </Row>
-      </Section>
-    </Tailwind>
+    <Section className="py-12">
+      <Row>
+        {imagePosition === "left" ? (
+          <>
+            {imageBlock}
+            {content}
+          </>
+        ) : (
+          <>
+            {content}
+            {imageBlock}
+          </>
+        )}
+      </Row>
+    </Section>
   );
 };
+
+export const FeatureRow = ({
+  theme = defaultTheme,
+  imageSrc,
+  imageAlt = "Feature",
+  heading = "Feature",
+  body = "Description of the feature.",
+  imagePosition = "left",
+}: FeatureRowProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>{heading}</Preview>
+    <Tailwind config={theme}>
+      <Body className="m-0 bg-background font-sans">
+        <FeatureRowSection
+          body={body}
+          heading={heading}
+          imageAlt={imageAlt}
+          imagePosition={imagePosition}
+          imageSrc={imageSrc}
+        />
+      </Body>
+    </Tailwind>
+  </Html>
+);
 
 FeatureRow.PreviewProps = {
   body: "Everything you need to build amazing emails.",
