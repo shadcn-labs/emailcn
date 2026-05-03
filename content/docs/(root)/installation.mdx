@@ -51,12 +51,12 @@ npx shadcn@latest add https://emailcn.com/r/block-auth-magic-link-default.json
 
 ## Usage
 
-After installation, files land under **`emails/`** (themes in **`emails/themes/`**, shared font helpers in **`emails/fonts/`**). Each UI component’s default export is a **full React Email document** (`Html` → `Head` → `Preview` → `Tailwind` → `Body`).
+After installation, files land under **`components/emails/`** (themes in **`components/emails/themes/`**, shared font helpers in **`components/emails/fonts/`**). Each UI component’s default export is a **full React Email document** (`Html` → `Head` → `Preview` → `Tailwind` → `Body`).
 
 **Standalone** — render the component (it’s a complete email):
 
 ```tsx
-import { Hero } from "@/emails/hero";
+import { Hero } from "@/components/emails/hero";
 
 export function WelcomeEmail() {
   return <Hero heading="Welcome!" subheading="Thanks for joining us." />;
@@ -67,10 +67,10 @@ export function WelcomeEmail() {
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
-import { FooterSection } from "@/emails/footer";
-import { HeroSection } from "@/emails/hero";
-import { DefaultFonts } from "@/emails/fonts/default";
-import { defaultTheme } from "@/emails/themes/default";
+import { FooterSection } from "@/components/emails/footer";
+import { HeroSection } from "@/components/emails/hero";
+import { DefaultFonts } from "@/components/emails/fonts/default";
+import { defaultTheme } from "@/components/emails/themes/default";
 
 export function WelcomeEmail() {
   return (
@@ -116,8 +116,8 @@ export function WelcomeEmail() {
 
 In **this repo**, source lives under **`registry/`**. When you **`npx shadcn add`** from [emailcn.com](https://emailcn.com), installs are written to:
 
-- **`emails/<name>.tsx`** — React Email / MJML UI components and blocks
-- **`emails/themes/<theme-name>.ts`** — Tailwind email themes
-- **`emails/fonts/default.tsx`** — default Inter stack (`DefaultFonts`), and optional **`emails/fonts/*-fonts.tsx`** presets (e.g. `tech-fonts.tsx`, `skin-fonts.tsx`) matching [Resend’s react-email demos](https://github.com/resend/react-email/tree/canary/apps/demo/emails)
+- **`components/emails/<name>.tsx`** — React Email / MJML UI components and blocks
+- **`components/emails/themes/<theme-name>.ts`** — Tailwind email themes
+- **`components/emails/fonts/default.tsx`** — default Inter stack (`DefaultFonts`), and optional **`components/emails/fonts/*-fonts.tsx`** presets (e.g. `tech-fonts.tsx`, `skin-fonts.tsx`) matching [Resend’s react-email demos](https://github.com/resend/react-email/tree/canary/apps/demo/emails)
 
 Locally you can import from `@/registry/...` paths instead.

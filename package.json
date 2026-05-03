@@ -8,7 +8,7 @@
     "build": "pnpm registry:build && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "registry:build": "shadcn build registry.json --output ./public/r",
+    "registry:build": "shadcn build registry.json --output ./public/r && node scripts/normalize-registry-artifacts.mjs",
     "postinstall": "fumadocs-mdx",
     "check": "ultracite check",
     "fix": "ultracite fix",

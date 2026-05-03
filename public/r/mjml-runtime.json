@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-runtime",
+  "title": "MJML Email Runtime Helpers",
+  "description": "Shared helpers required by emailcn MJML templates",
+  "files": [
+    {
+      "path": "registry/lib/resolve-theme.ts",
+      "content": "import { pixelBasedPreset } from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nconst isPlainObject = (v: unknown): v is Record<string, unknown> =>\n  typeof v === \"object\" && v !== null && !Array.isArray(v);\n\nconst mergeDeep = (\n  base: Record<string, unknown>,\n  patch: Record<string, unknown>\n): Record<string, unknown> => {\n  const out = { ...base };\n  for (const [key, val] of Object.entries(patch)) {\n    out[key] =\n      isPlainObject(val) && isPlainObject(out[key] as unknown)\n        ? mergeDeep(out[key] as Record<string, unknown>, val)\n        : val;\n  }\n  return out;\n};\n\nconst flattenColors = (val: unknown, prefix = \"\"): Record<string, string> => {\n  if (typeof val === \"string\") {\n    const key = prefix.replace(/^-/, \"\") || \"DEFAULT\";\n    return { [key]: val };\n  }\n  if (!isPlainObject(val)) {\n    return {};\n  }\n  const out: Record<string, string> = {};\n  for (const [k, v] of Object.entries(val)) {\n    const nextPrefix = k === \"DEFAULT\" ? prefix : `${prefix}-${k}`;\n    Object.assign(out, flattenColors(v, nextPrefix));\n  }\n  return out;\n};\n\nconst fontSizeValue = (v: unknown): string => {\n  if (typeof v === \"string\") {\n    return v;\n  }\n  if (Array.isArray(v) && typeof v[0] === \"string\") {\n    return v[0];\n  }\n  return \"14px\";\n};\n\nconst fontFamilyRecord = (raw: unknown): Record<string, string> => {\n  if (!isPlainObject(raw)) {\n    return {};\n  }\n  const fontFamily: Record<string, string> = {};\n  for (const [k, v] of Object.entries(raw)) {\n    if (Array.isArray(v)) {\n      fontFamily[k] = v.join(\", \").replaceAll('\"', \"'\");\n    } else if (typeof v === \"string\") {\n      fontFamily[k] = v.replaceAll('\"', \"'\");\n    }\n  }\n  return fontFamily;\n};\n\nconst stringRecord = (raw: unknown): Record<string, string> => {\n  if (!isPlainObject(raw)) {\n    return {};\n  }\n  const out: Record<string, string> = {};\n  for (const [k, v] of Object.entries(raw)) {\n    if (typeof v === \"string\") {\n      out[k] = v;\n    }\n  }\n  return out;\n};\n\nconst fontSizeRecord = (raw: unknown): Record<string, string> => {\n  if (!isPlainObject(raw)) {\n    return {};\n  }\n  const out: Record<string, string> = {};\n  for (const [k, v] of Object.entries(raw)) {\n    out[k] = fontSizeValue(v);\n  }\n  return out;\n};\n\nexport interface ResolvedEmailTheme {\n  borderRadius: Record<string, string>;\n  colors: Record<string, string>;\n  fontFamily: Record<string, string>;\n  fontSize: Record<string, string>;\n  fontWeight: Record<string, string>;\n  lineHeight: Record<string, string>;\n  maxWidth: Record<string, string>;\n  spacing: Record<string, string>;\n}\n\nexport const resolveEmailTheme = (\n  config: TailwindConfig\n): ResolvedEmailTheme => {\n  const presetExtend =\n    (pixelBasedPreset.theme as Record<string, unknown> | undefined)?.extend ??\n    {};\n  const userExtend =\n    (config.theme as Record<string, unknown> | undefined)?.extend ?? {};\n\n  const merged = mergeDeep(\n    presetExtend as Record<string, unknown>,\n    userExtend as Record<string, unknown>\n  );\n\n  return {\n    borderRadius: stringRecord(merged.borderRadius),\n    colors: flattenColors(merged.colors),\n    fontFamily: fontFamilyRecord(merged.fontFamily),\n    fontSize: fontSizeRecord(merged.fontSize),\n    fontWeight: stringRecord(merged.fontWeight),\n    lineHeight: stringRecord(merged.lineHeight),\n    maxWidth: stringRecord(merged.maxWidth),\n    spacing: stringRecord(merged.spacing),\n  };\n};\n",
+      "type": "registry:file",
+      "target": "components/emails/lib/resolve-theme.ts"
+    },
+    {
+      "path": "registry/bases/mjml-react/lib/get-layout-tokens.ts",
+      "content": "import type { ResolvedEmailTheme } from \"@/components/emails/lib/resolve-theme\";\n\n/** Shared container / typography defaults for inlined MJML documents. */\nexport const getLayoutTokens = (t: ResolvedEmailTheme) => {\n  const container =\n    typeof t.maxWidth.container === \"string\"\n      ? Number.parseInt(String(t.maxWidth.container).replaceAll(/\\D/g, \"\"), 10)\n      : 600;\n  const width = Number.isFinite(container) && container > 0 ? container : 600;\n\n  return {\n    baseFs: t.fontSize.base ?? \"14px\",\n    bg: t.colors.background ?? \"#ffffff\",\n    fg: t.colors.foreground ?? \"#111827\",\n    lh: t.lineHeight.snug ?? \"1.375\",\n    sans: t.fontFamily.sans ?? \"sans-serif\",\n    width,\n  };\n};\n",
+      "type": "registry:file",
+      "target": "components/emails/lib/get-layout-tokens.ts"
+    }
+  ],
+  "categories": [
+    "mjml"
+  ],
+  "type": "registry:file"
+}
