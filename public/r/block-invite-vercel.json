@@ -7,7 +7,7 @@
     "react-email"
   ],
   "registryDependencies": [
-    "https://emailcn.com/r/email-theme-vercel.json"
+    "https://emailcn.com/r/theme-vercel.json"
   ],
   "files": [
     {

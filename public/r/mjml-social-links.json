@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-social-links",
+  "title": "Email Social Links (MJML)",
+  "description": "Social media links for email footers",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/social-links.tsx",
+      "content": "import {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport type { ResolvedEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { defaultTheme } from \"@/registry/themes/default\";\nimport type { EmailTheme } from \"@/registry/themes/define\";\n\nimport { getLayoutTokens } from \"../lib/get-layout-tokens\";\n\nexport interface SocialLinksProps {\n  theme?: EmailTheme;\n  links?: {\n    platform:\n      | \"twitter\"\n      | \"github\"\n      | \"linkedin\"\n      | \"youtube\"\n      | \"instagram\"\n      | \"discord\";\n    href: string;\n  }[];\n}\n\nconst platformLabels: Record<\n  \"twitter\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\" | \"discord\",\n  string\n> = {\n  discord: \"Discord\",\n  github: \"GitHub\",\n  instagram: \"Instagram\",\n  linkedin: \"LinkedIn\",\n  twitter: \"Twitter\",\n  youtube: \"YouTube\",\n};\n\nconst SocialLinksSection = ({\n  links,\n  t,\n}: {\n  links: NonNullable<SocialLinksProps[\"links\"]>;\n  t: ResolvedEmailTheme;\n}) => (\n  <MjmlSection padding={`${t.spacing.md ?? \"16px\"} 0`}>\n    <MjmlColumn>\n      <MjmlText>\n        {links.map((link) => (\n          <span key={`${link.href}-${link.platform}`}>\n            <a\n              href={link.href}\n              style={{\n                color: t.colors[\"foreground-muted\"],\n                fontFamily: t.fontFamily.sans,\n                fontSize: t.fontSize.sm ?? \"12px\",\n                marginRight: 24,\n                textDecoration: \"none\",\n              }}\n            >\n              {platformLabels[link.platform]}\n            </a>\n          </span>\n        ))}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const SocialLinks = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n  ],\n}: SocialLinksProps) => {\n  const t = resolveEmailTheme(theme);\n  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);\n\n  return (\n    <Mjml>\n      <MjmlHead>\n        <MjmlPreview>social-links</MjmlPreview>\n        <MjmlAttributes>\n          <MjmlAll color={fg} fontFamily={sans} />\n          <MjmlText fontSize={baseFs} lineHeight={lh} />\n        </MjmlAttributes>\n      </MjmlHead>\n      <MjmlBody backgroundColor={bg} width={width}>\n        <MjmlWrapper padding=\"0\">\n          <SocialLinksSection links={links} t={t} />\n        </MjmlWrapper>\n      </MjmlBody>\n    </Mjml>\n  );\n};\n\nSocialLinks.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"twitter\" },\n    { href: \"https://github.com\", platform: \"github\" },\n    { href: \"https://linkedin.com\", platform: \"linkedin\" },\n  ],\n  theme: defaultTheme,\n} satisfies SocialLinksProps;\n",
+      "type": "registry:component",
+      "target": "emails/social-links.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

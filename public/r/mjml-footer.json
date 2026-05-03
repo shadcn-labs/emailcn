@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-footer",
+  "title": "Email Footer (MJML)",
+  "description": "Footer with company info and links for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/footer.tsx",
+      "content": "import {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport type { ResolvedEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { resolveEmailTheme } from \"@/registry/lib/resolve-theme\";\nimport { defaultTheme } from \"@/registry/themes/default\";\nimport type { EmailTheme } from \"@/registry/themes/define\";\n\nimport { getLayoutTokens } from \"../lib/get-layout-tokens\";\n\nexport interface FooterProps {\n  theme?: EmailTheme;\n  companyName?: string;\n  address?: string;\n  links?: { label: string; href: string }[];\n  unsubscribeHref?: string;\n}\n\nconst FooterSection = ({\n  address,\n  companyName,\n  links,\n  t,\n  unsubscribeHref,\n}: {\n  address?: string;\n  companyName: string;\n  links: { label: string; href: string }[];\n  t: ResolvedEmailTheme;\n  unsubscribeHref: string;\n}) => (\n  <MjmlSection padding={`${t.spacing.xl ?? \"24px\"} 0`}>\n    <MjmlColumn>\n      <MjmlDivider borderColor={t.colors.border} paddingBottom={t.spacing.md} />\n      <MjmlText\n        color={t.colors[\"foreground-muted\"]}\n        fontFamily={t.fontFamily.sans}\n        fontSize={t.fontSize.sm ?? \"12px\"}\n        lineHeight={t.lineHeight.snug}\n      >\n        © {new Date().getFullYear()} {companyName}. All rights reserved.\n      </MjmlText>\n      {address ? (\n        <MjmlText\n          color={t.colors[\"foreground-muted\"]}\n          fontFamily={t.fontFamily.sans}\n          fontSize={t.fontSize.sm ?? \"12px\"}\n          paddingTop={t.spacing.sm}\n        >\n          {address}\n        </MjmlText>\n      ) : null}\n      <MjmlText\n        color={t.colors[\"foreground-muted\"]}\n        fontFamily={t.fontFamily.sans}\n        fontSize={t.fontSize.sm ?? \"12px\"}\n        paddingTop={t.spacing.sm}\n      >\n        {links.map((link) => (\n          <span key={`${link.href}-${link.label}`}>\n            <a href={link.href} style={{ color: \"inherit\", marginRight: 24 }}>\n              {link.label}\n            </a>\n          </span>\n        ))}\n      </MjmlText>\n      <MjmlText paddingTop={t.spacing.lg}>\n        <a\n          href={unsubscribeHref}\n          style={{\n            color: t.colors[\"foreground-muted\"],\n            fontSize: t.fontSize.sm ?? \"12px\",\n            textDecoration: \"underline\",\n          }}\n        >\n          Unsubscribe\n        </a>\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const Footer = ({\n  theme = defaultTheme,\n  companyName = \"Acme\",\n  address = \"123 Main St, San Francisco, CA\",\n  links = [\n    { href: \"#\", label: \"Privacy\" },\n    { href: \"#\", label: \"Terms\" },\n  ],\n  unsubscribeHref = \"#\",\n}: FooterProps) => {\n  const t = resolveEmailTheme(theme);\n  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);\n\n  return (\n    <Mjml>\n      <MjmlHead>\n        <MjmlPreview>footer</MjmlPreview>\n        <MjmlAttributes>\n          <MjmlAll color={fg} fontFamily={sans} />\n          <MjmlText fontSize={baseFs} lineHeight={lh} />\n        </MjmlAttributes>\n      </MjmlHead>\n      <MjmlBody backgroundColor={bg} width={width}>\n        <MjmlWrapper padding=\"0\">\n          <FooterSection\n            address={address}\n            companyName={companyName}\n            links={links}\n            t={t}\n            unsubscribeHref={unsubscribeHref}\n          />\n        </MjmlWrapper>\n      </MjmlBody>\n    </Mjml>\n  );\n};\n\nFooter.PreviewProps = {\n  address: \"123 Main Street, San Francisco, CA 94105\",\n  companyName: \"Acme Inc.\",\n  links: [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  theme: defaultTheme,\n  unsubscribeHref: \"#unsubscribe\",\n} satisfies FooterProps;\n",
+      "type": "registry:component",
+      "target": "emails/footer.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

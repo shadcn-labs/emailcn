@@ -8,7 +8,7 @@
     "mjml-browser"
   ],
   "registryDependencies": [
-    "https://emailcn.com/r/email-theme-stripe.json"
+    "https://emailcn.com/r/theme-stripe.json"
   ],
   "files": [
     {

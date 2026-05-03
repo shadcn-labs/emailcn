@@ -7,12 +7,12 @@
     "react-email"
   ],
   "registryDependencies": [
-    "https://emailcn.com/r/email-theme-vercel.json",
-    "https://emailcn.com/r/email-logo-header.json",
-    "https://emailcn.com/r/email-hero.json",
-    "https://emailcn.com/r/email-content-grid.json",
-    "https://emailcn.com/r/email-cta-banner.json",
-    "https://emailcn.com/r/email-footer.json"
+    "https://emailcn.com/r/theme-vercel.json",
+    "https://emailcn.com/r/logo-header.json",
+    "https://emailcn.com/r/hero.json",
+    "https://emailcn.com/r/content-grid.json",
+    "https://emailcn.com/r/cta-banner.json",
+    "https://emailcn.com/r/footer.json"
   ],
   "files": [
     {
