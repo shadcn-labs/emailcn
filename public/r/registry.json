@@ -12,7 +12,7 @@
         {
           "path": "registry/themes/default.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/default.ts"
+          "target": "emails/themes/default.ts"
         }
       ]
     },
@@ -26,7 +26,7 @@
         {
           "path": "registry/themes/vercel.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/vercel.ts"
+          "target": "emails/themes/vercel.ts"
         }
       ]
     },
@@ -40,7 +40,7 @@
         {
           "path": "registry/themes/linear.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/linear.ts"
+          "target": "emails/themes/linear.ts"
         }
       ]
     },
@@ -54,7 +54,7 @@
         {
           "path": "registry/themes/stripe.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/stripe.ts"
+          "target": "emails/themes/stripe.ts"
         }
       ]
     },
@@ -68,7 +68,7 @@
         {
           "path": "registry/themes/github.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/github.ts"
+          "target": "emails/themes/github.ts"
         }
       ]
     },
@@ -82,7 +82,7 @@
         {
           "path": "registry/themes/notion.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/notion.ts"
+          "target": "emails/themes/notion.ts"
         }
       ]
     },
@@ -96,7 +96,7 @@
         {
           "path": "registry/themes/raycast.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/raycast.ts"
+          "target": "emails/themes/raycast.ts"
         }
       ]
     },
@@ -110,7 +110,7 @@
         {
           "path": "registry/themes/twitch.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/twitch.ts"
+          "target": "emails/themes/twitch.ts"
         }
       ]
     },
@@ -124,7 +124,7 @@
         {
           "path": "registry/themes/airbnb.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/airbnb.ts"
+          "target": "emails/themes/airbnb.ts"
         }
       ]
     },
@@ -138,9 +138,84 @@
         {
           "path": "registry/themes/slack.ts",
           "type": "registry:file",
-          "target": "lib/email-themes/slack.ts"
+          "target": "emails/themes/slack.ts"
         }
       ]
+    },
+    {
+      "name": "email-default-fonts",
+      "type": "registry:file",
+      "title": "Email Default Fonts",
+      "description": "Inter webfont declarations for React Email templates (use inside Head)",
+      "categories": ["email-font"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/fonts/default.tsx",
+          "type": "registry:file",
+          "target": "emails/fonts/default.tsx"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "email-font-collage",
+      "type": "registry:file",
+      "title": "Collage Fonts (React Email)",
+      "description": "Inter weights for React Email — from Resend Matte collage-fonts demo",
+      "categories": ["email-font"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/fonts/collage-fonts.tsx",
+          "type": "registry:file",
+          "target": "emails/fonts/collage-fonts.tsx"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "email-font-dither",
+      "type": "registry:file",
+      "title": "Dither Fonts (React Email)",
+      "description": "IBM Plex Sans Condensed + Inter — from Resend Protocol dither-fonts demo",
+      "categories": ["email-font"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/fonts/dither-fonts.tsx",
+          "type": "registry:file",
+          "target": "emails/fonts/dither-fonts.tsx"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "email-font-skin",
+      "type": "registry:file",
+      "title": "Skin Fonts (React Email)",
+      "description": "Instrument Serif + Inter — from Resend Arcane skin-fonts demo",
+      "categories": ["email-font"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/fonts/skin-fonts.tsx",
+          "type": "registry:file",
+          "target": "emails/fonts/skin-fonts.tsx"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "email-font-tech",
+      "type": "registry:file",
+      "title": "Tech Fonts (React Email)",
+      "description": "Geist + Inter — from Resend Studio tech-fonts demo",
+      "categories": ["email-font"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/fonts/tech-fonts.tsx",
+          "type": "registry:file",
+          "target": "emails/fonts/tech-fonts.tsx"
+        }
+      ],
+      "dependencies": ["react-email"]
     },
     {
       "name": "email-logo-header",
@@ -151,11 +226,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/logo-header.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/logo-header.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-hero",
@@ -166,11 +245,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/hero.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-content-grid",
@@ -181,11 +264,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/content-grid.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/content-grid.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-feature-row",
@@ -196,11 +283,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/feature-row.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/feature-row.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-pricing-table",
@@ -211,11 +302,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/pricing-table.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/pricing-table.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-testimonial",
@@ -226,11 +321,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/testimonial.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/testimonial.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-social-links",
@@ -241,11 +340,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/social-links.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/social-links.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-footer",
@@ -256,11 +359,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/footer.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/footer.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-cta-banner",
@@ -271,11 +378,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/cta-banner.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/cta-banner.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-divider",
@@ -286,11 +397,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/divider.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/divider.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-avatar-row",
@@ -301,11 +416,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/avatar-row.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/avatar-row.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "email-product-card",
@@ -316,11 +435,15 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/product-card.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/product-card.tsx"
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/email-theme-default.json"]
+      "registryDependencies": [
+        "https://emailcn.com/r/email-theme-default.json",
+        "https://emailcn.com/r/email-default-fonts.json"
+      ]
     },
     {
       "name": "block-onboarding-default",
@@ -331,7 +454,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/onboarding-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/onboarding-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -353,7 +477,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/onboarding-vercel.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/onboarding-vercel.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -375,7 +500,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/onboarding-linear.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/onboarding-linear.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -397,7 +523,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-magic-link-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-magic-link-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -412,7 +539,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-magic-link-stripe.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-magic-link-stripe.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -427,7 +555,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-magic-link-raycast.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-magic-link-raycast.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -442,7 +571,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-otp-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-otp-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -457,7 +587,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-otp-twitch.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-otp-twitch.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -472,7 +603,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-password-reset-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-password-reset-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -487,7 +619,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-password-reset-notion.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-password-reset-notion.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -502,7 +635,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-password-reset-dropbox.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-password-reset-dropbox.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -517,7 +651,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -535,7 +670,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-stripe.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-stripe.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -553,7 +689,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-apple.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-apple.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -571,7 +708,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-nike.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-nike.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -589,7 +727,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -604,7 +743,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-linear.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-linear.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -619,7 +759,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-airbnb.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-airbnb.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -634,7 +775,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-slack.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-slack.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -649,7 +791,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/newsletter-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/newsletter-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -667,7 +810,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/newsletter-stack-overflow.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/newsletter-stack-overflow.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -685,7 +829,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/invite-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/invite-default.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -700,7 +845,8 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/invite-vercel.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/invite-vercel.tsx"
         }
       ],
       "dependencies": ["react-email"],
@@ -715,7 +861,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/logo-header.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/logo-header.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -730,7 +877,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/hero.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/hero.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -745,7 +893,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/content-grid.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/content-grid.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -760,7 +909,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/feature-row.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/feature-row.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -775,7 +925,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/pricing-table.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/pricing-table.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -790,7 +941,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/testimonial.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/testimonial.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -805,7 +957,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/social-links.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/social-links.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -820,7 +973,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/footer.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/footer.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -835,7 +989,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/cta-banner.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/cta-banner.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -850,7 +1005,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/divider.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/divider.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -865,7 +1021,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/avatar-row.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/avatar-row.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -880,7 +1037,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/product-card.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/product-card.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -895,7 +1053,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/onboarding-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/onboarding-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -917,7 +1076,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/onboarding-vercel.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/onboarding-vercel.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -939,7 +1099,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/onboarding-linear.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/onboarding-linear.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -961,7 +1122,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-magic-link-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-magic-link-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -976,7 +1138,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-magic-link-stripe.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-magic-link-stripe.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -991,7 +1154,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-magic-link-raycast.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-magic-link-raycast.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1006,7 +1170,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-otp-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-otp-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1021,7 +1186,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-otp-twitch.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-otp-twitch.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1036,7 +1202,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-password-reset-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-password-reset-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1051,7 +1218,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-password-reset-notion.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-password-reset-notion.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1066,7 +1234,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/auth-password-reset-dropbox.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/auth-password-reset-dropbox.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1081,7 +1250,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/receipt-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1099,7 +1269,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/receipt-stripe.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-stripe.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1117,7 +1288,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/receipt-apple.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-apple.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1135,7 +1307,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/receipt-nike.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/receipt-nike.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1153,7 +1326,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/notification-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1168,7 +1342,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/notification-linear.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-linear.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1183,7 +1358,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/notification-airbnb.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-airbnb.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1198,7 +1374,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/notification-slack.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/notification-slack.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1213,7 +1390,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/newsletter-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/newsletter-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1231,7 +1409,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/newsletter-stack-overflow.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/newsletter-stack-overflow.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1249,7 +1428,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/invite-default.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/invite-default.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
@@ -1264,7 +1444,8 @@
       "files": [
         {
           "path": "registry/bases/mjml-react/blocks/invite-vercel.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "emails/invite-vercel.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
