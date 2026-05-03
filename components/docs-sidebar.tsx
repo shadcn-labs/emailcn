@@ -141,6 +141,7 @@ export const DocsSidebar = ({
             }
             return (
               <SidebarPageGroup
+                key={item.$id}
                 label={isComponentsFolder(item) ? "Components" : "Blocks"}
                 pages={allPages}
                 pathname={pathname}

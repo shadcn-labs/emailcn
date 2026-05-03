@@ -51,9 +51,9 @@ const fontFamilyRecord = (raw: unknown): Record<string, string> => {
   const fontFamily: Record<string, string> = {};
   for (const [k, v] of Object.entries(raw)) {
     if (Array.isArray(v)) {
-      fontFamily[k] = v.join(", ");
+      fontFamily[k] = v.join(", ").replaceAll('"', "'");
     } else if (typeof v === "string") {
-      fontFamily[k] = v;
+      fontFamily[k] = v.replaceAll('"', "'");
     }
   }
   return fontFamily;

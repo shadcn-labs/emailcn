@@ -60,22 +60,20 @@ export const ComponentPreview = async ({
   height = 640,
 }: ComponentPreviewProps) => {
   const Demo = await loadDemo(base, name, kind);
-  const result =
-    base === "mjml-react"
-      ? mjml2html(renderToMjml(<Demo />), {
-          keepComments: false,
-          minify: true,
-          validationLevel: "soft",
-        })
-      : null;
-  const html =
-    base === "mjml-react"
-      ? (result?.html ?? "")
-      : await renderReactEmail(<Demo />, { pretty: true });
 
-  const sourceName = name.replace(/-demo$/, "");
+  const result =
+    base === "react-email"
+      ? await renderReactEmail(<Demo />, { pretty: true })
+      : await mjml2html(renderToMjml(<Demo />), {
+          keepComments: false,
+          validationLevel: "strict",
+        });
+
+  const html = base === "react-email" ? result : result.html;
 
   const plainText = base === "react-email" ? toPlainText(html) : null;
+
+  const sourceName = name.replace(/-demo$/, "");
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
