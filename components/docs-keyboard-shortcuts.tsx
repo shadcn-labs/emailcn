@@ -35,21 +35,21 @@ export const DocsKeyboardShortcuts = ({
     }
   };
 
-  useHotkeys("ArrowRight", (event) => {
-    if (event.defaultPrevented) {
-      return;
-    }
+  useHotkeys(
+    "ArrowRight",
+    () => {
+      navigate(next, "next", "ArrowRight");
+    },
+    { preventDefault: true }
+  );
 
-    navigate(next, "next", "ArrowRight");
-  });
-
-  useHotkeys("ArrowLeft", (event) => {
-    if (event.defaultPrevented) {
-      return;
-    }
-
-    navigate(previous, "previous", "ArrowLeft");
-  });
+  useHotkeys(
+    "ArrowLeft",
+    () => {
+      navigate(previous, "previous", "ArrowLeft");
+    },
+    { preventDefault: true }
+  );
 
   return null;
 };
