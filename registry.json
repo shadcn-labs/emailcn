@@ -368,25 +368,6 @@
       "dependencies": ["react-email"]
     },
     {
-      "name": "mjml-runtime",
-      "type": "registry:file",
-      "title": "MJML Email Runtime Helpers",
-      "description": "Shared helpers required by emailcn MJML templates",
-      "categories": ["mjml"],
-      "files": [
-        {
-          "path": "registry/lib/resolve-theme.ts",
-          "type": "registry:file",
-          "target": "components/emails/lib/resolve-theme.ts"
-        },
-        {
-          "path": "registry/bases/mjml-react/lib/get-layout-tokens.ts",
-          "type": "registry:file",
-          "target": "components/emails/lib/get-layout-tokens.ts"
-        }
-      ]
-    },
-    {
       "name": "logo-header",
       "type": "registry:component",
       "title": "Email Logo Header",

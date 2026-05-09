@@ -15,6 +15,12 @@ const replacements = [
     /(?:\.\.\/)+lib\/get-layout-tokens/g,
     "@/components/emails/lib/get-layout-tokens",
   ],
+  [
+    /@\/registry\/bases\/mjml-react\/themes\/([^"']+)/g,
+    "@/components/emails/themes/mjml-$1",
+  ],
+  [/@\/registry\/bases\/mjml-react\/ui\/([^"']+)/g, "@/components/emails/$1"],
+  [/@\/registry\/bases\/mjml-react\/blocks\/([^"']+)/g, "@/components/emails/$1"],
 ];
 
 const normalizeCode = (code) => {
