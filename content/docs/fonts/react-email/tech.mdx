@@ -1,0 +1,74 @@
+---
+title: "Tech Fonts"
+description: "Geist + Inter font stack for tech-focused email templates."
+---
+
+<ComponentPreview base="react-email" name="tech-fonts-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/tech-fonts
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/tech-fonts.tsx"
+  title="components/emails/fonts/tech-fonts.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TechFonts } from "@/components/emails/fonts/tech-fonts";
+
+export default function Email() {
+  return (
+    <Html>
+      <Head>
+        <TechFonts />
+      </Head>
+      <Body>{/* email content */}</Body>
+    </Html>
+  );
+}
+```
+
+## Font Details
+
+| Property       | Value                                                                                                             |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Primary Font   | Geist                                                                                                             |
+| Secondary Font | Inter                                                                                                             |
+| Fallback       | Arial, sans-serif                                                                                                 |
+| Weights        | 400, 450, 500, 600, 700                                                                                           |
+| Source         | [Resend Studio demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/05-Studio/tech-fonts.tsx) |

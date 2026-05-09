@@ -1,0 +1,74 @@
+---
+title: "Skin Fonts"
+description: "Instrument Serif + Inter font stack for editorial email templates."
+---
+
+<ComponentPreview base="react-email" name="skin-fonts-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/skin-fonts
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/skin-fonts.tsx"
+  title="components/emails/fonts/skin-fonts.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SkinFonts } from "@/components/emails/fonts/skin-fonts";
+
+export default function Email() {
+  return (
+    <Html>
+      <Head>
+        <SkinFonts />
+      </Head>
+      <Body>{/* email content */}</Body>
+    </Html>
+  );
+}
+```
+
+## Font Details
+
+| Property       | Value                                                                                                             |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Primary Font   | Instrument Serif                                                                                                  |
+| Secondary Font | Inter                                                                                                             |
+| Fallback       | Georgia, Times New Roman, serif (Instrument Serif) / Arial, sans-serif (Inter)                                    |
+| Weights        | 400, 500, 600                                                                                                     |
+| Source         | [Resend Arcane demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/04-Arcane/skin-fonts.tsx) |

@@ -1,0 +1,74 @@
+---
+title: "Dither Fonts"
+description: "IBM Plex Sans Condensed + Inter font stack for compact email templates."
+---
+
+<ComponentPreview base="react-email" name="dither-fonts-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/dither-fonts
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/dither-fonts.tsx"
+  title="components/emails/fonts/dither-fonts.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DitherFonts } from "@/components/emails/fonts/dither-fonts";
+
+export default function Email() {
+  return (
+    <Html>
+      <Head>
+        <DitherFonts />
+      </Head>
+      <Body>{/* email content */}</Body>
+    </Html>
+  );
+}
+```
+
+## Font Details
+
+| Property       | Value                                                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Primary Font   | IBM Plex Sans Condensed                                                                                                 |
+| Secondary Font | Inter                                                                                                                   |
+| Fallback       | Arial, sans-serif                                                                                                       |
+| Weights        | 300, 400, 500 (Inter) / 500 (IBM Plex Sans Condensed)                                                                   |
+| Source         | [Resend Protocol demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/03-Protocol/dither-fonts.tsx) |
