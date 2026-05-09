@@ -13,23 +13,13 @@ import {
 } from "@faire/mjml-react";
 
 import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import { mergeEmailThemes } from "@/registry/themes/merge";
+import { nikeTheme } from "@/registry/themes/nike";
 
 import { getLayoutTokens } from "../lib/get-layout-tokens";
 type Props = Record<string, never>;
 
 export const ReceiptNike = (_props: Props) => {
-  const theme = mergeEmailThemes(defaultTheme, {
-    theme: {
-      extend: {
-        colors: {
-          primary: { DEFAULT: "#111111", fg: "#ffffff", hover: "#000000" },
-        },
-      },
-    },
-  });
-  const t = resolveEmailTheme(theme);
+  const t = resolveEmailTheme(nikeTheme);
   const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
 
   return (

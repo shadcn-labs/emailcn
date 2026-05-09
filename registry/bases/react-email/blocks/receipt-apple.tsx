@@ -15,8 +15,7 @@ import {
 } from "react-email";
 
 import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
-import { defaultTheme } from "@/registry/themes/default";
-import { mergeEmailThemes } from "@/registry/themes/merge";
+import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
   name: string;
@@ -35,18 +34,6 @@ interface Props {
   supportHref?: string;
   _productName?: string;
 }
-
-const appleTheme = mergeEmailThemes(defaultTheme, {
-  theme: {
-    extend: {
-      colors: {
-        background: {
-          muted: "#f5f5f7",
-        },
-      },
-    },
-  },
-});
 
 export const ReceiptApple = ({
   orderNumber = "ORD-123",

@@ -13,23 +13,13 @@ import {
 } from "@faire/mjml-react";
 
 import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import { mergeEmailThemes } from "@/registry/themes/merge";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 import { getLayoutTokens } from "../lib/get-layout-tokens";
 type Props = Record<string, never>;
 
 export const NewsletterStackOverflow = (_props: Props) => {
-  const theme = mergeEmailThemes(defaultTheme, {
-    theme: {
-      extend: {
-        colors: {
-          primary: { DEFAULT: "#f48024", fg: "#ffffff", hover: "#e06712" },
-        },
-      },
-    },
-  });
-  const t = resolveEmailTheme(theme);
+  const t = resolveEmailTheme(stackOverflowTheme);
   const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
 
   return (

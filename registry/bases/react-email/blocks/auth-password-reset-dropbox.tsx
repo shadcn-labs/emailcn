@@ -12,8 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { defaultTheme } from "@/registry/themes/default";
-import { mergeEmailThemes } from "@/registry/themes/merge";
+import { dropboxTheme } from "@/registry/themes/dropbox";
 
 interface Props {
   _logoUrl?: string;
@@ -22,20 +21,6 @@ interface Props {
   expiresInMinutes?: number;
   _productName?: string;
 }
-
-const dropboxTheme = mergeEmailThemes(defaultTheme, {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: "#0061ff",
-          fg: "#ffffff",
-          hover: "#0052dd",
-        },
-      },
-    },
-  },
-});
 
 export const AuthPasswordResetDropbox = ({
   resetHref = "#",

@@ -4,12 +4,16 @@ import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
 import type { EmailTheme } from "@/registry/themes/define";
 
 import { airbnbTheme } from "./themes/airbnb";
+import { appleTheme } from "./themes/apple";
 import { defaultTheme } from "./themes/default";
+import { dropboxTheme } from "./themes/dropbox";
 import { githubTheme } from "./themes/github";
 import { linearTheme } from "./themes/linear";
+import { nikeTheme } from "./themes/nike";
 import { notionTheme } from "./themes/notion";
 import { raycastTheme } from "./themes/raycast";
 import { slackTheme } from "./themes/slack";
+import { stackOverflowTheme } from "./themes/stack-overflow";
 import { stripeTheme } from "./themes/stripe";
 import { twitchTheme } from "./themes/twitch";
 import { vercelTheme } from "./themes/vercel";
@@ -102,6 +106,40 @@ export const THEMES = [
     name: "vercel",
     theme: vercelTheme,
     title: "Vercel",
+    type: "registry:theme",
+  },
+  {
+    bases: BASE_NAMES,
+    description:
+      "Apple-inspired clean whites and subtle grays with blue accents.",
+    name: "apple",
+    theme: appleTheme,
+    title: "Apple",
+    type: "registry:theme",
+  },
+  {
+    bases: BASE_NAMES,
+    description:
+      "Dropbox blue primary for professional file-sharing communications.",
+    name: "dropbox",
+    theme: dropboxTheme,
+    title: "Dropbox",
+    type: "registry:theme",
+  },
+  {
+    bases: BASE_NAMES,
+    description: "Nike's signature black-and-white minimal aesthetic.",
+    name: "nike",
+    theme: nikeTheme,
+    title: "Nike",
+    type: "registry:theme",
+  },
+  {
+    bases: BASE_NAMES,
+    description: "Stack Overflow orange for developer community newsletters.",
+    name: "stack-overflow",
+    theme: stackOverflowTheme,
+    title: "Stack Overflow",
     type: "registry:theme",
   },
 ] as const satisfies readonly RegistryThemeDefinition[];

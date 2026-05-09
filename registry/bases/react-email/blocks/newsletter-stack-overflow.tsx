@@ -13,8 +13,7 @@ import {
 } from "react-email";
 
 import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
-import { defaultTheme } from "@/registry/themes/default";
-import { mergeEmailThemes } from "@/registry/themes/merge";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface Article {
   title: string;
@@ -31,20 +30,6 @@ interface Props {
   articles?: Article[];
   _productName?: string;
 }
-
-const stackOverflowTheme = mergeEmailThemes(defaultTheme, {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: "#f48024",
-          fg: "#ffffff",
-          hover: "#e06712",
-        },
-      },
-    },
-  },
-});
 
 export const NewsletterStackOverflow = ({
   _logoUrl,
