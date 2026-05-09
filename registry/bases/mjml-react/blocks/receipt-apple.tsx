@@ -12,33 +12,34 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { appleTheme } from "@/registry/themes/apple";
+import { appleTheme } from "@/registry/bases/mjml-react/themes/apple";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-import { getLayoutTokens } from "../lib/get-layout-tokens";
 type Props = Record<string, never>;
 
 export const ReceiptApple = (_props: Props) => {
-  const t = resolveEmailTheme(appleTheme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
+  const theme: EmailThemeTokens = appleTheme;
 
   return (
     <Mjml>
       <MjmlHead>
         <MjmlPreview>Email preview</MjmlPreview>
         <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
         </MjmlAttributes>
       </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
         <MjmlWrapper padding="0">
-          <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
             <MjmlColumn>
-              <MjmlText
-                color={t.colors.foreground}
-                fontFamily={t.fontFamily.sans}
-              >
+              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
                 MJML parity placeholder for receipt-apple.tsx — replace with
                 full markup.
               </MjmlText>

@@ -14,10 +14,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -33,69 +31,72 @@ export const AuthMagicLinkDefault = ({
   expiresInMinutes = 30,
   _productName = "Acme",
 }: Props) => {
-  const theme = defaultTheme;
-  const t = resolveEmailTheme(theme);
-
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
+  const theme: EmailThemeTokens = defaultTheme;
 
   return (
     <Mjml>
       <MjmlHead>
         <MjmlPreview>Your login link</MjmlPreview>
         <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
         </MjmlAttributes>
       </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
         <MjmlWrapper padding="0">
-          <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
             <MjmlColumn>
               <MjmlText
-                color={t.colors.foreground}
-                fontFamily={t.fontFamily.sans}
-                fontSize={t.fontSize.xl ?? "20px"}
-                fontWeight={t.fontWeight.medium ?? "500"}
-                paddingBottom={t.spacing.md}
+                color={theme.colorText}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeXl ?? "20px"}
+                fontWeight={theme.fontWeightMedium ?? "500"}
+                paddingBottom={theme.spacingBase}
               >
                 Sign in to {_productName}
               </MjmlText>
               <MjmlText
-                color={t.colors["foreground-muted"]}
-                fontFamily={t.fontFamily.sans}
-                fontSize={t.fontSize.base ?? "14px"}
-                lineHeight={t.lineHeight.snug}
-                paddingBottom={t.spacing.md}
+                color={theme.colorTextMuted}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeBase ?? "14px"}
+                lineHeight={theme.lineHeightBase}
+                paddingBottom={theme.spacingBase}
               >
                 Click the button below to sign in to your {_productName}{" "}
                 account. This link expires in {expiresInMinutes} minutes.
               </MjmlText>
               <MjmlText
-                color={t.colors["foreground-muted"]}
-                fontFamily={t.fontFamily.sans}
-                fontSize={t.fontSize.base ?? "14px"}
-                paddingBottom={t.spacing.lg}
+                color={theme.colorTextMuted}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeBase ?? "14px"}
+                paddingBottom={theme.spacingLg}
               >
                 If you didn&apos;t request this, you can safely ignore this
                 email.
               </MjmlText>
               <MjmlButton
-                backgroundColor={t.colors.primary}
-                borderRadius={t.borderRadius.md}
-                color={t.colors["primary-fg"] ?? "#ffffff"}
-                fontFamily={t.fontFamily.sans}
-                fontSize={t.fontSize.sm ?? "14px"}
-                fontWeight={t.fontWeight.medium ?? "500"}
+                backgroundColor={theme.colorPrimary}
+                borderRadius={theme.borderRadius}
+                color={theme.colorPrimaryForeground ?? "#ffffff"}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeSm ?? "14px"}
+                fontWeight={theme.fontWeightMedium ?? "500"}
                 href={magicLinkHref}
-                innerPadding={`${t.spacing.sm ?? "12px"} ${t.spacing.lg ?? "24px"}`}
+                innerPadding={`${theme.spacingBase ?? "12px"} ${theme.spacingLg ?? "24px"}`}
               >
                 Sign in to {_productName}
               </MjmlButton>
               <MjmlText
-                color={t.colors["foreground-muted"]}
-                fontFamily={t.fontFamily.sans}
-                fontSize={t.fontSize.sm ?? "12px"}
-                paddingTop={t.spacing.lg}
+                color={theme.colorTextMuted}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeSm ?? "12px"}
+                paddingTop={theme.spacingLg}
               >
                 This link will expire in {expiresInMinutes} minutes. If you need
                 help, reply to this email.

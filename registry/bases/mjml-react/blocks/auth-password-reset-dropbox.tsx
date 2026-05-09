@@ -12,33 +12,34 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { dropboxTheme } from "@/registry/themes/dropbox";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { dropboxTheme } from "@/registry/bases/mjml-react/themes/dropbox";
 
-import { getLayoutTokens } from "../lib/get-layout-tokens";
 type Props = Record<string, never>;
 
 export const AuthPasswordResetDropbox = (_props: Props) => {
-  const t = resolveEmailTheme(dropboxTheme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
+  const theme: EmailThemeTokens = dropboxTheme;
 
   return (
     <Mjml>
       <MjmlHead>
         <MjmlPreview>Email preview</MjmlPreview>
         <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
         </MjmlAttributes>
       </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
         <MjmlWrapper padding="0">
-          <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
             <MjmlColumn>
-              <MjmlText
-                color={t.colors.foreground}
-                fontFamily={t.fontFamily.sans}
-              >
+              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
                 MJML parity placeholder for auth-password-reset-dropbox.tsx —
                 replace with full markup.
               </MjmlText>
