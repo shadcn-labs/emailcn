@@ -1,0 +1,49 @@
+---
+title: "Theming"
+description: "Email themes, fonts and brand packs for React Email and MJML React."
+---
+
+Theming in emailcn is **Tailwind-based**: theme files export a `TailwindConfig`-compatible object (via `defineEmailTheme` in `components/emails/themes/define.ts`) that powers `<Tailwind config={theme}>` in React Email and is **resolved to concrete values** for MJML (`resolveEmailTheme`).
+
+## Install a theme
+
+Themes are registry items named `theme-<id>`:
+
+```bash
+npx shadcn@latest add @emailcn/theme-default
+```
+
+Or paste the JSON URL:
+
+```bash
+npx shadcn@latest add https://emailcn.com/r/theme-linear.json
+```
+
+Files install under **`components/emails/themes/`** (plus **`define.ts`** where the registry includes it, since presets import shared types and `pixelBasedPreset` from `react-email`).
+
+## Use with React Email
+
+```tsx
+import { Tailwind } from "react-email";
+import { defaultTheme } from "@/components/emails/themes/default";
+
+<Tailwind config={defaultTheme}>{/* ... */}</Tailwind>;
+```
+
+## Use with MJML
+
+MJML components accept an **`EmailTheme`** (same token model). Internally they call **`resolveEmailTheme`** so nested tokens (colors, spacing, typography) become plain strings for MJML attributes.
+
+## Brand variants
+
+Some blocks merge a **base theme** with a small patch (e.g. Stack Overflow orange, Nike stripes). Those blocks import **`mergeEmailThemes`** from `components/emails/themes/merge.ts`. If you copy those blocks manually, include **`merge.ts`**; most UI-only and `*-default` blocks only need **`define.ts`**, **`default.ts`**, and fonts.
+
+## Available themes
+
+<ComponentsList className="mt-6" folderName="Themes" />
+
+## Available Fonts (React Email)
+
+Optional font bundles (`tech-fonts`, `skin-fonts`, …) install under **`components/emails/fonts/`** and mirror [Resend’s react-email demos](https://github.com/resend/react-email/tree/canary/apps/demo/emails). The default stack is **`default-fonts`** (`DefaultFonts`).
+
+<ComponentsList className="mt-6" folderName="Fonts" />

@@ -1,9 +1,4 @@
 {
-  "title": "Get Started",
-  "pages": [
-    "index",
-    "[Installation](/docs/installation)",
-    "[Email Blocks](/docs/blocks/react-email/notification)",
-    "[Email Components](/docs/components/react-email/hero)"
-  ]
+  "title": "Overview",
+  "pages": ["index", "installation", "theming", "mcp", "registry"]
 }

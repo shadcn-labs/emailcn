@@ -1,0 +1,28 @@
+---
+title: "MCP"
+description: "Learn how to use the shadcn MCP (Model Context Protocol) server with emailcn."
+---
+
+[MCP](https://modelcontextprotocol.io/) is an open protocol that standardizes how applications provide context to LLMs. The shadcn CLI can register an MCP server so your editor can discover registry components—including items you install from **emailcn** via the same CLI.
+
+## Configure MCP
+
+Run:
+
+```bash
+npx dlx shadcn@latest mcp init
+```
+
+Choose your MCP client when prompted, then enable the MCP server in that client to finish setup.
+
+## Usage
+
+With MCP enabled, you can ask your IDE to work with **emailcn** patterns. Example prompts:
+
+- Add a **React Email** welcome flow using **`Hero`**, **`ContentGrid`**, **`Footer`**, and **`defaultTheme`**.
+- Scaffold a **magic link** or **OTP** auth email from **`block-auth-magic-link-default`** / **`block-auth-otp-default`**.
+- Build a **receipt** or **notification** layout using existing blocks and **`ProductCard`**.
+- Create an **MJML** variant with **`mjml-hero`** and **`mjml-footer`**, sharing the same theme tokens as React Email.
+- Wire **`DefaultFonts`** and a **`tech-fonts`** preset to match a Resend-style demo.
+
+Install items with **`npx shadcn@latest add @emailcn/<name>`** or the **`https://emailcn.com/r/<name>.json`** URL on each docs page, then import from **`@/components/emails/...`** as usual.

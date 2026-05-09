@@ -1,0 +1,52 @@
+---
+title: "Registry"
+description: "Learn how to use the email registry with the shadcn CLI."
+---
+
+The **emailcn** registry ships React Email and MJML React email components, blocks, themes, and font helpers in the [shadcn registry format](https://ui.shadcn.com/docs/registry). Register the namespace once in `components.json`, then pull items by name with the CLI.
+
+## Setup
+
+Add a **registries** entry for this site. See the [shadcn registry documentation](https://ui.shadcn.com/docs/registry) for all `components.json` fields and behaviors.
+
+```json
+{
+  "registries": {
+    "@emailcn": "https://emailcn.com/r/{name}.json"
+  }
+}
+```
+
+You can replace `@emailcn` with another namespace; it only needs to match what you pass to `shadcn add`.
+
+## Usage
+
+**React Email** — names have **no** prefix:
+
+```bash
+npx dlx shadcn@latest add @emailcn/hero
+```
+
+**MJML** — use the **`mjml-`** prefix:
+
+```bash
+npx dlx shadcn@latest add @emailcn/mjml-hero
+```
+
+**Themes** are `theme-<id>.json`:
+
+```bash
+npx dlx shadcn@latest add @emailcn/theme-stripe
+```
+
+**Fonts** (React Email helpers) — e.g. `default-fonts`, `tech-fonts`:
+
+```bash
+npx dlx shadcn@latest add @emailcn/default-fonts
+```
+
+Without a registry alias, use the full URL shown on each docs page:
+
+```bash
+npx dlx shadcn@latest add https://emailcn.com/r/hero.json
+```

@@ -1,59 +1,69 @@
 ---
-title: Installation
-description: How to install and use emailcn components in your project.
+title: "Installation"
+description: "Install email components, themes, and font helpers from the emailcn registry."
 ---
 
-## Quick Start
+## Prerequisites
 
-### 1. Install react-email
+- **React Email** templates: a project with **`react-email`** installed.
+- **MJML** templates: **`@faire/mjml-react`** and **`mjml-browser`** (see [MJML component](/docs/components/mjml-react/hero) pages for the exact `npm` line).
 
-First, ensure you have react-email installed in your project:
+## Registry setup (optional)
 
-```bash
-npm install react-email
-# or
-pnpm add react-email
+Register the namespace once in **`components.json`** (see [Registry](/docs/registry)):
+
+```json
+{
+  "registries": {
+    "@emailcn": "https://emailcn.com/r/{name}.json"
+  }
+}
 ```
 
-### 2. Add a Theme
+## Install a theme
 
-Install a theme to style your emails:
+Email styles come from **Tailwind email themes** installed under `components/emails/themes/`:
+
+```bash
+npx shadcn@latest add @emailcn/theme-default
+```
+
+Or use the full URL from any docs page:
 
 ```bash
 npx shadcn@latest add https://emailcn.com/r/theme-default.json
 ```
 
-### 3. Add Components
+## Install components
 
-Install individual components:
-
-```bash
-# Add a hero component
-npx shadcn@latest add https://emailcn.com/r/hero.json
-
-# Add a footer component
-npx shadcn@latest add https://emailcn.com/r/footer.json
-```
-
-### 4. Add Blocks
-
-Install complete email templates:
+**React Email** — component names have **no** prefix:
 
 ```bash
-# Add a welcome email
-npx shadcn@latest add https://emailcn.com/r/block-onboarding-default.json
-
-# Add an auth magic link email
-npx shadcn@latest add https://emailcn.com/r/block-auth-magic-link-default.json
+npx shadcn@latest add @emailcn/hero
+npx shadcn@latest add @emailcn/footer
 ```
 
----
+**MJML** — use the **`mjml-`** prefix:
+
+```bash
+npx shadcn@latest add @emailcn/mjml-hero
+npx shadcn@latest add @emailcn/mjml-footer
+```
+
+## Install blocks
+
+Full templates (React Email or MJML) use the `block-` / `mjml-block-` names:
+
+```bash
+npx shadcn@latest add @emailcn/block-onboarding-default
+npx shadcn@latest add @emailcn/mjml-block-onboarding-default
+```
 
 ## Usage
 
-After installation, files land under **`components/emails/`** (themes in **`components/emails/themes/`**, shared font helpers in **`components/emails/fonts/`**). Each UI component’s default export is a **full React Email document** (`Html` → `Head` → `Preview` → `Tailwind` → `Body`).
+After installation, files are written to **`components/emails/`** — themes in **`components/emails/themes/`**, optional font helpers in **`components/emails/fonts/`**.
 
-**Standalone** — render the component (it’s a complete email):
+Each **React Email** UI default export is a **full document** (`Html` → `Head` → `Preview` → `Tailwind` → `Body`). Import **`Section`** exports (e.g. `HeroSection`) when you compose a single custom shell.
 
 ```tsx
 import { Hero } from "@/components/emails/hero";
@@ -63,13 +73,13 @@ export function WelcomeEmail() {
 }
 ```
 
-**Compose inside your own template** — import the `*Section` partial (e.g. `HeroSection`, `FooterSection`) so you only have one `<Html>`:
+Compose with one outer document and section partials:
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { DefaultFonts } from "@/components/emails/fonts/default";
 import { FooterSection } from "@/components/emails/footer";
 import { HeroSection } from "@/components/emails/hero";
-import { DefaultFonts } from "@/components/emails/fonts/default";
 import { defaultTheme } from "@/components/emails/themes/default";
 
 export function WelcomeEmail() {
@@ -95,29 +105,4 @@ export function WelcomeEmail() {
 }
 ```
 
----
-
-## Available Themes
-
-- **Default** — Clean, minimal design
-- **Vercel** — Dark theme with white text
-- **Linear** — Purple accent, modern
-- **Stripe** — Indigo accent, professional
-- **GitHub** — Dark theme for developers
-- **Notion** — Minimal, clean aesthetic
-- **Raycast** — Dark with coral accent
-- **Twitch** — Purple accent
-- **Airbnb** — Coral/red accent
-- **Slack** — Purple accent
-
----
-
-## Registry Structure
-
-In **this repo**, source lives under **`registry/`**. When you **`npx shadcn add`** from [emailcn.com](https://emailcn.com), installs are written to:
-
-- **`components/emails/<name>.tsx`** — React Email / MJML UI components and blocks
-- **`components/emails/themes/<theme-name>.ts`** — Tailwind email themes
-- **`components/emails/fonts/default.tsx`** — default Inter stack (`DefaultFonts`), and optional **`components/emails/fonts/*-fonts.tsx`** presets (e.g. `tech-fonts.tsx`, `skin-fonts.tsx`) matching [Resend’s react-email demos](https://github.com/resend/react-email/tree/canary/apps/demo/emails)
-
-Locally you can import from `@/registry/...` paths instead.
+For **theming**, **font presets**, and **registry URLs**, see [Theming](/docs/theming) and [Registry](/docs/registry).
