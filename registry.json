@@ -5,195 +5,290 @@
     {
       "name": "theme-default",
       "type": "registry:file",
-      "title": "Default Email Theme",
-      "description": "Default email theme tokens for emailcn components",
+      "title": "Default Email Theme (React Email)",
+      "description": "Default email theme tokens for React Email templates",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/default.ts",
+          "path": "registry/bases/react-email/default.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/default.ts"
-        },
+          "target": "components/emails/themes/theme-default.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-default",
+      "type": "registry:file",
+      "title": "Default Email Theme (MJML)",
+      "description": "Default email theme tokens for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/default.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
-        },
-        {
-          "path": "registry/themes/merge.ts",
-          "type": "registry:file",
-          "target": "components/emails/themes/merge.ts"
+          "target": "components/emails/themes/mjml-theme-default.ts"
         }
       ]
     },
     {
       "name": "theme-vercel",
       "type": "registry:file",
-      "title": "Vercel Email Theme",
-      "description": "Dark Vercel-style email theme tokens",
+      "title": "Vercel Email Theme (React Email)",
+      "description": "Dark Vercel-style email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/vercel.ts",
+          "path": "registry/bases/react-email/vercel.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/vercel.ts"
-        },
+          "target": "components/emails/themes/theme-vercel.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-vercel",
+      "type": "registry:file",
+      "title": "Vercel Email Theme (MJML)",
+      "description": "Dark Vercel-style email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/vercel.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-vercel.ts"
         }
       ]
     },
     {
       "name": "theme-linear",
       "type": "registry:file",
-      "title": "Linear Email Theme",
-      "description": "Linear-style email theme tokens with purple accent",
+      "title": "Linear Email Theme (React Email)",
+      "description": "Linear-style email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/linear.ts",
+          "path": "registry/bases/react-email/linear.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/linear.ts"
-        },
+          "target": "components/emails/themes/theme-linear.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-linear",
+      "type": "registry:file",
+      "title": "Linear Email Theme (MJML)",
+      "description": "Linear-style email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/linear.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-linear.ts"
         }
       ]
     },
     {
       "name": "theme-stripe",
       "type": "registry:file",
-      "title": "Stripe Email Theme",
-      "description": "Stripe-style email theme tokens",
+      "title": "Stripe Email Theme (React Email)",
+      "description": "Stripe-style email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/stripe.ts",
+          "path": "registry/bases/react-email/stripe.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/stripe.ts"
-        },
+          "target": "components/emails/themes/theme-stripe.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-stripe",
+      "type": "registry:file",
+      "title": "Stripe Email Theme (MJML)",
+      "description": "Stripe-style email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/stripe.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-stripe.ts"
         }
       ]
     },
     {
       "name": "theme-github",
       "type": "registry:file",
-      "title": "GitHub Email Theme",
-      "description": "GitHub-style dark email theme tokens",
+      "title": "GitHub Email Theme (React Email)",
+      "description": "GitHub-style dark email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/github.ts",
+          "path": "registry/bases/react-email/github.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/github.ts"
-        },
+          "target": "components/emails/themes/theme-github.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-github",
+      "type": "registry:file",
+      "title": "GitHub Email Theme (MJML)",
+      "description": "GitHub-style dark email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/github.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-github.ts"
         }
       ]
     },
     {
       "name": "theme-notion",
       "type": "registry:file",
-      "title": "Notion Email Theme",
-      "description": "Notion-style minimal email theme tokens",
+      "title": "Notion Email Theme (React Email)",
+      "description": "Notion-style minimal email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/notion.ts",
+          "path": "registry/bases/react-email/notion.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/notion.ts"
-        },
+          "target": "components/emails/themes/theme-notion.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-notion",
+      "type": "registry:file",
+      "title": "Notion Email Theme (MJML)",
+      "description": "Notion-style minimal email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/notion.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-notion.ts"
         }
       ]
     },
     {
       "name": "theme-raycast",
       "type": "registry:file",
-      "title": "Raycast Email Theme",
-      "description": "Raycast-style dark email theme tokens",
+      "title": "Raycast Email Theme (React Email)",
+      "description": "Raycast-style dark email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/raycast.ts",
+          "path": "registry/bases/react-email/raycast.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/raycast.ts"
-        },
+          "target": "components/emails/themes/theme-raycast.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-raycast",
+      "type": "registry:file",
+      "title": "Raycast Email Theme (MJML)",
+      "description": "Raycast-style dark email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/raycast.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-raycast.ts"
         }
       ]
     },
     {
       "name": "theme-twitch",
       "type": "registry:file",
-      "title": "Twitch Email Theme",
-      "description": "Twitch-style email theme tokens with purple accent",
+      "title": "Twitch Email Theme (React Email)",
+      "description": "Twitch-style email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/twitch.ts",
+          "path": "registry/bases/react-email/twitch.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/twitch.ts"
-        },
+          "target": "components/emails/themes/theme-twitch.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-twitch",
+      "type": "registry:file",
+      "title": "Twitch Email Theme (MJML)",
+      "description": "Twitch-style email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/twitch.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-twitch.ts"
         }
       ]
     },
     {
       "name": "theme-airbnb",
       "type": "registry:file",
-      "title": "Airbnb Email Theme",
-      "description": "Airbnb-style email theme tokens",
+      "title": "Airbnb Email Theme (React Email)",
+      "description": "Airbnb-style email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/airbnb.ts",
+          "path": "registry/bases/react-email/airbnb.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/airbnb.ts"
-        },
+          "target": "components/emails/themes/theme-airbnb.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-airbnb",
+      "type": "registry:file",
+      "title": "Airbnb Email Theme (MJML)",
+      "description": "Airbnb-style email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/airbnb.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-airbnb.ts"
         }
       ]
     },
     {
       "name": "theme-slack",
       "type": "registry:file",
-      "title": "Slack Email Theme",
-      "description": "Slack-style email theme tokens",
+      "title": "Slack Email Theme (React Email)",
+      "description": "Slack-style email theme for React Email",
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/themes/slack.ts",
+          "path": "registry/bases/react-email/slack.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/slack.ts"
-        },
+          "target": "components/emails/themes/theme-slack.ts"
+        }
+      ],
+      "dependencies": ["react-email"]
+    },
+    {
+      "name": "mjml-theme-slack",
+      "type": "registry:file",
+      "title": "Slack Email Theme (MJML)",
+      "description": "Slack-style email theme for MJML templates",
+      "categories": ["theme", "mjml"],
+      "files": [
         {
-          "path": "registry/themes/define.ts",
+          "path": "registry/bases/mjml-react/slack.ts",
           "type": "registry:file",
-          "target": "components/emails/themes/define.ts"
+          "target": "components/emails/themes/mjml-theme-slack.ts"
         }
       ]
     },
