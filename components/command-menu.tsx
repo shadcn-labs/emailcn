@@ -39,6 +39,7 @@ import {
   EXCLUDED_SECTIONS,
   isBlocksFolder,
   isComponentsFolder,
+  isFontsFolder,
 } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
 import {
@@ -202,7 +203,7 @@ export const CommandMenu = ({
         continue;
       }
 
-      if (isComponentsFolder(item) || isBlocksFolder(item)) {
+      if (isComponentsFolder(item)) {
         const categories = getCategoryFoldersForBase(item, currentBase);
         const allPages: { url: string; name: string }[] = [];
         for (const category of categories) {
@@ -220,6 +221,8 @@ export const CommandMenu = ({
             pages: allPages,
           });
         }
+      } else if (isBlocksFolder(item) || isFontsFolder(item)) {
+        continue;
       } else {
         const pages = getPagesFromFolder(item).map((p) => ({
           name: typeof p.name === "string" ? p.name : String(p.name),

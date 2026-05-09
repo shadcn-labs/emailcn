@@ -18,6 +18,7 @@ import {
   EXCLUDED_SECTIONS,
   isBlocksFolder,
   isComponentsFolder,
+  isFontsFolder,
 } from "@/lib/docs";
 import {
   getCategoryFoldersForBase,
@@ -30,7 +31,7 @@ const TOP_LEVEL_SECTIONS = [
   { href: ROUTES.DOCS, name: "Introduction" },
   { href: ROUTES.DOCS_INSTALLATION, name: "Installation" },
   { href: ROUTES.DOCS_COMPONENTS, name: "Components" },
-  { href: ROUTES.DOCS_BLOCKS, name: "Blocks" },
+  // { href: ROUTES.DOCS_BLOCKS, name: "Blocks" },
   { href: ROUTES.DOCS_THEMING, name: "Theming" },
   { href: ROUTES.DOCS_MCP, name: "MCP" },
   { href: ROUTES.DOCS_REGISTRY, name: "Registry" },
@@ -133,7 +134,7 @@ export const DocsSidebar = ({
             return null;
           }
 
-          if (isComponentsFolder(item) || isBlocksFolder(item)) {
+          if (isComponentsFolder(item)) {
             const categories = getCategoryFoldersForBase(item, currentBase);
             const allPages: { url: string; name: React.ReactNode }[] = [];
             for (const category of categories) {
@@ -155,6 +156,10 @@ export const DocsSidebar = ({
                 pathname={pathname}
               />
             );
+          }
+
+          if (isBlocksFolder(item) || isFontsFolder(item)) {
+            return null;
           }
 
           return (

@@ -17,6 +17,12 @@ export const isComponentsFolder = (folder: PageTreeFolder) =>
 export const isBlocksFolder = (folder: PageTreeFolder) =>
   folder.$id === "blocks" || folder.name === "Blocks";
 
+export const isThemesFolder = (folder: PageTreeFolder) =>
+  folder.$id === "themes" || folder.name === "Themes";
+
+export const isFontsFolder = (folder: PageTreeFolder) =>
+  folder.$id === "fonts" || folder.name === "Fonts";
+
 export const homeContentRoute = `${ROUTES.LLMS_MDX}/content.md`;
 export const docsContentRoute = `${ROUTES.LLMS_MDX}${ROUTES.DOCS}`;
 export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;

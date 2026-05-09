@@ -17,6 +17,7 @@ import {
   EXCLUDED_SECTIONS,
   isBlocksFolder,
   isComponentsFolder,
+  isFontsFolder,
 } from "@/lib/docs";
 import {
   getCategoryFoldersForBase,
@@ -160,7 +161,7 @@ export const MobileNav = ({
               return null;
             }
 
-            if (isComponentsFolder(item) || isBlocksFolder(item)) {
+            if (isComponentsFolder(item)) {
               const categories = getCategoryFoldersForBase(item, currentBase);
               const allPages: { url: string; name: React.ReactNode }[] = [];
               for (const category of categories) {
@@ -182,6 +183,10 @@ export const MobileNav = ({
                   setOpen={setOpen}
                 />
               );
+            }
+
+            if (isBlocksFolder(item) || isFontsFolder(item)) {
+              return null;
             }
 
             return (
