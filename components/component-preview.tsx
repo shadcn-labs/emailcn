@@ -5,7 +5,7 @@ import mjml2html from "mjml-browser";
 import { ComponentPreviewNav } from "@/components/component-preview-nav";
 import { ComponentSource } from "@/components/component-source";
 import { Badge } from "@/components/ui/badge";
-import { toPlainText as toPlainTextMjml } from "@/lib/mjml-plain-text";
+// import { toPlainText as toPlainTextMjml } from "@/lib/mjml-plain-text";
 import { cn } from "@/lib/utils";
 import type { BaseName } from "@/registry/bases";
 
@@ -72,8 +72,7 @@ export const ComponentPreview = async ({
 
   const html = base === "react-email" ? result : result.html;
 
-  const plainText =
-    base === "react-email" ? toPlainText(html) : toPlainTextMjml(html);
+  const plainText = base === "react-email" ? toPlainText(html) : null;
 
   const sourceName = name.replace(/-demo$/, "");
 
