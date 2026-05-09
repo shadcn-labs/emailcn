@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface HeroProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   heading?: string;
   subheading?: string;
   ctaLabel?: string;
@@ -32,23 +28,23 @@ const HeroPrimaryCta = ({
   align,
   ctaHref,
   ctaLabel,
-  t,
+  theme,
 }: {
   align: "center" | "left";
   ctaHref: string;
   ctaLabel: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
   <MjmlButton
     align={align}
-    backgroundColor={t.colors.primary}
-    borderRadius={t.borderRadius.md ?? "6px"}
-    color={t.colors["primary-fg"] ?? "#ffffff"}
-    fontFamily={t.fontFamily.sans}
-    fontSize={t.fontSize.sm ?? "14px"}
-    fontWeight={t.fontWeight.medium ?? "500"}
+    backgroundColor={theme.colorPrimary}
+    borderRadius={theme.borderRadius}
+    color={theme.colorPrimaryForeground}
+    fontFamily={theme.fontFamily}
+    fontSize={theme.fontSizeSm}
+    fontWeight={theme.fontWeightMedium}
     href={ctaHref}
-    innerPadding={`${t.spacing.sm ?? "12px"} ${t.spacing.lg ?? "24px"}`}
+    innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
   >
     {ctaLabel}
   </MjmlButton>
@@ -61,7 +57,7 @@ const HeroSection = ({
   heading,
   py,
   subheading,
-  t,
+  theme,
 }: {
   align: "center" | "left";
   ctaHref?: string;
@@ -69,27 +65,27 @@ const HeroSection = ({
   heading: string;
   py: string;
   subheading: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
-  <MjmlSection backgroundColor={t.colors.background} padding={`${py} 0`}>
+  <MjmlSection backgroundColor={theme.colorBackground} padding={`${py} 0`}>
     <MjmlColumn>
       <MjmlText
         align={align}
-        color={t.colors.foreground}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.heading ?? "28px"}
-        fontWeight={t.fontWeight.bold ?? "700"}
-        paddingBottom={t.spacing.md ?? "16px"}
+        color={theme.colorText}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeHeading}
+        fontWeight={theme.fontWeightBold}
+        paddingBottom={theme.spacingBase}
       >
         {heading}
       </MjmlText>
       <MjmlText
         align={align}
-        color={t.colors["foreground-muted"]}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.lg ?? "16px"}
-        lineHeight={t.lineHeight.snug}
-        paddingBottom={t.spacing.xl ?? "24px"}
+        color={theme.colorTextMuted}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeLg}
+        lineHeight={theme.lineHeightBase}
+        paddingBottom={theme.spacingXl}
       >
         {subheading}
       </MjmlText>
@@ -98,7 +94,7 @@ const HeroSection = ({
           align={align}
           ctaHref={ctaHref}
           ctaLabel={ctaLabel}
-          t={t}
+          theme={theme}
         />
       ) : null}
     </MjmlColumn>
@@ -113,20 +109,24 @@ export const Hero = ({
   ctaHref = "#",
   align = "center",
 }: HeroProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-  const py = t.spacing["2xl"] ?? "48px";
+  const py = theme.spacingXl;
 
   return (
     <Mjml>
       <MjmlHead>
         <MjmlPreview>hero</MjmlPreview>
         <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
         </MjmlAttributes>
       </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
         <MjmlWrapper padding="0">
           <HeroSection
             align={align}
@@ -135,7 +135,7 @@ export const Hero = ({
             heading={heading}
             py={py}
             subheading={subheading}
-            t={t}
+            theme={theme}
           />
         </MjmlWrapper>
       </MjmlBody>

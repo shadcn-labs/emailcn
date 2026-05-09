@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface FooterProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   companyName?: string;
   address?: string;
   links?: { label: string; href: string }[];
@@ -31,41 +27,44 @@ const FooterSection = ({
   address,
   companyName,
   links,
-  t,
+  theme,
   unsubscribeHref,
 }: {
   address?: string;
   companyName: string;
   links: { label: string; href: string }[];
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
   unsubscribeHref: string;
 }) => (
-  <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+  <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
     <MjmlColumn>
-      <MjmlDivider borderColor={t.colors.border} paddingBottom={t.spacing.md} />
+      <MjmlDivider
+        borderColor={theme.colorBorder}
+        paddingBottom={theme.spacingBase ?? "16px"}
+      />
       <MjmlText
-        color={t.colors["foreground-muted"]}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.sm ?? "12px"}
-        lineHeight={t.lineHeight.snug}
+        color={theme.colorTextMuted}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeSm ?? "12px"}
+        lineHeight={theme.lineHeightBase}
       >
         © {new Date().getFullYear()} {companyName}. All rights reserved.
       </MjmlText>
       {address ? (
         <MjmlText
-          color={t.colors["foreground-muted"]}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.sm ?? "12px"}
-          paddingTop={t.spacing.sm}
+          color={theme.colorTextMuted}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeSm ?? "12px"}
+          paddingTop={theme.spacingBase ?? "16px"}
         >
           {address}
         </MjmlText>
       ) : null}
       <MjmlText
-        color={t.colors["foreground-muted"]}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.sm ?? "12px"}
-        paddingTop={t.spacing.sm}
+        color={theme.colorTextMuted}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeSm ?? "12px"}
+        paddingTop={theme.spacingBase ?? "16px"}
       >
         {links.map((link) => (
           <span key={`${link.href}-${link.label}`}>
@@ -75,12 +74,12 @@ const FooterSection = ({
           </span>
         ))}
       </MjmlText>
-      <MjmlText paddingTop={t.spacing.lg}>
+      <MjmlText paddingTop={theme.spacingLg ?? "24px"}>
         <a
           href={unsubscribeHref}
           style={{
-            color: t.colors["foreground-muted"],
-            fontSize: t.fontSize.sm ?? "12px",
+            color: theme.colorTextMuted,
+            fontSize: theme.fontSizeSm ?? "12px",
             textDecoration: "underline",
           }}
         >
@@ -100,33 +99,34 @@ export const Footer = ({
     { href: "#", label: "Terms" },
   ],
   unsubscribeHref = "#",
-}: FooterProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>footer</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <FooterSection
-            address={address}
-            companyName={companyName}
-            links={links}
-            t={t}
-            unsubscribeHref={unsubscribeHref}
-          />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: FooterProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>footer</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <FooterSection
+          address={address}
+          companyName={companyName}
+          links={links}
+          theme={theme}
+          unsubscribeHref={unsubscribeHref}
+        />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 Footer.PreviewProps = {
   address: "123 Main Street, San Francisco, CA 94105",

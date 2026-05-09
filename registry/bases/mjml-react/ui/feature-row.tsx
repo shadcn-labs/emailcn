@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface FeatureRowProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   imageSrc?: string;
   imageAlt?: string;
   heading?: string;
@@ -34,20 +30,20 @@ const FeatureRowSection = ({
   imageAlt,
   imagePosition,
   imageSrc,
-  t,
+  theme,
 }: {
   body: string;
   heading: string;
   imageAlt: string;
   imagePosition: "left" | "right";
   imageSrc?: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => {
   const imageCol = imageSrc ? (
     <MjmlColumn width="40%">
       <MjmlImage
         alt={imageAlt}
-        borderRadius={t.borderRadius.md}
+        borderRadius={theme.borderRadius}
         src={imageSrc}
         width={220}
       />
@@ -57,19 +53,19 @@ const FeatureRowSection = ({
   const textCol = (
     <MjmlColumn width={imageSrc ? "60%" : "100%"}>
       <MjmlText
-        color={t.colors.foreground}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.xl ?? "20px"}
-        fontWeight={t.fontWeight.medium ?? "500"}
-        paddingBottom={t.spacing.sm}
+        color={theme.colorText}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeXl ?? "20px"}
+        fontWeight={theme.fontWeightMedium ?? "500"}
+        paddingBottom={theme.spacingBase ?? "16px"}
       >
         {heading}
       </MjmlText>
       <MjmlText
-        color={t.colors["foreground-muted"]}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.base ?? "14px"}
-        lineHeight={t.lineHeight.snug}
+        color={theme.colorTextMuted}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeBase ?? "14px"}
+        lineHeight={theme.lineHeightBase}
       >
         {body}
       </MjmlText>
@@ -77,7 +73,7 @@ const FeatureRowSection = ({
   );
 
   return (
-    <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+    <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
       {imagePosition === "left" ? (
         <>
           {imageCol}
@@ -100,34 +96,35 @@ export const FeatureRow = ({
   heading = "Feature",
   body = "Description of the feature.",
   imagePosition = "left",
-}: FeatureRowProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>feature-row</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <FeatureRowSection
-            body={body}
-            heading={heading}
-            imageAlt={imageAlt}
-            imagePosition={imagePosition}
-            imageSrc={imageSrc}
-            t={t}
-          />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: FeatureRowProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>feature-row</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <FeatureRowSection
+          body={body}
+          heading={heading}
+          imageAlt={imageAlt}
+          imagePosition={imagePosition}
+          imageSrc={imageSrc}
+          theme={theme}
+        />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 FeatureRow.PreviewProps = {
   body: "Everything you need to build amazing emails.",

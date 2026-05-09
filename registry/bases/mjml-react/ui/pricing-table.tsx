@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface PricingTableProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   plans?: {
     name: string;
     price: string;
@@ -34,46 +30,46 @@ export interface PricingTableProps {
 
 const PricingTableSection = ({
   plans,
-  t,
+  theme,
 }: {
   plans: NonNullable<PricingTableProps["plans"]>;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => {
   const pct = `${100 / Math.min(plans.length, 3)}%`;
 
   return (
-    <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+    <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
       {plans.slice(0, 3).map((plan) => (
         <MjmlColumn
           key={plan.name}
           backgroundColor={
             plan.highlighted
-              ? t.colors["background-muted"]
-              : t.colors.background
+              ? theme.colorBackgroundMuted
+              : theme.colorBackground
           }
           border={
             plan.highlighted
-              ? `2px solid ${t.colors.primary}`
-              : `1px solid ${t.colors.border}`
+              ? `2px solid ${theme.colorPrimary}`
+              : `1px solid ${theme.colorBorder}`
           }
-          borderRadius={t.borderRadius.md}
-          padding={`${t.spacing.lg ?? "24px"} ${t.spacing.sm ?? "12px"}`}
+          borderRadius={theme.borderRadius}
+          padding={`${theme.spacingLg ?? "24px"} ${theme.spacingBase ?? "16px"}`}
           verticalAlign="top"
           width={pct}
         >
           <MjmlText
-            color={t.colors.foreground}
-            fontFamily={t.fontFamily.sans}
-            fontSize={t.fontSize.lg ?? "16px"}
-            fontWeight={t.fontWeight.medium ?? "500"}
-            paddingBottom={t.spacing.sm}
+            color={theme.colorText}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeLg ?? "16px"}
+            fontWeight={theme.fontWeightMedium ?? "500"}
+            paddingBottom={theme.spacingBase ?? "16px"}
           >
             {plan.name}
           </MjmlText>
-          <MjmlText paddingBottom={t.spacing.md}>
+          <MjmlText paddingBottom={theme.spacingBase ?? "16px"}>
             <span
               style={{
-                fontSize: t.fontSize.heading ?? "28px",
+                fontSize: theme.fontSizeHeading ?? "28px",
                 fontWeight: 700,
               }}
             >
@@ -81,7 +77,7 @@ const PricingTableSection = ({
             </span>
             <span
               style={{
-                color: t.colors["foreground-muted"],
+                color: theme.colorTextMuted,
                 fontSize: 14,
               }}
             >
@@ -91,25 +87,25 @@ const PricingTableSection = ({
           {plan.features.map((feature) => (
             <MjmlText
               key={`${plan.name}-${feature}`}
-              color={t.colors["foreground-muted"]}
-              fontFamily={t.fontFamily.sans}
-              fontSize={t.fontSize.base ?? "14px"}
-              paddingBottom={t.spacing.sm}
+              color={theme.colorTextMuted}
+              fontFamily={theme.fontFamily}
+              fontSize={theme.fontSizeBase ?? "14px"}
+              paddingBottom={theme.spacingBase ?? "16px"}
             >
               • {feature}
             </MjmlText>
           ))}
           <MjmlButton
             align="center"
-            backgroundColor={t.colors.primary}
-            borderRadius={t.borderRadius.md}
-            color={t.colors["primary-fg"] ?? "#ffffff"}
-            fontFamily={t.fontFamily.sans}
-            fontSize={t.fontSize.sm ?? "14px"}
-            fontWeight={t.fontWeight.medium ?? "500"}
+            backgroundColor={theme.colorPrimary}
+            borderRadius={theme.borderRadius}
+            color={theme.colorPrimaryForeground ?? "#ffffff"}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeSm ?? "14px"}
+            fontWeight={theme.fontWeightMedium ?? "500"}
             href={plan.ctaHref}
-            innerPadding={`${t.spacing.sm ?? "12px"} ${t.spacing.lg ?? "24px"}`}
-            paddingTop={t.spacing.md}
+            innerPadding={`${theme.spacingBase ?? "16px"} ${theme.spacingLg ?? "24px"}`}
+            paddingTop={theme.spacingBase ?? "16px"}
           >
             {plan.ctaLabel}
           </MjmlButton>
@@ -140,27 +136,28 @@ export const PricingTable = ({
       price: "$29",
     },
   ],
-}: PricingTableProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>pricing-table</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <PricingTableSection plans={plans} t={t} />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: PricingTableProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>pricing-table</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <PricingTableSection plans={plans} theme={theme} />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 PricingTable.PreviewProps = {
   theme: defaultTheme,

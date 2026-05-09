@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface TestimonialProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   avatarUrl?: string;
   name?: string;
   role?: string;
@@ -34,30 +30,30 @@ const TestimonialSection = ({
   name,
   quote,
   role,
-  t,
+  theme,
 }: {
   avatarUrl?: string;
   companyLogoUrl?: string;
   name: string;
   quote: string;
   role: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
   <MjmlWrapper
-    backgroundColor={t.colors["background-muted"]}
-    border={`1px solid ${t.colors.border}`}
-    borderRadius={t.borderRadius.md}
-    padding={t.spacing.lg ?? "24px"}
+    backgroundColor={theme.colorBackgroundMuted}
+    border={`1px solid ${theme.colorBorder}`}
+    borderRadius={theme.borderRadius}
+    padding={theme.spacingLg ?? "24px"}
   >
     <MjmlSection padding="0">
       <MjmlColumn>
         <MjmlText
-          color={t.colors.foreground}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.lg ?? "16px"}
+          color={theme.colorText}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeLg ?? "16px"}
           fontStyle="italic"
-          lineHeight={t.lineHeight.snug}
-          padding={`0 0 ${t.spacing.lg ?? "24px"}`}
+          lineHeight={theme.lineHeightBase}
+          padding={`0 0 ${theme.spacingLg ?? "24px"}`}
         >
           &ldquo;{quote}&rdquo;
         </MjmlText>
@@ -78,26 +74,26 @@ const TestimonialSection = ({
       </MjmlColumn>
       <MjmlColumn>
         <MjmlText
-          color={t.colors.foreground}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.base ?? "14px"}
-          fontWeight={t.fontWeight.medium ?? "500"}
-          padding={`0 0 ${t.spacing.sm ?? "12px"} ${t.spacing.md ?? "24px"}`}
+          color={theme.colorText}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeBase ?? "14px"}
+          fontWeight={theme.fontWeightMedium ?? "500"}
+          padding={`0 0 ${theme.spacingBase ?? "16px"} ${theme.spacingBase ?? "16px"}`}
         >
           {name}
         </MjmlText>
         <MjmlText
-          color={t.colors["foreground-muted"]}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.sm ?? "12px"}
-          padding={`0 0 0 ${t.spacing.md ?? "24px"}`}
+          color={theme.colorTextMuted}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeSm ?? "12px"}
+          padding={`0 0 0 ${theme.spacingBase ?? "16px"}`}
         >
           {role}
         </MjmlText>
       </MjmlColumn>
     </MjmlSection>
     {companyLogoUrl ? (
-      <MjmlSection padding={`${t.spacing.lg ?? "24px"} 0 0`}>
+      <MjmlSection padding={`${theme.spacingLg ?? "24px"} 0 0`}>
         <MjmlColumn>
           <MjmlImage
             alt="Company"
@@ -118,32 +114,33 @@ export const Testimonial = ({
   role = "CEO, Acme",
   quote = "This product has transformed how we work.",
   companyLogoUrl,
-}: TestimonialProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>testimonial</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <TestimonialSection
-          avatarUrl={avatarUrl}
-          companyLogoUrl={companyLogoUrl}
-          name={name}
-          quote={quote}
-          role={role}
-          t={t}
+}: TestimonialProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>testimonial</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
         />
-      </MjmlBody>
-    </Mjml>
-  );
-};
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <TestimonialSection
+        avatarUrl={avatarUrl}
+        companyLogoUrl={companyLogoUrl}
+        name={name}
+        quote={quote}
+        role={role}
+        theme={theme}
+      />
+    </MjmlBody>
+  </Mjml>
+);
 
 Testimonial.PreviewProps = {
   avatarUrl: "https://example.com/avatar.jpg",

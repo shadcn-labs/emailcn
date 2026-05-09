@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface AvatarRowProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   avatarUrl?: string;
   name?: string;
   title?: string;
@@ -31,16 +27,16 @@ const AvatarRowSection = ({
   avatarUrl,
   companyName,
   name,
-  t,
+  theme,
   title,
 }: {
   avatarUrl?: string;
   companyName?: string;
   name: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
   title: string;
 }) => (
-  <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
+  <MjmlSection padding={`${theme.spacingBase ?? "16px"} 0`}>
     <MjmlColumn width="80px">
       {avatarUrl ? (
         <MjmlImage
@@ -51,12 +47,12 @@ const AvatarRowSection = ({
           width={64}
         />
       ) : (
-        <MjmlText align="center" fontFamily={t.fontFamily.sans} fontSize="24px">
+        <MjmlText align="center" fontFamily={theme.fontFamily} fontSize="24px">
           <span
             style={{
-              backgroundColor: t.colors.primary,
+              backgroundColor: theme.colorPrimary,
               borderRadius: "999px",
-              color: t.colors["primary-fg"] ?? "#ffffff",
+              color: theme.colorPrimaryForeground ?? "#ffffff",
               display: "inline-block",
               height: 64,
               lineHeight: "64px",
@@ -70,27 +66,27 @@ const AvatarRowSection = ({
     </MjmlColumn>
     <MjmlColumn>
       <MjmlText
-        color={t.colors.foreground}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.lg ?? "16px"}
-        fontWeight={t.fontWeight.medium ?? "500"}
-        paddingBottom={t.spacing.sm}
+        color={theme.colorText}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeLg ?? "16px"}
+        fontWeight={theme.fontWeightMedium ?? "500"}
+        paddingBottom={theme.spacingBase ?? "16px"}
       >
         {name}
       </MjmlText>
       <MjmlText
-        color={t.colors["foreground-muted"]}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.base ?? "14px"}
+        color={theme.colorTextMuted}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeBase ?? "14px"}
       >
         {title}
       </MjmlText>
       {companyName ? (
         <MjmlText
-          color={t.colors["foreground-muted"]}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.sm ?? "12px"}
-          paddingTop={t.spacing.sm}
+          color={theme.colorTextMuted}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeSm ?? "12px"}
+          paddingTop={theme.spacingBase ?? "16px"}
         >
           {companyName}
         </MjmlText>
@@ -105,33 +101,34 @@ export const AvatarRow = ({
   name = "John Doe",
   title = "Product Designer",
   companyName = "Acme Inc.",
-}: AvatarRowProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>avatar-row</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <AvatarRowSection
-            avatarUrl={avatarUrl}
-            companyName={companyName}
-            name={name}
-            t={t}
-            title={title}
-          />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: AvatarRowProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>avatar-row</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <AvatarRowSection
+          avatarUrl={avatarUrl}
+          companyName={companyName}
+          name={name}
+          theme={theme}
+          title={title}
+        />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 AvatarRow.PreviewProps = {
   avatarUrl: "https://example.com/avatar.jpg",

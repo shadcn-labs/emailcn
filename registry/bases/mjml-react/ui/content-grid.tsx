@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface ContentGridProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   columnCount?: 2 | 3;
   columns?: {
     iconUrl?: string;
@@ -32,11 +28,11 @@ export interface ContentGridProps {
 const ContentGridSection = ({
   columnCount,
   columns,
-  t,
+  theme,
 }: {
   columnCount: 2 | 3;
   columns: ContentGridProps["columns"];
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => {
   const slice = (columns ?? []).slice(0, columnCount);
   let widthPct = "100%";
@@ -47,33 +43,37 @@ const ContentGridSection = ({
   }
 
   return (
-    <MjmlSection padding={`${t.spacing.xl ?? "24px"} 0`}>
+    <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
       {slice.map((col) => (
-        <MjmlColumn key={col.title} width={widthPct} padding={t.spacing.md}>
+        <MjmlColumn
+          key={col.title}
+          width={widthPct}
+          padding={theme.spacingBase}
+        >
           {col.iconUrl ? (
             <MjmlImage
               alt={col.title}
-              borderRadius={t.borderRadius.md}
+              borderRadius={theme.borderRadius}
               height={48}
-              paddingBottom={t.spacing.md}
+              paddingBottom={theme.spacingBase ?? "16px"}
               src={col.iconUrl}
               width={48}
             />
           ) : null}
           <MjmlText
-            color={t.colors.foreground}
-            fontFamily={t.fontFamily.sans}
-            fontSize={t.fontSize.lg ?? "16px"}
-            fontWeight={t.fontWeight.medium ?? "500"}
-            paddingBottom={t.spacing.sm}
+            color={theme.colorText}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeLg ?? "16px"}
+            fontWeight={theme.fontWeightMedium ?? "500"}
+            paddingBottom={theme.spacingBase ?? "16px"}
           >
             {col.title}
           </MjmlText>
           <MjmlText
-            color={t.colors["foreground-muted"]}
-            fontFamily={t.fontFamily.sans}
-            fontSize={t.fontSize.base ?? "14px"}
-            lineHeight={t.lineHeight.snug}
+            color={theme.colorTextMuted}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeBase ?? "14px"}
+            lineHeight={theme.lineHeightBase}
           >
             {col.description}
           </MjmlText>
@@ -90,31 +90,32 @@ export const ContentGrid = ({
     { description: "Description for feature 1", title: "Feature 1" },
     { description: "Description for feature 2", title: "Feature 2" },
   ],
-}: ContentGridProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>content-grid</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <ContentGridSection
-            columnCount={columnCount}
-            columns={columns}
-            t={t}
-          />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: ContentGridProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>content-grid</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <ContentGridSection
+          columnCount={columnCount}
+          columns={columns}
+          theme={theme}
+        />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 ContentGrid.PreviewProps = {
   columnCount: 2,

@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface LogoHeaderProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   logoUrl?: string;
   logoAlt?: string;
   logoWidth?: number;
@@ -32,24 +28,24 @@ const LogoHeaderSection = ({
   logoAlt,
   logoUrl,
   logoWidth,
-  t,
+  theme,
 }: {
   links: { label: string; href: string }[];
   logoAlt: string;
   logoUrl?: string;
   logoWidth: number;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
-  <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
+  <MjmlSection padding={`${theme.spacingBase ?? "16px"} 0`}>
     <MjmlColumn width="50%">
       {logoUrl ? (
         <MjmlImage alt={logoAlt} src={logoUrl} width={logoWidth} />
       ) : (
         <MjmlText
-          color={t.colors.foreground}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.base ?? "14px"}
-          fontWeight={t.fontWeight.bold ?? "700"}
+          color={theme.colorText}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeBase ?? "14px"}
+          fontWeight={theme.fontWeightBold ?? "700"}
         >
           {logoAlt}
         </MjmlText>
@@ -62,9 +58,9 @@ const LogoHeaderSection = ({
             <a
               href={link.href}
               style={{
-                color: t.colors["foreground-muted"],
-                fontFamily: t.fontFamily.sans,
-                fontSize: t.fontSize.sm ?? "12px",
+                color: theme.colorTextMuted,
+                fontFamily: theme.fontFamily,
+                fontSize: theme.fontSizeSm ?? "12px",
                 marginLeft: index === 0 ? 0 : 16,
                 textDecoration: "none",
               }}
@@ -84,33 +80,34 @@ export const LogoHeader = ({
   logoAlt = "Logo",
   logoWidth = 120,
   links = [],
-}: LogoHeaderProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>logo-header</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <LogoHeaderSection
-            links={links}
-            logoAlt={logoAlt}
-            logoUrl={logoUrl}
-            logoWidth={logoWidth}
-            t={t}
-          />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: LogoHeaderProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>logo-header</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <LogoHeaderSection
+          links={links}
+          logoAlt={logoAlt}
+          logoUrl={logoUrl}
+          logoWidth={logoWidth}
+          theme={theme}
+        />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 LogoHeader.PreviewProps = {
   links: [

@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface ProductCardProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   imageUrl?: string;
   name?: string;
   price?: string;
@@ -36,7 +32,7 @@ const ProductCardSection = ({
   name,
   price,
   quantity,
-  t,
+  theme,
 }: {
   ctaHref: string;
   ctaLabel?: string;
@@ -44,18 +40,18 @@ const ProductCardSection = ({
   name: string;
   price: string;
   quantity: number;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
   <MjmlSection
-    border={`1px solid ${t.colors.border ?? "#e5e7eb"}`}
-    borderRadius={t.borderRadius.md}
-    padding={t.spacing.md ?? "16px"}
+    border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
+    borderRadius={theme.borderRadius}
+    padding={theme.spacingBase ?? "16px"}
   >
     <MjmlColumn width="120px">
       {imageUrl ? (
         <MjmlImage
           alt={name}
-          borderRadius={t.borderRadius.md}
+          borderRadius={theme.borderRadius}
           src={imageUrl}
           width={100}
         />
@@ -63,25 +59,25 @@ const ProductCardSection = ({
     </MjmlColumn>
     <MjmlColumn>
       <MjmlText
-        color={t.colors.foreground}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.base ?? "14px"}
-        fontWeight={t.fontWeight.medium ?? "500"}
-        paddingBottom={t.spacing.sm}
+        color={theme.colorText}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeBase ?? "14px"}
+        fontWeight={theme.fontWeightMedium ?? "500"}
+        paddingBottom={theme.spacingBase ?? "16px"}
       >
         {name}
       </MjmlText>
       <MjmlText
-        color={t.colors.foreground}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.lg ?? "16px"}
-        fontWeight={t.fontWeight.bold ?? "700"}
+        color={theme.colorText}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeLg ?? "16px"}
+        fontWeight={theme.fontWeightBold ?? "700"}
       >
         {price}
         {quantity > 1 ? (
           <span
             style={{
-              color: t.colors["foreground-muted"],
+              color: theme.colorTextMuted,
               fontSize: 12,
             }}
           >
@@ -91,13 +87,13 @@ const ProductCardSection = ({
         ) : null}
       </MjmlText>
       {ctaLabel ? (
-        <MjmlText paddingTop={t.spacing.sm}>
+        <MjmlText paddingTop={theme.spacingBase ?? "16px"}>
           <a
             href={ctaHref}
             style={{
-              color: t.colors.primary,
-              fontFamily: t.fontFamily.sans,
-              fontSize: t.fontSize.sm ?? "12px",
+              color: theme.colorPrimary,
+              fontFamily: theme.fontFamily,
+              fontSize: theme.fontSizeSm ?? "12px",
               textDecoration: "none",
             }}
           >
@@ -117,35 +113,36 @@ export const ProductCard = ({
   quantity = 1,
   ctaLabel = "View Details",
   ctaHref = "#",
-}: ProductCardProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>product-card</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <ProductCardSection
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            imageUrl={imageUrl}
-            name={name}
-            price={price}
-            quantity={quantity}
-            t={t}
-          />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: ProductCardProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>product-card</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <ProductCardSection
+          ctaHref={ctaHref}
+          ctaLabel={ctaLabel}
+          imageUrl={imageUrl}
+          name={name}
+          price={price}
+          quantity={quantity}
+          theme={theme}
+        />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 ProductCard.PreviewProps = {
   imageUrl: "https://example.com/p.jpg",

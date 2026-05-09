@@ -12,64 +12,61 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface DividerProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   label?: string;
 }
 
 const DividerSection = ({
   label,
-  t,
+  theme,
 }: {
   label?: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
-  <MjmlSection padding={`${t.spacing.md ?? "16px"} 0`}>
+  <MjmlSection padding={`${theme.spacingBase ?? "16px"} 0`}>
     <MjmlColumn>
       {label ? (
         <MjmlText
           align="center"
-          color={t.colors["foreground-muted"]}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.sm ?? "12px"}
+          color={theme.colorTextMuted}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeSm ?? "12px"}
         >
           {label}
         </MjmlText>
       ) : (
-        <MjmlDivider borderColor={t.colors.border} />
+        <MjmlDivider borderColor={theme.colorBorder} />
       )}
     </MjmlColumn>
   </MjmlSection>
 );
 
-export const Divider = ({ theme = defaultTheme, label }: DividerProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>divider</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
-        <MjmlWrapper padding="0">
-          <DividerSection label={label} t={t} />
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+export const Divider = ({ theme = defaultTheme, label }: DividerProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>divider</MjmlPreview>
+      <MjmlAttributes>
+        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlText
+          fontSize={theme.fontSizeBase}
+          lineHeight={theme.lineHeightBase}
+        />
+      </MjmlAttributes>
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={theme.colorBackground}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <DividerSection label={label} theme={theme} />
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 Divider.PreviewProps = {
   label: "— or —",

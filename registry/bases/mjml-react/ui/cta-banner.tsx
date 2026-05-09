@@ -12,15 +12,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { ResolvedEmailTheme } from "@/registry/lib/resolve-theme";
-import { resolveEmailTheme } from "@/registry/lib/resolve-theme";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
-
-import { getLayoutTokens } from "../lib/get-layout-tokens";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export interface CTABannerProps {
-  theme?: EmailTheme;
+  theme?: EmailThemeTokens;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;
@@ -28,16 +24,16 @@ export interface CTABannerProps {
   variant?: "filled" | "outline";
 }
 
-const ctaBannerStyles = (isFilled: boolean, t: ResolvedEmailTheme) => {
-  const primaryFg = t.colors["primary-fg"] ?? "#ffffff";
-  const border = t.colors.border ?? "#e5e7eb";
+const ctaBannerStyles = (isFilled: boolean, theme: EmailThemeTokens) => {
+  const primaryFg = theme.colorPrimaryForeground ?? "#ffffff";
+  const border = theme.colorBorder ?? "#e5e7eb";
   return {
-    boxBg: isFilled ? t.colors.primary : "transparent",
+    boxBg: isFilled ? theme.colorPrimary : "transparent",
     boxBorder: isFilled ? "none" : `1px solid ${border}`,
-    btnBg: isFilled ? primaryFg : t.colors.primary,
-    btnFg: isFilled ? t.colors.primary : primaryFg,
-    subColor: isFilled ? primaryFg : t.colors["foreground-muted"],
-    titleColor: isFilled ? primaryFg : t.colors.foreground,
+    btnBg: isFilled ? primaryFg : theme.colorPrimary,
+    btnFg: isFilled ? theme.colorPrimary : primaryFg,
+    subColor: isFilled ? primaryFg : theme.colorTextMuted,
+    titleColor: isFilled ? primaryFg : theme.colorText,
   };
 };
 
@@ -47,38 +43,38 @@ const CTABannerSection = ({
   heading,
   s,
   subtext,
-  t,
+  theme,
 }: {
   ctaHref: string;
   ctaLabel: string;
   heading: string;
   s: ReturnType<typeof ctaBannerStyles>;
   subtext: string;
-  t: ResolvedEmailTheme;
+  theme: EmailThemeTokens;
 }) => (
   <MjmlSection
     backgroundColor={s.boxBg}
     border={s.boxBorder}
-    borderRadius={t.borderRadius.md}
-    padding={t.spacing.xl ?? "24px"}
+    borderRadius={theme.borderRadius}
+    padding={theme.spacingXl ?? "24px"}
   >
     <MjmlColumn>
       <MjmlText
         align="center"
         color={s.titleColor}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.xl ?? "20px"}
-        fontWeight={t.fontWeight.medium ?? "500"}
-        paddingBottom={t.spacing.sm}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeXl ?? "20px"}
+        fontWeight={theme.fontWeightMedium ?? "500"}
+        paddingBottom={theme.spacingBase ?? "16px"}
       >
         {heading}
       </MjmlText>
       <MjmlText
         align="center"
         color={s.subColor}
-        fontFamily={t.fontFamily.sans}
-        fontSize={t.fontSize.base ?? "14px"}
-        paddingBottom={t.spacing.lg}
+        fontFamily={theme.fontFamily}
+        fontSize={theme.fontSizeBase ?? "14px"}
+        paddingBottom={theme.spacingLg ?? "24px"}
       >
         {subtext}
       </MjmlText>
@@ -86,13 +82,13 @@ const CTABannerSection = ({
         <MjmlButton
           align="center"
           backgroundColor={s.btnBg}
-          borderRadius={t.borderRadius.md}
+          borderRadius={theme.borderRadius}
           color={s.btnFg}
-          fontFamily={t.fontFamily.sans}
-          fontSize={t.fontSize.sm ?? "14px"}
-          fontWeight={t.fontWeight.medium ?? "500"}
+          fontFamily={theme.fontFamily}
+          fontSize={theme.fontSizeSm ?? "14px"}
+          fontWeight={theme.fontWeightMedium ?? "500"}
           href={ctaHref}
-          innerPadding={`${t.spacing.sm ?? "12px"} ${t.spacing.lg ?? "24px"}`}
+          innerPadding={`${theme.spacingBase ?? "16px"} ${theme.spacingLg ?? "24px"}`}
         >
           {ctaLabel}
         </MjmlButton>
@@ -109,21 +105,25 @@ export const CTABanner = ({
   ctaHref = "#",
   variant = "filled",
 }: CTABannerProps) => {
-  const t = resolveEmailTheme(theme);
-  const { baseFs, bg, fg, lh, sans, width } = getLayoutTokens(t);
   const isFilled = variant === "filled";
-  const s = ctaBannerStyles(isFilled, t);
+  const s = ctaBannerStyles(isFilled, theme);
 
   return (
     <Mjml>
       <MjmlHead>
         <MjmlPreview>cta-banner</MjmlPreview>
         <MjmlAttributes>
-          <MjmlAll color={fg} fontFamily={sans} />
-          <MjmlText fontSize={baseFs} lineHeight={lh} />
+          <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
         </MjmlAttributes>
       </MjmlHead>
-      <MjmlBody backgroundColor={bg} width={width}>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
         <MjmlWrapper padding="0">
           <CTABannerSection
             ctaHref={ctaHref}
@@ -131,7 +131,7 @@ export const CTABanner = ({
             heading={heading}
             s={s}
             subtext={subtext}
-            t={t}
+            theme={theme}
           />
         </MjmlWrapper>
       </MjmlBody>
