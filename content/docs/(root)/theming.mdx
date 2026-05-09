@@ -3,7 +3,7 @@ title: "Theming"
 description: "Email themes and fonts for React Email and MJML React."
 ---
 
-Theming in emailcn is **Tailwind-based**: theme files that export a `TailwindConfig`-compatible object (via `defineEmailTheme` in `registry/themes/define.ts`) that powers `<Tailwind config={theme}>` in React Email and is **resolved to concrete values** for MJML (`resolveEmailTheme`).
+Theming in emailcn is **Tailwind-based**: theme files that export a `TailwindConfig`-compatible object (via `defineEmailTheme` in `registry/themes/define.ts`) that powers `<Tailwind config={theme}>` in React Email and is resolved to concrete values for MJML (via `resolveEmailTheme` in `registry/lib/resolve-theme.ts`).
 
 ## Install a theme
 
@@ -30,7 +30,12 @@ import { defaultTheme } from "@/registry/themes/default";
 
 ## Use with MJML
 
-MJML components accept an **`EmailTheme`** (same token model). Internally they call **`resolveEmailTheme`** so nested tokens (colors, spacing, typography) become plain strings for MJML attributes.
+```tsx
+import { Tailwind } from "react-email";
+import { resolveEmailTheme } from "@/lib/resolve-theme";
+
+const t = resolveEmailTheme(theme);
+```
 
 ## Available themes
 

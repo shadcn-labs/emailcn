@@ -1,69 +1,24 @@
 ---
 title: "Installation"
-description: "Install email components, themes, and font helpers from the emailcn registry."
+description: "Install email components, blocks, themes, and font helpers from the emailcn registry."
 ---
 
 ## Prerequisites
 
 - **React Email** templates: a project with **`react-email`** installed.
-- **MJML** templates: **`@faire/mjml-react`** and **`mjml-browser`** (see [MJML component](/docs/components/mjml-react/hero) pages for the exact `npm` line).
+- **MJML** templates: a project with **`@faire/mjml-react`** installed.
 
-## Registry setup (optional)
+## Installation
 
-Register the namespace once in **`components.json`** (see [Registry](/docs/registry)):
-
-```json
-{
-  "registries": {
-    "@emailcn": "https://emailcn.com/r/{name}.json"
-  }
-}
-```
-
-## Install a theme
-
-Email styles come from **Tailwind email themes** installed under `components/emails/themes/`:
-
-```bash
-npx shadcn@latest add @emailcn/theme-default
-```
-
-Or use the full URL from any docs page:
-
-```bash
-npx shadcn@latest add https://emailcn.com/r/theme-default.json
-```
-
-## Install components
-
-**React Email** — component names have **no** prefix:
-
-```bash
-npx shadcn@latest add @emailcn/hero
-npx shadcn@latest add @emailcn/footer
-```
-
-**MJML** — use the **`mjml-`** prefix:
-
-```bash
-npx shadcn@latest add @emailcn/mjml-hero
-npx shadcn@latest add @emailcn/mjml-footer
-```
-
-## Install blocks
-
-Full templates (React Email or MJML) use the `block-` / `mjml-block-` names:
+Run the following command to add any component or block:
 
 ```bash
 npx shadcn@latest add @emailcn/block-onboarding-default
-npx shadcn@latest add @emailcn/mjml-block-onboarding-default
 ```
 
 ## Usage
 
-After installation, files are written to **`components/emails/`** — themes in **`components/emails/themes/`**, optional font helpers in **`components/emails/fonts/`**.
-
-Each **React Email** UI default export is a **full document** (`Html` → `Head` → `Preview` → `Tailwind` → `Body`). Import **`Section`** exports (e.g. `HeroSection`) when you compose a single custom shell.
+Import and use the component:
 
 ```tsx
 import { Hero } from "@/components/emails/hero";
@@ -73,7 +28,7 @@ export function WelcomeEmail() {
 }
 ```
 
-Compose with one outer document and section partials:
+Compose with one outer document and components:
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
@@ -105,4 +60,4 @@ export function WelcomeEmail() {
 }
 ```
 
-For **theming**, **font presets**, and **registry URLs**, see [Theming](/docs/theming) and [Registry](/docs/registry).
+For **theming** and **font presets**, see [Theming](/docs/theming) and for **registry URLs**, see [Registry](/docs/registry).
