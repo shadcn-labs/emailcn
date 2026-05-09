@@ -24,16 +24,20 @@ npx shadcn@latest add https://emailcn.com/r/theme-linear.json
 ```tsx
 import { Tailwind } from "react-email";
 import { defaultTheme } from "@/registry/themes/default";
+```
 
-<Tailwind config={defaultTheme}>{/* ... */}</Tailwind>;
+```tsx
+<Tailwind config={defaultTheme}>{/* ... */}</Tailwind>
 ```
 
 ## Use with MJML
 
 ```tsx
-import { Tailwind } from "react-email";
 import { resolveEmailTheme } from "@/lib/resolve-theme";
+import { defaultTheme } from "@/registry/themes/default";
+```
 
+```tsx
 const t = resolveEmailTheme(theme);
 ```
 
