@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { defaultTheme } from "@/registry/themes/default";
+import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 interface Props {
   inviterName?: string;

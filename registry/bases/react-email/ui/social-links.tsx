@@ -9,13 +9,13 @@ import {
   Section,
   Tailwind,
 } from "react-email";
+import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
+import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export interface SocialLinksProps {
-  theme?: EmailTheme;
+  theme?: TailwindConfig;
   links?: {
     platform:
       | "twitter"

@@ -29,10 +29,11 @@ export const BASES = [
 export type Base = (typeof BASES)[number];
 export type BaseName = Base["name"];
 
+export const DEFAULT_BASE = BASES[0].name;
+
 export const BASE_NAMES = BASES.map((base) => base.name) as [
   BaseName,
   ...BaseName[],
 ];
-
 export const getBase = (name: BaseName) =>
   BASES.find((base) => base.name === name);

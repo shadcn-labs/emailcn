@@ -14,8 +14,8 @@ import {
   Text,
 } from "react-email";
 
+import { nikeTheme } from "@/registry/bases/react-email/themes/nike";
 import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
-import { nikeTheme } from "@/registry/themes/nike";
 
 interface ReceiptItem {
   name: string;

@@ -11,7 +11,7 @@ import {
   Text,
 } from "react-email";
 
-import { twitchTheme } from "@/registry/themes/twitch";
+import { twitchTheme } from "@/registry/bases/react-email/themes/twitch";
 
 interface Props {
   _logoUrl?: string;

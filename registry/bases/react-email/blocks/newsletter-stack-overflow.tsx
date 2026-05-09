@@ -12,8 +12,8 @@ import {
   Text,
 } from "react-email";
 
+import { stackOverflowTheme } from "@/registry/bases/react-email/themes/stack-overflow";
 import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
-import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface Article {
   title: string;

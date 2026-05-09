@@ -14,8 +14,8 @@ import {
   Text,
 } from "react-email";
 
+import { appleTheme } from "@/registry/bases/react-email/themes/apple";
 import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
-import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
   name: string;

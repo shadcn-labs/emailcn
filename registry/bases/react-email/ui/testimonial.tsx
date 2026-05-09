@@ -10,13 +10,13 @@ import {
   Tailwind,
   Text,
 } from "react-email";
+import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/default";
-import type { EmailTheme } from "@/registry/themes/define";
+import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export interface TestimonialProps {
-  theme?: EmailTheme;
+  theme?: TailwindConfig;
   avatarUrl?: string;
   name?: string;
   role?: string;

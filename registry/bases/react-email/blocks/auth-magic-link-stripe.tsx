@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { stripeTheme } from "@/registry/themes/stripe";
+import { stripeTheme } from "@/registry/bases/react-email/themes/stripe";
 
 interface Props {
   _logoUrl?: string;

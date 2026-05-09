@@ -11,12 +11,12 @@ import {
   Text,
 } from "react-email";
 
+import { vercelTheme } from "@/registry/bases/react-email/themes/vercel";
 import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
 import { CTABannerSection } from "@/registry/bases/react-email/ui/cta-banner";
 import { FooterSection } from "@/registry/bases/react-email/ui/footer";
 import { HeroSection } from "@/registry/bases/react-email/ui/hero";
 import { LogoHeaderSection } from "@/registry/bases/react-email/ui/logo-header";
-import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   _firstName?: string;

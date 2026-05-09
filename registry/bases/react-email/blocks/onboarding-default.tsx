@@ -11,11 +11,11 @@ import {
   Text,
 } from "react-email";
 
+import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
 import { CTABannerSection } from "@/registry/bases/react-email/ui/cta-banner";
 import { FooterSection } from "@/registry/bases/react-email/ui/footer";
 import { HeroSection } from "@/registry/bases/react-email/ui/hero";
-import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _firstName?: string;

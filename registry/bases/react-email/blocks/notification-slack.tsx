@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { slackTheme } from "@/registry/themes/slack";
+import { slackTheme } from "@/registry/bases/react-email/themes/slack";
 
 interface Props {
   _logoUrl?: string;

@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { raycastTheme } from "@/registry/themes/raycast";
+import { raycastTheme } from "@/registry/bases/react-email/themes/raycast";
 
 interface Props {
   _logoUrl?: string;

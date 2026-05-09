@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { vercelTheme } from "@/registry/themes/vercel";
+import { vercelTheme } from "@/registry/bases/react-email/themes/vercel";
 
 interface Props {
   inviterName?: string;
