@@ -10,7 +10,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/default.ts",
+          "path": "registry/bases/react-email/themes/default.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-default.ts"
         }
@@ -25,7 +25,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/default.ts",
+          "path": "registry/bases/mjml-react/themes/default.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-default.ts"
         }
@@ -39,7 +39,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/vercel.ts",
+          "path": "registry/bases/react-email/themes/vercel.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-vercel.ts"
         }
@@ -54,7 +54,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/vercel.ts",
+          "path": "registry/bases/mjml-react/themes/vercel.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-vercel.ts"
         }
@@ -68,7 +68,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/linear.ts",
+          "path": "registry/bases/react-email/themes/linear.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-linear.ts"
         }
@@ -83,7 +83,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/linear.ts",
+          "path": "registry/bases/mjml-react/themes/linear.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-linear.ts"
         }
@@ -97,7 +97,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/stripe.ts",
+          "path": "registry/bases/react-email/themes/stripe.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-stripe.ts"
         }
@@ -112,7 +112,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/stripe.ts",
+          "path": "registry/bases/mjml-react/themes/stripe.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-stripe.ts"
         }
@@ -126,7 +126,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/github.ts",
+          "path": "registry/bases/react-email/themes/github.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-github.ts"
         }
@@ -141,7 +141,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/github.ts",
+          "path": "registry/bases/mjml-react/themes/github.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-github.ts"
         }
@@ -155,7 +155,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/notion.ts",
+          "path": "registry/bases/react-email/themes/notion.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-notion.ts"
         }
@@ -170,7 +170,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/notion.ts",
+          "path": "registry/bases/mjml-react/themes/notion.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-notion.ts"
         }
@@ -184,7 +184,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/raycast.ts",
+          "path": "registry/bases/react-email/themes/raycast.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-raycast.ts"
         }
@@ -199,7 +199,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/raycast.ts",
+          "path": "registry/bases/mjml-react/themes/raycast.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-raycast.ts"
         }
@@ -213,7 +213,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/twitch.ts",
+          "path": "registry/bases/react-email/themes/twitch.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-twitch.ts"
         }
@@ -228,7 +228,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/twitch.ts",
+          "path": "registry/bases/mjml-react/themes/twitch.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-twitch.ts"
         }
@@ -242,7 +242,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/airbnb.ts",
+          "path": "registry/bases/react-email/themes/airbnb.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-airbnb.ts"
         }
@@ -257,7 +257,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/airbnb.ts",
+          "path": "registry/bases/mjml-react/themes/airbnb.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-airbnb.ts"
         }
@@ -271,7 +271,7 @@
       "categories": ["theme"],
       "files": [
         {
-          "path": "registry/bases/react-email/slack.ts",
+          "path": "registry/bases/react-email/themes/slack.ts",
           "type": "registry:file",
           "target": "components/emails/themes/theme-slack.ts"
         }
@@ -286,7 +286,7 @@
       "categories": ["theme", "mjml"],
       "files": [
         {
-          "path": "registry/bases/mjml-react/slack.ts",
+          "path": "registry/bases/mjml-react/themes/slack.ts",
           "type": "registry:file",
           "target": "components/emails/themes/mjml-theme-slack.ts"
         }
