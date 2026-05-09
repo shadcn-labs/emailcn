@@ -1,0 +1,15 @@
+export { defaultTheme } from "@/registry/bases/react-email/themes/default";
+export type { EmailThemeTokens } from "@/registry/bases/react-email/themes/default";
+export { airbnbTheme } from "@/registry/bases/react-email/themes/airbnb";
+export { appleTheme } from "@/registry/bases/react-email/themes/apple";
+export { dropboxTheme } from "@/registry/bases/react-email/themes/dropbox";
+export { githubTheme } from "@/registry/bases/react-email/themes/github";
+export { linearTheme } from "@/registry/bases/react-email/themes/linear";
+export { nikeTheme } from "@/registry/bases/react-email/themes/nike";
+export { notionTheme } from "@/registry/bases/react-email/themes/notion";
+export { raycastTheme } from "@/registry/bases/react-email/themes/raycast";
+export { slackTheme } from "@/registry/bases/react-email/themes/slack";
+export { stackOverflowTheme } from "@/registry/bases/react-email/themes/stack-overflow";
+export { stripeTheme } from "@/registry/bases/react-email/themes/stripe";
+export { twitchTheme } from "@/registry/bases/react-email/themes/twitch";
+export { vercelTheme } from "@/registry/bases/react-email/themes/vercel";

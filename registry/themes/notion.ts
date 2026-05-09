@@ -1,0 +1,1 @@
+../bases/react-email/themes/notion.ts
