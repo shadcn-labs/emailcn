@@ -3,6 +3,7 @@ import type { BaseName } from "@/registry/bases";
 import { airbnbTheme as mjmlAirbnb } from "@/registry/bases/mjml-react/themes/airbnb";
 import { appleTheme as mjmlApple } from "@/registry/bases/mjml-react/themes/apple";
 import { defaultTheme as mjmlDefault } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 import { dropboxTheme as mjmlDropbox } from "@/registry/bases/mjml-react/themes/dropbox";
 import { githubTheme as mjmlGithub } from "@/registry/bases/mjml-react/themes/github";
 import { linearTheme as mjmlLinear } from "@/registry/bases/mjml-react/themes/linear";
@@ -14,7 +15,6 @@ import { stackOverflowTheme as mjmlStackOverflow } from "@/registry/bases/mjml-r
 import { stripeTheme as mjmlStripe } from "@/registry/bases/mjml-react/themes/stripe";
 import { twitchTheme as mjmlTwitch } from "@/registry/bases/mjml-react/themes/twitch";
 import { vercelTheme as mjmlVercel } from "@/registry/bases/mjml-react/themes/vercel";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/types";
 
 export interface RegistryThemeDefinition {
   bases: readonly BaseName[];
