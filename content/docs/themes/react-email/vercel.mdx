@@ -1,0 +1,99 @@
+---
+title: "Vercel Theme"
+description: "Dark theme inspired by Vercel's design for React Email."
+---
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/theme-vercel
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/define.ts"
+  title="components/emails/themes/define.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/vercel.ts"
+  title="components/emails/themes/vercel.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Tailwind } from "react-email";
+import { vercelTheme } from "@/components/emails/themes/vercel";
+
+<Tailwind config={vercelTheme}>
+  {/* Your email content */}
+</Tailwind>;
+```
+
+## Theme Tokens
+
+| Token | Value |
+| ----- | ----- |
+| `colorPrimary` | `#ffffff` |
+| `colorBackground` | `#000000` |
+| `colorText` | `#ffffff` |
+| `colorTextMuted` | `#a1a1a1` |
+| `colorBorder` | `#333333` |
+| `fontFamily` | `"Geist", "Inter", -apple-system, sans-serif` |
+| `borderRadius` | `6px` |
+| `containerWidth` | `600px` |
+
+## Button Styles
+
+### Primary Button
+
+| Property | Value |
+| -------- | ----- |
+| Background | `#ffffff` |
+| Text | `#000000` |
+| Border Radius | `6px` |
+| Padding | `24px` x `12px` |
+| Font Size | `14px` |
+| Font Weight | `500` |
+
+### Secondary Button
+
+| Property | Value |
+| -------- | ----- |
+| Background | `transparent` |
+| Text | `#ffffff` |
+| Border | `1px solid #333333` |
+| Border Radius | `6px` |
+| Padding | `24px` x `12px` |
+| Font Size | `14px` |
+| Font Weight | `500` |

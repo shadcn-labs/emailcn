@@ -1,0 +1,61 @@
+---
+title: "Raycast Theme"
+description: "Theme inspired by Raycast for React Email."
+---
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/theme-raycast
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/define.ts"
+  title="components/emails/themes/define.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/raycast.ts"
+  title="components/emails/themes/raycast.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Tailwind } from "react-email";
+import { raycastTheme } from "@/components/emails/themes/raycast";
+
+<Tailwind config={raycastTheme}>
+  {/* Your email content */}
+</Tailwind>;
+```

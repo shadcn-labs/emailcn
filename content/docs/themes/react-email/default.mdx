@@ -1,0 +1,99 @@
+---
+title: "Default Theme"
+description: "Clean, minimal theme with neutral colors for React Email."
+---
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/theme-default
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/define.ts"
+  title="components/emails/themes/define.ts"
+/>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Tailwind } from "react-email";
+import { defaultTheme } from "@/components/emails/themes/default";
+
+<Tailwind config={defaultTheme}>
+  {/* Your email content */}
+</Tailwind>;
+```
+
+## Theme Tokens
+
+| Token | Value |
+| ----- | ----- |
+| `colorPrimary` | `#111827` |
+| `colorBackground` | `#ffffff` |
+| `colorText` | `#111827` |
+| `colorTextMuted` | `#6b7280` |
+| `colorBorder` | `#e5e7eb` |
+| `fontFamily` | `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif` |
+| `borderRadius` | `6px` |
+| `containerWidth` | `600px` |
+
+## Button Styles
+
+### Primary Button
+
+| Property | Value |
+| -------- | ----- |
+| Background | `#111827` |
+| Text | `#ffffff` |
+| Border Radius | `6px` |
+| Padding | `24px` x `12px` |
+| Font Size | `14px` |
+| Font Weight | `500` |
+
+### Secondary Button
+
+| Property | Value |
+| -------- | ----- |
+| Background | `transparent` |
+| Text | `#111827` |
+| Border | `1px solid #e5e7eb` |
+| Border Radius | `6px` |
+| Padding | `24px` x `12px` |
+| Font Size | `14px` |
+| Font Weight | `500` |
