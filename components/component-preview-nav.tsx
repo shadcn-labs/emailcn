@@ -5,8 +5,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import { CopyButton } from "@/components/copy-button";
-import { EmailSendButton } from "@/components/email-send-button";
-import { EmailViewportToggle } from "@/components/email-viewport-toggle";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { trackEvent } from "@/lib/events";
@@ -100,11 +98,10 @@ export const ComponentPreviewNav = ({
             </TabsTrigger>
           ) : null}
         </TabsList>
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <EmailViewportToggle />
-          <CopyButton event="copy_email" value={html} />
           <EmailSendButton defaultSubject={iframeTitle} markup={html} />
-        </div>
+        </div> */}
       </div>
 
       <TabsContent className="m-0 rounded-xl border bg-card" value="preview">

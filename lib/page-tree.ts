@@ -75,11 +75,16 @@ const isBaseIndexPage = (page: PageTreePage) =>
 
 export const getPagesFromFolder = (
   folder: PageTreeFolder,
-  { includeIndex = true }: { includeIndex?: boolean } = {}
+  {
+    includeIndex = true,
+    filter,
+  }: { includeIndex?: boolean; filter?: (page: PageTreePage) => boolean } = {}
 ): PageTreePage[] =>
   folder.children.filter(
     (child): child is PageTreePage =>
-      child.type === "page" && (includeIndex || !isBaseIndexPage(child))
+      child.type === "page" &&
+      (includeIndex || !isBaseIndexPage(child)) &&
+      (!filter || filter(child))
   );
 
 export const getDefaultBasePagesForSection = (

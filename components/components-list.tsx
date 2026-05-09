@@ -4,6 +4,8 @@ import { isBlocksFolder, isComponentsFolder } from "@/lib/docs";
 import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
 import { getCategoryFoldersForBase, getPagesFromFolder } from "@/lib/page-tree";
 import { source } from "@/lib/source";
+import { cn } from "@/lib/utils";
+import { DEFAULT_BASE } from "@/registry/bases";
 
 const getFolder = (name: string): PageTreeFolder | undefined => {
   for (const node of source.pageTree.children) {
@@ -16,8 +18,19 @@ const getFolder = (name: string): PageTreeFolder | undefined => {
   }
 };
 
-const ComponentGrid = ({ pages }: { pages: PageTreePage[] }) => (
-  <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20">
+const ComponentGrid = ({
+  className,
+  pages,
+}: {
+  className?: string;
+  pages: PageTreePage[];
+}) => (
+  <div
+    className={cn(
+      "grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20",
+      className
+    )}
+  >
     {pages.map((component) => (
       <Link
         key={component.$id}
@@ -33,11 +46,13 @@ const ComponentGrid = ({ pages }: { pages: PageTreePage[] }) => (
 export const ComponentsList = ({
   folderName = "Components",
   category,
-  base,
+  base = DEFAULT_BASE,
+  className,
 }: {
   folderName?: string;
   category?: string;
   base?: string;
+  className?: string;
 }) => {
   const folder = getFolder(folderName);
   if (!folder) {
@@ -49,11 +64,10 @@ export const ComponentsList = ({
     if (pages.length === 0) {
       return null;
     }
-    return <ComponentGrid pages={pages} />;
+    return <ComponentGrid className={className} pages={pages} />;
   }
 
-  const effectiveBase = base ?? "react-email";
-  const categories = getCategoryFoldersForBase(folder, effectiveBase);
+  const categories = getCategoryFoldersForBase(folder, base);
 
   if (category) {
     const match = categories.find(
@@ -68,6 +82,7 @@ export const ComponentsList = ({
     }
     return (
       <ComponentGrid
+        className={className}
         pages={getPagesFromFolder(match, { includeIndex: false })}
       />
     );
@@ -86,5 +101,5 @@ export const ComponentsList = ({
     return null;
   }
 
-  return <ComponentGrid pages={allPages} />;
+  return <ComponentGrid className={className} pages={allPages} />;
 };
