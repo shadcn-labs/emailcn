@@ -14,6 +14,8 @@ import type { TailwindConfig } from "react-email";
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
+export type HeroVariant = "default" | "slanted-left" | "slanted-right";
+
 export interface HeroProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -21,6 +23,7 @@ export interface HeroProps {
   ctaLabel?: string;
   ctaHref?: string;
   align?: "left" | "center";
+  variant?: HeroVariant;
 }
 
 export const HeroSection = ({
@@ -29,12 +32,40 @@ export const HeroSection = ({
   ctaLabel = "Get Started",
   heading = "Welcome",
   subheading = "Get started with your account",
+  variant = "default",
 }: Omit<HeroProps, "theme">) => {
   const alignClass = align === "center" ? "text-center" : "text-left";
 
+  const getVariantClass = () => {
+    switch (variant) {
+      case "slanted-left": {
+        return "skew-x-[-10deg]";
+      }
+      case "slanted-right": {
+        return "skew-x-[10deg]";
+      }
+      default: {
+        return "";
+      }
+    }
+  };
+
+  const getUnskewClass = () => {
+    if (variant === "slanted-left") {
+      return "skew-x-[10deg]";
+    }
+    if (variant === "slanted-right") {
+      return "skew-x-[-10deg]";
+    }
+    return "";
+  };
+
   return (
-    <Section className="bg-background py-12">
-      <Container align={align} className="mx-auto max-w-container">
+    <Section className={`bg-background py-12 ${getVariantClass()}`}>
+      <Container
+        align={align}
+        className={`mx-auto max-w-container ${getUnskewClass()}`}
+      >
         <Text
           className={`m-0 font-bold text-heading leading-snug text-foreground ${alignClass}`}
         >
@@ -67,6 +98,7 @@ export const Hero = ({
   ctaLabel = "Get Started",
   ctaHref = "#",
   align = "center",
+  variant = "default",
 }: HeroProps) => (
   <Html>
     <Head>
@@ -81,6 +113,7 @@ export const Hero = ({
           ctaLabel={ctaLabel}
           heading={heading}
           subheading={subheading}
+          variant={variant}
         />
       </Body>
     </Tailwind>
@@ -94,4 +127,5 @@ Hero.PreviewProps = {
   heading: "Welcome to Acme",
   subheading: "Build faster with the tools you love.",
   theme: defaultTheme,
+  variant: "default",
 } satisfies HeroProps;

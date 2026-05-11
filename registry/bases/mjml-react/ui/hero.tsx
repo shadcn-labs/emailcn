@@ -15,6 +15,8 @@ import {
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
+export type HeroVariant = "default" | "slanted-left" | "slanted-right";
+
 export interface HeroProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -22,6 +24,7 @@ export interface HeroProps {
   ctaLabel?: string;
   ctaHref?: string;
   align?: "left" | "center";
+  variant?: HeroVariant;
 }
 
 const HeroPrimaryCta = ({
@@ -108,7 +111,9 @@ export const Hero = ({
   ctaLabel = "Get Started",
   ctaHref = "#",
   align = "center",
+  variant = "default",
 }: HeroProps) => {
+  void variant;
   const py = theme.spacingXl;
 
   return (
@@ -150,4 +155,5 @@ Hero.PreviewProps = {
   heading: "Welcome to Acme",
   subheading: "Build faster with the tools you love.",
   theme: defaultTheme,
+  variant: "default",
 } satisfies HeroProps;
