@@ -1,5 +1,5 @@
 export { defaultTheme } from "@/registry/bases/react-email/themes/default";
-export type { EmailThemeTokens } from "@/registry/bases/react-email/themes/default";
+export type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 export { airbnbTheme } from "@/registry/bases/react-email/themes/airbnb";
 export { appleTheme } from "@/registry/bases/react-email/themes/apple";
 export { dropboxTheme } from "@/registry/bases/react-email/themes/dropbox";
