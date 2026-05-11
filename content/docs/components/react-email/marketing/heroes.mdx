@@ -1,0 +1,127 @@
+---
+title: "Hero"
+description: "A hero section with heading, subheading, and CTA button."
+---
+
+<ComponentPreview base="react-email" name="hero-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/default.tsx"
+  title="components/emails/fonts/default.tsx"
+/>
+<ComponentSource
+  base="react-email"
+  name="hero"
+  title="components/emails/hero.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Hero } from "@/components/emails/hero";
+```
+
+```tsx
+<Hero {...Hero.PreviewProps} />
+```
+
+## Variants
+
+The Hero component supports three visual variants that change the layout and positioning of the content.
+
+### Default
+
+The default variant displays content centered with a clean, standard layout. This is ideal for most email designs where you want a balanced, professional look.
+
+```tsx
+<Hero
+  variant="default"
+  heading="Welcome"
+  subheading="Get started with your account"
+  ctaLabel="Get Started"
+  ctaHref="#"
+/>
+```
+
+### Slanted Left
+
+The slanted left variant positions content toward the left side of the hero section, creating an asymmetric layout. This variant is useful when you want to create visual interest or have supporting imagery on the right side.
+
+```tsx
+<Hero
+  variant="slanted-left"
+  heading="Welcome"
+  subheading="Get started with your account"
+  ctaLabel="Get Started"
+  ctaHref="#"
+/>
+```
+
+### Slanted Right
+
+The slanted right variant positions content toward the right side of the hero section. This variant works well when you want imagery or additional elements on the left side of the hero.
+
+```tsx
+<Hero
+  variant="slanted-right"
+  heading="Welcome"
+  subheading="Get started with your account"
+  ctaLabel="Get Started"
+  ctaHref="#"
+/>
+```
+
+## API Reference
+
+### Hero
+
+| Prop         | Type                                             | Default                           | Description         |
+| ------------ | ------------------------------------------------ | --------------------------------- | ------------------- |
+| `theme`      | `EmailTheme`                                     | `defaultTheme`                    | Email theme styling |
+| `variant`    | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`                       | Visual variant      |
+| `heading`    | `string`                                         | `"Welcome"`                       | Main heading text   |
+| `subheading` | `string`                                         | `"Get started with your account"` | Subheading text     |
+| `ctaLabel`   | `string`                                         | `"Get Started"`                   | CTA button label    |
+| `ctaHref`    | `string`                                         | `"#"`                             | CTA button link     |
+| `align`      | `"left" \| "center"`                             | `"center"`                        | Text alignment      |

@@ -1,0 +1,84 @@
+---
+title: "Pricing Table"
+description: "A pricing comparison table for subscription plans."
+---
+
+<ComponentPreview base="mjml-react" name="pricing-table-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-pricing-table
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  base="mjml-react"
+  name="pricing-table"
+  title="components/emails/pricing-table.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PricingTable } from "@/components/emails/pricing-table";
+```
+
+```tsx
+<PricingTable {...PricingTable.PreviewProps} />
+```
+
+## API Reference
+
+### Pricing Table
+
+### PricingTable
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+### PricingTier
+
+| Prop          | Type       | Default | Description          |
+| ------------- | ---------- | ------- | -------------------- |
+| `name`        | `string`   | -       | Tier name            |
+| `price`       | `string`   | -       | Price                |
+| `description` | `string`   | -       | Tier description     |
+| `features`    | `string[]` | -       | Feature list         |
+| `ctaLabel`    | `string`   | -       | CTA button label     |
+| `ctaHref`     | `string`   | `"#"`   | CTA button link      |
+| `popular`     | `boolean`  | `false` | Mark as popular tier |

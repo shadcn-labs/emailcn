@@ -1,0 +1,74 @@
+---
+title: "Testimonial"
+description: "A customer testimonial section with avatar and quote."
+---
+
+<ComponentPreview base="mjml-react" name="testimonial-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-testimonial
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  base="mjml-react"
+  name="testimonial"
+  title="components/emails/testimonial.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Testimonial } from "@/components/emails/testimonial";
+```
+
+```tsx
+<Testimonial {...Testimonial.PreviewProps} />
+```
+
+## API Reference
+
+### Testimonial
+
+| Prop        | Type         | Default        | Description            |
+| ----------- | ------------ | -------------- | ---------------------- |
+| `quote`     | `string`     | -              | Testimonial quote text |
+| `author`    | `string`     | -              | Author name            |
+| `role`      | `string`     | -              | Author role/company    |
+| `avatarUrl` | `string`     | -              | Author avatar URL      |
+| `theme`     | `EmailTheme` | `defaultTheme` | Email theme styling    |

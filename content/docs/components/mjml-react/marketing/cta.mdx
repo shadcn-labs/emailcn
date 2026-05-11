@@ -1,0 +1,74 @@
+---
+title: "CTA Banner"
+description: "A call-to-action banner for promotions."
+---
+
+<ComponentPreview base="mjml-react" name="cta-banner-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-cta-banner
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  base="mjml-react"
+  name="cta-banner"
+  title="components/emails/cta-banner.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CtaBanner } from "@/components/emails/cta-banner";
+```
+
+```tsx
+<CtaBanner {...CtaBanner.PreviewProps} />
+```
+
+## API Reference
+
+### CTA Banner
+
+| Prop          | Type         | Default        | Description         |
+| ------------- | ------------ | -------------- | ------------------- |
+| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling |
+| `heading`     | `string`     | -              | Banner heading      |
+| `description` | `string`     | -              | Banner description  |
+| `ctaLabel`    | `string`     | -              | CTA button label    |
+| `ctaHref`     | `string`     | `"#"`          | CTA button link     |

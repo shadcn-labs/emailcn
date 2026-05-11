@@ -1,0 +1,119 @@
+---
+title: "Hero"
+description: "A hero section with heading, subheading, and CTA button."
+---
+
+<ComponentPreview base="mjml-react" name="hero-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-hero
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  base="mjml-react"
+  name="hero"
+  title="components/emails/hero.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Hero } from "@/components/emails/hero";
+```
+
+```tsx
+<Hero {...Hero.PreviewProps} />
+```
+
+## Variants
+
+The Hero component supports three variants that control the layout and visual style of the content.
+
+### Default
+
+Standard hero section with centered content. This is the default variant that displays the heading, subheading, and CTA button in a balanced, centered layout.
+
+```tsx
+<Hero
+  variant="default"
+  heading="Welcome"
+  subheading="Get started with your account"
+  ctaLabel="Get Started"
+/>
+```
+
+### Slanted Left
+
+Hero section with content slanted to the left. This variant positions the content on the left side of the container with a slanted visual effect, creating a dynamic and modern look.
+
+```tsx
+<Hero
+  variant="slanted-left"
+  heading="Welcome"
+  subheading="Get started with your account"
+  ctaLabel="Get Started"
+/>
+```
+
+### Slanted Right
+
+Hero section with content slanted to the right. This variant positions the content on the right side of the container with a slanted visual effect, offering an alternative dynamic layout option.
+
+```tsx
+<Hero
+  variant="slanted-right"
+  heading="Welcome"
+  subheading="Get started with your account"
+  ctaLabel="Get Started"
+/>
+```
+
+## API Reference
+
+### Hero
+
+| Prop         | Type                                             | Default                           | Description         |
+| ------------ | ------------------------------------------------ | --------------------------------- | ------------------- |
+| `theme`      | `EmailTheme`                                     | `defaultTheme`                    | Email theme styling |
+| `heading`    | `string`                                         | `"Welcome"`                       | Main heading text   |
+| `subheading` | `string`                                         | `"Get started with your account"` | Subheading text     |
+| `ctaLabel`   | `string`                                         | `"Get Started"`                   | CTA button label    |
+| `ctaHref`    | `string`                                         | `"#"`                             | CTA button link     |
+| `align`      | `"left" \| "center"`                             | `"center"`                        | Text alignment      |
+| `variant`    | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`                       | Hero layout variant |

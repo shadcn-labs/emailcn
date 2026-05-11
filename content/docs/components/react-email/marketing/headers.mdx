@@ -1,0 +1,78 @@
+---
+title: "Logo Header"
+description: "A header with company logo."
+---
+
+<ComponentPreview base="react-email" name="logo-header-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-header
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/default.tsx"
+  title="components/emails/fonts/default.tsx"
+/>
+<ComponentSource
+  base="react-email"
+  name="logo-header"
+  title="components/emails/logo-header.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoHeader } from "@/components/emails/logo-header";
+```
+
+```tsx
+<LogoHeader {...LogoHeader.PreviewProps} />
+```
+
+## API Reference
+
+### Logo Header
+
+| Prop      | Type         | Default        | Description         |
+| --------- | ------------ | -------------- | ------------------- |
+| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
+| `logoUrl` | `string`     | -              | Logo image URL      |
+| `logoAlt` | `string`     | `"Logo"`       | Alt text for logo   |
+| `href`    | `string`     | `"#"`          | Logo link URL       |

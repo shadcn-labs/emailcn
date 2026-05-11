@@ -1,0 +1,71 @@
+---
+title: "Avatar Row"
+description: "A row of user avatars with optional names."
+---
+
+<ComponentPreview base="mjml-react" name="avatar-row-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-avatar-row
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  base="mjml-react"
+  name="avatar-row"
+  title="components/emails/avatar-row.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AvatarRow } from "@/components/emails/avatar-row";
+```
+
+```tsx
+<AvatarRow {...AvatarRow.PreviewProps} />
+```
+
+## API Reference
+
+### Avatar Row
+
+| Prop    | Type                       | Default        | Description         |
+| ------- | -------------------------- | -------------- | ------------------- |
+| `theme` | `EmailTheme`               | `defaultTheme` | Email theme styling |
+| `users` | `Array<{name, avatarUrl}>` | -              | List of users       |
