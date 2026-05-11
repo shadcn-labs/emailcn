@@ -43,9 +43,9 @@ import {
 } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
 import {
-  getCategoryFoldersForBase,
+  getCategoryFolders,
   getCurrentBase,
-  getPagesFromFolder,
+  getFolderPages,
 } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
@@ -204,27 +204,25 @@ export const CommandMenu = ({
       }
 
       if (isComponentsFolder(item)) {
-        const categories = getCategoryFoldersForBase(item, currentBase);
-        const allPages: { url: string; name: string }[] = [];
-        for (const category of categories) {
-          const pages = getPagesFromFolder(category, {
-            includeIndex: false,
-          }).map((p) => ({
+        for (const category of getCategoryFolders(item, currentBase)) {
+          const pages = getFolderPages(category).map((p) => ({
             name: typeof p.name === "string" ? p.name : String(p.name),
             url: p.url,
           }));
-          allPages.push(...pages);
-        }
-        if (allPages.length > 0) {
-          groups.push({
-            label: isComponentsFolder(item) ? `Components` : `Blocks`,
-            pages: allPages,
-          });
+          if (pages.length > 0) {
+            groups.push({
+              label:
+                typeof category.name === "string"
+                  ? category.name
+                  : String(category.name),
+              pages,
+            });
+          }
         }
       } else if (isBlocksFolder(item) || isFontsFolder(item)) {
         continue;
       } else {
-        const pages = getPagesFromFolder(item).map((p) => ({
+        const pages = getFolderPages(item).map((p) => ({
           name: typeof p.name === "string" ? p.name : String(p.name),
           url: p.url,
         }));

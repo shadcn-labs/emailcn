@@ -1,9 +1,9 @@
 import type { Node as PageTreeNode } from "fumadocs-core/page-tree";
 
+import { DEFAULT_BASE } from "@/registry/bases";
+
 export type PageTreeFolder = Extract<PageTreeNode, { type: "folder" }>;
 export type PageTreePage = Extract<PageTreeNode, { type: "page" }>;
-
-export const DEFAULT_DOCS_BASE = "react-email";
 
 export const getAllPagesFromFolder = (
   folder: PageTreeFolder
@@ -21,83 +21,55 @@ export const getAllPagesFromFolder = (
   return pages;
 };
 
-const matchesBase = (folder: PageTreeFolder, base: string): boolean => {
-  const id = String(folder.$id ?? "");
+const matchesBase = (folder: PageTreeFolder, base: string): boolean =>
+  folder.$id === base ||
+  (typeof folder.name === "string" && folder.name.toLowerCase() === base);
 
-  return (
-    id === base ||
-    id.endsWith(`/${base}`) ||
-    (typeof folder.name === "string" && folder.name.toLowerCase() === base)
-  );
-};
-
-/**
- * Folders to show under **Components** or **Blocks** for the active base (e.g. `react-email`).
- *
- * Supports two layouts:
- * 1. Nested categories: `.../<base>/<category>/page.mdx` → one sidebar group per category folder.
- * 2. Flat pages: `.../<base>/hero.mdx` → a single group using the base folder (all `.mdx` siblings).
- */
-export const getCategoryFoldersForBase = (
-  docsSectionFolder: PageTreeFolder,
-  currentBase: string
-): PageTreeFolder[] => {
-  const folders: PageTreeFolder[] = [];
-
-  for (const child of docsSectionFolder.children) {
+const findBaseFolder = (
+  folder: PageTreeFolder,
+  base: string
+): PageTreeFolder | undefined => {
+  for (const child of folder.children) {
     if (child.type !== "folder") {
       continue;
     }
-    if (currentBase && !matchesBase(child, currentBase)) {
-      continue;
-    }
-
-    const nestedFolders = child.children.filter(
-      (c): c is PageTreeFolder => c.type === "folder"
-    );
-
-    if (nestedFolders.length > 0) {
-      folders.push(...nestedFolders);
-      continue;
-    }
-
-    const hasDirectPages = child.children.some((c) => c.type === "page");
-    if (hasDirectPages) {
-      folders.push(child);
+    if (matchesBase(child, base)) {
+      return child;
     }
   }
-
-  return folders;
 };
 
-const isBaseIndexPage = (page: PageTreePage) =>
-  /^\/docs\/(?:components|blocks)\/[^/]+$/.test(page.url);
-
-export const getPagesFromFolder = (
+export const getCategoryFolders = (
   folder: PageTreeFolder,
-  {
-    includeIndex = true,
-    filter,
-  }: { includeIndex?: boolean; filter?: (page: PageTreePage) => boolean } = {}
-): PageTreePage[] =>
-  folder.children.filter(
-    (child): child is PageTreePage =>
-      child.type === "page" &&
-      (includeIndex || !isBaseIndexPage(child)) &&
-      (!filter || filter(child))
-  );
+  base: string
+): PageTreeFolder[] => {
+  const baseFolder = findBaseFolder(folder, base);
+  if (!baseFolder) {
+    return [];
+  }
 
-export const getDefaultBasePagesForSection = (
-  docsSectionFolder: PageTreeFolder
-): PageTreePage[] =>
-  getCategoryFoldersForBase(docsSectionFolder, DEFAULT_DOCS_BASE).flatMap(
-    (category) => getPagesFromFolder(category, { includeIndex: false })
+  return baseFolder.children.filter(
+    (c): c is PageTreeFolder => c.type === "folder"
   );
+};
 
-/** Active registry base (`react-email` | `mjml-react`) from components or blocks doc URLs. */
+export const getFolderPages = (
+  folder: PageTreeFolder,
+  base?: string
+): PageTreePage[] => {
+  if (base) {
+    const baseFolder = findBaseFolder(folder, base);
+    if (!baseFolder) {
+      return [];
+    }
+
+    return getAllPagesFromFolder(baseFolder);
+  }
+
+  return getAllPagesFromFolder(folder);
+};
+
 export const getCurrentBase = (pathname: string): string => {
-  const match = pathname.match(
-    /\/docs\/(?:components|blocks)\/([^/]+)(?:\/|$)/
-  );
-  return match ? match[1] : DEFAULT_DOCS_BASE;
+  const match = pathname.match(/\/docs\/components\/([^/]+)\//);
+  return match ? match[1] : DEFAULT_BASE;
 };
