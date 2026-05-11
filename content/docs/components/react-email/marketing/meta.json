@@ -1,12 +1,4 @@
 {
   "title": "Marketing",
-  "pages": [
-    "index",
-    "cta",
-    "feature",
-    "headers",
-    "heroes",
-    "pricing",
-    "testimonials"
-  ]
+  "pages": ["cta", "feature", "headers", "heroes", "pricing", "testimonials"]
 }

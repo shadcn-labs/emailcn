@@ -23,7 +23,8 @@ export const getAllPagesFromFolder = (
 
 const matchesBase = (folder: PageTreeFolder, base: string): boolean =>
   folder.$id === base ||
-  (typeof folder.name === "string" && folder.name.toLowerCase() === base);
+  (typeof folder.name === "string" &&
+    folder.name.split(" ").join("-").toLowerCase() === base);
 
 const findBaseFolder = (
   folder: PageTreeFolder,
