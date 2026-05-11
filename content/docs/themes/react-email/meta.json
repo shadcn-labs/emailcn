@@ -1,0 +1,15 @@
+{
+  "title": "React Email",
+  "pages": [
+    "airbnb",
+    "default",
+    "github",
+    "linear",
+    "notion",
+    "raycast",
+    "slack",
+    "stripe",
+    "twitch",
+    "vercel"
+  ]
+}

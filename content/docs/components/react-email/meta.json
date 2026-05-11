@@ -1,18 +1,4 @@
 {
   "title": "React Email",
-  "pages": [
-    "index",
-    "hero",
-    "testimonial",
-    "cta-banner",
-    "product-card",
-    "logo-header",
-    "divider",
-    "footer",
-    "content-grid",
-    "avatar-row",
-    "pricing-table",
-    "social-links",
-    "feature-row"
-  ]
+  "pages": ["index", "marketing", "ecommerce", "ui-elements"]
 }
