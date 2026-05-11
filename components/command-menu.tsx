@@ -35,12 +35,7 @@ import { useFeedback } from "@/hooks/use-feedback";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { usePackageManager } from "@/hooks/use-package-manager";
-import {
-  EXCLUDED_SECTIONS,
-  isBlocksFolder,
-  isComponentsFolder,
-  isFontsFolder,
-} from "@/lib/docs";
+import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
 import {
   getCategoryFolders,
@@ -219,8 +214,6 @@ export const CommandMenu = ({
             });
           }
         }
-      } else if (isBlocksFolder(item) || isFontsFolder(item)) {
-        continue;
       } else {
         const pages = getFolderPages(item).map((p) => ({
           name: typeof p.name === "string" ? p.name : String(p.name),

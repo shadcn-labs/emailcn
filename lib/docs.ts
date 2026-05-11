@@ -9,6 +9,8 @@ export const EXCLUDED_SECTIONS = new Set([
   "installation",
   "changelog",
   "(root)",
+  "blocks",
+  "fonts",
 ]);
 
 export const isComponentsFolder = (folder: PageTreeFolder) =>

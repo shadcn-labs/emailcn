@@ -14,12 +14,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
-import {
-  EXCLUDED_SECTIONS,
-  isBlocksFolder,
-  isComponentsFolder,
-  isFontsFolder,
-} from "@/lib/docs";
+import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import {
   getCategoryFolders,
   getCurrentBase,
@@ -143,10 +138,6 @@ export const DocsSidebar = ({
                 pathname={pathname}
               />
             ));
-          }
-
-          if (isBlocksFolder(item) || isFontsFolder(item)) {
-            return null;
           }
 
           return (

@@ -13,12 +13,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { ROUTES } from "@/constants/routes";
-import {
-  EXCLUDED_SECTIONS,
-  isBlocksFolder,
-  isComponentsFolder,
-  isFontsFolder,
-} from "@/lib/docs";
+import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import {
   getCategoryFolders,
   getCurrentBase,
@@ -170,10 +165,6 @@ export const MobileNav = ({
                   setOpen={setOpen}
                 />
               ));
-            }
-
-            if (isBlocksFolder(item) || isFontsFolder(item)) {
-              return null;
             }
 
             return (
