@@ -1,0 +1,175 @@
+/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+import {
+  Body,
+  Column,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Row,
+  Section,
+  Tailwind,
+  Text,
+} from "react-email";
+import type { TailwindConfig } from "react-email";
+
+import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
+import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
+export type SocialsWithInlineLabelsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
+
+export interface SocialsWithInlineLabelsProps {
+  theme?: TailwindConfig;
+  socialSrc1?: string;
+  socialAlt1?: string;
+  socialLabel1?: string;
+  socialSrc2?: string;
+  socialAlt2?: string;
+  socialLabel2?: string;
+  socialSrc3?: string;
+  socialAlt3?: string;
+  socialLabel3?: string;
+  variant?: SocialsWithInlineLabelsVariant;
+}
+
+export const SocialsWithInlineLabelsSection = ({
+  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialAlt1 = "Twitter",
+  socialLabel1 = "Twitter",
+  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialAlt2 = "Facebook",
+  socialLabel2 = "Facebook",
+  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialAlt3 = "Instagram",
+  socialLabel3 = "Instagram",
+  variant = "default",
+}: Omit<SocialsWithInlineLabelsProps, "theme">) => {
+  const getVariantClass = () => {
+    switch (variant) {
+      case "slanted-left": {
+        return "skew-x-[-10deg]";
+      }
+      case "slanted-right": {
+        return "skew-x-[10deg]";
+      }
+      default: {
+        return "";
+      }
+    }
+  };
+
+  const getUnskewClass = () => {
+    switch (variant) {
+      case "slanted-left": {
+        return "skew-x-[10deg]";
+      }
+      case "slanted-right": {
+        return "skew-x-[-10deg]";
+      }
+      default: {
+        return "";
+      }
+    }
+  };
+
+  return (
+    <Section className={`bg-background py-8 ${getVariantClass()}`}>
+      <Section
+        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}
+      >
+        <Row>
+          <Column className="px-4 text-center align-middle">
+            <Img
+              src={socialSrc1}
+              alt={socialAlt1}
+              width="20"
+              height="20"
+              className="inline-block mr-2 h-auto object-contain"
+            />
+            <Text className="m-0 inline-block text-sm text-foreground-muted">
+              {socialLabel1}
+            </Text>
+          </Column>
+          <Column className="px-4 text-center align-middle">
+            <Img
+              src={socialSrc2}
+              alt={socialAlt2}
+              width="20"
+              height="20"
+              className="inline-block mr-2 h-auto object-contain"
+            />
+            <Text className="m-0 inline-block text-sm text-foreground-muted">
+              {socialLabel2}
+            </Text>
+          </Column>
+          <Column className="px-4 text-center align-middle">
+            <Img
+              src={socialSrc3}
+              alt={socialAlt3}
+              width="20"
+              height="20"
+              className="inline-block mr-2 h-auto object-contain"
+            />
+            <Text className="m-0 inline-block text-sm text-foreground-muted">
+              {socialLabel3}
+            </Text>
+          </Column>
+        </Row>
+      </Section>
+    </Section>
+  );
+};
+
+export const SocialsWithInlineLabels = ({
+  theme = defaultTheme,
+  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialAlt1 = "Twitter",
+  socialLabel1 = "Twitter",
+  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialAlt2 = "Facebook",
+  socialLabel2 = "Facebook",
+  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialAlt3 = "Instagram",
+  socialLabel3 = "Instagram",
+  variant = "default",
+}: SocialsWithInlineLabelsProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>Social</Preview>
+    <Tailwind config={theme}>
+      <Body className="m-0 bg-background font-sans">
+        <SocialsWithInlineLabelsSection
+          socialAlt1={socialAlt1}
+          socialAlt2={socialAlt2}
+          socialAlt3={socialAlt3}
+          socialLabel1={socialLabel1}
+          socialLabel2={socialLabel2}
+          socialLabel3={socialLabel3}
+          socialSrc1={socialSrc1}
+          socialSrc2={socialSrc2}
+          socialSrc3={socialSrc3}
+          variant={variant}
+        />
+      </Body>
+    </Tailwind>
+  </Html>
+);
+
+SocialsWithInlineLabels.PreviewProps = {
+  socialAlt1: "Twitter",
+  socialAlt2: "Facebook",
+  socialAlt3: "Instagram",
+  socialLabel1: "Twitter",
+  socialLabel2: "Facebook",
+  socialLabel3: "Instagram",
+  socialSrc1: "https://via.placeholder.com/20x20",
+  socialSrc2: "https://via.placeholder.com/20x20",
+  socialSrc3: "https://via.placeholder.com/20x20",
+  theme: defaultTheme,
+  variant: "default",
+} satisfies SocialsWithInlineLabelsProps;
