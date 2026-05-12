@@ -1,5 +1,5 @@
-import { ProductCard } from "@/registry/bases/mjml-react/ui/product-card";
+import { ProductListWithRows } from "@/registry/bases/mjml-react/ui/ecommerce/product-lists/product-list-with-rows";
 
 export default function ProductCardDemo() {
-  return <ProductCard {...ProductCard.PreviewProps} />;
+  return <ProductListWithRows {...ProductListWithRows.PreviewProps} />;
 }

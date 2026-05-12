@@ -1,5 +1,5 @@
-import { PricingTable } from "@/registry/bases/mjml-react/ui/pricing-table";
+import { PricingBasic } from "@/registry/bases/mjml-react/ui/marketing/pricing/pricing-basic";
 
 export default function PricingTableDemo() {
-  return <PricingTable {...PricingTable.PreviewProps} />;
+  return <PricingBasic {...PricingBasic.PreviewProps} />;
 }

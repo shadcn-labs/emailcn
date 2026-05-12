@@ -1,5 +1,7 @@
-import { Testimonial } from "@/registry/bases/react-email/ui/testimonial";
+import { CenteredTestimonialWithCta } from "@/registry/bases/react-email/ui/marketing/testimonials/centered-testimonial-with-cta";
 
 export default function TestimonialDemo() {
-  return <Testimonial {...Testimonial.PreviewProps} />;
+  return (
+    <CenteredTestimonialWithCta {...CenteredTestimonialWithCta.PreviewProps} />
+  );
 }

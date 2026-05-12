@@ -1,5 +1,5 @@
-import { PricingTable } from "@/registry/bases/react-email/ui/pricing-table";
+import { FullWidthSinglePricing } from "@/registry/bases/react-email/ui/marketing/pricing/full-width-single-pricing";
 
 export default function PricingTableDemo() {
-  return <PricingTable {...PricingTable.PreviewProps} />;
+  return <FullWidthSinglePricing {...FullWidthSinglePricing.PreviewProps} />;
 }

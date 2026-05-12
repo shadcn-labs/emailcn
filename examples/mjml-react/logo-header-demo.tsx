@@ -1,5 +1,5 @@
-import { LogoHeader } from "@/registry/bases/mjml-react/ui/logo-header";
+import { HeaderLogo } from "@/registry/bases/mjml-react/ui/marketing/headers/header-logo";
 
 export default function LogoHeaderDemo() {
-  return <LogoHeader {...LogoHeader.PreviewProps} />;
+  return <HeaderLogo {...HeaderLogo.PreviewProps} />;
 }

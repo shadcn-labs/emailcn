@@ -1,5 +1,5 @@
-import { Divider } from "@/registry/bases/react-email/ui/divider";
+import { LineDivider } from "@/registry/bases/react-email/ui/ui-elements/spacing/line-divider";
 
 export default function DividerDemo() {
-  return <Divider {...Divider.PreviewProps} />;
+  return <LineDivider {...LineDivider.PreviewProps} />;
 }

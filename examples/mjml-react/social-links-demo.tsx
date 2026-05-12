@@ -1,5 +1,5 @@
-import { SocialLinks } from "@/registry/bases/mjml-react/ui/social-links";
+import { SocialLinksMinimal } from "@/registry/bases/mjml-react/ui/marketing/social/social-links-minimal";
 
 export default function SocialLinksDemo() {
-  return <SocialLinks {...SocialLinks.PreviewProps} />;
+  return <SocialLinksMinimal {...SocialLinksMinimal.PreviewProps} />;
 }

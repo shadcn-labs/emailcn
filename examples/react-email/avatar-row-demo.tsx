@@ -1,5 +1,5 @@
-import { AvatarRow } from "@/registry/bases/react-email/ui/avatar-row";
+import { AvatarWithDetails } from "@/registry/bases/react-email/ui/ui-elements/avatars/avatar-with-details";
 
 export default function AvatarRowDemo() {
-  return <AvatarRow {...AvatarRow.PreviewProps} />;
+  return <AvatarWithDetails {...AvatarWithDetails.PreviewProps} />;
 }

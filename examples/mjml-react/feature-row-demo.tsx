@@ -1,5 +1,5 @@
-import { FeatureRow } from "@/registry/bases/mjml-react/ui/feature-row";
+import { FeatureLeftImage } from "@/registry/bases/mjml-react/ui/marketing/feature/feature-left-image";
 
 export default function FeatureRowDemo() {
-  return <FeatureRow {...FeatureRow.PreviewProps} />;
+  return <FeatureLeftImage {...FeatureLeftImage.PreviewProps} />;
 }

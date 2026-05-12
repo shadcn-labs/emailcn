@@ -1,5 +1,5 @@
-import { CTABanner } from "@/registry/bases/mjml-react/ui/cta-banner";
+import { CTAFilled } from "@/registry/bases/mjml-react/ui/marketing/cta/cta-filled";
 
 export default function CTABannerDemo() {
-  return <CTABanner {...CTABanner.PreviewProps} />;
+  return <CTAFilled {...CTAFilled.PreviewProps} />;
 }

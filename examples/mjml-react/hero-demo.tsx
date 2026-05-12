@@ -1,5 +1,7 @@
-import { Hero } from "@/registry/bases/mjml-react/ui/hero";
+import { HeroWithOverlayedContent } from "@/registry/bases/mjml-react/ui/marketing/hero/hero-with-overlayed-content";
 
 export default function HeroDemo() {
-  return <Hero {...Hero.PreviewProps} />;
+  return (
+    <HeroWithOverlayedContent {...HeroWithOverlayedContent.PreviewProps} />
+  );
 }

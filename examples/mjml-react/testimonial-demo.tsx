@@ -1,5 +1,5 @@
-import { Testimonial } from "@/registry/bases/mjml-react/ui/testimonial";
+import { TestimonialCentered } from "@/registry/bases/mjml-react/ui/marketing/testimonials/testimonial-centered";
 
 export default function TestimonialDemo() {
-  return <Testimonial {...Testimonial.PreviewProps} />;
+  return <TestimonialCentered {...TestimonialCentered.PreviewProps} />;
 }
