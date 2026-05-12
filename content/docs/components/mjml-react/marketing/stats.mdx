@@ -1,0 +1,114 @@
+---
+title: "Stats"
+description: "Statistics and metrics display components for showcasing data."
+---
+
+<ComponentPreview base="mjml-react" name="stats-simple-demo" hideCode />
+
+## Variants
+
+### Simple Stats
+
+<ComponentPreview base="mjml-react" name="stats-simple-demo" />
+
+### Accent Stats
+
+<ComponentPreview base="mjml-react" name="stats-accent-demo" />
+
+### Background Stats
+
+<ComponentPreview base="mjml-react" name="stats-background-demo" />
+
+### Bordered Stats
+
+<ComponentPreview base="mjml-react" name="stats-bordered-demo" />
+
+### Boxed Stats
+
+<ComponentPreview base="mjml-react" name="stats-boxed-demo" />
+
+### Dark Stats
+
+<ComponentPreview base="mjml-react" name="stats-dark-demo" />
+
+### Four Column Stats
+
+<ComponentPreview base="mjml-react" name="stats-four-column-demo" />
+
+### Highlight Stats
+
+<ComponentPreview base="mjml-react" name="stats-highlight-demo" />
+
+### Inline Stats
+
+<ComponentPreview base="mjml-react" name="stats-inline-demo" />
+
+### Minimal Stats
+
+<ComponentPreview base="mjml-react" name="stats-minimal-demo" />
+
+### Primary Stats
+
+<ComponentPreview base="mjml-react" name="stats-primary-demo" />
+
+### Two Column Stats
+
+<ComponentPreview base="mjml-react" name="stats-two-column-demo" />
+
+### Stats with Icons
+
+<ComponentPreview base="mjml-react" name="stats-with-icons-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/stats-simple.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/stats-simple.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StatsSimple } from "@/components/emails/marketing/stats/stats-simple";
+```
+
+```tsx
+<StatsSimple {...StatsSimple.PreviewProps} />
+```
+
+## API Reference
+
+### Stats
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

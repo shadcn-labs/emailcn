@@ -1,14 +1,47 @@
 ---
 title: "Logo Header"
-description: "A header with company logo."
+description: "Email header components with logo, navigation, and user details."
 ---
 
-<ComponentPreview base="mjml-react" name="logo-header-demo" hideCode />
+<ComponentPreview base="mjml-react" name="header-logo-demo" hideCode />
+
+## Variants
+
+### Simple Logo
+
+<ComponentPreview base="mjml-react" name="header-logo-demo" />
+
+### Accent Header
+
+<ComponentPreview base="mjml-react" name="header-accent-demo" />
+
+### Badge Header
+
+<ComponentPreview base="mjml-react" name="header-badge-demo" />
+
+### Centered Header
+
+<ComponentPreview base="mjml-react" name="header-centered-demo" />
+
+### Divider Header
+
+<ComponentPreview base="mjml-react" name="header-divider-demo" />
+
+### Left Aligned Header
+
+<ComponentPreview base="mjml-react" name="header-left-aligned-demo" />
+
+### Logo with Links
+
+<ComponentPreview base="mjml-react" name="header-logo-with-links-demo" />
+
+### Minimal Header
+
+<ComponentPreview base="mjml-react" name="header-minimal-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,45 +53,36 @@ npx shadcn@latest add @emailcn/mjml-logo-header
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/headers/header-logo.tsx"
   base="mjml-react"
-  name="logo-header"
-  title="components/emails/logo-header.tsx"
+  title="components/emails/marketing/headers/header-logo.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { LogoHeader } from "@/components/emails/logo-header";
+import { HeaderLogo } from "@/components/emails/marketing/headers/header-logo";
 ```
 
 ```tsx
-<LogoHeader {...LogoHeader.PreviewProps} />
+<HeaderLogo {...HeaderLogo.PreviewProps} />
 ```
 
 ## API Reference
@@ -67,7 +91,7 @@ import { LogoHeader } from "@/components/emails/logo-header";
 
 | Prop      | Type         | Default        | Description         |
 | --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
 | `logoUrl` | `string`     | -              | Logo image URL      |
 | `logoAlt` | `string`     | `"Logo"`       | Alt text for logo   |
 | `href`    | `string`     | `"#"`          | Logo link URL       |
+| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |

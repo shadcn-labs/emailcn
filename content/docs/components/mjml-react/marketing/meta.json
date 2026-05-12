@@ -1,12 +1,23 @@
 {
   "title": "Marketing",
   "pages": [
+    "bento-grids",
+    "blog",
+    "content",
+    "coupons",
     "cta",
+    "faq",
     "feature",
+    "footers",
     "headers",
     "heroes",
+    "images",
+    "logos",
     "pricing",
     "social",
-    "testimonials"
+    "stats",
+    "team",
+    "testimonials",
+    "timelines"
   ]
 }

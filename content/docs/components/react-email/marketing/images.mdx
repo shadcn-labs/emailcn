@@ -1,0 +1,112 @@
+---
+title: "Images"
+description: "Image grid layouts for showcasing product photos and visual content."
+---
+
+<ComponentPreview base="react-email" name="full-width-image-demo" hideCode />
+
+## Variants
+
+### Full Width Image
+
+<ComponentPreview base="react-email" name="full-width-image-demo" />
+
+### Full Width Image with Overlay
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+/>
+
+### 2 Columns Image Grid
+
+<ComponentPreview base="react-email" name="2-columns-image-grid-demo" />
+
+### 2 Columns Image Grid with Full Width Feature
+
+<ComponentPreview
+  base="react-email"
+  name="2-columns-image-grid-with-full-width-feature-demo"
+/>
+
+### 2 Columns Masonry Image Grid (3 Images)
+
+<ComponentPreview
+  base="react-email"
+  name="2-columns-masonry-image-grid-with-3-images-demo"
+/>
+
+### 2 Columns Masonry Image Grid (4 Images)
+
+<ComponentPreview
+  base="react-email"
+  name="2-columns-masonry-image-grid-with-4-images-demo"
+/>
+
+### 3 Columns Image Grid
+
+<ComponentPreview base="react-email" name="3-columns-image-grid-demo" />
+
+### 3 Columns Image Grid with Full Width Feature
+
+<ComponentPreview
+  base="react-email"
+  name="3-columns-image-grid-with-full-width-feature-demo"
+/>
+
+### 3 Columns Masonry Image Grid
+
+<ComponentPreview base="react-email" name="3-columns-masonry-image-grid-demo" />
+
+### 3 Columns Masonry Image Grid with Full Width Feature
+
+<ComponentPreview
+  base="react-email"
+  name="3-columns-masonry-image-grid-with-full-width-feature-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/images/full-width-image.tsx"
+    base="react-email"
+    title="components/emails/marketing/images/full-width-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthImage } from "@/components/emails/marketing/images/full-width-image";
+```
+
+```tsx
+<FullWidthImage {...FullWidthImage.PreviewProps} />
+```
+
+## API Reference
+
+### Images
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

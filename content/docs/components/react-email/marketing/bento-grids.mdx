@@ -1,0 +1,137 @@
+---
+title: "Bento Grids"
+description: "Bento grid layouts for showcasing content in organized, multi-column arrangements."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-3-columns-and-even-split-image-stats-demo"
+  hideCode
+/>
+
+## Variants
+
+### 3 Columns Even Split Image Stats
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-3-columns-and-even-split-image-stats-demo"
+/>
+
+### 3 Columns Even Split Text Stats
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-3-columns-and-even-split-text-stats-demo"
+/>
+
+### 3 Columns Flush Images
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-3-columns-and-flush-images-demo"
+/>
+
+### 3 Columns Padded Images
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-3-columns-and-padded-images-demo"
+/>
+
+### Even Split Image Stats
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-even-split-and-image-stats-demo"
+/>
+
+### Even Split Text Stats
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-even-split-and-text-stats-demo"
+/>
+
+### Even Split Two Thirds
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-even-split-and-two-thirds-demo"
+/>
+
+### Images with Captions
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-images-and-captions-demo"
+/>
+
+### Images with Details
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-images-and-details-demo"
+/>
+
+### Two Rows, 3 Column Second Row
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+/>
+
+### Two Thirds with Stats
+
+<ComponentPreview
+  base="react-email"
+  name="two-thirds-bento-grid-with-stats-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grids
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx"
+    base="react-email"
+    title="components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridWith3ColumnsAndEvenSplitImageStats } from "@/components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats";
+```
+
+```tsx
+<BentoGridWith3ColumnsAndEvenSplitImageStats
+  {...BentoGridWith3ColumnsAndEvenSplitImageStats.PreviewProps}
+/>
+```
+
+## API Reference
+
+### BentoGrids
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

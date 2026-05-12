@@ -1,0 +1,103 @@
+---
+title: "FAQ"
+description: "Frequently asked questions sections for email content."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-faq-with-numbered-questions-demo"
+  hideCode
+/>
+
+## Variants
+
+### Boxed FAQ with Numbered Questions
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-faq-with-numbered-questions-demo"
+/>
+
+### Boxed FAQ with Numbers and Alternating Background
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-faq-with-numbers-and-alternating-background-colors-demo"
+/>
+
+### Collapsed FAQ with Expanded Section and Icons
+
+<ComponentPreview
+  base="react-email"
+  name="collapsed-faq-with-expanded-section-and-icons-demo"
+/>
+
+### Collapsed FAQ with Inline CTA
+
+<ComponentPreview
+  base="react-email"
+  name="collapsed-faq-with-inline-cta-demo"
+/>
+
+### Collapsed FAQ with Numbers
+
+<ComponentPreview base="react-email" name="collapsed-faq-with-numbers-demo" />
+
+### Expanded FAQ with Numbers
+
+<ComponentPreview base="react-email" name="expanded-faq-with-numbers-demo" />
+
+### Expanded FAQ with Offset Answers
+
+<ComponentPreview
+  base="react-email"
+  name="expanded-faq-with-offset-answers-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/faq
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/faq/boxed-faq-with-numbered-questions.tsx"
+    base="react-email"
+    title="components/emails/marketing/faq/boxed-faq-with-numbered-questions.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedFaqWithNumberedQuestions } from "@/components/emails/marketing/faq/boxed-faq-with-numbered-questions";
+```
+
+```tsx
+<BoxedFaqWithNumberedQuestions
+  {...BoxedFaqWithNumberedQuestions.PreviewProps}
+/>
+```
+
+## API Reference
+
+### FAQ
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

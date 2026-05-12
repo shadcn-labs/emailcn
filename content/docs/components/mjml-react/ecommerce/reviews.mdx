@@ -1,0 +1,74 @@
+---
+title: "Reviews"
+description: "Customer review and rating display components for ecommerce emails."
+---
+
+<ComponentPreview base="mjml-react" name="full-width-reviews-demo" hideCode />
+
+## Variants
+
+### Full Width Reviews
+
+<ComponentPreview base="mjml-react" name="full-width-reviews-demo" />
+
+### Masonry Grid Reviews
+
+<ComponentPreview base="mjml-react" name="masonry-grid-reviews-demo" />
+
+### Two Columns Reviews
+
+<ComponentPreview base="mjml-react" name="two-columns-reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/reviews/full-width-reviews.tsx"
+  base="mjml-react"
+  title="components/emails/ecommerce/reviews/full-width-reviews.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-width-reviews";
+```
+
+```tsx
+<FullWidthReviews {...FullWidthReviews.PreviewProps} />
+```
+
+## API Reference
+
+### Reviews
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

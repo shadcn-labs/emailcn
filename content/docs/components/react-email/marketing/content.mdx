@@ -1,0 +1,105 @@
+---
+title: "Content Grid"
+description: "Content grid layouts for paragraphs, titles, and mixed content in emails."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="paragraph-with-regular-padding-demo"
+  hideCode
+/>
+
+## Variants
+
+### Paragraph with Regular Padding
+
+<ComponentPreview
+  base="react-email"
+  name="paragraph-with-regular-padding-demo"
+/>
+
+### Paragraph with Large Padding
+
+<ComponentPreview base="react-email" name="paragraph-with-large-padding-demo" />
+
+### Paragraph 2 Columns with Regular Padding
+
+<ComponentPreview
+  base="react-email"
+  name="paragraph-2-columns-with-regular-padding-demo"
+/>
+
+### Paragraph 2 Columns with Large Padding
+
+<ComponentPreview
+  base="react-email"
+  name="paragraph-2-columns-with-large-padding-demo"
+/>
+
+### Paragraph 2 Columns with Icons and Regular Padding
+
+<ComponentPreview
+  base="react-email"
+  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
+/>
+
+### Paragraph 2 Columns with Icons and Large Padding
+
+<ComponentPreview
+  base="react-email"
+  name="paragraph-2-columns-with-icons-and-large-padding-demo"
+/>
+
+### Title with Regular Padding
+
+<ComponentPreview base="react-email" name="title-with-regular-padding-demo" />
+
+### Title with Large Padding
+
+<ComponentPreview base="react-email" name="title-with-large-padding-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/content-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/content/paragraph-with-regular-padding.tsx"
+    base="react-email"
+    title="components/emails/marketing/content/paragraph-with-regular-padding.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ParagraphWithRegularPadding } from "@/components/emails/marketing/content/paragraph-with-regular-padding";
+```
+
+```tsx
+<ParagraphWithRegularPadding {...ParagraphWithRegularPadding.PreviewProps} />
+```
+
+## API Reference
+
+### Content Grid
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,116 @@
+---
+title: "Footers"
+description: "Email footer components with navigation, social links, and legal text."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-legal-text-demo"
+  hideCode
+/>
+
+## Variants
+
+### Footer with Legal Text
+
+<ComponentPreview base="react-email" name="footer-with-legal-text-demo" />
+
+### Centered with Bordered Full Menu
+
+<ComponentPreview
+  base="react-email"
+  name="footer-centered-with-bordered-full-menu-demo"
+/>
+
+### Centered with Menu and Socials
+
+<ComponentPreview
+  base="react-email"
+  name="footer-centered-with-menu-and-socials-demo"
+/>
+
+### 2 Column Menu
+
+<ComponentPreview base="react-email" name="footer-with-2-column-menu-demo" />
+
+### 3 Column Menu
+
+<ComponentPreview base="react-email" name="footer-with-3-col-menu-demo" />
+
+### Content and CTA
+
+<ComponentPreview base="react-email" name="footer-with-content-and-cta-demo" />
+
+### Oversized Logo and Full Menu
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-oversized-logo-and-full-menu-demo"
+/>
+
+### Social Icons and Address
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-social-icons-and-address-demo"
+/>
+
+### Text Menu and Socials
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-text-menu-and-socials-demo"
+/>
+
+### Simple Footer with Social Icons
+
+<ComponentPreview
+  base="react-email"
+  name="simple-footer-with-social-icons-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/footers/footer-with-legal-text.tsx"
+    base="react-email"
+    title="components/emails/marketing/footers/footer-with-legal-text.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithLegalText } from "@/components/emails/marketing/footers/footer-with-legal-text";
+```
+
+```tsx
+<FooterWithLegalText {...FooterWithLegalText.PreviewProps} />
+```
+
+## API Reference
+
+### Footer
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

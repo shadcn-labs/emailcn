@@ -1,0 +1,90 @@
+---
+title: "Data Tables"
+description: "Table components for displaying structured data and metrics in emails."
+---
+
+<ComponentPreview base="mjml-react" name="basic-demo" hideCode />
+
+## Variants
+
+### Basic
+
+<ComponentPreview base="mjml-react" name="basic-demo" />
+
+### With 4 Columns
+
+<ComponentPreview base="mjml-react" name="with-4-columns-demo" />
+
+### With Change Indicator Pills
+
+<ComponentPreview base="mjml-react" name="with-change-indicator-pills-demo" />
+
+### With Edit Button
+
+<ComponentPreview base="mjml-react" name="with-edit-button-demo" />
+
+### With Logos and Action Links
+
+<ComponentPreview base="mjml-react" name="with-logos-and-action-links-demo" />
+
+### With Pills
+
+<ComponentPreview base="mjml-react" name="with-pills-demo" />
+
+### With Progress Bar
+
+<ComponentPreview base="mjml-react" name="with-progress-bar-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-data-table
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/data-tables/basic.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/data-tables/basic.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Basic } from "@/components/emails/ui-elements/data-tables/basic";
+```
+
+```tsx
+<Basic {...Basic.PreviewProps} />
+```
+
+## API Reference
+
+### Data Table
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

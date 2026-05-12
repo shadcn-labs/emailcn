@@ -1,0 +1,90 @@
+---
+title: "Timelines"
+description: "Timeline components for changelogs, payment history, and event sequences."
+---
+
+<ComponentPreview base="mjml-react" name="timeline-accent-demo" hideCode />
+
+## Variants
+
+### Accent Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-accent-demo" />
+
+### Bordered Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-bordered-demo" />
+
+### Boxed Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-boxed-demo" />
+
+### Centered Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-centered-demo" />
+
+### Dark Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-dark-demo" />
+
+### Minimal Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-minimal-demo" />
+
+### Stacked Timeline
+
+<ComponentPreview base="mjml-react" name="timeline-stacked-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-timelines
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/timeline-accent.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/timeline-accent.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TimelineAccent } from "@/components/emails/marketing/timelines/timeline-accent";
+```
+
+```tsx
+<TimelineAccent {...TimelineAccent.PreviewProps} />
+```
+
+## API Reference
+
+### Timelines
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

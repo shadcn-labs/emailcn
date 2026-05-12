@@ -1,0 +1,86 @@
+---
+title: "Logos"
+description: "Logo cloud and brand showcase layouts for email headers and trust signals."
+---
+
+<ComponentPreview base="mjml-react" name="logos-basic-demo" hideCode />
+
+## Variants
+
+### Basic Logos
+
+<ComponentPreview base="mjml-react" name="logos-basic-demo" />
+
+### Bordered Logos
+
+<ComponentPreview base="mjml-react" name="logos-bordered-demo" />
+
+### Centered Logos
+
+<ComponentPreview base="mjml-react" name="logos-centered-demo" />
+
+### Dark Logos
+
+<ComponentPreview base="mjml-react" name="logos-dark-demo" />
+
+### Logo Grid
+
+<ComponentPreview base="mjml-react" name="logos-grid-demo" />
+
+### Inline Logos
+
+<ComponentPreview base="mjml-react" name="logos-inline-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-logos
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/logos/logos-basic.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/logos/logos-basic.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogosBasic } from "@/components/emails/marketing/logos/logos-basic";
+```
+
+```tsx
+<LogosBasic {...LogosBasic.PreviewProps} />
+```
+
+## API Reference
+
+### Logos
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

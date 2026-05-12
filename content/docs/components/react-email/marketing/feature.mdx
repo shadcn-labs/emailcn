@@ -1,14 +1,51 @@
 ---
 title: "Feature Row"
-description: "A feature display with icon, title, and description."
+description: "Feature display components with images, titles, and descriptions."
 ---
 
-<ComponentPreview base="react-email" name="feature-row-demo" hideCode />
+<ComponentPreview
+  base="react-email"
+  name="feature-with-product-image-demo"
+  hideCode
+/>
+
+## Variants
+
+### Product Image
+
+<ComponentPreview base="react-email" name="feature-with-product-image-demo" />
+
+### Double Tall Background Images
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-double-tall-background-images-demo"
+/>
+
+### Full Title & Tall Background Images
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-full-title-and-tall-background-images-demo"
+/>
+
+### Large Portrait Image
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-large-portrait-image-demo"
+/>
+
+### Multiple Product Images
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-multiple-product-images-demo"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,60 +57,38 @@ npx shadcn@latest add @emailcn/feature-row
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="feature-row"
-  title="components/emails/feature-row.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/feature/feature-with-product-image.tsx"
+    base="react-email"
+    title="components/emails/marketing/feature/feature-with-product-image.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { FeatureRow } from "@/components/emails/feature-row";
+import { FeatureWithProductImage } from "@/components/emails/marketing/feature/feature-with-product-image";
 ```
 
 ```tsx
-<FeatureRow {...FeatureRow.PreviewProps} />
+<FeatureWithProductImage {...FeatureWithProductImage.PreviewProps} />
 ```
 
 ## API Reference
 
 ### Feature Row
 
-| Prop          | Type                 | Default        | Description         |
-| ------------- | -------------------- | -------------- | ------------------- |
-| `theme`       | `EmailTheme`         | `defaultTheme` | Email theme styling |
-| `icon`        | `string`             | -              | Icon emoji or URL   |
-| `title`       | `string`             | -              | Feature title       |
-| `description` | `string`             | -              | Feature description |
-| `align`       | `"left" \| "center"` | `"left"`       | Text alignment      |
+| Prop          | Type         | Default        | Description            |
+| ------------- | ------------ | -------------- | ---------------------- |
+| `imageSrc`    | `string`     | -              | Feature image URL      |
+| `imageAlt`    | `string`     | -              | Feature image alt text |
+| `title`       | `string`     | -              | Feature title          |
+| `description` | `string`     | -              | Feature description    |
+| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling    |

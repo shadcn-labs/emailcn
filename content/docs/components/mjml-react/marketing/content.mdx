@@ -1,0 +1,98 @@
+---
+title: "Content Grid"
+description: "Content grid layouts for paragraphs, icons, and mixed content in emails."
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="content-grid-text-only-demo"
+  hideCode
+/>
+
+## Variants
+
+### Text Only
+
+<ComponentPreview base="mjml-react" name="content-grid-text-only-demo" />
+
+### Bordered Content Grid
+
+<ComponentPreview base="mjml-react" name="content-grid-bordered-demo" />
+
+### Dark Content Grid
+
+<ComponentPreview base="mjml-react" name="content-grid-dark-demo" />
+
+### Icon Row
+
+<ComponentPreview base="mjml-react" name="content-grid-icon-row-demo" />
+
+### Mixed Content Grid
+
+<ComponentPreview base="mjml-react" name="content-grid-mixed-demo" />
+
+### Three Column Content Grid
+
+<ComponentPreview base="mjml-react" name="content-grid-three-column-demo" />
+
+### Two Column Content Grid
+
+<ComponentPreview base="mjml-react" name="content-grid-two-column-demo" />
+
+### Content Grid with CTA
+
+<ComponentPreview base="mjml-react" name="content-grid-with-cta-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-content-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/content-grid-text-only.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/content-grid-text-only.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ContentGridTextOnly } from "@/components/emails/marketing/content/content-grid-text-only";
+```
+
+```tsx
+<ContentGridTextOnly {...ContentGridTextOnly.PreviewProps} />
+```
+
+## API Reference
+
+### Content Grid
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

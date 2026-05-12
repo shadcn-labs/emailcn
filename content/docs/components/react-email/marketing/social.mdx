@@ -1,0 +1,118 @@
+---
+title: "Social Links"
+description: "Social media link components with icons for email footers and headers."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="simple-social-logos-row-demo"
+  hideCode
+/>
+
+## Variants
+
+### Simple Social Logos Row
+
+<ComponentPreview base="react-email" name="simple-social-logos-row-demo" />
+
+### Circle Tiles
+
+<ComponentPreview base="react-email" name="circle-tiles-social-logos-demo" />
+
+### Outlined Box
+
+<ComponentPreview base="react-email" name="outlined-box-social-logos-demo" />
+
+### Outlined Pill Box
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-pill-box-social-logos-demo"
+/>
+
+### Outlined Square Tiles
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-square-tiles-social-logos-demo"
+/>
+
+### Pill Box
+
+<ComponentPreview base="react-email" name="pill-box-social-logos-demo" />
+
+### Socials with Inline Labels
+
+<ComponentPreview base="react-email" name="socials-with-inline-labels-demo" />
+
+### Socials with Inline Tile Labels
+
+<ComponentPreview
+  base="react-email"
+  name="socials-with-inline-tile-labels-demo"
+/>
+
+### Socials with Labels Stacked
+
+<ComponentPreview base="react-email" name="socials-with-labels-stacked-demo" />
+
+### Socials with Stacked Tile Labels
+
+<ComponentPreview
+  base="react-email"
+  name="socials-with-stacked-tile-labels-demo"
+/>
+
+### Square Tiles
+
+<ComponentPreview base="react-email" name="square-tiles-social-logos-demo" />
+
+### Squared Box
+
+<ComponentPreview base="react-email" name="squared-box-social-logos-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/social-links
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/social/simple-social-logos-row.tsx"
+    base="react-email"
+    title="components/emails/marketing/social/simple-social-logos-row.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SimpleSocialLogosRow } from "@/components/emails/marketing/social/simple-social-logos-row";
+```
+
+```tsx
+<SimpleSocialLogosRow {...SimpleSocialLogosRow.PreviewProps} />
+```
+
+## API Reference
+
+### Social Links
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

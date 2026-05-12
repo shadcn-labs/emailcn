@@ -1,14 +1,27 @@
 ---
 title: "Pricing Table"
-description: "A pricing comparison table for subscription plans."
+description: "Pricing comparison tables for subscription plans."
 ---
 
-<ComponentPreview base="mjml-react" name="pricing-table-demo" hideCode />
+<ComponentPreview base="mjml-react" name="pricing-basic-demo" hideCode />
+
+## Variants
+
+### Basic Pricing
+
+<ComponentPreview base="mjml-react" name="pricing-basic-demo" />
+
+### Highlighted Pricing
+
+<ComponentPreview base="mjml-react" name="pricing-highlighted-demo" />
+
+### Side by Side
+
+<ComponentPreview base="mjml-react" name="pricing-side-by-side-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,50 +33,39 @@ npx shadcn@latest add @emailcn/mjml-pricing-table
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/pricing/pricing-basic.tsx"
   base="mjml-react"
-  name="pricing-table"
-  title="components/emails/pricing-table.tsx"
+  title="components/emails/marketing/pricing/pricing-basic.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { PricingTable } from "@/components/emails/pricing-table";
+import { PricingBasic } from "@/components/emails/marketing/pricing/pricing-basic";
 ```
 
 ```tsx
-<PricingTable {...PricingTable.PreviewProps} />
+<PricingBasic {...PricingBasic.PreviewProps} />
 ```
 
 ## API Reference
-
-### Pricing Table
 
 ### PricingTable
 

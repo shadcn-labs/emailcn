@@ -1,14 +1,51 @@
 ---
-title: "Product Card"
-description: "A product display card with image and details."
+title: "Product Detail"
+description: "Product detail displays with images, descriptions, and purchase options."
 ---
 
-<ComponentPreview base="mjml-react" name="product-card-demo" hideCode />
+<ComponentPreview
+  base="mjml-react"
+  name="single-image-product-detail-with-details-demo"
+  hideCode
+/>
+
+## Variants
+
+### Single Image with Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="single-image-product-detail-with-details-demo"
+/>
+
+### Product Detail with Masonry Image Grid and Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-with-masonry-image-grid-and-details-demo"
+/>
+
+### Product Detail with Three Images and Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-with-three-images-and-details-demo"
+/>
+
+### Product Detail with Two Images and Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-with-two-images-and-details-demo"
+/>
+
+### Split Product Detail
+
+<ComponentPreview base="mjml-react" name="split-product-detail-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -16,61 +53,54 @@ description: "A product display card with image and details."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-product-card
+npx shadcn@latest add @emailcn/mjml-product-detail
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
   base="mjml-react"
-  name="product-card"
-  title="components/emails/product-card.tsx"
+  title="components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { ProductCard } from "@/components/emails/product-card";
+import { SingleImageProductDetailWithDetails } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
 ```
 
 ```tsx
-<ProductCard {...ProductCard.PreviewProps} />
+<SingleImageProductDetailWithDetails
+  {...SingleImageProductDetailWithDetails.PreviewProps}
+/>
 ```
 
 ## API Reference
 
-### Product Card
+### Product Detail
 
 | Prop                 | Type         | Default        | Description         |
 | -------------------- | ------------ | -------------- | ------------------- |
-| `theme`              | `EmailTheme` | `defaultTheme` | Email theme styling |
 | `productImageUrl`    | `string`     | -              | Product image URL   |
 | `productName`        | `string`     | -              | Product name        |
 | `productDescription` | `string`     | -              | Product description |
 | `price`              | `string`     | -              | Product price       |
 | `ctaLabel`           | `string`     | -              | CTA button label    |
 | `ctaHref`            | `string`     | `"#"`          | CTA button link     |
+| `theme`              | `EmailTheme` | `defaultTheme` | Email theme styling |

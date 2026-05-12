@@ -1,14 +1,30 @@
 ---
 title: "Avatar Row"
-description: "A row of user avatars with optional names."
+description: "User avatar components for displaying people in emails."
 ---
 
-<ComponentPreview base="react-email" name="avatar-row-demo" hideCode />
+<ComponentPreview base="react-email" name="avatar-with-details-demo" hideCode />
+
+## Variants
+
+### Avatar with Details
+
+<ComponentPreview base="react-email" name="avatar-with-details-demo" />
+
+### Grouped Overlapped Avatars
+
+<ComponentPreview base="react-email" name="grouped-overlapped-avatars-demo" />
+
+### Grouped Overlapped Avatars with Plus Count
+
+<ComponentPreview
+  base="react-email"
+  name="grouped-overlapped-avatars-with-plus-count-demo"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,57 +36,34 @@ npx shadcn@latest add @emailcn/avatar-row
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="avatar-row"
-  title="components/emails/avatar-row.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/avatars/avatar-with-details.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/avatars/avatar-with-details.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { AvatarRow } from "@/components/emails/avatar-row";
+import { AvatarWithDetails } from "@/components/emails/ui-elements/avatars/avatar-with-details";
 ```
 
 ```tsx
-<AvatarRow {...AvatarRow.PreviewProps} />
+<AvatarWithDetails {...AvatarWithDetails.PreviewProps} />
 ```
 
 ## API Reference
 
 ### Avatar Row
 
-| Prop    | Type                       | Default        | Description         |
-| ------- | -------------------------- | -------------- | ------------------- |
-| `theme` | `EmailTheme`               | `defaultTheme` | Email theme styling |
-| `users` | `Array<{name, avatarUrl}>` | -              | List of users       |
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

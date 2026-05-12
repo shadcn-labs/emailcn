@@ -1,14 +1,34 @@
 ---
 title: "Pricing Table"
-description: "A pricing comparison table for subscription plans."
+description: "Pricing comparison tables for subscription plans."
 ---
 
-<ComponentPreview base="react-email" name="pricing-table-demo" hideCode />
+<ComponentPreview
+  base="react-email"
+  name="full-width-single-pricing-demo"
+  hideCode
+/>
+
+## Variants
+
+### Full Width Single
+
+<ComponentPreview base="react-email" name="full-width-single-pricing-demo" />
+
+### 2 Columns
+
+<ComponentPreview base="react-email" name="2-columns-pricing-table-demo" />
+
+### 2 Columns with Gaps
+
+<ComponentPreview
+  base="react-email"
+  name="2-columns-pricing-table-with-gaps-demo"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,55 +40,31 @@ npx shadcn@latest add @emailcn/pricing-table
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="pricing-table"
-  title="components/emails/pricing-table.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/pricing/full-width-single-pricing.tsx"
+    base="react-email"
+    title="components/emails/marketing/pricing/full-width-single-pricing.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { PricingTable } from "@/components/emails/pricing-table";
+import { FullWidthSinglePricing } from "@/components/emails/marketing/pricing/full-width-single-pricing";
 ```
 
 ```tsx
-<PricingTable {...PricingTable.PreviewProps} />
+<FullWidthSinglePricing {...FullWidthSinglePricing.PreviewProps} />
 ```
 
 ## API Reference
-
-### Pricing Table
 
 ### PricingTable
 

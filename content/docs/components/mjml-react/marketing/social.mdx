@@ -1,14 +1,63 @@
 ---
 title: "Social Links"
-description: "A row of social media links with icons."
+description: "Social media link components with icons for email footers and headers."
 ---
 
-<ComponentPreview base="mjml-react" name="social-links-demo" hideCode />
+<ComponentPreview base="mjml-react" name="social-links-minimal-demo" hideCode />
+
+## Variants
+
+### Minimal Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-minimal-demo" />
+
+### Accent Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-accent-demo" />
+
+### Bordered Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-bordered-demo" />
+
+### Centered Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-centered-demo" />
+
+### Compact Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-compact-demo" />
+
+### Dark Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-dark-demo" />
+
+### Featured Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-featured-demo" />
+
+### Grid Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-grid-demo" />
+
+### Horizontal Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-horizontal-demo" />
+
+### List Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-list-demo" />
+
+### Stacked Social Links
+
+<ComponentPreview base="mjml-react" name="social-links-stacked-demo" />
+
+### Social Links with Icons
+
+<ComponentPreview base="mjml-react" name="social-links-with-icons-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,56 +69,42 @@ npx shadcn@latest add @emailcn/mjml-social-links
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/social/social-links-minimal.tsx"
   base="mjml-react"
-  name="social-links"
-  title="components/emails/social-links.tsx"
+  title="components/emails/marketing/social/social-links-minimal.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { SocialLinks } from "@/components/emails/social-links";
+import { SocialLinksMinimal } from "@/components/emails/marketing/social/social-links-minimal";
 ```
 
 ```tsx
-<SocialLinks {...SocialLinks.PreviewProps} />
+<SocialLinksMinimal {...SocialLinksMinimal.PreviewProps} />
 ```
 
 ## API Reference
 
 ### Social Links
 
-| Prop           | Type         | Default        | Description         |
-| -------------- | ------------ | -------------- | ------------------- |
-| `theme`        | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `twitterUrl`   | `string`     | -              | Twitter/X link      |
-| `linkedinUrl`  | `string`     | -              | LinkedIn link       |
-| `githubUrl`    | `string`     | -              | GitHub link         |
-| `facebookUrl`  | `string`     | -              | Facebook link       |
-| `instagramUrl` | `string`     | -              | Instagram link      |
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

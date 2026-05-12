@@ -1,0 +1,116 @@
+---
+title: "Bento Grids"
+description: "Bento grid layouts for showcasing content in organized, multi-column arrangements."
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-alternating-demo"
+  hideCode
+/>
+
+## Variants
+
+### Alternating Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-alternating-demo" />
+
+### Centered Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-centered-demo" />
+
+### Featured Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-featured-demo" />
+
+### Four Column Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-four-column-demo" />
+
+### Icon Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-icon-grid-demo" />
+
+### Masonry Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-masonry-demo" />
+
+### Product Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-product-demo" />
+
+### Stats Bento Grid
+
+<ComponentPreview base="mjml-react" name="bento-grid-stats-demo" />
+
+### Bento Grid with CTA
+
+<ComponentPreview base="mjml-react" name="bento-grid-with-cta-demo" />
+
+### Images with Captions
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-images-and-captions-demo"
+/>
+
+### Images with Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-images-and-details-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-bento-grids
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/bento-grids/bento-grid-alternating.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/bento-grids/bento-grid-alternating.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridAlternating } from "@/components/emails/marketing/bento-grids/bento-grid-alternating";
+```
+
+```tsx
+<BentoGridAlternating {...BentoGridAlternating.PreviewProps} />
+```
+
+## API Reference
+
+### BentoGrids
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

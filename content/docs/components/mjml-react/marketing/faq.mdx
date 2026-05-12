@@ -1,0 +1,90 @@
+---
+title: "FAQ"
+description: "Frequently asked questions sections for email content."
+---
+
+<ComponentPreview base="mjml-react" name="faq-accordion-demo" hideCode />
+
+## Variants
+
+### FAQ Accordion
+
+<ComponentPreview base="mjml-react" name="faq-accordion-demo" />
+
+### Boxed FAQ
+
+<ComponentPreview base="mjml-react" name="faq-boxed-demo" />
+
+### Dark FAQ
+
+<ComponentPreview base="mjml-react" name="faq-dark-demo" />
+
+### Expanded FAQ
+
+<ComponentPreview base="mjml-react" name="faq-expanded-demo" />
+
+### FAQ Grid
+
+<ComponentPreview base="mjml-react" name="faq-grid-demo" />
+
+### Minimal FAQ
+
+<ComponentPreview base="mjml-react" name="faq-minimal-demo" />
+
+### FAQ with Search
+
+<ComponentPreview base="mjml-react" name="faq-with-search-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-faq
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/faq/faq-accordion.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/faq/faq-accordion.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FaqAccordion } from "@/components/emails/marketing/faq/faq-accordion";
+```
+
+```tsx
+<FaqAccordion {...FaqAccordion.PreviewProps} />
+```
+
+## API Reference
+
+### FAQ
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,62 @@
+---
+title: "Product Lists"
+description: "Product list layouts for showcasing multiple products in a single email section."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="product-list-with-rows-demo"
+  hideCode
+/>
+
+## Variants
+
+### Product List with Rows
+
+<ComponentPreview base="react-email" name="product-list-with-rows-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-list
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-lists/product-list-with-rows.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists/product-list-with-rows";
+```
+
+```tsx
+<ProductListWithRows {...ProductListWithRows.PreviewProps} />
+```
+
+## API Reference
+
+### Product List
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

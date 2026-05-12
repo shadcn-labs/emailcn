@@ -1,14 +1,43 @@
 ---
 title: "CTA Banner"
-description: "A call-to-action banner for promotions."
+description: "Call-to-action banners for promotions and announcements."
 ---
 
-<ComponentPreview base="mjml-react" name="cta-banner-demo" hideCode />
+<ComponentPreview base="mjml-react" name="cta-accent-demo" hideCode />
+
+## Variants
+
+### Accent CTA
+
+<ComponentPreview base="mjml-react" name="cta-accent-demo" />
+
+### Announcement CTA
+
+<ComponentPreview base="mjml-react" name="cta-announcement-demo" />
+
+### Dark CTA
+
+<ComponentPreview base="mjml-react" name="cta-dark-demo" />
+
+### Filled CTA
+
+<ComponentPreview base="mjml-react" name="cta-filled-demo" />
+
+### Outline CTA
+
+<ComponentPreview base="mjml-react" name="cta-outline-demo" />
+
+### Split CTA
+
+<ComponentPreview base="mjml-react" name="cta-split-demo" />
+
+### Wide CTA
+
+<ComponentPreview base="mjml-react" name="cta-wide-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,55 +49,46 @@ npx shadcn@latest add @emailcn/mjml-cta-banner
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-accent.tsx"
   base="mjml-react"
-  name="cta-banner"
-  title="components/emails/cta-banner.tsx"
+  title="components/emails/marketing/cta/cta-accent.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { CtaBanner } from "@/components/emails/cta-banner";
+import { CtaAccent } from "@/components/emails/marketing/cta/cta-accent";
 ```
 
 ```tsx
-<CtaBanner {...CtaBanner.PreviewProps} />
+<CtaAccent {...CtaAccent.PreviewProps} />
 ```
 
 ## API Reference
 
 ### CTA Banner
 
-| Prop          | Type         | Default        | Description         |
-| ------------- | ------------ | -------------- | ------------------- |
-| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `heading`     | `string`     | -              | Banner heading      |
-| `description` | `string`     | -              | Banner description  |
-| `ctaLabel`    | `string`     | -              | CTA button label    |
-| `ctaHref`     | `string`     | `"#"`          | CTA button link     |
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |

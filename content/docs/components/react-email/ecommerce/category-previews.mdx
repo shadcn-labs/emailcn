@@ -1,0 +1,66 @@
+---
+title: "Category Previews"
+description: "Category preview layouts for browsing product categories."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-with-cards-demo"
+  hideCode
+/>
+
+## Variants
+
+### Category Preview with Cards
+
+<ComponentPreview base="react-email" name="category-preview-with-cards-demo" />
+
+### Category Preview with Rows
+
+<ComponentPreview base="react-email" name="category-preview-with-rows-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/category-preview
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/category-previews/category-preview-with-cards.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/category-previews/category-preview-with-cards.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CategoryPreviewWithCards } from "@/components/emails/ecommerce/category-previews/category-preview-with-cards";
+```
+
+```tsx
+<CategoryPreviewWithCards {...CategoryPreviewWithCards.PreviewProps} />
+```
+
+## API Reference
+
+### Category Preview
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

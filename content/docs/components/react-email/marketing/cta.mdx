@@ -1,14 +1,53 @@
 ---
 title: "CTA Banner"
-description: "A call-to-action banner for promotions."
+description: "Call-to-action banners for promotions and announcements."
 ---
 
-<ComponentPreview base="react-email" name="cta-banner-demo" hideCode />
+<ComponentPreview
+  base="react-email"
+  name="boxed-cta-with-background-image-demo"
+  hideCode
+/>
+
+## Variants
+
+### Boxed with Background Image
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-cta-with-background-image-demo"
+/>
+
+### Background Image
+
+<ComponentPreview base="react-email" name="cta-with-background-image-demo" />
+
+### Image Strip
+
+<ComponentPreview base="react-email" name="cta-with-image-strip-demo" />
+
+### Shifted Images
+
+<ComponentPreview base="react-email" name="cta-with-shifted-images-demo" />
+
+### Team Avatars
+
+<ComponentPreview base="react-email" name="cta-with-team-avatars-demo" />
+
+### Title & Action Lead
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-title-and-action-lead-demo"
+/>
+
+### Top Large Image
+
+<ComponentPreview base="react-email" name="cta-with-top-large-image-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,60 +59,38 @@ npx shadcn@latest add @emailcn/cta-banner
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="cta-banner"
-  title="components/emails/cta-banner.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/cta/boxed-cta-with-background-image.tsx"
+    base="react-email"
+    title="components/emails/marketing/cta/boxed-cta-with-background-image.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { CtaBanner } from "@/components/emails/cta-banner";
+import { BoxedCtaWithBackgroundImage } from "@/components/emails/marketing/cta/boxed-cta-with-background-image";
 ```
 
 ```tsx
-<CtaBanner {...CtaBanner.PreviewProps} />
+<BoxedCtaWithBackgroundImage {...BoxedCtaWithBackgroundImage.PreviewProps} />
 ```
 
 ## API Reference
 
 ### CTA Banner
 
-| Prop          | Type         | Default        | Description         |
-| ------------- | ------------ | -------------- | ------------------- |
-| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `heading`     | `string`     | -              | Banner heading      |
-| `description` | `string`     | -              | Banner description  |
-| `ctaLabel`    | `string`     | -              | CTA button label    |
-| `ctaHref`     | `string`     | `"#"`          | CTA button link     |
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |

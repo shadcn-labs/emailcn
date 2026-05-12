@@ -1,14 +1,31 @@
 ---
 title: "Testimonial"
-description: "A customer testimonial section with avatar and quote."
+description: "Customer testimonial sections with quotes, avatars, and author details."
 ---
 
-<ComponentPreview base="mjml-react" name="testimonial-demo" hideCode />
+<ComponentPreview base="mjml-react" name="testimonial-card-demo" hideCode />
+
+## Variants
+
+### Testimonial Card
+
+<ComponentPreview base="mjml-react" name="testimonial-card-demo" />
+
+### Centered Testimonial
+
+<ComponentPreview base="mjml-react" name="testimonial-centered-demo" />
+
+### Dark Testimonial
+
+<ComponentPreview base="mjml-react" name="testimonial-dark-demo" />
+
+### Testimonial Grid
+
+<ComponentPreview base="mjml-react" name="testimonial-grid-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,45 +37,36 @@ npx shadcn@latest add @emailcn/mjml-testimonial
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/testimonials/testimonial-card.tsx"
   base="mjml-react"
-  name="testimonial"
-  title="components/emails/testimonial.tsx"
+  title="components/emails/marketing/testimonials/testimonial-card.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Testimonial } from "@/components/emails/testimonial";
+import { TestimonialCard } from "@/components/emails/marketing/testimonials/testimonial-card";
 ```
 
 ```tsx
-<Testimonial {...Testimonial.PreviewProps} />
+<TestimonialCard {...TestimonialCard.PreviewProps} />
 ```
 
 ## API Reference

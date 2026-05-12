@@ -1,0 +1,81 @@
+---
+title: "Team"
+description: "Team member display components for showcasing people in emails."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="horizontal-team-member-bios-demo"
+  hideCode
+/>
+
+## Variants
+
+### Horizontal Team Member Bios
+
+<ComponentPreview base="react-email" name="horizontal-team-member-bios-demo" />
+
+### 2 Column Team Cards with Details
+
+<ComponentPreview
+  base="react-email"
+  name="2-column-team-cards-with-details-demo"
+/>
+
+### 2 Column Team Cards
+
+<ComponentPreview base="react-email" name="2-column-team-cards-demo" />
+
+### 2 Columns Compact
+
+<ComponentPreview base="react-email" name="2-columns-compact-demo" />
+
+### 3 Columns Team Grid
+
+<ComponentPreview base="react-email" name="3-columns-team-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/team
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/team/horizontal-team-member-bios.tsx"
+    base="react-email"
+    title="components/emails/marketing/team/horizontal-team-member-bios.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HorizontalTeamMemberBios } from "@/components/emails/marketing/team/horizontal-team-member-bios";
+```
+
+```tsx
+<HorizontalTeamMemberBios {...HorizontalTeamMemberBios.PreviewProps} />
+```
+
+## API Reference
+
+### Team
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

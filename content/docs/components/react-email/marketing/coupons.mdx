@@ -1,0 +1,69 @@
+---
+title: "Coupons"
+description: "Coupon and discount code displays for promotional emails."
+---
+
+<ComponentPreview base="react-email" name="card-coupons-demo" hideCode />
+
+## Variants
+
+### Card Coupons
+
+<ComponentPreview base="react-email" name="card-coupons-demo" />
+
+### Centered Text
+
+<ComponentPreview base="react-email" name="coupons-with-centered-text-demo" />
+
+### Content Overlayed
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-content-overlayed-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/coupons
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/coupons/card-coupons.tsx"
+    base="react-email"
+    title="components/emails/marketing/coupons/card-coupons.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CardCoupons } from "@/components/emails/marketing/coupons/card-coupons";
+```
+
+```tsx
+<CardCoupons {...CardCoupons.PreviewProps} />
+```
+
+## API Reference
+
+### Coupons
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

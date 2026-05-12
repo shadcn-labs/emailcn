@@ -1,0 +1,102 @@
+---
+title: "Images"
+description: "Image display components for showcasing photos and visual content."
+---
+
+<ComponentPreview base="mjml-react" name="image-full-width-demo" hideCode />
+
+## Variants
+
+### Full Width Image
+
+<ComponentPreview base="mjml-react" name="image-full-width-demo" />
+
+### Image Banner
+
+<ComponentPreview base="mjml-react" name="image-banner-demo" />
+
+### Image Card
+
+<ComponentPreview base="mjml-react" name="image-card-demo" />
+
+### Image Collage
+
+<ComponentPreview base="mjml-react" name="image-collage-demo" />
+
+### Image Gallery
+
+<ComponentPreview base="mjml-react" name="image-gallery-demo" />
+
+### Image Grid
+
+<ComponentPreview base="mjml-react" name="image-grid-demo" />
+
+### Hero Image
+
+<ComponentPreview base="mjml-react" name="image-hero-demo" />
+
+### Rounded Image
+
+<ComponentPreview base="mjml-react" name="image-rounded-demo" />
+
+### Split Image
+
+<ComponentPreview base="mjml-react" name="image-split-demo" />
+
+### Triptych
+
+<ComponentPreview base="mjml-react" name="image-triptych-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/image-full-width.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/image-full-width.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageFullWidth } from "@/components/emails/marketing/images/image-full-width";
+```
+
+```tsx
+<ImageFullWidth {...ImageFullWidth.PreviewProps} />
+```
+
+## API Reference
+
+### Images
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,71 @@
+---
+title: "Progress Bars"
+description: "Progress bar components for displaying completion status and metrics."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-progress-bar-demo"
+  hideCode
+/>
+
+## Variants
+
+### Full Width Progress Bar
+
+<ComponentPreview base="react-email" name="full-width-progress-bar-demo" />
+
+### Progress Bar Columns
+
+<ComponentPreview base="react-email" name="progress-bar-columns-demo" />
+
+### Progress Bar Group
+
+<ComponentPreview base="react-email" name="progress-bar-group-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/progress-bar
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/progress-bars/full-width-progress-bar.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthProgressBar } from "@/components/emails/ui-elements/progress-bars/full-width-progress-bar";
+```
+
+```tsx
+<FullWidthProgressBar {...FullWidthProgressBar.PreviewProps} />
+```
+
+## API Reference
+
+### Progress Bar
+
+| Prop       | Type         | Default        | Description         |
+| ---------- | ------------ | -------------- | ------------------- |
+| `progress` | `number`     | `0`            | Progress percentage |
+| `theme`    | `EmailTheme` | `defaultTheme` | Email theme styling |

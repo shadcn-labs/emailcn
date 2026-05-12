@@ -1,0 +1,114 @@
+---
+title: "Blog"
+description: "Blog post layouts for email newsletters and content digests."
+---
+
+<ComponentPreview base="mjml-react" name="blog-card-demo" hideCode />
+
+## Variants
+
+### Blog Card
+
+<ComponentPreview base="mjml-react" name="blog-card-demo" />
+
+### Blog Compact
+
+<ComponentPreview base="mjml-react" name="blog-compact-demo" />
+
+### Blog CTA Banner
+
+<ComponentPreview base="mjml-react" name="blog-cta-banner-demo" />
+
+### Blog Dark
+
+<ComponentPreview base="mjml-react" name="blog-dark-demo" />
+
+### Blog Featured
+
+<ComponentPreview base="mjml-react" name="blog-featured-demo" />
+
+### Blog Grid
+
+<ComponentPreview base="mjml-react" name="blog-grid-demo" />
+
+### Blog Horizontal
+
+<ComponentPreview base="mjml-react" name="blog-horizontal-demo" />
+
+### Blog Image Card
+
+<ComponentPreview base="mjml-react" name="blog-image-card-demo" />
+
+### Blog List
+
+<ComponentPreview base="mjml-react" name="blog-list-demo" />
+
+### Blog Minimal
+
+<ComponentPreview base="mjml-react" name="blog-minimal-demo" />
+
+### Blog Single Column
+
+<ComponentPreview base="mjml-react" name="blog-single-column-demo" />
+
+### Blog Three Column
+
+<ComponentPreview base="mjml-react" name="blog-three-column-demo" />
+
+### Blog with CTA
+
+<ComponentPreview base="mjml-react" name="blog-with-cta-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-blog
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/blog/blog-card.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/blog/blog-card.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BlogCard } from "@/components/emails/marketing/blog/blog-card";
+```
+
+```tsx
+<BlogCard {...BlogCard.PreviewProps} />
+```
+
+## API Reference
+
+### Blog
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

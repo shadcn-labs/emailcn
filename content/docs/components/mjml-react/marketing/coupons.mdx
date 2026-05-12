@@ -1,0 +1,74 @@
+---
+title: "Coupons"
+description: "Coupon and discount code displays for promotional emails."
+---
+
+<ComponentPreview base="mjml-react" name="coupon-card-default-demo" hideCode />
+
+## Variants
+
+### Coupon Card Default
+
+<ComponentPreview base="mjml-react" name="coupon-card-default-demo" />
+
+### Centered Coupon
+
+<ComponentPreview base="mjml-react" name="coupon-centered-demo" />
+
+### Overlayed Coupon
+
+<ComponentPreview base="mjml-react" name="coupon-overlayed-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-coupons
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/coupons/coupon-card-default.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/coupons/coupon-card-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CouponCardDefault } from "@/components/emails/marketing/coupons/coupon-card-default";
+```
+
+```tsx
+<CouponCardDefault {...CouponCardDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Coupons
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

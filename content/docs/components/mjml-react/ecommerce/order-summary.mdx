@@ -1,0 +1,131 @@
+---
+title: "Order Summary"
+description: "Order summary layouts for purchase confirmation and receipt emails."
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-with-total-top-demo"
+  hideCode
+/>
+
+## Variants
+
+### Bordered Order Summary with Total Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-with-total-top-demo"
+/>
+
+### Bordered Order Summary with Total Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-with-total-bottom-demo"
+/>
+
+### Bordered Order Summary with Card Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-with-card-details-demo"
+/>
+
+### Boxed Order Summary with Total Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-with-total-top-demo"
+/>
+
+### Boxed Order Summary with Total Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-with-total-bottom-demo"
+/>
+
+### Boxed Order Summary with Card Details and Total Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-with-card-details-and-total-top-demo"
+/>
+
+### Boxed Order Summary with Card Details and Total Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-with-card-details-and-total-bottom-demo"
+/>
+
+### Order Summary with Billing Details (Inline)
+
+<ComponentPreview
+  base="mjml-react"
+  name="order-summary-with-billing-details-and-payment-method-inline-demo"
+/>
+
+### Order Summary with Billing Details (Top)
+
+<ComponentPreview
+  base="mjml-react"
+  name="order-summary-with-billing-details-and-payment-method-top-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-order-summary
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+  base="mjml-react"
+  title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BorderedOrderSummaryWithTotalTop } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top";
+```
+
+```tsx
+<BorderedOrderSummaryWithTotalTop
+  {...BorderedOrderSummaryWithTotalTop.PreviewProps}
+/>
+```
+
+## API Reference
+
+### Order Summary
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

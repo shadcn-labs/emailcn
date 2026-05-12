@@ -1,14 +1,51 @@
 ---
-title: "Divider"
-description: "A horizontal divider line."
+title: "Divider & Spacing"
+description: "Horizontal dividers, spacers, and visual separators for email layouts."
 ---
 
-<ComponentPreview base="mjml-react" name="divider-demo" hideCode />
+<ComponentPreview base="mjml-react" name="line-divider-demo" hideCode />
+
+## Variants
+
+### Line Divider
+
+<ComponentPreview base="mjml-react" name="line-divider-demo" />
+
+### Divider with Title
+
+<ComponentPreview base="mjml-react" name="divider-with-title-demo" />
+
+### Divider with Icon
+
+<ComponentPreview base="mjml-react" name="divider-with-icon-demo" />
+
+### Divider with Icon and Button
+
+<ComponentPreview base="mjml-react" name="divider-with-icon-and-button-demo" />
+
+### Divider with Logo
+
+<ComponentPreview base="mjml-react" name="divider-with-logo-demo" />
+
+### Divider with Social Icons
+
+<ComponentPreview base="mjml-react" name="divider-with-social-icons-demo" />
+
+### Divider with Button
+
+<ComponentPreview base="mjml-react" name="divider-with-button-demo" />
+
+### Divider with File Type
+
+<ComponentPreview base="mjml-react" name="divider-with-file-type-demo" />
+
+### Vertical Spacer
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,45 +57,36 @@ npx shadcn@latest add @emailcn/mjml-divider
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/line-divider.tsx"
   base="mjml-react"
-  name="divider"
-  title="components/emails/divider.tsx"
+  title="components/emails/ui-elements/spacing/line-divider.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Divider } from "@/components/emails/divider";
+import { LineDivider } from "@/components/emails/ui-elements/spacing/line-divider";
 ```
 
 ```tsx
-<Divider {...Divider.PreviewProps} />
+<LineDivider {...LineDivider.PreviewProps} />
 ```
 
 ## API Reference

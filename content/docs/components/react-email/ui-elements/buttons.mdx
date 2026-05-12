@@ -1,0 +1,81 @@
+---
+title: "Buttons"
+description: "Email button components with primary, secondary, and text link styles."
+---
+
+<ComponentPreview base="react-email" name="primary-buttons-demo" hideCode />
+
+## Variants
+
+### Primary Buttons
+
+<ComponentPreview base="react-email" name="primary-buttons-demo" />
+
+### Primary Buttons with Icon
+
+<ComponentPreview base="react-email" name="primary-buttons-with-icon-demo" />
+
+### Secondary Buttons
+
+<ComponentPreview base="react-email" name="secondary-buttons-demo" />
+
+### Secondary Buttons with Icon
+
+<ComponentPreview base="react-email" name="secondary-buttons-with-icon-demo" />
+
+### Text Link Buttons
+
+<ComponentPreview base="react-email" name="text-link-buttons-demo" />
+
+### Text Link Buttons with Icon
+
+<ComponentPreview base="react-email" name="text-link-buttons-with-icon-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/button
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/buttons/primary-buttons.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/buttons/primary-buttons.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PrimaryButtons } from "@/components/emails/ui-elements/buttons/primary-buttons";
+```
+
+```tsx
+<PrimaryButtons {...PrimaryButtons.PreviewProps} />
+```
+
+## API Reference
+
+### Button
+
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |

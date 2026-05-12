@@ -1,0 +1,82 @@
+---
+title: "Team"
+description: "Team member display components for showcasing people in emails."
+---
+
+<ComponentPreview base="mjml-react" name="team-card-demo" hideCode />
+
+## Variants
+
+### Team Card
+
+<ComponentPreview base="mjml-react" name="team-card-demo" />
+
+### Team Compact
+
+<ComponentPreview base="mjml-react" name="team-compact-demo" />
+
+### Team Grid
+
+<ComponentPreview base="mjml-react" name="team-grid-demo" />
+
+### Team Inline
+
+<ComponentPreview base="mjml-react" name="team-inline-demo" />
+
+### Team with Bio
+
+<ComponentPreview base="mjml-react" name="team-with-bio-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-team
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/team/team-card.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/team/team-card.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TeamCard } from "@/components/emails/marketing/team/team-card";
+```
+
+```tsx
+<TeamCard {...TeamCard.PreviewProps} />
+```
+
+## API Reference
+
+### Team
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

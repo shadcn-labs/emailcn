@@ -1,0 +1,89 @@
+---
+title: "Buttons"
+description: "Email button components with primary, secondary, and text link styles."
+---
+
+<ComponentPreview base="mjml-react" name="primary-buttons-demo" hideCode />
+
+## Variants
+
+### Primary Buttons
+
+<ComponentPreview base="mjml-react" name="primary-buttons-demo" />
+
+### Primary Buttons with Icon
+
+<ComponentPreview base="mjml-react" name="primary-buttons-with-icon-demo" />
+
+### Secondary Buttons
+
+<ComponentPreview base="mjml-react" name="secondary-buttons-demo" />
+
+### Secondary Buttons with Icon
+
+<ComponentPreview base="mjml-react" name="secondary-buttons-with-icon-demo" />
+
+### Text Link Buttons
+
+<ComponentPreview base="mjml-react" name="text-link-buttons-demo" />
+
+### Text Link Buttons with Icon
+
+<ComponentPreview base="mjml-react" name="text-link-buttons-with-icon-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-button
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/buttons/primary-buttons.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/buttons/primary-buttons.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PrimaryButtons } from "@/components/emails/ui-elements/buttons/primary-buttons";
+```
+
+```tsx
+<PrimaryButtons {...PrimaryButtons.PreviewProps} />
+```
+
+## API Reference
+
+### Button
+
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |

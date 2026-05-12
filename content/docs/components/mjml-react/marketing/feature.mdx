@@ -1,14 +1,35 @@
 ---
 title: "Feature Row"
-description: "A feature display with icon, title, and description."
+description: "Feature display components with icons, images, titles, and descriptions."
 ---
 
-<ComponentPreview base="mjml-react" name="feature-row-demo" hideCode />
+<ComponentPreview base="mjml-react" name="feature-cards-demo" hideCode />
+
+## Variants
+
+### Feature Cards
+
+<ComponentPreview base="mjml-react" name="feature-cards-demo" />
+
+### Icon Row
+
+<ComponentPreview base="mjml-react" name="feature-icon-row-demo" />
+
+### Left Image
+
+<ComponentPreview base="mjml-react" name="feature-left-image-demo" />
+
+### Feature List
+
+<ComponentPreview base="mjml-react" name="feature-list-demo" />
+
+### Right Image
+
+<ComponentPreview base="mjml-react" name="feature-right-image-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,55 +41,46 @@ npx shadcn@latest add @emailcn/mjml-feature-row
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
 <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
+<Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/feature/feature-cards.tsx"
   base="mjml-react"
-  name="feature-row"
-  title="components/emails/feature-row.tsx"
+  title="components/emails/marketing/feature/feature-cards.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { FeatureRow } from "@/components/emails/feature-row";
+import { FeatureCards } from "@/components/emails/marketing/feature/feature-cards";
 ```
 
 ```tsx
-<FeatureRow {...FeatureRow.PreviewProps} />
+<FeatureCards {...FeatureCards.PreviewProps} />
 ```
 
 ## API Reference
 
 ### Feature Row
 
-| Prop          | Type                 | Default        | Description         |
-| ------------- | -------------------- | -------------- | ------------------- |
-| `theme`       | `EmailTheme`         | `defaultTheme` | Email theme styling |
-| `icon`        | `string`             | -              | Icon emoji or URL   |
-| `title`       | `string`             | -              | Feature title       |
-| `description` | `string`             | -              | Feature description |
-| `align`       | `"left" \| "center"` | `"left"`       | Text alignment      |
+| Prop          | Type         | Default        | Description            |
+| ------------- | ------------ | -------------- | ---------------------- |
+| `imageSrc`    | `string`     | -              | Feature image URL      |
+| `imageAlt`    | `string`     | -              | Feature image alt text |
+| `title`       | `string`     | -              | Feature title          |
+| `description` | `string`     | -              | Feature description    |
+| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling    |

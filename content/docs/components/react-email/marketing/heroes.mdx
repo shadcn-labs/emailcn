@@ -1,14 +1,67 @@
 ---
 title: "Hero"
-description: "A hero section with heading, subheading, and CTA button."
+description: "Hero sections with heading, subheading, and CTA button for email headers."
 ---
 
-<ComponentPreview base="react-email" name="hero-demo" hideCode />
+<ComponentPreview
+  base="react-email"
+  name="hero-aligned-overlay-demo"
+  hideCode
+/>
+
+## Variants
+
+### Aligned Overlay
+
+<ComponentPreview base="react-email" name="hero-aligned-overlay-demo" />
+
+### Block Overlay
+
+<ComponentPreview base="react-email" name="hero-block-overlay-demo" />
+
+### Block with Bleed
+
+<ComponentPreview base="react-email" name="hero-block-with-bleed-demo" />
+
+### Overlayed Split
+
+<ComponentPreview base="react-email" name="hero-overlayed-split-demo" />
+
+### Split Contained
+
+<ComponentPreview base="react-email" name="hero-split-contained-demo" />
+
+### Split Full Bleed
+
+<ComponentPreview base="react-email" name="hero-split-full-bleed-demo" />
+
+### Image Grid
+
+<ComponentPreview base="react-email" name="hero-with-image-grid-demo" />
+
+### Overlapped Content
+
+<ComponentPreview base="react-email" name="hero-with-overlapped-content-demo" />
+
+### Overlapped Image
+
+<ComponentPreview base="react-email" name="hero-with-overlapped-image-demo" />
+
+### Overlay Gradient
+
+<ComponentPreview base="react-email" name="hero-with-overlay-gradient-demo" />
+
+### Overlayed Content
+
+<ComponentPreview base="react-email" name="hero-with-overlayed-content-demo" />
+
+### Slanted Split
+
+<ComponentPreview base="react-email" name="hero-with-slanted-split-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,96 +73,28 @@ npx shadcn@latest add @emailcn/hero
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="hero"
-  title="components/emails/hero.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/hero/hero-aligned-overlay.tsx"
+    base="react-email"
+    title="components/emails/marketing/hero/hero-aligned-overlay.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Hero } from "@/components/emails/hero";
+import { HeroAlignedOverlay } from "@/components/emails/marketing/hero/hero-aligned-overlay";
 ```
 
 ```tsx
-<Hero {...Hero.PreviewProps} />
-```
-
-## Variants
-
-The Hero component supports three visual variants that change the layout and positioning of the content.
-
-### Default
-
-The default variant displays content centered with a clean, standard layout. This is ideal for most email designs where you want a balanced, professional look.
-
-```tsx
-<Hero
-  variant="default"
-  heading="Welcome"
-  subheading="Get started with your account"
-  ctaLabel="Get Started"
-  ctaHref="#"
-/>
-```
-
-### Slanted Left
-
-The slanted left variant positions content toward the left side of the hero section, creating an asymmetric layout. This variant is useful when you want to create visual interest or have supporting imagery on the right side.
-
-```tsx
-<Hero
-  variant="slanted-left"
-  heading="Welcome"
-  subheading="Get started with your account"
-  ctaLabel="Get Started"
-  ctaHref="#"
-/>
-```
-
-### Slanted Right
-
-The slanted right variant positions content toward the right side of the hero section. This variant works well when you want imagery or additional elements on the left side of the hero.
-
-```tsx
-<Hero
-  variant="slanted-right"
-  heading="Welcome"
-  subheading="Get started with your account"
-  ctaLabel="Get Started"
-  ctaHref="#"
-/>
+<HeroAlignedOverlay {...HeroAlignedOverlay.PreviewProps} />
 ```
 
 ## API Reference
@@ -118,10 +103,9 @@ The slanted right variant positions content toward the right side of the hero se
 
 | Prop         | Type                                             | Default                           | Description         |
 | ------------ | ------------------------------------------------ | --------------------------------- | ------------------- |
-| `theme`      | `EmailTheme`                                     | `defaultTheme`                    | Email theme styling |
 | `variant`    | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`                       | Visual variant      |
 | `heading`    | `string`                                         | `"Welcome"`                       | Main heading text   |
 | `subheading` | `string`                                         | `"Get started with your account"` | Subheading text     |
 | `ctaLabel`   | `string`                                         | `"Get Started"`                   | CTA button label    |
 | `ctaHref`    | `string`                                         | `"#"`                             | CTA button link     |
-| `align`      | `"left" \| "center"`                             | `"center"`                        | Text alignment      |
+| `theme`      | `EmailTheme`                                     | `defaultTheme`                    | Email theme styling |

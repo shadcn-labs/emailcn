@@ -1,14 +1,56 @@
 ---
 title: "Logo Header"
-description: "A header with company logo."
+description: "Email header components with logo, navigation, and user details."
 ---
 
-<ComponentPreview base="react-email" name="logo-header-demo" hideCode />
+<ComponentPreview base="react-email" name="header-with-logo-demo" hideCode />
+
+## Variants
+
+### Simple Logo
+
+<ComponentPreview base="react-email" name="header-with-logo-demo" />
+
+### Logo with Badge
+
+<ComponentPreview base="react-email" name="header-with-logo-and-badge-demo" />
+
+### Logo with Finance Stats
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-finance-stats-demo"
+/>
+
+### Logo with Menu
+
+<ComponentPreview base="react-email" name="header-with-logo-and-menu-demo" />
+
+### Logo with Social Icons
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-social-icons-demo"
+/>
+
+### Logo with Text
+
+<ComponentPreview base="react-email" name="header-with-logo-and-text-demo" />
+
+### User Details & Avatar
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-user-details-and-avatar-demo"
+/>
+
+### User Details
+
+<ComponentPreview base="react-email" name="header-with-user-details-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,50 +62,28 @@ npx shadcn@latest add @emailcn/logo-header
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="logo-header"
-  title="components/emails/logo-header.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/headers/header-with-logo.tsx"
+    base="react-email"
+    title="components/emails/marketing/headers/header-with-logo.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { LogoHeader } from "@/components/emails/logo-header";
+import { HeaderWithLogo } from "@/components/emails/marketing/headers/header-with-logo";
 ```
 
 ```tsx
-<LogoHeader {...LogoHeader.PreviewProps} />
+<HeaderWithLogo {...HeaderWithLogo.PreviewProps} />
 ```
 
 ## API Reference
@@ -72,7 +92,7 @@ import { LogoHeader } from "@/components/emails/logo-header";
 
 | Prop      | Type         | Default        | Description         |
 | --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
 | `logoUrl` | `string`     | -              | Logo image URL      |
 | `logoAlt` | `string`     | `"Logo"`       | Alt text for logo   |
 | `href`    | `string`     | `"#"`          | Logo link URL       |
+| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |

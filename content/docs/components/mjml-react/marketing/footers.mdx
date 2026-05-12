@@ -1,0 +1,102 @@
+---
+title: "Footers"
+description: "Email footer components with navigation, social links, and legal text."
+---
+
+<ComponentPreview base="mjml-react" name="footer-basic-demo" hideCode />
+
+## Variants
+
+### Basic Footer
+
+<ComponentPreview base="mjml-react" name="footer-basic-demo" />
+
+### Bordered Footer
+
+<ComponentPreview base="mjml-react" name="footer-bordered-demo" />
+
+### Columns Footer
+
+<ComponentPreview base="mjml-react" name="footer-columns-demo" />
+
+### Dark Footer
+
+<ComponentPreview base="mjml-react" name="footer-dark-demo" />
+
+### Disclaimer Footer
+
+<ComponentPreview base="mjml-react" name="footer-disclaimer-demo" />
+
+### Full Footer
+
+<ComponentPreview base="mjml-react" name="footer-full-demo" />
+
+### Links Footer
+
+<ComponentPreview base="mjml-react" name="footer-links-demo" />
+
+### Minimal Footer
+
+<ComponentPreview base="mjml-react" name="footer-minimal-demo" />
+
+### Social Footer
+
+<ComponentPreview base="mjml-react" name="footer-social-demo" />
+
+### Unsubscribe Footer
+
+<ComponentPreview base="mjml-react" name="footer-unsubscribe-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-footer
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-basic.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-basic.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterBasic } from "@/components/emails/marketing/footers/footer-basic";
+```
+
+```tsx
+<FooterBasic {...FooterBasic.PreviewProps} />
+```
+
+## API Reference
+
+### Footer
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
