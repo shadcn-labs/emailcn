@@ -15,7 +15,7 @@ import {
 } from "react-email";
 
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
+import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
 
 interface ReceiptItem {
   name: string;
@@ -69,13 +69,16 @@ export const ReceiptDefault = ({
             </Section>
 
             <Section>
-              {items.map((item, index) => (
+              {items.map((item, _index) => (
                 <ProductCardSection
-                  key={index}
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
+                  products={[
+                    {
+                      imageUrl: item.imageUrl,
+                      name: item.name,
+                      price: item.price,
+                      quantity: item.quantity,
+                    },
+                  ]}
                 />
               ))}
             </Section>

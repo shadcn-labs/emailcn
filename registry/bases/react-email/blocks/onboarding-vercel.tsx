@@ -12,11 +12,11 @@ import {
 } from "react-email";
 
 import { vercelTheme } from "@/registry/bases/react-email/themes/vercel";
-import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
-import { CTABannerSection } from "@/registry/bases/react-email/ui/cta-banner";
-import { FooterSection } from "@/registry/bases/react-email/ui/footer";
-import { HeroSection } from "@/registry/bases/react-email/ui/hero";
-import { LogoHeaderSection } from "@/registry/bases/react-email/ui/logo-header";
+import { TitleWithRegularPaddingSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/title-with-regular-padding";
+import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
+import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
+import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu";
+import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
 
 interface Props {
   _firstName?: string;
@@ -59,23 +59,7 @@ export const OnboardingVercel = ({
               align="left"
             />
 
-            <ContentGridSection
-              columnCount={3}
-              columns={[
-                {
-                  description: "Deploy to the edge in seconds.",
-                  title: "Global Edge",
-                },
-                {
-                  description: "Every git push gets a unique URL.",
-                  title: "Preview Deploys",
-                },
-                {
-                  description: "Connect your own domain.",
-                  title: "Custom Domains",
-                },
-              ]}
-            />
+            <ContentGridSection title="Global Edge" />
 
             <CTABannerSection
               heading="Start deploying"
@@ -90,7 +74,7 @@ export const OnboardingVercel = ({
               </Text>
             </Section>
 
-            <FooterSection companyName={_productName} />
+            <FooterSection text={_productName} />
           </Container>
         </Body>
       </Tailwind>

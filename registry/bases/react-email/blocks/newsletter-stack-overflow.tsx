@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { stackOverflowTheme } from "@/registry/bases/react-email/themes/stack-overflow";
-import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
+import { TitleWithRegularPaddingSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/title-with-regular-padding";
 
 interface Article {
   title: string;
@@ -46,7 +46,7 @@ export const NewsletterStackOverflow = ({
   void _logoUrl;
   const t = stackOverflowTheme;
 
-  const gridColumns = articles.map((article) => ({
+  const _gridColumns = articles.map((article) => ({
     description: article.summary,
     title: article.title,
   }));
@@ -67,7 +67,7 @@ export const NewsletterStackOverflow = ({
               </Text>
             </Section>
 
-            <ContentGridSection columnCount={3} columns={gridColumns} />
+            <ContentGridSection title="Featured Articles" />
 
             <Section className="py-4">
               <Text className="mt-8 text-sm text-foreground-muted">

@@ -23,6 +23,7 @@ export interface ProductListWithRowsProps {
     imageUrl?: string;
     name: string;
     price: string;
+    quantity?: number;
     href?: string;
   }[];
   variant?: "default" | "slanted-left" | "slanted-right";
