@@ -596,6 +596,405 @@
       ]
     },
     {
+      "name": "bento-grids",
+      "type": "registry:component",
+      "title": "Email Bento Grid",
+      "description": "Bento-style grid with images and captions in tile-like layouts",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/bento-grids.tsx",
+          "type": "registry:component",
+          "target": "components/emails/bento-grids.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "blog",
+      "type": "registry:component",
+      "title": "Email Blog Posts",
+      "description": "Blog post listings with images, titles, and dates for email newsletters",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/blog.tsx",
+          "type": "registry:component",
+          "target": "components/emails/blog.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Email Button",
+      "description": "Reusable button component with primary, secondary, and text link variants",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/button.tsx",
+          "type": "registry:component",
+          "target": "components/emails/button.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "category-preview",
+      "type": "registry:component",
+      "title": "Email Category Preview",
+      "description": "Category preview cards or rows to guide readers into collections",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/category-preview.tsx",
+          "type": "registry:component",
+          "target": "components/emails/category-preview.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "container",
+      "type": "registry:component",
+      "title": "Email Container",
+      "description": "Centered container wrapper with max width for email content",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/container.tsx",
+          "type": "registry:component",
+          "target": "components/emails/container.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "coupons",
+      "type": "registry:component",
+      "title": "Email Coupon Card",
+      "description": "Discount coupon or promo code display card for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/coupons.tsx",
+          "type": "registry:component",
+          "target": "components/emails/coupons.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Email Data Table",
+      "description": "Simple data table with headers and rows for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/emails/data-table.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "email-grid",
+      "type": "registry:component",
+      "title": "Email Grid Layout",
+      "description": "Equal-width column grid layouts for organizing email content",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/grid.tsx",
+          "type": "registry:component",
+          "target": "components/emails/grid.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "images",
+      "type": "registry:component",
+      "title": "Email Image Grid",
+      "description": "Full-width and multi-column image grids for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/images.tsx",
+          "type": "registry:component",
+          "target": "components/emails/images.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "logos",
+      "type": "registry:component",
+      "title": "Email Logo Cloud",
+      "description": "Logo cloud showing client or partner logos in email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/logos.tsx",
+          "type": "registry:component",
+          "target": "components/emails/logos.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "order-summary",
+      "type": "registry:component",
+      "title": "Email Order Summary",
+      "description": "Order summary with item rows and total calculation for receipt emails",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/order-summary.tsx",
+          "type": "registry:component",
+          "target": "components/emails/order-summary.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "pill",
+      "type": "registry:component",
+      "title": "Email Pill",
+      "description": "Small pill badge component with status color variants",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/pill.tsx",
+          "type": "registry:component",
+          "target": "components/emails/pill.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "product-detail",
+      "type": "registry:component",
+      "title": "Email Product Detail",
+      "description": "Single product detail with image, specs, and CTA for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/product-detail.tsx",
+          "type": "registry:component",
+          "target": "components/emails/product-detail.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "product-list",
+      "type": "registry:component",
+      "title": "Email Product List",
+      "description": "Multiple products in a grid or list layout for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/product-list.tsx",
+          "type": "registry:component",
+          "target": "components/emails/product-list.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "progress-bar",
+      "type": "registry:component",
+      "title": "Email Progress Bar",
+      "description": "Progress bar showing percentage fill for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/progress-bar.tsx",
+          "type": "registry:component",
+          "target": "components/emails/progress-bar.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "reviews",
+      "type": "registry:component",
+      "title": "Email Reviews",
+      "description": "Customer review cards with star ratings for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/reviews.tsx",
+          "type": "registry:component",
+          "target": "components/emails/reviews.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "shopping-cart",
+      "type": "registry:component",
+      "title": "Email Shopping Cart",
+      "description": "Shopping cart with row items and totals for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/shopping-cart.tsx",
+          "type": "registry:component",
+          "target": "components/emails/shopping-cart.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "spacer",
+      "type": "registry:component",
+      "title": "Email Spacer",
+      "description": "Vertical spacer and divider with optional label for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/spacing.tsx",
+          "type": "registry:component",
+          "target": "components/emails/spacing.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "stats",
+      "type": "registry:component",
+      "title": "Email Stats Grid",
+      "description": "Statistics and metrics in a grid layout with large numbers and labels",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/stats.tsx",
+          "type": "registry:component",
+          "target": "components/emails/stats.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "team",
+      "type": "registry:component",
+      "title": "Email Team Grid",
+      "description": "Team member cards with avatars, names, and roles for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/team.tsx",
+          "type": "registry:component",
+          "target": "components/emails/team.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
+      "name": "timelines",
+      "type": "registry:component",
+      "title": "Email Timeline",
+      "description": "Timeline and changelog of events with dates and descriptions",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/timelines.tsx",
+          "type": "registry:component",
+          "target": "components/emails/timelines.tsx"
+        }
+      ],
+      "dependencies": ["react-email"],
+      "registryDependencies": [
+        "https://emailcn.com/r/theme-default.json",
+        "https://emailcn.com/r/default-fonts.json"
+      ]
+    },
+    {
       "name": "block-onboarding-default",
       "type": "registry:block",
       "title": "Onboarding Email — Default",
@@ -1221,6 +1620,405 @@
           "path": "registry/bases/mjml-react/ui/product-card.tsx",
           "type": "registry:component",
           "target": "components/emails/product-card.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-bento-grids",
+      "type": "registry:component",
+      "title": "Email Bento Grid (MJML)",
+      "description": "Bento-style grid with images and captions in tile-like layouts",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/bento-grids.tsx",
+          "type": "registry:component",
+          "target": "components/emails/bento-grids.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-blog",
+      "type": "registry:component",
+      "title": "Email Blog Posts (MJML)",
+      "description": "Blog post listings with images, titles, and dates for email newsletters",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/blog.tsx",
+          "type": "registry:component",
+          "target": "components/emails/blog.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-button",
+      "type": "registry:component",
+      "title": "Email Button (MJML)",
+      "description": "Reusable button component with primary, secondary, and text link variants",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/button.tsx",
+          "type": "registry:component",
+          "target": "components/emails/button.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-category-preview",
+      "type": "registry:component",
+      "title": "Email Category Preview (MJML)",
+      "description": "Category preview cards or rows to guide readers into collections",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/category-preview.tsx",
+          "type": "registry:component",
+          "target": "components/emails/category-preview.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-container",
+      "type": "registry:component",
+      "title": "Email Container (MJML)",
+      "description": "Centered container wrapper with max width for email content",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/container.tsx",
+          "type": "registry:component",
+          "target": "components/emails/container.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-coupons",
+      "type": "registry:component",
+      "title": "Email Coupon Card (MJML)",
+      "description": "Discount coupon or promo code display card for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/coupons.tsx",
+          "type": "registry:component",
+          "target": "components/emails/coupons.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-data-table",
+      "type": "registry:component",
+      "title": "Email Data Table (MJML)",
+      "description": "Simple data table with headers and rows for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/emails/data-table.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-email-grid",
+      "type": "registry:component",
+      "title": "Email Grid Layout (MJML)",
+      "description": "Equal-width column grid layouts for organizing email content",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/grid.tsx",
+          "type": "registry:component",
+          "target": "components/emails/grid.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-images",
+      "type": "registry:component",
+      "title": "Email Image Grid (MJML)",
+      "description": "Full-width and multi-column image grids for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/images.tsx",
+          "type": "registry:component",
+          "target": "components/emails/images.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-logos",
+      "type": "registry:component",
+      "title": "Email Logo Cloud (MJML)",
+      "description": "Logo cloud showing client or partner logos in email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/logos.tsx",
+          "type": "registry:component",
+          "target": "components/emails/logos.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-order-summary",
+      "type": "registry:component",
+      "title": "Email Order Summary (MJML)",
+      "description": "Order summary with item rows and total calculation for receipt emails",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/order-summary.tsx",
+          "type": "registry:component",
+          "target": "components/emails/order-summary.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-pill",
+      "type": "registry:component",
+      "title": "Email Pill (MJML)",
+      "description": "Small pill badge component with status color variants",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/pill.tsx",
+          "type": "registry:component",
+          "target": "components/emails/pill.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-product-detail",
+      "type": "registry:component",
+      "title": "Email Product Detail (MJML)",
+      "description": "Single product detail with image, specs, and CTA for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/product-detail.tsx",
+          "type": "registry:component",
+          "target": "components/emails/product-detail.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-product-list",
+      "type": "registry:component",
+      "title": "Email Product List (MJML)",
+      "description": "Multiple products in a grid or list layout for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/product-list.tsx",
+          "type": "registry:component",
+          "target": "components/emails/product-list.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-progress-bar",
+      "type": "registry:component",
+      "title": "Email Progress Bar (MJML)",
+      "description": "Progress bar showing percentage fill for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/progress-bar.tsx",
+          "type": "registry:component",
+          "target": "components/emails/progress-bar.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-reviews",
+      "type": "registry:component",
+      "title": "Email Reviews (MJML)",
+      "description": "Customer review cards with star ratings for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/reviews.tsx",
+          "type": "registry:component",
+          "target": "components/emails/reviews.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-shopping-cart",
+      "type": "registry:component",
+      "title": "Email Shopping Cart (MJML)",
+      "description": "Shopping cart with row items and totals for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/shopping-cart.tsx",
+          "type": "registry:component",
+          "target": "components/emails/shopping-cart.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-spacer",
+      "type": "registry:component",
+      "title": "Email Spacer (MJML)",
+      "description": "Vertical spacer and divider with optional label for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/spacing.tsx",
+          "type": "registry:component",
+          "target": "components/emails/spacing.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-stats",
+      "type": "registry:component",
+      "title": "Email Stats Grid (MJML)",
+      "description": "Statistics and metrics in a grid layout with large numbers and labels",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/stats.tsx",
+          "type": "registry:component",
+          "target": "components/emails/stats.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-team",
+      "type": "registry:component",
+      "title": "Email Team Grid (MJML)",
+      "description": "Team member cards with avatars, names, and roles for email templates",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/team.tsx",
+          "type": "registry:component",
+          "target": "components/emails/team.tsx"
+        }
+      ],
+      "dependencies": ["@faire/mjml-react", "mjml-browser"],
+      "registryDependencies": [
+        "https://emailcn.com/r/mjml-runtime.json",
+        "https://emailcn.com/r/theme-default.json"
+      ]
+    },
+    {
+      "name": "mjml-timelines",
+      "type": "registry:component",
+      "title": "Email Timeline (MJML)",
+      "description": "Timeline and changelog of events with dates and descriptions",
+      "categories": ["email-component"],
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/timelines.tsx",
+          "type": "registry:component",
+          "target": "components/emails/timelines.tsx"
         }
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],

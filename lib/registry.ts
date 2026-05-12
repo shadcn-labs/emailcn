@@ -42,9 +42,17 @@ export const getRegistryUiSourceCandidates = ({
   base?: BaseName;
   name: string;
 }) => {
-  const candidates: string[] = base
-    ? [path.join("registry", "bases", base, "ui", `${name}.tsx`)]
-    : [];
+  if (!base) {
+    return [];
+  }
+
+  const uiDir = path.join("registry", "bases", base, "ui");
+  const categories = ["marketing", "ecommerce", "ui-elements"];
+
+  const candidates: string[] = [
+    path.join(uiDir, `${name}.tsx`),
+    ...categories.map((cat) => path.join(uiDir, cat, `${name}.tsx`)),
+  ];
 
   return [...new Set(candidates)];
 };
