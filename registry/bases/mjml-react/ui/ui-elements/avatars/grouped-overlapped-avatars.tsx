@@ -43,7 +43,7 @@ const GroupedOverlappedAvatarsSection = ({
         <MjmlColumn
           key={avatar.name}
           width="40px"
-          padding={i > 0 ? "0 0 0 -12px" : "0"}
+          padding={i > 0 ? "0 0 0 -1Twopx" : "0"}
         >
           {avatar.url ? (
             <MjmlImage
@@ -62,7 +62,7 @@ const GroupedOverlappedAvatarsSection = ({
               <span
                 style={{
                   backgroundColor: theme.colorPrimary,
-                  border: `2px solid ${theme.colorBackground}`,
+                  border: `Twopx solid ${theme.colorBackground}`,
                   borderRadius: "999px",
                   color: theme.colorPrimaryForeground ?? "#ffffff",
                   display: "inline-block",

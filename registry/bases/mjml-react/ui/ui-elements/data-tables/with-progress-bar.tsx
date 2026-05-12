@@ -47,7 +47,7 @@ const DataTableWithProgressSection = ({
             <MjmlText
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
+              fontSize={theme.fontSizeBase ?? "1Fourpx"}
               fontWeight={theme.fontWeightBold ?? "600"}
               padding="0"
             >
@@ -65,7 +65,7 @@ const DataTableWithProgressSection = ({
             <MjmlText
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
+              fontSize={theme.fontSizeBase ?? "1Fourpx"}
               padding="0"
             >
               {row.label}
@@ -82,7 +82,7 @@ const DataTableWithProgressSection = ({
                   backgroundColor={theme.colorPrimary}
                   borderRadius={theme.borderRadius}
                   width={`${row.progress}%`}
-                  padding="4px 0"
+                  padding="Fourpx 0"
                 >
                   <MjmlText
                     align="center"
@@ -105,7 +105,7 @@ const DataTableWithProgressSection = ({
             <MjmlText
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
+              fontSize={theme.fontSizeBase ?? "1Fourpx"}
               padding="0"
             >
               {row.value}
@@ -120,7 +120,7 @@ const DataTableWithProgressSection = ({
 export const DataTableWithProgress = ({
   theme = defaultTheme,
   headers = ["Item", "Progress", "Value"],
-  rows = [{ label: "Task 1", progress: 75, value: "$1.2K" }],
+  rows = [{ label: "Task 1", progress: 75, value: "$1.TwoK" }],
   variant = "default",
 }: DataTableWithProgressProps) => (
   <Mjml>
@@ -152,7 +152,7 @@ export const DataTableWithProgress = ({
 DataTableWithProgress.PreviewProps = {
   headers: ["Project", "Progress", "Budget"],
   rows: [
-    { label: "Web Redesign", progress: 90, value: "$12K" },
+    { label: "Web Redesign", progress: 90, value: "$1TwoK" },
     { label: "Mobile App", progress: 60, value: "$8.5K" },
   ],
   theme: defaultTheme,

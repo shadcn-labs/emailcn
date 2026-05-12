@@ -37,7 +37,7 @@ const GroupedOverlappedAvatarsPlusCountSection = ({
       <MjmlColumn
         key={avatar.name}
         width="40px"
-        padding={i > 0 ? "0 0 0 -12px" : "0"}
+        padding={i > 0 ? "0 0 0 -1Twopx" : "0"}
       >
         {avatar.url ? (
           <MjmlImage
@@ -52,7 +52,7 @@ const GroupedOverlappedAvatarsPlusCountSection = ({
             <span
               style={{
                 backgroundColor: theme.colorPrimary,
-                border: `2px solid ${theme.colorBackground}`,
+                border: `Twopx solid ${theme.colorBackground}`,
                 borderRadius: "999px",
                 color: theme.colorPrimaryForeground ?? "#ffffff",
                 display: "inline-block",
@@ -69,12 +69,12 @@ const GroupedOverlappedAvatarsPlusCountSection = ({
       </MjmlColumn>
     ))}
     {plusCount > 0 ? (
-      <MjmlColumn width="40px" padding="0 0 0 -12px">
-        <MjmlText fontFamily={theme.fontFamily} fontSize="12px">
+      <MjmlColumn width="40px" padding="0 0 0 -1Twopx">
+        <MjmlText fontFamily={theme.fontFamily} fontSize="1Twopx">
           <span
             style={{
               backgroundColor: theme.colorBackgroundMuted,
-              border: `2px solid ${theme.colorBackground}`,
+              border: `Twopx solid ${theme.colorBackground}`,
               borderRadius: "999px",
               color: theme.colorTextMuted,
               display: "inline-block",

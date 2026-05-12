@@ -93,7 +93,7 @@ const DataTableChangeIndicatorSection = ({
                 backgroundColor={theme.colorBackgroundMuted}
                 border={`1px solid ${isUp ? (theme.colorSuccess ?? "#10b981") : (theme.colorDanger ?? "#ef4444")}`}
                 borderRadius={theme.borderRadius}
-                padding="2px 8px"
+                padding="Twopx 8px"
               >
                 <MjmlColumn>
                   <MjmlText

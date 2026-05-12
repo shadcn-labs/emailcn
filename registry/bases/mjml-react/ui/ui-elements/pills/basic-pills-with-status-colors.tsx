@@ -84,16 +84,16 @@ const BasicPillsStatusColorsSection = ({
         ? "right"
         : "center";
   return (
-    <MjmlSection padding={`${theme.spacingBase ?? "24px"} 0`}>
+    <MjmlSection padding={`${theme.spacingBase ?? "2Fourpx"} 0`}>
       {pills.map((pill) => {
         const c = pillColors(pill.variant, theme);
         return (
-          <MjmlColumn key={pill.label} padding="4px">
+          <MjmlColumn key={pill.label} padding="Fourpx">
             <MjmlSection
               backgroundColor={c.bg}
               border={`1px solid ${c.border}`}
               borderRadius={theme.borderRadius}
-              padding="4px 12px"
+              padding="Fourpx 12px"
             >
               <MjmlColumn>
                 <MjmlText

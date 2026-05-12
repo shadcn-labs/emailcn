@@ -47,7 +47,7 @@ const DividerWithFileTypeSection = ({
         <MjmlSection
           backgroundColor={theme.colorBackgroundMuted}
           borderRadius={theme.borderRadius}
-          padding="4px 12px"
+          padding="Fourpx 12px"
         >
           <MjmlColumn>
             <MjmlText

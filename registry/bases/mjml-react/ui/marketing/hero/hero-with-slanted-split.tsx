@@ -119,7 +119,7 @@ const HeroWithSlantedSplitSection = ({
     </MjmlColumn>
     {variant !== "default" ? (
       <MjmlColumn padding="0">
-        <MjmlSection backgroundColor={decorativeColor} padding="4px 0" />
+        <MjmlSection backgroundColor={decorativeColor} padding="Fourpx 0" />
       </MjmlColumn>
     ) : null}
   </MjmlSection>

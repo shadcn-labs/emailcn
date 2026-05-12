@@ -87,7 +87,7 @@ export const DataTable4Columns = ({
 }: DataTable4ColumnsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>table-4col</MjmlPreview>
+      <MjmlPreview>table-Fourcol</MjmlPreview>
       <MjmlAttributes>
         <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
         <MjmlText
