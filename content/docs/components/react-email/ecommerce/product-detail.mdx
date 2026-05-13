@@ -3,44 +3,11 @@ title: "Product Detail"
 description: "Product detail displays with images, descriptions, and purchase options."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="feature-with-product-image-demo"
-  hideCode
-/>
-
-## Variants
-
-### Single Image with Details
+## Single Image with Details
 
 <ComponentPreview base="react-email" name="feature-with-product-image-demo" />
 
-### Product Detail with Masonry Image Grid and Details
-
-<ComponentPreview
-  base="react-email"
-  name="two-columns-image-grid-with-full-width-feature-demo"
-/>
-
-### Product Detail with Three Images and Details
-
-<ComponentPreview
-  base="react-email"
-  name="bento-grid-with-images-and-details-demo"
-/>
-
-### Product Detail with Two Images and Details
-
-<ComponentPreview
-  base="react-email"
-  name="two-column-team-cards-with-details-demo"
-/>
-
-### Split Product Detail
-
-<ComponentPreview base="react-email" name="split-product-detail-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -50,7 +17,7 @@ description: "Product detail displays with images, descriptions, and purchase op
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/product-detail
+npx shadcn@latest add @emailcn/single-image-product-detail-with-details
 ```
 
 </TabsContent>
@@ -68,28 +35,219 @@ npx shadcn@latest add @emailcn/product-detail
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { SingleImageProductDetailWithDetails } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
 ```
 
 ```tsx
-<SingleImageProductDetailWithDetails
-  {...SingleImageProductDetailWithDetails.PreviewProps}
-/>
+<SingleImageProductDetailWithDetails {...SingleImageProductDetailWithDetails.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Product Detail
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
 
-| Prop                 | Type         | Default        | Description         |
-| -------------------- | ------------ | -------------- | ------------------- |
-| `productImageUrl`    | `string`     | -              | Product image URL   |
-| `productName`        | `string`     | -              | Product name        |
-| `productDescription` | `string`     | -              | Product description |
-| `price`              | `string`     | -              | Product price       |
-| `ctaLabel`           | `string`     | -              | CTA button label    |
-| `ctaHref`            | `string`     | `"#"`          | CTA button link     |
-| `theme`              | `EmailTheme` | `defaultTheme` | Email theme styling |
+## Product Detail with Masonry Image Grid and Details
+
+<ComponentPreview
+  base="react-email"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-detail-with-masonry-image-grid-and-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ProductDetailWithMasonryImageGridAndDetails } from "@/components/emails/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details";
+```
+
+```tsx
+<ProductDetailWithMasonryImageGridAndDetails {...ProductDetailWithMasonryImageGridAndDetails.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Product Detail with Three Images and Details
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-images-and-details-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-detail-with-three-images-and-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ProductDetailWithThreeImagesAndDetails } from "@/components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details";
+```
+
+```tsx
+<ProductDetailWithThreeImagesAndDetails {...ProductDetailWithThreeImagesAndDetails.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Product Detail with Two Images and Details
+
+<ComponentPreview
+  base="react-email"
+  name="two-column-team-cards-with-details-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-detail-with-two-images-and-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ProductDetailWithTwoImagesAndDetails } from "@/components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details";
+```
+
+```tsx
+<ProductDetailWithTwoImagesAndDetails {...ProductDetailWithTwoImagesAndDetails.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Split Product Detail
+
+<ComponentPreview base="react-email" name="split-product-detail-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/split-product-detail
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/split-product-detail.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-detail/split-product-detail.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SplitProductDetail } from "@/components/emails/ecommerce/product-detail/split-product-detail";
+```
+
+```tsx
+<SplitProductDetail {...SplitProductDetail.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

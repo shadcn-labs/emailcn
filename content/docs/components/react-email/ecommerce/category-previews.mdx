@@ -3,23 +3,11 @@ title: "Category Previews"
 description: "Category preview layouts for browsing product categories."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="category-preview-cards-demo"
-  hideCode
-/>
-
-## Variants
-
-### Category Preview with Cards
+## Category Preview with Cards
 
 <ComponentPreview base="react-email" name="category-preview-cards-demo" />
 
-### Category Preview with Rows
-
-<ComponentPreview base="react-email" name="category-preview-rows-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -29,7 +17,7 @@ description: "Category preview layouts for browsing product categories."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/category-preview
+npx shadcn@latest add @emailcn/category-preview-with-cards
 ```
 
 </TabsContent>
@@ -47,7 +35,7 @@ npx shadcn@latest add @emailcn/category-preview
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { CategoryPreviewWithCards } from "@/components/emails/ecommerce/category-previews/category-preview-with-cards";
@@ -57,9 +45,55 @@ import { CategoryPreviewWithCards } from "@/components/emails/ecommerce/category
 <CategoryPreviewWithCards {...CategoryPreviewWithCards.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Category Preview
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Category Preview with Rows
+
+<ComponentPreview base="react-email" name="category-preview-rows-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/category-preview-with-rows
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/category-previews/category-preview-with-rows.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/category-previews/category-preview-with-rows.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CategoryPreviewWithRows } from "@/components/emails/ecommerce/category-previews/category-preview-with-rows";
+```
+
+```tsx
+<CategoryPreviewWithRows {...CategoryPreviewWithRows.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

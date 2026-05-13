@@ -3,7 +3,9 @@ import path from "node:path";
 import { readFileFromRoot } from "@/lib/read-file";
 import type { BaseName } from "@/registry/bases";
 
-const readOptional = async (relativePath: string): Promise<string | null> => {
+export const readOptionalFromRoot = async (
+  relativePath: string
+): Promise<string | null> => {
   try {
     return await readFileFromRoot(relativePath);
   } catch {
@@ -37,7 +39,7 @@ export const getDemoSource = (
   name: string,
   base?: BaseName
 ): Promise<string | null> =>
-  readOptional(path.join("examples", base ?? "", `${name}.tsx`));
+  readOptionalFromRoot(path.join("examples", base ?? "", `${name}.tsx`));
 
 export const getRegistrySource = async (
   name: string,
@@ -46,7 +48,7 @@ export const getRegistrySource = async (
   const candidates = getRegistryUiSourceCandidates({ base, name });
 
   for (const candidate of candidates) {
-    const code = await readOptional(candidate);
+    const code = await readOptionalFromRoot(candidate);
     if (code) {
       return code;
     }

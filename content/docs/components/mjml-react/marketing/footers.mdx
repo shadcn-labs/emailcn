@@ -3,75 +3,14 @@ title: "Footers"
 description: "Email footer components with navigation, social links, and legal text."
 ---
 
-<ComponentPreview
-  base="mjml-react"
-  name="footer-with-legal-text-demo"
-  hideCode
-/>
-
-## Variants
-
-### Basic Footer
+## Footer with Legal Text
 
 <ComponentPreview base="mjml-react" name="footer-with-legal-text-demo" />
 
-### Bordered Footer
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-centered-with-bordered-full-menu-demo"
-/>
-
-### Columns Footer
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-centered-with-bordered-full-menu-demo"
-/>
-
-### Dark Footer
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-centered-with-menu-and-socials-demo"
-/>
-
-### Disclaimer Footer
-
-<ComponentPreview base="mjml-react" name="footer-with-2-column-menu-demo" />
-
-### Full Footer
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-with-oversized-logo-and-full-menu-demo"
-/>
-
-### Links Footer
-
-<ComponentPreview base="mjml-react" name="footer-with-3-col-menu-demo" />
-
-### Minimal Footer
-
-<ComponentPreview base="mjml-react" name="footer-with-content-and-cta-demo" />
-
-### Social Footer
-
-<ComponentPreview
-  base="mjml-react"
-  name="simple-footer-with-social-icons-demo"
-/>
-
-### Unsubscribe Footer
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-with-oversized-logo-and-full-menu-demo"
-/>
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -79,13 +18,15 @@ description: "Email footer components with navigation, social links, and legal t
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-footer
+npx shadcn@latest add @emailcn/footer-with-legal-text
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -93,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/footers/footer-with-legal-text.tsx"
   base="mjml-react"
@@ -100,12 +42,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { FooterWithLegalText } from "@/components/emails/marketing/footers/footer-with-legal-text";
@@ -115,9 +59,453 @@ import { FooterWithLegalText } from "@/components/emails/marketing/footers/foote
 <FooterWithLegalText {...FooterWithLegalText.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Footer
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer Centered with Bordered Full Menu
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-centered-with-bordered-full-menu-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-centered-with-bordered-full-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-centered-with-bordered-full-menu.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-centered-with-bordered-full-menu.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterCenteredWithBorderedFullMenu } from "@/components/emails/marketing/footers/footer-centered-with-bordered-full-menu";
+```
+
+```tsx
+<FooterCenteredWithBorderedFullMenu {...FooterCenteredWithBorderedFullMenu.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer with 2 Column Menu
+
+<ComponentPreview base="mjml-react" name="footer-with-2-column-menu-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-2-column-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-with-2-column-menu.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-with-2-column-menu.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterWith2ColumnMenu } from "@/components/emails/marketing/footers/footer-with-2-column-menu";
+```
+
+```tsx
+<FooterWith2ColumnMenu {...FooterWith2ColumnMenu.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer Centered with Menu and Socials
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-centered-with-menu-and-socials-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-centered-with-menu-and-socials
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-centered-with-menu-and-socials.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-centered-with-menu-and-socials.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterCenteredWithMenuAndSocials } from "@/components/emails/marketing/footers/footer-centered-with-menu-and-socials";
+```
+
+```tsx
+<FooterCenteredWithMenuAndSocials {...FooterCenteredWithMenuAndSocials.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer with Oversized Logo and Full Menu
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-oversized-logo-and-full-menu-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-oversized-logo-and-full-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterWithOversizedLogoAndFullMenu } from "@/components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu";
+```
+
+```tsx
+<FooterWithOversizedLogoAndFullMenu {...FooterWithOversizedLogoAndFullMenu.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer with 3 Col Menu
+
+<ComponentPreview base="mjml-react" name="footer-with-3-col-menu-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-3-col-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-with-3-col-menu.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-with-3-col-menu.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterWith3ColMenu } from "@/components/emails/marketing/footers/footer-with-3-col-menu";
+```
+
+```tsx
+<FooterWith3ColMenu {...FooterWith3ColMenu.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer with Content and CTA
+
+<ComponentPreview base="mjml-react" name="footer-with-content-and-cta-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-content-and-cta
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-with-content-and-cta.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-with-content-and-cta.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterWithContentAndCta } from "@/components/emails/marketing/footers/footer-with-content-and-cta";
+```
+
+```tsx
+<FooterWithContentAndCta {...FooterWithContentAndCta.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Simple Footer with Social Icons
+
+<ComponentPreview
+  base="mjml-react"
+  name="simple-footer-with-social-icons-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/simple-footer-with-social-icons
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/simple-footer-with-social-icons.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/simple-footer-with-social-icons.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SimpleFooterWithSocialIcons } from "@/components/emails/marketing/footers/simple-footer-with-social-icons";
+```
+
+```tsx
+<SimpleFooterWithSocialIcons {...SimpleFooterWithSocialIcons.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

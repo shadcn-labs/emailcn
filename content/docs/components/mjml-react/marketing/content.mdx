@@ -1,69 +1,19 @@
 ---
-title: "Content Grid"
-description: "Content grid layouts for paragraphs, icons, and mixed content in emails."
+title: "Content"
+description: "Content layouts for paragraphs, icons, and mixed content in emails."
 ---
 
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-with-regular-padding-demo"
-  hideCode
-/>
-
-## Variants
-
-### Text Only
+## Paragraph with Regular Padding
 
 <ComponentPreview
   base="mjml-react"
   name="paragraph-with-regular-padding-demo"
 />
 
-### Bordered Content Grid
-
-<ComponentPreview base="mjml-react" name="paragraph-with-large-padding-demo" />
-
-### Dark Content Grid
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-regular-padding-demo"
-/>
-
-### Icon Row
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-large-padding-demo"
-/>
-
-### Mixed Content Grid
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
-/>
-
-### Three Column Content Grid
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-icons-and-large-padding-demo"
-/>
-
-### Two Column Content Grid
-
-<ComponentPreview
-  base="mjml-react"
-  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
-/>
-
-### Content Grid with CTA
-
-<ComponentPreview base="mjml-react" name="footer-with-content-and-cta-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -71,13 +21,15 @@ description: "Content grid layouts for paragraphs, icons, and mixed content in e
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-content-grid
+npx shadcn@latest add @emailcn/paragraph-with-regular-padding
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -85,6 +37,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/content/paragraph-with-regular-padding.tsx"
   base="mjml-react"
@@ -92,12 +45,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { ParagraphWithRegularPadding } from "@/components/emails/marketing/content/paragraph-with-regular-padding";
@@ -107,9 +62,459 @@ import { ParagraphWithRegularPadding } from "@/components/emails/marketing/conte
 <ParagraphWithRegularPadding {...ParagraphWithRegularPadding.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Content Grid
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Paragraph with Large Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-with-large-padding-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/paragraph-with-large-padding
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/paragraph-with-large-padding.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/paragraph-with-large-padding.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ParagraphWithLargePadding } from "@/components/emails/marketing/content/paragraph-with-large-padding";
+```
+
+```tsx
+<ParagraphWithLargePadding {...ParagraphWithLargePadding.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Paragraph 2 Columns with Regular Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-regular-padding-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/paragraph-2-columns-with-regular-padding
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/paragraph-2-columns-with-regular-padding.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/paragraph-2-columns-with-regular-padding.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { Paragraph2ColumnsWithRegularPadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-regular-padding";
+```
+
+```tsx
+<Paragraph2ColumnsWithRegularPadding {...Paragraph2ColumnsWithRegularPadding.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Paragraph 2 Columns with Large Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-large-padding-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/paragraph-2-columns-with-large-padding
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/paragraph-2-columns-with-large-padding.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/paragraph-2-columns-with-large-padding.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { Paragraph2ColumnsWithLargePadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-large-padding";
+```
+
+```tsx
+<Paragraph2ColumnsWithLargePadding {...Paragraph2ColumnsWithLargePadding.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Paragraph 2 Columns with Icons and Regular Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/paragraph-2-columns-with-icons-and-regular-padding
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/paragraph-2-columns-with-icons-and-regular-padding.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/paragraph-2-columns-with-icons-and-regular-padding.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { Paragraph2ColumnsWithIconsAndRegularPadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-icons-and-regular-padding";
+```
+
+```tsx
+<Paragraph2ColumnsWithIconsAndRegularPadding {...Paragraph2ColumnsWithIconsAndRegularPadding.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Paragraph 2 Columns with Icons and Large Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-icons-and-large-padding-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/paragraph-2-columns-with-icons-and-large-padding
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/paragraph-2-columns-with-icons-and-large-padding.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/paragraph-2-columns-with-icons-and-large-padding.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { Paragraph2ColumnsWithIconsAndLargePadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-icons-and-large-padding";
+```
+
+```tsx
+<Paragraph2ColumnsWithIconsAndLargePadding {...Paragraph2ColumnsWithIconsAndLargePadding.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Bento Grid with Two Rows and 3 Column Second Row
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grid-with-two-rows-and-3-column-second-row
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { BentoGridWithTwoRowsAnd3ColumnSecondRow } from "@/components/emails/marketing/content/bento-grid-with-two-rows-and-3-column-second-row";
+```
+
+```tsx
+<BentoGridWithTwoRowsAnd3ColumnSecondRow {...BentoGridWithTwoRowsAnd3ColumnSecondRow.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Footer with Content and CTA
+
+<ComponentPreview base="mjml-react" name="footer-with-content-and-cta-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-content-and-cta
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/content/footer-with-content-and-cta.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/content/footer-with-content-and-cta.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FooterWithContentAndCta } from "@/components/emails/marketing/content/footer-with-content-and-cta";
+```
+
+```tsx
+<FooterWithContentAndCta {...FooterWithContentAndCta.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

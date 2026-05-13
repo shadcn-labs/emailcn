@@ -3,21 +3,14 @@ title: "Product Lists"
 description: "Product list layouts for showcasing multiple products in a single email section."
 ---
 
-<ComponentPreview
-  base="mjml-react"
-  name="product-list-with-rows-demo"
-  hideCode
-/>
-
-## Variants
-
-### Product List with Rows
+## Product List with Rows
 
 <ComponentPreview base="mjml-react" name="product-list-with-rows-demo" />
 
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -25,13 +18,15 @@ description: "Product list layouts for showcasing multiple products in a single 
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-product-list
+npx shadcn@latest add @emailcn/product-list-with-rows
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -39,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/ecommerce/product-lists/product-list-with-rows.tsx"
   base="mjml-react"
@@ -46,12 +42,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists/product-list-with-rows";
@@ -61,9 +59,7 @@ import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists
 <ProductListWithRows {...ProductListWithRows.PreviewProps} />
 ```
 
-## API Reference
-
-### Product List
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

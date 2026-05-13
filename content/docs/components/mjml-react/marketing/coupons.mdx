@@ -3,28 +3,14 @@ title: "Coupons"
 description: "Coupon and discount code displays for promotional emails."
 ---
 
-<ComponentPreview base="mjml-react" name="card-coupons-demo" hideCode />
-
-## Variants
-
-### Coupon Card Default
+## Card Coupons
 
 <ComponentPreview base="mjml-react" name="card-coupons-demo" />
 
-### Centered Coupon
-
-<ComponentPreview base="mjml-react" name="coupons-with-centered-text-demo" />
-
-### Overlayed Coupon
-
-<ComponentPreview
-  base="mjml-react"
-  name="coupons-with-content-overlayed-demo"
-/>
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -32,13 +18,15 @@ description: "Coupon and discount code displays for promotional emails."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-coupons
+npx shadcn@latest add @emailcn/card-coupons
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -46,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/coupons/card-coupons.tsx"
   base="mjml-react"
@@ -53,24 +42,151 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
-import { CouponCardDefault } from "@/components/emails/marketing/coupons/card-coupons";
+import { CardCoupons } from "@/components/emails/marketing/coupons/card-coupons";
 ```
 
 ```tsx
-<CouponCardDefault {...CouponCardDefault.PreviewProps} />
+<CardCoupons {...CardCoupons.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Coupons
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Coupons with Centered Text
+
+<ComponentPreview base="mjml-react" name="coupons-with-centered-text-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/coupons-with-centered-text
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/coupons/coupons-with-centered-text.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/coupons/coupons-with-centered-text.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CouponsWithCenteredText } from "@/components/emails/marketing/coupons/coupons-with-centered-text";
+```
+
+```tsx
+<CouponsWithCenteredText {...CouponsWithCenteredText.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Coupons with Content Overlayed
+
+<ComponentPreview
+  base="mjml-react"
+  name="coupons-with-content-overlayed-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/coupons-with-content-overlayed
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/coupons/coupons-with-content-overlayed.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/coupons/coupons-with-content-overlayed.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CouponsWithContentOverlayed } from "@/components/emails/marketing/coupons/coupons-with-content-overlayed";
+```
+
+```tsx
+<CouponsWithContentOverlayed {...CouponsWithContentOverlayed.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

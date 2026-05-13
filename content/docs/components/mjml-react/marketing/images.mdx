@@ -3,72 +3,17 @@ title: "Images"
 description: "Image display components for showcasing photos and visual content."
 ---
 
-<ComponentPreview
-  base="mjml-react"
-  name="two-columns-image-grid-with-full-width-feature-demo"
-  hideCode
-/>
-
-## Variants
-
-### Full Width Image
+## Two Columns Image Grid with Full Width Feature
 
 <ComponentPreview
   base="mjml-react"
   name="two-columns-image-grid-with-full-width-feature-demo"
 />
 
-### Image Banner
-
-<ComponentPreview base="mjml-react" name="full-width-image-demo" />
-
-### Image Card
-
-<ComponentPreview base="mjml-react" name="full-width-image-demo" />
-
-### Image Collage
-
-<ComponentPreview base="mjml-react" name="full-width-image-with-overlay-demo" />
-
-### Image Gallery
-
-<ComponentPreview base="mjml-react" name="two-columns-image-grid-demo" />
-
-### Image Grid
-
-<ComponentPreview
-  base="mjml-react"
-  name="two-columns-image-grid-with-full-width-feature-demo"
-/>
-
-### Hero Image
-
-<ComponentPreview
-  base="mjml-react"
-  name="two-columns-image-grid-with-full-width-feature-demo"
-/>
-
-### Rounded Image
-
-<ComponentPreview
-  base="mjml-react"
-  name="two-columns-masonry-image-grid-with-3-images-demo"
-/>
-
-### Split Image
-
-<ComponentPreview
-  base="mjml-react"
-  name="two-columns-masonry-image-grid-with-4-images-demo"
-/>
-
-### Triptych
-
-<ComponentPreview base="mjml-react" name="three-columns-image-grid-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -76,13 +21,15 @@ description: "Image display components for showcasing photos and visual content.
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-images
+npx shadcn@latest add @emailcn/two-columns-image-grid-with-full-width-feature
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -90,6 +37,69 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/two-columns-image-grid-with-full-width-feature.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/two-columns-image-grid-with-full-width-feature.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsImageGridWithFullWidthFeature } from "@/components/emails/marketing/images/two-columns-image-grid-with-full-width-feature";
+```
+
+```tsx
+<TwoColumnsImageGridWithFullWidthFeature {...TwoColumnsImageGridWithFullWidthFeature.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Full Width Image
+
+<ComponentPreview base="mjml-react" name="full-width-image-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-image
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/images/full-width-image.tsx"
   base="mjml-react"
@@ -97,12 +107,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { FullWidthImage } from "@/components/emails/marketing/images/full-width-image";
@@ -112,9 +124,326 @@ import { FullWidthImage } from "@/components/emails/marketing/images/full-width-
 <FullWidthImage {...FullWidthImage.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Images
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Full Width Image with Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-image-with-overlay
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/full-width-image-with-overlay.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/full-width-image-with-overlay.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FullWidthImageWithOverlay } from "@/components/emails/marketing/images/full-width-image-with-overlay";
+```
+
+```tsx
+<FullWidthImageWithOverlay {...FullWidthImageWithOverlay.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Two Columns Image Grid
+
+<ComponentPreview base="mjml-react" name="two-columns-image-grid-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-image-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/two-columns-image-grid.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/two-columns-image-grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsImageGrid } from "@/components/emails/marketing/images/two-columns-image-grid";
+```
+
+```tsx
+<TwoColumnsImageGrid {...TwoColumnsImageGrid.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Two Columns Masonry Image Grid with 3 Images
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-3-images-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-masonry-image-grid-with-3-images
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/two-columns-masonry-image-grid-with-3-images.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/two-columns-masonry-image-grid-with-3-images.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsMasonryImageGridWith3Images } from "@/components/emails/marketing/images/two-columns-masonry-image-grid-with-3-images";
+```
+
+```tsx
+<TwoColumnsMasonryImageGridWith3Images {...TwoColumnsMasonryImageGridWith3Images.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Two Columns Masonry Image Grid with 4 Images
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-masonry-image-grid-with-4-images
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/two-columns-masonry-image-grid-with-4-images.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/two-columns-masonry-image-grid-with-4-images.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsMasonryImageGridWith4Images } from "@/components/emails/marketing/images/two-columns-masonry-image-grid-with-4-images";
+```
+
+```tsx
+<TwoColumnsMasonryImageGridWith4Images {...TwoColumnsMasonryImageGridWith4Images.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Three Columns Image Grid
+
+<ComponentPreview base="mjml-react" name="three-columns-image-grid-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/three-columns-image-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/three-columns-image-grid.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/three-columns-image-grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ThreeColumnsImageGrid } from "@/components/emails/marketing/images/three-columns-image-grid";
+```
+
+```tsx
+<ThreeColumnsImageGrid {...ThreeColumnsImageGrid.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

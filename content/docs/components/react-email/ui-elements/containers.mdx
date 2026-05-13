@@ -3,25 +3,14 @@ title: "Container"
 description: "Layout containers for wrapping email content with responsive padding."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="container-flush-mobile-demo"
-  hideCode
-/>
-
-## Variants
-
-### Container Flush on Mobile
+## Container Flush on Mobile
 
 <ComponentPreview base="react-email" name="container-flush-mobile-demo" />
 
-### Container with Gutters on Mobile
-
-<ComponentPreview base="react-email" name="container-gutters-mobile-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -29,25 +18,30 @@ description: "Layout containers for wrapping email content with responsive paddi
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/container
+npx shadcn@latest add @emailcn/container-flush-on-mobile
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/ui-elements/containers/container-flush-on-mobile.tsx"
-    base="react-email"
-    title="components/emails/ui-elements/containers/container-flush-on-mobile.tsx"
-  />
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/containers/container-flush-on-mobile.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/containers/container-flush-on-mobile.tsx"
+/>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { ContainerFlushOnMobile } from "@/components/emails/ui-elements/containers/container-flush-on-mobile";
@@ -57,9 +51,61 @@ import { ContainerFlushOnMobile } from "@/components/emails/ui-elements/containe
 <ContainerFlushOnMobile {...ContainerFlushOnMobile.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Container
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Container with Gutters on Mobile
+
+<ComponentPreview base="react-email" name="container-gutters-mobile-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/container-with-gutters-on-mobile
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/containers/container-with-gutters-on-mobile.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/containers/container-with-gutters-on-mobile.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ContainerWithGuttersOnMobile } from "@/components/emails/ui-elements/containers/container-with-gutters-on-mobile";
+```
+
+```tsx
+<ContainerWithGuttersOnMobile {...ContainerWithGuttersOnMobile.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

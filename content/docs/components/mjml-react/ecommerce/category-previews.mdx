@@ -3,25 +3,14 @@ title: "Category Previews"
 description: "Category preview layouts for browsing product categories."
 ---
 
-<ComponentPreview
-  base="mjml-react"
-  name="category-preview-cards-demo"
-  hideCode
-/>
-
-## Variants
-
-### Category Preview with Cards
+## Category Preview Cards
 
 <ComponentPreview base="mjml-react" name="category-preview-cards-demo" />
 
-### Category Preview with Rows
-
-<ComponentPreview base="mjml-react" name="category-preview-rows-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -29,13 +18,15 @@ description: "Category preview layouts for browsing product categories."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-category-preview
+npx shadcn@latest add @emailcn/category-preview-cards
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -43,31 +34,94 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
-  src="registry/bases/mjml-react/ui/ecommerce/category-previews/category-preview-with-cards.tsx"
+  src="registry/bases/mjml-react/ui/ecommerce/category-previews/category-preview-cards.tsx"
   base="mjml-react"
-  title="components/emails/ecommerce/category-previews/category-preview-with-cards.tsx"
+  title="components/emails/ecommerce/category-previews/category-preview-cards.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
-import { CategoryPreviewWithCards } from "@/components/emails/ecommerce/category-previews/category-preview-with-cards";
+import { CategoryPreviewCards } from "@/components/emails/ecommerce/category-previews/category-preview-cards";
 ```
 
 ```tsx
-<CategoryPreviewWithCards {...CategoryPreviewWithCards.PreviewProps} />
+<CategoryPreviewCards {...CategoryPreviewCards.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Category Preview
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Category Preview Rows
+
+<ComponentPreview base="mjml-react" name="category-preview-rows-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/category-preview-rows
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/category-previews/category-preview-rows.tsx"
+  base="mjml-react"
+  title="components/emails/ecommerce/category-previews/category-preview-rows.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CategoryPreviewRows } from "@/components/emails/ecommerce/category-previews/category-preview-rows";
+```
+
+```tsx
+<CategoryPreviewRows {...CategoryPreviewRows.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

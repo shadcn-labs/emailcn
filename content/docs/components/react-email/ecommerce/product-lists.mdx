@@ -3,19 +3,11 @@ title: "Product Lists"
 description: "Product list layouts for showcasing multiple products in a single email section."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="product-list-with-rows-demo"
-  hideCode
-/>
-
-## Variants
-
-### Product List with Rows
+## Product List with Rows
 
 <ComponentPreview base="react-email" name="product-list-with-rows-demo" />
 
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -25,7 +17,7 @@ description: "Product list layouts for showcasing multiple products in a single 
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/product-list
+npx shadcn@latest add @emailcn/product-list-with-rows
 ```
 
 </TabsContent>
@@ -43,7 +35,7 @@ npx shadcn@latest add @emailcn/product-list
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists/product-list-with-rows";
@@ -53,9 +45,7 @@ import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists
 <ProductListWithRows {...ProductListWithRows.PreviewProps} />
 ```
 
-## API Reference
-
-### Product List
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

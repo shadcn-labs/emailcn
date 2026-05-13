@@ -3,37 +3,14 @@ title: "Buttons"
 description: "Email button components with primary, secondary, and text link styles."
 ---
 
-<ComponentPreview base="mjml-react" name="primary-buttons-demo" hideCode />
-
-## Variants
-
-### Primary Buttons
+## Primary Buttons
 
 <ComponentPreview base="mjml-react" name="primary-buttons-demo" />
 
-### Primary Buttons with Icon
-
-<ComponentPreview base="mjml-react" name="primary-buttons-with-icon-demo" />
-
-### Secondary Buttons
-
-<ComponentPreview base="mjml-react" name="secondary-buttons-demo" />
-
-### Secondary Buttons with Icon
-
-<ComponentPreview base="mjml-react" name="secondary-buttons-with-icon-demo" />
-
-### Text Link Buttons
-
-<ComponentPreview base="mjml-react" name="text-link-buttons-demo" />
-
-### Text Link Buttons with Icon
-
-<ComponentPreview base="mjml-react" name="text-link-buttons-with-icon-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -41,13 +18,15 @@ description: "Email button components with primary, secondary, and text link sty
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-button
+npx shadcn@latest add @emailcn/primary-buttons
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -55,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/ui-elements/buttons/primary-buttons.tsx"
   base="mjml-react"
@@ -62,12 +42,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { PrimaryButtons } from "@/components/emails/ui-elements/buttons/primary-buttons";
@@ -77,9 +59,332 @@ import { PrimaryButtons } from "@/components/emails/ui-elements/buttons/primary-
 <PrimaryButtons {...PrimaryButtons.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Button
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |
+
+## Primary Buttons with Icon
+
+<ComponentPreview base="mjml-react" name="primary-buttons-with-icon-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/primary-buttons-with-icon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/buttons/primary-buttons-with-icon.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/buttons/primary-buttons-with-icon.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { PrimaryButtonsWithIcon } from "@/components/emails/ui-elements/buttons/primary-buttons-with-icon";
+```
+
+```tsx
+<PrimaryButtonsWithIcon {...PrimaryButtonsWithIcon.PreviewProps} />
+```
+
+### API Reference
+
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |
+
+## Secondary Buttons
+
+<ComponentPreview base="mjml-react" name="secondary-buttons-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/secondary-buttons
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/buttons/secondary-buttons.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/buttons/secondary-buttons.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SecondaryButtons } from "@/components/emails/ui-elements/buttons/secondary-buttons";
+```
+
+```tsx
+<SecondaryButtons {...SecondaryButtons.PreviewProps} />
+```
+
+### API Reference
+
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |
+
+## Secondary Buttons with Icon
+
+<ComponentPreview base="mjml-react" name="secondary-buttons-with-icon-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/secondary-buttons-with-icon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/buttons/secondary-buttons-with-icon.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/buttons/secondary-buttons-with-icon.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SecondaryButtonsWithIcon } from "@/components/emails/ui-elements/buttons/secondary-buttons-with-icon";
+```
+
+```tsx
+<SecondaryButtonsWithIcon {...SecondaryButtonsWithIcon.PreviewProps} />
+```
+
+### API Reference
+
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |
+
+## Text Link Buttons
+
+<ComponentPreview base="mjml-react" name="text-link-buttons-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/text-link-buttons
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/buttons/text-link-buttons.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/buttons/text-link-buttons.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TextLinkButtons } from "@/components/emails/ui-elements/buttons/text-link-buttons";
+```
+
+```tsx
+<TextLinkButtons {...TextLinkButtons.PreviewProps} />
+```
+
+### API Reference
+
+| Prop      | Type                                 | Default        | Description          |
+| --------- | ------------------------------------ | -------------- | -------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style variant |
+| `label`   | `string`                             | -              | Button label         |
+| `href`    | `string`                             | `"#"`          | Button link URL      |
+| `theme`   | `EmailTheme`                         | `defaultTheme` | Email theme styling  |
+
+## Text Link Buttons with Icon
+
+<ComponentPreview base="mjml-react" name="text-link-buttons-with-icon-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/text-link-buttons-with-icon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/buttons/text-link-buttons-with-icon.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/buttons/text-link-buttons-with-icon.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TextLinkButtonsWithIcon } from "@/components/emails/ui-elements/buttons/text-link-buttons-with-icon";
+```
+
+```tsx
+<TextLinkButtonsWithIcon {...TextLinkButtonsWithIcon.PreviewProps} />
+```
+
+### API Reference
 
 | Prop      | Type                                 | Default        | Description          |
 | --------- | ------------------------------------ | -------------- | -------------------- |

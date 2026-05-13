@@ -3,37 +3,14 @@ title: "Testimonial"
 description: "Customer testimonial sections with quotes, avatars, and author details."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="centered-testimonial-with-cta-demo"
-  hideCode
-/>
-
-## Variants
-
-### Centered with CTA
+## Centered with CTA
 
 <ComponentPreview
   base="react-email"
   name="centered-testimonial-with-cta-demo"
 />
 
-### Full Width with Overlapping Avatar
-
-<ComponentPreview
-  base="react-email"
-  name="full-width-testimonial-with-overlapping-avatar-demo"
-/>
-
-### Full Width
-
-<ComponentPreview base="react-email" name="full-width-testimonial-demo" />
-
-### Split with CTA
-
-<ComponentPreview base="react-email" name="split-testimonial-with-cta-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -43,7 +20,7 @@ description: "Customer testimonial sections with quotes, avatars, and author det
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/testimonial
+npx shadcn@latest add @emailcn/centered-testimonial-with-cta
 ```
 
 </TabsContent>
@@ -61,7 +38,7 @@ npx shadcn@latest add @emailcn/testimonial
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { CenteredTestimonialWithCta } from "@/components/emails/marketing/testimonials/centered-testimonial-with-cta";
@@ -71,14 +48,155 @@ import { CenteredTestimonialWithCta } from "@/components/emails/marketing/testim
 <CenteredTestimonialWithCta {...CenteredTestimonialWithCta.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Testimonial
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
 
-| Prop        | Type         | Default        | Description            |
-| ----------- | ------------ | -------------- | ---------------------- |
-| `quote`     | `string`     | -              | Testimonial quote text |
-| `author`    | `string`     | -              | Author name            |
-| `role`      | `string`     | -              | Author role/company    |
-| `avatarUrl` | `string`     | -              | Author avatar URL      |
-| `theme`     | `EmailTheme` | `defaultTheme` | Email theme styling    |
+## Full Width with Overlapping Avatar
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-testimonial-with-overlapping-avatar-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-testimonial-with-overlapping-avatar
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx"
+    base="react-email"
+    title="components/emails/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FullWidthTestimonialWithOverlappingAvatar } from "@/components/emails/marketing/testimonials/full-width-testimonial-with-overlapping-avatar";
+```
+
+```tsx
+<FullWidthTestimonialWithOverlappingAvatar {...FullWidthTestimonialWithOverlappingAvatar.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Full Width
+
+<ComponentPreview base="react-email" name="full-width-testimonial-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-testimonial
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial.tsx"
+    base="react-email"
+    title="components/emails/marketing/testimonials/full-width-testimonial.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FullWidthTestimonial } from "@/components/emails/marketing/testimonials/full-width-testimonial";
+```
+
+```tsx
+<FullWidthTestimonial {...FullWidthTestimonial.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Split with CTA
+
+<ComponentPreview base="react-email" name="split-testimonial-with-cta-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/split-testimonial-with-cta
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/testimonials/split-testimonial-with-cta.tsx"
+    base="react-email"
+    title="components/emails/marketing/testimonials/split-testimonial-with-cta.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SplitTestimonialWithCta } from "@/components/emails/marketing/testimonials/split-testimonial-with-cta";
+```
+
+```tsx
+<SplitTestimonialWithCta {...SplitTestimonialWithCta.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

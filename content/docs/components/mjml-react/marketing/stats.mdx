@@ -3,65 +3,14 @@ title: "Stats"
 description: "Statistics and metrics display components for showcasing data."
 ---
 
-<ComponentPreview base="mjml-react" name="simple-stats-demo" hideCode />
-
-## Variants
-
-### Simple Stats
+## Simple Stats
 
 <ComponentPreview base="mjml-react" name="simple-stats-demo" />
 
-### Accent Stats
-
-<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
-
-### Background Stats
-
-<ComponentPreview base="mjml-react" name="simple-stats-demo" />
-
-### Bordered Stats
-
-<ComponentPreview base="mjml-react" name="simple-stats-demo" />
-
-### Boxed Stats
-
-<ComponentPreview base="mjml-react" name="boxed-grid-stats-demo" />
-
-### Dark Stats
-
-<ComponentPreview base="mjml-react" name="simple-grid-stats-demo" />
-
-### Four Column Stats
-
-<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
-
-### Highlight Stats
-
-<ComponentPreview base="mjml-react" name="boxed-grid-stats-demo" />
-
-### Inline Stats
-
-<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
-
-### Minimal Stats
-
-<ComponentPreview base="mjml-react" name="grid-stats-with-border-demo" />
-
-### Primary Stats
-
-<ComponentPreview base="mjml-react" name="milestone-stats-demo" />
-
-### Two Column Stats
-
-<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
-
-### Stats with Icons
-
-<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -69,13 +18,15 @@ description: "Statistics and metrics display components for showcasing data."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-stats
+npx shadcn@latest add @emailcn/simple-stats
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -83,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/stats/simple-stats.tsx"
   base="mjml-react"
@@ -90,12 +42,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { SimpleStats } from "@/components/emails/marketing/stats/simple-stats";
@@ -105,9 +59,317 @@ import { SimpleStats } from "@/components/emails/marketing/stats/simple-stats";
 <SimpleStats {...SimpleStats.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Stats
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Grid Stats with Accent Column
+
+<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats-with-accent-column
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/grid-stats-with-accent-column.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/grid-stats-with-accent-column.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { GridStatsWithAccentColumn } from "@/components/emails/marketing/stats/grid-stats-with-accent-column";
+```
+
+```tsx
+<GridStatsWithAccentColumn {...GridStatsWithAccentColumn.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Boxed Grid Stats
+
+<ComponentPreview base="mjml-react" name="boxed-grid-stats-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-grid-stats
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/boxed-grid-stats.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/boxed-grid-stats.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { BoxedGridStats } from "@/components/emails/marketing/stats/boxed-grid-stats";
+```
+
+```tsx
+<BoxedGridStats {...BoxedGridStats.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Simple Grid Stats
+
+<ComponentPreview base="mjml-react" name="simple-grid-stats-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/simple-grid-stats
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/simple-grid-stats.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/simple-grid-stats.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SimpleGridStats } from "@/components/emails/marketing/stats/simple-grid-stats";
+```
+
+```tsx
+<SimpleGridStats {...SimpleGridStats.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Grid Stats with Border
+
+<ComponentPreview base="mjml-react" name="grid-stats-with-border-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats-with-border
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/grid-stats-with-border.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/grid-stats-with-border.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { GridStatsWithBorder } from "@/components/emails/marketing/stats/grid-stats-with-border";
+```
+
+```tsx
+<GridStatsWithBorder {...GridStatsWithBorder.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Milestone Stats
+
+<ComponentPreview base="mjml-react" name="milestone-stats-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/milestone-stats
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/milestone-stats.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/milestone-stats.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { MilestoneStats } from "@/components/emails/marketing/stats/milestone-stats";
+```
+
+```tsx
+<MilestoneStats {...MilestoneStats.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

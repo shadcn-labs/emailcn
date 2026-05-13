@@ -3,19 +3,11 @@ title: "Shopping Cart"
 description: "Shopping cart layouts for order review emails."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="shopping-cart-row-items-demo"
-  hideCode
-/>
-
-## Variants
-
-### Shopping Cart with Row Items
+## Shopping Cart with Row Items
 
 <ComponentPreview base="react-email" name="shopping-cart-row-items-demo" />
 
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -25,7 +17,7 @@ description: "Shopping cart layouts for order review emails."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/shopping-cart
+npx shadcn@latest add @emailcn/shopping-cart-with-row-items
 ```
 
 </TabsContent>
@@ -43,7 +35,7 @@ npx shadcn@latest add @emailcn/shopping-cart
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { ShoppingCartWithRowItems } from "@/components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items";
@@ -53,9 +45,7 @@ import { ShoppingCartWithRowItems } from "@/components/emails/ecommerce/shopping
 <ShoppingCartWithRowItems {...ShoppingCartWithRowItems.PreviewProps} />
 ```
 
-## API Reference
-
-### Shopping Cart
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

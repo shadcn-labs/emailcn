@@ -3,32 +3,17 @@ title: "Pricing Table"
 description: "Pricing comparison tables for subscription plans."
 ---
 
+## Full Width Single Pricing
+
 <ComponentPreview
   base="mjml-react"
   name="full-width-single-pricing-demo"
-  hideCode
 />
 
-## Variants
-
-### Basic Pricing
-
-<ComponentPreview base="mjml-react" name="full-width-single-pricing-demo" />
-
-### Highlighted Pricing
-
-<ComponentPreview base="mjml-react" name="two-columns-pricing-table-demo" />
-
-### Side by Side
-
-<ComponentPreview
-  base="mjml-react"
-  name="two-columns-pricing-table-with-gaps-demo"
-/>
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -36,13 +21,15 @@ description: "Pricing comparison tables for subscription plans."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-pricing-table
+npx shadcn@latest add @emailcn/full-width-single-pricing
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -50,6 +37,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/pricing/full-width-single-pricing.tsx"
   base="mjml-react"
@@ -57,12 +45,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { FullWidthSinglePricing } from "@/components/emails/marketing/pricing/full-width-single-pricing";
@@ -72,9 +62,158 @@ import { FullWidthSinglePricing } from "@/components/emails/marketing/pricing/fu
 <FullWidthSinglePricing {...FullWidthSinglePricing.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### PricingTable
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+### PricingTier
+
+| Prop          | Type       | Default | Description          |
+| ------------- | ---------- | ------- | -------------------- |
+| `name`        | `string`   | -       | Tier name            |
+| `price`       | `string`   | -       | Price                |
+| `description` | `string`   | -       | Tier description     |
+| `features`    | `string[]` | -       | Feature list         |
+| `ctaLabel`    | `string`   | -       | CTA button label     |
+| `ctaHref`     | `string`   | `"#"`   | CTA button link      |
+| `popular`     | `boolean`  | `false` | Mark as popular tier |
+
+## Two Columns Pricing Table
+
+<ComponentPreview base="mjml-react" name="two-columns-pricing-table-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-pricing-table
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/pricing/two-columns-pricing-table.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/pricing/two-columns-pricing-table.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsPricingTable } from "@/components/emails/marketing/pricing/two-columns-pricing-table";
+```
+
+```tsx
+<TwoColumnsPricingTable {...TwoColumnsPricingTable.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+### PricingTier
+
+| Prop          | Type       | Default | Description          |
+| ------------- | ---------- | ------- | -------------------- |
+| `name`        | `string`   | -       | Tier name            |
+| `price`       | `string`   | -       | Price                |
+| `description` | `string`   | -       | Tier description     |
+| `features`    | `string[]` | -       | Feature list         |
+| `ctaLabel`    | `string`   | -       | CTA button label     |
+| `ctaHref`     | `string`   | `"#"`   | CTA button link      |
+| `popular`     | `boolean`  | `false` | Mark as popular tier |
+
+## Two Columns Pricing Table with Gaps
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-pricing-table-with-gaps-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-pricing-table-with-gaps
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/pricing/two-columns-pricing-table-with-gaps.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/pricing/two-columns-pricing-table-with-gaps.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsPricingTableWithGaps } from "@/components/emails/marketing/pricing/two-columns-pricing-table-with-gaps";
+```
+
+```tsx
+<TwoColumnsPricingTableWithGaps {...TwoColumnsPricingTableWithGaps.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

@@ -3,47 +3,11 @@ title: "Feature Row"
 description: "Feature display components with images, titles, and descriptions."
 ---
 
-<ComponentPreview
-  base="react-email"
-  name="feature-with-product-image-demo"
-  hideCode
-/>
-
-## Variants
-
-### Product Image
+## Product Image
 
 <ComponentPreview base="react-email" name="feature-with-product-image-demo" />
 
-### Double Tall Background Images
-
-<ComponentPreview
-  base="react-email"
-  name="feature-with-double-tall-background-images-demo"
-/>
-
-### Full Title & Tall Background Images
-
-<ComponentPreview
-  base="react-email"
-  name="feature-with-full-title-and-tall-background-images-demo"
-/>
-
-### Large Portrait Image
-
-<ComponentPreview
-  base="react-email"
-  name="feature-with-large-portrait-image-demo"
-/>
-
-### Multiple Product Images
-
-<ComponentPreview
-  base="react-email"
-  name="feature-with-multiple-product-images-demo"
-/>
-
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -53,7 +17,7 @@ description: "Feature display components with images, titles, and descriptions."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/feature-row
+npx shadcn@latest add @emailcn/feature-with-product-image
 ```
 
 </TabsContent>
@@ -71,7 +35,7 @@ npx shadcn@latest add @emailcn/feature-row
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { FeatureWithProductImage } from "@/components/emails/marketing/feature/feature-with-product-image";
@@ -81,14 +45,212 @@ import { FeatureWithProductImage } from "@/components/emails/marketing/feature/f
 <FeatureWithProductImage {...FeatureWithProductImage.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Feature Row
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
 
-| Prop          | Type         | Default        | Description            |
-| ------------- | ------------ | -------------- | ---------------------- |
-| `imageSrc`    | `string`     | -              | Feature image URL      |
-| `imageAlt`    | `string`     | -              | Feature image alt text |
-| `title`       | `string`     | -              | Feature title          |
-| `description` | `string`     | -              | Feature description    |
-| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling    |
+## Double Tall Background Images
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-double-tall-background-images-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-double-tall-background-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/feature/feature-with-double-tall-background-images.tsx"
+    base="react-email"
+    title="components/emails/marketing/feature/feature-with-double-tall-background-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FeatureWithDoubleTallBackgroundImages } from "@/components/emails/marketing/feature/feature-with-double-tall-background-images";
+```
+
+```tsx
+<FeatureWithDoubleTallBackgroundImages {...FeatureWithDoubleTallBackgroundImages.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Full Title & Tall Background Images
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-full-title-and-tall-background-images-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-full-title-and-tall-background-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/feature/feature-with-full-title-and-tall-background-images.tsx"
+    base="react-email"
+    title="components/emails/marketing/feature/feature-with-full-title-and-tall-background-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FeatureWithFullTitleAndTallBackgroundImages } from "@/components/emails/marketing/feature/feature-with-full-title-and-tall-background-images";
+```
+
+```tsx
+<FeatureWithFullTitleAndTallBackgroundImages {...FeatureWithFullTitleAndTallBackgroundImages.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Large Portrait Image
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-large-portrait-image-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-large-portrait-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/feature/feature-with-large-portrait-image.tsx"
+    base="react-email"
+    title="components/emails/marketing/feature/feature-with-large-portrait-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FeatureWithLargePortraitImage } from "@/components/emails/marketing/feature/feature-with-large-portrait-image";
+```
+
+```tsx
+<FeatureWithLargePortraitImage {...FeatureWithLargePortraitImage.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Multiple Product Images
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-multiple-product-images-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-multiple-product-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/feature/feature-with-multiple-product-images.tsx"
+    base="react-email"
+    title="components/emails/marketing/feature/feature-with-multiple-product-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FeatureWithMultipleProductImages } from "@/components/emails/marketing/feature/feature-with-multiple-product-images";
+```
+
+```tsx
+<FeatureWithMultipleProductImages {...FeatureWithMultipleProductImages.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

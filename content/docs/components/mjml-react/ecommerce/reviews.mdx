@@ -3,25 +3,14 @@ title: "Reviews"
 description: "Customer review and rating display components for ecommerce emails."
 ---
 
-<ComponentPreview base="mjml-react" name="full-width-reviews-demo" hideCode />
-
-## Variants
-
-### Full Width Reviews
+## Full Width Reviews
 
 <ComponentPreview base="mjml-react" name="full-width-reviews-demo" />
 
-### Masonry Grid Reviews
-
-<ComponentPreview base="mjml-react" name="masonry-grid-reviews-demo" />
-
-### Two Columns Reviews
-
-<ComponentPreview base="mjml-react" name="two-columns-reviews-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -29,13 +18,15 @@ description: "Customer review and rating display components for ecommerce emails
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-reviews
+npx shadcn@latest add @emailcn/full-width-reviews
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -43,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/ecommerce/reviews/full-width-reviews.tsx"
   base="mjml-react"
@@ -50,12 +42,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-width-reviews";
@@ -65,9 +59,131 @@ import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-wid
 <FullWidthReviews {...FullWidthReviews.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Reviews
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Masonry Grid Reviews
+
+<ComponentPreview base="mjml-react" name="masonry-grid-reviews-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/masonry-grid-reviews
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/reviews/masonry-grid-reviews.tsx"
+  base="mjml-react"
+  title="components/emails/ecommerce/reviews/masonry-grid-reviews.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { MasonryGridReviews } from "@/components/emails/ecommerce/reviews/masonry-grid-reviews";
+```
+
+```tsx
+<MasonryGridReviews {...MasonryGridReviews.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Two Columns Reviews
+
+<ComponentPreview base="mjml-react" name="two-columns-reviews-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-reviews
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/reviews/two-columns-reviews.tsx"
+  base="mjml-react"
+  title="components/emails/ecommerce/reviews/two-columns-reviews.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsReviews } from "@/components/emails/ecommerce/reviews/two-columns-reviews";
+```
+
+```tsx
+<TwoColumnsReviews {...TwoColumnsReviews.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

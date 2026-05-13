@@ -3,35 +3,11 @@ title: "Logos"
 description: "Logo cloud and brand showcase layouts for email headers and trust signals."
 ---
 
-<ComponentPreview base="react-email" name="basic-logo-cloud-demo" hideCode />
-
-## Variants
-
-### Basic Logo Cloud
+## Basic Logo Cloud
 
 <ComponentPreview base="react-email" name="basic-logo-cloud-demo" />
 
-### Boxed Logo Cloud
-
-<ComponentPreview base="react-email" name="boxed-logo-cloud-demo" />
-
-### Featured Brands Logo Grid
-
-<ComponentPreview base="react-email" name="featured-brands-logo-grid-demo" />
-
-### Logo Cloud with Borders
-
-<ComponentPreview base="react-email" name="logo-cloud-with-borders-demo" />
-
-### Logos Grid
-
-<ComponentPreview base="react-email" name="logos-grid-demo" />
-
-### Outlined Logo Cloud
-
-<ComponentPreview base="react-email" name="outlined-logo-cloud-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
 <TabsList>
@@ -41,7 +17,7 @@ description: "Logo cloud and brand showcase layouts for email headers and trust 
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/logos
+npx shadcn@latest add @emailcn/basic-logo-cloud
 ```
 
 </TabsContent>
@@ -59,7 +35,7 @@ npx shadcn@latest add @emailcn/logos
 </TabsContent>
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { BasicLogoCloud } from "@/components/emails/marketing/logos/basic-logo-cloud";
@@ -69,9 +45,247 @@ import { BasicLogoCloud } from "@/components/emails/marketing/logos/basic-logo-c
 <BasicLogoCloud {...BasicLogoCloud.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Logos
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Boxed Logo Cloud
+
+<ComponentPreview base="react-email" name="boxed-logo-cloud-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/boxed-logo-cloud.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/boxed-logo-cloud.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { BoxedLogoCloud } from "@/components/emails/marketing/logos/boxed-logo-cloud";
+```
+
+```tsx
+<BoxedLogoCloud {...BoxedLogoCloud.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Featured Brands Logo Grid
+
+<ComponentPreview base="react-email" name="featured-brands-logo-grid-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/featured-brands-logo-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/featured-brands-logo-grid.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/featured-brands-logo-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FeaturedBrandsLogoGrid } from "@/components/emails/marketing/logos/featured-brands-logo-grid";
+```
+
+```tsx
+<FeaturedBrandsLogoGrid {...FeaturedBrandsLogoGrid.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Logo Cloud with Borders
+
+<ComponentPreview base="react-email" name="logo-cloud-with-borders-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud-with-borders
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/logo-cloud-with-borders.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/logo-cloud-with-borders.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-cloud-with-borders";
+```
+
+```tsx
+<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Logos Grid
+
+<ComponentPreview base="react-email" name="logos-grid-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logos-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/logos-grid.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/logos-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { LogosGrid } from "@/components/emails/marketing/logos/logos-grid";
+```
+
+```tsx
+<LogosGrid {...LogosGrid.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Outlined Logo Cloud
+
+<ComponentPreview base="react-email" name="outlined-logo-cloud-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/outlined-logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/outlined-logo-cloud.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/outlined-logo-cloud.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { OutlinedLogoCloud } from "@/components/emails/marketing/logos/outlined-logo-cloud";
+```
+
+```tsx
+<OutlinedLogoCloud {...OutlinedLogoCloud.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |

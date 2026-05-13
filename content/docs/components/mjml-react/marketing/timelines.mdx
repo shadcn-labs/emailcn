@@ -3,41 +3,14 @@ title: "Timelines"
 description: "Timeline components for changelogs, payment history, and event sequences."
 ---
 
-<ComponentPreview base="mjml-react" name="cards-timeline-demo" hideCode />
-
-## Variants
-
-### Accent Timeline
+## Cards Timeline
 
 <ComponentPreview base="mjml-react" name="cards-timeline-demo" />
 
-### Bordered Timeline
-
-<ComponentPreview base="mjml-react" name="changelog-boxed-demo" />
-
-### Boxed Timeline
-
-<ComponentPreview base="mjml-react" name="stacked-boxed-timeline-demo" />
-
-### Centered Timeline
-
-<ComponentPreview base="mjml-react" name="changelog-demo" />
-
-### Dark Timeline
-
-<ComponentPreview base="mjml-react" name="payment-timeline-demo" />
-
-### Minimal Timeline
-
-<ComponentPreview base="mjml-react" name="split-cards-demo" />
-
-### Stacked Timeline
-
-<ComponentPreview base="mjml-react" name="stacked-timeline-demo" />
-
-## Installation
+### Installation
 
 <CodeTabs>
+
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -45,13 +18,15 @@ description: "Timeline components for changelogs, payment history, and event seq
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/mjml-timelines
+npx shadcn@latest add @emailcn/cards-timeline
 ```
 
 </TabsContent>
+
 <TabsContent value="manual">
 
 <Steps>
+
 <Step>Install the following dependencies:</Step>
 
 ```bash
@@ -59,6 +34,7 @@ npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
+
 <ComponentSource
   src="registry/bases/mjml-react/ui/marketing/timelines/cards-timeline.tsx"
   base="mjml-react"
@@ -66,12 +42,14 @@ npm install @faire/mjml-react
 />
 
 <Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
 
 </TabsContent>
+
 </CodeTabs>
 
-## Usage
+### Usage
 
 ```tsx
 import { CardsTimeline } from "@/components/emails/marketing/timelines/cards-timeline";
@@ -81,9 +59,379 @@ import { CardsTimeline } from "@/components/emails/marketing/timelines/cards-tim
 <CardsTimeline {...CardsTimeline.PreviewProps} />
 ```
 
-## API Reference
+### API Reference
 
-### Timelines
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Changelog Boxed
+
+<ComponentPreview base="mjml-react" name="changelog-boxed-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/changelog-boxed
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/changelog-boxed.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/changelog-boxed.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ChangelogBoxed } from "@/components/emails/marketing/timelines/changelog-boxed";
+```
+
+```tsx
+<ChangelogBoxed {...ChangelogBoxed.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Stacked Boxed Timeline
+
+<ComponentPreview base="mjml-react" name="stacked-boxed-timeline-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/stacked-boxed-timeline
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/stacked-boxed-timeline.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/stacked-boxed-timeline.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { StackedBoxedTimeline } from "@/components/emails/marketing/timelines/stacked-boxed-timeline";
+```
+
+```tsx
+<StackedBoxedTimeline {...StackedBoxedTimeline.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Changelog
+
+<ComponentPreview base="mjml-react" name="changelog-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/changelog
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/changelog.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/changelog.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { Changelog } from "@/components/emails/marketing/timelines/changelog";
+```
+
+```tsx
+<Changelog {...Changelog.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Payment Timeline
+
+<ComponentPreview base="mjml-react" name="payment-timeline-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/payment-timeline
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/payment-timeline.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/payment-timeline.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { PaymentTimeline } from "@/components/emails/marketing/timelines/payment-timeline";
+```
+
+```tsx
+<PaymentTimeline {...PaymentTimeline.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Split Cards
+
+<ComponentPreview base="mjml-react" name="split-cards-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/split-cards
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/split-cards.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/split-cards.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { SplitCards } from "@/components/emails/marketing/timelines/split-cards";
+```
+
+```tsx
+<SplitCards {...SplitCards.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Stacked Timeline
+
+<ComponentPreview base="mjml-react" name="stacked-timeline-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/stacked-timeline
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/timelines/stacked-timeline.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/timelines/stacked-timeline.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked-timeline";
+```
+
+```tsx
+<StackedTimeline {...StackedTimeline.PreviewProps} />
+```
+
+### API Reference
 
 | Prop    | Type         | Default        | Description         |
 | ------- | ------------ | -------------- | ------------------- |
