@@ -36,13 +36,13 @@ export interface SocialsWithInlineTileLabelsProps {
 }
 
 export const SocialsWithInlineTileLabelsSection = ({
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-1&size=20",
   socialAlt1 = "Twitter",
   socialLabel1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-2&size=20",
   socialAlt2 = "Facebook",
   socialLabel2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-3&size=20",
   socialAlt3 = "Instagram",
   socialLabel3 = "Instagram",
   variant = "default",
@@ -131,13 +131,13 @@ export const SocialsWithInlineTileLabelsSection = ({
 
 export const SocialsWithInlineTileLabels = ({
   theme = defaultTheme,
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-4&size=20",
   socialAlt1 = "Twitter",
   socialLabel1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-5&size=20",
   socialAlt2 = "Facebook",
   socialLabel2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-6&size=20",
   socialAlt3 = "Instagram",
   socialLabel3 = "Instagram",
   variant = "default",
@@ -173,9 +173,12 @@ SocialsWithInlineTileLabels.PreviewProps = {
   socialLabel1: "Twitter",
   socialLabel2: "Facebook",
   socialLabel3: "Instagram",
-  socialSrc1: "https://via.placeholder.com/20x20",
-  socialSrc2: "https://via.placeholder.com/20x20",
-  socialSrc3: "https://via.placeholder.com/20x20",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-7&size=20",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-8&size=20",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-inline-tile-labels-tsx-9&size=20",
   theme: defaultTheme,
   variant: "default",
 } satisfies SocialsWithInlineTileLabelsProps;

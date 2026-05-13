@@ -77,8 +77,8 @@ const ImageGridSection = ({
 export const TwoColumnsImageGrid = ({
   theme = defaultTheme,
   images = [
-    { alt: "Image 1", src: "https://placehold.co/400x300?text=Image+1" },
-    { alt: "Image 2", src: "https://placehold.co/400x300?text=Image+2" },
+    { alt: "Image 1", src: "https://static.photos/technology/400x300/2" },
+    { alt: "Image 2", src: "https://static.photos/technology/400x300/3" },
   ],
   columns = 2,
   variant = "default",
@@ -115,11 +115,11 @@ TwoColumnsImageGrid.PreviewProps = {
   images: [
     {
       alt: "Screenshot 1",
-      src: "https://placehold.co/400x300?text=Screenshot+1",
+      src: "https://static.photos/technology/400x300/4",
     },
     {
       alt: "Screenshot 2",
-      src: "https://placehold.co/400x300?text=Screenshot+2",
+      src: "https://static.photos/technology/400x300/5",
     },
   ],
   theme: defaultTheme,

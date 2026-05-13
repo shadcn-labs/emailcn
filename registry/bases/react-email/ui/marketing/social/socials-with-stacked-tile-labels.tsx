@@ -36,13 +36,13 @@ export interface SocialsWithStackedTileLabelsProps {
 }
 
 export const SocialsWithStackedTileLabelsSection = ({
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-1&size=24",
   socialAlt1 = "Twitter",
   socialLabel1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-2&size=24",
   socialAlt2 = "Facebook",
   socialLabel2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-3&size=24",
   socialAlt3 = "Instagram",
   socialLabel3 = "Instagram",
   variant = "default",
@@ -131,13 +131,13 @@ export const SocialsWithStackedTileLabelsSection = ({
 
 export const SocialsWithStackedTileLabels = ({
   theme = defaultTheme,
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-4&size=24",
   socialAlt1 = "Twitter",
   socialLabel1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-5&size=24",
   socialAlt2 = "Facebook",
   socialLabel2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-6&size=24",
   socialAlt3 = "Instagram",
   socialLabel3 = "Instagram",
   variant = "default",
@@ -173,9 +173,12 @@ SocialsWithStackedTileLabels.PreviewProps = {
   socialLabel1: "Twitter",
   socialLabel2: "Facebook",
   socialLabel3: "Instagram",
-  socialSrc1: "https://via.placeholder.com/24x24",
-  socialSrc2: "https://via.placeholder.com/24x24",
-  socialSrc3: "https://via.placeholder.com/24x24",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-7&size=24",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-8&size=24",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-stacked-tile-labels-tsx-9&size=24",
   theme: defaultTheme,
   variant: "default",
 } satisfies SocialsWithStackedTileLabelsProps;

@@ -152,8 +152,8 @@ ProductDetailTwoImages.PreviewProps = {
   description:
     "Featuring dual-angle views so you can appreciate every detail of this premium product.",
   features: ["Premium finish", "Lightweight design", "1 year warranty"],
-  imageUrl1: "https://example.com/product-front.jpg",
-  imageUrl2: "https://example.com/product-back.jpg",
+  imageUrl1: "https://static.photos/technology/640x640/2",
+  imageUrl2: "https://static.photos/technology/640x640/3",
   name: "Designer Sunglasses",
   price: "$179.00",
   theme: defaultTheme,

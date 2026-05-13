@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "simple-footer-with-social-icons",
+  "title": "Simple Footer With Social Icons",
+  "description": "Marketing footers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/footers/simple-footer-with-social-icons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type FooterUnsubscribeVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface FooterUnsubscribeProps {\n  theme?: EmailThemeTokens;\n  companyName?: string;\n  unsubscribeHref?: string;\n  variant?: FooterUnsubscribeVariant;\n}\n\nconst FooterUnsubscribeSection = ({\n  companyName,\n  theme,\n  unsubscribeHref,\n  variant,\n}: {\n  companyName: string;\n  theme: EmailThemeTokens;\n  unsubscribeHref: string;\n  variant: FooterUnsubscribeVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingBase ?? \"24px\"} 0`}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm ?? \"11px\"}\n        paddingBottom={theme.spacingBase ?? \"8px\"}\n      >\n        If you no longer wish to receive these emails, you can{\" \"}\n        <a href={unsubscribeHref} style={{ color: theme.colorTextMuted }}>\n          unsubscribe\n        </a>\n        .\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm ?? \"11px\"}\n      >\n        &copy; {new Date().getFullYear()} {companyName}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const SimpleFooterWithSocialIcons = ({\n  theme = defaultTheme,\n  companyName = \"Acme Inc.\",\n  unsubscribeHref = \"#\",\n  variant = \"default\",\n}: FooterUnsubscribeProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>footer unsubscribe</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FooterUnsubscribeSection\n          companyName={companyName}\n          theme={theme}\n          unsubscribeHref={unsubscribeHref}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nSimpleFooterWithSocialIcons.PreviewProps = {\n  companyName: \"Acme Inc.\",\n  theme: defaultTheme,\n  unsubscribeHref: \"#unsubscribe\",\n  variant: \"default\",\n} satisfies FooterUnsubscribeProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/footers/simple-footer-with-social-icons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

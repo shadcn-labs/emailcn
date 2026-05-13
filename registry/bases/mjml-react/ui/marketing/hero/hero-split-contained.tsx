@@ -131,7 +131,7 @@ export const HeroSplitContained = ({
   subheading = "Text on the left, image on the right — evenly split.",
   ctaLabel = "Learn More",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x400?text=Split+Image",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "split image",
   align = "left",
   variant = "default",
@@ -174,7 +174,7 @@ HeroSplitContained.PreviewProps = {
   ctaLabel: "Get Started",
   heading: "Split Contained",
   imageAlt: "split contained",
-  imageSrc: "https://placehold.co/600x400?text=Split+Contained",
+  imageSrc: "https://static.photos/city/600x400/3",
   subheading:
     "A balanced split layout with text on the left and an image on the right.",
   theme: defaultTheme,

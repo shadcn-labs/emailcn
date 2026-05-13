@@ -134,7 +134,7 @@ HeaderLogoWithLinks.PreviewProps = {
     { href: "#pricing", label: "Pricing" },
   ],
   logoAlt: "Acme",
-  logoUrl: "https://placehold.co/120x40?text=Acme",
+  logoUrl: "https://static.photos/business/120x40/2",
   logoWidth: 120,
   theme: defaultTheme,
   variant: "default",

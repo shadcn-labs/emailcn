@@ -80,7 +80,7 @@ const BentoGridProductSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeBase}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {p.name}
         </MjmlText>
@@ -103,19 +103,19 @@ export const TwoThirdsBentoGridWithStats = ({
   products = [
     {
       imageAlt: "Product 1",
-      imageUrl: "https://placehold.co/300x300?text=Product+1",
+      imageUrl: "https://static.photos/technology/300x300/2",
       name: "Product One",
       price: "$29",
     },
     {
       imageAlt: "Product 2",
-      imageUrl: "https://placehold.co/300x300?text=Product+2",
+      imageUrl: "https://static.photos/technology/300x300/3",
       name: "Product Two",
       price: "$49",
     },
     {
       imageAlt: "Product 3",
-      imageUrl: "https://placehold.co/300x300?text=Product+3",
+      imageUrl: "https://static.photos/technology/300x300/4",
       name: "Product Three",
       price: "$79",
     },
@@ -153,19 +153,19 @@ TwoThirdsBentoGridWithStats.PreviewProps = {
   products: [
     {
       imageAlt: "Widget",
-      imageUrl: "https://placehold.co/300x300?text=Widget",
+      imageUrl: "https://static.photos/technology/300x300/5",
       name: "Premium Widget",
       price: "$39",
     },
     {
       imageAlt: "Gadget",
-      imageUrl: "https://placehold.co/300x300?text=Gadget",
+      imageUrl: "https://static.photos/technology/300x300/6",
       name: "Super Gadget",
       price: "$59",
     },
     {
       imageAlt: "Tool",
-      imageUrl: "https://placehold.co/300x300?text=Tool",
+      imageUrl: "https://static.photos/technology/300x300/7",
       name: "Pro Tool",
       price: "$99",
     },

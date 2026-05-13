@@ -50,7 +50,7 @@ const CouponCardDefaultSection = ({
 }) => (
   <MjmlSection
     backgroundColor={theme.colorBackground}
-    border={`Twopx dashed ${theme.colorBorder ?? "#e5e7eb"}`}
+    border={`2px dashed ${theme.colorBorder ?? "#e5e7eb"}`}
     borderRadius={theme.borderRadius}
     padding={theme.spacingXl ?? "24px"}
   >
@@ -59,7 +59,7 @@ const CouponCardDefaultSection = ({
         align="center"
         color={theme.colorTextMuted}
         fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "1Twopx"}
+        fontSize={theme.fontSizeSm ?? "12px"}
         fontWeight={theme.fontWeightMedium}
         paddingBottom={theme.spacingBase ?? "16px"}
       >

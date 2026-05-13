@@ -48,7 +48,7 @@ const TeamGridSection = ({
         <MjmlColumn
           key={member.name + i}
           width={colWidth}
-          padding={theme.spacingBase ?? "2Fourpx"}
+          padding={theme.spacingBase}
           verticalAlign="top"
         >
           {member.avatarUrl ? (
@@ -59,16 +59,16 @@ const TeamGridSection = ({
               src={member.avatarUrl}
               width={80}
               height={80}
-              paddingBottom={theme.spacingBase ?? "2Fourpx"}
+              paddingBottom={theme.spacingBase}
             />
           ) : null}
           <MjmlText
             align="center"
             color={theme.colorText}
             fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase ?? "1Fourpx"}
+            fontSize={theme.fontSizeBase}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase}
           >
             {member.name}
           </MjmlText>
@@ -76,8 +76,8 @@ const TeamGridSection = ({
             align="center"
             color={theme.colorTextMuted}
             fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm ?? "12px"}
-            paddingBottom={theme.spacingBase ?? "8px"}
+            fontSize={theme.fontSizeSm}
+            paddingBottom={theme.spacingBase}
           >
             {member.role}
           </MjmlText>
@@ -86,7 +86,7 @@ const TeamGridSection = ({
               align="center"
               color={theme.colorTextSubtle}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "12px"}
+              fontSize={theme.fontSizeSm}
               lineHeight={theme.lineHeightBase}
             >
               {member.bio}
@@ -139,19 +139,22 @@ ThreeColumnsTeamGrid.PreviewProps = {
   columns: 3,
   members: [
     {
-      avatarUrl: "https://placehold.co/80x80?text=AJ",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F3-columns-team-grid.tsx-80-1&size=80",
       bio: "Building the future of email.",
       name: "Alex Johnson",
       role: "CEO & Founder",
     },
     {
-      avatarUrl: "https://placehold.co/80x80?text=MG",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F3-columns-team-grid.tsx-80-2&size=80",
       bio: "Leading engineering and product.",
       name: "Maria Garcia",
       role: "CTO",
     },
     {
-      avatarUrl: "https://placehold.co/80x80?text=DK",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F3-columns-team-grid.tsx-80-3&size=80",
       bio: "Designing beautiful experiences.",
       name: "David Kim",
       role: "Design Lead",

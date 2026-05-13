@@ -59,7 +59,7 @@ const TeamWithBioSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeBase}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {m.name}
         </MjmlText>
@@ -114,19 +114,22 @@ export const TwoColumnTeamCardsWithDetails = ({
 TwoColumnTeamCardsWithDetails.PreviewProps = {
   members: [
     {
-      avatarUrl: "https://placehold.co/80x80?text=AJ",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards-with-details.tsx-80-1&size=80",
       bio: "Building the future of email.",
       name: "Alex Johnson",
       role: "CEO",
     },
     {
-      avatarUrl: "https://placehold.co/80x80?text=MG",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards-with-details.tsx-80-2&size=80",
       bio: "Leading engineering.",
       name: "Maria Garcia",
       role: "CTO",
     },
     {
-      avatarUrl: "https://placehold.co/80x80?text=DK",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards-with-details.tsx-80-3&size=80",
       bio: "Designing experiences.",
       name: "David Kim",
       role: "Design Lead",

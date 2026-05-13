@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-with-full-title-and-tall-background-images",
+  "title": "Feature With Full Title And Tall Background Images",
+  "description": "Marketing feature variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/feature/feature-with-full-title-and-tall-background-images.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type FeatureIconRowVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface FeatureIconRowProps {\n  theme?: EmailThemeTokens;\n  iconUrl?: string;\n  iconAlt?: string;\n  heading?: string;\n  body?: string;\n  features?: { iconUrl?: string; heading: string; body: string }[];\n  variant?: FeatureIconRowVariant;\n}\n\nconst FeatureIconRowSection = ({\n  features,\n  theme,\n  variant,\n}: {\n  features: FeatureIconRowProps[\"features\"];\n  theme: EmailThemeTokens;\n  variant: FeatureIconRowVariant;\n}) => {\n  const items = features ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {items.slice(0, 3).map((f, i) => (\n        <MjmlColumn\n          key={f.heading + i}\n          width={`${100 / Math.min(items.length, 3)}%`}\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"top\"\n        >\n          {f.iconUrl ? (\n            <MjmlImage\n              align=\"center\"\n              alt={f.heading}\n              src={f.iconUrl}\n              width={48}\n              paddingBottom={theme.spacingBase ?? \"24px\"}\n            />\n          ) : null}\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeLg ?? \"16px\"}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          >\n            {f.heading}\n          </MjmlText>\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase ?? \"14px\"}\n            lineHeight={theme.lineHeightBase}\n          >\n            {f.body}\n          </MjmlText>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const FeatureWithFullTitleAndTallBackgroundImages = ({\n  theme = defaultTheme,\n  features = [\n    { body: \"Lightning fast performance.\", heading: \"Fast\" },\n    { body: \"99.9% uptime guaranteed.\", heading: \"Reliable\" },\n    { body: \"Enterprise-grade security.\", heading: \"Secure\" },\n  ],\n  variant = \"default\",\n}: FeatureIconRowProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>feature icon row</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FeatureIconRowSection\n          features={features}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFeatureWithFullTitleAndTallBackgroundImages.PreviewProps = {\n  features: [\n    { body: \"Lightning fast email rendering.\", heading: \"Fast\" },\n    { body: \"Works across all major email clients.\", heading: \"Reliable\" },\n    { body: \"Your data is always protected.\", heading: \"Secure\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FeatureIconRowProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/feature/feature-with-full-title-and-tall-background-images.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

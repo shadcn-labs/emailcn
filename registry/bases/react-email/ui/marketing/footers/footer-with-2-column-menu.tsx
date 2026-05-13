@@ -43,7 +43,7 @@ export interface FooterWith2ColumnMenuProps {
 }
 
 export const FooterWith2ColumnMenuSection = ({
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/2",
   logoAlt = "Logo",
   col1Heading = "Product",
   col1Link1 = "Features",
@@ -168,7 +168,7 @@ export const FooterWith2ColumnMenuSection = ({
 
 export const FooterWith2ColumnMenu = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/3",
   logoAlt = "Logo",
   col1Heading = "Product",
   col1Link1 = "Features",
@@ -233,7 +233,7 @@ FooterWith2ColumnMenu.PreviewProps = {
   col2Link3: "Contact",
   col2Link3Href: "#",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/100x25",
+  logoSrc: "https://static.photos/business/100x25/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FooterWith2ColumnMenuProps;

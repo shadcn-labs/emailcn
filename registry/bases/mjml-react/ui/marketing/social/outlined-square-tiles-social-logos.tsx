@@ -56,9 +56,7 @@ const SocialLinksCompactSection = ({
             {l.platform}
           </a>
           {i < (links ?? []).length - 1 ? (
-            <span style={{ color: theme.colorBorder, margin: "0 Fourpx" }}>
-              |
-            </span>
+            <span style={{ color: theme.colorBorder, margin: "0 4px" }}>|</span>
           ) : null}
         </MjmlText>
       ))}

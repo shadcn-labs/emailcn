@@ -33,7 +33,7 @@ export interface FeaturedPostWithLargeDateProps {
 }
 
 export const FeaturedPostWithLargeDateSection = ({
-  imageSrc = "https://via.placeholder.com/500x300",
+  imageSrc = "https://static.photos/travel/500x300/2",
   imageAlt = "",
   date = "15",
   month = "MAR",
@@ -104,7 +104,7 @@ export const FeaturedPostWithLargeDateSection = ({
 
 export const FeaturedPostWithLargeDate = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/500x300",
+  imageSrc = "https://static.photos/travel/500x300/3",
   imageAlt = "",
   date = "15",
   month = "MAR",
@@ -137,7 +137,7 @@ FeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "Exploring the latest trends in email design and development.",
   imageAlt: "Article",
-  imageSrc: "https://via.placeholder.com/500x300",
+  imageSrc: "https://static.photos/travel/500x300/4",
   month: "MAR",
   theme: defaultTheme,
   title: "Email Design Trends 2024",

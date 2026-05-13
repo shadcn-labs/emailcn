@@ -133,12 +133,12 @@ TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
   posts: [
     {
       description: "Learn how to build better emails.",
-      imageUrl: "https://placehold.co/400x250?text=Post+1",
+      imageUrl: "https://static.photos/travel/400x250/2",
       title: "Getting Started",
     },
     {
       description: "Tips for responsive design.",
-      imageUrl: "https://placehold.co/400x250?text=Post+2",
+      imageUrl: "https://static.photos/travel/400x250/3",
       title: "Design Tips",
     },
   ],

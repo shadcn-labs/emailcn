@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "centered-testimonial-with-cta",
+  "title": "Centered Testimonial With Cta",
+  "description": "Marketing testimonials variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/testimonials/centered-testimonial-with-cta.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TestimonialCenteredVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface TestimonialCenteredProps {\n  theme?: EmailThemeTokens;\n  avatarUrl?: string;\n  name?: string;\n  role?: string;\n  quote?: string;\n  variant?: TestimonialCenteredVariant;\n}\n\nconst TestimonialCenteredSection = ({\n  avatarUrl,\n  name,\n  quote,\n  role,\n  theme,\n  variant,\n}: {\n  avatarUrl?: string;\n  name: string;\n  quote: string;\n  role: string;\n  theme: EmailThemeTokens;\n  variant: TestimonialCenteredVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn>\n      {avatarUrl ? (\n        <MjmlImage\n          align=\"center\"\n          alt={name}\n          borderRadius=\"50%\"\n          src={avatarUrl}\n          width={72}\n          height={72}\n          paddingBottom={theme.spacingBase ?? \"24px\"}\n        />\n      ) : null}\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg ?? \"16px\"}\n        fontStyle=\"italic\"\n        lineHeight={theme.lineHeightBase}\n        paddingBottom={theme.spacingBase ?? \"24px\"}\n      >\n        &ldquo;{quote}&rdquo;\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeBase ?? \"14px\"}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"4px\"}\n      >\n        {name}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm ?? \"12px\"}\n      >\n        {role}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const CenteredTestimonialWithCta = ({\n  theme = defaultTheme,\n  avatarUrl,\n  name = \"John Doe\",\n  role = \"CEO, Acme\",\n  quote = \"This product has transformed how we work.\",\n  variant = \"default\",\n}: TestimonialCenteredProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>testimonial centered</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TestimonialCenteredSection\n          avatarUrl={avatarUrl}\n          name={name}\n          quote={quote}\n          role={role}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nCenteredTestimonialWithCta.PreviewProps = {\n  avatarUrl:\n    \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Ftestimonials%2Fcentered-testimonial-with-cta.tsx-72-1&size=72\",\n  name: \"Sarah Smith\",\n  quote:\n    \"Working with this product has been an absolute game-changer for our team.\",\n  role: \"Product Manager, TechCorp\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TestimonialCenteredProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/testimonials/centered-testimonial-with-cta.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

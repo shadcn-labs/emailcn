@@ -32,7 +32,7 @@ export interface SinglePostHorizontalProps {
 }
 
 export const SinglePostHorizontalSection = ({
-  imageSrc = "https://via.placeholder.com/300x200",
+  imageSrc = "https://static.photos/travel/300x200/2",
   imageAlt = "",
   title = "Featured Post",
   excerpt = "A brief summary of the featured blog post content.",
@@ -101,7 +101,7 @@ export const SinglePostHorizontalSection = ({
 
 export const SinglePostHorizontal = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/300x200",
+  imageSrc = "https://static.photos/travel/300x200/3",
   imageAlt = "",
   title = "Featured Post",
   excerpt = "A brief summary of the featured blog post content.",
@@ -133,7 +133,7 @@ SinglePostHorizontal.PreviewProps = {
   excerpt:
     "Discover the top 10 strategies for growing your email list in 2024.",
   imageAlt: "Featured Post",
-  imageSrc: "https://via.placeholder.com/300x200",
+  imageSrc: "https://static.photos/travel/300x200/4",
   theme: defaultTheme,
   title: "How to Grow Your Email List",
   variant: "default",

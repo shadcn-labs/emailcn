@@ -33,7 +33,7 @@ export interface HeaderWithLogoAndFinanceStatsProps {
 }
 
 export const HeaderWithLogoAndFinanceStatsSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   stat1 = "$12,450",
   stat1Label = "Balance",
@@ -110,7 +110,7 @@ export const HeaderWithLogoAndFinanceStatsSection = ({
 
 export const HeaderWithLogoAndFinanceStats = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   stat1 = "$12,450",
   stat1Label = "Balance",
@@ -141,7 +141,7 @@ export const HeaderWithLogoAndFinanceStats = ({
 
 HeaderWithLogoAndFinanceStats.PreviewProps = {
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   stat1: "$12,450",
   stat1Label: "Balance",
   stat2: "+5.2%",

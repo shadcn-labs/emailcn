@@ -3,29 +3,48 @@ title: "FAQ"
 description: "Frequently asked questions sections for email content."
 ---
 
-<ComponentPreview base="mjml-react" name="boxed-faq-with-numbered-questions-demo" hideCode />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-faq-with-numbered-questions-demo"
+  hideCode
+/>
 
 ## Variants
 
 ### FAQ Accordion
 
-<ComponentPreview base="mjml-react" name="boxed-faq-with-numbered-questions-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-faq-with-numbered-questions-demo"
+/>
 
 ### Boxed FAQ
 
-<ComponentPreview base="mjml-react" name="boxed-faq-with-numbers-and-alternating-background-colors-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-faq-with-numbers-and-alternating-background-colors-demo"
+/>
 
 ### Dark FAQ
 
-<ComponentPreview base="mjml-react" name="boxed-faq-with-numbers-and-alternating-background-colors-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-faq-with-numbers-and-alternating-background-colors-demo"
+/>
 
 ### Expanded FAQ
 
-<ComponentPreview base="mjml-react" name="collapsed-faq-with-expanded-section-and-icons-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="collapsed-faq-with-expanded-section-and-icons-demo"
+/>
 
 ### FAQ Grid
 
-<ComponentPreview base="mjml-react" name="collapsed-faq-with-expanded-section-and-icons-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="collapsed-faq-with-expanded-section-and-icons-demo"
+/>
 
 ### Minimal FAQ
 
@@ -33,7 +52,10 @@ description: "Frequently asked questions sections for email content."
 
 ### FAQ with Search
 
-<ComponentPreview base="mjml-react" name="boxed-faq-with-numbers-and-alternating-background-colors-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-faq-with-numbers-and-alternating-background-colors-demo"
+/>
 
 ## Installation
 
@@ -60,9 +82,9 @@ npm install @faire/mjml-react
 
 <Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/faq/faq-accordion.tsx"
+  src="registry/bases/mjml-react/ui/marketing/faq/boxed-faq-with-numbered-questions.tsx"
   base="mjml-react"
-  title="components/emails/marketing/faq/faq-accordion.tsx"
+  title="components/emails/marketing/faq/boxed-faq-with-numbered-questions.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -74,11 +96,13 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { FaqAccordion } from "@/components/emails/marketing/faq/faq-accordion";
+import { BoxedFaqWithNumberedQuestions } from "@/components/emails/marketing/faq/boxed-faq-with-numbered-questions";
 ```
 
 ```tsx
-<FaqAccordion {...FaqAccordion.PreviewProps} />
+<BoxedFaqWithNumberedQuestions
+  {...BoxedFaqWithNumberedQuestions.PreviewProps}
+/>
 ```
 
 ## API Reference

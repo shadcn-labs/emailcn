@@ -58,7 +58,7 @@ const ImageRoundedSection = ({
 
 export const ThreeColumnsMasonryImageGrid = ({
   theme = defaultTheme,
-  src = "https://placehold.co/200x200?text=Avatar",
+  src = "https://api.dicebear.com/9.x/lorelei/png?seed=grid-avatar-1&size=200",
   alt = "avatar",
   size = 200,
   variant = "default",
@@ -94,7 +94,7 @@ export const ThreeColumnsMasonryImageGrid = ({
 ThreeColumnsMasonryImageGrid.PreviewProps = {
   alt: "profile photo",
   size: 200,
-  src: "https://placehold.co/200x200?text=Profile",
+  src: "https://api.dicebear.com/9.x/lorelei/png?seed=grid-avatar-2&size=200",
   theme: defaultTheme,
   variant: "default",
 } satisfies ImageRoundedProps;

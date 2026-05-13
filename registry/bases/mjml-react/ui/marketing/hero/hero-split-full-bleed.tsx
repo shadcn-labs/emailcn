@@ -127,7 +127,7 @@ export const HeroSplitFullBleed = ({
   subheading = "Full-width split layout: image bleeds on the right, text on the left.",
   ctaLabel = "Get Started",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x400?text=Full+Bleed",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "full bleed",
   textBackgroundColor = "#f9fafb",
   variant = "default",
@@ -169,7 +169,7 @@ HeroSplitFullBleed.PreviewProps = {
   ctaLabel: "Learn More",
   heading: "Hero Split Full Bleed",
   imageAlt: "full bleed image",
-  imageSrc: "https://placehold.co/600x400?text=Full+Bleed",
+  imageSrc: "https://static.photos/city/600x400/3",
   subheading:
     "A full-bleed split layout with a text panel on the left and a zero-padding image on the right.",
   textBackgroundColor: "#f9fafb",

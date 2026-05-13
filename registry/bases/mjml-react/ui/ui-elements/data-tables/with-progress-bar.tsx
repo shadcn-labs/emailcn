@@ -47,7 +47,7 @@ const DataTableWithProgressSection = ({
             <MjmlText
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "1Fourpx"}
+              fontSize={theme.fontSizeBase ?? "14px"}
               fontWeight={theme.fontWeightBold ?? "600"}
               padding="0"
             >
@@ -65,7 +65,7 @@ const DataTableWithProgressSection = ({
             <MjmlText
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "1Fourpx"}
+              fontSize={theme.fontSizeBase ?? "14px"}
               padding="0"
             >
               {row.label}
@@ -82,7 +82,7 @@ const DataTableWithProgressSection = ({
                   backgroundColor={theme.colorPrimary}
                   borderRadius={theme.borderRadius}
                   width={`${row.progress}%`}
-                  padding="Fourpx 0"
+                  padding="4px 0"
                 >
                   <MjmlText
                     align="center"
@@ -105,7 +105,7 @@ const DataTableWithProgressSection = ({
             <MjmlText
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "1Fourpx"}
+              fontSize={theme.fontSizeBase ?? "14px"}
               padding="0"
             >
               {row.value}

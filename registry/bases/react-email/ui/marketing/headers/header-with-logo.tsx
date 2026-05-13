@@ -18,7 +18,7 @@ export interface HeaderWithLogoProps {
 }
 
 export const HeaderWithLogoSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   variant = "default",
 }: Omit<HeaderWithLogoProps, "theme">) => {
@@ -69,7 +69,7 @@ export const HeaderWithLogoSection = ({
 
 export const HeaderWithLogo = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   variant = "default",
 }: HeaderWithLogoProps) => (
@@ -92,7 +92,7 @@ export const HeaderWithLogo = ({
 
 HeaderWithLogo.PreviewProps = {
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies HeaderWithLogoProps;

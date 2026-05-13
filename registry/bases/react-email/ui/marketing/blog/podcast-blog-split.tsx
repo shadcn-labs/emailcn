@@ -33,7 +33,7 @@ export interface PodcastBlogSplitProps {
 }
 
 export const PodcastBlogSplitSection = ({
-  imageSrc = "https://via.placeholder.com/300x300",
+  imageSrc = "https://static.photos/city/300x300/2",
   imageAlt = "",
   episode = "Episode 42",
   title = "The Future of Email",
@@ -106,7 +106,7 @@ export const PodcastBlogSplitSection = ({
 
 export const PodcastBlogSplit = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/300x300",
+  imageSrc = "https://static.photos/city/300x300/3",
   imageAlt = "",
   episode = "Episode 42",
   title = "The Future of Email",
@@ -140,7 +140,7 @@ PodcastBlogSplit.PreviewProps = {
   excerpt: "A deep dive into emerging email trends and technologies.",
   host: "Jane Smith",
   imageAlt: "Podcast",
-  imageSrc: "https://via.placeholder.com/300x300",
+  imageSrc: "https://static.photos/city/300x300/4",
   theme: defaultTheme,
   title: "The Future of Email",
   variant: "default",

@@ -55,14 +55,14 @@ const TimelineBorderedSection = ({
         <MjmlColumn
           padding="0 0 0 16px"
           verticalAlign="top"
-          borderLeft={`Twopx solid ${theme.colorPrimary}`}
+          borderLeft={`2px solid ${theme.colorPrimary}`}
         >
           <MjmlText
             color={theme.colorText}
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeBase}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {e.title}
           </MjmlText>

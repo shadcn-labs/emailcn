@@ -34,13 +34,13 @@ export interface ThreeColumnsMasonryImageGridProps {
 }
 
 export const ThreeColumnsMasonryImageGridSection = ({
-  imageSrc1 = "https://via.placeholder.com/200x250",
+  imageSrc1 = "https://static.photos/travel/200x250/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/200x400",
+  imageSrc2 = "https://static.photos/travel/200x400/3",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/200x300",
+  imageSrc3 = "https://static.photos/travel/200x300/4",
   imageAlt3 = "",
-  imageSrc4 = "https://via.placeholder.com/200x200",
+  imageSrc4 = "https://static.photos/travel/200x200/5",
   imageAlt4 = "",
   variant = "default",
 }: Omit<ThreeColumnsMasonryImageGridProps, "theme">) => {
@@ -118,13 +118,13 @@ export const ThreeColumnsMasonryImageGridSection = ({
 
 export const ThreeColumnsMasonryImageGrid = ({
   theme = defaultTheme,
-  imageSrc1 = "https://via.placeholder.com/200x250",
+  imageSrc1 = "https://static.photos/travel/200x250/6",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/200x400",
+  imageSrc2 = "https://static.photos/travel/200x400/7",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/200x300",
+  imageSrc3 = "https://static.photos/travel/200x300/8",
   imageAlt3 = "",
-  imageSrc4 = "https://via.placeholder.com/200x200",
+  imageSrc4 = "https://static.photos/travel/200x200/9",
   imageAlt4 = "",
   variant = "default",
 }: ThreeColumnsMasonryImageGridProps) => (
@@ -156,10 +156,10 @@ ThreeColumnsMasonryImageGrid.PreviewProps = {
   imageAlt2: "Image 2",
   imageAlt3: "Image 3",
   imageAlt4: "Image 4",
-  imageSrc1: "https://via.placeholder.com/200x250",
-  imageSrc2: "https://via.placeholder.com/200x400",
-  imageSrc3: "https://via.placeholder.com/200x300",
-  imageSrc4: "https://via.placeholder.com/200x200",
+  imageSrc1: "https://static.photos/travel/200x250/10",
+  imageSrc2: "https://static.photos/travel/200x400/11",
+  imageSrc3: "https://static.photos/travel/200x300/12",
+  imageSrc4: "https://static.photos/travel/200x200/13",
   theme: defaultTheme,
   variant: "default",
 } satisfies ThreeColumnsMasonryImageGridProps;

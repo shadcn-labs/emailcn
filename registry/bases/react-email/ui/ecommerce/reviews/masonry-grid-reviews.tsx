@@ -152,28 +152,32 @@ export const MasonryGridReviews = ({
 MasonryGridReviews.PreviewProps = {
   reviews: [
     {
-      avatarUrl: "https://example.com/avatar1.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
       date: "March 2026",
       name: "Alex Johnson",
       rating: 5,
       text: "Absolutely love this product! Exceeded expectations.",
     },
     {
-      avatarUrl: "https://example.com/avatar2.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-2&size=128",
       date: "February 2026",
       name: "Maria Garcia",
       rating: 4,
       text: "Great value for the price.",
     },
     {
-      avatarUrl: "https://example.com/avatar3.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-3&size=128",
       date: "January 2026",
       name: "David Kim",
       rating: 5,
       text: "Best purchase this year. The quality is outstanding.",
     },
     {
-      avatarUrl: "https://example.com/avatar4.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-4&size=128",
       date: "December 2025",
       name: "Sarah Chen",
       rating: 4,

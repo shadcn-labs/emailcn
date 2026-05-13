@@ -64,7 +64,7 @@ const BlogThreeColumnSection = ({
             color={theme.colorTextSubtle}
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeSm}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {post.date}
           </MjmlText>
@@ -74,7 +74,7 @@ const BlogThreeColumnSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeLg}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {post.title}
         </MjmlText>
@@ -121,19 +121,19 @@ SinglePostHorizontal.PreviewProps = {
     {
       date: "May 2026",
       description: "Getting started guide.",
-      imageUrl: "https://placehold.co/300x200?text=Guide",
+      imageUrl: "https://static.photos/travel/300x200/2",
       title: "Getting Started",
     },
     {
       date: "Apr 2026",
       description: "Design best practices.",
-      imageUrl: "https://placehold.co/300x200?text=Design",
+      imageUrl: "https://static.photos/travel/300x200/3",
       title: "Design Tips",
     },
     {
       date: "Mar 2026",
       description: "Advanced techniques.",
-      imageUrl: "https://placehold.co/300x200?text=Advanced",
+      imageUrl: "https://static.photos/travel/300x200/4",
       title: "Advanced",
     },
   ],

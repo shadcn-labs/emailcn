@@ -39,7 +39,7 @@ const TeamCompactSection = ({
       <MjmlColumn
         key={m.name + i}
         width="25%"
-        padding={theme.spacingBase ?? "1Twopx"}
+        padding={theme.spacingBase ?? "12px"}
         verticalAlign="top"
       >
         {m.avatarUrl ? (
@@ -59,7 +59,7 @@ const TeamCompactSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeSm}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Twopx"}
+          paddingBottom={theme.spacingBase ?? "2px"}
         >
           {m.name}
         </MjmlText>
@@ -109,22 +109,26 @@ export const TwoColumnsCompact = ({
 TwoColumnsCompact.PreviewProps = {
   members: [
     {
-      avatarUrl: "https://placehold.co/48x48?text=AJ",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-1&size=48",
       name: "Alex Johnson",
       role: "CEO",
     },
     {
-      avatarUrl: "https://placehold.co/48x48?text=MG",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-2&size=48",
       name: "Maria Garcia",
       role: "CTO",
     },
     {
-      avatarUrl: "https://placehold.co/48x48?text=DK",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-3&size=48",
       name: "David Kim",
       role: "Design",
     },
     {
-      avatarUrl: "https://placehold.co/48x48?text=AL",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-4&size=48",
       name: "Alice Lee",
       role: "Marketing",
     },

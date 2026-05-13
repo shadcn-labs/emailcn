@@ -104,7 +104,11 @@ const ShoppingCartRowItemsSection = ({
           </MjmlColumn>
         </MjmlSection>
       ))}
-      <MjmlDivider borderColor={theme.colorBorder} />
+      <MjmlSection padding="0">
+        <MjmlColumn>
+          <MjmlDivider borderColor={theme.colorBorder} />
+        </MjmlColumn>
+      </MjmlSection>
       {subtotal ? (
         <MjmlSection padding={`${theme.spacingBase ?? "16px"} 0 0`}>
           <MjmlColumn>
@@ -179,15 +183,13 @@ export const ShoppingCartRowItems = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <ShoppingCartRowItemsSection
-          items={items}
-          subtotal={subtotal}
-          theme={theme}
-          total={total}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <ShoppingCartRowItemsSection
+        items={items}
+        subtotal={subtotal}
+        theme={theme}
+        total={total}
+        variant={variant}
+      />
     </MjmlBody>
   </Mjml>
 );
@@ -195,13 +197,13 @@ export const ShoppingCartRowItems = ({
 ShoppingCartRowItems.PreviewProps = {
   items: [
     {
-      imageUrl: "https://example.com/item1.jpg",
+      imageUrl: "https://static.photos/technology/800x600/2",
       name: "Wireless Headphones",
       price: "$129.00",
       quantity: 1,
     },
     {
-      imageUrl: "https://example.com/item2.jpg",
+      imageUrl: "https://static.photos/technology/800x600/3",
       name: "Phone Case",
       price: "$19.00",
       quantity: 2,

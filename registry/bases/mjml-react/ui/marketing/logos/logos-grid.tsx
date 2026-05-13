@@ -68,12 +68,12 @@ const LogosGridSection = ({
 export const LogosGrid = ({
   theme = defaultTheme,
   logos = [
-    { alt: "Company 1", src: "https://placehold.co/120x40?text=Company+1" },
-    { alt: "Company 2", src: "https://placehold.co/120x40?text=Company+2" },
-    { alt: "Company 3", src: "https://placehold.co/120x40?text=Company+3" },
-    { alt: "Company 4", src: "https://placehold.co/120x40?text=Company+4" },
-    { alt: "Company 5", src: "https://placehold.co/120x40?text=Company+5" },
-    { alt: "Company 6", src: "https://placehold.co/120x40?text=Company+6" },
+    { alt: "Company 1", src: "https://static.photos/business/120x40/2" },
+    { alt: "Company 2", src: "https://static.photos/business/120x40/3" },
+    { alt: "Company 3", src: "https://static.photos/business/120x40/4" },
+    { alt: "Company 4", src: "https://static.photos/business/120x40/5" },
+    { alt: "Company 5", src: "https://static.photos/business/120x40/6" },
+    { alt: "Company 6", src: "https://static.photos/business/120x40/7" },
   ],
   variant = "default",
 }: LogosGridProps) => (
@@ -101,20 +101,32 @@ export const LogosGrid = ({
 
 LogosGrid.PreviewProps = {
   logos: [
-    { alt: "Acme", src: "https://placehold.co/120x40?text=Acme", width: 120 },
+    { alt: "Acme", src: "https://static.photos/business/120x40/8", width: 120 },
     {
       alt: "TechCo",
-      src: "https://placehold.co/120x40?text=TechCo",
+      src: "https://static.photos/business/120x40/9",
       width: 120,
     },
     {
       alt: "Global",
-      src: "https://placehold.co/120x40?text=Global",
+      src: "https://static.photos/business/120x40/10",
       width: 120,
     },
-    { alt: "Nova", src: "https://placehold.co/120x40?text=Nova", width: 120 },
-    { alt: "Pulse", src: "https://placehold.co/120x40?text=Pulse", width: 120 },
-    { alt: "Orbit", src: "https://placehold.co/120x40?text=Orbit", width: 120 },
+    {
+      alt: "Nova",
+      src: "https://static.photos/business/120x40/11",
+      width: 120,
+    },
+    {
+      alt: "Pulse",
+      src: "https://static.photos/business/120x40/12",
+      width: 120,
+    },
+    {
+      alt: "Orbit",
+      src: "https://static.photos/business/120x40/13",
+      width: 120,
+    },
   ],
   theme: defaultTheme,
   variant: "default",

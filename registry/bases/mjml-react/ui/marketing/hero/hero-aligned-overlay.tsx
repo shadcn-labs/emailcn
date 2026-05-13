@@ -129,7 +129,7 @@ export const HeroAlignedOverlay = ({
   subheading = "Background image with left-aligned text overlay.",
   ctaLabel = "Shop Now",
   ctaHref = "#",
-  backgroundImage = "https://placehold.co/600x250?text=Background",
+  backgroundImage = "https://static.photos/business/600x250/2",
   backgroundImageAlt = "background",
   backgroundColor = "#f9fafb",
   textColor = "#111827",
@@ -176,7 +176,7 @@ export const HeroAlignedOverlay = ({
 HeroAlignedOverlay.PreviewProps = {
   align: "left",
   backgroundColor: "#f9fafb",
-  backgroundImage: "https://placehold.co/600x250?text=Background",
+  backgroundImage: "https://static.photos/business/600x250/3",
   backgroundImageAlt: "background image",
   ctaHref: "https://example.com",
   ctaLabel: "Get Started",

@@ -125,11 +125,19 @@ CategoryPreviewCards.PreviewProps = {
   categories: [
     {
       href: "#",
-      imageUrl: "https://example.com/cat1.jpg",
+      imageUrl: "https://static.photos/technology/800x600/2",
       name: "Electronics",
     },
-    { href: "#", imageUrl: "https://example.com/cat2.jpg", name: "Fashion" },
-    { href: "#", imageUrl: "https://example.com/cat3.jpg", name: "Home" },
+    {
+      href: "#",
+      imageUrl: "https://static.photos/technology/800x600/3",
+      name: "Fashion",
+    },
+    {
+      href: "#",
+      imageUrl: "https://static.photos/technology/800x600/4",
+      name: "Home",
+    },
   ],
   theme: defaultTheme,
   variant: "default",

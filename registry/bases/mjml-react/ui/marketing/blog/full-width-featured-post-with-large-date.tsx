@@ -45,7 +45,7 @@ const BlogListSection = ({
               color={theme.colorTextSubtle}
               fontFamily={theme.fontFamily}
               fontSize={theme.fontSizeSm}
-              paddingBottom={theme.spacingBase ?? "Fourpx"}
+              paddingBottom={theme.spacingBase ?? "4px"}
             >
               {post.date}
             </MjmlText>
@@ -55,7 +55,7 @@ const BlogListSection = ({
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeLg}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {post.title}
           </MjmlText>

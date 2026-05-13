@@ -32,11 +32,11 @@ export interface TwoColumnsMasonryImageGridWith3ImagesProps {
 }
 
 export const TwoColumnsMasonryImageGridWith3ImagesSection = ({
-  imageSrc1 = "https://via.placeholder.com/300x250",
+  imageSrc1 = "https://static.photos/travel/300x250/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x400",
+  imageSrc2 = "https://static.photos/travel/300x400/3",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/300x200",
+  imageSrc3 = "https://static.photos/travel/300x200/4",
   imageAlt3 = "",
   variant = "default",
 }: Omit<TwoColumnsMasonryImageGridWith3ImagesProps, "theme">) => {
@@ -105,11 +105,11 @@ export const TwoColumnsMasonryImageGridWith3ImagesSection = ({
 
 export const TwoColumnsMasonryImageGridWith3Images = ({
   theme = defaultTheme,
-  imageSrc1 = "https://via.placeholder.com/300x250",
+  imageSrc1 = "https://static.photos/travel/300x250/5",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x400",
+  imageSrc2 = "https://static.photos/travel/300x400/6",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/300x200",
+  imageSrc3 = "https://static.photos/travel/300x200/7",
   imageAlt3 = "",
   variant = "default",
 }: TwoColumnsMasonryImageGridWith3ImagesProps) => (
@@ -138,9 +138,9 @@ TwoColumnsMasonryImageGridWith3Images.PreviewProps = {
   imageAlt1: "Image 1",
   imageAlt2: "Image 2",
   imageAlt3: "Image 3",
-  imageSrc1: "https://via.placeholder.com/300x250",
-  imageSrc2: "https://via.placeholder.com/300x400",
-  imageSrc3: "https://via.placeholder.com/300x200",
+  imageSrc1: "https://static.photos/travel/300x250/8",
+  imageSrc2: "https://static.photos/travel/300x400/9",
+  imageSrc3: "https://static.photos/travel/300x200/10",
   theme: defaultTheme,
   variant: "default",
 } satisfies TwoColumnsMasonryImageGridWith3ImagesProps;

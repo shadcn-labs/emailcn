@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "title-with-large-padding",
+  "title": "Title With Large Padding",
+  "description": "Marketing content variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/content/title-with-large-padding.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ContentGridTwoColumnVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface ContentGridTwoColumnProps {\n  theme?: EmailThemeTokens;\n  columns?: { iconUrl?: string; title: string; description: string }[];\n  variant?: ContentGridTwoColumnVariant;\n}\n\nconst ContentGridTwoColumnSection = ({\n  columns,\n  theme,\n  variant,\n}: {\n  columns: ContentGridTwoColumnProps[\"columns\"];\n  theme: EmailThemeTokens;\n  variant: ContentGridTwoColumnVariant;\n}) => {\n  const items = columns ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {items.slice(0, 2).map((col, i) => (\n        <MjmlColumn\n          key={col.title + i}\n          width=\"50%\"\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"top\"\n        >\n          {col.iconUrl ? (\n            <MjmlImage\n              align=\"center\"\n              alt={col.title}\n              src={col.iconUrl}\n              width={48}\n              paddingBottom={theme.spacingBase ?? \"24px\"}\n            />\n          ) : null}\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeLg ?? \"16px\"}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          >\n            {col.title}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase ?? \"14px\"}\n            lineHeight={theme.lineHeightBase}\n          >\n            {col.description}\n          </MjmlText>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const TitleWithLargePadding = ({\n  theme = defaultTheme,\n  columns = [\n    { description: \"Description for feature 1\", title: \"Feature 1\" },\n    { description: \"Description for feature 2\", title: \"Feature 2\" },\n  ],\n  variant = \"default\",\n}: ContentGridTwoColumnProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>content 2-col</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ContentGridTwoColumnSection\n          columns={columns}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nTitleWithLargePadding.PreviewProps = {\n  columns: [\n    {\n      description: \"Lightning-fast load times for your emails.\",\n      iconUrl:\n        \"https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Ftitle-with-large-padding.tsx-1&size=48\",\n      title: \"Fast Performance\",\n    },\n    {\n      description: \"Simple API to get started in minutes.\",\n      iconUrl:\n        \"https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Ftitle-with-large-padding.tsx-2&size=48\",\n      title: \"Easy Integration\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ContentGridTwoColumnProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/content/title-with-large-padding.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

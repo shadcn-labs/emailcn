@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-masonry-image-grid-with-3-images",
+  "title": "2 Columns Masonry Image Grid With 3 Images",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ImageBannerVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageBannerProps {\n  theme?: EmailThemeTokens;\n  src?: string;\n  alt?: string;\n  overlayText?: string;\n  variant?: ImageBannerVariant;\n}\n\nconst ImageBannerSection = ({\n  alt,\n  overlayText,\n  src,\n  theme,\n  variant,\n}: {\n  alt: string;\n  overlayText: string;\n  src: string;\n  theme: EmailThemeTokens;\n  variant: ImageBannerVariant;\n}) => (\n  <MjmlSection backgroundColor={theme.colorBackgroundMuted} padding=\"0\">\n    <MjmlColumn padding=\"0\">\n      <MjmlImage align=\"center\" alt={alt} src={src} width={600} padding=\"0\" />\n    </MjmlColumn>\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeXl ?? \"20px\"}\n        fontWeight={theme.fontWeightBold}\n        padding={`${theme.spacingBase ?? \"24px\"} ${theme.spacingBase ?? \"24px\"}`}\n      >\n        {overlayText}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const TwoColumnsMasonryImageGridWith3Images = ({\n  theme = defaultTheme,\n  src = \"https://static.photos/business/600x200/2\",\n  alt = \"banner\",\n  overlayText = \"Banner Text\",\n  variant = \"default\",\n}: ImageBannerProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>image banner</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ImageBannerSection\n          alt={alt}\n          overlayText={overlayText}\n          src={src}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nTwoColumnsMasonryImageGridWith3Images.PreviewProps = {\n  alt: \"promotional banner\",\n  overlayText: \"Seasonal Sale — Up to 50% Off\",\n  src: \"https://static.photos/business/600x200/3\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageBannerProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

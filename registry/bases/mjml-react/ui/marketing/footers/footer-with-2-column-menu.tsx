@@ -37,13 +37,13 @@ const FooterColumnsSection = ({
 }) => (
   <MjmlSection
     backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "2Fourpx"} 0`}
+    padding={`${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "24px"} 0`}
   >
     {(columns ?? []).slice(0, 3).map((col, i) => (
       <MjmlColumn
         key={col.heading + i}
         width={`${100 / Math.min((columns ?? []).length, 3)}%`}
-        padding={theme.spacingBase ?? "2Fourpx"}
+        padding={theme.spacingBase ?? "24px"}
         verticalAlign="top"
       >
         <MjmlText
@@ -61,7 +61,7 @@ const FooterColumnsSection = ({
             color={theme.colorTextMuted}
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeSm ?? "11px"}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {link.label}
           </MjmlText>

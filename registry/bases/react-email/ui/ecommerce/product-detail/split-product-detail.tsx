@@ -149,7 +149,7 @@ SplitProductDetail.PreviewProps = {
     "Designed for durability",
     "30-day satisfaction guarantee",
   ],
-  imageUrl: "https://example.com/product-large.jpg",
+  imageUrl: "https://static.photos/technology/640x640/2",
   name: "Premium Leather Bag",
   price: "$199.00",
   theme: defaultTheme,

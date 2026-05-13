@@ -30,7 +30,7 @@ export interface HeaderWithLogoAndBadgeProps {
 }
 
 export const HeaderWithLogoAndBadgeSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   badgeText = "New",
   variant = "default",
@@ -93,7 +93,7 @@ export const HeaderWithLogoAndBadgeSection = ({
 
 export const HeaderWithLogoAndBadge = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   badgeText = "New",
   variant = "default",
@@ -119,7 +119,7 @@ export const HeaderWithLogoAndBadge = ({
 HeaderWithLogoAndBadge.PreviewProps = {
   badgeText: "New",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies HeaderWithLogoAndBadgeProps;

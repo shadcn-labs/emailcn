@@ -167,9 +167,9 @@ ProductDetailThreeImages.PreviewProps = {
   description:
     "See every angle of this meticulously crafted item with our three-image detail view.",
   features: ["Timeless design", "Sustainable sourcing", "Gift-ready packaging"],
-  imageUrl1: "https://example.com/product-main.jpg",
-  imageUrl2: "https://example.com/product-side.jpg",
-  imageUrl3: "https://example.com/product-detail.jpg",
+  imageUrl1: "https://static.photos/technology/640x640/2",
+  imageUrl2: "https://static.photos/technology/640x640/3",
+  imageUrl3: "https://static.photos/technology/640x640/4",
   name: "Premium Leather Shoes",
   price: "$349.00",
   theme: defaultTheme,

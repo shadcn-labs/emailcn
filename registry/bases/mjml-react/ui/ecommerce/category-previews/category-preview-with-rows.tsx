@@ -109,9 +109,15 @@ export const CategoryPreviewRows = ({
 
 CategoryPreviewRows.PreviewProps = {
   categories: [
-    { imageUrl: "https://example.com/row1.jpg", name: "Electronics" },
-    { imageUrl: "https://example.com/row2.jpg", name: "Fashion" },
-    { imageUrl: "https://example.com/row3.jpg", name: "Home & Living" },
+    {
+      imageUrl: "https://static.photos/technology/800x600/2",
+      name: "Electronics",
+    },
+    { imageUrl: "https://static.photos/technology/800x600/3", name: "Fashion" },
+    {
+      imageUrl: "https://static.photos/technology/800x600/4",
+      name: "Home & Living",
+    },
   ],
   theme: defaultTheme,
   variant: "default",

@@ -62,17 +62,27 @@ export const ComponentPreview = async ({
 }: ComponentPreviewProps) => {
   const Demo = await loadDemo(base, name, kind);
 
-  const result =
-    base === "react-email"
-      ? await renderReactEmail(<Demo />, { pretty: true })
-      : await mjml2html(renderToMjml(<Demo />), {
-          keepComments: false,
-          validationLevel: "strict",
-        });
+  let html = "";
+  let plainText: string | null = null;
 
-  const html = base === "react-email" ? result : result.html;
-
-  const plainText = base === "react-email" ? toPlainText(html) : null;
+  try {
+    if (base === "react-email") {
+      const result = await renderReactEmail(<Demo />, { pretty: true });
+      html = result;
+      plainText = toPlainText(html);
+    } else {
+      const result = await mjml2html(renderToMjml(<Demo />), {
+        keepComments: false,
+        validationLevel: "soft",
+      });
+      ({ html } = result);
+    }
+  } catch (error) {
+    html = `<div style="padding: 40px; text-align: center; color: #666;">
+      <p>Preview unavailable</p>
+      <pre style="font-size: 12px; color: #999;">${error instanceof Error ? error.message : "Unknown error"}</pre>
+    </div>`;
+  }
 
   const sourceName = name.replace(/-demo$/, "");
 

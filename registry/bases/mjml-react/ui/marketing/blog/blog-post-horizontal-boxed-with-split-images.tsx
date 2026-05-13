@@ -135,13 +135,13 @@ BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
     {
       date: "May 12, 2026",
       description: "A comprehensive guide to building email components.",
-      imageUrl: "https://placehold.co/200x150?text=Guide",
+      imageUrl: "https://static.photos/travel/200x150/2",
       title: "Complete Guide",
     },
     {
       date: "May 10, 2026",
       description: "Tips for designing emails that convert.",
-      imageUrl: "https://placehold.co/200x150?text=Tips",
+      imageUrl: "https://static.photos/travel/200x150/3",
       title: "Design Tips",
     },
   ],

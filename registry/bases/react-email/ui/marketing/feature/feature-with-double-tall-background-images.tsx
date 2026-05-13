@@ -35,9 +35,9 @@ export interface FeatureWithDoubleTallBackgroundImagesProps {
 export const FeatureWithDoubleTallBackgroundImagesSection = ({
   heading = "Our Studio",
   body = "Where creativity happens.",
-  imageSrc1 = "https://via.placeholder.com/300x500",
+  imageSrc1 = "https://static.photos/city/300x500/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x500",
+  imageSrc2 = "https://static.photos/city/300x500/3",
   imageAlt2 = "",
   variant = "default",
 }: Omit<FeatureWithDoubleTallBackgroundImagesProps, "theme">) => {
@@ -113,9 +113,9 @@ export const FeatureWithDoubleTallBackgroundImages = ({
   theme = defaultTheme,
   heading = "Our Studio",
   body = "Where creativity happens.",
-  imageSrc1 = "https://via.placeholder.com/300x500",
+  imageSrc1 = "https://static.photos/city/300x500/4",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x500",
+  imageSrc2 = "https://static.photos/city/300x500/5",
   imageAlt2 = "",
   variant = "default",
 }: FeatureWithDoubleTallBackgroundImagesProps) => (
@@ -145,8 +145,8 @@ FeatureWithDoubleTallBackgroundImages.PreviewProps = {
   heading: "Our Studio",
   imageAlt1: "Studio 1",
   imageAlt2: "Studio 2",
-  imageSrc1: "https://via.placeholder.com/300x500",
-  imageSrc2: "https://via.placeholder.com/300x500",
+  imageSrc1: "https://static.photos/city/300x500/6",
+  imageSrc2: "https://static.photos/city/300x500/7",
   theme: defaultTheme,
   variant: "default",
 } satisfies FeatureWithDoubleTallBackgroundImagesProps;

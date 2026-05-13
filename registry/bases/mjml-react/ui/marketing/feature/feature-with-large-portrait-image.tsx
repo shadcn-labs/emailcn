@@ -81,7 +81,7 @@ const FeatureLeftImageSection = ({
 
 export const FeatureWithLargePortraitImage = ({
   theme = defaultTheme,
-  imageSrc = "https://placehold.co/400x300?text=Feature",
+  imageSrc = "https://static.photos/technology/400x300/2",
   imageAlt = "feature",
   heading = "Feature Title",
   body = "Description of the feature shown on the left side.",
@@ -120,7 +120,7 @@ FeatureWithLargePortraitImage.PreviewProps = {
   body: "Image displayed on the left with supporting text on the right.",
   heading: "Feature with Left Image",
   imageAlt: "feature",
-  imageSrc: "https://placehold.co/400x300?text=Left+Feature",
+  imageSrc: "https://static.photos/technology/400x300/3",
   theme: defaultTheme,
   variant: "default",
 } satisfies FeatureLeftImageProps;

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-with-images-and-2-columns-masonry",
+  "title": "Blog With Images And 2 Columns Masonry",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/blog/blog-with-images-and-2-columns-masonry.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type BlogFeaturedVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface BlogFeaturedProps {\n  theme?: EmailThemeTokens;\n  featuredTitle?: string;\n  featuredDescription?: string;\n  posts?: { title: string; description: string }[];\n  variant?: BlogFeaturedVariant;\n}\nconst BlogFeaturedSection = ({\n  featuredDescription,\n  featuredTitle,\n  posts,\n  theme,\n  variant,\n}: {\n  featuredDescription: string;\n  featuredTitle: string;\n  posts: BlogFeaturedProps[\"posts\"];\n  theme: EmailThemeTokens;\n  variant: BlogFeaturedVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn>\n      <MjmlText\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeHeading}\n        fontWeight={theme.fontWeightBold}\n        paddingBottom={theme.spacingBase ?? \"8px\"}\n      >\n        {featuredTitle}\n      </MjmlText>\n      <MjmlText\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg}\n        lineHeight={theme.lineHeightBase}\n        paddingBottom={theme.spacingXl ?? \"48px\"}\n      >\n        {featuredDescription}\n      </MjmlText>\n    </MjmlColumn>\n    {(posts ?? []).slice(0, 2).map((post, i) => (\n      <MjmlColumn\n        key={post.title + i}\n        width=\"50%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        <MjmlText\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeLg}\n          fontWeight={theme.fontWeightMedium}\n          paddingBottom={theme.spacingBase ?? \"4px\"}\n        >\n          {post.title}\n        </MjmlText>\n        <MjmlText\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        >\n          {post.description}\n        </MjmlText>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const BlogWithImagesAnd2ColumnsMasonry = ({\n  theme = defaultTheme,\n  featuredTitle = \"Latest News\",\n  featuredDescription = \"Stay up to date with our latest articles and updates.\",\n  posts = [\n    { description: \"Description 1\", title: \"Article 1\" },\n    { description: \"Description 2\", title: \"Article 2\" },\n  ],\n  variant = \"default\",\n}: BlogFeaturedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>blog featured</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <BlogFeaturedSection\n          featuredDescription={featuredDescription}\n          featuredTitle={featuredTitle}\n          posts={posts}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nBlogWithImagesAnd2ColumnsMasonry.PreviewProps = {\n  featuredDescription: \"Stay up to date with our latest articles and updates.\",\n  featuredTitle: \"Latest News\",\n  posts: [\n    {\n      description: \"A comprehensive guide to building email components.\",\n      title: \"Getting Started Guide\",\n    },\n    {\n      description: \"Tips for designing emails that convert.\",\n      title: \"Design Best Practices\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BlogFeaturedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/blog-with-images-and-2-columns-masonry.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

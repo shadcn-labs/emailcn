@@ -90,8 +90,9 @@ export const NotificationDefault = ({
 
 NotificationDefault.PreviewProps = {
   _action: "commented on your post",
-  _actorAvatarUrl: "https://example.com/avatar.jpg",
-  _logoUrl: "https://example.com/logo.png",
+  _actorAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _logoUrl: "https://static.photos/business/320x80/3",
   _productName: "Acme",
   _targetName: "New comment on your project",
   actorName: "Sarah",

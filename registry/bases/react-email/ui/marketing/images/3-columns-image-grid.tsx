@@ -32,11 +32,11 @@ export interface ThreeColumnsImageGridProps {
 }
 
 export const ThreeColumnsImageGridSection = ({
-  imageSrc1 = "https://via.placeholder.com/200x300",
+  imageSrc1 = "https://static.photos/nature/200x300/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/200x300",
+  imageSrc2 = "https://static.photos/nature/200x300/3",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/200x300",
+  imageSrc3 = "https://static.photos/nature/200x300/4",
   imageAlt3 = "",
   variant = "default",
 }: Omit<ThreeColumnsImageGridProps, "theme">) => {
@@ -107,11 +107,11 @@ export const ThreeColumnsImageGridSection = ({
 
 export const ThreeColumnsImageGrid = ({
   theme = defaultTheme,
-  imageSrc1 = "https://via.placeholder.com/200x300",
+  imageSrc1 = "https://static.photos/nature/200x300/5",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/200x300",
+  imageSrc2 = "https://static.photos/nature/200x300/6",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/200x300",
+  imageSrc3 = "https://static.photos/nature/200x300/7",
   imageAlt3 = "",
   variant = "default",
 }: ThreeColumnsImageGridProps) => (
@@ -140,9 +140,9 @@ ThreeColumnsImageGrid.PreviewProps = {
   imageAlt1: "Image 1",
   imageAlt2: "Image 2",
   imageAlt3: "Image 3",
-  imageSrc1: "https://via.placeholder.com/200x300",
-  imageSrc2: "https://via.placeholder.com/200x300",
-  imageSrc3: "https://via.placeholder.com/200x300",
+  imageSrc1: "https://static.photos/nature/200x300/8",
+  imageSrc2: "https://static.photos/nature/200x300/9",
+  imageSrc3: "https://static.photos/nature/200x300/10",
   theme: defaultTheme,
   variant: "default",
 } satisfies ThreeColumnsImageGridProps;

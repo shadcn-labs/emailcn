@@ -37,7 +37,7 @@ export const CTAWithTopLargeImageSection = ({
   subtext = "Explore our latest arrivals.",
   ctaLabel = "Shop Now",
   ctaHref = "#",
-  imageSrc = "https://via.placeholder.com/600x300",
+  imageSrc = "https://static.photos/city/600x300/2",
   imageAlt = "",
   variant = "default",
 }: Omit<CTAWithTopLargeImageProps, "theme">) => {
@@ -106,7 +106,7 @@ export const CTAWithTopLargeImage = ({
   subtext = "Explore our latest arrivals.",
   ctaLabel = "Shop Now",
   ctaHref = "#",
-  imageSrc = "https://via.placeholder.com/600x300",
+  imageSrc = "https://static.photos/city/600x300/3",
   imageAlt = "",
   variant = "default",
 }: CTAWithTopLargeImageProps) => (
@@ -136,7 +136,7 @@ CTAWithTopLargeImage.PreviewProps = {
   ctaLabel: "Shop Now",
   heading: "New Collection",
   imageAlt: "Collection",
-  imageSrc: "https://via.placeholder.com/600x300",
+  imageSrc: "https://static.photos/city/600x300/4",
   subtext: "Explore our latest arrivals.",
   theme: defaultTheme,
   variant: "default",

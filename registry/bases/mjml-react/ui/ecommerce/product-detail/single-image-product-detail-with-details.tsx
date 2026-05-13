@@ -180,7 +180,7 @@ SingleImageProductDetail.PreviewProps = {
   ctaLabel: "Add to Cart",
   description: "A beautiful product designed for everyday elegance.",
   features: ["Handcrafted", "Premium finish", "Eco-friendly"],
-  imageUrl: "https://example.com/product-single.jpg",
+  imageUrl: "https://static.photos/technology/800x600/2",
   name: "Artisan Watch",
   price: "$299.00",
   theme: defaultTheme,

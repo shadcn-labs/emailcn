@@ -123,17 +123,20 @@ ParagraphWithRegularPadding.PreviewProps = {
   columns: [
     {
       description: "Lightning-fast email rendering.",
-      iconUrl: "https://placehold.co/48x48?text=F",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-with-regular-padding.tsx-1&size=48",
       title: "Fast",
     },
     {
       description: "Works across all email clients.",
-      iconUrl: "https://placehold.co/48x48?text=R",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-with-regular-padding.tsx-2&size=48",
       title: "Reliable",
     },
     {
       description: "Your data is always protected.",
-      iconUrl: "https://placehold.co/48x48?text=S",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-with-regular-padding.tsx-3&size=48",
       title: "Secure",
     },
   ],

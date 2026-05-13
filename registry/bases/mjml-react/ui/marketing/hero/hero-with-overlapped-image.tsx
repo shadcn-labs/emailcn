@@ -131,7 +131,7 @@ export const HeroWithOverlappedImage = ({
   subheading = "Text on the left, image overlapping on the right.",
   ctaLabel = "Shop Now",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x400?text=Overlapped",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "featured",
   align = "left",
   variant = "default",
@@ -174,7 +174,7 @@ HeroWithOverlappedImage.PreviewProps = {
   ctaLabel: "Get Started",
   heading: "Hero with Overlapped Image",
   imageAlt: "featured image",
-  imageSrc: "https://placehold.co/600x400?text=Overlapped",
+  imageSrc: "https://static.photos/city/600x400/3",
   subheading:
     "Text on the left with an image extending beyond the content area on the right.",
   theme: defaultTheme,

@@ -44,7 +44,7 @@ const TimelineAccentSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeSm}
           fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {e.date}
         </MjmlText>
@@ -53,7 +53,7 @@ const TimelineAccentSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeLg}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {e.title}
         </MjmlText>

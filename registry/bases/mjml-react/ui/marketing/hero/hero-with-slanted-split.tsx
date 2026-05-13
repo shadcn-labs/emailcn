@@ -119,7 +119,7 @@ const HeroWithSlantedSplitSection = ({
     </MjmlColumn>
     {variant !== "default" ? (
       <MjmlColumn padding="0">
-        <MjmlSection backgroundColor={decorativeColor} padding="Fourpx 0" />
+        <MjmlSection backgroundColor={decorativeColor} padding="4px 0" />
       </MjmlColumn>
     ) : null}
   </MjmlSection>
@@ -131,7 +131,7 @@ export const HeroWithSlantedSplit = ({
   subheading = "Split layout with an angled decorative divider.",
   ctaLabel = "Discover",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x400?text=Angled+Split",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "angled split",
   textBackgroundColor = "#f9fafb",
   decorativeColor = "#111827",
@@ -176,7 +176,7 @@ HeroWithSlantedSplit.PreviewProps = {
   decorativeColor: "#111827",
   heading: "Hero with Slanted Split",
   imageAlt: "angled split",
-  imageSrc: "https://placehold.co/600x400?text=Angled+Split",
+  imageSrc: "https://static.photos/city/600x400/3",
   subheading:
     "A split layout with an angled decorative divider accent between text and image panels.",
   textBackgroundColor: "#f9fafb",

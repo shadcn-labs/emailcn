@@ -58,7 +58,7 @@ const BlogImageCardSection = ({
               fontFamily={theme.fontFamily}
               fontSize={theme.fontSizeBase}
               fontWeight={theme.fontWeightMedium}
-              paddingBottom={theme.spacingBase ?? "Fourpx"}
+              paddingBottom={theme.spacingBase ?? "4px"}
             >
               {post.title}
             </MjmlText>
@@ -82,13 +82,13 @@ export const FeaturedPostWithLargeDate = ({
     {
       description: "Description 1",
       imageAlt: "img",
-      imageUrl: "https://placehold.co/400x250?text=Post+1",
+      imageUrl: "https://static.photos/travel/400x250/2",
       title: "Post 1",
     },
     {
       description: "Description 2",
       imageAlt: "img",
-      imageUrl: "https://placehold.co/400x250?text=Post+2",
+      imageUrl: "https://static.photos/travel/400x250/3",
       title: "Post 2",
     },
   ],
@@ -120,13 +120,13 @@ FeaturedPostWithLargeDate.PreviewProps = {
     {
       description: "A comprehensive guide to building email components.",
       imageAlt: "guide",
-      imageUrl: "https://placehold.co/400x250?text=Guide",
+      imageUrl: "https://static.photos/travel/400x250/4",
       title: "Getting Started Guide",
     },
     {
       description: "Tips for designing responsive email layouts.",
       imageAlt: "tips",
-      imageUrl: "https://placehold.co/400x250?text=Design+Tips",
+      imageUrl: "https://static.photos/travel/400x250/5",
       title: "Design Best Practices",
     },
   ],

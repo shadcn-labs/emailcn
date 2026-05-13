@@ -36,7 +36,7 @@ export interface SplitTestimonialWithCtaProps {
 }
 
 export const SplitTestimonialWithCtaSection = ({
-  avatarSrc = "https://via.placeholder.com/300x300",
+  avatarSrc = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-testimonials-split-testimonial-with-cta-tsx-1&size=300",
   avatarAlt = "",
   quote = "This product has transformed how we work.",
   author = "Jane Doe",
@@ -115,7 +115,7 @@ export const SplitTestimonialWithCtaSection = ({
 
 export const SplitTestimonialWithCta = ({
   theme = defaultTheme,
-  avatarSrc = "https://via.placeholder.com/300x300",
+  avatarSrc = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-testimonials-split-testimonial-with-cta-tsx-2&size=300",
   avatarAlt = "",
   quote = "This product has transformed how we work.",
   author = "Jane Doe",
@@ -149,7 +149,8 @@ export const SplitTestimonialWithCta = ({
 SplitTestimonialWithCta.PreviewProps = {
   author: "Jane Doe",
   avatarAlt: "Jane Doe",
-  avatarSrc: "https://via.placeholder.com/300x300",
+  avatarSrc:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-testimonials-split-testimonial-with-cta-tsx-3&size=300",
   ctaHref: "https://example.com",
   ctaLabel: "Get Started",
   quote:

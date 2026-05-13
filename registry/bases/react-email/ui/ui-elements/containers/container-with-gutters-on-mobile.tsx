@@ -33,7 +33,7 @@ export const ContainerGuttersMobileSection = ({
         : "text-center";
 
   return (
-    <Section className="px-4 mobile:px-6">
+    <Section className="px-4">
       <Container style={{ maxWidth }} className={`mx-auto ${textAlign}`}>
         {children}
       </Container>

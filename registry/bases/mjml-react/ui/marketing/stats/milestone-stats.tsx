@@ -50,7 +50,7 @@ const StatsBackgroundSection = ({
         <MjmlColumn
           key={stat.label + i}
           width={colWidth}
-          padding={theme.spacingBase ?? "2Fourpx"}
+          padding={theme.spacingBase ?? "24px"}
           verticalAlign="top"
         >
           <MjmlText
@@ -59,7 +59,7 @@ const StatsBackgroundSection = ({
             fontFamily={theme.fontFamily}
             fontSize="28px"
             fontWeight={theme.fontWeightBold}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {stat.value}
           </MjmlText>

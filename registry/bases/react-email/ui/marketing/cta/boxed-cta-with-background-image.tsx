@@ -37,7 +37,7 @@ export const BoxedCTAWithBackgroundImageSection = ({
   subtext = "Limited time deal just for you.",
   ctaLabel = "Get Deal",
   ctaHref = "#",
-  backgroundSrc = "https://via.placeholder.com/600x300/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x300/2",
   backgroundAlt = "",
   variant = "default",
 }: Omit<BoxedCTAWithBackgroundImageProps, "theme">) => {
@@ -110,7 +110,7 @@ export const BoxedCTAWithBackgroundImage = ({
   subtext = "Limited time deal just for you.",
   ctaLabel = "Get Deal",
   ctaHref = "#",
-  backgroundSrc = "https://via.placeholder.com/600x300/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x300/3",
   backgroundAlt = "",
   variant = "default",
 }: BoxedCTAWithBackgroundImageProps) => (
@@ -137,7 +137,7 @@ export const BoxedCTAWithBackgroundImage = ({
 
 BoxedCTAWithBackgroundImage.PreviewProps = {
   backgroundAlt: "Background",
-  backgroundSrc: "https://via.placeholder.com/600x300/1a1a2e/ffffff",
+  backgroundSrc: "https://static.photos/city/600x300/4",
   ctaHref: "https://example.com",
   ctaLabel: "Get Deal",
   heading: "Special Offer",

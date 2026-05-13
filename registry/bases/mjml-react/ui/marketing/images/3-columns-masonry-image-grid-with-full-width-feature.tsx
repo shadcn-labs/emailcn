@@ -59,7 +59,7 @@ const ImageHeroSection = ({
 
 export const ThreeColumnsMasonryImageGridWithFullWidthFeature = ({
   theme = defaultTheme,
-  src = "https://placehold.co/600x400?text=Hero+Image",
+  src = "https://static.photos/technology/600x400/2",
   alt = "hero image",
   caption = "Image caption goes here.",
   variant = "default",
@@ -95,7 +95,7 @@ export const ThreeColumnsMasonryImageGridWithFullWidthFeature = ({
 ThreeColumnsMasonryImageGridWithFullWidthFeature.PreviewProps = {
   alt: "hero image",
   caption: "A beautiful hero image showcasing the product.",
-  src: "https://placehold.co/600x400?text=Hero+Image",
+  src: "https://static.photos/technology/600x400/3",
   theme: defaultTheme,
   variant: "default",
 } satisfies ImageHeroProps;

@@ -40,7 +40,7 @@ export const ReceiptNike = ({
   customerName = "John",
   items = [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: "https://static.photos/technology/640x640/2",
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,
@@ -73,8 +73,9 @@ export const ReceiptNike = ({
             </Section>
 
             <Section>
-              {items.map((item, _index) => (
+              {items.map((item, index) => (
                 <ProductCardSection
+                  key={`${item.name}-${index}`}
                   products={[
                     {
                       imageUrl: item.imageUrl,
@@ -143,7 +144,7 @@ ReceiptNike.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: "https://static.photos/technology/640x640/3",
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,

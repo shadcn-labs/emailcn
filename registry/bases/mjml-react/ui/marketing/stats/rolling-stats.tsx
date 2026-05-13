@@ -46,16 +46,16 @@ const StatsFourColumnSection = ({
         <MjmlColumn
           key={stat.label + i}
           width="25%"
-          padding={theme.spacingBase ?? "2Fourpx"}
+          padding={theme.spacingBase ?? "24px"}
           verticalAlign="top"
         >
           <MjmlText
             align="center"
             color={theme.colorText}
             fontFamily={theme.fontFamily}
-            fontSize="2Fourpx"
+            fontSize="24px"
             fontWeight={theme.fontWeightBold}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {stat.value}
           </MjmlText>

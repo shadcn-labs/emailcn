@@ -136,7 +136,7 @@ export const HeroWithOverlayedContent = ({
   subheading = "Content layered on top of a background image or color block.",
   ctaLabel = "Learn More",
   ctaHref = "#",
-  backgroundImage = "https://placehold.co/600x200?text=Background",
+  backgroundImage = "https://static.photos/business/600x200/2",
   backgroundImageAlt = "background",
   variant = "default",
 }: HeroWithOverlayedContentProps) => (
@@ -172,7 +172,7 @@ export const HeroWithOverlayedContent = ({
 );
 
 HeroWithOverlayedContent.PreviewProps = {
-  backgroundImage: "https://placehold.co/600x200?text=Background",
+  backgroundImage: "https://static.photos/business/600x200/3",
   backgroundImageAlt: "background",
   ctaHref: "https://example.com",
   ctaLabel: "Get Started",

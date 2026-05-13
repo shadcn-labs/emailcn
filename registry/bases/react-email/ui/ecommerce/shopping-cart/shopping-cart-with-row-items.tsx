@@ -137,19 +137,19 @@ export const ShoppingCartRowItems = ({
 ShoppingCartRowItems.PreviewProps = {
   items: [
     {
-      imageUrl: "https://example.com/cart-item1.jpg",
+      imageUrl: "https://static.photos/technology/640x640/2",
       name: "Wireless Headphones",
       price: "$149.00",
       quantity: 1,
     },
     {
-      imageUrl: "https://example.com/cart-item2.jpg",
+      imageUrl: "https://static.photos/technology/640x640/3",
       name: "Leather Case",
       price: "$39.00",
       quantity: 2,
     },
     {
-      imageUrl: "https://example.com/cart-item3.jpg",
+      imageUrl: "https://static.photos/technology/640x640/4",
       name: "USB-C Cable",
       price: "$19.00",
       quantity: 1,

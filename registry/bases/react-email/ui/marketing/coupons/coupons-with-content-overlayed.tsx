@@ -34,7 +34,7 @@ export const CouponsWithContentOverlayedSection = ({
   discount = "30% OFF",
   code = "FLASH30",
   description = "Flash sale - limited time only",
-  backgroundSrc = "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x400/2",
   backgroundAlt = "",
   variant = "default",
 }: Omit<CouponsWithContentOverlayedProps, "theme">) => {
@@ -101,7 +101,7 @@ export const CouponsWithContentOverlayed = ({
   discount = "30% OFF",
   code = "FLASH30",
   description = "Flash sale - limited time only",
-  backgroundSrc = "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x400/3",
   backgroundAlt = "",
   variant = "default",
 }: CouponsWithContentOverlayedProps) => (
@@ -127,7 +127,7 @@ export const CouponsWithContentOverlayed = ({
 
 CouponsWithContentOverlayed.PreviewProps = {
   backgroundAlt: "Background",
-  backgroundSrc: "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  backgroundSrc: "https://static.photos/city/600x400/4",
   code: "FLASH30",
   description: "Flash sale - limited time only",
   discount: "30% OFF",

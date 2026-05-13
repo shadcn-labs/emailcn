@@ -66,8 +66,9 @@ export const ReceiptApple = ({
             </Section>
 
             <Section>
-              {items.map((item, _index) => (
+              {items.map((item, index) => (
                 <ProductCardSection
+                  key={`${item.name}-${index}`}
                   products={[
                     {
                       imageUrl: item.imageUrl,
@@ -136,7 +137,7 @@ ReceiptApple.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/iphone.jpg",
+      imageUrl: "https://static.photos/technology/640x640/2",
       name: "iPhone 15 Pro",
       price: "$999.00",
       quantity: 1,

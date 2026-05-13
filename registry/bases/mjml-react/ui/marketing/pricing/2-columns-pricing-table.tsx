@@ -53,7 +53,7 @@ const PricingHighlightedSection = ({
 }) => (
   <MjmlSection
     backgroundColor={theme.colorBackgroundMuted}
-    border={`Twopx solid ${theme.colorPrimary ?? "#111827"}`}
+    border={`2px solid ${theme.colorPrimary ?? "#111827"}`}
     borderRadius={theme.borderRadiusLg}
     padding={theme.spacingXl ?? "24px"}
   >

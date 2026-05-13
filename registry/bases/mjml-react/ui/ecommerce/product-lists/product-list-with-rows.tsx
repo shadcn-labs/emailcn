@@ -31,65 +31,52 @@ export interface ProductListWithRowsProps {
 const ProductListWithRowsSection = ({
   products,
   theme,
-  variant,
 }: {
   products: NonNullable<ProductListWithRowsProps["products"]>;
   theme: EmailThemeTokens;
-  variant: NonNullable<ProductListWithRowsProps["variant"]>;
-}) => {
-  const alignText =
-    variant === "slanted-left"
-      ? "left"
-      : variant === "slanted-right"
-        ? "right"
-        : "left";
-
-  return (
-    <MjmlWrapper
-      border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-      borderRadius={theme.borderRadius}
-      padding={theme.spacingBase ?? "16px"}
-    >
-      {products.map((product) => (
-        <MjmlSection
-          key={product.name}
-          padding={`${theme.spacingBase ?? "16px"} 0`}
-        >
-          <MjmlColumn width="80px">
-            {product.imageUrl ? (
-              <MjmlImage
-                alt={product.name}
-                borderRadius={theme.borderRadius}
-                src={product.imageUrl}
-                width={64}
-              />
-            ) : null}
-          </MjmlColumn>
-          <MjmlColumn>
-            <MjmlText
-              align={alignText}
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              fontWeight={theme.fontWeightMedium ?? "500"}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {product.name}
-            </MjmlText>
-            <MjmlText
-              align={alignText}
-              color={theme.colorTextMuted}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-            >
-              {product.price}
-            </MjmlText>
-          </MjmlColumn>
-        </MjmlSection>
-      ))}
-    </MjmlWrapper>
-  );
-};
+}) => (
+  <MjmlWrapper
+    border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
+    borderRadius={theme.borderRadius}
+    padding={theme.spacingBase ?? "16px"}
+  >
+    {products.map((product) => (
+      <MjmlSection
+        key={product.name}
+        padding={`${theme.spacingBase ?? "16px"} 0`}
+      >
+        <MjmlColumn width="80px">
+          {product.imageUrl ? (
+            <MjmlImage
+              alt={product.name}
+              borderRadius={theme.borderRadius}
+              src={product.imageUrl}
+              width={64}
+            />
+          ) : null}
+        </MjmlColumn>
+        <MjmlColumn>
+          <MjmlText
+            color={theme.colorText}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeBase ?? "14px"}
+            fontWeight={theme.fontWeightMedium ?? "500"}
+            paddingBottom={theme.spacingBase ?? "16px"}
+          >
+            {product.name}
+          </MjmlText>
+          <MjmlText
+            color={theme.colorTextMuted}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeBase ?? "14px"}
+          >
+            {product.price}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
+    ))}
+  </MjmlWrapper>
+);
 
 export const ProductListWithRows = ({
   theme = defaultTheme,
@@ -114,13 +101,7 @@ export const ProductListWithRows = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <ProductListWithRowsSection
-          products={products}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <ProductListWithRowsSection products={products} theme={theme} />
     </MjmlBody>
   </Mjml>
 );
@@ -129,13 +110,13 @@ ProductListWithRows.PreviewProps = {
   products: [
     {
       href: "#",
-      imageUrl: "https://example.com/p1.jpg",
+      imageUrl: "https://static.photos/technology/800x600/2",
       name: "Wireless Headphones",
       price: "$129.00",
     },
     {
       href: "#",
-      imageUrl: "https://example.com/p2.jpg",
+      imageUrl: "https://static.photos/technology/800x600/3",
       name: "Leather Wallet",
       price: "$59.00",
     },

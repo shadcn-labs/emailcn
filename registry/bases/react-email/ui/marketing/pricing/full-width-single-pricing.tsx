@@ -85,9 +85,9 @@ export const FullWidthSinglePricingSection = ({
           </Text>
           <Text className="m-0 mb-2 text-4xl font-bold text-foreground">
             {price}
-            <Text className="text-base font-normal text-foreground-muted">
-              {period}
-            </Text>
+          </Text>
+          <Text className="m-0 mb-4 text-base font-normal text-foreground-muted">
+            {period}
           </Text>
           <Text className="m-0 mb-6 text-sm text-foreground-muted">
             {description}

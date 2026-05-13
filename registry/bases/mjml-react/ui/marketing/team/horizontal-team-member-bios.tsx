@@ -63,9 +63,9 @@ const TeamInlineSection = ({
               align="center"
               color={theme.colorText}
               fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "1Twopx"}
+              fontSize={theme.fontSizeSm ?? "12px"}
               fontWeight={theme.fontWeightMedium}
-              paddingBottom={theme.spacingBase ?? "Twopx"}
+              paddingBottom={theme.spacingBase ?? "2px"}
             >
               {member.name}
             </MjmlText>
@@ -119,22 +119,26 @@ export const HorizontalTeamMemberBios = ({
 HorizontalTeamMemberBios.PreviewProps = {
   members: [
     {
-      avatarUrl: "https://placehold.co/64x64?text=AJ",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-1&size=64",
       name: "Alex Johnson",
       role: "CEO",
     },
     {
-      avatarUrl: "https://placehold.co/64x64?text=MG",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-2&size=64",
       name: "Maria Garcia",
       role: "CTO",
     },
     {
-      avatarUrl: "https://placehold.co/64x64?text=DK",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-3&size=64",
       name: "David Kim",
       role: "Design",
     },
     {
-      avatarUrl: "https://placehold.co/64x64?text=AL",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-4&size=64",
       name: "Alice Lee",
       role: "Marketing",
     },

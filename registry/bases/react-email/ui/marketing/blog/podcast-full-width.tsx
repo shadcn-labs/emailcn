@@ -30,7 +30,7 @@ export interface PodcastFullWidthProps {
 }
 
 export const PodcastFullWidthSection = ({
-  imageSrc = "https://via.placeholder.com/600x300",
+  imageSrc = "https://static.photos/city/600x300/2",
   imageAlt = "",
   episode = "Episode 42",
   title = "The Future of Email",
@@ -91,7 +91,7 @@ export const PodcastFullWidthSection = ({
 
 export const PodcastFullWidth = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/600x300",
+  imageSrc = "https://static.photos/city/600x300/3",
   imageAlt = "",
   episode = "Episode 42",
   title = "The Future of Email",
@@ -122,7 +122,7 @@ PodcastFullWidth.PreviewProps = {
   episode: "Episode 42",
   excerpt: "A deep dive into emerging email trends and technologies.",
   imageAlt: "Podcast",
-  imageSrc: "https://via.placeholder.com/600x300",
+  imageSrc: "https://static.photos/city/600x300/4",
   theme: defaultTheme,
   title: "The Future of Email",
   variant: "default",

@@ -30,9 +30,9 @@ export interface TwoColumnsImageGridProps {
 }
 
 export const TwoColumnsImageGridSection = ({
-  imageSrc1 = "https://via.placeholder.com/300x400",
+  imageSrc1 = "https://static.photos/nature/300x400/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x400",
+  imageSrc2 = "https://static.photos/nature/300x400/3",
   imageAlt2 = "",
   variant = "default",
 }: Omit<TwoColumnsImageGridProps, "theme">) => {
@@ -94,9 +94,9 @@ export const TwoColumnsImageGridSection = ({
 
 export const TwoColumnsImageGrid = ({
   theme = defaultTheme,
-  imageSrc1 = "https://via.placeholder.com/300x400",
+  imageSrc1 = "https://static.photos/nature/300x400/4",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x400",
+  imageSrc2 = "https://static.photos/nature/300x400/5",
   imageAlt2 = "",
   variant = "default",
 }: TwoColumnsImageGridProps) => (
@@ -122,8 +122,8 @@ export const TwoColumnsImageGrid = ({
 TwoColumnsImageGrid.PreviewProps = {
   imageAlt1: "Image 1",
   imageAlt2: "Image 2",
-  imageSrc1: "https://via.placeholder.com/300x400",
-  imageSrc2: "https://via.placeholder.com/300x400",
+  imageSrc1: "https://static.photos/nature/300x400/6",
+  imageSrc2: "https://static.photos/nature/300x400/7",
   theme: defaultTheme,
   variant: "default",
 } satisfies TwoColumnsImageGridProps;

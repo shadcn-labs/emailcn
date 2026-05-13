@@ -174,13 +174,13 @@ DataTableLogosActions.PreviewProps = {
     {
       actionHref: "#",
       actionLabel: "Configure",
-      logoUrl: "https://example.com/logo1.png",
+      logoUrl: "https://static.photos/business/320x80/2",
       name: "Slack",
     },
     {
       actionHref: "#",
       actionLabel: "Connect",
-      logoUrl: "https://example.com/logo2.png",
+      logoUrl: "https://static.photos/business/320x80/3",
       name: "Notion",
     },
   ],

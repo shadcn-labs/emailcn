@@ -36,14 +36,14 @@ export interface ThreeColumnsImageGridWithFullWidthFeatureProps {
 }
 
 export const ThreeColumnsImageGridWithFullWidthFeatureSection = ({
-  featureImageSrc = "https://via.placeholder.com/600x250",
+  featureImageSrc = "https://static.photos/business/600x250/2",
   featureImageAlt = "",
   featureCaption = "Featured",
-  imageSrc1 = "https://via.placeholder.com/200x300",
+  imageSrc1 = "https://static.photos/nature/200x300/3",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/200x300",
+  imageSrc2 = "https://static.photos/nature/200x300/4",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/200x300",
+  imageSrc3 = "https://static.photos/nature/200x300/5",
   imageAlt3 = "",
   variant = "default",
 }: Omit<ThreeColumnsImageGridWithFullWidthFeatureProps, "theme">) => {
@@ -128,14 +128,14 @@ export const ThreeColumnsImageGridWithFullWidthFeatureSection = ({
 
 export const ThreeColumnsImageGridWithFullWidthFeature = ({
   theme = defaultTheme,
-  featureImageSrc = "https://via.placeholder.com/600x250",
+  featureImageSrc = "https://static.photos/business/600x250/6",
   featureImageAlt = "",
   featureCaption = "Featured",
-  imageSrc1 = "https://via.placeholder.com/200x300",
+  imageSrc1 = "https://static.photos/nature/200x300/7",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/200x300",
+  imageSrc2 = "https://static.photos/nature/200x300/8",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/200x300",
+  imageSrc3 = "https://static.photos/nature/200x300/9",
   imageAlt3 = "",
   variant = "default",
 }: ThreeColumnsImageGridWithFullWidthFeatureProps) => (
@@ -166,13 +166,13 @@ export const ThreeColumnsImageGridWithFullWidthFeature = ({
 ThreeColumnsImageGridWithFullWidthFeature.PreviewProps = {
   featureCaption: "Featured Collection",
   featureImageAlt: "Featured",
-  featureImageSrc: "https://via.placeholder.com/600x250",
+  featureImageSrc: "https://static.photos/business/600x250/10",
   imageAlt1: "Image 1",
   imageAlt2: "Image 2",
   imageAlt3: "Image 3",
-  imageSrc1: "https://via.placeholder.com/200x300",
-  imageSrc2: "https://via.placeholder.com/200x300",
-  imageSrc3: "https://via.placeholder.com/200x300",
+  imageSrc1: "https://static.photos/nature/200x300/11",
+  imageSrc2: "https://static.photos/nature/200x300/12",
+  imageSrc3: "https://static.photos/nature/200x300/13",
   theme: defaultTheme,
   variant: "default",
 } satisfies ThreeColumnsImageGridWithFullWidthFeatureProps;

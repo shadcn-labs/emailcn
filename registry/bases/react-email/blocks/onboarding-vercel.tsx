@@ -85,7 +85,8 @@ export const OnboardingVercel = ({
 OnboardingVercel.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Vercel",
-  _senderAvatarUrl: "https://example.com/avatar.jpg",
+  _senderAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
   _senderName: "Vercel Team",
   _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",

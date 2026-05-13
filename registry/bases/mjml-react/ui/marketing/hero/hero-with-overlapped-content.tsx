@@ -134,7 +134,7 @@ export const HeroWithOverlappedContent = ({
   subheading = "A content box overlaps the image below with a distinct background.",
   ctaLabel = "Read More",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x250?text=Top+Image",
+  imageSrc = "https://static.photos/business/600x250/2",
   imageAlt = "top image",
   contentBackgroundColor = "#ffffff",
   contentTextColor = "#111827",
@@ -180,7 +180,7 @@ HeroWithOverlappedContent.PreviewProps = {
   ctaLabel: "Get Started",
   heading: "Hero with Overlapped Content",
   imageAlt: "top image",
-  imageSrc: "https://placehold.co/600x250?text=Top+Image",
+  imageSrc: "https://static.photos/business/600x250/3",
   subheading:
     "An image at the top with a content box that visually overlaps it using padding adjustments.",
   theme: defaultTheme,

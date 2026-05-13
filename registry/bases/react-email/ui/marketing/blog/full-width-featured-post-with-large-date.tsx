@@ -31,7 +31,7 @@ export interface FullWidthFeaturedPostWithLargeDateProps {
 }
 
 export const FullWidthFeaturedPostWithLargeDateSection = ({
-  imageSrc = "https://via.placeholder.com/600x250",
+  imageSrc = "https://static.photos/business/600x250/2",
   imageAlt = "",
   date = "15",
   month = "MAR",
@@ -96,7 +96,7 @@ export const FullWidthFeaturedPostWithLargeDateSection = ({
 
 export const FullWidthFeaturedPostWithLargeDate = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/600x250",
+  imageSrc = "https://static.photos/business/600x250/3",
   imageAlt = "",
   date = "15",
   month = "MAR",
@@ -129,7 +129,7 @@ FullWidthFeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "Exploring the latest trends in email design and development.",
   imageAlt: "Featured",
-  imageSrc: "https://via.placeholder.com/600x250",
+  imageSrc: "https://static.photos/business/600x250/4",
   month: "MAR",
   theme: defaultTheme,
   title: "Email Design Trends 2024",

@@ -115,21 +115,24 @@ export const FullWidthReviews = ({
 FullWidthReviews.PreviewProps = {
   reviews: [
     {
-      avatarUrl: "https://example.com/avatar1.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
       date: "March 2026",
       name: "Alex Johnson",
       rating: 5,
       text: "Absolutely love this product! The quality exceeded my expectations.",
     },
     {
-      avatarUrl: "https://example.com/avatar2.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-2&size=128",
       date: "February 2026",
       name: "Maria Garcia",
       rating: 4,
       text: "Great value for the price. Would recommend to anyone.",
     },
     {
-      avatarUrl: "https://example.com/avatar3.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-3&size=128",
       date: "January 2026",
       name: "David Kim",
       rating: 5,

@@ -39,7 +39,7 @@ export const HeroSplitContainedSection = ({
   ctaLabel = "Get Started",
   heading = "Welcome",
   subheading = "Get started with your account",
-  imageSrc = "https://via.placeholder.com/500x400",
+  imageSrc = "https://static.photos/city/500x400/2",
   imageAlt = "",
   variant = "default",
 }: Omit<HeroSplitContainedProps, "theme">) => {
@@ -112,7 +112,7 @@ export const HeroSplitContained = ({
   subheading = "Get started with your account",
   ctaLabel = "Get Started",
   ctaHref = "#",
-  imageSrc = "https://via.placeholder.com/500x400",
+  imageSrc = "https://static.photos/city/500x400/3",
   imageAlt = "",
   variant = "default",
 }: HeroSplitContainedProps) => (
@@ -142,7 +142,7 @@ HeroSplitContained.PreviewProps = {
   ctaLabel: "Get Started",
   heading: "Welcome to Acme",
   imageAlt: "Hero image",
-  imageSrc: "https://via.placeholder.com/500x400",
+  imageSrc: "https://static.photos/city/500x400/4",
   subheading: "Build faster with the tools you love.",
   theme: defaultTheme,
   variant: "default",

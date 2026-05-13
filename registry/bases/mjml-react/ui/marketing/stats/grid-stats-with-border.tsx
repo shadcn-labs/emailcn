@@ -50,7 +50,7 @@ const StatsWithIconsSection = ({
         <MjmlColumn
           key={stat.label + i}
           width={colWidth}
-          padding={theme.spacingBase ?? "2Fourpx"}
+          padding={theme.spacingBase ?? "24px"}
           verticalAlign="top"
         >
           <MjmlText
@@ -67,7 +67,7 @@ const StatsWithIconsSection = ({
             fontFamily={theme.fontFamily}
             fontSize="28px"
             fontWeight={theme.fontWeightBold}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {stat.value}
           </MjmlText>

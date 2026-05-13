@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "socials-with-labels-stacked",
+  "title": "Socials With Labels Stacked",
+  "description": "Marketing social variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/social/socials-with-labels-stacked.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type SocialLinksListVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface SocialLinksListProps {\n  theme?: EmailThemeTokens;\n  links?: { platform: string; href: string }[];\n  variant?: SocialLinksListVariant;\n}\n\nconst SocialLinksListSection = ({\n  links,\n  theme,\n  variant,\n}: {\n  links: SocialLinksListProps[\"links\"];\n  theme: EmailThemeTokens;\n  variant: SocialLinksListVariant;\n}) => (\n  <MjmlSection backgroundColor={theme.colorBackground} padding=\"24px 0\">\n    <MjmlColumn>\n      {(links ?? []).map((l) => (\n        <MjmlText\n          key={l.platform}\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize=\"12px\"\n          paddingBottom=\"6px\"\n        >\n          &raquo;{\" \"}\n          <a\n            href={l.href}\n            style={{ color: theme.colorTextMuted, textDecoration: \"none\" }}\n          >\n            {l.platform}\n          </a>\n        </MjmlText>\n      ))}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const SocialsWithLabelsStacked = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"Twitter\" },\n    { href: \"https://github.com\", platform: \"GitHub\" },\n  ],\n  variant = \"default\",\n}: SocialLinksListProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>social list</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <SocialLinksListSection links={links} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nSocialsWithLabelsStacked.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"Twitter\" },\n    { href: \"https://github.com\", platform: \"GitHub\" },\n    { href: \"https://linkedin.com\", platform: \"LinkedIn\" },\n    { href: \"https://youtube.com\", platform: \"YouTube\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies SocialLinksListProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/social/socials-with-labels-stacked.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

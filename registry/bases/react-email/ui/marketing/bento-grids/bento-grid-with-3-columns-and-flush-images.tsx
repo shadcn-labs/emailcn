@@ -35,11 +35,11 @@ export interface BentoGridWith3ColumnsAndFlushImagesProps {
 
 export const BentoGridWith3ColumnsAndFlushImagesSection = ({
   heading = "Gallery",
-  imageSrc1 = "https://via.placeholder.com/400x500",
+  imageSrc1 = "https://static.photos/nature/400x500/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/400x500",
+  imageSrc2 = "https://static.photos/nature/400x500/3",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/400x500",
+  imageSrc3 = "https://static.photos/nature/400x500/4",
   imageAlt3 = "",
   variant = "default",
 }: Omit<BentoGridWith3ColumnsAndFlushImagesProps, "theme">) => {
@@ -116,11 +116,11 @@ export const BentoGridWith3ColumnsAndFlushImagesSection = ({
 export const BentoGridWith3ColumnsAndFlushImages = ({
   theme = defaultTheme,
   heading = "Gallery",
-  imageSrc1 = "https://via.placeholder.com/400x500",
+  imageSrc1 = "https://static.photos/nature/400x500/5",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/400x500",
+  imageSrc2 = "https://static.photos/nature/400x500/6",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/400x500",
+  imageSrc3 = "https://static.photos/nature/400x500/7",
   imageAlt3 = "",
   variant = "default",
 }: BentoGridWith3ColumnsAndFlushImagesProps) => (
@@ -151,9 +151,9 @@ BentoGridWith3ColumnsAndFlushImages.PreviewProps = {
   imageAlt1: "Image 1",
   imageAlt2: "Image 2",
   imageAlt3: "Image 3",
-  imageSrc1: "https://via.placeholder.com/400x500",
-  imageSrc2: "https://via.placeholder.com/400x500",
-  imageSrc3: "https://via.placeholder.com/400x500",
+  imageSrc1: "https://static.photos/nature/400x500/8",
+  imageSrc2: "https://static.photos/nature/400x500/9",
+  imageSrc3: "https://static.photos/nature/400x500/10",
   theme: defaultTheme,
   variant: "default",
 } satisfies BentoGridWith3ColumnsAndFlushImagesProps;

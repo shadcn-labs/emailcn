@@ -141,13 +141,13 @@ TwoColumnsBlogWithImagesAndText.PreviewProps = {
       date: "May 12, 2026",
       description:
         "Learn how to build beautiful emails with our new component library.",
-      imageUrl: "https://placehold.co/400x250?text=Blog+1",
+      imageUrl: "https://static.photos/travel/400x250/2",
       title: "Getting Started with Email Components",
     },
     {
       date: "May 10, 2026",
       description: "Tips and tricks for designing responsive email layouts.",
-      imageUrl: "https://placehold.co/400x250?text=Blog+2",
+      imageUrl: "https://static.photos/travel/400x250/3",
       title: "Responsive Email Design Best Practices",
     },
   ],

@@ -13,7 +13,10 @@ description: "Content grid layouts for paragraphs, icons, and mixed content in e
 
 ### Text Only
 
-<ComponentPreview base="mjml-react" name="paragraph-with-regular-padding-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-with-regular-padding-demo"
+/>
 
 ### Bordered Content Grid
 
@@ -21,23 +24,38 @@ description: "Content grid layouts for paragraphs, icons, and mixed content in e
 
 ### Dark Content Grid
 
-<ComponentPreview base="mjml-react" name="paragraph-2-columns-with-regular-padding-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-regular-padding-demo"
+/>
 
 ### Icon Row
 
-<ComponentPreview base="mjml-react" name="paragraph-2-columns-with-large-padding-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-large-padding-demo"
+/>
 
 ### Mixed Content Grid
 
-<ComponentPreview base="mjml-react" name="paragraph-2-columns-with-icons-and-regular-padding-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
+/>
 
 ### Three Column Content Grid
 
-<ComponentPreview base="mjml-react" name="paragraph-2-columns-with-icons-and-large-padding-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="paragraph-2-columns-with-icons-and-large-padding-demo"
+/>
 
 ### Two Column Content Grid
 
-<ComponentPreview base="mjml-react" name="bento-grid-with-two-rows-and-3-column-second-row-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+/>
 
 ### Content Grid with CTA
 
@@ -68,9 +86,9 @@ npm install @faire/mjml-react
 
 <Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/content/content-grid-text-only.tsx"
+  src="registry/bases/mjml-react/ui/marketing/content/paragraph-with-regular-padding.tsx"
   base="mjml-react"
-  title="components/emails/marketing/content/content-grid-text-only.tsx"
+  title="components/emails/marketing/content/paragraph-with-regular-padding.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -82,11 +100,11 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { ContentGridTextOnly } from "@/components/emails/marketing/content/content-grid-text-only";
+import { ParagraphWithRegularPadding } from "@/components/emails/marketing/content/paragraph-with-regular-padding";
 ```
 
 ```tsx
-<ContentGridTextOnly {...ContentGridTextOnly.PreviewProps} />
+<ParagraphWithRegularPadding {...ParagraphWithRegularPadding.PreviewProps} />
 ```
 
 ## API Reference

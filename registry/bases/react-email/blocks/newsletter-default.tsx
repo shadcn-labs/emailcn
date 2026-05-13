@@ -88,7 +88,7 @@ export const NewsletterDefault = ({
 
 NewsletterDefault.PreviewProps = {
   _logoAlt: "Newsletter",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Acme Newsletter",
   articles: [
     {

@@ -40,7 +40,7 @@ export interface FooterWithOversizedLogoAndFullMenuProps {
 }
 
 export const FooterWithOversizedLogoAndFullMenuSection = ({
-  logoSrc = "https://via.placeholder.com/160x40",
+  logoSrc = "https://static.photos/business/160x40/2",
   logoAlt = "Logo",
   link1 = "Features",
   link1Href = "#",
@@ -137,7 +137,7 @@ export const FooterWithOversizedLogoAndFullMenuSection = ({
 
 export const FooterWithOversizedLogoAndFullMenu = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/160x40",
+  logoSrc = "https://static.photos/business/160x40/3",
   logoAlt = "Logo",
   link1 = "Features",
   link1Href = "#",
@@ -193,7 +193,7 @@ FooterWithOversizedLogoAndFullMenu.PreviewProps = {
   link5: "Contact",
   link5Href: "#",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/160x40",
+  logoSrc: "https://static.photos/business/160x40/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FooterWithOversizedLogoAndFullMenuProps;

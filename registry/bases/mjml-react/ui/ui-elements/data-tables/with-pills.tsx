@@ -109,7 +109,7 @@ const DataTableWithPillsSection = ({
               backgroundColor={pillStatusColor(row.statusVariant, theme).bg}
               border={`1px solid ${pillStatusColor(row.statusVariant, theme).border}`}
               borderRadius={theme.borderRadius}
-              padding="Twopx 8px"
+              padding="2px 8px"
             >
               <MjmlColumn>
                 <MjmlText

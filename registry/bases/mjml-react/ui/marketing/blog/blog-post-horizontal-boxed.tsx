@@ -45,7 +45,7 @@ const BlogDarkSection = ({
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeLg}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {post.title}
           </MjmlText>

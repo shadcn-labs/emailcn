@@ -58,7 +58,7 @@ const TestimonialCenteredSection = ({
           src={avatarUrl}
           width={72}
           height={72}
-          paddingBottom={theme.spacingBase ?? "2Fourpx"}
+          paddingBottom={theme.spacingBase ?? "24px"}
         />
       ) : null}
       <MjmlText
@@ -68,7 +68,7 @@ const TestimonialCenteredSection = ({
         fontSize={theme.fontSizeLg ?? "16px"}
         fontStyle="italic"
         lineHeight={theme.lineHeightBase}
-        paddingBottom={theme.spacingBase ?? "2Fourpx"}
+        paddingBottom={theme.spacingBase ?? "24px"}
       >
         &ldquo;{quote}&rdquo;
       </MjmlText>
@@ -76,9 +76,9 @@ const TestimonialCenteredSection = ({
         align="center"
         color={theme.colorText}
         fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase ?? "1Fourpx"}
+        fontSize={theme.fontSizeBase ?? "14px"}
         fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "Fourpx"}
+        paddingBottom={theme.spacingBase ?? "4px"}
       >
         {name}
       </MjmlText>
@@ -132,7 +132,8 @@ export const CenteredTestimonialWithCta = ({
 );
 
 CenteredTestimonialWithCta.PreviewProps = {
-  avatarUrl: "https://placehold.co/72x72?text=SS",
+  avatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Ftestimonials%2Fcentered-testimonial-with-cta.tsx-72-1&size=72",
   name: "Sarah Smith",
   quote:
     "Working with this product has been an absolute game-changer for our team.",

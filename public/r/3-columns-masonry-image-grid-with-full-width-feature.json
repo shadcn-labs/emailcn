@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "3-columns-masonry-image-grid-with-full-width-feature",
+  "title": "3 Columns Masonry Image Grid With Full Width Feature",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ImageHeroVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageHeroProps {\n  theme?: EmailThemeTokens;\n  src?: string;\n  alt?: string;\n  caption?: string;\n  variant?: ImageHeroVariant;\n}\n\nconst ImageHeroSection = ({\n  alt,\n  caption,\n  src,\n  theme,\n  variant,\n}: {\n  alt: string;\n  caption: string;\n  src: string;\n  theme: EmailThemeTokens;\n  variant: ImageHeroVariant;\n}) => (\n  <MjmlSection backgroundColor={theme.colorBackground} padding=\"0\">\n    <MjmlColumn padding=\"0\">\n      <MjmlImage align=\"center\" alt={alt} src={src} width={600} padding=\"0\" />\n    </MjmlColumn>\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm ?? \"12px\"}\n        paddingTop={theme.spacingBase ?? \"24px\"}\n      >\n        {caption}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const ThreeColumnsMasonryImageGridWithFullWidthFeature = ({\n  theme = defaultTheme,\n  src = \"https://static.photos/technology/600x400/2\",\n  alt = \"hero image\",\n  caption = \"Image caption goes here.\",\n  variant = \"default\",\n}: ImageHeroProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>hero image</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ImageHeroSection\n          alt={alt}\n          caption={caption}\n          src={src}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nThreeColumnsMasonryImageGridWithFullWidthFeature.PreviewProps = {\n  alt: \"hero image\",\n  caption: \"A beautiful hero image showcasing the product.\",\n  src: \"https://static.photos/technology/600x400/3\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageHeroProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

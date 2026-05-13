@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-width-testimonial-with-overlapping-avatar",
+  "title": "Full Width Testimonial With Overlapping Avatar",
+  "description": "Marketing testimonials variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TestimonialCardVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface TestimonialCardProps {\n  theme?: EmailThemeTokens;\n  avatarUrl?: string;\n  name?: string;\n  role?: string;\n  quote?: string;\n  companyLogoUrl?: string;\n  variant?: TestimonialCardVariant;\n}\n\nconst TestimonialCardSection = ({\n  avatarUrl,\n  companyLogoUrl,\n  name,\n  quote,\n  role,\n  theme,\n  variant,\n}: {\n  avatarUrl?: string;\n  companyLogoUrl?: string;\n  name: string;\n  quote: string;\n  role: string;\n  theme: EmailThemeTokens;\n  variant: TestimonialCardVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackgroundMuted}\n    border={`1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`}\n    borderRadius={theme.borderRadius}\n    padding={theme.spacingXl ?? \"24px\"}\n  >\n    <MjmlColumn>\n      <MjmlText\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg ?? \"16px\"}\n        fontStyle=\"italic\"\n        lineHeight={theme.lineHeightBase}\n        paddingBottom={theme.spacingLg ?? \"32px\"}\n      >\n        &ldquo;{quote}&rdquo;\n      </MjmlText>\n      <MjmlColumn width=\"auto\" padding=\"0\" verticalAlign=\"middle\">\n        {avatarUrl ? (\n          <MjmlImage\n            alt={name}\n            borderRadius=\"50%\"\n            src={avatarUrl}\n            width={56}\n            height={56}\n          />\n        ) : null}\n      </MjmlColumn>\n      <MjmlColumn padding=\"0 0 0 16px\" verticalAlign=\"middle\">\n        <MjmlText\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n          fontWeight={theme.fontWeightMedium}\n          paddingBottom={theme.spacingBase ?? \"4px\"}\n        >\n          {name}\n        </MjmlText>\n        <MjmlText\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm ?? \"12px\"}\n        >\n          {role}\n        </MjmlText>\n      </MjmlColumn>\n      {companyLogoUrl ? (\n        <MjmlColumn paddingTop={theme.spacingBase ?? \"24px\"}>\n          <MjmlImage alt=\"Company\" src={companyLogoUrl} width={80} />\n        </MjmlColumn>\n      ) : null}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const FullWidthTestimonialWithOverlappingAvatar = ({\n  theme = defaultTheme,\n  avatarUrl,\n  name = \"John Doe\",\n  role = \"CEO, Acme\",\n  quote = \"This product has transformed how we work.\",\n  companyLogoUrl,\n  variant = \"default\",\n}: TestimonialCardProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>testimonial card</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TestimonialCardSection\n          avatarUrl={avatarUrl}\n          companyLogoUrl={companyLogoUrl}\n          name={name}\n          quote={quote}\n          role={role}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFullWidthTestimonialWithOverlappingAvatar.PreviewProps = {\n  avatarUrl:\n    \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Ftestimonials%2Ffull-width-testimonial-with-overlapping-avatar.tsx-56-1&size=56\",\n  companyLogoUrl: \"https://static.photos/business/80x20/3\",\n  name: \"Sarah Smith\",\n  quote:\n    \"This tool has saved us countless hours and made our team more productive.\",\n  role: \"Product Manager, TechCorp\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TestimonialCardProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

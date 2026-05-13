@@ -65,7 +65,7 @@ const TeamCardSection = ({
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeBase}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {m.name}
           </MjmlText>
@@ -111,17 +111,20 @@ export const TwoColumnTeamCards = ({
 TwoColumnTeamCards.PreviewProps = {
   members: [
     {
-      avatarUrl: "https://placehold.co/64x64?text=AJ",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-1&size=64",
       name: "Alex Johnson",
       role: "CEO",
     },
     {
-      avatarUrl: "https://placehold.co/64x64?text=MG",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-2&size=64",
       name: "Maria Garcia",
       role: "CTO",
     },
     {
-      avatarUrl: "https://placehold.co/64x64?text=DK",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-3&size=64",
       name: "David Kim",
       role: "Design Lead",
     },

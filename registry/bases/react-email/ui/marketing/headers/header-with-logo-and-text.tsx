@@ -30,7 +30,7 @@ export interface HeaderWithLogoAndTextProps {
 }
 
 export const HeaderWithLogoAndTextSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   text = "Welcome to our newsletter",
   variant = "default",
@@ -87,7 +87,7 @@ export const HeaderWithLogoAndTextSection = ({
 
 export const HeaderWithLogoAndText = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   text = "Welcome to our newsletter",
   variant = "default",
@@ -112,7 +112,7 @@ export const HeaderWithLogoAndText = ({
 
 HeaderWithLogoAndText.PreviewProps = {
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   text: "Welcome to our newsletter",
   theme: defaultTheme,
   variant: "default",

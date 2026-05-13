@@ -105,19 +105,19 @@ ProductListWithRows.PreviewProps = {
   products: [
     {
       href: "https://example.com/product1",
-      imageUrl: "https://example.com/product1.jpg",
+      imageUrl: "https://static.photos/technology/640x640/2",
       name: "Wireless Headphones",
       price: "$149.00",
     },
     {
       href: "https://example.com/product2",
-      imageUrl: "https://example.com/product2.jpg",
+      imageUrl: "https://static.photos/technology/640x640/3",
       name: "Leather Backpack",
       price: "$89.00",
     },
     {
       href: "https://example.com/product3",
-      imageUrl: "https://example.com/product3.jpg",
+      imageUrl: "https://static.photos/technology/640x640/4",
       name: "Smart Watch",
       price: "$249.00",
     },

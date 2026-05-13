@@ -31,7 +31,7 @@ export interface BlogPostHorizontalBoxedProps {
 }
 
 export const BlogPostHorizontalBoxedSection = ({
-  imageSrc = "https://via.placeholder.com/250x200",
+  imageSrc = "https://static.photos/travel/250x200/2",
   imageAlt = "",
   title = "Blog Post Title",
   excerpt = "A brief summary of the blog post.",
@@ -96,7 +96,7 @@ export const BlogPostHorizontalBoxedSection = ({
 
 export const BlogPostHorizontalBoxed = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/250x200",
+  imageSrc = "https://static.photos/travel/250x200/3",
   imageAlt = "",
   title = "Blog Post Title",
   excerpt = "A brief summary of the blog post.",
@@ -125,7 +125,7 @@ BlogPostHorizontalBoxed.PreviewProps = {
   excerpt:
     "Learn how our latest features can help you build better emails faster.",
   imageAlt: "Blog Post",
-  imageSrc: "https://via.placeholder.com/250x200",
+  imageSrc: "https://static.photos/travel/250x200/4",
   theme: defaultTheme,
   title: "What's New in Version 2.0",
   variant: "default",

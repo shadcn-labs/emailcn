@@ -42,7 +42,7 @@ const TestimonialDarkSection = ({
   <MjmlSection
     backgroundColor={theme.colorText}
     borderRadius={theme.borderRadius}
-    padding={theme.spacingXl ?? "2Fourpx"}
+    padding={theme.spacingXl ?? "24px"}
   >
     <MjmlColumn>
       <MjmlText
@@ -62,7 +62,7 @@ const TestimonialDarkSection = ({
         fontFamily={theme.fontFamily}
         fontSize={theme.fontSizeBase}
         fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "Fourpx"}
+        paddingBottom={theme.spacingBase ?? "4px"}
       >
         {name}
       </MjmlText>

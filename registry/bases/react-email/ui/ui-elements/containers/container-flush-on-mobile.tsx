@@ -33,7 +33,7 @@ export const ContainerFlushMobileSection = ({
         : "text-center";
 
   return (
-    <Section className="mobile:px-0">
+    <Section className="px-0">
       <Container style={{ maxWidth }} className={`mx-auto ${textAlign}`}>
         {children}
       </Container>

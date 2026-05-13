@@ -31,7 +31,7 @@ export interface FeaturedBlogPostProps {
 }
 
 export const FeaturedBlogPostSection = ({
-  imageSrc = "https://via.placeholder.com/600x300",
+  imageSrc = "https://static.photos/travel/600x300/2",
   imageAlt = "",
   badge = "Featured",
   title = "Featured Article Title",
@@ -106,7 +106,7 @@ export const FeaturedBlogPostSection = ({
 
 export const FeaturedBlogPost = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/600x300",
+  imageSrc = "https://static.photos/travel/600x300/3",
   imageAlt = "",
   badge = "Featured",
   title = "Featured Article Title",
@@ -141,7 +141,7 @@ FeaturedBlogPost.PreviewProps = {
   excerpt:
     "Our comprehensive guide to building modern email templates that work everywhere.",
   imageAlt: "Featured Article",
-  imageSrc: "https://via.placeholder.com/600x300",
+  imageSrc: "https://static.photos/travel/600x300/4",
   theme: defaultTheme,
   title: "The Ultimate Guide to Email Templates",
   variant: "default",

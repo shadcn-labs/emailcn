@@ -123,7 +123,7 @@ PodcastFullWidth.PreviewProps = {
     {
       date: "May 12, 2026",
       description: "A deep dive into building responsive email components.",
-      imageUrl: "https://placehold.co/600x300?text=Featured+Post",
+      imageUrl: "https://static.photos/business/600x300/2",
       title: "Featured Article",
     },
   ],

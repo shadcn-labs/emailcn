@@ -46,7 +46,7 @@ const BlogCompactSection = ({
           fontFamily={theme.fontFamily}
           fontSize={theme.fontSizeBase}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {post.title}
         </MjmlText>

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-with-team-avatars",
+  "title": "Cta With Team Avatars",
+  "description": "Marketing cta variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/cta/cta-with-team-avatars.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlButton,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type CTAOutlineVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface CTAOutlineProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  subtext?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: CTAOutlineVariant;\n}\n\nconst CTAOutlineSection = ({\n  ctaHref,\n  ctaLabel,\n  heading,\n  subtext,\n  theme,\n  variant,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  heading: string;\n  subtext: string;\n  theme: EmailThemeTokens;\n  variant: CTAOutlineVariant;\n}) => (\n  <MjmlSection\n    backgroundColor=\"transparent\"\n    border={`1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`}\n    borderRadius={theme.borderRadius}\n    padding={theme.spacingXl ?? \"24px\"}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeXl ?? \"20px\"}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        {heading}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeBase ?? \"14px\"}\n        paddingBottom={theme.spacingLg ?? \"24px\"}\n      >\n        {subtext}\n      </MjmlText>\n      {ctaLabel && ctaHref ? (\n        <MjmlButton\n          align=\"center\"\n          backgroundColor={theme.colorPrimary}\n          borderRadius={theme.borderRadius}\n          color={theme.colorPrimaryForeground}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm ?? \"14px\"}\n          fontWeight={theme.fontWeightMedium}\n          href={ctaHref}\n          innerPadding={`${theme.spacingBase ?? \"16px\"} ${theme.spacingLg ?? \"24px\"}`}\n        >\n          {ctaLabel}\n        </MjmlButton>\n      ) : null}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const CtaWithTeamAvatars = ({\n  theme = defaultTheme,\n  heading = \"Special Offer\",\n  subtext = \"Limited time deal just for you.\",\n  ctaLabel = \"Shop Now\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: CTAOutlineProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>cta outline</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <CTAOutlineSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          heading={heading}\n          subtext={subtext}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nCtaWithTeamAvatars.PreviewProps = {\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Shop Now\",\n  heading: \"Limited Time Offer\",\n  subtext: \"Save 20% on your first order with code WELCOME20.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies CTAOutlineProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/cta/cta-with-team-avatars.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

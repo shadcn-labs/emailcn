@@ -66,8 +66,9 @@ export const ReceiptStripe = ({
             </Section>
 
             <Section>
-              {items.map((item, _index) => (
+              {items.map((item, index) => (
                 <ProductCardSection
+                  key={`${item.name}-${index}`}
                   products={[
                     {
                       imageUrl: item.imageUrl,

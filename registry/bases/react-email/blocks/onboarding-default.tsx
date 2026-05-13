@@ -88,7 +88,8 @@ export const OnboardingDefault = ({
 OnboardingDefault.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Acme",
-  _senderAvatarUrl: "https://example.com/avatar.jpg",
+  _senderAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
   _senderName: "The team",
   _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",

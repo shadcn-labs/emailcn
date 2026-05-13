@@ -73,7 +73,7 @@ export const DividerWithLogo = ({
 
 DividerWithLogo.PreviewProps = {
   logoAlt: "Brand Logo",
-  logoSrc: "https://example.com/logo.png",
+  logoSrc: "https://static.photos/business/320x80/2",
   theme: defaultTheme,
   variant: "default",
 } satisfies DividerWithLogoProps;

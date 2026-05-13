@@ -123,7 +123,7 @@ export const HeroBlockWithBleed = ({
   subheading = "Full-width background with an image that bleeds to the edges.",
   ctaLabel = "Explore",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x300?text=Bleed+Image",
+  imageSrc = "https://static.photos/business/600x300/2",
   imageAlt = "bleed image",
   backgroundColor = "#111827",
   variant = "default",
@@ -166,7 +166,7 @@ HeroBlockWithBleed.PreviewProps = {
   ctaLabel: "Shop Now",
   heading: "Hero Block with Bleed",
   imageAlt: "bleed image",
-  imageSrc: "https://placehold.co/600x300?text=Bleed+Image",
+  imageSrc: "https://static.photos/business/600x300/3",
   subheading:
     "A full-width dark background section with a heading and a bleeding image below.",
   theme: defaultTheme,

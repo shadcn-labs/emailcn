@@ -64,44 +64,29 @@ const MasonryGridReviewsSection = ({
   const rightCol = reviews.slice(mid);
 
   return (
-    <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
+    <MjmlSection padding="0">
       <MjmlColumn
         width="50%"
         paddingRight={theme.spacingBase ?? "16px"}
         verticalAlign="top"
       >
         {leftCol.map((review) => (
-          <MjmlWrapper
+          <MjmlColumn
             key={review.name}
             backgroundColor={theme.colorBackgroundMuted}
             border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
             borderRadius={theme.borderRadius}
             padding={theme.spacingBase ?? "16px"}
           >
-            <MjmlSection padding="0 0 12px">
-              <MjmlColumn width="32px" paddingRight="8px">
-                {review.avatarUrl ? (
-                  <MjmlImage
-                    alt={review.name}
-                    borderRadius="999px"
-                    height={28}
-                    padding="0"
-                    src={review.avatarUrl}
-                    width={28}
-                  />
-                ) : null}
-              </MjmlColumn>
-              <MjmlColumn>
-                <MjmlText
-                  color={theme.colorText}
-                  fontFamily={theme.fontFamily}
-                  fontSize={theme.fontSizeSm ?? "12px"}
-                  fontWeight={theme.fontWeightMedium ?? "500"}
-                >
-                  {review.name}
-                </MjmlText>
-              </MjmlColumn>
-            </MjmlSection>
+            <MjmlText
+              color={theme.colorText}
+              fontFamily={theme.fontFamily}
+              fontSize={theme.fontSizeSm ?? "12px"}
+              fontWeight={theme.fontWeightMedium ?? "500"}
+              paddingBottom={theme.spacingBase ?? "16px"}
+            >
+              {review.name}
+            </MjmlText>
             <StarRating rating={review.rating} theme={theme} />
             <MjmlText
               color={theme.colorText}
@@ -121,7 +106,7 @@ const MasonryGridReviewsSection = ({
                 {review.date}
               </MjmlText>
             ) : null}
-          </MjmlWrapper>
+          </MjmlColumn>
         ))}
       </MjmlColumn>
       <MjmlColumn
@@ -130,37 +115,22 @@ const MasonryGridReviewsSection = ({
         verticalAlign="top"
       >
         {rightCol.map((review) => (
-          <MjmlWrapper
+          <MjmlColumn
             key={review.name}
             backgroundColor={theme.colorBackgroundMuted}
             border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
             borderRadius={theme.borderRadius}
             padding={theme.spacingBase ?? "16px"}
           >
-            <MjmlSection padding="0 0 12px">
-              <MjmlColumn width="32px" paddingRight="8px">
-                {review.avatarUrl ? (
-                  <MjmlImage
-                    alt={review.name}
-                    borderRadius="999px"
-                    height={28}
-                    padding="0"
-                    src={review.avatarUrl}
-                    width={28}
-                  />
-                ) : null}
-              </MjmlColumn>
-              <MjmlColumn>
-                <MjmlText
-                  color={theme.colorText}
-                  fontFamily={theme.fontFamily}
-                  fontSize={theme.fontSizeSm ?? "12px"}
-                  fontWeight={theme.fontWeightMedium ?? "500"}
-                >
-                  {review.name}
-                </MjmlText>
-              </MjmlColumn>
-            </MjmlSection>
+            <MjmlText
+              color={theme.colorText}
+              fontFamily={theme.fontFamily}
+              fontSize={theme.fontSizeSm ?? "12px"}
+              fontWeight={theme.fontWeightMedium ?? "500"}
+              paddingBottom={theme.spacingBase ?? "16px"}
+            >
+              {review.name}
+            </MjmlText>
             <StarRating rating={review.rating} theme={theme} />
             <MjmlText
               color={theme.colorText}
@@ -180,7 +150,7 @@ const MasonryGridReviewsSection = ({
                 {review.date}
               </MjmlText>
             ) : null}
-          </MjmlWrapper>
+          </MjmlColumn>
         ))}
       </MjmlColumn>
     </MjmlSection>
@@ -221,32 +191,28 @@ export const MasonryGridReviews = ({
 MasonryGridReviews.PreviewProps = {
   reviews: [
     {
-      avatarUrl: "https://example.com/av1.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=mjml-review-1&size=128",
       date: "March 2026",
       name: "Alex",
       rating: 5,
       text: "Excellent!",
     },
     {
-      avatarUrl: "https://example.com/av2.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=mjml-review-2&size=128",
       date: "Feb 2026",
-      name: "Maria",
+      name: "Jordan",
       rating: 4,
-      text: "Great value",
+      text: "Really good product!",
     },
     {
-      avatarUrl: "https://example.com/av3.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=mjml-review-3&size=128",
       date: "Jan 2026",
-      name: "David",
+      name: "Sam",
       rating: 5,
-      text: "Best purchase!",
-    },
-    {
-      avatarUrl: "https://example.com/av4.jpg",
-      date: "Dec 2025",
-      name: "Sarah",
-      rating: 4,
-      text: "Solid product",
+      text: "Love it!",
     },
   ],
   theme: defaultTheme,

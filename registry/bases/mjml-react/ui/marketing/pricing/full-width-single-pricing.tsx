@@ -66,7 +66,7 @@ const PricingSideBySideSection = ({
             }
             border={
               plan.highlighted
-                ? `Twopx solid ${theme.colorPrimary}`
+                ? `2px solid ${theme.colorPrimary}`
                 : `1px solid ${theme.colorBorder ?? "#e5e7eb"}`
             }
             borderRadius={theme.borderRadius}

@@ -3,13 +3,20 @@ title: "Team"
 description: "Team member display components for showcasing people in emails."
 ---
 
-<ComponentPreview base="mjml-react" name="two-column-team-cards-with-details-demo" hideCode />
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-with-details-demo"
+  hideCode
+/>
 
 ## Variants
 
 ### Team Card
 
-<ComponentPreview base="mjml-react" name="two-column-team-cards-with-details-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-with-details-demo"
+/>
 
 ### Team Compact
 
@@ -25,7 +32,10 @@ description: "Team member display components for showcasing people in emails."
 
 ### Team with Bio
 
-<ComponentPreview base="mjml-react" name="two-column-team-cards-with-details-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-with-details-demo"
+/>
 
 ## Installation
 
@@ -52,9 +62,9 @@ npm install @faire/mjml-react
 
 <Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/team/team-card.tsx"
+  src="registry/bases/mjml-react/ui/marketing/team/horizontal-team-member-bios.tsx"
   base="mjml-react"
-  title="components/emails/marketing/team/team-card.tsx"
+  title="components/emails/marketing/team/horizontal-team-member-bios.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -66,11 +76,11 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { TeamCard } from "@/components/emails/marketing/team/team-card";
+import { HorizontalTeamMemberBios } from "@/components/emails/marketing/team/horizontal-team-member-bios";
 ```
 
 ```tsx
-<TeamCard {...TeamCard.PreviewProps} />
+<HorizontalTeamMemberBios {...HorizontalTeamMemberBios.PreviewProps} />
 ```
 
 ## API Reference

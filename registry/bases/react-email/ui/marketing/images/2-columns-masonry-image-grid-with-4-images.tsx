@@ -34,13 +34,13 @@ export interface TwoColumnsMasonryImageGridWith4ImagesProps {
 }
 
 export const TwoColumnsMasonryImageGridWith4ImagesSection = ({
-  imageSrc1 = "https://via.placeholder.com/300x250",
+  imageSrc1 = "https://static.photos/travel/300x250/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x400",
+  imageSrc2 = "https://static.photos/travel/300x400/3",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/300x200",
+  imageSrc3 = "https://static.photos/travel/300x200/4",
   imageAlt3 = "",
-  imageSrc4 = "https://via.placeholder.com/300x300",
+  imageSrc4 = "https://static.photos/travel/300x300/5",
   imageAlt4 = "",
   variant = "default",
 }: Omit<TwoColumnsMasonryImageGridWith4ImagesProps, "theme">) => {
@@ -116,13 +116,13 @@ export const TwoColumnsMasonryImageGridWith4ImagesSection = ({
 
 export const TwoColumnsMasonryImageGridWith4Images = ({
   theme = defaultTheme,
-  imageSrc1 = "https://via.placeholder.com/300x250",
+  imageSrc1 = "https://static.photos/travel/300x250/6",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x400",
+  imageSrc2 = "https://static.photos/travel/300x400/7",
   imageAlt2 = "",
-  imageSrc3 = "https://via.placeholder.com/300x200",
+  imageSrc3 = "https://static.photos/travel/300x200/8",
   imageAlt3 = "",
-  imageSrc4 = "https://via.placeholder.com/300x300",
+  imageSrc4 = "https://static.photos/travel/300x300/9",
   imageAlt4 = "",
   variant = "default",
 }: TwoColumnsMasonryImageGridWith4ImagesProps) => (
@@ -154,10 +154,10 @@ TwoColumnsMasonryImageGridWith4Images.PreviewProps = {
   imageAlt2: "Image 2",
   imageAlt3: "Image 3",
   imageAlt4: "Image 4",
-  imageSrc1: "https://via.placeholder.com/300x250",
-  imageSrc2: "https://via.placeholder.com/300x400",
-  imageSrc3: "https://via.placeholder.com/300x200",
-  imageSrc4: "https://via.placeholder.com/300x300",
+  imageSrc1: "https://static.photos/travel/300x250/10",
+  imageSrc2: "https://static.photos/travel/300x400/11",
+  imageSrc3: "https://static.photos/travel/300x200/12",
+  imageSrc4: "https://static.photos/travel/300x300/13",
   theme: defaultTheme,
   variant: "default",
 } satisfies TwoColumnsMasonryImageGridWith4ImagesProps;

@@ -43,7 +43,7 @@ const StatsMinimalSection = ({
         <MjmlColumn
           key={stat.label + i}
           width={`${100 / items.length}%`}
-          padding={theme.spacingBase ?? "2Fourpx"}
+          padding={theme.spacingBase ?? "24px"}
           verticalAlign="top"
         >
           <MjmlText
@@ -52,7 +52,7 @@ const StatsMinimalSection = ({
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeLg ?? "16px"}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {stat.value}
           </MjmlText>

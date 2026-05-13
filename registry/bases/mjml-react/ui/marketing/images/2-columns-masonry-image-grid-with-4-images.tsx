@@ -74,7 +74,7 @@ const ImageCardSection = ({
 
 export const TwoColumnsMasonryImageGridWith4Images = ({
   theme = defaultTheme,
-  src = "https://placehold.co/600x300?text=Card+Image",
+  src = "https://static.photos/business/600x300/2",
   alt = "card image",
   title = "Image Card Title",
   description = "A description that accompanies the image card.",
@@ -113,7 +113,7 @@ TwoColumnsMasonryImageGridWith4Images.PreviewProps = {
   alt: "card image",
   description:
     "This card layout pairs an image with descriptive text below it.",
-  src: "https://placehold.co/600x300?text=Card+Image",
+  src: "https://static.photos/business/600x300/3",
   theme: defaultTheme,
   title: "Image Card",
   variant: "default",

@@ -33,7 +33,7 @@ export interface FeatureWithProductImageProps {
 export const FeatureWithProductImageSection = ({
   heading = "Product Feature",
   body = "Description of the product feature.",
-  imageSrc = "https://via.placeholder.com/400x400",
+  imageSrc = "https://static.photos/technology/400x400/2",
   imageAlt = "",
   variant = "default",
 }: Omit<FeatureWithProductImageProps, "theme">) => {
@@ -96,7 +96,7 @@ export const FeatureWithProductImage = ({
   theme = defaultTheme,
   heading = "Product Feature",
   body = "Description of the product feature.",
-  imageSrc = "https://via.placeholder.com/400x400",
+  imageSrc = "https://static.photos/technology/400x400/3",
   imageAlt = "",
   variant = "default",
 }: FeatureWithProductImageProps) => (
@@ -123,7 +123,7 @@ FeatureWithProductImage.PreviewProps = {
   body: "Our flagship product combines cutting-edge technology with elegant design to deliver an unmatched experience.",
   heading: "Product Feature",
   imageAlt: "Product",
-  imageSrc: "https://via.placeholder.com/400x400",
+  imageSrc: "https://static.photos/technology/400x400/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FeatureWithProductImageProps;

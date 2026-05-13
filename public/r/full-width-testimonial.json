@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-width-testimonial",
+  "title": "Full Width Testimonial",
+  "description": "Marketing testimonials variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/testimonials/full-width-testimonial.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TestimonialDarkVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface TestimonialDarkProps {\n  theme?: EmailThemeTokens;\n  name?: string;\n  role?: string;\n  quote?: string;\n  variant?: TestimonialDarkVariant;\n}\nconst TestimonialDarkSection = ({\n  name,\n  quote,\n  role,\n  theme,\n  variant,\n}: {\n  name: string;\n  quote: string;\n  role: string;\n  theme: EmailThemeTokens;\n  variant: TestimonialDarkVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorText}\n    borderRadius={theme.borderRadius}\n    padding={theme.spacingXl ?? \"24px\"}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorBackground}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg}\n        fontStyle=\"italic\"\n        lineHeight={theme.lineHeightBase}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        &ldquo;{quote}&rdquo;\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorBackground}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeBase}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"4px\"}\n      >\n        {name}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm}\n      >\n        {role}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\nexport const FullWidthTestimonial = ({\n  theme = defaultTheme,\n  name = \"John Doe\",\n  role = \"CEO, Acme\",\n  quote = \"This product has transformed how we work.\",\n  variant = \"default\",\n}: TestimonialDarkProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>testimonial dark</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TestimonialDarkSection\n          name={name}\n          quote={quote}\n          role={role}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nFullWidthTestimonial.PreviewProps = {\n  name: \"Sarah Smith\",\n  quote: \"This tool has been a game-changer for our team productivity.\",\n  role: \"Product Manager, TechCorp\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TestimonialDarkProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/testimonials/full-width-testimonial.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

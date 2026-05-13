@@ -76,9 +76,9 @@ const BentoGridStatsSection = ({
           align="center"
           color={theme.colorText}
           fontFamily={theme.fontFamily}
-          fontSize="2Fourpx"
+          fontSize="24px"
           fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {s.value}
         </MjmlText>

@@ -73,7 +73,7 @@ export const AuthMagicLinkStripe = ({
 
 AuthMagicLinkStripe.PreviewProps = {
   _logoAlt: "Stripe",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Stripe",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

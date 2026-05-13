@@ -39,7 +39,7 @@ export const HeroWithOverlappedImageSection = ({
   ctaLabel = "Get Started",
   heading = "Welcome",
   subheading = "Get started with your account",
-  imageSrc = "https://via.placeholder.com/400x500",
+  imageSrc = "https://static.photos/city/400x500/2",
   imageAlt = "",
   variant = "default",
 }: Omit<HeroWithOverlappedImageProps, "theme">) => {
@@ -116,7 +116,7 @@ export const HeroWithOverlappedImage = ({
   subheading = "Get started with your account",
   ctaLabel = "Get Started",
   ctaHref = "#",
-  imageSrc = "https://via.placeholder.com/400x500",
+  imageSrc = "https://static.photos/city/400x500/3",
   imageAlt = "",
   variant = "default",
 }: HeroWithOverlappedImageProps) => (
@@ -146,7 +146,7 @@ HeroWithOverlappedImage.PreviewProps = {
   ctaLabel: "Get Started",
   heading: "Welcome to Acme",
   imageAlt: "Feature image",
-  imageSrc: "https://via.placeholder.com/400x500",
+  imageSrc: "https://static.photos/city/400x500/4",
   subheading: "Build faster with the tools you love.",
   theme: defaultTheme,
   variant: "default",

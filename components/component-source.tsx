@@ -12,6 +12,16 @@ import type { BaseName } from "@/registry/bases";
 import { CopyButton } from "./copy-button";
 import { getIconForLanguageExtension } from "./icons";
 
+const readOptionalFromRoot = async (
+  relativePath: string
+): Promise<string | null> => {
+  try {
+    return await readFileFromRoot(relativePath);
+  } catch {
+    return null;
+  }
+};
+
 const ComponentCode = ({
   code,
   highlightedCode,
@@ -66,7 +76,7 @@ export const ComponentSource = async ({
   }
 
   if (src) {
-    code = await readFileFromRoot(src);
+    code = await readOptionalFromRoot(src);
   }
 
   if (!code) {

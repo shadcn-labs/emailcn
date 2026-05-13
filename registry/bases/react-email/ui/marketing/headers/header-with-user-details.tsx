@@ -31,7 +31,7 @@ export interface HeaderWithUserDetailsProps {
 }
 
 export const HeaderWithUserDetailsSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   userName = "John Doe",
   userEmail = "john@example.com",
@@ -94,7 +94,7 @@ export const HeaderWithUserDetailsSection = ({
 
 export const HeaderWithUserDetails = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   userName = "John Doe",
   userEmail = "john@example.com",
@@ -121,7 +121,7 @@ export const HeaderWithUserDetails = ({
 
 HeaderWithUserDetails.PreviewProps = {
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
   userEmail: "john@example.com",
   userName: "John Doe",

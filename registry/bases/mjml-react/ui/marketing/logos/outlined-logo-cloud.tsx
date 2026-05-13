@@ -59,10 +59,10 @@ const LogosInlineSection = ({
 export const OutlinedLogoCloud = ({
   theme = defaultTheme,
   logos = [
-    { alt: "Company 1", src: "https://placehold.co/100x30?text=C1" },
-    { alt: "Company 2", src: "https://placehold.co/100x30?text=C2" },
-    { alt: "Company 3", src: "https://placehold.co/100x30?text=C3" },
-    { alt: "Company 4", src: "https://placehold.co/100x30?text=C4" },
+    { alt: "Company 1", src: "https://static.photos/business/100x30/2" },
+    { alt: "Company 2", src: "https://static.photos/business/100x30/3" },
+    { alt: "Company 3", src: "https://static.photos/business/100x30/4" },
+    { alt: "Company 4", src: "https://static.photos/business/100x30/5" },
   ],
   variant = "default",
 }: LogosInlineProps) => (
@@ -90,18 +90,18 @@ export const OutlinedLogoCloud = ({
 
 OutlinedLogoCloud.PreviewProps = {
   logos: [
-    { alt: "Acme", src: "https://placehold.co/100x30?text=Acme", width: 100 },
+    { alt: "Acme", src: "https://static.photos/business/100x30/6", width: 100 },
     {
       alt: "TechCo",
-      src: "https://placehold.co/100x30?text=TechCo",
+      src: "https://static.photos/business/100x30/7",
       width: 100,
     },
     {
       alt: "Global",
-      src: "https://placehold.co/100x30?text=Global",
+      src: "https://static.photos/business/100x30/8",
       width: 100,
     },
-    { alt: "Nova", src: "https://placehold.co/100x30?text=Nova", width: 100 },
+    { alt: "Nova", src: "https://static.photos/business/100x30/9", width: 100 },
   ],
   theme: defaultTheme,
   variant: "default",

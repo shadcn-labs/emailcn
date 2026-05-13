@@ -120,12 +120,14 @@ TitleWithLargePadding.PreviewProps = {
   columns: [
     {
       description: "Lightning-fast load times for your emails.",
-      iconUrl: "https://placehold.co/48x48?text=F",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Ftitle-with-large-padding.tsx-1&size=48",
       title: "Fast Performance",
     },
     {
       description: "Simple API to get started in minutes.",
-      iconUrl: "https://placehold.co/48x48?text=E",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Ftitle-with-large-padding.tsx-2&size=48",
       title: "Easy Integration",
     },
   ],

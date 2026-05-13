@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "featured-brands-logo-grid",
+  "title": "Featured Brands Logo Grid",
+  "description": "Marketing logos variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/logos/featured-brands-logo-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type LogosCenteredVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface LogosCenteredProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  logos?: { src: string; alt: string; width?: number }[];\n  variant?: LogosCenteredVariant;\n}\n\nconst LogosCenteredSection = ({\n  heading,\n  logos,\n  theme,\n  variant,\n}: {\n  heading: string;\n  logos: LogosCenteredProps[\"logos\"];\n  theme: EmailThemeTokens;\n  variant: LogosCenteredVariant;\n}) => {\n  const items = logos ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      <MjmlColumn>\n        {heading ? (\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm ?? \"12px\"}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingLg ?? \"32px\"}\n          >\n            {heading}\n          </MjmlText>\n        ) : null}\n      </MjmlColumn>\n      {items.slice(0, 4).map((logo, i) => (\n        <MjmlColumn\n          key={logo.alt + i}\n          width={`${100 / Math.min(items.length, 4)}%`}\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"middle\"\n        >\n          <MjmlImage\n            align=\"center\"\n            alt={logo.alt}\n            src={logo.src}\n            width={logo.width ?? 120}\n          />\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const FeaturedBrandsLogoGrid = ({\n  theme = defaultTheme,\n  heading = \"Trusted by leading companies\",\n  logos = [\n    { alt: \"Company 1\", src: \"https://static.photos/business/120x40/2\" },\n    { alt: \"Company 2\", src: \"https://static.photos/business/120x40/3\" },\n    { alt: \"Company 3\", src: \"https://static.photos/business/120x40/4\" },\n  ],\n  variant = \"default\",\n}: LogosCenteredProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>logos centered</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <LogosCenteredSection\n          heading={heading}\n          logos={logos}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFeaturedBrandsLogoGrid.PreviewProps = {\n  heading: \"Trusted by leading companies\",\n  logos: [\n    { alt: \"Acme\", src: \"https://static.photos/business/120x40/5\", width: 120 },\n    {\n      alt: \"TechCo\",\n      src: \"https://static.photos/business/120x40/6\",\n      width: 120,\n    },\n    {\n      alt: \"Global\",\n      src: \"https://static.photos/business/120x40/7\",\n      width: 120,\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies LogosCenteredProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/logos/featured-brands-logo-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

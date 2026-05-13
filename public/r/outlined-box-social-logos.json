@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "outlined-box-social-logos",
+  "title": "Outlined Box Social Logos",
+  "description": "Marketing social variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/social/outlined-box-social-logos.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type SocialLinksBorderedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface SocialLinksBorderedProps {\n  theme?: EmailThemeTokens;\n  links?: { platform: string; href: string }[];\n  variant?: SocialLinksBorderedVariant;\n}\nconst SocialLinksBorderedSection = ({\n  links,\n  theme,\n  variant,\n}: {\n  links: SocialLinksBorderedProps[\"links\"];\n  theme: EmailThemeTokens;\n  variant: SocialLinksBorderedVariant;\n}) => (\n  <MjmlSection backgroundColor={theme.colorBackground} padding=\"24px 0\">\n    <MjmlColumn>\n      {(links ?? []).map((l) => (\n        <MjmlText\n          key={l.platform}\n          align=\"center\"\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize=\"12px\"\n          padding=\"0 12px\"\n        >\n          <a\n            href={l.href}\n            style={{\n              border: `1px solid ${theme.colorBorder}`,\n              borderRadius: theme.borderRadius,\n              color: theme.colorTextMuted,\n              padding: \"6px 12px\",\n              textDecoration: \"none\",\n            }}\n          >\n            {l.platform}\n          </a>\n        </MjmlText>\n      ))}\n    </MjmlColumn>\n  </MjmlSection>\n);\nexport const OutlinedBoxSocialLogos = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"Twitter\" },\n    { href: \"https://github.com\", platform: \"GitHub\" },\n  ],\n  variant = \"default\",\n}: SocialLinksBorderedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>social bordered</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <SocialLinksBorderedSection\n          links={links}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nOutlinedBoxSocialLogos.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"Twitter\" },\n    { href: \"https://github.com\", platform: \"GitHub\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies SocialLinksBorderedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/social/outlined-box-social-logos.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

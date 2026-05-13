@@ -37,7 +37,7 @@ export interface TwoThirdsBentoGridWithStatsProps {
 
 export const TwoThirdsBentoGridWithStatsSection = ({
   heading = "By the Numbers",
-  imageSrc = "https://via.placeholder.com/600x400",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "",
   stat1 = "99.9%",
   stat1Label = "Uptime",
@@ -124,7 +124,7 @@ export const TwoThirdsBentoGridWithStatsSection = ({
 export const TwoThirdsBentoGridWithStats = ({
   theme = defaultTheme,
   heading = "By the Numbers",
-  imageSrc = "https://via.placeholder.com/600x400",
+  imageSrc = "https://static.photos/city/600x400/3",
   imageAlt = "",
   stat1 = "99.9%",
   stat1Label = "Uptime",
@@ -161,7 +161,7 @@ export const TwoThirdsBentoGridWithStats = ({
 TwoThirdsBentoGridWithStats.PreviewProps = {
   heading: "By the Numbers",
   imageAlt: "Company",
-  imageSrc: "https://via.placeholder.com/600x400",
+  imageSrc: "https://static.photos/city/600x400/4",
   stat1: "99.9%",
   stat1Label: "Uptime",
   stat2: "10M+",

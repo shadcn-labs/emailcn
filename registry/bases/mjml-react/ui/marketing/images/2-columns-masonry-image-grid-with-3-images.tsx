@@ -60,7 +60,7 @@ const ImageBannerSection = ({
 
 export const TwoColumnsMasonryImageGridWith3Images = ({
   theme = defaultTheme,
-  src = "https://placehold.co/600x200?text=Banner",
+  src = "https://static.photos/business/600x200/2",
   alt = "banner",
   overlayText = "Banner Text",
   variant = "default",
@@ -96,7 +96,7 @@ export const TwoColumnsMasonryImageGridWith3Images = ({
 TwoColumnsMasonryImageGridWith3Images.PreviewProps = {
   alt: "promotional banner",
   overlayText: "Seasonal Sale — Up to 50% Off",
-  src: "https://placehold.co/600x200?text=Sale+Banner",
+  src: "https://static.photos/business/600x200/3",
   theme: defaultTheme,
   variant: "default",
 } satisfies ImageBannerProps;

@@ -18,7 +18,7 @@ export interface FullWidthImageProps {
 }
 
 export const FullWidthImageSection = ({
-  imageSrc = "https://via.placeholder.com/600x400",
+  imageSrc = "https://static.photos/nature/600x400/2",
   imageAlt = "",
   variant = "default",
 }: Omit<FullWidthImageProps, "theme">) => {
@@ -67,7 +67,7 @@ export const FullWidthImageSection = ({
 
 export const FullWidthImage = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/600x400",
+  imageSrc = "https://static.photos/nature/600x400/3",
   imageAlt = "",
   variant = "default",
 }: FullWidthImageProps) => (
@@ -90,7 +90,7 @@ export const FullWidthImage = ({
 
 FullWidthImage.PreviewProps = {
   imageAlt: "Full width image",
-  imageSrc: "https://via.placeholder.com/600x400",
+  imageSrc: "https://static.photos/nature/600x400/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthImageProps;

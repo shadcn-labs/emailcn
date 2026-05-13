@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo",
+  "title": "Header With Logo",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type HeaderLogoWithLinksVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface HeaderLogoWithLinksProps {\n  theme?: EmailThemeTokens;\n  logoUrl?: string;\n  logoAlt?: string;\n  logoWidth?: number;\n  links?: { label: string; href: string }[];\n  variant?: HeaderLogoWithLinksVariant;\n}\n\nconst HeaderLogoWithLinksSection = ({\n  links,\n  logoAlt,\n  logoUrl,\n  logoWidth,\n  theme,\n  variant,\n}: {\n  links: HeaderLogoWithLinksProps[\"links\"];\n  logoAlt: string;\n  logoUrl?: string;\n  logoWidth: number;\n  theme: EmailThemeTokens;\n  variant: HeaderLogoWithLinksVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingBase ?? \"24px\"} 0`}\n  >\n    <MjmlColumn width=\"50%\" verticalAlign=\"middle\">\n      {logoUrl ? (\n        <MjmlImage align=\"left\" alt={logoAlt} src={logoUrl} width={logoWidth} />\n      ) : (\n        <MjmlText\n          align=\"left\"\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeXl ?? \"20px\"}\n          fontWeight={theme.fontWeightBold}\n        >\n          {logoAlt}\n        </MjmlText>\n      )}\n    </MjmlColumn>\n    {links && links.length > 0 ? (\n      <MjmlColumn width=\"50%\" verticalAlign=\"middle\">\n        {links.map((link) => (\n          <MjmlText\n            key={link.label}\n            align=\"right\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm ?? \"12px\"}\n            padding=\"0 0 0 16px\"\n          >\n            <a\n              href={link.href}\n              style={{ color: theme.colorTextMuted, textDecoration: \"none\" }}\n            >\n              {link.label}\n            </a>\n          </MjmlText>\n        ))}\n      </MjmlColumn>\n    ) : null}\n  </MjmlSection>\n);\n\nexport const HeaderLogoWithLinks = ({\n  theme = defaultTheme,\n  logoUrl,\n  logoAlt = \"Logo\",\n  logoWidth = 120,\n  links = [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  variant = \"default\",\n}: HeaderLogoWithLinksProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>header with links</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <HeaderLogoWithLinksSection\n          links={links}\n          logoAlt={logoAlt}\n          logoUrl={logoUrl}\n          logoWidth={logoWidth}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHeaderLogoWithLinks.PreviewProps = {\n  links: [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  logoAlt: \"Acme\",\n  logoUrl: \"https://static.photos/business/120x40/2\",\n  logoWidth: 120,\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeaderLogoWithLinksProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -42,7 +42,7 @@ export interface FooterWithTextMenuAndSocialsProps {
 }
 
 export const FooterWithTextMenuAndSocialsSection = ({
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/2",
   logoAlt = "Logo",
   text = "© 2024 Acme Inc. All rights reserved.",
   link1 = "Privacy",
@@ -51,11 +51,11 @@ export const FooterWithTextMenuAndSocialsSection = ({
   link2Href = "#",
   link3 = "Contact",
   link3Href = "#",
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-2&size=20",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-3&size=20",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-4&size=20",
   socialAlt3 = "LinkedIn",
   variant = "default",
 }: Omit<FooterWithTextMenuAndSocialsProps, "theme">) => {
@@ -154,7 +154,7 @@ export const FooterWithTextMenuAndSocialsSection = ({
 
 export const FooterWithTextMenuAndSocials = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/6",
   logoAlt = "Logo",
   text = "© 2024 Acme Inc. All rights reserved.",
   link1 = "Privacy",
@@ -163,11 +163,11 @@ export const FooterWithTextMenuAndSocials = ({
   link2Href = "#",
   link3 = "Contact",
   link3Href = "#",
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-6&size=20",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-7&size=20",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-8&size=20",
   socialAlt3 = "LinkedIn",
   variant = "default",
 }: FooterWithTextMenuAndSocialsProps) => (
@@ -209,13 +209,16 @@ FooterWithTextMenuAndSocials.PreviewProps = {
   link3: "Contact",
   link3Href: "#",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/100x25",
+  logoSrc: "https://static.photos/business/100x25/10",
   socialAlt1: "Twitter",
   socialAlt2: "Facebook",
   socialAlt3: "LinkedIn",
-  socialSrc1: "https://via.placeholder.com/20x20",
-  socialSrc2: "https://via.placeholder.com/20x20",
-  socialSrc3: "https://via.placeholder.com/20x20",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-10&size=20",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-11&size=20",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-12&size=20",
   text: "© 2024 Acme Inc. All rights reserved.",
   theme: defaultTheme,
   variant: "default",

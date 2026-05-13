@@ -33,7 +33,7 @@ export interface FeatureWithLargePortraitImageProps {
 export const FeatureWithLargePortraitImageSection = ({
   heading = "About Us",
   body = "Learn more about our story.",
-  imageSrc = "https://via.placeholder.com/400x600",
+  imageSrc = "https://static.photos/people/400x600/2",
   imageAlt = "",
   variant = "default",
 }: Omit<FeatureWithLargePortraitImageProps, "theme">) => {
@@ -96,7 +96,7 @@ export const FeatureWithLargePortraitImage = ({
   theme = defaultTheme,
   heading = "About Us",
   body = "Learn more about our story.",
-  imageSrc = "https://via.placeholder.com/400x600",
+  imageSrc = "https://static.photos/people/400x600/3",
   imageAlt = "",
   variant = "default",
 }: FeatureWithLargePortraitImageProps) => (
@@ -123,7 +123,7 @@ FeatureWithLargePortraitImage.PreviewProps = {
   body: "We started with a simple idea: make email beautiful. Today we help thousands of teams create stunning emails that their customers love.",
   heading: "About Us",
   imageAlt: "Portrait",
-  imageSrc: "https://via.placeholder.com/400x600",
+  imageSrc: "https://static.photos/people/400x600/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FeatureWithLargePortraitImageProps;

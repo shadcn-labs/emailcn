@@ -34,12 +34,12 @@ export interface TwoColumnsImageGridWithFullWidthFeatureProps {
 }
 
 export const TwoColumnsImageGridWithFullWidthFeatureSection = ({
-  featureImageSrc = "https://via.placeholder.com/600x250",
+  featureImageSrc = "https://static.photos/business/600x250/2",
   featureImageAlt = "",
   featureCaption = "Featured",
-  imageSrc1 = "https://via.placeholder.com/300x300",
+  imageSrc1 = "https://static.photos/nature/300x300/3",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x300",
+  imageSrc2 = "https://static.photos/nature/300x300/4",
   imageAlt2 = "",
   variant = "default",
 }: Omit<TwoColumnsImageGridWithFullWidthFeatureProps, "theme">) => {
@@ -115,12 +115,12 @@ export const TwoColumnsImageGridWithFullWidthFeatureSection = ({
 
 export const TwoColumnsImageGridWithFullWidthFeature = ({
   theme = defaultTheme,
-  featureImageSrc = "https://via.placeholder.com/600x250",
+  featureImageSrc = "https://static.photos/business/600x250/5",
   featureImageAlt = "",
   featureCaption = "Featured",
-  imageSrc1 = "https://via.placeholder.com/300x300",
+  imageSrc1 = "https://static.photos/nature/300x300/6",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/300x300",
+  imageSrc2 = "https://static.photos/nature/300x300/7",
   imageAlt2 = "",
   variant = "default",
 }: TwoColumnsImageGridWithFullWidthFeatureProps) => (
@@ -149,11 +149,11 @@ export const TwoColumnsImageGridWithFullWidthFeature = ({
 TwoColumnsImageGridWithFullWidthFeature.PreviewProps = {
   featureCaption: "Featured Collection",
   featureImageAlt: "Featured",
-  featureImageSrc: "https://via.placeholder.com/600x250",
+  featureImageSrc: "https://static.photos/business/600x250/8",
   imageAlt1: "Image 1",
   imageAlt2: "Image 2",
-  imageSrc1: "https://via.placeholder.com/300x300",
-  imageSrc2: "https://via.placeholder.com/300x300",
+  imageSrc1: "https://static.photos/nature/300x300/9",
+  imageSrc2: "https://static.photos/nature/300x300/10",
   theme: defaultTheme,
   variant: "default",
 } satisfies TwoColumnsImageGridWithFullWidthFeatureProps;

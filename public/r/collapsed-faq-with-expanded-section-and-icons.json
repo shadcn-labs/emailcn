@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsed-faq-with-expanded-section-and-icons",
+  "title": "Collapsed Faq With Expanded Section And Icons",
+  "description": "Marketing faq variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type FAQExpandedVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface FAQExpandedProps {\n  theme?: EmailThemeTokens;\n  items?: { question: string; answer: string }[];\n  variant?: FAQExpandedVariant;\n}\n\nconst FAQExpandedSection = ({\n  items,\n  theme,\n  variant,\n}: {\n  items: FAQExpandedProps[\"items\"];\n  theme: EmailThemeTokens;\n  variant: FAQExpandedVariant;\n}) => {\n  const list = items ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      <MjmlColumn>\n        {list.map((item, i) => (\n          <MjmlSection\n            key={item.question + i}\n            padding={`${theme.spacingBase ?? \"24px\"} 0`}\n          >\n            <MjmlText\n              color={theme.colorText}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeLg ?? \"16px\"}\n              fontWeight={theme.fontWeightMedium}\n              paddingBottom={theme.spacingBase ?? \"16px\"}\n            >\n              {item.question}\n            </MjmlText>\n            <MjmlText\n              color={theme.colorTextMuted}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeBase ?? \"14px\"}\n              lineHeight={theme.lineHeightBase}\n            >\n              {item.answer}\n            </MjmlText>\n            {i < list.length - 1 ? (\n              <MjmlDivider\n                borderColor={theme.colorBorder ?? \"#e5e7eb\"}\n                borderWidth=\"1px\"\n                paddingTop={theme.spacingXl ?? \"48px\"}\n              />\n            ) : null}\n          </MjmlSection>\n        ))}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const CollapsedFaqWithExpandedSectionAndIcons = ({\n  theme = defaultTheme,\n  items = [\n    {\n      answer: \"This is the answer to the question.\",\n      question: \"What is this?\",\n    },\n  ],\n  variant = \"default\",\n}: FAQExpandedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>FAQ expanded</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FAQExpandedSection items={items} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nCollapsedFaqWithExpandedSectionAndIcons.PreviewProps = {\n  items: [\n    {\n      answer:\n        \"EmailCN is a collection of beautifully designed, responsive email components built with React Email.\",\n      question: \"What is EmailCN?\",\n    },\n    {\n      answer:\n        \"Yes, all components are fully responsive and work across major email clients including Gmail, Outlook, and Apple Mail.\",\n      question: \"Are the components responsive?\",\n    },\n    {\n      answer: \"Components are free to use under the MIT license.\",\n      question: \"What is the license?\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FAQExpandedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

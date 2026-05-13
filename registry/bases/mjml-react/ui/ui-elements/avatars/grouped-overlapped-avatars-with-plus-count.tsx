@@ -37,7 +37,7 @@ const GroupedOverlappedAvatarsPlusCountSection = ({
       <MjmlColumn
         key={avatar.name}
         width="40px"
-        padding={i > 0 ? "0 0 0 -1Twopx" : "0"}
+        padding={i > 0 ? "0 0 0 -12px" : "0"}
       >
         {avatar.url ? (
           <MjmlImage
@@ -69,8 +69,8 @@ const GroupedOverlappedAvatarsPlusCountSection = ({
       </MjmlColumn>
     ))}
     {plusCount > 0 ? (
-      <MjmlColumn width="40px" padding="0 0 0 -1Twopx">
-        <MjmlText fontFamily={theme.fontFamily} fontSize="1Twopx">
+      <MjmlColumn width="40px" padding="0 0 0 -12px">
+        <MjmlText fontFamily={theme.fontFamily} fontSize="12px">
           <span
             style={{
               backgroundColor: theme.colorBackgroundMuted,
@@ -126,9 +126,18 @@ export const GroupedOverlappedAvatarsPlusCount = ({
 
 GroupedOverlappedAvatarsPlusCount.PreviewProps = {
   avatars: [
-    { name: "A", url: "https://example.com/av1.jpg" },
-    { name: "B", url: "https://example.com/av2.jpg" },
-    { name: "C", url: "https://example.com/av3.jpg" },
+    {
+      name: "A",
+      url: "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128",
+    },
+    {
+      name: "B",
+      url: "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128",
+    },
+    {
+      name: "C",
+      url: "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-3&size=128",
+    },
   ],
   plusCount: 12,
   theme: defaultTheme,

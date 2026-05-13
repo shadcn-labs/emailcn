@@ -135,7 +135,7 @@ SingleImageProductDetail.PreviewProps = {
     "Eco-friendly materials",
     "Limited edition",
   ],
-  imageUrl: "https://example.com/product-single.jpg",
+  imageUrl: "https://static.photos/technology/640x640/2",
   name: "Artisan Watch",
   price: "$299.00",
   theme: defaultTheme,

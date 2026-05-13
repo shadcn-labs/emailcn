@@ -28,7 +28,7 @@ export interface FullWidthImageWithOverlayProps {
 }
 
 export const FullWidthImageWithOverlaySection = ({
-  imageSrc = "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "",
   overlayText = "Hero Title",
   variant = "default",
@@ -87,7 +87,7 @@ export const FullWidthImageWithOverlaySection = ({
 
 export const FullWidthImageWithOverlay = ({
   theme = defaultTheme,
-  imageSrc = "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  imageSrc = "https://static.photos/city/600x400/3",
   imageAlt = "",
   overlayText = "Hero Title",
   variant = "default",
@@ -112,7 +112,7 @@ export const FullWidthImageWithOverlay = ({
 
 FullWidthImageWithOverlay.PreviewProps = {
   imageAlt: "Hero image",
-  imageSrc: "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  imageSrc: "https://static.photos/city/600x400/4",
   overlayText: "Hero Title",
   theme: defaultTheme,
   variant: "default",

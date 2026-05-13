@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "one-column-grid",
+  "title": "One Column Grid",
+  "description": "UI Elements grids variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/grids/one-column-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface OneColumnGridProps {\n  theme?: EmailThemeTokens;\n  content?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst OneColumnGridSection = ({\n  content,\n  theme,\n  variant,\n}: {\n  content: string;\n  theme: EmailThemeTokens;\n  variant: NonNullable<OneColumnGridProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingXl ?? \"24px\"} 0`}>\n      <MjmlColumn>\n        <MjmlText\n          align={alignText}\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >\n          {content}\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const OneColumnGrid = ({\n  theme = defaultTheme,\n  content = \"Full width content\",\n  variant = \"default\",\n}: OneColumnGridProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>1-col-grid</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <OneColumnGridSection\n          content={content}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nOneColumnGrid.PreviewProps = {\n  content: \"Single column full-width layout.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies OneColumnGridProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/grids/one-column-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

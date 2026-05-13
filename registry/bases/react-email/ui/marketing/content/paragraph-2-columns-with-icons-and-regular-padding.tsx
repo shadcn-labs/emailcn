@@ -34,10 +34,10 @@ export interface Paragraph2ColumnsWithIconsAndRegularPaddingProps {
 }
 
 export const Paragraph2ColumnsWithIconsAndRegularPaddingSection = ({
-  iconSrc1 = "https://via.placeholder.com/24x24",
+  iconSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-content-paragraph-2-columns-with-icons-and-regular-padding-tsx-1&size=24",
   iconAlt1 = "Icon 1",
   column1 = "Text for the first column with an icon above.",
-  iconSrc2 = "https://via.placeholder.com/24x24",
+  iconSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-content-paragraph-2-columns-with-icons-and-regular-padding-tsx-2&size=24",
   iconAlt2 = "Icon 2",
   column2 = "Text for the second column with an icon above.",
   variant = "default",
@@ -106,10 +106,10 @@ export const Paragraph2ColumnsWithIconsAndRegularPaddingSection = ({
 
 export const Paragraph2ColumnsWithIconsAndRegularPadding = ({
   theme = defaultTheme,
-  iconSrc1 = "https://via.placeholder.com/24x24",
+  iconSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-content-paragraph-2-columns-with-icons-and-regular-padding-tsx-3&size=24",
   iconAlt1 = "Icon 1",
   column1 = "Text for the first column with an icon above.",
-  iconSrc2 = "https://via.placeholder.com/24x24",
+  iconSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-content-paragraph-2-columns-with-icons-and-regular-padding-tsx-4&size=24",
   iconAlt2 = "Icon 2",
   column2 = "Text for the second column with an icon above.",
   variant = "default",
@@ -140,8 +140,10 @@ Paragraph2ColumnsWithIconsAndRegularPadding.PreviewProps = {
   column2: "Beautiful templates that work across every email client.",
   iconAlt1: "Rocket",
   iconAlt2: "Shield",
-  iconSrc1: "https://via.placeholder.com/24x24",
-  iconSrc2: "https://via.placeholder.com/24x24",
+  iconSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-content-paragraph-2-columns-with-icons-and-regular-padding-tsx-5&size=24",
+  iconSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-content-paragraph-2-columns-with-icons-and-regular-padding-tsx-6&size=24",
   theme: defaultTheme,
   variant: "default",
 } satisfies Paragraph2ColumnsWithIconsAndRegularPaddingProps;

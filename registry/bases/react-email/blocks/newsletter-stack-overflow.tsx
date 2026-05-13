@@ -89,7 +89,7 @@ export const NewsletterStackOverflow = ({
 
 NewsletterStackOverflow.PreviewProps = {
   _logoAlt: "Stack Overflow",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Stack Overflow",
   articles: [
     {

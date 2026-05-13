@@ -43,7 +43,7 @@ const ImageSplitSection = ({
   variant: ImageSplitVariant;
 }) => (
   <MjmlSection backgroundColor={theme.colorBackground} padding="0">
-    <MjmlColumn width="50%" padding="Fourpx">
+    <MjmlColumn width="50%" padding="4px">
       <MjmlImage
         alt={leftAlt}
         borderRadius={theme.borderRadius}
@@ -51,7 +51,7 @@ const ImageSplitSection = ({
         width={290}
       />
     </MjmlColumn>
-    <MjmlColumn width="50%" padding="Fourpx">
+    <MjmlColumn width="50%" padding="4px">
       <MjmlImage
         alt={rightAlt}
         borderRadius={theme.borderRadius}
@@ -64,9 +64,9 @@ const ImageSplitSection = ({
 
 export const FullWidthImageWithOverlay = ({
   theme = defaultTheme,
-  leftSrc = "https://placehold.co/400x300?text=Left",
+  leftSrc = "https://static.photos/city/400x300/2",
   leftAlt = "left",
-  rightSrc = "https://placehold.co/400x300?text=Right",
+  rightSrc = "https://static.photos/city/400x300/3",
   rightAlt = "right",
   variant = "default",
 }: ImageSplitProps) => (
@@ -101,9 +101,9 @@ export const FullWidthImageWithOverlay = ({
 
 FullWidthImageWithOverlay.PreviewProps = {
   leftAlt: "before",
-  leftSrc: "https://placehold.co/400x300?text=Before",
+  leftSrc: "https://static.photos/city/400x300/4",
   rightAlt: "after",
-  rightSrc: "https://placehold.co/400x300?text=After",
+  rightSrc: "https://static.photos/city/400x300/5",
   theme: defaultTheme,
   variant: "default",
 } satisfies ImageSplitProps;

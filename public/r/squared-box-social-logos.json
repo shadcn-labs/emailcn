@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "squared-box-social-logos",
+  "title": "Squared Box Social Logos",
+  "description": "Marketing social variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/social/squared-box-social-logos.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type SocialLinksWithIconsVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface SocialLinksWithIconsProps {\n  theme?: EmailThemeTokens;\n  links?: { platform: string; href: string; label: string }[];\n  variant?: SocialLinksWithIconsVariant;\n}\n\nconst SocialLinksWithIconsSection = ({\n  links,\n  theme,\n  variant,\n}: {\n  links: SocialLinksWithIconsProps[\"links\"];\n  theme: EmailThemeTokens;\n  variant: SocialLinksWithIconsVariant;\n}) => (\n  <MjmlSection backgroundColor={theme.colorBackground} padding=\"24px 0\">\n    <MjmlColumn>\n      {(links ?? []).map((l) => (\n        <MjmlText\n          key={l.platform}\n          align=\"center\"\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize=\"12px\"\n          padding=\"0 12px\"\n        >\n          <a\n            href={l.href}\n            style={{ color: theme.colorTextMuted, textDecoration: \"none\" }}\n          >\n            {l.label}\n          </a>\n        </MjmlText>\n      ))}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const SquaredBoxSocialLogos = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", label: \"Twitter\", platform: \"twitter\" },\n    { href: \"https://github.com\", label: \"GitHub\", platform: \"github\" },\n  ],\n  variant = \"default\",\n}: SocialLinksWithIconsProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>social with icons</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <SocialLinksWithIconsSection\n          links={links}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nSquaredBoxSocialLogos.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", label: \"Twitter\", platform: \"twitter\" },\n    { href: \"https://github.com\", label: \"GitHub\", platform: \"github\" },\n    { href: \"https://linkedin.com\", label: \"LinkedIn\", platform: \"linkedin\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies SocialLinksWithIconsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/social/squared-box-social-logos.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

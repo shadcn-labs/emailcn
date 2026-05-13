@@ -63,10 +63,10 @@ const ImageGallerySection = ({
 export const ThreeColumnsImageGrid = ({
   theme = defaultTheme,
   images = [
-    { alt: "Gallery 1", src: "https://placehold.co/400x300?text=Gallery+1" },
-    { alt: "Gallery 2", src: "https://placehold.co/400x300?text=Gallery+2" },
-    { alt: "Gallery 3", src: "https://placehold.co/400x300?text=Gallery+3" },
-    { alt: "Gallery 4", src: "https://placehold.co/400x300?text=Gallery+4" },
+    { alt: "Gallery 1", src: "https://static.photos/technology/400x300/2" },
+    { alt: "Gallery 2", src: "https://static.photos/technology/400x300/3" },
+    { alt: "Gallery 3", src: "https://static.photos/technology/400x300/4" },
+    { alt: "Gallery 4", src: "https://static.photos/technology/400x300/5" },
   ],
   variant = "default",
 }: ImageGalleryProps) => (
@@ -96,19 +96,19 @@ ThreeColumnsImageGrid.PreviewProps = {
   images: [
     {
       alt: "Product Shot 1",
-      src: "https://placehold.co/400x300?text=Product+1",
+      src: "https://static.photos/technology/400x300/6",
     },
     {
       alt: "Product Shot 2",
-      src: "https://placehold.co/400x300?text=Product+2",
+      src: "https://static.photos/technology/400x300/7",
     },
     {
       alt: "Product Shot 3",
-      src: "https://placehold.co/400x300?text=Product+3",
+      src: "https://static.photos/technology/400x300/8",
     },
     {
       alt: "Product Shot 4",
-      src: "https://placehold.co/400x300?text=Product+4",
+      src: "https://static.photos/technology/400x300/9",
     },
   ],
   theme: defaultTheme,

@@ -103,17 +103,17 @@ CategoryPreviewCards.PreviewProps = {
   categories: [
     {
       href: "https://example.com/electronics",
-      imageUrl: "https://example.com/cat-electronics.jpg",
+      imageUrl: "https://static.photos/technology/800x600/2",
       name: "Electronics",
     },
     {
       href: "https://example.com/fashion",
-      imageUrl: "https://example.com/cat-fashion.jpg",
+      imageUrl: "https://static.photos/fashion/800x600/3",
       name: "Fashion",
     },
     {
       href: "https://example.com/home",
-      imageUrl: "https://example.com/cat-home.jpg",
+      imageUrl: "https://static.photos/workspace/800x600/4",
       name: "Home & Living",
     },
   ],

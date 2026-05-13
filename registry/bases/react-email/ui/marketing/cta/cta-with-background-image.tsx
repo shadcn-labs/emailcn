@@ -37,7 +37,7 @@ export const CTAWithBackgroundImageSection = ({
   subtext = "Get 50% off your first month.",
   ctaLabel = "Claim Offer",
   ctaHref = "#",
-  backgroundSrc = "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x400/2",
   backgroundAlt = "",
   variant = "default",
 }: Omit<CTAWithBackgroundImageProps, "theme">) => {
@@ -106,7 +106,7 @@ export const CTAWithBackgroundImage = ({
   subtext = "Get 50% off your first month.",
   ctaLabel = "Claim Offer",
   ctaHref = "#",
-  backgroundSrc = "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x400/3",
   backgroundAlt = "",
   variant = "default",
 }: CTAWithBackgroundImageProps) => (
@@ -133,7 +133,7 @@ export const CTAWithBackgroundImage = ({
 
 CTAWithBackgroundImage.PreviewProps = {
   backgroundAlt: "Background",
-  backgroundSrc: "https://via.placeholder.com/600x400/1a1a2e/ffffff",
+  backgroundSrc: "https://static.photos/city/600x400/4",
   ctaHref: "https://example.com",
   ctaLabel: "Claim Offer",
   heading: "Limited Offer",

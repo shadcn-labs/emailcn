@@ -74,60 +74,38 @@ const TwoColumnsReviewsSection = ({
               width="50%"
               paddingRight={theme.spacingBase ?? "16px"}
               verticalAlign="top"
+              backgroundColor={theme.colorBackgroundMuted}
+              border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
+              borderRadius={theme.borderRadius}
+              padding={theme.spacingLg ?? "24px"}
             >
-              <MjmlWrapper
-                backgroundColor={theme.colorBackgroundMuted}
-                border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-                borderRadius={theme.borderRadius}
-                padding={theme.spacingLg ?? "24px"}
+              <StarRating rating={review.rating} theme={theme} />
+              <MjmlText
+                color={theme.colorText}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeBase ?? "14px"}
+                lineHeight={theme.lineHeightBase}
+                paddingBottom={theme.spacingBase ?? "16px"}
               >
-                <StarRating rating={review.rating} theme={theme} />
+                &ldquo;{review.text}&rdquo;
+              </MjmlText>
+              <MjmlText
+                color={theme.colorText}
+                fontFamily={theme.fontFamily}
+                fontSize={theme.fontSizeBase ?? "14px"}
+                fontWeight={theme.fontWeightMedium ?? "500"}
+              >
+                {review.name}
+              </MjmlText>
+              {review.date ? (
                 <MjmlText
-                  color={theme.colorText}
+                  color={theme.colorTextMuted}
                   fontFamily={theme.fontFamily}
-                  fontSize={theme.fontSizeBase ?? "14px"}
-                  lineHeight={theme.lineHeightBase}
-                  paddingBottom={theme.spacingBase ?? "16px"}
+                  fontSize={theme.fontSizeSm ?? "12px"}
                 >
-                  &ldquo;{review.text}&rdquo;
+                  {review.date}
                 </MjmlText>
-                <MjmlSection padding="0">
-                  <MjmlColumn
-                    width="40px"
-                    paddingRight={theme.spacingBase ?? "16px"}
-                  >
-                    {review.avatarUrl ? (
-                      <MjmlImage
-                        alt={review.name}
-                        borderRadius="999px"
-                        height={36}
-                        padding="0"
-                        src={review.avatarUrl}
-                        width={36}
-                      />
-                    ) : null}
-                  </MjmlColumn>
-                  <MjmlColumn>
-                    <MjmlText
-                      color={theme.colorText}
-                      fontFamily={theme.fontFamily}
-                      fontSize={theme.fontSizeBase ?? "14px"}
-                      fontWeight={theme.fontWeightMedium ?? "500"}
-                    >
-                      {review.name}
-                    </MjmlText>
-                    {review.date ? (
-                      <MjmlText
-                        color={theme.colorTextMuted}
-                        fontFamily={theme.fontFamily}
-                        fontSize={theme.fontSizeSm ?? "12px"}
-                      >
-                        {review.date}
-                      </MjmlText>
-                    ) : null}
-                  </MjmlColumn>
-                </MjmlSection>
-              </MjmlWrapper>
+              ) : null}
             </MjmlColumn>
           ))}
         </MjmlSection>
@@ -159,9 +137,7 @@ export const TwoColumnsReviews = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <TwoColumnsReviewsSection reviews={reviews} theme={theme} />
-      </MjmlWrapper>
+      <TwoColumnsReviewsSection reviews={reviews} theme={theme} />
     </MjmlBody>
   </Mjml>
 );
@@ -169,28 +145,32 @@ export const TwoColumnsReviews = ({
 TwoColumnsReviews.PreviewProps = {
   reviews: [
     {
-      avatarUrl: "https://example.com/av1.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128",
       date: "March 2026",
       name: "Alex Johnson",
       rating: 5,
       text: "Absolutely love this product!",
     },
     {
-      avatarUrl: "https://example.com/av2.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128",
       date: "Feb 2026",
       name: "Maria Garcia",
       rating: 4,
       text: "Great value for the price.",
     },
     {
-      avatarUrl: "https://example.com/av3.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-3&size=128",
       date: "Jan 2026",
       name: "David Kim",
       rating: 5,
       text: "Best purchase this year!",
     },
     {
-      avatarUrl: "https://example.com/av4.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-4&size=128",
       date: "Dec 2025",
       name: "Sarah Chen",
       rating: 4,

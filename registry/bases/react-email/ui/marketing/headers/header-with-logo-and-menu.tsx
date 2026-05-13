@@ -37,7 +37,7 @@ export interface HeaderWithLogoAndMenuProps {
 }
 
 export const HeaderWithLogoAndMenuSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   link1 = "Features",
   link1Href = "#",
@@ -132,7 +132,7 @@ export const HeaderWithLogoAndMenuSection = ({
 
 export const HeaderWithLogoAndMenu = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   link1 = "Features",
   link1Href = "#",
@@ -179,7 +179,7 @@ HeaderWithLogoAndMenu.PreviewProps = {
   link4: "Contact",
   link4Href: "#",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies HeaderWithLogoAndMenuProps;

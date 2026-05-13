@@ -33,9 +33,9 @@ export interface BlogPostHorizontalBoxedWithSplitImagesProps {
 }
 
 export const BlogPostHorizontalBoxedWithSplitImagesSection = ({
-  imageSrc1 = "https://via.placeholder.com/150x150",
+  imageSrc1 = "https://static.photos/travel/150x150/2",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/150x150",
+  imageSrc2 = "https://static.photos/travel/150x150/3",
   imageAlt2 = "",
   title = "Blog Post",
   excerpt = "A brief summary of the blog post.",
@@ -113,9 +113,9 @@ export const BlogPostHorizontalBoxedWithSplitImagesSection = ({
 
 export const BlogPostHorizontalBoxedWithSplitImages = ({
   theme = defaultTheme,
-  imageSrc1 = "https://via.placeholder.com/150x150",
+  imageSrc1 = "https://static.photos/travel/150x150/4",
   imageAlt1 = "",
-  imageSrc2 = "https://via.placeholder.com/150x150",
+  imageSrc2 = "https://static.photos/travel/150x150/5",
   imageAlt2 = "",
   title = "Blog Post",
   excerpt = "A brief summary of the blog post.",
@@ -147,8 +147,8 @@ BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
     "A photo essay showcasing our team's creative process and workspace.",
   imageAlt1: "Photo 1",
   imageAlt2: "Photo 2",
-  imageSrc1: "https://via.placeholder.com/150x150",
-  imageSrc2: "https://via.placeholder.com/150x150",
+  imageSrc1: "https://static.photos/travel/150x150/6",
+  imageSrc2: "https://static.photos/travel/150x150/7",
   theme: defaultTheme,
   title: "Behind the Scenes",
   variant: "default",

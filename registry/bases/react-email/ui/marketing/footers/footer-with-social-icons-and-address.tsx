@@ -38,16 +38,16 @@ export interface FooterWithSocialIconsAndAddressProps {
 }
 
 export const FooterWithSocialIconsAndAddressSection = ({
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/2",
   logoAlt = "Logo",
   address = "123 Main Street, San Francisco, CA 94102",
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-2&size=20",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-3&size=20",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-4&size=20",
   socialAlt3 = "Instagram",
-  socialSrc4 = "https://via.placeholder.com/20x20",
+  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-5&size=20",
   socialAlt4 = "LinkedIn",
   variant = "default",
 }: Omit<FooterWithSocialIconsAndAddressProps, "theme">) => {
@@ -133,16 +133,16 @@ export const FooterWithSocialIconsAndAddressSection = ({
 
 export const FooterWithSocialIconsAndAddress = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/7",
   logoAlt = "Logo",
   address = "123 Main Street, San Francisco, CA 94102",
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-7&size=20",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-8&size=20",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-9&size=20",
   socialAlt3 = "Instagram",
-  socialSrc4 = "https://via.placeholder.com/20x20",
+  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-10&size=20",
   socialAlt4 = "LinkedIn",
   variant = "default",
 }: FooterWithSocialIconsAndAddressProps) => (
@@ -175,15 +175,19 @@ export const FooterWithSocialIconsAndAddress = ({
 FooterWithSocialIconsAndAddress.PreviewProps = {
   address: "123 Main Street, San Francisco, CA 94102",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/100x25",
+  logoSrc: "https://static.photos/business/100x25/12",
   socialAlt1: "Twitter",
   socialAlt2: "Facebook",
   socialAlt3: "Instagram",
   socialAlt4: "LinkedIn",
-  socialSrc1: "https://via.placeholder.com/20x20",
-  socialSrc2: "https://via.placeholder.com/20x20",
-  socialSrc3: "https://via.placeholder.com/20x20",
-  socialSrc4: "https://via.placeholder.com/20x20",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-12&size=20",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-13&size=20",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-14&size=20",
+  socialSrc4:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-social-icons-and-address-tsx-15&size=20",
   theme: defaultTheme,
   variant: "default",
 } satisfies FooterWithSocialIconsAndAddressProps;

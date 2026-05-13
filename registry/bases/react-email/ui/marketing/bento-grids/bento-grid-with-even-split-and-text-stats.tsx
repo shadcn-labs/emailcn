@@ -37,7 +37,7 @@ export interface BentoGridWithEvenSplitAndTextStatsProps {
 
 export const BentoGridWithEvenSplitAndTextStatsSection = ({
   heading = "By the Numbers",
-  imageSrc = "https://via.placeholder.com/500x400",
+  imageSrc = "https://static.photos/city/500x400/2",
   imageAlt = "",
   stat1 = "99.9%",
   stat1Label = "Uptime",
@@ -122,7 +122,7 @@ export const BentoGridWithEvenSplitAndTextStatsSection = ({
 export const BentoGridWithEvenSplitAndTextStats = ({
   theme = defaultTheme,
   heading = "By the Numbers",
-  imageSrc = "https://via.placeholder.com/500x400",
+  imageSrc = "https://static.photos/city/500x400/3",
   imageAlt = "",
   stat1 = "99.9%",
   stat1Label = "Uptime",
@@ -159,7 +159,7 @@ export const BentoGridWithEvenSplitAndTextStats = ({
 BentoGridWithEvenSplitAndTextStats.PreviewProps = {
   heading: "By the Numbers",
   imageAlt: "Company",
-  imageSrc: "https://via.placeholder.com/500x400",
+  imageSrc: "https://static.photos/city/500x400/4",
   stat1: "99.9%",
   stat1Label: "Uptime",
   stat2: "10M+",

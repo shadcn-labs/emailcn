@@ -118,13 +118,13 @@ Paragraph2ColumnsWithRegularPadding.PreviewProps = {
     {
       description: "Beautiful design meets powerful functionality.",
       imageAlt: "design",
-      imageUrl: "https://placehold.co/400x250?text=Design",
+      imageUrl: "https://static.photos/architecture/400x250/2",
       title: "Beautiful Design",
     },
     {
       description: "Built for performance and reliability.",
       imageAlt: "performance",
-      imageUrl: "https://placehold.co/400x250?text=Performance",
+      imageUrl: "https://static.photos/architecture/400x250/3",
       title: "Fast Performance",
     },
   ],

@@ -130,7 +130,7 @@ export const HeroOverlayedSplit = ({
   subheading = "Text overlays a dark background beside the image.",
   ctaLabel = "Explore",
   ctaHref = "#",
-  imageSrc = "https://placehold.co/600x400?text=Overlayed+Split",
+  imageSrc = "https://static.photos/city/600x400/2",
   imageAlt = "overlayed split",
   overlayBackgroundColor = "#111827",
   overlayTextColor = "#ffffff",
@@ -174,7 +174,7 @@ HeroOverlayedSplit.PreviewProps = {
   ctaLabel: "Learn More",
   heading: "Hero Overlayed Split",
   imageAlt: "overlayed split",
-  imageSrc: "https://placehold.co/600x400?text=Overlayed+Split",
+  imageSrc: "https://static.photos/city/600x400/3",
   overlayBackgroundColor: "#111827",
   overlayTextColor: "#ffffff",
   subheading:

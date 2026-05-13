@@ -34,13 +34,13 @@ export interface HeaderWithLogoAndSocialIconsProps {
 }
 
 export const HeaderWithLogoAndSocialIconsSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-2&size=24",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-3&size=24",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-4&size=24",
   socialAlt3 = "LinkedIn",
   variant = "default",
 }: Omit<HeaderWithLogoAndSocialIconsProps, "theme">) => {
@@ -116,13 +116,13 @@ export const HeaderWithLogoAndSocialIconsSection = ({
 
 export const HeaderWithLogoAndSocialIcons = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/6",
   logoAlt = "Logo",
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-6&size=24",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-7&size=24",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-8&size=24",
   socialAlt3 = "LinkedIn",
   variant = "default",
 }: HeaderWithLogoAndSocialIconsProps) => (
@@ -151,13 +151,16 @@ export const HeaderWithLogoAndSocialIcons = ({
 
 HeaderWithLogoAndSocialIcons.PreviewProps = {
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/10",
   socialAlt1: "Twitter",
   socialAlt2: "Facebook",
   socialAlt3: "LinkedIn",
-  socialSrc1: "https://via.placeholder.com/24x24",
-  socialSrc2: "https://via.placeholder.com/24x24",
-  socialSrc3: "https://via.placeholder.com/24x24",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-10&size=24",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-11&size=24",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-12&size=24",
   theme: defaultTheme,
   variant: "default",
 } satisfies HeaderWithLogoAndSocialIconsProps;

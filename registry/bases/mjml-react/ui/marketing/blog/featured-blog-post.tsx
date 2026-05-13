@@ -128,19 +128,19 @@ FeaturedBlogPost.PreviewProps = {
     {
       date: "May 2026",
       description: "Building better emails with our component library.",
-      imageUrl: "https://placehold.co/300x200?text=Post+1",
+      imageUrl: "https://static.photos/travel/300x200/2",
       title: "Getting Started",
     },
     {
       date: "Apr 2026",
       description: "How to design responsive email templates.",
-      imageUrl: "https://placehold.co/300x200?text=Post+2",
+      imageUrl: "https://static.photos/travel/300x200/3",
       title: "Responsive Design",
     },
     {
       date: "Mar 2026",
       description: "Best practices for email marketing.",
-      imageUrl: "https://placehold.co/300x200?text=Post+3",
+      imageUrl: "https://static.photos/travel/300x200/4",
       title: "Email Marketing",
     },
   ],

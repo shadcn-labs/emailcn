@@ -44,7 +44,7 @@ const TimelineDarkSection = ({
             color={theme.colorTextMuted}
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeSm}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {e.date}
           </MjmlText>
@@ -53,7 +53,7 @@ const TimelineDarkSection = ({
             fontFamily={theme.fontFamily}
             fontSize={theme.fontSizeBase}
             fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "Fourpx"}
+            paddingBottom={theme.spacingBase ?? "4px"}
           >
             {e.title}
           </MjmlText>

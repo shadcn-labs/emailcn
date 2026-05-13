@@ -3,7 +3,11 @@ title: "Testimonial"
 description: "Customer testimonial sections with quotes, avatars, and author details."
 ---
 
-<ComponentPreview base="mjml-react" name="centered-testimonial-with-cta-demo" hideCode />
+<ComponentPreview
+  base="mjml-react"
+  name="centered-testimonial-with-cta-demo"
+  hideCode
+/>
 
 ## Variants
 
@@ -17,7 +21,10 @@ description: "Customer testimonial sections with quotes, avatars, and author det
 
 ### Dark Testimonial
 
-<ComponentPreview base="mjml-react" name="full-width-testimonial-with-overlapping-avatar-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-testimonial-with-overlapping-avatar-demo"
+/>
 
 ### Testimonial Grid
 
@@ -48,9 +55,9 @@ npm install @faire/mjml-react
 
 <Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/testimonials/testimonial-card.tsx"
+  src="registry/bases/mjml-react/ui/marketing/testimonials/centered-testimonial-with-cta.tsx"
   base="mjml-react"
-  title="components/emails/marketing/testimonials/testimonial-card.tsx"
+  title="components/emails/marketing/testimonials/centered-testimonial-with-cta.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -62,11 +69,11 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { TestimonialCard } from "@/components/emails/marketing/testimonials/testimonial-card";
+import { CenteredTestimonialWithCta } from "@/components/emails/marketing/testimonials/centered-testimonial-with-cta";
 ```
 
 ```tsx
-<TestimonialCard {...TestimonialCard.PreviewProps} />
+<CenteredTestimonialWithCta {...CenteredTestimonialWithCta.PreviewProps} />
 ```
 
 ## API Reference

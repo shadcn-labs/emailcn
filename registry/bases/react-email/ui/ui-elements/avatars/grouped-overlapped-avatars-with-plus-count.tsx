@@ -99,9 +99,18 @@ export const GroupedOverlappedAvatarsPlusCount = ({
 
 GroupedOverlappedAvatarsPlusCount.PreviewProps = {
   avatars: [
-    { name: "Alice", url: "https://example.com/avatar1.jpg" },
-    { name: "Bob", url: "https://example.com/avatar2.jpg" },
-    { name: "Charlie", url: "https://example.com/avatar3.jpg" },
+    {
+      name: "Alice",
+      url: "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+    },
+    {
+      name: "Bob",
+      url: "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-2&size=128",
+    },
+    {
+      name: "Charlie",
+      url: "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-3&size=128",
+    },
   ],
   plusCount: 12,
   theme: defaultTheme,

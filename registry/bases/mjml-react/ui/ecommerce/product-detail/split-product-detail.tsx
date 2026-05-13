@@ -186,7 +186,7 @@ SplitProductDetail.PreviewProps = {
   ctaLabel: "Shop Now",
   description: "Premium quality crafted with precision and care.",
   features: ["Durable materials", "One-year warranty", "Free shipping"],
-  imageUrl: "https://example.com/product.jpg",
+  imageUrl: "https://static.photos/technology/800x600/2",
   name: "Premium Sneakers",
   price: "$149.00",
   theme: defaultTheme,

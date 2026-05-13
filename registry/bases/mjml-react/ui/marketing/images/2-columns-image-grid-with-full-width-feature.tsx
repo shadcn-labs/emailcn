@@ -48,7 +48,7 @@ const ImageFullWidthSection = ({
 
 export const TwoColumnsImageGridWithFullWidthFeature = ({
   theme = defaultTheme,
-  src = "https://placehold.co/600x300?text=Full+Width",
+  src = "https://static.photos/business/600x300/2",
   alt = "full width image",
   variant = "default",
 }: ImageFullWidthProps) => (
@@ -81,7 +81,7 @@ export const TwoColumnsImageGridWithFullWidthFeature = ({
 
 TwoColumnsImageGridWithFullWidthFeature.PreviewProps = {
   alt: "full width banner",
-  src: "https://placehold.co/600x300?text=Full+Width+Banner",
+  src: "https://static.photos/business/600x300/3",
   theme: defaultTheme,
   variant: "default",
 } satisfies ImageFullWidthProps;

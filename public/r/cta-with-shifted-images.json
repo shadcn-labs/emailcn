@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-with-shifted-images",
+  "title": "Cta With Shifted Images",
+  "description": "Marketing cta variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/cta/cta-with-shifted-images.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlButton,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type CTAFilledVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface CTAFilledProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  subtext?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: CTAFilledVariant;\n}\n\nconst CTAFilledSection = ({\n  ctaHref,\n  ctaLabel,\n  heading,\n  subtext,\n  theme,\n  variant,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  heading: string;\n  subtext: string;\n  theme: EmailThemeTokens;\n  variant: CTAFilledVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorPrimary}\n    borderRadius={theme.borderRadius}\n    padding={theme.spacingXl ?? \"24px\"}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimaryForeground}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeXl ?? \"20px\"}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        {heading}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimaryForeground}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeBase ?? \"14px\"}\n        paddingBottom={theme.spacingLg ?? \"24px\"}\n      >\n        {subtext}\n      </MjmlText>\n      {ctaLabel && ctaHref ? (\n        <MjmlButton\n          align=\"center\"\n          backgroundColor={theme.colorPrimaryForeground}\n          borderRadius={theme.borderRadius}\n          color={theme.colorPrimary}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm ?? \"14px\"}\n          fontWeight={theme.fontWeightMedium}\n          href={ctaHref}\n          innerPadding={`${theme.spacingBase ?? \"16px\"} ${theme.spacingLg ?? \"24px\"}`}\n        >\n          {ctaLabel}\n        </MjmlButton>\n      ) : null}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const CtaWithShiftedImages = ({\n  theme = defaultTheme,\n  heading = \"Ready to get started?\",\n  subtext = \"Join thousands of happy users.\",\n  ctaLabel = \"Get Started\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: CTAFilledProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>cta filled</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <CTAFilledSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          heading={heading}\n          subtext={subtext}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nCtaWithShiftedImages.PreviewProps = {\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Start Building Free\",\n  heading: \"Ready to get started?\",\n  subtext: \"Join 10,000+ developers building with our tools.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies CTAFilledProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/cta/cta-with-shifted-images.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -34,13 +34,13 @@ export interface OutlinedSquareTilesSocialLogosProps {
 }
 
 export const OutlinedSquareTilesSocialLogosSection = ({
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-1&size=24",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-2&size=24",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-3&size=24",
   socialAlt3 = "Instagram",
-  socialSrc4 = "https://via.placeholder.com/24x24",
+  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-4&size=24",
   socialAlt4 = "LinkedIn",
   variant = "default",
 }: Omit<OutlinedSquareTilesSocialLogosProps, "theme">) => {
@@ -130,13 +130,13 @@ export const OutlinedSquareTilesSocialLogosSection = ({
 
 export const OutlinedSquareTilesSocialLogos = ({
   theme = defaultTheme,
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-5&size=24",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-6&size=24",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-7&size=24",
   socialAlt3 = "Instagram",
-  socialSrc4 = "https://via.placeholder.com/24x24",
+  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-8&size=24",
   socialAlt4 = "LinkedIn",
   variant = "default",
 }: OutlinedSquareTilesSocialLogosProps) => (
@@ -168,10 +168,14 @@ OutlinedSquareTilesSocialLogos.PreviewProps = {
   socialAlt2: "Facebook",
   socialAlt3: "Instagram",
   socialAlt4: "LinkedIn",
-  socialSrc1: "https://via.placeholder.com/24x24",
-  socialSrc2: "https://via.placeholder.com/24x24",
-  socialSrc3: "https://via.placeholder.com/24x24",
-  socialSrc4: "https://via.placeholder.com/24x24",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-9&size=24",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-10&size=24",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-11&size=24",
+  socialSrc4:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-outlined-square-tiles-social-logos-tsx-12&size=24",
   theme: defaultTheme,
   variant: "default",
 } satisfies OutlinedSquareTilesSocialLogosProps;

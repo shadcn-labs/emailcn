@@ -32,11 +32,11 @@ export interface SimpleFooterWithSocialIconsProps {
 }
 
 export const SimpleFooterWithSocialIconsSection = ({
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-1&size=20",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-2&size=20",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-3&size=20",
   socialAlt3 = "LinkedIn",
   variant = "default",
 }: Omit<SimpleFooterWithSocialIconsProps, "theme">) => {
@@ -105,11 +105,11 @@ export const SimpleFooterWithSocialIconsSection = ({
 
 export const SimpleFooterWithSocialIcons = ({
   theme = defaultTheme,
-  socialSrc1 = "https://via.placeholder.com/20x20",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-4&size=20",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/20x20",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-5&size=20",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/20x20",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-6&size=20",
   socialAlt3 = "LinkedIn",
   variant = "default",
 }: SimpleFooterWithSocialIconsProps) => (
@@ -138,9 +138,12 @@ SimpleFooterWithSocialIcons.PreviewProps = {
   socialAlt1: "Twitter",
   socialAlt2: "Facebook",
   socialAlt3: "LinkedIn",
-  socialSrc1: "https://via.placeholder.com/20x20",
-  socialSrc2: "https://via.placeholder.com/20x20",
-  socialSrc3: "https://via.placeholder.com/20x20",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-7&size=20",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-8&size=20",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-simple-footer-with-social-icons-tsx-9&size=20",
   theme: defaultTheme,
   variant: "default",
 } satisfies SimpleFooterWithSocialIconsProps;

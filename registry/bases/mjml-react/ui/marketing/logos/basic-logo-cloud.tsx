@@ -62,9 +62,9 @@ const LogosBasicSection = ({
 export const BasicLogoCloud = ({
   theme = defaultTheme,
   logos = [
-    { alt: "Company 1", src: "https://placehold.co/120x40?text=Company+1" },
-    { alt: "Company 2", src: "https://placehold.co/120x40?text=Company+2" },
-    { alt: "Company 3", src: "https://placehold.co/120x40?text=Company+3" },
+    { alt: "Company 1", src: "https://static.photos/business/120x40/2" },
+    { alt: "Company 2", src: "https://static.photos/business/120x40/3" },
+    { alt: "Company 3", src: "https://static.photos/business/120x40/4" },
   ],
   variant = "default",
 }: LogosBasicProps) => (
@@ -94,17 +94,17 @@ BasicLogoCloud.PreviewProps = {
   logos: [
     {
       alt: "Acme Corp",
-      src: "https://placehold.co/120x40?text=Acme",
+      src: "https://static.photos/business/120x40/5",
       width: 120,
     },
     {
       alt: "TechCo",
-      src: "https://placehold.co/120x40?text=TechCo",
+      src: "https://static.photos/business/120x40/6",
       width: 120,
     },
     {
       alt: "Global Inc",
-      src: "https://placehold.co/120x40?text=Global",
+      src: "https://static.photos/business/120x40/7",
       width: 120,
     },
   ],

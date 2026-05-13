@@ -105,7 +105,8 @@ export const AvatarWithDetails = ({
 );
 
 AvatarWithDetails.PreviewProps = {
-  avatarUrl: "https://example.com/avatar.jpg",
+  avatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
   companyName: "TechCorp",
   name: "Alex Johnson",
   theme: defaultTheme,

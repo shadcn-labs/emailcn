@@ -66,14 +66,14 @@ const ImageCollageSection = ({
         borderRadius={theme.borderRadius}
         src={smallSrc1}
         width={280}
-        padding="Fourpx"
+        padding="4px"
       />
       <MjmlImage
         alt={smallAlt2}
         borderRadius={theme.borderRadius}
         src={smallSrc2}
         width={280}
-        padding="Fourpx"
+        padding="4px"
       />
     </MjmlColumn>
   </MjmlSection>
@@ -81,11 +81,11 @@ const ImageCollageSection = ({
 
 export const ThreeColumnsImageGridWithFullWidthFeature = ({
   theme = defaultTheme,
-  largeSrc = "https://placehold.co/400x500?text=Large",
+  largeSrc = "https://static.photos/technology/400x500/2",
   largeAlt = "large",
-  smallSrc1 = "https://placehold.co/400x240?text=Small+1",
+  smallSrc1 = "https://static.photos/technology/400x240/3",
   smallAlt1 = "small 1",
-  smallSrc2 = "https://placehold.co/400x240?text=Small+2",
+  smallSrc2 = "https://static.photos/technology/400x240/4",
   smallAlt2 = "small 2",
   variant = "default",
 }: ImageCollageProps) => (
@@ -122,11 +122,11 @@ export const ThreeColumnsImageGridWithFullWidthFeature = ({
 
 ThreeColumnsImageGridWithFullWidthFeature.PreviewProps = {
   largeAlt: "featured",
-  largeSrc: "https://placehold.co/400x500?text=Featured",
+  largeSrc: "https://static.photos/technology/400x500/5",
   smallAlt1: "detail 1",
   smallAlt2: "detail 2",
-  smallSrc1: "https://placehold.co/400x240?text=Detail+1",
-  smallSrc2: "https://placehold.co/400x240?text=Detail+2",
+  smallSrc1: "https://static.photos/technology/400x240/6",
+  smallSrc2: "https://static.photos/technology/400x240/7",
   theme: defaultTheme,
   variant: "default",
 } satisfies ImageCollageProps;

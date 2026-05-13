@@ -73,65 +73,21 @@ const FullWidthReviewsSection = ({
       {reviews.map((review) => (
         <MjmlColumn
           key={review.name}
-          padding={`0 0 ${theme.spacingLg ?? "24px"}`}
+          backgroundColor={theme.colorBackgroundMuted}
+          border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
+          borderRadius={theme.borderRadius}
+          padding={theme.spacingLg ?? "24px"}
         >
-          <MjmlWrapper
-            backgroundColor={theme.colorBackgroundMuted}
-            border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-            borderRadius={theme.borderRadius}
-            padding={theme.spacingLg ?? "24px"}
+          <StarRating rating={review.rating} theme={theme} />
+          <MjmlText
+            align={alignText}
+            color={theme.colorText}
+            fontFamily={theme.fontFamily}
+            fontSize={theme.fontSizeBase ?? "14px"}
+            lineHeight={theme.lineHeightBase}
           >
-            <MjmlSection padding="0">
-              <MjmlColumn
-                width="48px"
-                paddingRight={theme.spacingBase ?? "16px"}
-              >
-                {review.avatarUrl ? (
-                  <MjmlImage
-                    alt={review.name}
-                    borderRadius="999px"
-                    height={40}
-                    padding="0"
-                    src={review.avatarUrl}
-                    width={40}
-                  />
-                ) : null}
-              </MjmlColumn>
-              <MjmlColumn>
-                <MjmlText
-                  color={theme.colorText}
-                  fontFamily={theme.fontFamily}
-                  fontSize={theme.fontSizeBase ?? "14px"}
-                  fontWeight={theme.fontWeightMedium ?? "500"}
-                >
-                  {review.name}
-                </MjmlText>
-                {review.date ? (
-                  <MjmlText
-                    color={theme.colorTextMuted}
-                    fontFamily={theme.fontFamily}
-                    fontSize={theme.fontSizeSm ?? "12px"}
-                  >
-                    {review.date}
-                  </MjmlText>
-                ) : null}
-              </MjmlColumn>
-            </MjmlSection>
-            <MjmlSection padding={`${theme.spacingBase ?? "16px"} 0 0`}>
-              <MjmlColumn>
-                <StarRating rating={review.rating} theme={theme} />
-                <MjmlText
-                  align={alignText}
-                  color={theme.colorText}
-                  fontFamily={theme.fontFamily}
-                  fontSize={theme.fontSizeBase ?? "14px"}
-                  lineHeight={theme.lineHeightBase}
-                >
-                  &ldquo;{review.text}&rdquo;
-                </MjmlText>
-              </MjmlColumn>
-            </MjmlSection>
-          </MjmlWrapper>
+            &ldquo;{review.text}&rdquo;
+          </MjmlText>
         </MjmlColumn>
       ))}
     </MjmlSection>
@@ -172,14 +128,16 @@ export const FullWidthReviews = ({
 FullWidthReviews.PreviewProps = {
   reviews: [
     {
-      avatarUrl: "https://example.com/av1.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128",
       date: "March 2026",
       name: "Alex Johnson",
       rating: 5,
       text: "Absolutely love this product!",
     },
     {
-      avatarUrl: "https://example.com/av2.jpg",
+      avatarUrl:
+        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128",
       date: "Feb 2026",
       name: "Maria Garcia",
       rating: 4,

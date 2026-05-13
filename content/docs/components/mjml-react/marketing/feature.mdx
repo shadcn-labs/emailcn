@@ -3,7 +3,11 @@ title: "Feature Row"
 description: "Feature display components with icons, images, titles, and descriptions."
 ---
 
-<ComponentPreview base="mjml-react" name="feature-with-product-image-demo" hideCode />
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-product-image-demo"
+  hideCode
+/>
 
 ## Variants
 
@@ -13,19 +17,31 @@ description: "Feature display components with icons, images, titles, and descrip
 
 ### Icon Row
 
-<ComponentPreview base="mjml-react" name="feature-with-double-tall-background-images-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-double-tall-background-images-demo"
+/>
 
 ### Left Image
 
-<ComponentPreview base="mjml-react" name="feature-with-large-portrait-image-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-large-portrait-image-demo"
+/>
 
 ### Feature List
 
-<ComponentPreview base="mjml-react" name="feature-with-full-title-and-tall-background-images-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-full-title-and-tall-background-images-demo"
+/>
 
 ### Right Image
 
-<ComponentPreview base="mjml-react" name="feature-with-large-portrait-image-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-large-portrait-image-demo"
+/>
 
 ## Installation
 
@@ -52,9 +68,9 @@ npm install @faire/mjml-react
 
 <Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/feature/feature-cards.tsx"
+  src="registry/bases/mjml-react/ui/marketing/feature/feature-with-product-image.tsx"
   base="mjml-react"
-  title="components/emails/marketing/feature/feature-cards.tsx"
+  title="components/emails/marketing/feature/feature-with-product-image.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -66,11 +82,11 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { FeatureCards } from "@/components/emails/marketing/feature/feature-cards";
+import { FeatureWithProductImage } from "@/components/emails/marketing/feature/feature-with-product-image";
 ```
 
 ```tsx
-<FeatureCards {...FeatureCards.PreviewProps} />
+<FeatureWithProductImage {...FeatureWithProductImage.PreviewProps} />
 ```
 
 ## API Reference

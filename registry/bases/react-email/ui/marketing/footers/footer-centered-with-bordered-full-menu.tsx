@@ -41,7 +41,7 @@ export interface FooterCenteredWithBorderedFullMenuProps {
 }
 
 export const FooterCenteredWithBorderedFullMenuSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
   link1 = "Features",
   link1Href = "#",
@@ -140,7 +140,7 @@ export const FooterCenteredWithBorderedFullMenuSection = ({
 
 export const FooterCenteredWithBorderedFullMenu = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
   link1 = "Features",
   link1Href = "#",
@@ -196,7 +196,7 @@ FooterCenteredWithBorderedFullMenu.PreviewProps = {
   link5: "Contact",
   link5Href: "#",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FooterCenteredWithBorderedFullMenuProps;

@@ -115,17 +115,20 @@ Paragraph2ColumnsWithLargePadding.PreviewProps = {
   columns: [
     {
       description: "Lightning-fast performance.",
-      iconUrl: "https://placehold.co/48x48?text=⚡",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-2-columns-with-large-padding.tsx-1&size=48",
       title: "Fast",
     },
     {
       description: "Works across all clients.",
-      iconUrl: "https://placehold.co/48x48?text=📱",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-2-columns-with-large-padding.tsx-2&size=48",
       title: "Responsive",
     },
     {
       description: "Enterprise-grade security.",
-      iconUrl: "https://placehold.co/48x48?text=🔒",
+      iconUrl:
+        "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-2-columns-with-large-padding.tsx-3&size=48",
       title: "Secure",
     },
   ],

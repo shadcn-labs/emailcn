@@ -32,7 +32,7 @@ export interface SingleStatWithBackgroundImageProps {
 export const SingleStatWithBackgroundImageSection = ({
   stat = "10,000+",
   statLabel = "Happy Customers",
-  backgroundSrc = "https://via.placeholder.com/600x300/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x300/2",
   backgroundAlt = "",
   variant = "default",
 }: Omit<SingleStatWithBackgroundImageProps, "theme">) => {
@@ -93,7 +93,7 @@ export const SingleStatWithBackgroundImage = ({
   theme = defaultTheme,
   stat = "10,000+",
   statLabel = "Happy Customers",
-  backgroundSrc = "https://via.placeholder.com/600x300/1a1a2e/ffffff",
+  backgroundSrc = "https://static.photos/city/600x300/3",
   backgroundAlt = "",
   variant = "default",
 }: SingleStatWithBackgroundImageProps) => (
@@ -118,7 +118,7 @@ export const SingleStatWithBackgroundImage = ({
 
 SingleStatWithBackgroundImage.PreviewProps = {
   backgroundAlt: "Background",
-  backgroundSrc: "https://via.placeholder.com/600x300/1a1a2e/ffffff",
+  backgroundSrc: "https://static.photos/city/600x300/4",
   stat: "10,000+",
   statLabel: "Happy Customers",
   theme: defaultTheme,

@@ -42,7 +42,7 @@ const BentoGridMasonrySection = ({
       <MjmlColumn
         key={img.alt + i}
         width={img.wide ? "50%" : "25%"}
-        padding="Fourpx"
+        padding="4px"
         verticalAlign="top"
       >
         <MjmlImage
@@ -58,9 +58,13 @@ const BentoGridMasonrySection = ({
 export const BentoGridWithTwoRowsAnd3ColumnSecondRow = ({
   theme = defaultTheme,
   images = [
-    { alt: "Wide", src: "https://placehold.co/600x300?text=Wide", wide: true },
-    { alt: "Small 1", src: "https://placehold.co/300x300?text=1" },
-    { alt: "Small 2", src: "https://placehold.co/300x300?text=2" },
+    {
+      alt: "Wide",
+      src: "https://static.photos/business/600x300/2",
+      wide: true,
+    },
+    { alt: "Small 1", src: "https://static.photos/technology/300x300/3" },
+    { alt: "Small 2", src: "https://static.photos/technology/300x300/4" },
   ],
   variant = "default",
 }: BentoGridMasonryProps) => (
@@ -93,11 +97,11 @@ BentoGridWithTwoRowsAnd3ColumnSecondRow.PreviewProps = {
   images: [
     {
       alt: "featured",
-      src: "https://placehold.co/600x300?text=Featured",
+      src: "https://static.photos/business/600x300/5",
       wide: true,
     },
-    { alt: "item 1", src: "https://placehold.co/300x300?text=Item+1" },
-    { alt: "item 2", src: "https://placehold.co/300x300?text=Item+2" },
+    { alt: "item 1", src: "https://static.photos/technology/300x300/6" },
+    { alt: "item 2", src: "https://static.photos/technology/300x300/7" },
   ],
   theme: defaultTheme,
   variant: "default",

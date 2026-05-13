@@ -126,17 +126,17 @@ FeatureWithDoubleTallBackgroundImages.PreviewProps = {
     {
       body: "Intuitive interface designed for teams of all sizes.",
       heading: "Easy to Use",
-      imageSrc: "https://placehold.co/200x150?text=Easy",
+      imageSrc: "https://static.photos/technology/200x150/2",
     },
     {
       body: "Seamlessly integrates with your existing tools.",
       heading: "Integrations",
-      imageSrc: "https://placehold.co/200x150?text=Integrations",
+      imageSrc: "https://static.photos/technology/200x150/3",
     },
     {
       body: "Real-time analytics to track your performance.",
       heading: "Analytics",
-      imageSrc: "https://placehold.co/200x150?text=Analytics",
+      imageSrc: "https://static.photos/technology/200x150/4",
     },
   ],
   theme: defaultTheme,

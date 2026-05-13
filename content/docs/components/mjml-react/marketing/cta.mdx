@@ -3,13 +3,20 @@ title: "CTA Banner"
 description: "Call-to-action banners for promotions and announcements."
 ---
 
-<ComponentPreview base="mjml-react" name="boxed-cta-with-background-image-demo" hideCode />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-cta-with-background-image-demo"
+  hideCode
+/>
 
 ## Variants
 
 ### Accent CTA
 
-<ComponentPreview base="mjml-react" name="boxed-cta-with-background-image-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-cta-with-background-image-demo"
+/>
 
 ### Announcement CTA
 
@@ -29,7 +36,10 @@ description: "Call-to-action banners for promotions and announcements."
 
 ### Split CTA
 
-<ComponentPreview base="mjml-react" name="cta-with-title-and-action-lead-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="cta-with-title-and-action-lead-demo"
+/>
 
 ### Wide CTA
 
@@ -60,9 +70,9 @@ npm install @faire/mjml-react
 
 <Step>Copy the component source into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/cta/cta-accent.tsx"
+  src="registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image.tsx"
   base="mjml-react"
-  title="components/emails/marketing/cta/cta-accent.tsx"
+  title="components/emails/marketing/cta/boxed-cta-with-background-image.tsx"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -74,11 +84,11 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { CtaAccent } from "@/components/emails/marketing/cta/cta-accent";
+import { BoxedCtaWithBackgroundImage } from "@/components/emails/marketing/cta/boxed-cta-with-background-image";
 ```
 
 ```tsx
-<CtaAccent {...CtaAccent.PreviewProps} />
+<BoxedCtaWithBackgroundImage {...BoxedCtaWithBackgroundImage.PreviewProps} />
 ```
 
 ## API Reference

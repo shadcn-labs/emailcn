@@ -44,7 +44,7 @@ export interface FooterWith3ColMenuProps {
 }
 
 export const FooterWith3ColMenuSection = ({
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/2",
   logoAlt = "Logo",
   col1Heading = "Product",
   col1Link1 = "Features",
@@ -175,7 +175,7 @@ export const FooterWith3ColMenuSection = ({
 
 export const FooterWith3ColMenu = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/100x25",
+  logoSrc = "https://static.photos/business/100x25/3",
   logoAlt = "Logo",
   col1Heading = "Product",
   col1Link1 = "Features",
@@ -243,7 +243,7 @@ FooterWith3ColMenu.PreviewProps = {
   col3Link2: "Contact",
   col3Link2Href: "#",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/100x25",
+  logoSrc: "https://static.photos/business/100x25/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies FooterWith3ColMenuProps;

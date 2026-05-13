@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacked-boxed-timeline",
+  "title": "Stacked Boxed Timeline",
+  "description": "Marketing timelines variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/timelines/stacked-boxed-timeline.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TimelineStackedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface TimelineStackedProps {\n  theme?: EmailThemeTokens;\n  events?: { date: string; title: string; description: string }[];\n  variant?: TimelineStackedVariant;\n}\n\nconst TimelineStackedSection = ({\n  events,\n  theme,\n  variant,\n}: {\n  events: TimelineStackedProps[\"events\"];\n  theme: EmailThemeTokens;\n  variant: TimelineStackedVariant;\n}) => {\n  const list = events ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      <MjmlColumn>\n        {list.map((event, i) => (\n          <MjmlSection\n            key={event.title + i}\n            padding={`${theme.spacingBase ?? \"24px\"} 0`}\n          >\n            <MjmlColumn width=\"100px\" padding=\"0\" verticalAlign=\"top\">\n              <MjmlText\n                color={theme.colorTextMuted}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeSm ?? \"12px\"}\n                fontWeight={theme.fontWeightMedium}\n              >\n                {event.date}\n              </MjmlText>\n            </MjmlColumn>\n            <MjmlColumn padding=\"0 0 0 16px\" verticalAlign=\"top\">\n              <MjmlText\n                color={theme.colorText}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeBase ?? \"14px\"}\n                fontWeight={theme.fontWeightMedium}\n                paddingBottom={theme.spacingBase ?? \"8px\"}\n              >\n                {event.title}\n              </MjmlText>\n              <MjmlText\n                color={theme.colorTextMuted}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeBase ?? \"14px\"}\n                lineHeight={theme.lineHeightBase}\n              >\n                {event.description}\n              </MjmlText>\n            </MjmlColumn>\n            {i < list.length - 1 ? (\n              <MjmlDivider\n                borderColor={theme.colorBorder ?? \"#e5e7eb\"}\n                borderWidth=\"1px\"\n              />\n            ) : null}\n          </MjmlSection>\n        ))}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const StackedBoxedTimeline = ({\n  theme = defaultTheme,\n  events = [\n    { date: \"2024-01-01\", description: \"Initial release.\", title: \"v1.0.0\" },\n  ],\n  variant = \"default\",\n}: TimelineStackedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>timeline stacked</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TimelineStackedSection\n          events={events}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nStackedBoxedTimeline.PreviewProps = {\n  events: [\n    {\n      date: \"May 2026\",\n      description: \"Added new grid and timeline components for email layouts.\",\n      title: \"v2.0.0 - Major Update\",\n    },\n    {\n      date: \"Apr 2026\",\n      description: \"New testimonial and pricing table components.\",\n      title: \"v1.5.0 - New Components\",\n    },\n    {\n      date: \"Mar 2026\",\n      description: \"Initial public release with core components.\",\n      title: \"v1.0.0 - Launch\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TimelineStackedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/timelines/stacked-boxed-timeline.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -33,9 +33,9 @@ export interface HeaderWithUserDetailsAndAvatarProps {
 }
 
 export const HeaderWithUserDetailsAndAvatarSection = ({
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/2",
   logoAlt = "Logo",
-  avatarSrc = "https://via.placeholder.com/40x40",
+  avatarSrc = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-user-details-and-avatar-tsx-2&size=40",
   avatarAlt = "",
   userName = "John Doe",
   userEmail = "john@example.com",
@@ -111,9 +111,9 @@ export const HeaderWithUserDetailsAndAvatarSection = ({
 
 export const HeaderWithUserDetailsAndAvatar = ({
   theme = defaultTheme,
-  logoSrc = "https://via.placeholder.com/120x30",
+  logoSrc = "https://static.photos/business/120x30/4",
   logoAlt = "Logo",
-  avatarSrc = "https://via.placeholder.com/40x40",
+  avatarSrc = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-user-details-and-avatar-tsx-4&size=40",
   avatarAlt = "",
   userName = "John Doe",
   userEmail = "john@example.com",
@@ -142,9 +142,10 @@ export const HeaderWithUserDetailsAndAvatar = ({
 
 HeaderWithUserDetailsAndAvatar.PreviewProps = {
   avatarAlt: "Avatar",
-  avatarSrc: "https://via.placeholder.com/40x40",
+  avatarSrc:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-user-details-and-avatar-tsx-5&size=40",
   logoAlt: "Logo",
-  logoSrc: "https://via.placeholder.com/120x30",
+  logoSrc: "https://static.photos/business/120x30/7",
   theme: defaultTheme,
   userEmail: "john@example.com",
   userName: "John Doe",

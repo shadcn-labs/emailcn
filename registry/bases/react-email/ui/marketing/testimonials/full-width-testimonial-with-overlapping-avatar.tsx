@@ -31,7 +31,7 @@ export interface FullWidthTestimonialWithOverlappingAvatarProps {
 }
 
 export const FullWidthTestimonialWithOverlappingAvatarSection = ({
-  avatarSrc = "https://via.placeholder.com/80x80",
+  avatarSrc = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-testimonials-full-width-testimonial-with-overlapping-avatar-tsx-1&size=80",
   avatarAlt = "",
   quote = "This product has transformed how we work.",
   author = "Jane Doe",
@@ -96,7 +96,7 @@ export const FullWidthTestimonialWithOverlappingAvatarSection = ({
 
 export const FullWidthTestimonialWithOverlappingAvatar = ({
   theme = defaultTheme,
-  avatarSrc = "https://via.placeholder.com/80x80",
+  avatarSrc = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-testimonials-full-width-testimonial-with-overlapping-avatar-tsx-2&size=80",
   avatarAlt = "",
   quote = "This product has transformed how we work.",
   author = "Jane Doe",
@@ -126,7 +126,8 @@ export const FullWidthTestimonialWithOverlappingAvatar = ({
 FullWidthTestimonialWithOverlappingAvatar.PreviewProps = {
   author: "Jane Doe",
   avatarAlt: "Jane Doe",
-  avatarSrc: "https://via.placeholder.com/80x80",
+  avatarSrc:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-testimonials-full-width-testimonial-with-overlapping-avatar-tsx-3&size=80",
   quote:
     "This product has completely transformed how our team collaborates and ships emails.",
   role: "CEO, Acme Inc",

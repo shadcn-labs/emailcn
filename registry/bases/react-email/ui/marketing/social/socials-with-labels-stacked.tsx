@@ -36,13 +36,13 @@ export interface SocialsWithLabelsStackedProps {
 }
 
 export const SocialsWithLabelsStackedSection = ({
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-1&size=24",
   socialAlt1 = "Twitter",
   socialLabel1 = "Follow us on Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-2&size=24",
   socialAlt2 = "Facebook",
   socialLabel2 = "Like us on Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-3&size=24",
   socialAlt3 = "Instagram",
   socialLabel3 = "Follow us on Instagram",
   variant = "default",
@@ -123,13 +123,13 @@ export const SocialsWithLabelsStackedSection = ({
 
 export const SocialsWithLabelsStacked = ({
   theme = defaultTheme,
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-4&size=24",
   socialAlt1 = "Twitter",
   socialLabel1 = "Follow us on Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-5&size=24",
   socialAlt2 = "Facebook",
   socialLabel2 = "Like us on Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-6&size=24",
   socialAlt3 = "Instagram",
   socialLabel3 = "Follow us on Instagram",
   variant = "default",
@@ -165,9 +165,12 @@ SocialsWithLabelsStacked.PreviewProps = {
   socialLabel1: "Follow us on Twitter",
   socialLabel2: "Like us on Facebook",
   socialLabel3: "Follow us on Instagram",
-  socialSrc1: "https://via.placeholder.com/24x24",
-  socialSrc2: "https://via.placeholder.com/24x24",
-  socialSrc3: "https://via.placeholder.com/24x24",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-7&size=24",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-8&size=24",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-socials-with-labels-stacked-tsx-9&size=24",
   theme: defaultTheme,
   variant: "default",
 } satisfies SocialsWithLabelsStackedProps;

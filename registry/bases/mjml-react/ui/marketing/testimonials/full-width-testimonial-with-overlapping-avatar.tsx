@@ -52,7 +52,7 @@ const TestimonialCardSection = ({
     backgroundColor={theme.colorBackgroundMuted}
     border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
     borderRadius={theme.borderRadius}
-    padding={theme.spacingXl ?? "2Fourpx"}
+    padding={theme.spacingXl ?? "24px"}
   >
     <MjmlColumn>
       <MjmlText
@@ -80,9 +80,9 @@ const TestimonialCardSection = ({
         <MjmlText
           color={theme.colorText}
           fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "1Fourpx"}
+          fontSize={theme.fontSizeBase ?? "14px"}
           fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "Fourpx"}
+          paddingBottom={theme.spacingBase ?? "4px"}
         >
           {name}
         </MjmlText>
@@ -95,7 +95,7 @@ const TestimonialCardSection = ({
         </MjmlText>
       </MjmlColumn>
       {companyLogoUrl ? (
-        <MjmlColumn paddingTop={theme.spacingBase ?? "2Fourpx"}>
+        <MjmlColumn paddingTop={theme.spacingBase ?? "24px"}>
           <MjmlImage alt="Company" src={companyLogoUrl} width={80} />
         </MjmlColumn>
       ) : null}
@@ -143,8 +143,9 @@ export const FullWidthTestimonialWithOverlappingAvatar = ({
 );
 
 FullWidthTestimonialWithOverlappingAvatar.PreviewProps = {
-  avatarUrl: "https://placehold.co/56x56?text=SS",
-  companyLogoUrl: "https://placehold.co/80x20?text=TechCorp",
+  avatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Ftestimonials%2Ffull-width-testimonial-with-overlapping-avatar.tsx-56-1&size=56",
+  companyLogoUrl: "https://static.photos/business/80x20/3",
   name: "Sarah Smith",
   quote:
     "This tool has saved us countless hours and made our team more productive.",

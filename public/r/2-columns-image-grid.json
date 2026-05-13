@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-image-grid",
+  "title": "2 Columns Image Grid",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/images/2-columns-image-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ImageGridVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageGridProps {\n  theme?: EmailThemeTokens;\n  images?: { src: string; alt: string }[];\n  columns?: 2 | 3;\n  variant?: ImageGridVariant;\n}\n\nconst ImageGridSection = ({\n  columns,\n  images,\n  theme,\n  variant,\n}: {\n  columns: 2 | 3;\n  images: ImageGridProps[\"images\"];\n  theme: EmailThemeTokens;\n  variant: ImageGridVariant;\n}) => {\n  const slice = (images ?? []).slice(0, columns);\n  const widthPct = `${100 / columns}%`;\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {slice.length > 0 ? (\n        slice.map((img) => (\n          <MjmlColumn\n            key={img.src}\n            width={widthPct}\n            padding={theme.spacingBase ?? \"24px\"}\n          >\n            <MjmlImage\n              alt={img.alt}\n              borderRadius={theme.borderRadius}\n              src={img.src}\n              width={260}\n            />\n          </MjmlColumn>\n        ))\n      ) : (\n        <MjmlColumn>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n          >\n            No images to display.\n          </MjmlText>\n        </MjmlColumn>\n      )}\n    </MjmlSection>\n  );\n};\n\nexport const TwoColumnsImageGrid = ({\n  theme = defaultTheme,\n  images = [\n    { alt: \"Image 1\", src: \"https://static.photos/technology/400x300/2\" },\n    { alt: \"Image 2\", src: \"https://static.photos/technology/400x300/3\" },\n  ],\n  columns = 2,\n  variant = \"default\",\n}: ImageGridProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>image grid</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ImageGridSection\n          columns={columns}\n          images={images}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nTwoColumnsImageGrid.PreviewProps = {\n  columns: 2,\n  images: [\n    {\n      alt: \"Screenshot 1\",\n      src: \"https://static.photos/technology/400x300/4\",\n    },\n    {\n      alt: \"Screenshot 2\",\n      src: \"https://static.photos/technology/400x300/5\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageGridProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/2-columns-image-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

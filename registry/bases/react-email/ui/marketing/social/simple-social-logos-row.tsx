@@ -36,15 +36,15 @@ export interface SimpleSocialLogosRowProps {
 }
 
 export const SimpleSocialLogosRowSection = ({
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-1&size=24",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-2&size=24",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-3&size=24",
   socialAlt3 = "Instagram",
-  socialSrc4 = "https://via.placeholder.com/24x24",
+  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-4&size=24",
   socialAlt4 = "LinkedIn",
-  socialSrc5 = "https://via.placeholder.com/24x24",
+  socialSrc5 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-5&size=24",
   socialAlt5 = "YouTube",
   variant = "default",
 }: Omit<SimpleSocialLogosRowProps, "theme">) => {
@@ -135,15 +135,15 @@ export const SimpleSocialLogosRowSection = ({
 
 export const SimpleSocialLogosRow = ({
   theme = defaultTheme,
-  socialSrc1 = "https://via.placeholder.com/24x24",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-6&size=24",
   socialAlt1 = "Twitter",
-  socialSrc2 = "https://via.placeholder.com/24x24",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-7&size=24",
   socialAlt2 = "Facebook",
-  socialSrc3 = "https://via.placeholder.com/24x24",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-8&size=24",
   socialAlt3 = "Instagram",
-  socialSrc4 = "https://via.placeholder.com/24x24",
+  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-9&size=24",
   socialAlt4 = "LinkedIn",
-  socialSrc5 = "https://via.placeholder.com/24x24",
+  socialSrc5 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-10&size=24",
   socialAlt5 = "YouTube",
   variant = "default",
 }: SimpleSocialLogosRowProps) => (
@@ -178,11 +178,16 @@ SimpleSocialLogosRow.PreviewProps = {
   socialAlt3: "Instagram",
   socialAlt4: "LinkedIn",
   socialAlt5: "YouTube",
-  socialSrc1: "https://via.placeholder.com/24x24",
-  socialSrc2: "https://via.placeholder.com/24x24",
-  socialSrc3: "https://via.placeholder.com/24x24",
-  socialSrc4: "https://via.placeholder.com/24x24",
-  socialSrc5: "https://via.placeholder.com/24x24",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-11&size=24",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-12&size=24",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-13&size=24",
+  socialSrc4:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-14&size=24",
+  socialSrc5:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-simple-social-logos-row-tsx-15&size=24",
   theme: defaultTheme,
   variant: "default",
 } satisfies SimpleSocialLogosRowProps;

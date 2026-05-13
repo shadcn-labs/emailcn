@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "simple-grid-stats",
+  "title": "Simple Grid Stats",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.com/r/theme-default.json",
+    "https://emailcn.com/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/stats/simple-grid-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type StatsSimpleVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface StatsSimpleProps {\n  theme?: EmailThemeTokens;\n  stats?: { value: string; label: string }[];\n  columns?: 2 | 3 | 4;\n  variant?: StatsSimpleVariant;\n}\n\nconst StatsSimpleSection = ({\n  columns,\n  stats,\n  theme,\n  variant,\n}: {\n  columns: 2 | 3 | 4;\n  stats: StatsSimpleProps[\"stats\"];\n  theme: EmailThemeTokens;\n  variant: StatsSimpleVariant;\n}) => {\n  const colWidth = `${100 / columns}%`;\n  const items = (stats ?? []).slice(0, columns);\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {items.map((stat, i) => (\n        <MjmlColumn\n          key={stat.label + i}\n          width={colWidth}\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"top\"\n        >\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize=\"28px\"\n            fontWeight={theme.fontWeightBold}\n            paddingBottom={theme.spacingBase ?? \"8px\"}\n          >\n            {stat.value}\n          </MjmlText>\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm ?? \"14px\"}\n          >\n            {stat.label}\n          </MjmlText>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const SimpleGridStats = ({\n  theme = defaultTheme,\n  stats = [\n    { label: \"Users\", value: \"10K+\" },\n    { label: \"Downloads\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n  ],\n  columns = 3,\n  variant = \"default\",\n}: StatsSimpleProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>stats simple</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <StatsSimpleSection\n          columns={columns}\n          stats={stats}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nSimpleGridStats.PreviewProps = {\n  columns: 3,\n  stats: [\n    { label: \"Active Users\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"5-Star Reviews\", value: \"10K+\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies StatsSimpleProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/simple-grid-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}
