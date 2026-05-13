@@ -1,11 +1,8 @@
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
+import { formatCode } from "@/lib/format-code";
 import { highlightCode } from "@/lib/highlight-code";
 import { readFileFromRoot } from "@/lib/read-file";
-import {
-  getDemoSource,
-  getRegistrySource,
-  normalizeRegistrySourceForTarget,
-} from "@/lib/registry";
+import { getDemoSource, getRegistrySource } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import type { BaseName } from "@/registry/bases";
 
@@ -83,7 +80,11 @@ export const ComponentSource = async ({
     return null;
   }
 
-  code = normalizeRegistrySourceForTarget(code);
+  code = await formatCode(code);
+  code = code.replaceAll(
+    "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\n",
+    ""
+  );
 
   const lang = language ?? title?.split(".").pop() ?? "tsx";
   const highlightedCode = await highlightCode(code, lang);
