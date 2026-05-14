@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-  <a href="https://emailcn.com/docs">Get Started</a> ·
-  <a href="https://emailcn.com/docs/installation">Installation</a> ·
-  <a href="https://emailcn.com/docs/components">Components</a>
+  <a href="https://emailcn.dev/docs">Get Started</a> ·
+  <a href="https://emailcn.dev/docs/installation">Installation</a> ·
+  <a href="https://emailcn.dev/docs/components">Components</a>
 </p>
 
 <br />
@@ -33,14 +33,14 @@
 npm install react-email
 
 # Add a theme
-npx shadcn@latest add https://emailcn.com/r/email-theme-default.json
+npx shadcn@latest add https://emailcn.dev/r/email-theme-default.json
 
 # Add components
-npx shadcn@latest add https://emailcn.com/r/email-hero.json
-npx shadcn@latest add https://emailcn.com/r/email-footer.json
+npx shadcn@latest add https://emailcn.dev/r/email-hero.json
+npx shadcn@latest add https://emailcn.dev/r/email-footer.json
 
 # Or add complete email blocks
-npx shadcn@latest add https://emailcn.com/r/block-onboarding-default.json
+npx shadcn@latest add https://emailcn.dev/r/block-onboarding-default.json
 ```
 
 ## Available Themes

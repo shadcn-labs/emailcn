@@ -7,7 +7,7 @@
     "react-email"
   ],
   "registryDependencies": [
-    "https://emailcn.com/r/theme-stripe.json"
+    "https://emailcn.dev/r/theme-stripe.json"
   ],
   "files": [
     {

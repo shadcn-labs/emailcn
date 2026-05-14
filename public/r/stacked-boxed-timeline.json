@@ -8,8 +8,8 @@
     "mjml-browser"
   ],
   "registryDependencies": [
-    "https://emailcn.com/r/theme-default.json",
-    "https://emailcn.com/r/default-fonts.json"
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
   ],
   "files": [
     {

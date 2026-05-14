@@ -8,8 +8,8 @@
     "mjml-browser"
   ],
   "registryDependencies": [
-    "https://emailcn.com/r/mjml-runtime.json",
-    "https://emailcn.com/r/theme-slack.json"
+    "https://emailcn.dev/r/mjml-runtime.json",
+    "https://emailcn.dev/r/theme-slack.json"
   ],
   "files": [
     {

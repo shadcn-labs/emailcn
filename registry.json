@@ -1,6 +1,6 @@
 {
   "name": "emailcn",
-  "homepage": "https://emailcn.com",
+  "homepage": "https://emailcn.dev",
   "items": [
     {
       "name": "theme-default",
@@ -382,8 +382,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -401,8 +401,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -420,8 +420,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -439,8 +439,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -458,8 +458,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -477,8 +477,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -496,8 +496,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -515,8 +515,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -534,8 +534,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -553,8 +553,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -572,8 +572,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -591,8 +591,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -610,8 +610,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -629,8 +629,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -648,8 +648,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -667,8 +667,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -686,8 +686,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -705,8 +705,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -724,8 +724,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -743,8 +743,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -762,8 +762,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -781,8 +781,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -800,8 +800,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -819,8 +819,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -838,8 +838,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -857,8 +857,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -876,8 +876,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -895,8 +895,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -914,8 +914,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -933,8 +933,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -952,8 +952,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -971,8 +971,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -990,8 +990,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1009,8 +1009,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1028,8 +1028,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1047,8 +1047,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1066,8 +1066,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1085,8 +1085,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1104,8 +1104,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1123,8 +1123,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1142,8 +1142,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1161,8 +1161,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1180,8 +1180,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1199,8 +1199,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1218,8 +1218,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1237,8 +1237,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1256,8 +1256,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1275,8 +1275,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1294,8 +1294,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1313,8 +1313,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1332,8 +1332,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1351,8 +1351,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1370,8 +1370,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1389,8 +1389,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1408,8 +1408,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1427,8 +1427,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1446,8 +1446,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1465,8 +1465,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1484,8 +1484,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1503,8 +1503,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1522,8 +1522,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1541,8 +1541,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1560,8 +1560,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1579,8 +1579,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1598,8 +1598,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1617,8 +1617,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1636,8 +1636,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1655,8 +1655,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1674,8 +1674,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1693,8 +1693,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1712,8 +1712,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1731,8 +1731,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1750,8 +1750,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1769,8 +1769,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1788,8 +1788,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1807,8 +1807,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1826,8 +1826,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1845,8 +1845,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1864,8 +1864,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1883,8 +1883,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1902,8 +1902,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1921,8 +1921,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1940,8 +1940,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1959,8 +1959,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1978,8 +1978,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -1997,8 +1997,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2016,8 +2016,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2035,8 +2035,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2054,8 +2054,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2073,8 +2073,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2092,8 +2092,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2111,8 +2111,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2130,8 +2130,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2149,8 +2149,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2168,8 +2168,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2187,8 +2187,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2206,8 +2206,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2225,8 +2225,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2244,8 +2244,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2263,8 +2263,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2282,8 +2282,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2301,8 +2301,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2320,8 +2320,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2339,8 +2339,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2358,8 +2358,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2377,8 +2377,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2396,8 +2396,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2415,8 +2415,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2434,8 +2434,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2453,8 +2453,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2472,8 +2472,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2491,8 +2491,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2510,8 +2510,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2529,8 +2529,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2548,8 +2548,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2567,8 +2567,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2586,8 +2586,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2605,8 +2605,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2624,8 +2624,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2643,8 +2643,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2662,8 +2662,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2681,8 +2681,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2700,8 +2700,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2719,8 +2719,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2738,8 +2738,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2757,8 +2757,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2776,8 +2776,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2795,8 +2795,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2814,8 +2814,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2833,8 +2833,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2852,8 +2852,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2871,8 +2871,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2890,8 +2890,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2909,8 +2909,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2928,8 +2928,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2947,8 +2947,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2966,8 +2966,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -2985,8 +2985,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3004,8 +3004,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3023,8 +3023,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3042,8 +3042,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3061,8 +3061,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3080,8 +3080,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3099,8 +3099,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3118,8 +3118,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3137,8 +3137,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3156,8 +3156,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3175,8 +3175,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3194,8 +3194,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3213,8 +3213,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3232,8 +3232,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3251,8 +3251,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3270,8 +3270,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3289,8 +3289,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3308,8 +3308,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3327,8 +3327,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3346,8 +3346,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3365,8 +3365,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3384,8 +3384,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3403,8 +3403,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3422,8 +3422,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3441,8 +3441,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3460,8 +3460,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3479,8 +3479,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3498,8 +3498,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3517,8 +3517,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3536,8 +3536,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3555,8 +3555,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3574,8 +3574,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3593,8 +3593,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3612,8 +3612,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3631,8 +3631,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3650,8 +3650,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3669,8 +3669,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3688,8 +3688,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3707,8 +3707,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3726,8 +3726,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3745,8 +3745,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3764,8 +3764,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3783,8 +3783,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3802,8 +3802,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3821,8 +3821,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3840,8 +3840,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3859,8 +3859,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3878,8 +3878,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3897,8 +3897,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3916,8 +3916,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3935,8 +3935,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3954,8 +3954,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3973,8 +3973,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -3992,8 +3992,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4011,8 +4011,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4030,8 +4030,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4049,8 +4049,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4068,8 +4068,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4087,8 +4087,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4106,8 +4106,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4125,8 +4125,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4144,8 +4144,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4163,8 +4163,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4182,11 +4182,11 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/content-grid.json",
-        "https://emailcn.com/r/cta-banner.json",
-        "https://emailcn.com/r/footer.json",
-        "https://emailcn.com/r/hero.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/content-grid.json",
+        "https://emailcn.dev/r/cta-banner.json",
+        "https://emailcn.dev/r/footer.json",
+        "https://emailcn.dev/r/hero.json"
       ]
     },
     {
@@ -4204,12 +4204,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-vercel.json",
-        "https://emailcn.com/r/content-grid.json",
-        "https://emailcn.com/r/cta-banner.json",
-        "https://emailcn.com/r/footer.json",
-        "https://emailcn.com/r/hero.json",
-        "https://emailcn.com/r/logo-header.json"
+        "https://emailcn.dev/r/theme-vercel.json",
+        "https://emailcn.dev/r/content-grid.json",
+        "https://emailcn.dev/r/cta-banner.json",
+        "https://emailcn.dev/r/footer.json",
+        "https://emailcn.dev/r/hero.json",
+        "https://emailcn.dev/r/logo-header.json"
       ]
     },
     {
@@ -4227,12 +4227,12 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-linear.json",
-        "https://emailcn.com/r/content-grid.json",
-        "https://emailcn.com/r/cta-banner.json",
-        "https://emailcn.com/r/footer.json",
-        "https://emailcn.com/r/hero.json",
-        "https://emailcn.com/r/logo-header.json"
+        "https://emailcn.dev/r/theme-linear.json",
+        "https://emailcn.dev/r/content-grid.json",
+        "https://emailcn.dev/r/cta-banner.json",
+        "https://emailcn.dev/r/footer.json",
+        "https://emailcn.dev/r/hero.json",
+        "https://emailcn.dev/r/logo-header.json"
       ]
     },
     {
@@ -4249,7 +4249,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-default.json"]
     },
     {
       "name": "block-auth-magic-link-stripe",
@@ -4265,7 +4265,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-stripe.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-stripe.json"]
     },
     {
       "name": "block-auth-magic-link-raycast",
@@ -4281,7 +4281,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-raycast.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-raycast.json"]
     },
     {
       "name": "block-auth-otp-default",
@@ -4297,7 +4297,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-default.json"]
     },
     {
       "name": "block-auth-otp-twitch",
@@ -4313,7 +4313,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-twitch.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-twitch.json"]
     },
     {
       "name": "block-auth-password-reset-default",
@@ -4329,7 +4329,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-default.json"]
     },
     {
       "name": "block-auth-password-reset-notion",
@@ -4345,7 +4345,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-notion.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-notion.json"]
     },
     {
       "name": "block-auth-password-reset-dropbox",
@@ -4361,7 +4361,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-default.json"]
     },
     {
       "name": "block-receipt-default",
@@ -4378,8 +4378,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/product-card.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/product-card.json"
       ]
     },
     {
@@ -4397,8 +4397,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-stripe.json",
-        "https://emailcn.com/r/product-card.json"
+        "https://emailcn.dev/r/theme-stripe.json",
+        "https://emailcn.dev/r/product-card.json"
       ]
     },
     {
@@ -4416,8 +4416,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/product-card.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/product-card.json"
       ]
     },
     {
@@ -4435,8 +4435,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/product-card.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/product-card.json"
       ]
     },
     {
@@ -4453,7 +4453,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-default.json"]
     },
     {
       "name": "block-notification-linear",
@@ -4469,7 +4469,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-linear.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-linear.json"]
     },
     {
       "name": "block-notification-airbnb",
@@ -4485,7 +4485,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-airbnb.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-airbnb.json"]
     },
     {
       "name": "block-notification-slack",
@@ -4501,7 +4501,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-slack.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-slack.json"]
     },
     {
       "name": "block-newsletter-default",
@@ -4518,8 +4518,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/content-grid.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/content-grid.json"
       ]
     },
     {
@@ -4537,8 +4537,8 @@
       ],
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/content-grid.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/content-grid.json"
       ]
     },
     {
@@ -4555,7 +4555,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-default.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-default.json"]
     },
     {
       "name": "block-invite-vercel",
@@ -4571,7 +4571,7 @@
         }
       ],
       "dependencies": ["react-email"],
-      "registryDependencies": ["https://emailcn.com/r/theme-vercel.json"]
+      "registryDependencies": ["https://emailcn.dev/r/theme-vercel.json"]
     },
     {
       "name": "bento-grid-with-3-columns-and-even-split-image-stats",
@@ -4588,8 +4588,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4607,8 +4607,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4626,8 +4626,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4645,8 +4645,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4664,8 +4664,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4683,8 +4683,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4702,8 +4702,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4721,8 +4721,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4740,8 +4740,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4759,8 +4759,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4778,8 +4778,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4797,8 +4797,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4816,8 +4816,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4835,8 +4835,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4854,8 +4854,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4873,8 +4873,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4892,8 +4892,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4911,8 +4911,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4930,8 +4930,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4949,8 +4949,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4968,8 +4968,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -4987,8 +4987,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5006,8 +5006,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5025,8 +5025,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5044,8 +5044,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5063,8 +5063,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5082,8 +5082,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5101,8 +5101,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5120,8 +5120,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5139,8 +5139,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5158,8 +5158,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5177,8 +5177,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5196,8 +5196,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5215,8 +5215,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5234,8 +5234,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5253,8 +5253,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5272,8 +5272,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5291,8 +5291,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5310,8 +5310,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5329,8 +5329,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5348,8 +5348,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5367,8 +5367,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5386,8 +5386,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5405,8 +5405,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5424,8 +5424,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5443,8 +5443,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5462,8 +5462,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5481,8 +5481,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5500,8 +5500,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5519,8 +5519,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5538,8 +5538,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5557,8 +5557,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5576,8 +5576,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5595,8 +5595,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5614,8 +5614,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5633,8 +5633,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5652,8 +5652,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5671,8 +5671,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5690,8 +5690,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5709,8 +5709,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5728,8 +5728,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5747,8 +5747,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5766,8 +5766,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5785,8 +5785,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5804,8 +5804,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5823,8 +5823,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5842,8 +5842,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5861,8 +5861,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5880,8 +5880,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5899,8 +5899,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5918,8 +5918,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5937,8 +5937,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5956,8 +5956,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5975,8 +5975,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -5994,8 +5994,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6013,8 +6013,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6032,8 +6032,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6051,8 +6051,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6070,8 +6070,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6089,8 +6089,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6108,8 +6108,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6127,8 +6127,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6146,8 +6146,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6165,8 +6165,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6184,8 +6184,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6203,8 +6203,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6222,8 +6222,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6241,8 +6241,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6260,8 +6260,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6279,8 +6279,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6298,8 +6298,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6317,8 +6317,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6336,8 +6336,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6355,8 +6355,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6374,8 +6374,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6393,8 +6393,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6412,8 +6412,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6431,8 +6431,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6450,8 +6450,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6469,8 +6469,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6488,8 +6488,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6507,8 +6507,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6526,8 +6526,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6545,8 +6545,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6564,8 +6564,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6583,8 +6583,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6602,8 +6602,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6621,8 +6621,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6640,8 +6640,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6659,8 +6659,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6678,8 +6678,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6697,8 +6697,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6716,8 +6716,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6735,8 +6735,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6754,8 +6754,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6773,8 +6773,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6792,8 +6792,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6811,8 +6811,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6830,8 +6830,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6849,8 +6849,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6868,8 +6868,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6887,8 +6887,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6906,8 +6906,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6925,8 +6925,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6944,8 +6944,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6963,8 +6963,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -6982,8 +6982,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7001,8 +7001,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7020,8 +7020,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7039,8 +7039,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7058,8 +7058,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7077,8 +7077,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7096,8 +7096,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7115,8 +7115,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7134,8 +7134,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7153,8 +7153,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7172,8 +7172,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7191,8 +7191,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7210,8 +7210,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7229,8 +7229,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7248,8 +7248,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7267,8 +7267,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7286,8 +7286,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7305,8 +7305,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7324,8 +7324,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7343,8 +7343,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7362,8 +7362,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7381,8 +7381,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7400,8 +7400,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7419,8 +7419,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7438,8 +7438,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7457,8 +7457,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7476,8 +7476,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7495,8 +7495,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7514,8 +7514,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7533,8 +7533,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7552,8 +7552,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7571,8 +7571,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7590,8 +7590,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7609,8 +7609,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7628,8 +7628,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7647,8 +7647,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7666,8 +7666,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7685,8 +7685,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7704,8 +7704,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7723,8 +7723,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7742,8 +7742,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7761,8 +7761,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7780,8 +7780,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7799,8 +7799,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7818,8 +7818,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7837,8 +7837,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7856,8 +7856,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7875,8 +7875,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7894,8 +7894,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7913,8 +7913,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7932,8 +7932,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7951,8 +7951,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7970,8 +7970,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -7989,8 +7989,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8008,8 +8008,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8027,8 +8027,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8046,8 +8046,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8065,8 +8065,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8084,8 +8084,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8103,8 +8103,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8122,8 +8122,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8141,8 +8141,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8160,8 +8160,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8179,8 +8179,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8198,8 +8198,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8217,8 +8217,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8236,8 +8236,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8255,8 +8255,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8274,8 +8274,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8293,8 +8293,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8312,8 +8312,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8331,8 +8331,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8350,8 +8350,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8369,8 +8369,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/theme-default.json",
-        "https://emailcn.com/r/default-fonts.json"
+        "https://emailcn.dev/r/theme-default.json",
+        "https://emailcn.dev/r/default-fonts.json"
       ]
     },
     {
@@ -8388,8 +8388,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8407,8 +8407,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-vercel.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-vercel.json"
       ]
     },
     {
@@ -8426,8 +8426,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-linear.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-linear.json"
       ]
     },
     {
@@ -8445,8 +8445,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8464,8 +8464,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-stripe.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-stripe.json"
       ]
     },
     {
@@ -8483,8 +8483,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-raycast.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-raycast.json"
       ]
     },
     {
@@ -8502,8 +8502,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8521,8 +8521,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-twitch.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-twitch.json"
       ]
     },
     {
@@ -8540,8 +8540,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8559,8 +8559,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-notion.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-notion.json"
       ]
     },
     {
@@ -8578,8 +8578,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8597,8 +8597,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8616,8 +8616,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-stripe.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-stripe.json"
       ]
     },
     {
@@ -8635,8 +8635,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8654,8 +8654,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8673,8 +8673,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8692,8 +8692,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-linear.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-linear.json"
       ]
     },
     {
@@ -8711,8 +8711,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-airbnb.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-airbnb.json"
       ]
     },
     {
@@ -8730,8 +8730,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-slack.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-slack.json"
       ]
     },
     {
@@ -8749,8 +8749,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8768,8 +8768,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8787,8 +8787,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-default.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-default.json"
       ]
     },
     {
@@ -8806,8 +8806,8 @@
       ],
       "dependencies": ["@faire/mjml-react", "mjml-browser"],
       "registryDependencies": [
-        "https://emailcn.com/r/mjml-runtime.json",
-        "https://emailcn.com/r/theme-vercel.json"
+        "https://emailcn.dev/r/mjml-runtime.json",
+        "https://emailcn.dev/r/theme-vercel.json"
       ]
     }
   ]
