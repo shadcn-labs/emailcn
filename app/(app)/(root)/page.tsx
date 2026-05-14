@@ -15,6 +15,14 @@ export const showcaseItems = [
     className: "md:col-span-2",
     name: "horizontal-team-member-bios-demo",
   },
+  {
+    className: "md:col-span-2",
+    name: "product-list-with-rows-demo",
+  },
+  {
+    className: "md:col-span-2",
+    name: "shopping-cart-row-items-demo",
+  },
 ];
 
 export default function IndexPage() {
@@ -48,7 +56,7 @@ export default function IndexPage() {
               key={item.name}
               hideNav
               hideCode
-              height={400}
+              height={410}
               name={item.name}
               className={item.className}
             />
