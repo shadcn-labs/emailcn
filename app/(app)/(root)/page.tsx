@@ -1,9 +1,21 @@
 import { CommandBox } from "@/components/command-box";
+import { ComponentPreview } from "@/components/component-preview";
 import { HomeCtas } from "@/components/home-ctas";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
 
 export const dynamic = "force-static";
 export const revalidate = false;
+
+export const showcaseItems = [
+  {
+    className: "md:col-span-2",
+    name: "full-width-testimonial-with-overlapping-avatar-demo",
+  },
+  {
+    className: "md:col-span-2",
+    name: "horizontal-team-member-bios-demo",
+  },
+];
 
 export default function IndexPage() {
   return (
@@ -30,7 +42,18 @@ export default function IndexPage() {
       </section>
 
       <section className="container-wrapper pb-8 lg:pb-12">
-        <div className="container"></div>
+        <div className="container grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {showcaseItems.map((item) => (
+            <ComponentPreview
+              key={item.name}
+              hideNav
+              hideCode
+              height={400}
+              name={item.name}
+              className={item.className}
+            />
+          ))}
+        </div>
       </section>
     </>
   );
