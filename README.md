@@ -12,7 +12,7 @@
   <a href="https://github.com/shadcn-labs/emailcn"><img src="https://www.shieldcn.dev/github/stars/shadcn-labs/emailcn.svg?variant=secondary&size=xs&theme=zinc" alt="GitHub Stars" /></a>
   <a href="https://github.com/shadcn-labs/emailcn/actions"><img src="https://www.shieldcn.dev/github/ci/shadcn-labs/emailcn.svg?variant=secondary&size=xs&theme=zinc" alt="CI" /></a>
   <a href="https://discord.gg/N6G36KhYK4"><img src="https://www.shieldcn.dev/discord/online-members/N6G36KhYK4.svg?variant=secondary&size=xs&theme=zinc" alt="Discord Members" /></a>
-  <a href="https://x.com/alaymanguy"><img src="https://www.shieldcn.dev/x/follow/alaymanguy.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
+  <a href="https://x.com/shadcnlabs"><img src="https://www.shieldcn.dev/x/follow/shadcnlabs.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
 </p>
 
 <p align="center">
@@ -29,62 +29,6 @@
 - 📧 **React Email v6** — Built on the latest React Email
 - 🧩 **Composable** — Build complex emails with simple, declarative components
 - 📱 **Responsive** — Works across all email clients
-
-## Quick Start
-
-```bash
-# Install react-email
-npm install react-email
-
-# Add a theme
-npx shadcn@latest add https://emailcn.dev/r/email-theme-default.json
-
-# Add components
-npx shadcn@latest add https://emailcn.dev/r/email-hero.json
-npx shadcn@latest add https://emailcn.dev/r/email-footer.json
-
-# Or add complete email blocks
-npx shadcn@latest add https://emailcn.dev/r/block-onboarding-default.json
-```
-
-## Available Themes
-
-| Theme   | Description                 |
-| ------- | --------------------------- |
-| Default | Clean, minimal design       |
-| Vercel  | Dark theme with white text  |
-| Linear  | Purple accent, modern       |
-| Stripe  | Indigo accent, professional |
-| GitHub  | Dark theme for developers   |
-| Notion  | Minimal, clean aesthetic    |
-| Raycast | Dark with coral accent      |
-| Twitch  | Purple accent               |
-| Airbnb  | Coral/red accent            |
-| Slack   | Purple accent               |
-
-## Available Components
-
-- **LogoHeader** — Company logo with navigation links
-- **Hero** — Heading, subheading, and CTA
-- **ContentGrid** — Feature grid (2-3 columns)
-- **FeatureRow** — Image + text row
-- **PricingTable** — Pricing plans display
-- **Testimonial** — Quote with avatar
-- **SocialLinks** — Social media links
-- **Footer** — Company info and links
-- **CTABanner** — Call-to-action banner
-- **Divider** — Horizontal divider
-- **AvatarRow** — Avatar with name/title
-- **ProductCard** — Product display card
-
-## Available Blocks
-
-- **Onboarding** — Welcome emails (default, vercel, linear)
-- **Auth** — Magic link, OTP, password reset (multiple themes)
-- **Receipt** — Order receipts (default, stripe, apple, nike)
-- **Notification** — User notifications (default, linear, airbnb, slack)
-- **Newsletter** — Email newsletters (default, stack-overflow)
-- **Invite** — Team invitations (default, vercel)
 
 ## Contributing
 
