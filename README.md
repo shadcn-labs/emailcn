@@ -1,20 +1,24 @@
+<p align="center">
+  <img src="public/og.png" alt="emailcn banner" />
+</p>
+
 <h1 align="center">emailcn</h1>
 
 <p align="center">
-  Free & open-source, shadcn/ui-compatible React Email components and blocks.<br/>
+  Free & open-source, ready-to-use, customizable email components for React.<br/>
   Zero config. One command setup. Built on <a href="https://react.email">React Email</a>, works seamlessly with <a href="https://ui.shadcn.com/">shadcn/ui</a>.
+  <br />
+  <br />
+  <a href="https://github.com/shadcn-labs/emailcn"><img src="https://www.shieldcn.dev/github/stars/shadcn-labs/emailcn.svg?variant=secondary&size=xs&theme=zinc" alt="GitHub Stars" /></a>
+  <a href="https://github.com/shadcn-labs/emailcn/actions"><img src="https://www.shieldcn.dev/github/ci/shadcn-labs/emailcn.svg?variant=secondary&size=xs&theme=zinc" alt="CI" /></a>
+  <a href="https://discord.gg/N6G36KhYK4"><img src="https://www.shieldcn.dev/discord/online-members/N6G36KhYK4.svg?variant=secondary&size=xs&theme=zinc" alt="Discord Members" /></a>
+  <a href="https://x.com/alaymanguy"><img src="https://www.shieldcn.dev/x/follow/alaymanguy.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
 </p>
 
 <p align="center">
   <a href="https://emailcn.dev/docs">Get Started</a> ·
   <a href="https://emailcn.dev/docs/installation">Installation</a> ·
   <a href="https://emailcn.dev/docs/components">Components</a>
-</p>
-
-<br />
-
-<p align="center">
-  <img src="public/og.png" alt="emailcn banner" />
 </p>
 
 ## Features
@@ -98,10 +102,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=Aniket-508%2Femailcn&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=shadcn-labs%2Femailcn&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Aniket-508/emailcn&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Aniket-508/emailcn&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Aniket-508/emailcn&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=shadcn-labs/emailcn&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=shadcn-labs/emailcn&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=shadcn-labs/emailcn&type=date&legend=top-left" />
  </picture>
 </a>
