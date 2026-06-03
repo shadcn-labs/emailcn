@@ -1,7 +1,6 @@
 import { ROUTES } from "@/constants/routes";
-
-import type { PageTreeFolder } from "./page-tree";
-import { formatLabelFromSlug } from "./utils";
+import type { PageTreeFolder } from "@/lib/page-tree";
+import { formatLabelFromSlug } from "@/lib/utils";
 
 export const DOCS_DIR = `content${ROUTES.DOCS}`;
 
