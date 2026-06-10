@@ -67,7 +67,7 @@ export const AuthOtpTwitch = ({
 
 AuthOtpTwitch.PreviewProps = {
   _logoAlt: "Twitch",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Twitch",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

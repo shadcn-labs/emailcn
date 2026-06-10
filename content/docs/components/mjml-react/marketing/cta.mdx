@@ -1,0 +1,472 @@
+---
+title: "CTA Banner"
+description: "Call-to-action banners for promotions and announcements."
+---
+
+## Boxed CTA with Background Image
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-cta-with-background-image-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-cta-with-background-image
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/boxed-cta-with-background-image.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { BoxedCtaWithBackgroundImage } from "@/components/emails/marketing/cta/boxed-cta-with-background-image";
+```
+
+```tsx
+<BoxedCtaWithBackgroundImage {...BoxedCtaWithBackgroundImage.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |
+
+## CTA with Background Image
+
+<ComponentPreview base="mjml-react" name="cta-with-background-image-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-background-image
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-with-background-image.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/cta-with-background-image.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CtaWithBackgroundImage } from "@/components/emails/marketing/cta/cta-with-background-image";
+```
+
+```tsx
+<CtaWithBackgroundImage {...CtaWithBackgroundImage.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |
+
+## CTA with Image Strip
+
+<ComponentPreview base="mjml-react" name="cta-with-image-strip-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-image-strip
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-with-image-strip.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/cta-with-image-strip.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CtaWithImageStrip } from "@/components/emails/marketing/cta/cta-with-image-strip";
+```
+
+```tsx
+<CtaWithImageStrip {...CtaWithImageStrip.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |
+
+## CTA with Shifted Images
+
+<ComponentPreview base="mjml-react" name="cta-with-shifted-images-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-shifted-images
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-with-shifted-images.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/cta-with-shifted-images.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CtaWithShiftedImages } from "@/components/emails/marketing/cta/cta-with-shifted-images";
+```
+
+```tsx
+<CtaWithShiftedImages {...CtaWithShiftedImages.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |
+
+## CTA with Team Avatars
+
+<ComponentPreview base="mjml-react" name="cta-with-team-avatars-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-team-avatars
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-with-team-avatars.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/cta-with-team-avatars.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CtaWithTeamAvatars } from "@/components/emails/marketing/cta/cta-with-team-avatars";
+```
+
+```tsx
+<CtaWithTeamAvatars {...CtaWithTeamAvatars.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |
+
+## CTA with Title and Action Lead
+
+<ComponentPreview
+  base="mjml-react"
+  name="cta-with-title-and-action-lead-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-title-and-action-lead
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-with-title-and-action-lead.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/cta-with-title-and-action-lead.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CtaWithTitleAndActionLead } from "@/components/emails/marketing/cta/cta-with-title-and-action-lead";
+```
+
+```tsx
+<CtaWithTitleAndActionLead {...CtaWithTitleAndActionLead.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |
+
+## CTA with Top Large Image
+
+<ComponentPreview base="mjml-react" name="cta-with-top-large-image-demo" />
+
+### Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-top-large-image
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/cta/cta-with-top-large-image.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/cta/cta-with-top-large-image.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { CtaWithTopLargeImage } from "@/components/emails/marketing/cta/cta-with-top-large-image";
+```
+
+```tsx
+<CtaWithTopLargeImage {...CtaWithTopLargeImage.PreviewProps} />
+```
+
+### API Reference
+
+| Prop       | Type         | Default                            | Description         |
+| ---------- | ------------ | ---------------------------------- | ------------------- |
+| `heading`  | `string`     | `"Get Started"`                    | Banner heading      |
+| `subtext`  | `string`     | `"Join thousands of happy users."` | Banner subtext      |
+| `ctaLabel` | `string`     | `"Get Started"`                    | CTA button label    |
+| `ctaHref`  | `string`     | `"#"`                              | CTA button link     |
+| `theme`    | `EmailTheme` | `defaultTheme`                     | Email theme styling |

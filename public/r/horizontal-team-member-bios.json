@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "horizontal-team-member-bios",
+  "title": "Horizontal Team Member Bios",
+  "description": "Marketing team variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/team/horizontal-team-member-bios.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TeamInlineVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface TeamInlineProps {\n  theme?: EmailThemeTokens;\n  members?: { avatarUrl?: string; name: string; role: string }[];\n  variant?: TeamInlineVariant;\n}\n\nconst TeamInlineSection = ({\n  members,\n  theme,\n  variant,\n}: {\n  members: TeamInlineProps[\"members\"];\n  theme: EmailThemeTokens;\n  variant: TeamInlineVariant;\n}) => {\n  const items = members ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      <MjmlColumn>\n        {items.slice(0, 4).map((member, i) => (\n          <MjmlColumn\n            key={member.name + i}\n            width={`${100 / Math.min(items.length, 4)}%`}\n            padding={theme.spacingBase ?? \"24px\"}\n            verticalAlign=\"middle\"\n          >\n            {member.avatarUrl ? (\n              <MjmlImage\n                align=\"center\"\n                alt={member.name}\n                borderRadius=\"50%\"\n                src={member.avatarUrl}\n                width={64}\n                height={64}\n                paddingBottom={theme.spacingBase ?? \"8px\"}\n              />\n            ) : null}\n            <MjmlText\n              align=\"center\"\n              color={theme.colorText}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeSm ?? \"12px\"}\n              fontWeight={theme.fontWeightMedium}\n              paddingBottom={theme.spacingBase ?? \"2px\"}\n            >\n              {member.name}\n            </MjmlText>\n            <MjmlText\n              align=\"center\"\n              color={theme.colorTextMuted}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeSm ?? \"11px\"}\n            >\n              {member.role}\n            </MjmlText>\n          </MjmlColumn>\n        ))}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const HorizontalTeamMemberBios = ({\n  theme = defaultTheme,\n  members = [\n    { name: \"John Doe\", role: \"CEO\" },\n    { name: \"Jane Smith\", role: \"CTO\" },\n    { name: \"Bob Wilson\", role: \"Design\" },\n    { name: \"Alice Lee\", role: \"Marketing\" },\n  ],\n  variant = \"default\",\n}: TeamInlineProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>team inline</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TeamInlineSection members={members} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHorizontalTeamMemberBios.PreviewProps = {\n  members: [\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-1&size=64\",\n      name: \"Alex Johnson\",\n      role: \"CEO\",\n    },\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-2&size=64\",\n      name: \"Maria Garcia\",\n      role: \"CTO\",\n    },\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-3&size=64\",\n      name: \"David Kim\",\n      role: \"Design\",\n    },\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2Fhorizontal-team-member-bios.tsx-64-4&size=64\",\n      name: \"Alice Lee\",\n      role: \"Marketing\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TeamInlineProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/team/horizontal-team-member-bios.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

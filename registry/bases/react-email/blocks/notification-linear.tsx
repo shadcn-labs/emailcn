@@ -100,8 +100,9 @@ export const NotificationLinear = ({
 
 NotificationLinear.PreviewProps = {
   _action: "commented on",
-  _actorAvatarUrl: "https://example.com/avatar.jpg",
-  _logoUrl: "https://example.com/logo.png",
+  _actorAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _logoUrl: "https://static.photos/business/320x80/3",
   _productName: "Linear",
   _targetName: "Bug in login flow",
   actorName: "Sarah",

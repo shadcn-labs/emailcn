@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "paragraph-2-columns-with-regular-padding",
+  "title": "Paragraph 2 Columns With Regular Padding",
+  "description": "Marketing content variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/content/paragraph-2-columns-with-regular-padding.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ContentGridMixedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface ContentGridMixedProps {\n  theme?: EmailThemeTokens;\n  columns?: {\n    imageUrl?: string;\n    imageAlt?: string;\n    title: string;\n    description: string;\n  }[];\n  variant?: ContentGridMixedVariant;\n}\nconst ContentGridMixedSection = ({\n  columns,\n  theme,\n  variant,\n}: {\n  columns: ContentGridMixedProps[\"columns\"];\n  theme: EmailThemeTokens;\n  variant: ContentGridMixedVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(columns ?? []).slice(0, 2).map((col, i) => (\n      <MjmlColumn\n        key={col.title + i}\n        width=\"50%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        {col.imageUrl ? (\n          <MjmlImage\n            alt={col.imageAlt ?? col.title}\n            borderRadius={theme.borderRadius}\n            src={col.imageUrl}\n            width={260}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          />\n        ) : null}\n        <MjmlText\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeLg}\n          fontWeight={theme.fontWeightMedium}\n          paddingBottom={theme.spacingBase ?? \"8px\"}\n        >\n          {col.title}\n        </MjmlText>\n        <MjmlText\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        >\n          {col.description}\n        </MjmlText>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const Paragraph2ColumnsWithRegularPadding = ({\n  theme = defaultTheme,\n  columns = [\n    { description: \"Description 1\", title: \"Feature 1\" },\n    { description: \"Description 2\", title: \"Feature 2\" },\n  ],\n  variant = \"default\",\n}: ContentGridMixedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>content mixed</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ContentGridMixedSection\n          columns={columns}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nParagraph2ColumnsWithRegularPadding.PreviewProps = {\n  columns: [\n    {\n      description: \"Beautiful design meets powerful functionality.\",\n      imageAlt: \"design\",\n      imageUrl: \"https://static.photos/architecture/400x250/2\",\n      title: \"Beautiful Design\",\n    },\n    {\n      description: \"Built for performance and reliability.\",\n      imageAlt: \"performance\",\n      imageUrl: \"https://static.photos/architecture/400x250/3\",\n      title: \"Fast Performance\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ContentGridMixedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/content/paragraph-2-columns-with-regular-padding.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -99,7 +99,8 @@ export const InviteDefault = ({
 InviteDefault.PreviewProps = {
   ctaHref: "https://example.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl: "https://example.com/avatar.jpg",
+  inviterAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
   inviterName: "Sarah",
   teamName: "Acme Team",
 } satisfies Props;

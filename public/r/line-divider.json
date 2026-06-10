@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "line-divider",
+  "title": "Line Divider",
+  "description": "UI Elements spacing variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/spacing/line-divider.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface LineDividerProps {\n  theme?: EmailThemeTokens;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst LineDividerSection = ({ theme }: { theme: EmailThemeTokens }) => (\n  <MjmlSection padding={`${theme.spacingBase ?? \"16px\"} 0`}>\n    <MjmlColumn>\n      <MjmlDivider borderColor={theme.colorBorder} />\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const LineDivider = ({\n  theme = defaultTheme,\n  variant = \"default\",\n}: LineDividerProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>divider</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <LineDividerSection theme={theme} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nLineDivider.PreviewProps = {\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies LineDividerProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/spacing/line-divider.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "primary-buttons-with-icon",
+  "title": "Primary Buttons With Icon",
+  "description": "UI Elements buttons variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/buttons/primary-buttons-with-icon.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlButton,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface PrimaryButtonsWithIconProps {\n  theme?: EmailThemeTokens;\n  label?: string;\n  href?: string;\n  icon?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst PrimaryButtonsWithIconSection = ({\n  label,\n  href,\n  icon,\n  theme,\n  variant,\n}: {\n  label: string;\n  href: string;\n  icon: string;\n  theme: EmailThemeTokens;\n  variant: NonNullable<PrimaryButtonsWithIconProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingBase ?? \"24px\"} 0`}>\n      <MjmlColumn>\n        <MjmlText\n          align={alignText}\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n          paddingBottom={theme.spacingBase ?? \"16px\"}\n        >\n          {icon}\n        </MjmlText>\n        <MjmlButton\n          align={alignText}\n          backgroundColor={theme.colorPrimary}\n          borderRadius={theme.borderRadius}\n          color={theme.colorPrimaryForeground ?? \"#ffffff\"}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n          fontWeight={theme.fontWeightMedium ?? \"500\"}\n          href={href}\n          innerPadding={`${theme.spacingBase ?? \"16px\"} ${theme.spacingLg ?? \"24px\"}`}\n        >\n          {label}\n        </MjmlButton>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const PrimaryButtonsWithIcon = ({\n  theme = defaultTheme,\n  label = \"Shop Now\",\n  href = \"#\",\n  icon = \"\\u279C\",\n  variant = \"default\",\n}: PrimaryButtonsWithIconProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>primary-icon-btn</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <PrimaryButtonsWithIconSection\n          label={label}\n          href={href}\n          icon={icon}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nPrimaryButtonsWithIcon.PreviewProps = {\n  href: \"#\",\n  icon: \"\\u279C\",\n  label: \"Shop Now\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies PrimaryButtonsWithIconProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/buttons/primary-buttons-with-icon.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

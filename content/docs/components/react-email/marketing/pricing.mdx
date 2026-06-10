@@ -1,0 +1,153 @@
+---
+title: "Pricing Table"
+description: "Pricing comparison tables for subscription plans."
+---
+
+## Full Width Single
+
+<ComponentPreview base="react-email" name="full-width-single-pricing-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-single-pricing
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/pricing/full-width-single-pricing.tsx"
+    base="react-email"
+    title="components/emails/marketing/pricing/full-width-single-pricing.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { FullWidthSinglePricing } from "@/components/emails/marketing/pricing/full-width-single-pricing";
+```
+
+```tsx
+<FullWidthSinglePricing {...FullWidthSinglePricing.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## 2 Columns
+
+<ComponentPreview base="react-email" name="two-columns-pricing-table-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-pricing-table
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/pricing/two-columns-pricing-table.tsx"
+    base="react-email"
+    title="components/emails/marketing/pricing/two-columns-pricing-table.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsPricingTable } from "@/components/emails/marketing/pricing/two-columns-pricing-table";
+```
+
+```tsx
+<TwoColumnsPricingTable {...TwoColumnsPricingTable.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## 2 Columns with Gaps
+
+<ComponentPreview
+  base="react-email"
+  name="two-columns-pricing-table-with-gaps-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-pricing-table-with-gaps
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/pricing/two-columns-pricing-table-with-gaps.tsx"
+    base="react-email"
+    title="components/emails/marketing/pricing/two-columns-pricing-table-with-gaps.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { TwoColumnsPricingTableWithGaps } from "@/components/emails/marketing/pricing/two-columns-pricing-table-with-gaps";
+```
+
+```tsx
+<TwoColumnsPricingTableWithGaps
+  {...TwoColumnsPricingTableWithGaps.PreviewProps}
+/>
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

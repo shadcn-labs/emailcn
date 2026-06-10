@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-width-progress-bar",
+  "title": "Full Width Progress Bar",
+  "description": "UI Elements progress-bars variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/progress-bars/full-width-progress-bar.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface FullWidthProgressBarProps {\n  theme?: EmailThemeTokens;\n  value?: number;\n  label?: string;\n  showLabel?: boolean;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst FullWidthProgressBarSection = ({\n  value,\n  label,\n  showLabel,\n  theme,\n}: {\n  value: number;\n  label?: string;\n  showLabel: boolean;\n  theme: EmailThemeTokens;\n}) => {\n  const clamped = Math.max(0, Math.min(100, value));\n  const fillWidth = `${clamped}%`;\n  const emptyWidth = `${100 - clamped}%`;\n\n  return (\n    <MjmlSection padding={`${theme.spacingLg ?? \"32px\"} 0`}>\n      <MjmlColumn>\n        {label || showLabel ? (\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase ?? \"14px\"}\n            fontWeight={theme.fontWeightMedium ?? \"500\"}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          >\n            {label ?? `${clamped}%`}\n            {showLabel && label ? ` — ${clamped}%` : null}\n          </MjmlText>\n        ) : null}\n        <MjmlSection\n          backgroundColor={theme.colorBackgroundSubtle ?? \"#f3f4f6\"}\n          borderRadius={theme.borderRadius}\n          padding=\"0\"\n        >\n          {clamped > 0 ? (\n            <MjmlColumn\n              backgroundColor={theme.colorPrimary}\n              borderRadius={theme.borderRadius}\n              width={fillWidth}\n              padding=\"8px 0\"\n            >\n              <MjmlText\n                align=\"center\"\n                color={theme.colorPrimaryForeground}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeSm ?? \"12px\"}\n                fontWeight={theme.fontWeightBold ?? \"600\"}\n                padding=\"0\"\n              >\n                {clamped}%\n              </MjmlText>\n            </MjmlColumn>\n          ) : null}\n          {clamped < 100 ? <MjmlColumn width={emptyWidth} padding=\"0\" /> : null}\n        </MjmlSection>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const FullWidthProgressBar = ({\n  theme = defaultTheme,\n  value = 65,\n  label,\n  showLabel = true,\n  variant = \"default\",\n}: FullWidthProgressBarProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>progress-bar</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FullWidthProgressBarSection\n          value={value}\n          label={label}\n          showLabel={showLabel}\n          theme={theme}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFullWidthProgressBar.PreviewProps = {\n  label: \"Progress\",\n  showLabel: true,\n  theme: defaultTheme,\n  value: 65,\n  variant: \"default\",\n} satisfies FullWidthProgressBarProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

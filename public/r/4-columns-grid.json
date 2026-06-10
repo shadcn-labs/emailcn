@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "4-columns-grid",
+  "title": "4 Columns Grid",
+  "description": "UI Elements grids variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/grids/4-columns-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface FourColumnsGridProps {\n  theme?: EmailThemeTokens;\n  col1?: string;\n  col2?: string;\n  col3?: string;\n  col4?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst FourColumnsGridSection = ({\n  col1,\n  col2,\n  col3,\n  col4,\n  theme,\n  variant,\n}: {\n  col1: string;\n  col2: string;\n  col3: string;\n  col4: string;\n  theme: EmailThemeTokens;\n  variant: NonNullable<FourColumnsGridProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingXl ?? \"24px\"} 0`}>\n      <MjmlColumn width=\"25%\" padding={theme.spacingBase ?? \"16px\"}>\n        <MjmlText\n          align={alignText}\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >\n          {col1}\n        </MjmlText>\n      </MjmlColumn>\n      <MjmlColumn width=\"25%\" padding={theme.spacingBase ?? \"16px\"}>\n        <MjmlText\n          align={alignText}\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >\n          {col2}\n        </MjmlText>\n      </MjmlColumn>\n      <MjmlColumn width=\"25%\" padding={theme.spacingBase ?? \"16px\"}>\n        <MjmlText\n          align={alignText}\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >\n          {col3}\n        </MjmlText>\n      </MjmlColumn>\n      <MjmlColumn width=\"25%\" padding={theme.spacingBase ?? \"16px\"}>\n        <MjmlText\n          align={alignText}\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >\n          {col4}\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const FourColumnsGrid = ({\n  theme = defaultTheme,\n  col1 = \"A\",\n  col2 = \"B\",\n  col3 = \"C\",\n  col4 = \"D\",\n  variant = \"default\",\n}: FourColumnsGridProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>4-col-grid</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FourColumnsGridSection\n          col1={col1}\n          col2={col2}\n          col3={col3}\n          col4={col4}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFourColumnsGrid.PreviewProps = {\n  col1: \"Product\",\n  col2: \"Price\",\n  col3: \"Qty\",\n  col4: \"Total\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FourColumnsGridProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/grids/4-columns-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

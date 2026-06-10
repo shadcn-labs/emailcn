@@ -68,7 +68,7 @@ export const AuthPasswordResetDefault = ({
 
 AuthPasswordResetDefault.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Acme",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

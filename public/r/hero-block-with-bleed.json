@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-block-with-bleed",
+  "title": "Hero Block With Bleed",
+  "description": "Marketing hero variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/hero/hero-block-with-bleed.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlButton,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type HeroBlockWithBleedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface HeroBlockWithBleedProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  subheading?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  imageSrc?: string;\n  imageAlt?: string;\n  backgroundColor?: string;\n  variant?: HeroBlockWithBleedVariant;\n}\n\nconst BlockBleedCta = ({\n  ctaHref,\n  ctaLabel,\n  theme,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  theme: EmailThemeTokens;\n}) => (\n  <MjmlButton\n    align=\"center\"\n    backgroundColor={theme.colorPrimary}\n    borderRadius={theme.borderRadius}\n    color={theme.colorPrimaryForeground}\n    fontFamily={theme.fontFamily}\n    fontSize={theme.fontSizeSm}\n    fontWeight={theme.fontWeightMedium}\n    href={ctaHref}\n    innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}\n  >\n    {ctaLabel}\n  </MjmlButton>\n);\n\nconst HeroBlockWithBleedSection = ({\n  backgroundColor,\n  ctaHref,\n  ctaLabel,\n  heading,\n  imageAlt,\n  imageSrc,\n  subheading,\n  theme,\n  variant,\n}: {\n  backgroundColor: string;\n  ctaHref?: string;\n  ctaLabel?: string;\n  heading: string;\n  imageAlt: string;\n  imageSrc: string;\n  subheading: string;\n  theme: EmailThemeTokens;\n  variant: HeroBlockWithBleedVariant;\n}) => (\n  <MjmlSection backgroundColor={backgroundColor} padding=\"48px 0\">\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimaryForeground}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeHeading}\n        fontWeight={theme.fontWeightBold}\n        paddingBottom={theme.spacingBase}\n      >\n        {heading}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimaryForeground}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg}\n        lineHeight={theme.lineHeightBase}\n        paddingBottom={theme.spacingXl}\n      >\n        {subheading}\n      </MjmlText>\n      {ctaLabel && ctaHref ? (\n        <BlockBleedCta ctaHref={ctaHref} ctaLabel={ctaLabel} theme={theme} />\n      ) : null}\n    </MjmlColumn>\n    <MjmlColumn padding=\"24px 0 0\">\n      <MjmlImage\n        align=\"center\"\n        alt={imageAlt}\n        src={imageSrc}\n        width=\"100%\"\n        padding=\"0\"\n      />\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const HeroBlockWithBleed = ({\n  theme = defaultTheme,\n  heading = \"Block with Bleed\",\n  subheading = \"Full-width background with an image that bleeds to the edges.\",\n  ctaLabel = \"Explore\",\n  ctaHref = \"#\",\n  imageSrc = \"https://static.photos/business/600x300/2\",\n  imageAlt = \"bleed image\",\n  backgroundColor = \"#111827\",\n  variant = \"default\",\n}: HeroBlockWithBleedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>hero block bleed</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <HeroBlockWithBleedSection\n          backgroundColor={backgroundColor}\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          heading={heading}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          subheading={subheading}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHeroBlockWithBleed.PreviewProps = {\n  backgroundColor: \"#111827\",\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Shop Now\",\n  heading: \"Hero Block with Bleed\",\n  imageAlt: \"bleed image\",\n  imageSrc: \"https://static.photos/business/600x300/3\",\n  subheading:\n    \"A full-width dark background section with a heading and a bleeding image below.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeroBlockWithBleedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/hero/hero-block-with-bleed.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

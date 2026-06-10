@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "product-list-with-rows",
+  "title": "Product List With Rows",
+  "description": "Ecommerce product-lists variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ecommerce/product-lists/product-list-with-rows.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface ProductListWithRowsProps {\n  theme?: EmailThemeTokens;\n  products?: {\n    imageUrl?: string;\n    name: string;\n    price: string;\n    quantity?: number;\n    href?: string;\n  }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst ProductListWithRowsSection = ({\n  products,\n  theme,\n}: {\n  products: NonNullable<ProductListWithRowsProps[\"products\"]>;\n  theme: EmailThemeTokens;\n}) => (\n  <MjmlWrapper\n    border={`1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`}\n    borderRadius={theme.borderRadius}\n    padding={theme.spacingBase ?? \"16px\"}\n  >\n    {products.map((product) => (\n      <MjmlSection\n        key={product.name}\n        padding={`${theme.spacingBase ?? \"16px\"} 0`}\n      >\n        <MjmlColumn width=\"80px\">\n          {product.imageUrl ? (\n            <MjmlImage\n              alt={product.name}\n              borderRadius={theme.borderRadius}\n              src={product.imageUrl}\n              width={64}\n            />\n          ) : null}\n        </MjmlColumn>\n        <MjmlColumn>\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase ?? \"14px\"}\n            fontWeight={theme.fontWeightMedium ?? \"500\"}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          >\n            {product.name}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase ?? \"14px\"}\n          >\n            {product.price}\n          </MjmlText>\n        </MjmlColumn>\n      </MjmlSection>\n    ))}\n  </MjmlWrapper>\n);\n\nexport const ProductListWithRows = ({\n  theme = defaultTheme,\n  products = [\n    { name: \"Product 1\", price: \"$29.00\" },\n    { name: \"Product 2\", price: \"$39.00\" },\n  ],\n  variant = \"default\",\n}: ProductListWithRowsProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>product-list-rows</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <ProductListWithRowsSection products={products} theme={theme} />\n    </MjmlBody>\n  </Mjml>\n);\n\nProductListWithRows.PreviewProps = {\n  products: [\n    {\n      href: \"#\",\n      imageUrl: \"https://static.photos/technology/800x600/2\",\n      name: \"Wireless Headphones\",\n      price: \"$129.00\",\n    },\n    {\n      href: \"#\",\n      imageUrl: \"https://static.photos/technology/800x600/3\",\n      name: \"Leather Wallet\",\n      price: \"$59.00\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ProductListWithRowsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ecommerce/product-lists/product-list-with-rows.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

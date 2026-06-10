@@ -20,7 +20,10 @@ const replacements = [
     "@/components/emails/themes/mjml-$1",
   ],
   [/@\/registry\/bases\/mjml-react\/ui\/([^"']+)/g, "@/components/emails/$1"],
-  [/@\/registry\/bases\/mjml-react\/blocks\/([^"']+)/g, "@/components/emails/$1"],
+  [
+    /@\/registry\/bases\/mjml-react\/blocks\/([^"']+)/g,
+    "@/components/emails/$1",
+  ],
 ];
 
 const normalizeCode = (code) => {

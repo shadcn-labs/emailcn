@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-user-details",
+  "title": "Header With User Details",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-user-details.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type HeaderMinimalVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface HeaderMinimalProps {\n  theme?: EmailThemeTokens;\n  title?: string;\n  variant?: HeaderMinimalVariant;\n}\n\nconst HeaderMinimalSection = ({\n  theme,\n  title,\n  variant,\n}: {\n  theme: EmailThemeTokens;\n  title: string;\n  variant: HeaderMinimalVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0 ${theme.spacingBase ?? \"24px\"} 0`}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeXl ?? \"20px\"}\n        fontWeight={theme.fontWeightMedium}\n      >\n        {title}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const HeaderWithUserDetails = ({\n  theme = defaultTheme,\n  title = \"Section Title\",\n  variant = \"default\",\n}: HeaderMinimalProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>header minimal</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <HeaderMinimalSection theme={theme} title={title} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHeaderWithUserDetails.PreviewProps = {\n  theme: defaultTheme,\n  title: \"What Our Customers Say\",\n  variant: \"default\",\n} satisfies HeaderMinimalProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-user-details.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

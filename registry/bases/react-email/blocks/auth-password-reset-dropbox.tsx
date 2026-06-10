@@ -72,7 +72,7 @@ export const AuthPasswordResetDropbox = ({
 
 AuthPasswordResetDropbox.PreviewProps = {
   _logoAlt: "Dropbox",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Dropbox",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

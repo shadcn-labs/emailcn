@@ -15,7 +15,7 @@ import {
 } from "react-email";
 
 import { appleTheme } from "@/registry/bases/react-email/themes/apple";
-import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
+import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
 
 interface ReceiptItem {
   name: string;
@@ -68,11 +68,15 @@ export const ReceiptApple = ({
             <Section>
               {items.map((item, index) => (
                 <ProductCardSection
-                  key={index}
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
+                  key={`${item.name}-${index}`}
+                  products={[
+                    {
+                      imageUrl: item.imageUrl,
+                      name: item.name,
+                      price: item.price,
+                      quantity: item.quantity,
+                    },
+                  ]}
                 />
               ))}
             </Section>
@@ -133,7 +137,7 @@ ReceiptApple.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/iphone.jpg",
+      imageUrl: "https://static.photos/technology/640x640/2",
       name: "iPhone 15 Pro",
       price: "$999.00",
       quantity: 1,

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "paragraph-with-regular-padding",
+  "title": "Paragraph With Regular Padding",
+  "description": "Marketing content variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/content/paragraph-with-regular-padding.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ContentGridThreeColumnVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface ContentGridThreeColumnProps {\n  theme?: EmailThemeTokens;\n  columns?: { iconUrl?: string; title: string; description: string }[];\n  variant?: ContentGridThreeColumnVariant;\n}\n\nconst ContentGridThreeColumnSection = ({\n  columns,\n  theme,\n  variant,\n}: {\n  columns: ContentGridThreeColumnProps[\"columns\"];\n  theme: EmailThemeTokens;\n  variant: ContentGridThreeColumnVariant;\n}) => {\n  const items = columns ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {items.slice(0, 3).map((col, i) => (\n        <MjmlColumn\n          key={col.title + i}\n          width=\"33.33%\"\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"top\"\n        >\n          {col.iconUrl ? (\n            <MjmlImage\n              align=\"center\"\n              alt={col.title}\n              src={col.iconUrl}\n              width={48}\n              paddingBottom={theme.spacingBase ?? \"24px\"}\n            />\n          ) : null}\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeLg ?? \"16px\"}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          >\n            {col.title}\n          </MjmlText>\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase ?? \"14px\"}\n            lineHeight={theme.lineHeightBase}\n          >\n            {col.description}\n          </MjmlText>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const ParagraphWithRegularPadding = ({\n  theme = defaultTheme,\n  columns = [\n    { description: \"Description for item 1\", title: \"Item 1\" },\n    { description: \"Description for item 2\", title: \"Item 2\" },\n    { description: \"Description for item 3\", title: \"Item 3\" },\n  ],\n  variant = \"default\",\n}: ContentGridThreeColumnProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>content 3-col</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ContentGridThreeColumnSection\n          columns={columns}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nParagraphWithRegularPadding.PreviewProps = {\n  columns: [\n    {\n      description: \"Lightning-fast email rendering.\",\n      iconUrl:\n        \"https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-with-regular-padding.tsx-1&size=48\",\n      title: \"Fast\",\n    },\n    {\n      description: \"Works across all email clients.\",\n      iconUrl:\n        \"https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-with-regular-padding.tsx-2&size=48\",\n      title: \"Reliable\",\n    },\n    {\n      description: \"Your data is always protected.\",\n      iconUrl:\n        \"https://api.dicebear.com/9.x/initials/png?seed=glyph-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fcontent%2Fparagraph-with-regular-padding.tsx-3&size=48\",\n      title: \"Secure\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ContentGridThreeColumnProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/content/paragraph-with-regular-padding.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

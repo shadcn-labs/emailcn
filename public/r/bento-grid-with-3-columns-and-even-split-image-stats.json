@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid-with-3-columns-and-even-split-image-stats",
+  "title": "Bento Grid With 3 Columns And Even Split Image Stats",
+  "description": "Marketing bento-grids variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type BentoGridStatsVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface BentoGridStatsProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  stats?: { value: string; label: string; imageUrl?: string }[];\n  variant?: BentoGridStatsVariant;\n}\nconst BentoGridStatsSection = ({\n  heading,\n  stats,\n  theme,\n  variant,\n}: {\n  heading: string;\n  stats: BentoGridStatsProps[\"stats\"];\n  theme: EmailThemeTokens;\n  variant: BentoGridStatsVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {heading ? (\n      <MjmlColumn>\n        <MjmlText\n          align=\"center\"\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeHeading}\n          fontWeight={theme.fontWeightBold}\n          paddingBottom={theme.spacingXl ?? \"48px\"}\n        >\n          {heading}\n        </MjmlText>\n      </MjmlColumn>\n    ) : null}\n    {(stats ?? []).slice(0, 4).map((s, i) => (\n      <MjmlColumn\n        key={s.label + i}\n        width=\"25%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        {s.imageUrl ? (\n          <MjmlImage\n            align=\"center\"\n            alt={s.label}\n            borderRadius={theme.borderRadius}\n            src={s.imageUrl}\n            width={200}\n            paddingBottom={theme.spacingBase ?? \"12px\"}\n          />\n        ) : null}\n        <MjmlText\n          align=\"center\"\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize=\"24px\"\n          fontWeight={theme.fontWeightBold}\n          paddingBottom={theme.spacingBase ?? \"4px\"}\n        >\n          {s.value}\n        </MjmlText>\n        <MjmlText\n          align=\"center\"\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm}\n        >\n          {s.label}\n        </MjmlText>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const BentoGridWith3ColumnsAndEvenSplitImageStats = ({\n  theme = defaultTheme,\n  heading = \"By the Numbers\",\n  stats = [\n    { label: \"Users\", value: \"10K+\" },\n    { label: \"Downloads\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"Reviews\", value: \"5K+\" },\n  ],\n  variant = \"default\",\n}: BentoGridStatsProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>bento stats</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <BentoGridStatsSection\n          heading={heading}\n          stats={stats}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nBentoGridWith3ColumnsAndEvenSplitImageStats.PreviewProps = {\n  heading: \"By the Numbers\",\n  stats: [\n    { label: \"Active Users\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"5-Star Reviews\", value: \"10K+\" },\n    { label: \"Years in Business\", value: \"5+\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BentoGridStatsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

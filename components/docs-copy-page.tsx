@@ -2,6 +2,7 @@
 
 import { ChevronDownIcon } from "lucide-react";
 
+import { CopyButton } from "@/components/copy-button";
 import {
   ChatGptIcon,
   ClaudeIcon,
@@ -27,8 +28,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-
-import { CopyButton } from "./copy-button";
 
 const getPromptUrl = (baseURL: string, url: string, param = "q") =>
   `${baseURL}?${param}=${encodeURIComponent(

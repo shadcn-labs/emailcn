@@ -1,0 +1,347 @@
+---
+title: "Data Tables"
+description: "Table components for displaying structured data and metrics in emails."
+---
+
+## Basic
+
+<ComponentPreview base="react-email" name="data-table-basic-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-basic
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/basic.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/basic.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { Basic } from "@/components/emails/ui-elements/data-tables/basic";
+```
+
+```tsx
+<Basic {...Basic.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## With 4 Columns
+
+<ComponentPreview base="react-email" name="data-table-4-columns-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-4-columns
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-4-columns.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { DataTableWith4Columns } from "@/components/emails/ui-elements/data-tables/data-table-with-4-columns";
+```
+
+```tsx
+<DataTableWith4Columns {...DataTableWith4Columns.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## With Change Indicator Pills
+
+<ComponentPreview base="react-email" name="data-table-change-indicator-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-change-indicator-pills
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { DataTableWithChangeIndicatorPills } from "@/components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills";
+```
+
+```tsx
+<DataTableWithChangeIndicatorPills
+  {...DataTableWithChangeIndicatorPills.PreviewProps}
+/>
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## With Edit Button
+
+<ComponentPreview base="react-email" name="data-table-edit-button-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-edit-button
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-edit-button.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-edit-button.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { DataTableWithEditButton } from "@/components/emails/ui-elements/data-tables/data-table-with-edit-button";
+```
+
+```tsx
+<DataTableWithEditButton {...DataTableWithEditButton.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## With Logos and Action Links
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-title-and-action-lead-demo"
+/>
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-logos-and-action-links
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { DataTableWithLogosAndActionLinks } from "@/components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links";
+```
+
+```tsx
+<DataTableWithLogosAndActionLinks
+  {...DataTableWithLogosAndActionLinks.PreviewProps}
+/>
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## With Pills
+
+<ComponentPreview base="react-email" name="data-table-with-pills-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-pills
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-pills.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-pills.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { DataTableWithPills } from "@/components/emails/ui-elements/data-tables/data-table-with-pills";
+```
+
+```tsx
+<DataTableWithPills {...DataTableWithPills.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## With Progress Bar
+
+<ComponentPreview base="react-email" name="data-table-with-progress-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-progress-bar
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { DataTableWithProgressBar } from "@/components/emails/ui-elements/data-tables/data-table-with-progress-bar";
+```
+
+```tsx
+<DataTableWithProgressBar {...DataTableWithProgressBar.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

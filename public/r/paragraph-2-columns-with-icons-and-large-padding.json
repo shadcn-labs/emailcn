@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "paragraph-2-columns-with-icons-and-large-padding",
+  "title": "Paragraph 2 Columns With Icons And Large Padding",
+  "description": "Marketing content variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/content/paragraph-2-columns-with-icons-and-large-padding.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ContentGridBorderedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface ContentGridBorderedProps {\n  theme?: EmailThemeTokens;\n  columns?: { title: string; description: string }[];\n  variant?: ContentGridBorderedVariant;\n}\nconst ContentGridBorderedSection = ({\n  columns,\n  theme,\n  variant,\n}: {\n  columns: ContentGridBorderedProps[\"columns\"];\n  theme: EmailThemeTokens;\n  variant: ContentGridBorderedVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(columns ?? []).slice(0, 2).map((col, i) => (\n      <MjmlColumn\n        key={col.title + i}\n        width=\"50%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        <MjmlSection\n          backgroundColor={theme.colorBackgroundMuted}\n          border={`1px solid ${theme.colorBorder}`}\n          borderRadius={theme.borderRadius}\n          padding={theme.spacingBase ?? \"16px\"}\n        >\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeLg}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"8px\"}\n          >\n            {col.title}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n            lineHeight={theme.lineHeightBase}\n          >\n            {col.description}\n          </MjmlText>\n        </MjmlSection>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const Paragraph2ColumnsWithIconsAndLargePadding = ({\n  theme = defaultTheme,\n  columns = [\n    { description: \"Description 1\", title: \"Feature 1\" },\n    { description: \"Description 2\", title: \"Feature 2\" },\n  ],\n  variant = \"default\",\n}: ContentGridBorderedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>content bordered</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ContentGridBorderedSection\n          columns={columns}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nParagraph2ColumnsWithIconsAndLargePadding.PreviewProps = {\n  columns: [\n    {\n      description:\n        \"Build responsive emails quickly with our drag-and-drop builder.\",\n      title: \"Visual Builder\",\n    },\n    {\n      description:\n        \"Seamlessly integrates with your existing tools and workflows.\",\n      title: \"Easy Integration\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ContentGridBorderedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/content/paragraph-2-columns-with-icons-and-large-padding.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

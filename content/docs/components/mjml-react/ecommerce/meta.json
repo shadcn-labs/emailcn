@@ -1,0 +1,11 @@
+{
+  "title": "Ecommerce",
+  "pages": [
+    "category-previews",
+    "order-summary",
+    "product-detail",
+    "product-lists",
+    "reviews",
+    "shopping-cart"
+  ]
+}

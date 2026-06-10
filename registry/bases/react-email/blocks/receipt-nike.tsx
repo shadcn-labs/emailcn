@@ -15,7 +15,7 @@ import {
 } from "react-email";
 
 import { nikeTheme } from "@/registry/bases/react-email/themes/nike";
-import { ProductCardSection } from "@/registry/bases/react-email/ui/product-card";
+import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
 
 interface ReceiptItem {
   name: string;
@@ -40,7 +40,7 @@ export const ReceiptNike = ({
   customerName = "John",
   items = [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: "https://static.photos/technology/640x640/2",
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,
@@ -75,11 +75,15 @@ export const ReceiptNike = ({
             <Section>
               {items.map((item, index) => (
                 <ProductCardSection
-                  key={index}
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
+                  key={`${item.name}-${index}`}
+                  products={[
+                    {
+                      imageUrl: item.imageUrl,
+                      name: item.name,
+                      price: item.price,
+                      quantity: item.quantity,
+                    },
+                  ]}
                 />
               ))}
             </Section>
@@ -140,7 +144,7 @@ ReceiptNike.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: "https://static.photos/technology/640x640/3",
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,

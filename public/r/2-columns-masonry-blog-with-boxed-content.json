@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-masonry-blog-with-boxed-content",
+  "title": "2 Columns Masonry Blog With Boxed Content",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n  MjmlButton,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type BlogCtaBannerVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface BlogCtaBannerProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  description?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: BlogCtaBannerVariant;\n}\nconst BlogCtaBannerSection = ({\n  ctaHref,\n  ctaLabel,\n  description,\n  heading,\n  theme,\n  variant,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  description: string;\n  heading: string;\n  theme: EmailThemeTokens;\n  variant: BlogCtaBannerVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackgroundMuted}\n    borderRadius={theme.borderRadius}\n    padding={theme.spacingXl ?? \"24px\"}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimary}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm}\n        fontWeight={theme.fontWeightBold}\n        paddingBottom={theme.spacingBase ?? \"8px\"}\n      >\n        {heading}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"8px\"}\n      >\n        {description}\n      </MjmlText>\n      {ctaLabel && ctaHref ? (\n        <MjmlButton\n          align=\"center\"\n          backgroundColor={theme.colorPrimary}\n          borderRadius={theme.borderRadius}\n          color={theme.colorPrimaryForeground}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm}\n          fontWeight={theme.fontWeightMedium}\n          href={ctaHref}\n          innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}\n        >\n          {ctaLabel}\n        </MjmlButton>\n      ) : null}\n    </MjmlColumn>\n  </MjmlSection>\n);\nexport const TwoColumnsMasonryBlogWithBoxedContent = ({\n  theme = defaultTheme,\n  heading = \"Subscribe\",\n  description = \"Get the latest posts delivered to your inbox.\",\n  ctaLabel = \"Subscribe Now\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: BlogCtaBannerProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>blog cta banner</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <BlogCtaBannerSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          description={description}\n          heading={heading}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nTwoColumnsMasonryBlogWithBoxedContent.PreviewProps = {\n  ctaHref: \"https://example.com/subscribe\",\n  ctaLabel: \"Subscribe Now\",\n  description: \"Get the latest posts delivered to your inbox every week.\",\n  heading: \"NEWSLETTER\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BlogCtaBannerProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

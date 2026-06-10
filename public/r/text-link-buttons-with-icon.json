@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-link-buttons-with-icon",
+  "title": "Text Link Buttons With Icon",
+  "description": "UI Elements buttons variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/buttons/text-link-buttons-with-icon.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface TextLinkButtonsWithIconProps {\n  theme?: EmailThemeTokens;\n  label?: string;\n  href?: string;\n  icon?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst TextLinkButtonsWithIconSection = ({\n  label,\n  href,\n  icon,\n  theme,\n  variant,\n}: {\n  label: string;\n  href: string;\n  icon: string;\n  theme: EmailThemeTokens;\n  variant: NonNullable<TextLinkButtonsWithIconProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingBase ?? \"24px\"} 0`}>\n      <MjmlColumn>\n        <MjmlText\n          align={alignText}\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >\n          <a\n            href={href}\n            style={{\n              color: theme.colorPrimary,\n              fontFamily: theme.fontFamily,\n              textDecoration: \"underline\",\n            }}\n          >\n            {icon} {label}\n          </a>\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const TextLinkButtonsWithIcon = ({\n  theme = defaultTheme,\n  label = \"Learn More\",\n  href = \"#\",\n  icon = \"\\u2192\",\n  variant = \"default\",\n}: TextLinkButtonsWithIconProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>text-link-icon</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TextLinkButtonsWithIconSection\n          label={label}\n          href={href}\n          icon={icon}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nTextLinkButtonsWithIcon.PreviewProps = {\n  href: \"#\",\n  icon: \"\\u2192\",\n  label: \"View Details\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TextLinkButtonsWithIconProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/buttons/text-link-buttons-with-icon.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,74 @@
+---
+title: "Avatar Row"
+description: "User avatar components for displaying people in emails."
+---
+
+<ComponentPreview base="mjml-react" name="avatar-with-details-demo" hideCode />
+
+## Variants
+
+### Avatar with Details
+
+<ComponentPreview base="mjml-react" name="avatar-with-details-demo" />
+
+### Grouped Overlapped Avatars
+
+<ComponentPreview base="mjml-react" name="grouped-overlapped-avatars-demo" />
+
+### Grouped Overlapped Avatars with Plus Count
+
+<ComponentPreview base="mjml-react" name="grouped-overlapped-avatars-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-avatar-row
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/avatars/avatar-with-details.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/avatars/avatar-with-details.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AvatarWithDetails } from "@/components/emails/ui-elements/avatars/avatar-with-details";
+```
+
+```tsx
+<AvatarWithDetails {...AvatarWithDetails.PreviewProps} />
+```
+
+## API Reference
+
+### Avatar Row
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-testimonial-with-cta",
+  "title": "Split Testimonial With Cta",
+  "description": "Marketing testimonials variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/testimonials/split-testimonial-with-cta.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TestimonialGridVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface TestimonialGridProps {\n  theme?: EmailThemeTokens;\n  testimonials?: {\n    avatarUrl?: string;\n    name: string;\n    role: string;\n    quote: string;\n  }[];\n  variant?: TestimonialGridVariant;\n}\nconst TestimonialGridSection = ({\n  testimonials,\n  theme,\n  variant,\n}: {\n  testimonials: TestimonialGridProps[\"testimonials\"];\n  theme: EmailThemeTokens;\n  variant: TestimonialGridVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(testimonials ?? []).slice(0, 3).map((t, i) => (\n      <MjmlColumn\n        key={t.name + i}\n        width=\"33.33%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        <MjmlSection\n          backgroundColor={theme.colorBackgroundMuted}\n          border={`1px solid ${theme.colorBorder}`}\n          borderRadius={theme.borderRadius}\n          padding={theme.spacingBase ?? \"16px\"}\n        >\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm}\n            fontStyle=\"italic\"\n            lineHeight={theme.lineHeightBase}\n            paddingBottom={theme.spacingBase ?? \"12px\"}\n          >\n            &ldquo;{t.quote}&rdquo;\n          </MjmlText>\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm}\n            fontWeight={theme.fontWeightMedium}\n          >\n            {t.name}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize=\"11px\"\n          >\n            {t.role}\n          </MjmlText>\n        </MjmlSection>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const SplitTestimonialWithCta = ({\n  theme = defaultTheme,\n  testimonials = [{ name: \"John\", quote: \"Great product!\", role: \"CEO\" }],\n  variant = \"default\",\n}: TestimonialGridProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>testimonial grid</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TestimonialGridSection\n          testimonials={testimonials}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nSplitTestimonialWithCta.PreviewProps = {\n  testimonials: [\n    {\n      name: \"Sarah Smith\",\n      quote: \"Incredible tool for our workflow.\",\n      role: \"PM, TechCorp\",\n    },\n    {\n      name: \"Alex Johnson\",\n      quote: \"Saved us countless hours.\",\n      role: \"CEO, StartupCo\",\n    },\n    {\n      name: \"Maria Garcia\",\n      quote: \"The best email solution we've found.\",\n      role: \"CTO, DevInc\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TestimonialGridProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/testimonials/split-testimonial-with-cta.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,150 @@
+---
+title: "Avatar Row"
+description: "User avatar components for displaying people in emails."
+---
+
+## Avatar with Details
+
+<ComponentPreview base="react-email" name="avatar-with-details-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/avatar-with-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/avatars/avatar-with-details.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/avatars/avatar-with-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { AvatarWithDetails } from "@/components/emails/ui-elements/avatars/avatar-with-details";
+```
+
+```tsx
+<AvatarWithDetails {...AvatarWithDetails.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Grouped Overlapped Avatars
+
+<ComponentPreview base="react-email" name="grouped-overlapped-avatars-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grouped-overlapped-avatars
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { GroupedOverlappedAvatars } from "@/components/emails/ui-elements/avatars/grouped-overlapped-avatars";
+```
+
+```tsx
+<GroupedOverlappedAvatars {...GroupedOverlappedAvatars.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+
+## Grouped Overlapped Avatars with Plus Count
+
+<ComponentPreview base="react-email" name="grouped-overlapped-avatars-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grouped-overlapped-avatars-with-plus-count
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { GroupedOverlappedAvatarsWithPlusCount } from "@/components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count";
+```
+
+```tsx
+<GroupedOverlappedAvatarsWithPlusCount
+  {...GroupedOverlappedAvatarsWithPlusCount.PreviewProps}
+/>
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

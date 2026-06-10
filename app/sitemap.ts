@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
 import { source } from "@/lib/source";
 
@@ -11,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 1,
       url: SITE.URL,
+    },
+    {
+      changeFrequency: "monthly",
+      lastModified: new Date(),
+      priority: 0.5,
+      url: `${SITE.URL}${ROUTES.SPONSOR}`,
     },
   ];
 

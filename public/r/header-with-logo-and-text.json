@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo-and-text",
+  "title": "Header With Logo And Text",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-text.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type HeaderCenteredVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface HeaderCenteredProps {\n  theme?: EmailThemeTokens;\n  title?: string;\n  subtitle?: string;\n  variant?: HeaderCenteredVariant;\n}\n\nconst HeaderCenteredSection = ({\n  subtitle,\n  theme,\n  title,\n  variant,\n}: {\n  subtitle: string;\n  theme: EmailThemeTokens;\n  title: string;\n  variant: HeaderCenteredVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeHeading}\n        fontWeight={theme.fontWeightBold}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        {title}\n      </MjmlText>\n      {subtitle ? (\n        <MjmlText\n          align=\"center\"\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeLg ?? \"16px\"}\n          lineHeight={theme.lineHeightBase}\n        >\n          {subtitle}\n        </MjmlText>\n      ) : null}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const HeaderWithLogoAndText = ({\n  theme = defaultTheme,\n  title = \"Page Title\",\n  subtitle = \"A short description or tagline goes here.\",\n  variant = \"default\",\n}: HeaderCenteredProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>header centered</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <HeaderCenteredSection\n          subtitle={subtitle}\n          theme={theme}\n          title={title}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHeaderWithLogoAndText.PreviewProps = {\n  subtitle: \"Stay up to date with the latest news and updates.\",\n  theme: defaultTheme,\n  title: \"Welcome to Our Newsletter\",\n  variant: \"default\",\n} satisfies HeaderCenteredProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo-and-text.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

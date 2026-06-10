@@ -1,4 +1,4 @@
 {
   "root": true,
-  "pages": ["(root)", "components", "blocks", "themes", "fonts"]
+  "pages": ["(root)", "themes", "fonts", "components", "blocks"]
 }

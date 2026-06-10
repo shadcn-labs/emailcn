@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "3-columns-image-grid-with-full-width-feature",
+  "title": "3 Columns Image Grid With Full Width Feature",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/images/3-columns-image-grid-with-full-width-feature.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type ImageCollageVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageCollageProps {\n  theme?: EmailThemeTokens;\n  largeSrc?: string;\n  largeAlt?: string;\n  smallSrc1?: string;\n  smallAlt1?: string;\n  smallSrc2?: string;\n  smallAlt2?: string;\n  variant?: ImageCollageVariant;\n}\n\nconst ImageCollageSection = ({\n  largeAlt,\n  largeSrc,\n  smallAlt1,\n  smallAlt2,\n  smallSrc1,\n  smallSrc2,\n  theme,\n  variant,\n}: {\n  largeAlt: string;\n  largeSrc: string;\n  smallAlt1: string;\n  smallAlt2: string;\n  smallSrc1: string;\n  smallSrc2: string;\n  theme: EmailThemeTokens;\n  variant: ImageCollageVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn width=\"50%\" padding=\"8px\" verticalAlign=\"middle\">\n      <MjmlImage\n        alt={largeAlt}\n        borderRadius={theme.borderRadius}\n        src={largeSrc}\n        width={280}\n      />\n    </MjmlColumn>\n    <MjmlColumn width=\"50%\" padding=\"0\" verticalAlign=\"middle\">\n      <MjmlImage\n        alt={smallAlt1}\n        borderRadius={theme.borderRadius}\n        src={smallSrc1}\n        width={280}\n        padding=\"4px\"\n      />\n      <MjmlImage\n        alt={smallAlt2}\n        borderRadius={theme.borderRadius}\n        src={smallSrc2}\n        width={280}\n        padding=\"4px\"\n      />\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const ThreeColumnsImageGridWithFullWidthFeature = ({\n  theme = defaultTheme,\n  largeSrc = \"https://static.photos/technology/400x500/2\",\n  largeAlt = \"large\",\n  smallSrc1 = \"https://static.photos/technology/400x240/3\",\n  smallAlt1 = \"small 1\",\n  smallSrc2 = \"https://static.photos/technology/400x240/4\",\n  smallAlt2 = \"small 2\",\n  variant = \"default\",\n}: ImageCollageProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>image collage</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ImageCollageSection\n          largeAlt={largeAlt}\n          largeSrc={largeSrc}\n          smallAlt1={smallAlt1}\n          smallAlt2={smallAlt2}\n          smallSrc1={smallSrc1}\n          smallSrc2={smallSrc2}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nThreeColumnsImageGridWithFullWidthFeature.PreviewProps = {\n  largeAlt: \"featured\",\n  largeSrc: \"https://static.photos/technology/400x500/5\",\n  smallAlt1: \"detail 1\",\n  smallAlt2: \"detail 2\",\n  smallSrc1: \"https://static.photos/technology/400x240/6\",\n  smallSrc2: \"https://static.photos/technology/400x240/7\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageCollageProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/3-columns-image-grid-with-full-width-feature.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

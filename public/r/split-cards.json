@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-cards",
+  "title": "Split Cards",
+  "description": "Marketing timelines variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/timelines/split-cards.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type TimelineDarkVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface TimelineDarkProps {\n  theme?: EmailThemeTokens;\n  events?: { date: string; title: string; description: string }[];\n  variant?: TimelineDarkVariant;\n}\nconst TimelineDarkSection = ({\n  events,\n  theme,\n  variant,\n}: {\n  events: TimelineDarkProps[\"events\"];\n  theme: EmailThemeTokens;\n  variant: TimelineDarkVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorText}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn>\n      {(events ?? []).map((e, i) => (\n        <MjmlSection\n          key={e.title + i}\n          padding={`${theme.spacingBase ?? \"16px\"} 0`}\n        >\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm}\n            paddingBottom={theme.spacingBase ?? \"4px\"}\n          >\n            {e.date}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorBackground}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"4px\"}\n          >\n            {e.title}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n            lineHeight={theme.lineHeightBase}\n          >\n            {e.description}\n          </MjmlText>\n        </MjmlSection>\n      ))}\n    </MjmlColumn>\n  </MjmlSection>\n);\nexport const SplitCards = ({\n  theme = defaultTheme,\n  events = [\n    { date: \"2024-01\", description: \"Initial release.\", title: \"v1.0.0\" },\n  ],\n  variant = \"default\",\n}: TimelineDarkProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>timeline dark</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TimelineDarkSection events={events} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nSplitCards.PreviewProps = {\n  events: [\n    {\n      date: \"May 2026\",\n      description: \"Major update with new components.\",\n      title: \"v2.0.0\",\n    },\n    { date: \"Apr 2026\", description: \"New components added.\", title: \"v1.5.0\" },\n    { date: \"Mar 2026\", description: \"Initial release.\", title: \"v1.0.0\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TimelineDarkProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/timelines/split-cards.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

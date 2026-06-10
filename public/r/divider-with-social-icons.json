@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-with-social-icons",
+  "title": "Divider With Social Icons",
+  "description": "UI Elements spacing variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-social-icons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface DividerWithSocialIconsProps {\n  theme?: EmailThemeTokens;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst DividerWithSocialIconsSection = ({\n  theme,\n  variant,\n}: {\n  theme: EmailThemeTokens;\n  variant: NonNullable<DividerWithSocialIconsProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingBase ?? \"16px\"} 0`}>\n      <MjmlColumn>\n        <MjmlDivider\n          borderColor={theme.colorBorder}\n          paddingBottom={theme.spacingBase ?? \"16px\"}\n        />\n        <MjmlText\n          align={alignText}\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n        >{`\\u24D0 \\u24B6 \\u24C8 \\u24CE`}</MjmlText>\n        <MjmlDivider\n          borderColor={theme.colorBorder}\n          paddingTop={theme.spacingBase ?? \"16px\"}\n        />\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const DividerWithSocialIcons = ({\n  theme = defaultTheme,\n  variant = \"default\",\n}: DividerWithSocialIconsProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>divider-social</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <DividerWithSocialIconsSection theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nDividerWithSocialIcons.PreviewProps = {\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DividerWithSocialIconsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/spacing/divider-with-social-icons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

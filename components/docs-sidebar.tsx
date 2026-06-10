@@ -14,16 +14,11 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
+import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import {
-  EXCLUDED_SECTIONS,
-  isBlocksFolder,
-  isComponentsFolder,
-  isFontsFolder,
-} from "@/lib/docs";
-import {
-  getCategoryFoldersForBase,
+  getCategoryFolders,
   getCurrentBase,
-  getPagesFromFolder,
+  getFolderPages,
 } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 
@@ -135,38 +130,21 @@ export const DocsSidebar = ({
           }
 
           if (isComponentsFolder(item)) {
-            const categories = getCategoryFoldersForBase(item, currentBase);
-            const allPages: { url: string; name: React.ReactNode }[] = [];
-            for (const category of categories) {
-              const pages = getPagesFromFolder(category, {
-                includeIndex: false,
-              });
-              for (const page of pages) {
-                allPages.push({ name: page.name, url: page.url });
-              }
-            }
-            if (allPages.length === 0) {
-              return null;
-            }
-            return (
+            return getCategoryFolders(item, currentBase).map((category) => (
               <SidebarPageGroup
-                key={item.$id}
-                label={isComponentsFolder(item) ? "Components" : "Blocks"}
-                pages={allPages}
+                key={category.$id}
+                label={category.name}
+                pages={getFolderPages(category)}
                 pathname={pathname}
               />
-            );
-          }
-
-          if (isBlocksFolder(item) || isFontsFolder(item)) {
-            return null;
+            ));
           }
 
           return (
             <SidebarPageGroup
               key={item.$id}
               label={item.name}
-              pages={getPagesFromFolder(item)}
+              pages={getFolderPages(item)}
               pathname={pathname}
             />
           );

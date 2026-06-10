@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-with-oversized-logo-and-full-menu",
+  "title": "Footer With Oversized Logo And Full Menu",
+  "description": "Marketing footers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport type FooterLinksVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface FooterLinksProps {\n  theme?: EmailThemeTokens;\n  companyName?: string;\n  links?: { label: string; href: string }[];\n  variant?: FooterLinksVariant;\n}\n\nconst FooterLinksSection = ({\n  companyName,\n  links,\n  theme,\n  variant,\n}: {\n  companyName: string;\n  links: FooterLinksProps[\"links\"];\n  theme: EmailThemeTokens;\n  variant: FooterLinksVariant;\n}) => {\n  const items = links ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0 ${theme.spacingBase ?? \"24px\"} 0`}\n    >\n      {items.length > 0 ? (\n        <MjmlColumn paddingBottom={theme.spacingBase ?? \"16px\"}>\n          {items.map((link) => (\n            <MjmlText\n              key={link.label}\n              align=\"center\"\n              color={theme.colorTextMuted}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeSm ?? \"12px\"}\n              padding=\"0 8px\"\n            >\n              <a\n                href={link.href}\n                style={{ color: theme.colorTextMuted, textDecoration: \"none\" }}\n              >\n                {link.label}\n              </a>\n            </MjmlText>\n          ))}\n        </MjmlColumn>\n      ) : null}\n      <MjmlColumn>\n        <MjmlText\n          align=\"center\"\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm ?? \"12px\"}\n        >\n          &copy; {new Date().getFullYear()} {companyName}. All rights reserved.\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const FooterWithOversizedLogoAndFullMenu = ({\n  theme = defaultTheme,\n  companyName = \"Acme Inc.\",\n  links = [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  variant = \"default\",\n}: FooterLinksProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>footer links</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FooterLinksSection\n          companyName={companyName}\n          links={links}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFooterWithOversizedLogoAndFullMenu.PreviewProps = {\n  companyName: \"Acme Inc.\",\n  links: [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FooterLinksProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

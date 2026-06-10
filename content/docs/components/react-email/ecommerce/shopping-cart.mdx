@@ -1,0 +1,52 @@
+---
+title: "Shopping Cart"
+description: "Shopping cart layouts for order review emails."
+---
+
+## Shopping Cart with Row Items
+
+<ComponentPreview base="react-email" name="shopping-cart-row-items-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/shopping-cart-with-row-items
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { ShoppingCartWithRowItems } from "@/components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items";
+```
+
+```tsx
+<ShoppingCartWithRowItems {...ShoppingCartWithRowItems.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,52 @@
+---
+title: "Pills"
+description: "Status pill and badge components for labels and indicators."
+---
+
+## Basic Pills with Status Colors
+
+<ComponentPreview base="react-email" name="basic-pills-status-colors-demo" />
+
+### Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/basic-pills-with-status-colors
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/pills/basic-pills-with-status-colors.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/pills/basic-pills-with-status-colors.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+### Usage
+
+```tsx
+import { BasicPillsWithStatusColors } from "@/components/emails/ui-elements/pills/basic-pills-with-status-colors";
+```
+
+```tsx
+<BasicPillsWithStatusColors {...BasicPillsWithStatusColors.PreviewProps} />
+```
+
+### API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -111,7 +111,7 @@ export const AuthMagicLinkRaycast = ({
 
 AuthMagicLinkRaycast.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: "https://static.photos/business/320x80/2",
   _productName: "Acme",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

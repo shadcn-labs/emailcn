@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-with-icon-and-button",
+  "title": "Divider With Icon And Button",
+  "description": "UI Elements spacing variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/theme-default.json",
+    "https://emailcn.dev/r/default-fonts.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-icon-and-button.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlButton,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/mjml-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/mjml-default\";\n\nexport interface DividerWithIconButtonProps {\n  theme?: EmailThemeTokens;\n  icon?: string;\n  label?: string;\n  href?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst DividerWithIconButtonSection = ({\n  icon,\n  label,\n  href,\n  theme,\n  variant,\n}: {\n  icon: string;\n  label: string;\n  href: string;\n  theme: EmailThemeTokens;\n  variant: NonNullable<DividerWithIconButtonProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingBase ?? \"16px\"} 0`}>\n      <MjmlColumn>\n        <MjmlDivider\n          borderColor={theme.colorBorder}\n          paddingBottom={theme.spacingBase ?? \"16px\"}\n        />\n        <MjmlText\n          align={alignText}\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeLg ?? \"16px\"}\n          paddingBottom={theme.spacingBase ?? \"16px\"}\n        >\n          {icon}\n        </MjmlText>\n        <MjmlButton\n          align={alignText}\n          backgroundColor={theme.colorPrimary}\n          borderRadius={theme.borderRadius}\n          color={theme.colorPrimaryForeground ?? \"#ffffff\"}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm ?? \"12px\"}\n          fontWeight={theme.fontWeightMedium ?? \"500\"}\n          href={href}\n          innerPadding={`${theme.spacingBase ?? \"16px\"} ${theme.spacingLg ?? \"24px\"}`}\n        >\n          {label}\n        </MjmlButton>\n        <MjmlDivider\n          borderColor={theme.colorBorder}\n          paddingTop={theme.spacingBase ?? \"16px\"}\n        />\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const DividerWithIconButton = ({\n  theme = defaultTheme,\n  icon = \"\\u279C\",\n  label = \"Discover\",\n  href = \"#\",\n  variant = \"default\",\n}: DividerWithIconButtonProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>divider-icon-btn</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <DividerWithIconButtonSection\n          icon={icon}\n          label={label}\n          href={href}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nDividerWithIconButton.PreviewProps = {\n  href: \"https://example.com\",\n  icon: \"\\u279C\",\n  label: \"Learn More\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DividerWithIconButtonProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/spacing/divider-with-icon-and-button.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

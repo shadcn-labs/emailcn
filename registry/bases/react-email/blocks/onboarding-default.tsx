@@ -12,10 +12,10 @@ import {
 } from "react-email";
 
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-import { ContentGridSection } from "@/registry/bases/react-email/ui/content-grid";
-import { CTABannerSection } from "@/registry/bases/react-email/ui/cta-banner";
-import { FooterSection } from "@/registry/bases/react-email/ui/footer";
-import { HeroSection } from "@/registry/bases/react-email/ui/hero";
+import { TitleWithRegularPaddingSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/title-with-regular-padding";
+import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
+import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
+import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
 
 interface Props {
   _firstName?: string;
@@ -62,23 +62,7 @@ export const OnboardingDefault = ({
               align="left"
             />
 
-            <ContentGridSection
-              columnCount={3}
-              columns={[
-                {
-                  description: "Get up and running in just a few minutes.",
-                  title: "Quick Setup",
-                },
-                {
-                  description: "Access all the tools you need to succeed.",
-                  title: "Powerful Features",
-                },
-                {
-                  description: "Work together seamlessly with your team.",
-                  title: "Team Collaboration",
-                },
-              ]}
-            />
+            <ContentGridSection title="Quick Setup" />
 
             <CTABannerSection
               heading="Ready to dive in?"
@@ -93,7 +77,7 @@ export const OnboardingDefault = ({
               </Text>
             </Section>
 
-            <FooterSection companyName={_productName} />
+            <FooterSection text={_productName} />
           </Container>
         </Body>
       </Tailwind>
@@ -104,7 +88,8 @@ export const OnboardingDefault = ({
 OnboardingDefault.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Acme",
-  _senderAvatarUrl: "https://example.com/avatar.jpg",
+  _senderAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
   _senderName: "The team",
   _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",
