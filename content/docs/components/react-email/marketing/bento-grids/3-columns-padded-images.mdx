@@ -1,0 +1,55 @@
+---
+title: "3 Columns Padded Images"
+description: "Marketing bento-grids variant for email templates"
+---
+
+<ComponentPreview
+  base="react-email"
+  name="bento-grid-with-3-columns-and-padded-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grid-with-3-columns-and-padded-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx"
+    base="react-email"
+    title="components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridWith3ColumnsAndPaddedImages } from "@/components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images";
+```
+
+```tsx
+<BentoGridWith3ColumnsAndPaddedImages
+  {...BentoGridWith3ColumnsAndPaddedImages.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

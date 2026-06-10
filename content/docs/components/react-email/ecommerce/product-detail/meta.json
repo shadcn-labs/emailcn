@@ -1,0 +1,10 @@
+{
+  "title": "Product Detail",
+  "pages": [
+    "single-image-with-details",
+    "product-detail-with-masonry-image-grid-and-details",
+    "product-detail-with-three-images-and-details",
+    "product-detail-with-two-images-and-details",
+    "split-product-detail"
+  ]
+}

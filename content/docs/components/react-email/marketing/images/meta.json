@@ -1,0 +1,15 @@
+{
+  "title": "Images",
+  "pages": [
+    "full-width-image",
+    "full-width-image-with-overlay",
+    "2-columns-image-grid",
+    "2-columns-image-grid-with-full-width-feature",
+    "2-columns-masonry-image-grid-3-images",
+    "2-columns-masonry-image-grid-4-images",
+    "3-columns-image-grid",
+    "3-columns-image-grid-with-full-width-feature",
+    "3-columns-masonry-image-grid",
+    "3-columns-masonry-image-grid-with-full-width-feature"
+  ]
+}

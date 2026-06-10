@@ -1,0 +1,64 @@
+---
+title: "Blog Post Horizontal Boxed"
+description: "Marketing blog variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="blog-post-horizontal-boxed-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/blog-post-horizontal-boxed
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/blog/blog-post-horizontal-boxed.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/blog/blog-post-horizontal-boxed.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BlogPostHorizontalBoxed } from "@/components/emails/marketing/blog/blog-post-horizontal-boxed";
+```
+
+```tsx
+<BlogPostHorizontalBoxed {...BlogPostHorizontalBoxed.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

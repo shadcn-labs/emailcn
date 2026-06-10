@@ -1,0 +1,14 @@
+{
+  "title": "Order Summary",
+  "pages": [
+    "bordered-order-summary-with-total-top",
+    "bordered-order-summary-with-total-bottom",
+    "bordered-order-summary-with-card-details",
+    "boxed-order-summary-with-total-top",
+    "boxed-order-summary-with-total-bottom",
+    "boxed-order-summary-with-card-details-and-total-top",
+    "boxed-order-summary-with-card-details-and-total-bottom",
+    "order-summary-with-billing-details-inline",
+    "order-summary-with-billing-details-top"
+  ]
+}

@@ -1,0 +1,73 @@
+---
+title: "Feature with Double Tall Background Images"
+description: "Marketing feature variant for email templates"
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-double-tall-background-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-double-tall-background-images
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/feature/feature-with-double-tall-background-images.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/feature/feature-with-double-tall-background-images.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeatureWithDoubleTallBackgroundImages } from "@/components/emails/marketing/feature/feature-with-double-tall-background-images";
+```
+
+```tsx
+<FeatureWithDoubleTallBackgroundImages
+  {...FeatureWithDoubleTallBackgroundImages.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop          | Type         | Default        | Description            |
+| ------------- | ------------ | -------------- | ---------------------- |
+| `imageSrc`    | `string`     | -              | Feature image URL      |
+| `imageAlt`    | `string`     | -              | Feature image alt text |
+| `title`       | `string`     | -              | Feature title          |
+| `description` | `string`     | -              | Feature description    |
+| `theme`       | `EmailTheme` | `defaultTheme` | Email theme styling    |

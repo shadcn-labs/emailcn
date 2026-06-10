@@ -1,314 +1,60 @@
 ---
-title: "Content Grid"
-description: "Content grid layouts for paragraphs, titles, and mixed content in emails."
+title: "Content"
+description: "Title and paragraph content blocks with one or two columns, optional icons, and padding control."
 ---
 
-## Paragraph with Regular Padding
+One `Content` component covers titles and paragraphs. Choose `type`, set
+`columns` to `1` or `2`, toggle `withIcons` for icon-topped columns, and pick a
+`padding` size.
+
+## Title
+
+<ComponentPreview base="react-email" name="title-with-regular-padding-demo" />
+
+## Title with Large Padding
+
+<ComponentPreview base="react-email" name="title-with-large-padding-demo" />
+
+## Paragraph
 
 <ComponentPreview
   base="react-email"
   name="paragraph-with-regular-padding-demo"
 />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/paragraph-with-regular-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/paragraph-with-regular-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/paragraph-with-regular-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { ParagraphWithRegularPadding } from "@/components/emails/marketing/content/paragraph-with-regular-padding";
-```
-
-```tsx
-<ParagraphWithRegularPadding {...ParagraphWithRegularPadding.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
 ## Paragraph with Large Padding
 
 <ComponentPreview base="react-email" name="paragraph-with-large-padding-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/paragraph-with-large-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/paragraph-with-large-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/paragraph-with-large-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { ParagraphWithLargePadding } from "@/components/emails/marketing/content/paragraph-with-large-padding";
-```
-
-```tsx
-<ParagraphWithLargePadding {...ParagraphWithLargePadding.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Paragraph 2 Columns with Regular Padding
+## Two Columns
 
 <ComponentPreview
   base="react-email"
   name="paragraph-2-columns-with-regular-padding-demo"
 />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/paragraph-2-columns-with-regular-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/paragraph-2-columns-with-regular-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/paragraph-2-columns-with-regular-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { Paragraph2ColumnsWithRegularPadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-regular-padding";
-```
-
-```tsx
-<Paragraph2ColumnsWithRegularPadding
-  {...Paragraph2ColumnsWithRegularPadding.PreviewProps}
-/>
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Paragraph 2 Columns with Large Padding
+## Two Columns with Large Padding
 
 <ComponentPreview
   base="react-email"
   name="paragraph-2-columns-with-large-padding-demo"
 />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/paragraph-2-columns-with-large-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/paragraph-2-columns-with-large-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/paragraph-2-columns-with-large-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { Paragraph2ColumnsWithLargePadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-large-padding";
-```
-
-```tsx
-<Paragraph2ColumnsWithLargePadding
-  {...Paragraph2ColumnsWithLargePadding.PreviewProps}
-/>
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Paragraph 2 Columns with Icons and Regular Padding
+## Two Columns with Icons
 
 <ComponentPreview
   base="react-email"
   name="paragraph-2-columns-with-icons-and-regular-padding-demo"
 />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/paragraph-2-columns-with-icons-and-regular-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/paragraph-2-columns-with-icons-and-regular-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/paragraph-2-columns-with-icons-and-regular-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { Paragraph2ColumnsWithIconsAndRegularPadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-icons-and-regular-padding";
-```
-
-```tsx
-<Paragraph2ColumnsWithIconsAndRegularPadding
-  {...Paragraph2ColumnsWithIconsAndRegularPadding.PreviewProps}
-/>
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Paragraph 2 Columns with Icons and Large Padding
+## Two Columns with Icons and Large Padding
 
 <ComponentPreview
   base="react-email"
   name="paragraph-2-columns-with-icons-and-large-padding-demo"
 />
 
-### Installation
+## Installation
 
 <CodeTabs>
 
@@ -319,7 +65,7 @@ import { Paragraph2ColumnsWithIconsAndRegularPadding } from "@/components/emails
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/paragraph-2-columns-with-icons-and-large-padding
+npx shadcn@latest add @emailcn/content
 ```
 
 </TabsContent>
@@ -331,9 +77,9 @@ npx shadcn@latest add @emailcn/paragraph-2-columns-with-icons-and-large-padding
 <Step>Copy the component source into your project.</Step>
 
 <ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/paragraph-2-columns-with-icons-and-large-padding.tsx"
+  src="registry/bases/react-email/ui/marketing/content/content.tsx"
   base="react-email"
-  title="components/emails/marketing/content/paragraph-2-columns-with-icons-and-large-padding.tsx"
+  title="components/emails/marketing/content/content.tsx"
 />
 
 </Steps>
@@ -342,134 +88,38 @@ npx shadcn@latest add @emailcn/paragraph-2-columns-with-icons-and-large-padding
 
 </CodeTabs>
 
-### Usage
+## Usage
 
 ```tsx
-import { Paragraph2ColumnsWithIconsAndLargePadding } from "@/components/emails/marketing/content/paragraph-2-columns-with-icons-and-large-padding";
+import { Content } from "@/components/emails/marketing/content/content";
 ```
 
 ```tsx
-<Paragraph2ColumnsWithIconsAndLargePadding
-  {...Paragraph2ColumnsWithIconsAndLargePadding.PreviewProps}
+<Content type="title" title="Section Title" />
+<Content type="paragraph" text="A single column of body copy." />
+<Content type="paragraph" columns={2} column1="Left" column2="Right" />
+<Content
+  type="paragraph"
+  columns={2}
+  withIcons
+  iconSrc1="/icon-1.png"
+  iconSrc2="/icon-2.png"
+  column1="Left"
+  column2="Right"
 />
 ```
 
-### API Reference
+## API Reference
 
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Title with Regular Padding
-
-<ComponentPreview base="react-email" name="title-with-regular-padding-demo" />
-
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/title-with-regular-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/title-with-regular-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/title-with-regular-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { TitleWithRegularPadding } from "@/components/emails/marketing/content/title-with-regular-padding";
-```
-
-```tsx
-<TitleWithRegularPadding {...TitleWithRegularPadding.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Title with Large Padding
-
-<ComponentPreview base="react-email" name="title-with-large-padding-demo" />
-
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/title-with-large-padding
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/marketing/content/title-with-large-padding.tsx"
-  base="react-email"
-  title="components/emails/marketing/content/title-with-large-padding.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { TitleWithLargePadding } from "@/components/emails/marketing/content/title-with-large-padding";
-```
-
-```tsx
-<TitleWithLargePadding {...TitleWithLargePadding.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `text`    | `EmailTheme` | `defaultTheme` | Email theme styling |
-| `variant` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                    | Type                     | Default        | Description                                |
+| ----------------------- | ------------------------ | -------------- | ------------------------------------------ |
+| `type`                  | `"title" \| "paragraph"` | `"paragraph"`  | Content style                              |
+| `columns`               | `1 \| 2`                 | `1`            | Column count (paragraph only)              |
+| `withIcons`             | `boolean`                | `false`        | Show an icon above each column (2 columns) |
+| `padding`               | `"regular" \| "large"`   | `"regular"`    | Vertical padding                           |
+| `title`                 | `string`                 | -              | Heading text (when `type="title"`)         |
+| `text`                  | `string`                 | -              | Body text (single column)                  |
+| `column1` / `column2`   | `string`                 | -              | Column text (when `columns={2}`)           |
+| `iconSrc1` / `iconAlt1` | `string`                 | -              | First column icon (when `withIcons`)       |
+| `iconSrc2` / `iconAlt2` | `string`                 | -              | Second column icon (when `withIcons`)      |
+| `theme`                 | `TailwindConfig`         | `defaultTheme` | Email theme styling                        |

@@ -1,0 +1,64 @@
+---
+title: "Logo Cloud with Borders"
+description: "Marketing logos variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="logo-cloud-with-borders-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud-with-borders
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/logos/logo-cloud-with-borders.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/logos/logo-cloud-with-borders.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-cloud-with-borders";
+```
+
+```tsx
+<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

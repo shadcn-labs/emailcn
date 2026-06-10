@@ -1,0 +1,57 @@
+---
+title: "Progress Bar Group"
+description: "UI Elements progress-bars variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="progress-bar-group-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/progress-bar-group
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-group.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/progress-bars/progress-bar-group.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProgressBarGroup } from "@/components/emails/ui-elements/progress-bars/progress-bar-group";
+```
+
+```tsx
+<ProgressBarGroup {...ProgressBarGroup.PreviewProps} />
+```
+
+## API Reference
+
+| Prop       | Type         | Default        | Description         |
+| ---------- | ------------ | -------------- | ------------------- |
+| `progress` | `number`     | `0`            | Progress percentage |
+| `theme`    | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,283 +1,37 @@
 ---
-title: "Grids"
+title: "Grid"
 description: "Responsive grid layouts for multi-column email content."
 ---
 
-## One Column Grid
+One `Grid` component renders every layout. Pick a column arrangement with the
+`layout` prop and pass content through the `cells` array. Each entry in `cells`
+fills the next column.
+
+## One Column
 
 <ComponentPreview base="react-email" name="one-column-grid-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/one-column-grid
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/grids/one-column-grid.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/grids/one-column-grid.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { OneColumnGrid } from "@/components/emails/ui-elements/grids/one-column-grid";
-```
-
-```tsx
-<OneColumnGrid {...OneColumnGrid.PreviewProps} />
-```
-
-### API Reference
-
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## 2 Columns Grid
+## Two Columns
 
 <ComponentPreview base="react-email" name="two-columns-grid-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/2-columns-grid
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/grids/2-columns-grid.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/grids/2-columns-grid.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { TwoColumnsGrid } from "@/components/emails/ui-elements/grids/2-columns-grid";
-```
-
-```tsx
-<TwoColumnsGrid {...TwoColumnsGrid.PreviewProps} />
-```
-
-### API Reference
-
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## 3 Columns Grid
+## Three Columns
 
 <ComponentPreview base="react-email" name="three-columns-grid-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/3-columns-grid
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/grids/3-columns-grid.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/grids/3-columns-grid.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { ThreeColumnsGrid } from "@/components/emails/ui-elements/grids/3-columns-grid";
-```
-
-```tsx
-<ThreeColumnsGrid {...ThreeColumnsGrid.PreviewProps} />
-```
-
-### API Reference
-
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## 4 Columns Grid
+## Four Columns
 
 <ComponentPreview base="react-email" name="four-columns-grid-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/4-columns-grid
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/grids/4-columns-grid.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/grids/4-columns-grid.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { FourColumnsGrid } from "@/components/emails/ui-elements/grids/4-columns-grid";
-```
-
-```tsx
-<FourColumnsGrid {...FourColumnsGrid.PreviewProps} />
-```
-
-### API Reference
-
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## 1-3 Split Grid
+## 1-3 Split
 
 <ComponentPreview base="react-email" name="one-three-split-grid-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/1-3-split-grid
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/grids/1-3-split-grid.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/grids/1-3-split-grid.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { One3SplitGrid } from "@/components/emails/ui-elements/grids/1-3-split-grid";
-```
-
-```tsx
-<One3SplitGrid {...One3SplitGrid.PreviewProps} />
-```
-
-### API Reference
-
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## 3-1 Split Grid
+## 3-1 Split
 
 <ComponentPreview base="react-email" name="three-one-split-grid-demo" />
 
-### Installation
+## Installation
 
 <CodeTabs>
 
@@ -288,7 +42,7 @@ import { One3SplitGrid } from "@/components/emails/ui-elements/grids/1-3-split-g
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/3-1-split-grid
+npx shadcn@latest add @emailcn/grid
 ```
 
 </TabsContent>
@@ -300,9 +54,9 @@ npx shadcn@latest add @emailcn/3-1-split-grid
 <Step>Copy the component source into your project.</Step>
 
 <ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/grids/3-1-split-grid.tsx"
+  src="registry/bases/react-email/ui/ui-elements/grids/grid.tsx"
   base="react-email"
-  title="components/emails/ui-elements/grids/3-1-split-grid.tsx"
+  title="components/emails/ui-elements/grids/grid.tsx"
 />
 
 </Steps>
@@ -311,18 +65,22 @@ npx shadcn@latest add @emailcn/3-1-split-grid
 
 </CodeTabs>
 
-### Usage
+## Usage
 
 ```tsx
-import { Three1SplitGrid } from "@/components/emails/ui-elements/grids/3-1-split-grid";
+import { Grid } from "@/components/emails/ui-elements/grids/grid";
 ```
 
 ```tsx
-<Three1SplitGrid {...Three1SplitGrid.PreviewProps} />
+<Grid layout="2" cells={["Left column", "Right column"]} />
+<Grid layout="1-3" cells={["Sidebar", "Main content area"]} />
 ```
 
-### API Reference
+## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop     | Type                                         | Default        | Description                       |
+| -------- | -------------------------------------------- | -------------- | --------------------------------- |
+| `layout` | `"1" \| "2" \| "3" \| "4" \| "1-3" \| "3-1"` | `"2"`          | Column arrangement / widths       |
+| `cells`  | `string[]`                                   | `[]`           | Content for each column, in order |
+| `align`  | `"left" \| "center" \| "right"`              | `"center"`     | Text alignment within columns     |
+| `theme`  | `TailwindConfig`                             | `defaultTheme` | Email theme styling               |

@@ -1,0 +1,64 @@
+---
+title: "Boxed Grid Stats"
+description: "Marketing stats variant for email templates"
+---
+
+<ComponentPreview base="jsx-email" name="boxed-grid-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-grid-stats
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/stats/boxed-grid-stats.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/stats/boxed-grid-stats.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedGridStats } from "@/components/emails/marketing/stats/boxed-grid-stats";
+```
+
+```tsx
+<BoxedGridStats {...BoxedGridStats.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

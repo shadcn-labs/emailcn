@@ -1,0 +1,50 @@
+---
+title: "Overlay Gradient"
+description: "Marketing hero variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="hero-with-overlay-gradient-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-with-overlay-gradient
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/hero/hero-with-overlay-gradient.tsx"
+    base="react-email"
+    title="components/emails/marketing/hero/hero-with-overlay-gradient.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroWithOverlayGradient } from "@/components/emails/marketing/hero/hero-with-overlay-gradient";
+```
+
+```tsx
+<HeroWithOverlayGradient {...HeroWithOverlayGradient.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,75 @@
+---
+title: "Authentication Emails"
+description: "Pre-built authentication email templates for various use cases."
+---
+
+<ComponentPreview base="jsx-email" name="auth-otp-default" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/block-auth-otp-default
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  src="registry/bases/jsx-email/blocks/auth-otp-default.tsx"
+  title="components/emails/auth-otp-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AuthOtpDefault } from "@/components/emails/auth-otp-default";
+```
+
+```tsx
+<AuthOtpDefault {...AuthOtpDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Authentication Emails
+
+| Prop               | Type     | Default             | Description             |
+| ------------------ | -------- | ------------------- | ----------------------- |
+| `logoUrl`          | `string` | -                   | URL of the product logo |
+| `_logoAlt`         | `string` | `"Logo"`            | Alt text for logo       |
+| `otpCode`          | `string` | `"123456"`          | OTP code                |
+| `expiresInMinutes` | `number` | `10`                | Code expiration time    |
+| `magicLink`        | `string` | `"#"`               | Magic link URL          |
+| `_recipientEmail`  | `string` | `"you@example.com"` | Recipient email         |
+| `_productName`     | `string` | `"Acme"`            | Product name            |

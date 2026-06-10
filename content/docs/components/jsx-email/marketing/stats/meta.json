@@ -1,0 +1,11 @@
+{
+  "title": "Stats",
+  "pages": [
+    "simple-stats",
+    "grid-stats-with-accent-column",
+    "boxed-grid-stats",
+    "simple-grid-stats",
+    "grid-stats-with-border",
+    "milestone-stats"
+  ]
+}

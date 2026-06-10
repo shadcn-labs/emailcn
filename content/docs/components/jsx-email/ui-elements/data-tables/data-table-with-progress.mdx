@@ -1,0 +1,64 @@
+---
+title: "Data Table with Progress"
+description: "Data Table with Progress — Data Tables email component."
+---
+
+<ComponentPreview base="jsx-email" name="data-table-with-progress-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-progress-bar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableWithProgress } from "@/components/emails/ui-elements/data-tables/data-table-with-progress";
+```
+
+```tsx
+<DataTableWithProgress {...DataTableWithProgress.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

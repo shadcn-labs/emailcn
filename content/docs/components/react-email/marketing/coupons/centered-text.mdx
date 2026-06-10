@@ -1,0 +1,50 @@
+---
+title: "Centered Text"
+description: "Marketing coupons variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="coupons-with-centered-text-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/coupons-with-centered-text
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/coupons/coupons-with-centered-text.tsx"
+    base="react-email"
+    title="components/emails/marketing/coupons/coupons-with-centered-text.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CouponsWithCenteredText } from "@/components/emails/marketing/coupons/coupons-with-centered-text";
+```
+
+```tsx
+<CouponsWithCenteredText {...CouponsWithCenteredText.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

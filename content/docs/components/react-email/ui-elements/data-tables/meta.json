@@ -1,0 +1,12 @@
+{
+  "title": "Data Tables",
+  "pages": [
+    "basic",
+    "with-4-columns",
+    "with-change-indicator-pills",
+    "with-edit-button",
+    "with-logos-and-action-links",
+    "with-pills",
+    "with-progress-bar"
+  ]
+}

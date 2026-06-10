@@ -1,0 +1,50 @@
+---
+title: "2 Columns Compact"
+description: "2 Columns Compact — Team email component."
+---
+
+<ComponentPreview base="react-email" name="two-columns-compact-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-compact
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/team/2-columns-compact.tsx"
+    base="react-email"
+    title="components/emails/marketing/team/2-columns-compact.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsCompact } from "@/components/emails/marketing/team/2-columns-compact";
+```
+
+```tsx
+<TwoColumnsCompact {...TwoColumnsCompact.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

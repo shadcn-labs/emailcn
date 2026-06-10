@@ -1,0 +1,69 @@
+---
+title: "Two Columns Blog with Images and Boxed Content"
+description: "Two Columns Blog with Images and Boxed Content — Blog email component."
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-blog-with-images-and-boxed-content-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-blog-with-images-and-boxed-content
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsBlogWithImagesAndBoxedContent } from "@/components/emails/marketing/blog/2-columns-blog-with-images-and-boxed-content";
+```
+
+```tsx
+<TwoColumnsBlogWithImagesAndBoxedContent
+  {...TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

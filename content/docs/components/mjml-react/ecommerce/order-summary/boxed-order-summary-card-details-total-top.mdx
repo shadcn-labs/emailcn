@@ -1,0 +1,69 @@
+---
+title: "Boxed Order Summary Card Details Total Top"
+description: "Boxed Order Summary Card Details Total Top — Order Summary email component."
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-top-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-order-summary-with-card-details-and-total-top
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx"
+  base="mjml-react"
+  title="components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedOrderSummaryCardDetailsTotalTop } from "@/components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top";
+```
+
+```tsx
+<BoxedOrderSummaryCardDetailsTotalTop
+  {...BoxedOrderSummaryCardDetailsTotalTop.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

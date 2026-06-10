@@ -1,0 +1,50 @@
+---
+title: "Simple Social Logos Row"
+description: "Marketing social variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="simple-social-logos-row-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/simple-social-logos-row
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/social/simple-social-logos-row.tsx"
+    base="react-email"
+    title="components/emails/marketing/social/simple-social-logos-row.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SimpleSocialLogosRow } from "@/components/emails/marketing/social/simple-social-logos-row";
+```
+
+```tsx
+<SimpleSocialLogosRow {...SimpleSocialLogosRow.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

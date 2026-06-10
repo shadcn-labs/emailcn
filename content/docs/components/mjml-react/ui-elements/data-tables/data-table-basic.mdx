@@ -1,0 +1,64 @@
+---
+title: "Data Table Basic"
+description: "Data Table Basic — Data Tables email component."
+---
+
+<ComponentPreview base="mjml-react" name="data-table-basic-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-basic
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-basic.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/data-tables/data-table-basic.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableBasic } from "@/components/emails/ui-elements/data-tables/data-table-basic";
+```
+
+```tsx
+<DataTableBasic {...DataTableBasic.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

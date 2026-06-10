@@ -1,0 +1,10 @@
+{
+  "title": "Bento Grids",
+  "pages": [
+    "bento-grid-with-3-columns-and-flush-images",
+    "bento-grid-with-3-columns-and-even-split-image-stats",
+    "bento-grid-with-images-and-captions",
+    "bento-grid-with-images-and-details",
+    "bento-grid-with-two-rows-and-3-column-second-row"
+  ]
+}

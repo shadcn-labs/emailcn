@@ -1,0 +1,69 @@
+---
+title: "Two Columns Image Grid with Full Width Feature"
+description: "Two Columns Image Grid with Full Width Feature — Images email component."
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-image-grid-with-full-width-feature
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsImageGridWithFullWidthFeature } from "@/components/emails/marketing/images/2-columns-image-grid-with-full-width-feature";
+```
+
+```tsx
+<TwoColumnsImageGridWithFullWidthFeature
+  {...TwoColumnsImageGridWithFullWidthFeature.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

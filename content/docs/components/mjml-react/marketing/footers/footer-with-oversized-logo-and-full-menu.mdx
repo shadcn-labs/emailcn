@@ -1,0 +1,69 @@
+---
+title: "Footer with Oversized Logo and Full Menu"
+description: "Marketing footers variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-oversized-logo-and-full-menu-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-oversized-logo-and-full-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithOversizedLogoAndFullMenu } from "@/components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu";
+```
+
+```tsx
+<FooterWithOversizedLogoAndFullMenu
+  {...FooterWithOversizedLogoAndFullMenu.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

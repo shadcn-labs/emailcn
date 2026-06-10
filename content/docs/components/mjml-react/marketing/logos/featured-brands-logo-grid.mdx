@@ -1,0 +1,64 @@
+---
+title: "Featured Brands Logo Grid"
+description: "Marketing logos variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="featured-brands-logo-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/featured-brands-logo-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/logos/featured-brands-logo-grid.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/logos/featured-brands-logo-grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeaturedBrandsLogoGrid } from "@/components/emails/marketing/logos/featured-brands-logo-grid";
+```
+
+```tsx
+<FeaturedBrandsLogoGrid {...FeaturedBrandsLogoGrid.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,50 @@
+---
+title: "Socials with Labels Stacked"
+description: "Marketing social variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="socials-with-labels-stacked-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/socials-with-labels-stacked
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/social/socials-with-labels-stacked.tsx"
+    base="react-email"
+    title="components/emails/marketing/social/socials-with-labels-stacked.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialsWithLabelsStacked } from "@/components/emails/marketing/social/socials-with-labels-stacked";
+```
+
+```tsx
+<SocialsWithLabelsStacked {...SocialsWithLabelsStacked.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

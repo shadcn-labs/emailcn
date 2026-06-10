@@ -1,0 +1,94 @@
+---
+title: "Grid"
+description: "Responsive grid layouts for multi-column email content."
+---
+
+One `Grid` component renders every layout. Pick a column arrangement with the
+`layout` prop and pass content through the `cells` array. Each entry in `cells`
+fills the next column.
+
+## One Column
+
+<ComponentPreview base="jsx-email" name="one-column-grid-demo" />
+
+## Two Columns
+
+<ComponentPreview base="jsx-email" name="two-columns-grid-demo" />
+
+## Three Columns
+
+<ComponentPreview base="jsx-email" name="three-columns-grid-demo" />
+
+## Four Columns
+
+<ComponentPreview base="jsx-email" name="four-columns-grid-demo" />
+
+## 1-3 Split
+
+<ComponentPreview base="jsx-email" name="one-three-split-grid-demo" />
+
+## 3-1 Split
+
+<ComponentPreview base="jsx-email" name="three-one-split-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/grids/grid.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/grids/grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Grid } from "@/components/emails/ui-elements/grids/grid";
+```
+
+```tsx
+<Grid layout="2" cells={["Left column", "Right column"]} />
+<Grid layout="1-3" cells={["Sidebar", "Main content area"]} />
+```
+
+## API Reference
+
+| Prop     | Type                                         | Default        | Description                       |
+| -------- | -------------------------------------------- | -------------- | --------------------------------- |
+| `layout` | `"1" \| "2" \| "3" \| "4" \| "1-3" \| "3-1"` | `"2"`          | Column arrangement / widths       |
+| `cells`  | `string[]`                                   | `[]`           | Content for each column, in order |
+| `align`  | `"left" \| "center" \| "right"`              | `"center"`     | Text alignment within columns     |
+| `theme`  | `EmailThemeTokens`                           | `defaultTheme` | Email theme styling               |

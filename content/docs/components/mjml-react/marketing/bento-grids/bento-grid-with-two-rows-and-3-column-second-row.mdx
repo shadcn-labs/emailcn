@@ -1,0 +1,69 @@
+---
+title: "Bento Grid with Two Rows and 3 Column Second Row"
+description: "Marketing bento-grids variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grid-with-two-rows-and-3-column-second-row
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridWithTwoRowsAnd3ColumnSecondRow } from "@/components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row";
+```
+
+```tsx
+<BentoGridWithTwoRowsAnd3ColumnSecondRow
+  {...BentoGridWithTwoRowsAnd3ColumnSecondRow.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

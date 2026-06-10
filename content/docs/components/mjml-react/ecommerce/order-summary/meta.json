@@ -1,0 +1,8 @@
+{
+  "title": "Order Summary",
+  "pages": [
+    "bordered-order-summary-with-total-bottom",
+    "bordered-order-summary-with-total-top",
+    "boxed-order-summary-card-details-total-top"
+  ]
+}

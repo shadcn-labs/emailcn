@@ -1,0 +1,15 @@
+{
+  "title": "Blog",
+  "pages": [
+    "featured-blog-post",
+    "two-columns-blog-with-images-and-boxed-content",
+    "two-columns-blog-with-images-and-text",
+    "two-columns-blog-with-images",
+    "two-columns-masonry-blog-with-boxed-content",
+    "blog-post-horizontal-boxed",
+    "blog-post-horizontal-boxed-with-split-images",
+    "blog-with-images-and-2-columns-masonry",
+    "featured-post-with-large-date",
+    "full-width-featured-post-with-large-date"
+  ]
+}

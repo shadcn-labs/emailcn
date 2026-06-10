@@ -1,0 +1,50 @@
+---
+title: "Stacked Stats"
+description: "Marketing stats variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="stacked-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/stacked-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/stats/stacked-stats.tsx"
+    base="react-email"
+    title="components/emails/marketing/stats/stacked-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StackedStats } from "@/components/emails/marketing/stats/stacked-stats";
+```
+
+```tsx
+<StackedStats {...StackedStats.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

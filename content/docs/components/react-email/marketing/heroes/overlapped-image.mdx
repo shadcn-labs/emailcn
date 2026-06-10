@@ -1,0 +1,50 @@
+---
+title: "Overlapped Image"
+description: "Marketing hero variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="hero-with-overlapped-image-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-with-overlapped-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/hero/hero-with-overlapped-image.tsx"
+    base="react-email"
+    title="components/emails/marketing/hero/hero-with-overlapped-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroWithOverlappedImage } from "@/components/emails/marketing/hero/hero-with-overlapped-image";
+```
+
+```tsx
+<HeroWithOverlappedImage {...HeroWithOverlappedImage.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

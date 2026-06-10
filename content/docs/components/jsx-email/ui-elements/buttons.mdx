@@ -1,0 +1,96 @@
+---
+title: "Buttons"
+description: "A single email button component with primary, secondary, and text link styles, optional icons, and alignment."
+---
+
+One `Buttons` component covers every style. Switch the look with the `variant`
+prop, add an optional `icon`, and control placement with `align`.
+
+## Primary
+
+<ComponentPreview base="jsx-email" name="primary-buttons-demo" />
+
+## Primary with Icon
+
+<ComponentPreview base="jsx-email" name="primary-buttons-with-icon-demo" />
+
+## Secondary
+
+<ComponentPreview base="jsx-email" name="secondary-buttons-demo" />
+
+## Secondary with Icon
+
+<ComponentPreview base="jsx-email" name="secondary-buttons-with-icon-demo" />
+
+## Text Link
+
+<ComponentPreview base="jsx-email" name="text-link-buttons-demo" />
+
+## Text Link with Icon
+
+<ComponentPreview base="jsx-email" name="text-link-buttons-with-icon-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/buttons
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/buttons/buttons.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
+```
+
+```tsx
+<Buttons variant="primary" label="Get Started" href="https://example.com" />
+<Buttons variant="secondary" icon="➜" label="Learn More" href="https://example.com/learn" />
+<Buttons variant="text" label="Unsubscribe" href="https://example.com" />
+```
+
+## API Reference
+
+| Prop      | Type                                 | Default        | Description                 |
+| --------- | ------------------------------------ | -------------- | --------------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style                |
+| `label`   | `string`                             | `"Click Here"` | Button label                |
+| `href`    | `string`                             | `"#"`          | Button link URL             |
+| `icon`    | `string`                             | -              | Optional leading icon/glyph |
+| `align`   | `"left" \| "center" \| "right"`      | `"center"`     | Horizontal alignment        |
+| `theme`   | `EmailThemeTokens`                   | `defaultTheme` | Email theme styling         |

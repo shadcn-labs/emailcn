@@ -1,0 +1,16 @@
+{
+  "title": "Bento Grids",
+  "pages": [
+    "3-columns-even-split-image-stats",
+    "3-columns-even-split-text-stats",
+    "3-columns-flush-images",
+    "3-columns-padded-images",
+    "even-split-image-stats",
+    "even-split-text-stats",
+    "even-split-two-thirds",
+    "images-with-captions",
+    "images-with-details",
+    "two-rows-3-column-second-row",
+    "two-thirds-with-stats"
+  ]
+}

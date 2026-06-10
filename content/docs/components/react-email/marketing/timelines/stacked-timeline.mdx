@@ -1,0 +1,50 @@
+---
+title: "Stacked Timeline"
+description: "Marketing timelines variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="stacked-timeline-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/stacked-timeline
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/timelines/stacked-timeline.tsx"
+    base="react-email"
+    title="components/emails/marketing/timelines/stacked-timeline.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked-timeline";
+```
+
+```tsx
+<StackedTimeline {...StackedTimeline.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

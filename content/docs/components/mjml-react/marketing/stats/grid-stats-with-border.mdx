@@ -1,0 +1,64 @@
+---
+title: "Grid Stats with Border"
+description: "Marketing stats variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="grid-stats-with-border-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats-with-border
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/stats/grid-stats-with-border.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/stats/grid-stats-with-border.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridStatsWithBorder } from "@/components/emails/marketing/stats/grid-stats-with-border";
+```
+
+```tsx
+<GridStatsWithBorder {...GridStatsWithBorder.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

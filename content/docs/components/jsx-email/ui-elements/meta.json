@@ -1,0 +1,13 @@
+{
+  "title": "UI Elements",
+  "pages": [
+    "avatars",
+    "buttons",
+    "containers",
+    "data-tables",
+    "grids",
+    "pills",
+    "progress-bars",
+    "spacing"
+  ]
+}

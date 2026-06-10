@@ -1,0 +1,75 @@
+---
+title: "Two Columns Image Grid with Full Width Feature"
+description: "Two Columns Image Grid with Full Width Feature — Product Detail email component."
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-image-grid-with-full-width-feature
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsImageGridWithFullWidthFeature } from "@/components/emails/ecommerce/product-detail/two-columns-image-grid-with-full-width-feature";
+```
+
+```tsx
+<TwoColumnsImageGridWithFullWidthFeature
+  {...TwoColumnsImageGridWithFullWidthFeature.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop                 | Type         | Default        | Description         |
+| -------------------- | ------------ | -------------- | ------------------- |
+| `productImageUrl`    | `string`     | -              | Product image URL   |
+| `productName`        | `string`     | -              | Product name        |
+| `productDescription` | `string`     | -              | Product description |
+| `price`              | `string`     | -              | Product price       |
+| `ctaLabel`           | `string`     | -              | CTA button label    |
+| `ctaHref`            | `string`     | `"#"`          | CTA button link     |
+| `theme`              | `EmailTheme` | `defaultTheme` | Email theme styling |

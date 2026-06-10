@@ -1,0 +1,75 @@
+---
+title: "Newsletter Emails"
+description: "Pre-built newsletter email templates for updates and announcements."
+---
+
+<ComponentPreview base="jsx-email" name="newsletter-default" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/block-newsletter-default
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  src="registry/bases/jsx-email/blocks/newsletter-default.tsx"
+  title="components/emails/newsletter-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { NewsletterDefault } from "@/components/emails/newsletter-default";
+```
+
+```tsx
+<NewsletterDefault {...NewsletterDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Newsletter Emails
+
+| Prop             | Type                                          | Default        | Description             |
+| ---------------- | --------------------------------------------- | -------------- | ----------------------- |
+| `logoUrl`        | `string`                                      | -              | URL of the product logo |
+| `headerImageUrl` | `string`                                      | -              | Header image URL        |
+| `title`          | `string`                                      | `"Newsletter"` | Newsletter title        |
+| `preheader`      | `string`                                      | -              | Preview text            |
+| `_productName`   | `string`                                      | `"Acme"`       | Product name            |
+| `articles`       | `Array<{title, description, imageUrl, href}>` | -              | Featured articles       |
+| `ctaLabel`       | `string`                                      | `"Read More"`  | CTA button label        |

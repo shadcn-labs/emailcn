@@ -1,0 +1,12 @@
+{
+  "title": "Timelines",
+  "pages": [
+    "cards-timeline",
+    "changelog-boxed",
+    "changelog",
+    "payment-timeline",
+    "split-cards",
+    "stacked-boxed-timeline",
+    "stacked-timeline"
+  ]
+}

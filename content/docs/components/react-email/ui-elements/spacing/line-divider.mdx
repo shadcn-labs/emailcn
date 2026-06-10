@@ -1,0 +1,56 @@
+---
+title: "Line Divider"
+description: "UI Elements spacing variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="line-divider-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/line-divider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/spacing/line-divider.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/spacing/line-divider.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LineDivider } from "@/components/emails/ui-elements/spacing/line-divider";
+```
+
+```tsx
+<LineDivider {...LineDivider.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

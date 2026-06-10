@@ -1,67 +1,21 @@
 ---
 title: "Container"
-description: "Layout containers for wrapping email content with responsive padding."
+description: "Layout container for wrapping email content with responsive padding."
 ---
 
-## Container Flush on Mobile
+One `Container` component wraps your content. Use the `mobile` prop to control
+whether content sits edge-to-edge (`flush`) or keeps side padding (`gutters`) on
+mobile, and `align` to set horizontal alignment.
+
+## Flush on Mobile
 
 <ComponentPreview base="react-email" name="container-flush-mobile-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/container-flush-on-mobile
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/containers/container-flush-on-mobile.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/containers/container-flush-on-mobile.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { ContainerFlushOnMobile } from "@/components/emails/ui-elements/containers/container-flush-on-mobile";
-```
-
-```tsx
-<ContainerFlushOnMobile {...ContainerFlushOnMobile.PreviewProps} />
-```
-
-### API Reference
-
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Container with Gutters on Mobile
+## Gutters on Mobile
 
 <ComponentPreview base="react-email" name="container-gutters-mobile-demo" />
 
-### Installation
+## Installation
 
 <CodeTabs>
 
@@ -72,7 +26,7 @@ import { ContainerFlushOnMobile } from "@/components/emails/ui-elements/containe
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/container-with-gutters-on-mobile
+npx shadcn@latest add @emailcn/container
 ```
 
 </TabsContent>
@@ -84,9 +38,9 @@ npx shadcn@latest add @emailcn/container-with-gutters-on-mobile
 <Step>Copy the component source into your project.</Step>
 
 <ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/containers/container-with-gutters-on-mobile.tsx"
+  src="registry/bases/react-email/ui/ui-elements/containers/container.tsx"
   base="react-email"
-  title="components/emails/ui-elements/containers/container-with-gutters-on-mobile.tsx"
+  title="components/emails/ui-elements/containers/container.tsx"
 />
 
 </Steps>
@@ -95,18 +49,23 @@ npx shadcn@latest add @emailcn/container-with-gutters-on-mobile
 
 </CodeTabs>
 
-### Usage
+## Usage
 
 ```tsx
-import { ContainerWithGuttersOnMobile } from "@/components/emails/ui-elements/containers/container-with-gutters-on-mobile";
+import { Container } from "@/components/emails/ui-elements/containers/container";
 ```
 
 ```tsx
-<ContainerWithGuttersOnMobile {...ContainerWithGuttersOnMobile.PreviewProps} />
+<Container mobile="gutters">{children}</Container>
+<Container mobile="flush">{children}</Container>
 ```
 
-### API Reference
+## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop       | Type                            | Default        | Description                     |
+| ---------- | ------------------------------- | -------------- | ------------------------------- |
+| `mobile`   | `"gutters" \| "flush"`          | `"gutters"`    | Side padding behavior on mobile |
+| `align`    | `"left" \| "center" \| "right"` | `"center"`     | Horizontal alignment            |
+| `maxWidth` | `string`                        | `"600px"`      | Maximum container width         |
+| `children` | `React.ReactNode`               | -              | Container content               |
+| `theme`    | `TailwindConfig`                | `defaultTheme` | Email theme styling             |

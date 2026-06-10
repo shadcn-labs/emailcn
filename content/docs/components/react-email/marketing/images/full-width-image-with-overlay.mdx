@@ -1,0 +1,53 @@
+---
+title: "Full Width Image with Overlay"
+description: "Marketing images variant for email templates"
+---
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-image-with-overlay
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/images/full-width-image-with-overlay.tsx"
+    base="react-email"
+    title="components/emails/marketing/images/full-width-image-with-overlay.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthImageWithOverlay } from "@/components/emails/marketing/images/full-width-image-with-overlay";
+```
+
+```tsx
+<FullWidthImageWithOverlay {...FullWidthImageWithOverlay.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

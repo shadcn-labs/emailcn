@@ -1,0 +1,130 @@
+---
+title: "Content"
+description: "Title and paragraph content blocks with one or two columns, optional icons, and padding control."
+---
+
+One `Content` component covers titles and paragraphs. Choose `type`, set
+`columns` to `1` or `2`, toggle `withIcons` for icon-topped columns, and pick a
+`padding` size.
+
+## Title
+
+<ComponentPreview base="jsx-email" name="title-with-regular-padding-demo" />
+
+## Title with Large Padding
+
+<ComponentPreview base="jsx-email" name="title-with-large-padding-demo" />
+
+## Paragraph
+
+<ComponentPreview base="jsx-email" name="paragraph-with-regular-padding-demo" />
+
+## Paragraph with Large Padding
+
+<ComponentPreview base="jsx-email" name="paragraph-with-large-padding-demo" />
+
+## Two Columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="paragraph-2-columns-with-regular-padding-demo"
+/>
+
+## Two Columns with Large Padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="paragraph-2-columns-with-large-padding-demo"
+/>
+
+## Two Columns with Icons
+
+<ComponentPreview
+  base="jsx-email"
+  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
+/>
+
+## Two Columns with Icons and Large Padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="paragraph-2-columns-with-icons-and-large-padding-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/content
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/content/content.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/content/content.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Content } from "@/components/emails/marketing/content/content";
+```
+
+```tsx
+<Content type="title" title="Section Title" />
+<Content type="paragraph" text="A single column of body copy." />
+<Content type="paragraph" columns={2} column1="Left" column2="Right" />
+<Content
+  type="paragraph"
+  columns={2}
+  withIcons
+  iconSrc1="/icon-1.png"
+  iconSrc2="/icon-2.png"
+  column1="Left"
+  column2="Right"
+/>
+```
+
+## API Reference
+
+| Prop                    | Type                     | Default        | Description                                |
+| ----------------------- | ------------------------ | -------------- | ------------------------------------------ |
+| `type`                  | `"title" \| "paragraph"` | `"paragraph"`  | Content style                              |
+| `columns`               | `1 \| 2`                 | `1`            | Column count (paragraph only)              |
+| `withIcons`             | `boolean`                | `false`        | Show an icon above each column (2 columns) |
+| `padding`               | `"regular" \| "large"`   | `"regular"`    | Vertical padding                           |
+| `title`                 | `string`                 | -              | Heading text (when `type="title"`)         |
+| `text`                  | `string`                 | -              | Body text (single column)                  |
+| `column1` / `column2`   | `string`                 | -              | Column text (when `columns={2}`)           |
+| `iconSrc1` / `iconAlt1` | `string`                 | -              | First column icon (when `withIcons`)       |
+| `iconSrc2` / `iconAlt2` | `string`                 | -              | Second column icon (when `withIcons`)      |
+| `theme`                 | `EmailThemeTokens`       | `defaultTheme` | Email theme styling                        |

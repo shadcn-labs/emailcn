@@ -1,0 +1,69 @@
+---
+title: "Two Columns Masonry Image Grid with 4 Images"
+description: "Two Columns Masonry Image Grid with 4 Images — Images email component."
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-masonry-image-grid-with-4-images
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsMasonryImageGridWith4Images } from "@/components/emails/marketing/images/2-columns-masonry-image-grid-with-4-images";
+```
+
+```tsx
+<TwoColumnsMasonryImageGridWith4Images
+  {...TwoColumnsMasonryImageGridWith4Images.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

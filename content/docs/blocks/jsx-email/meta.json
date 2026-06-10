@@ -1,0 +1,12 @@
+{
+  "title": "JSX Email",
+  "pages": [
+    "index",
+    "authentication",
+    "notification",
+    "newsletter",
+    "invites",
+    "receipts",
+    "onboarding"
+  ]
+}

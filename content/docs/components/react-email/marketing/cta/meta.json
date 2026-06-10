@@ -1,0 +1,12 @@
+{
+  "title": "CTA Banner",
+  "pages": [
+    "boxed-with-background-image",
+    "background-image",
+    "image-strip",
+    "shifted-images",
+    "team-avatars",
+    "title-action-lead",
+    "top-large-image"
+  ]
+}

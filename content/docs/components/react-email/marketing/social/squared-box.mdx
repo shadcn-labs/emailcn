@@ -1,0 +1,50 @@
+---
+title: "Squared Box"
+description: "Marketing social variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="squared-box-social-logos-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/squared-box-social-logos
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/social/squared-box-social-logos.tsx"
+    base="react-email"
+    title="components/emails/marketing/social/squared-box-social-logos.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SquaredBoxSocialLogos } from "@/components/emails/marketing/social/squared-box-social-logos";
+```
+
+```tsx
+<SquaredBoxSocialLogos {...SquaredBoxSocialLogos.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

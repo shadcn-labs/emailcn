@@ -1,0 +1,17 @@
+{
+  "title": "Hero",
+  "pages": [
+    "aligned-overlay",
+    "block-overlay",
+    "block-with-bleed",
+    "overlayed-split",
+    "split-contained",
+    "split-full-bleed",
+    "image-grid",
+    "overlapped-content",
+    "overlapped-image",
+    "overlay-gradient",
+    "overlayed-content",
+    "slanted-split"
+  ]
+}

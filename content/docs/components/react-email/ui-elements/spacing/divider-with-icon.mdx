@@ -1,0 +1,56 @@
+---
+title: "Divider with Icon"
+description: "UI Elements spacing variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="divider-with-icon-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-icon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/spacing/divider-with-icon.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithIcon } from "@/components/emails/ui-elements/spacing/divider-with-icon";
+```
+
+```tsx
+<DividerWithIcon {...DividerWithIcon.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

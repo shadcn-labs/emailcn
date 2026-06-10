@@ -1,298 +1,36 @@
 ---
 title: "Buttons"
-description: "Email button components with primary, secondary, and text link styles."
+description: "A single email button component with primary, secondary, and text link styles, optional icons, and alignment."
 ---
 
-## Primary Buttons
+One `Buttons` component covers every style. Switch the look with the `variant`
+prop, add an optional `icon`, and control placement with `align`.
+
+## Primary
 
 <ComponentPreview base="react-email" name="primary-buttons-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/primary-buttons
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/buttons/primary-buttons.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/buttons/primary-buttons.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { PrimaryButtons } from "@/components/emails/ui-elements/buttons/primary-buttons";
-```
-
-```tsx
-<PrimaryButtons {...PrimaryButtons.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- | ----------- | -------------------- |
-| `variant` | `"primary"   | "secondary"    | "text"`             | `"primary"` | Button style variant |
-| `label`   | `string`     | -              | Button label        |
-| `href`    | `string`     | `"#"`          | Button link URL     |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Primary Buttons with Icon
+## Primary with Icon
 
 <ComponentPreview base="react-email" name="primary-buttons-with-icon-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/primary-buttons-with-icon
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/buttons/primary-buttons-with-icon.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/buttons/primary-buttons-with-icon.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { PrimaryButtonsWithIcon } from "@/components/emails/ui-elements/buttons/primary-buttons-with-icon";
-```
-
-```tsx
-<PrimaryButtonsWithIcon {...PrimaryButtonsWithIcon.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- | ----------- | -------------------- |
-| `variant` | `"primary"   | "secondary"    | "text"`             | `"primary"` | Button style variant |
-| `label`   | `string`     | -              | Button label        |
-| `href`    | `string`     | `"#"`          | Button link URL     |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Secondary Buttons
+## Secondary
 
 <ComponentPreview base="react-email" name="secondary-buttons-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/secondary-buttons
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/buttons/secondary-buttons.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/buttons/secondary-buttons.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { SecondaryButtons } from "@/components/emails/ui-elements/buttons/secondary-buttons";
-```
-
-```tsx
-<SecondaryButtons {...SecondaryButtons.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- | ----------- | -------------------- |
-| `variant` | `"primary"   | "secondary"    | "text"`             | `"primary"` | Button style variant |
-| `label`   | `string`     | -              | Button label        |
-| `href`    | `string`     | `"#"`          | Button link URL     |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Secondary Buttons with Icon
+## Secondary with Icon
 
 <ComponentPreview base="react-email" name="secondary-buttons-with-icon-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/secondary-buttons-with-icon
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/buttons/secondary-buttons-with-icon.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/buttons/secondary-buttons-with-icon.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { SecondaryButtonsWithIcon } from "@/components/emails/ui-elements/buttons/secondary-buttons-with-icon";
-```
-
-```tsx
-<SecondaryButtonsWithIcon {...SecondaryButtonsWithIcon.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- | ----------- | -------------------- |
-| `variant` | `"primary"   | "secondary"    | "text"`             | `"primary"` | Button style variant |
-| `label`   | `string`     | -              | Button label        |
-| `href`    | `string`     | `"#"`          | Button link URL     |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Text Link Buttons
+## Text Link
 
 <ComponentPreview base="react-email" name="text-link-buttons-demo" />
 
-### Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/text-link-buttons
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/buttons/text-link-buttons.tsx"
-  base="react-email"
-  title="components/emails/ui-elements/buttons/text-link-buttons.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-### Usage
-
-```tsx
-import { TextLinkButtons } from "@/components/emails/ui-elements/buttons/text-link-buttons";
-```
-
-```tsx
-<TextLinkButtons {...TextLinkButtons.PreviewProps} />
-```
-
-### API Reference
-
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- | ----------- | -------------------- |
-| `variant` | `"primary"   | "secondary"    | "text"`             | `"primary"` | Button style variant |
-| `label`   | `string`     | -              | Button label        |
-| `href`    | `string`     | `"#"`          | Button link URL     |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
-
-## Text Link Buttons with Icon
+## Text Link with Icon
 
 <ComponentPreview base="react-email" name="text-link-buttons-with-icon-demo" />
 
-### Installation
+## Installation
 
 <CodeTabs>
 
@@ -303,7 +41,7 @@ import { TextLinkButtons } from "@/components/emails/ui-elements/buttons/text-li
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/text-link-buttons-with-icon
+npx shadcn@latest add @emailcn/buttons
 ```
 
 </TabsContent>
@@ -315,9 +53,9 @@ npx shadcn@latest add @emailcn/text-link-buttons-with-icon
 <Step>Copy the component source into your project.</Step>
 
 <ComponentSource
-  src="registry/bases/react-email/ui/ui-elements/buttons/text-link-buttons-with-icon.tsx"
+  src="registry/bases/react-email/ui/ui-elements/buttons/buttons.tsx"
   base="react-email"
-  title="components/emails/ui-elements/buttons/text-link-buttons-with-icon.tsx"
+  title="components/emails/ui-elements/buttons/buttons.tsx"
 />
 
 </Steps>
@@ -326,21 +64,25 @@ npx shadcn@latest add @emailcn/text-link-buttons-with-icon
 
 </CodeTabs>
 
-### Usage
+## Usage
 
 ```tsx
-import { TextLinkButtonsWithIcon } from "@/components/emails/ui-elements/buttons/text-link-buttons-with-icon";
+import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
 ```
 
 ```tsx
-<TextLinkButtonsWithIcon {...TextLinkButtonsWithIcon.PreviewProps} />
+<Buttons variant="primary" label="Get Started" href="https://example.com" />
+<Buttons variant="secondary" icon="➜" label="Learn More" href="https://example.com/learn" />
+<Buttons variant="text" label="Unsubscribe" href="https://example.com" />
 ```
 
-### API Reference
+## API Reference
 
-| Prop      | Type         | Default        | Description         |
-| --------- | ------------ | -------------- | ------------------- | ----------- | -------------------- |
-| `variant` | `"primary"   | "secondary"    | "text"`             | `"primary"` | Button style variant |
-| `label`   | `string`     | -              | Button label        |
-| `href`    | `string`     | `"#"`          | Button link URL     |
-| `theme`   | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                 | Default        | Description                 |
+| --------- | ------------------------------------ | -------------- | --------------------------- |
+| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style                |
+| `label`   | `string`                             | `"Click Here"` | Button label                |
+| `href`    | `string`                             | `"#"`          | Button link URL             |
+| `icon`    | `string`                             | -              | Optional leading icon/glyph |
+| `align`   | `"left" \| "center" \| "right"`      | `"center"`     | Horizontal alignment        |
+| `theme`   | `TailwindConfig`                     | `defaultTheme` | Email theme styling         |

@@ -1,0 +1,76 @@
+---
+title: "Notification Emails"
+description: "Pre-built notification email templates for various use cases."
+---
+
+<ComponentPreview base="jsx-email" name="notification-default" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/block-notification-default
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  src="registry/bases/jsx-email/blocks/notification-default.tsx"
+  title="components/emails/notification-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { NotificationDefault } from "@/components/emails/notification-default";
+```
+
+```tsx
+<NotificationDefault {...NotificationDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Notification Emails
+
+| Prop             | Type     | Default          | Description                               |
+| ---------------- | -------- | ---------------- | ----------------------------------------- |
+| `logoUrl`        | `string` | -                | URL of the product logo                   |
+| `actorName`      | `string` | `"Someone"`      | Name of the user who performed the action |
+| `actorAvatarUrl` | `string` | -                | URL of the user's avatar                  |
+| `_action`        | `string` | `"notified you"` | Action description                        |
+| `_targetName`    | `string` | `"your update"`  | Name of the notification target           |
+| `ctaLabel`       | `string` | `"View"`         | CTA button label                          |
+| `ctaHref`        | `string` | `"#"`            | CTA button link                           |
+| `_productName`   | `string` | `"Acme"`         | Product name                              |

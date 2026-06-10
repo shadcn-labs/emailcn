@@ -1,0 +1,50 @@
+---
+title: "Horizontal Team Member Bios"
+description: "Marketing team variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="horizontal-team-member-bios-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/horizontal-team-member-bios
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/team/horizontal-team-member-bios.tsx"
+    base="react-email"
+    title="components/emails/marketing/team/horizontal-team-member-bios.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HorizontalTeamMemberBios } from "@/components/emails/marketing/team/horizontal-team-member-bios";
+```
+
+```tsx
+<HorizontalTeamMemberBios {...HorizontalTeamMemberBios.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

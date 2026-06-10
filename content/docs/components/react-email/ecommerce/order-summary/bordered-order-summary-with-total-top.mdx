@@ -1,0 +1,55 @@
+---
+title: "Bordered Order Summary with Total Top"
+description: "Ecommerce order-summary variant for email templates"
+---
+
+<ComponentPreview
+  base="react-email"
+  name="bordered-order-summary-total-bottom-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bordered-order-summary-with-total-top
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BorderedOrderSummaryWithTotalTop } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top";
+```
+
+```tsx
+<BorderedOrderSummaryWithTotalTop
+  {...BorderedOrderSummaryWithTotalTop.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

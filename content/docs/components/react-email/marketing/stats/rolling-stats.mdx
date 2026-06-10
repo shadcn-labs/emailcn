@@ -1,0 +1,50 @@
+---
+title: "Rolling Stats"
+description: "Marketing stats variant for email templates"
+---
+
+<ComponentPreview base="react-email" name="rolling-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/rolling-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/stats/rolling-stats.tsx"
+    base="react-email"
+    title="components/emails/marketing/stats/rolling-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { RollingStats } from "@/components/emails/marketing/stats/rolling-stats";
+```
+
+```tsx
+<RollingStats {...RollingStats.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

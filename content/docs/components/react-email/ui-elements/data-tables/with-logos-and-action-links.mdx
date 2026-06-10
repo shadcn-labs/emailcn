@@ -1,0 +1,52 @@
+---
+title: "With Logos and Action Links"
+description: "With Logos and Action Links — Data Tables email component."
+---
+
+<ComponentPreview base="react-email" name="data-table-logos-actions-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-logos-and-action-links
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx"
+    base="react-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableWithLogosAndActionLinks } from "@/components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links";
+```
+
+```tsx
+<DataTableWithLogosAndActionLinks
+  {...DataTableWithLogosAndActionLinks.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

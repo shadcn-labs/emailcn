@@ -1,0 +1,76 @@
+---
+title: "Invitation Emails"
+description: "Pre-built invitation email templates for team and project invites."
+---
+
+<ComponentPreview base="jsx-email" name="invite-default" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/block-invite-default
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/themes/default.ts"
+  title="components/emails/themes/default.ts"
+/>
+<ComponentSource
+  src="registry/bases/jsx-email/blocks/invite-default.tsx"
+  title="components/emails/invite-default.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { InviteDefault } from "@/components/emails/invite-default";
+```
+
+```tsx
+<InviteDefault {...InviteDefault.PreviewProps} />
+```
+
+## API Reference
+
+### Invitation Emails
+
+| Prop               | Type     | Default       | Description             |
+| ------------------ | -------- | ------------- | ----------------------- |
+| `logoUrl`          | `string` | -             | URL of the product logo |
+| `inviterName`      | `string` | `"Someone"`   | Name of the inviter     |
+| `inviterAvatarUrl` | `string` | -             | URL of inviter's avatar |
+| `_teamName`        | `string` | `"Acme Team"` | Team or project name    |
+| `role`             | `string` | `"Member"`    | Invited role            |
+| `ctaLabel`         | `string` | `"Join Team"` | CTA button label        |
+| `ctaHref`          | `string` | `"#"`         | CTA button link         |
+| `_productName`     | `string` | `"Acme"`      | Product name            |

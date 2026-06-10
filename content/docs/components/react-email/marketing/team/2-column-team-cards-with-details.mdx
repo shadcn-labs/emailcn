@@ -1,0 +1,55 @@
+---
+title: "2 Column Team Cards with Details"
+description: "2 Column Team Cards with Details — Team email component."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="two-column-team-cards-with-details-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-column-team-cards-with-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/team/2-column-team-cards-with-details.tsx"
+    base="react-email"
+    title="components/emails/marketing/team/2-column-team-cards-with-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnTeamCardsWithDetails } from "@/components/emails/marketing/team/2-column-team-cards-with-details";
+```
+
+```tsx
+<TwoColumnTeamCardsWithDetails
+  {...TwoColumnTeamCardsWithDetails.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

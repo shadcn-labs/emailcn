@@ -1,0 +1,55 @@
+---
+title: "Boxed Order Summary with Card Details and Total Bottom"
+description: "Boxed Order Summary with Card Details and Total Bottom — Order Summary email component."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="bordered-order-summary-total-bottom-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-order-summary-with-card-details-and-total-bottom
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedOrderSummaryCardDetailsTotalBottom } from "@/components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom";
+```
+
+```tsx
+<BoxedOrderSummaryCardDetailsTotalBottom
+  {...BoxedOrderSummaryCardDetailsTotalBottom.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

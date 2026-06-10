@@ -1,0 +1,64 @@
+---
+title: "Two Columns Image Grid"
+description: "Two Columns Image Grid — Images email component."
+---
+
+<ComponentPreview base="mjml-react" name="two-columns-image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-image-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/images/2-columns-image-grid.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/images/2-columns-image-grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsImageGrid } from "@/components/emails/marketing/images/2-columns-image-grid";
+```
+
+```tsx
+<TwoColumnsImageGrid {...TwoColumnsImageGrid.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

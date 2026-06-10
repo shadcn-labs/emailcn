@@ -1,0 +1,64 @@
+---
+title: "Two Columns Reviews"
+description: "Ecommerce reviews variant for email templates"
+---
+
+<ComponentPreview base="jsx-email" name="two-columns-reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-reviews
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ecommerce/reviews/two-columns-reviews.tsx"
+  base="jsx-email"
+  title="components/emails/ecommerce/reviews/two-columns-reviews.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsReviews } from "@/components/emails/ecommerce/reviews/two-columns-reviews";
+```
+
+```tsx
+<TwoColumnsReviews {...TwoColumnsReviews.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

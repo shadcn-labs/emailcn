@@ -1,0 +1,10 @@
+{
+  "title": "Product Detail",
+  "pages": [
+    "feature-with-product-image",
+    "two-columns-image-grid-with-full-width-feature",
+    "bento-grid-with-images-and-details",
+    "two-column-team-cards-with-details",
+    "split-product-detail"
+  ]
+}
