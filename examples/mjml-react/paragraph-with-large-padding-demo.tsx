@@ -1,7 +1,12 @@
-import { ParagraphWithLargePadding } from "@/registry/bases/mjml-react/ui/marketing/content/paragraph-with-large-padding";
+import { Content } from "@/registry/bases/mjml-react/ui/marketing/content/content";
 
 export default function ParagraphWithLargePaddingDemo() {
   return (
-    <ParagraphWithLargePadding {...ParagraphWithLargePadding.PreviewProps} />
+    <Content
+      {...Content.PreviewProps}
+      type="paragraph"
+      padding="large"
+      text="This is a paragraph with large padding. It is used to present information with more breathing room."
+    />
   );
 }

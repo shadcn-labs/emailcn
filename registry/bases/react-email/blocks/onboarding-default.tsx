@@ -12,7 +12,7 @@ import {
 } from "react-email";
 
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-import { TitleWithRegularPaddingSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/title-with-regular-padding";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
 import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
 import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
 import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
@@ -62,7 +62,7 @@ export const OnboardingDefault = ({
               align="left"
             />
 
-            <ContentGridSection title="Quick Setup" />
+            <ContentGridSection type="title" title="Quick Setup" />
 
             <CTABannerSection
               heading="Ready to dive in?"

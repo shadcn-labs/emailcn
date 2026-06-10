@@ -1,5 +1,5 @@
-import { ContainerGuttersMobile } from "@/registry/bases/react-email/ui/ui-elements/containers/container-with-gutters-on-mobile";
+import { Container } from "@/registry/bases/react-email/ui/ui-elements/containers/container";
 
 export default function ContainerGuttersMobileDemo() {
-  return <ContainerGuttersMobile {...ContainerGuttersMobile.PreviewProps} />;
+  return <Container {...Container.PreviewProps} mobile="gutters" />;
 }

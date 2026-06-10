@@ -1,5 +1,5 @@
-import { ContainerFlushMobile } from "@/registry/bases/react-email/ui/ui-elements/containers/container-flush-on-mobile";
+import { Container } from "@/registry/bases/react-email/ui/ui-elements/containers/container";
 
 export default function ContainerFlushMobileDemo() {
-  return <ContainerFlushMobile {...ContainerFlushMobile.PreviewProps} />;
+  return <Container {...Container.PreviewProps} mobile="flush" />;
 }

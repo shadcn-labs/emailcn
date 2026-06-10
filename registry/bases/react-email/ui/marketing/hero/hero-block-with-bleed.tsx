@@ -127,11 +127,11 @@ export const HeroBlockWithBleed = ({
   variant = "default",
 }: HeroBlockWithBleedProps) => (
   <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{heading}</Preview>
     <Tailwind config={theme}>
+      <Head>
+        <DefaultFonts />
+      </Head>
+      <Preview>{heading}</Preview>
       <Body className="m-0 bg-background font-sans">
         <HeroBlockWithBleedSection
           bgColor={bgColor}

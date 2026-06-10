@@ -1,9 +1,14 @@
-import { Paragraph2ColumnsWithRegularPadding } from "@/registry/bases/react-email/ui/marketing/content/paragraph-2-columns-with-regular-padding";
+import { Content } from "@/registry/bases/react-email/ui/marketing/content/content";
 
 export default function Paragraph2ColumnsWithRegularPaddingDemo() {
   return (
-    <Paragraph2ColumnsWithRegularPadding
-      {...Paragraph2ColumnsWithRegularPadding.PreviewProps}
+    <Content
+      {...Content.PreviewProps}
+      type="paragraph"
+      columns={2}
+      padding="regular"
+      column1="This is the first column of a two-column paragraph layout with regular padding."
+      column2="This is the second column of a two-column paragraph layout with regular padding."
     />
   );
 }

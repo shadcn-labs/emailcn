@@ -1,5 +1,11 @@
-import { OneThreeSplitGrid } from "@/registry/bases/react-email/ui/ui-elements/grids/1-3-split-grid";
+import { Grid } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
 
 export default function OneThreeSplitGridDemo() {
-  return <OneThreeSplitGrid {...OneThreeSplitGrid.PreviewProps} />;
+  return (
+    <Grid
+      {...Grid.PreviewProps}
+      cells={["Sidebar", "Main content area"]}
+      layout="1-3"
+    />
+  );
 }

@@ -1,5 +1,12 @@
-import { TitleWithLargePadding } from "@/registry/bases/mjml-react/ui/marketing/content/title-with-large-padding";
+import { Content } from "@/registry/bases/mjml-react/ui/marketing/content/content";
 
 export default function TitleWithLargePaddingDemo() {
-  return <TitleWithLargePadding {...TitleWithLargePadding.PreviewProps} />;
+  return (
+    <Content
+      {...Content.PreviewProps}
+      type="title"
+      padding="large"
+      title="Section Title"
+    />
+  );
 }

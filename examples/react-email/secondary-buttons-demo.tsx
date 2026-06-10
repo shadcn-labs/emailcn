@@ -1,5 +1,12 @@
-import { SecondaryButtons } from "@/registry/bases/react-email/ui/ui-elements/buttons/secondary-buttons";
+import { Buttons } from "@/registry/bases/react-email/ui/ui-elements/buttons/buttons";
 
 export default function SecondaryButtonsDemo() {
-  return <SecondaryButtons {...SecondaryButtons.PreviewProps} />;
+  return (
+    <Buttons
+      {...Buttons.PreviewProps}
+      variant="secondary"
+      label="Learn More"
+      href="https://example.com/learn"
+    />
+  );
 }

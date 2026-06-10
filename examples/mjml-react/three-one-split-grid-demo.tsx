@@ -1,5 +1,11 @@
-import { ThreeOneSplitGrid } from "@/registry/bases/mjml-react/ui/ui-elements/grids/3-1-split-grid";
+import { Grid } from "@/registry/bases/mjml-react/ui/ui-elements/grids/grid";
 
 export default function ThreeOneSplitGridDemo() {
-  return <ThreeOneSplitGrid {...ThreeOneSplitGrid.PreviewProps} />;
+  return (
+    <Grid
+      {...Grid.PreviewProps}
+      cells={["Main content", "Sidebar"]}
+      layout="3-1"
+    />
+  );
 }

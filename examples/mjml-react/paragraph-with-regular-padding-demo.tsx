@@ -1,9 +1,12 @@
-import { ParagraphWithRegularPadding } from "@/registry/bases/mjml-react/ui/marketing/content/paragraph-with-regular-padding";
+import { Content } from "@/registry/bases/mjml-react/ui/marketing/content/content";
 
 export default function ParagraphWithRegularPaddingDemo() {
   return (
-    <ParagraphWithRegularPadding
-      {...ParagraphWithRegularPadding.PreviewProps}
+    <Content
+      {...Content.PreviewProps}
+      type="paragraph"
+      padding="regular"
+      text="This is a regular paragraph with standard padding. It is used to present information in a clear and readable way."
     />
   );
 }

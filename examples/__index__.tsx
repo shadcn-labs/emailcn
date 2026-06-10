@@ -1,5 +1,205 @@
 import type { ComponentType } from "react";
 
+import JxAvatarWithDetailsDemo from "./jsx-email/avatar-with-details-demo";
+import JxBasicLogoCloudDemo from "./jsx-email/basic-logo-cloud-demo";
+import JxBasicPillsStatusColorsDemo from "./jsx-email/basic-pills-status-colors-demo";
+import JxBentoGridWith3ColumnsAndEvenSplitImageStatsDemo from "./jsx-email/bento-grid-with-3-columns-and-even-split-image-stats-demo";
+import JxBentoGridWith3ColumnsAndEvenSplitTextStatsDemo from "./jsx-email/bento-grid-with-3-columns-and-even-split-text-stats-demo";
+import JxBentoGridWith3ColumnsAndFlushImagesDemo from "./jsx-email/bento-grid-with-3-columns-and-flush-images-demo";
+import JxBentoGridWith3ColumnsAndPaddedImagesDemo from "./jsx-email/bento-grid-with-3-columns-and-padded-images-demo";
+import JxBentoGridWithEvenSplitAndImageStatsDemo from "./jsx-email/bento-grid-with-even-split-and-image-stats-demo";
+import JxBentoGridWithEvenSplitAndTextStatsDemo from "./jsx-email/bento-grid-with-even-split-and-text-stats-demo";
+import JxBentoGridWithEvenSplitAndTwoThirdsDemo from "./jsx-email/bento-grid-with-even-split-and-two-thirds-demo";
+import JxBentoGridWithImagesAndCaptionsDemo from "./jsx-email/bento-grid-with-images-and-captions-demo";
+import JxBentoGridWithImagesAndDetailsDemo from "./jsx-email/bento-grid-with-images-and-details-demo";
+import JxBentoGridWithTwoRowsAnd3ColumnSecondRowDemo from "./jsx-email/bento-grid-with-two-rows-and-3-column-second-row-demo";
+import JxBlogPostHorizontalBoxedDemo from "./jsx-email/blog-post-horizontal-boxed-demo";
+import JxBlogPostHorizontalBoxedWithSplitImagesDemo from "./jsx-email/blog-post-horizontal-boxed-with-split-images-demo";
+import JxBlogWithImagesAnd2ColumnsMasonryDemo from "./jsx-email/blog-with-images-and-2-columns-masonry-demo";
+import JxBorderedOrderSummaryCardDetailsDemo from "./jsx-email/bordered-order-summary-card-details-demo";
+import JxBorderedOrderSummaryTotalBottomDemo from "./jsx-email/bordered-order-summary-total-bottom-demo";
+import JxBorderedOrderSummaryTotalTopDemo from "./jsx-email/bordered-order-summary-total-top-demo";
+import JxBoxedCtaWithBackgroundImageDemo from "./jsx-email/boxed-cta-with-background-image-demo";
+import JxBoxedFaqWithNumberedQuestionsDemo from "./jsx-email/boxed-faq-with-numbered-questions-demo";
+import JxBoxedFaqWithNumbersAndAlternatingBackgroundColorsDemo from "./jsx-email/boxed-faq-with-numbers-and-alternating-background-colors-demo";
+import JxBoxedGridStatsDemo from "./jsx-email/boxed-grid-stats-demo";
+import JxBoxedLogoCloudDemo from "./jsx-email/boxed-logo-cloud-demo";
+import JxBoxedOrderSummaryCardDetailsTotalBottomDemo from "./jsx-email/boxed-order-summary-card-details-total-bottom-demo";
+import JxBoxedOrderSummaryCardDetailsTotalTopDemo from "./jsx-email/boxed-order-summary-card-details-total-top-demo";
+import JxBoxedOrderSummaryTotalBottomDemo from "./jsx-email/boxed-order-summary-total-bottom-demo";
+import JxBoxedOrderSummaryTotalTopDemo from "./jsx-email/boxed-order-summary-total-top-demo";
+import JxCardCouponsDemo from "./jsx-email/card-coupons-demo";
+import JxCardsTimelineDemo from "./jsx-email/cards-timeline-demo";
+import JxCategoryPreviewCardsDemo from "./jsx-email/category-preview-cards-demo";
+import JxCategoryPreviewRowsDemo from "./jsx-email/category-preview-rows-demo";
+import JxCenteredTestimonialWithCtaDemo from "./jsx-email/centered-testimonial-with-cta-demo";
+import JxChangelogBoxedDemo from "./jsx-email/changelog-boxed-demo";
+import JxChangelogDemo from "./jsx-email/changelog-demo";
+import JxCircleTilesSocialLogosDemo from "./jsx-email/circle-tiles-social-logos-demo";
+import JxCollapsedFaqWithExpandedSectionAndIconsDemo from "./jsx-email/collapsed-faq-with-expanded-section-and-icons-demo";
+import JxCollapsedFaqWithInlineCtaDemo from "./jsx-email/collapsed-faq-with-inline-cta-demo";
+import JxCollapsedFaqWithNumbersDemo from "./jsx-email/collapsed-faq-with-numbers-demo";
+import JxContainerFlushMobileDemo from "./jsx-email/container-flush-mobile-demo";
+import JxContainerGuttersMobileDemo from "./jsx-email/container-gutters-mobile-demo";
+import JxCouponsWithCenteredTextDemo from "./jsx-email/coupons-with-centered-text-demo";
+import JxCouponsWithContentOverlayedDemo from "./jsx-email/coupons-with-content-overlayed-demo";
+import JxCtaWithBackgroundImageDemo from "./jsx-email/cta-with-background-image-demo";
+import JxCtaWithImageStripDemo from "./jsx-email/cta-with-image-strip-demo";
+import JxCtaWithShiftedImagesDemo from "./jsx-email/cta-with-shifted-images-demo";
+import JxCtaWithTeamAvatarsDemo from "./jsx-email/cta-with-team-avatars-demo";
+import JxCtaWithTitleAndActionLeadDemo from "./jsx-email/cta-with-title-and-action-lead-demo";
+import JxCtaWithTopLargeImageDemo from "./jsx-email/cta-with-top-large-image-demo";
+import JxDataTable4ColumnsDemo from "./jsx-email/data-table-4-columns-demo";
+import JxDataTableBasicDemo from "./jsx-email/data-table-basic-demo";
+import JxDataTableChangeIndicatorDemo from "./jsx-email/data-table-change-indicator-demo";
+import JxDataTableEditButtonDemo from "./jsx-email/data-table-edit-button-demo";
+import JxDataTableLogosActionsDemo from "./jsx-email/data-table-logos-actions-demo";
+import JxDataTableWithPillsDemo from "./jsx-email/data-table-with-pills-demo";
+import JxDataTableWithProgressDemo from "./jsx-email/data-table-with-progress-demo";
+import JxDividerWithButtonDemo from "./jsx-email/divider-with-button-demo";
+import JxDividerWithFileTypeDemo from "./jsx-email/divider-with-file-type-demo";
+import JxDividerWithIconButtonDemo from "./jsx-email/divider-with-icon-button-demo";
+import JxDividerWithIconDemo from "./jsx-email/divider-with-icon-demo";
+import JxDividerWithLogoDemo from "./jsx-email/divider-with-logo-demo";
+import JxDividerWithSocialIconsDemo from "./jsx-email/divider-with-social-icons-demo";
+import JxDividerWithTitleDemo from "./jsx-email/divider-with-title-demo";
+import JxExpandedFaqWithNumbersDemo from "./jsx-email/expanded-faq-with-numbers-demo";
+import JxExpandedFaqWithOffsetAnswersDemo from "./jsx-email/expanded-faq-with-offset-answers-demo";
+import JxFeatureWithDoubleTallBackgroundImagesDemo from "./jsx-email/feature-with-double-tall-background-images-demo";
+import JxFeatureWithFullTitleAndTallBackgroundImagesDemo from "./jsx-email/feature-with-full-title-and-tall-background-images-demo";
+import JxFeatureWithLargePortraitImageDemo from "./jsx-email/feature-with-large-portrait-image-demo";
+import JxFeatureWithMultipleProductImagesDemo from "./jsx-email/feature-with-multiple-product-images-demo";
+import JxFeatureWithProductImageDemo from "./jsx-email/feature-with-product-image-demo";
+import JxFeaturedBlogPostDemo from "./jsx-email/featured-blog-post-demo";
+import JxFeaturedBrandsLogoGridDemo from "./jsx-email/featured-brands-logo-grid-demo";
+import JxFeaturedPostWithLargeDateDemo from "./jsx-email/featured-post-with-large-date-demo";
+import JxFooterCenteredWithBorderedFullMenuDemo from "./jsx-email/footer-centered-with-bordered-full-menu-demo";
+import JxFooterCenteredWithMenuAndSocialsDemo from "./jsx-email/footer-centered-with-menu-and-socials-demo";
+import JxFooterWith2ColumnMenuDemo from "./jsx-email/footer-with-2-column-menu-demo";
+import JxFooterWith3ColMenuDemo from "./jsx-email/footer-with-3-col-menu-demo";
+import JxFooterWithContentAndCtaDemo from "./jsx-email/footer-with-content-and-cta-demo";
+import JxFooterWithLegalTextDemo from "./jsx-email/footer-with-legal-text-demo";
+import JxFooterWithOversizedLogoAndFullMenuDemo from "./jsx-email/footer-with-oversized-logo-and-full-menu-demo";
+import JxFooterWithSocialIconsAndAddressDemo from "./jsx-email/footer-with-social-icons-and-address-demo";
+import JxFooterWithTextMenuAndSocialsDemo from "./jsx-email/footer-with-text-menu-and-socials-demo";
+import JxFourColumnsGridDemo from "./jsx-email/four-columns-grid-demo";
+import JxFullWidthFeaturedPostWithLargeDateDemo from "./jsx-email/full-width-featured-post-with-large-date-demo";
+import JxFullWidthImageDemo from "./jsx-email/full-width-image-demo";
+import JxFullWidthImageWithOverlayDemo from "./jsx-email/full-width-image-with-overlay-demo";
+import JxFullWidthProgressBarDemo from "./jsx-email/full-width-progress-bar-demo";
+import JxFullWidthReviewsDemo from "./jsx-email/full-width-reviews-demo";
+import JxFullWidthSinglePricingDemo from "./jsx-email/full-width-single-pricing-demo";
+import JxFullWidthTestimonialDemo from "./jsx-email/full-width-testimonial-demo";
+import JxFullWidthTestimonialWithOverlappingAvatarDemo from "./jsx-email/full-width-testimonial-with-overlapping-avatar-demo";
+import JxGridStatsWithAccentColumnDemo from "./jsx-email/grid-stats-with-accent-column-demo";
+import JxGridStatsWithBorderDemo from "./jsx-email/grid-stats-with-border-demo";
+import JxGroupedOverlappedAvatarsDemo from "./jsx-email/grouped-overlapped-avatars-demo";
+import JxGroupedOverlappedAvatarsPlusCountDemo from "./jsx-email/grouped-overlapped-avatars-plus-count-demo";
+import JxHeaderLogoWithLinksDemo from "./jsx-email/header-logo-with-links-demo";
+import JxHeaderWithLogoAndBadgeDemo from "./jsx-email/header-with-logo-and-badge-demo";
+import JxHeaderWithLogoAndFinanceStatsDemo from "./jsx-email/header-with-logo-and-finance-stats-demo";
+import JxHeaderWithLogoAndMenuDemo from "./jsx-email/header-with-logo-and-menu-demo";
+import JxHeaderWithLogoAndSocialIconsDemo from "./jsx-email/header-with-logo-and-social-icons-demo";
+import JxHeaderWithLogoAndTextDemo from "./jsx-email/header-with-logo-and-text-demo";
+import JxHeaderWithUserDetailsAndAvatarDemo from "./jsx-email/header-with-user-details-and-avatar-demo";
+import JxHeaderWithUserDetailsDemo from "./jsx-email/header-with-user-details-demo";
+import JxHeroAlignedOverlayDemo from "./jsx-email/hero-aligned-overlay-demo";
+import JxHeroBlockOverlayDemo from "./jsx-email/hero-block-overlay-demo";
+import JxHeroBlockWithBleedDemo from "./jsx-email/hero-block-with-bleed-demo";
+import JxHeroOverlayedSplitDemo from "./jsx-email/hero-overlayed-split-demo";
+import JxHeroSplitContainedDemo from "./jsx-email/hero-split-contained-demo";
+import JxHeroSplitFullBleedDemo from "./jsx-email/hero-split-full-bleed-demo";
+import JxHeroWithImageGridDemo from "./jsx-email/hero-with-image-grid-demo";
+import JxHeroWithOverlappedContentDemo from "./jsx-email/hero-with-overlapped-content-demo";
+import JxHeroWithOverlappedImageDemo from "./jsx-email/hero-with-overlapped-image-demo";
+import JxHeroWithOverlayGradientDemo from "./jsx-email/hero-with-overlay-gradient-demo";
+import JxHeroWithOverlayedContentDemo from "./jsx-email/hero-with-overlayed-content-demo";
+import JxHeroWithSlantedSplitDemo from "./jsx-email/hero-with-slanted-split-demo";
+import JxHorizontalTeamMemberBiosDemo from "./jsx-email/horizontal-team-member-bios-demo";
+import JxLineDividerDemo from "./jsx-email/line-divider-demo";
+import JxLogoCloudWithBordersDemo from "./jsx-email/logo-cloud-with-borders-demo";
+import JxLogosGridDemo from "./jsx-email/logos-grid-demo";
+import JxMasonryGridReviewsDemo from "./jsx-email/masonry-grid-reviews-demo";
+import JxMilestoneStatsDemo from "./jsx-email/milestone-stats-demo";
+import JxOneColumnGridDemo from "./jsx-email/one-column-grid-demo";
+import JxOneThreeSplitGridDemo from "./jsx-email/one-three-split-grid-demo";
+import JxOrderSummaryBillingInlineDemo from "./jsx-email/order-summary-billing-inline-demo";
+import JxOrderSummaryBillingTopDemo from "./jsx-email/order-summary-billing-top-demo";
+import JxOutlinedBoxSocialLogosDemo from "./jsx-email/outlined-box-social-logos-demo";
+import JxOutlinedGridStatsDemo from "./jsx-email/outlined-grid-stats-demo";
+import JxOutlinedLogoCloudDemo from "./jsx-email/outlined-logo-cloud-demo";
+import JxOutlinedPillBoxSocialLogosDemo from "./jsx-email/outlined-pill-box-social-logos-demo";
+import JxOutlinedSquareTilesSocialLogosDemo from "./jsx-email/outlined-square-tiles-social-logos-demo";
+import JxOverlayStatsDemo from "./jsx-email/overlay-stats-demo";
+import JxParagraph2ColumnsWithIconsAndLargePaddingDemo from "./jsx-email/paragraph-2-columns-with-icons-and-large-padding-demo";
+import JxParagraph2ColumnsWithIconsAndRegularPaddingDemo from "./jsx-email/paragraph-2-columns-with-icons-and-regular-padding-demo";
+import JxParagraph2ColumnsWithLargePaddingDemo from "./jsx-email/paragraph-2-columns-with-large-padding-demo";
+import JxParagraph2ColumnsWithRegularPaddingDemo from "./jsx-email/paragraph-2-columns-with-regular-padding-demo";
+import JxParagraphWithLargePaddingDemo from "./jsx-email/paragraph-with-large-padding-demo";
+import JxParagraphWithRegularPaddingDemo from "./jsx-email/paragraph-with-regular-padding-demo";
+import JxPaymentTimelineDemo from "./jsx-email/payment-timeline-demo";
+import JxPillBoxSocialLogosDemo from "./jsx-email/pill-box-social-logos-demo";
+import JxPodcastBlogSplitDemo from "./jsx-email/podcast-blog-split-demo";
+import JxPodcastFullWidthDemo from "./jsx-email/podcast-full-width-demo";
+import JxPrimaryButtonsDemo from "./jsx-email/primary-buttons-demo";
+import JxPrimaryButtonsWithIconDemo from "./jsx-email/primary-buttons-with-icon-demo";
+import JxProductDetailMasonryDemo from "./jsx-email/product-detail-masonry-demo";
+import JxProductDetailThreeImagesDemo from "./jsx-email/product-detail-three-images-demo";
+import JxProductDetailTwoImagesDemo from "./jsx-email/product-detail-two-images-demo";
+import JxProductListWithRowsDemo from "./jsx-email/product-list-with-rows-demo";
+import JxProgressBarColumnsDemo from "./jsx-email/progress-bar-columns-demo";
+import JxProgressBarGroupDemo from "./jsx-email/progress-bar-group-demo";
+import JxRollingStatsDemo from "./jsx-email/rolling-stats-demo";
+import JxSecondaryButtonsDemo from "./jsx-email/secondary-buttons-demo";
+import JxSecondaryButtonsWithIconDemo from "./jsx-email/secondary-buttons-with-icon-demo";
+import JxShoppingCartRowItemsDemo from "./jsx-email/shopping-cart-row-items-demo";
+import JxSimpleFooterWithSocialIconsDemo from "./jsx-email/simple-footer-with-social-icons-demo";
+import JxSimpleGridStatsDemo from "./jsx-email/simple-grid-stats-demo";
+import JxSimpleSocialLogosRowDemo from "./jsx-email/simple-social-logos-row-demo";
+import JxSimpleStatsDemo from "./jsx-email/simple-stats-demo";
+import JxSingleImageProductDetailDemo from "./jsx-email/single-image-product-detail-demo";
+import JxSinglePostHorizontalDemo from "./jsx-email/single-post-horizontal-demo";
+import JxSingleStatWithBackgroundImageDemo from "./jsx-email/single-stat-with-background-image-demo";
+import JxSocialsWithInlineLabelsDemo from "./jsx-email/socials-with-inline-labels-demo";
+import JxSocialsWithInlineTileLabelsDemo from "./jsx-email/socials-with-inline-tile-labels-demo";
+import JxSocialsWithLabelsStackedDemo from "./jsx-email/socials-with-labels-stacked-demo";
+import JxSocialsWithStackedTileLabelsDemo from "./jsx-email/socials-with-stacked-tile-labels-demo";
+import JxSplitCardsDemo from "./jsx-email/split-cards-demo";
+import JxSplitProductDetailDemo from "./jsx-email/split-product-detail-demo";
+import JxSplitTestimonialWithCtaDemo from "./jsx-email/split-testimonial-with-cta-demo";
+import JxSquareTilesSocialLogosDemo from "./jsx-email/square-tiles-social-logos-demo";
+import JxSquaredBoxSocialLogosDemo from "./jsx-email/squared-box-social-logos-demo";
+import JxStackedBoxedTimelineDemo from "./jsx-email/stacked-boxed-timeline-demo";
+import JxStackedStatsDemo from "./jsx-email/stacked-stats-demo";
+import JxStackedTimelineDemo from "./jsx-email/stacked-timeline-demo";
+import JxTextLinkButtonsDemo from "./jsx-email/text-link-buttons-demo";
+import JxTextLinkButtonsWithIconDemo from "./jsx-email/text-link-buttons-with-icon-demo";
+import JxThreeColumnsGridDemo from "./jsx-email/three-columns-grid-demo";
+import JxThreeColumnsImageGridDemo from "./jsx-email/three-columns-image-grid-demo";
+import JxThreeColumnsImageGridWithFullWidthFeatureDemo from "./jsx-email/three-columns-image-grid-with-full-width-feature-demo";
+import JxThreeColumnsMasonryImageGridDemo from "./jsx-email/three-columns-masonry-image-grid-demo";
+import JxThreeColumnsMasonryImageGridWithFullWidthFeatureDemo from "./jsx-email/three-columns-masonry-image-grid-with-full-width-feature-demo";
+import JxThreeColumnsTeamGridDemo from "./jsx-email/three-columns-team-grid-demo";
+import JxThreeOneSplitGridDemo from "./jsx-email/three-one-split-grid-demo";
+import JxTitleWithLargePaddingDemo from "./jsx-email/title-with-large-padding-demo";
+import JxTitleWithRegularPaddingDemo from "./jsx-email/title-with-regular-padding-demo";
+import JxTwoColumnTeamCardsDemo from "./jsx-email/two-column-team-cards-demo";
+import JxTwoColumnTeamCardsWithDetailsDemo from "./jsx-email/two-column-team-cards-with-details-demo";
+import JxTwoColumnsBlogWithImagesAndBoxedContentDemo from "./jsx-email/two-columns-blog-with-images-and-boxed-content-demo";
+import JxTwoColumnsBlogWithImagesAndTextDemo from "./jsx-email/two-columns-blog-with-images-and-text-demo";
+import JxTwoColumnsBlogWithImagesDemo from "./jsx-email/two-columns-blog-with-images-demo";
+import JxTwoColumnsCompactDemo from "./jsx-email/two-columns-compact-demo";
+import JxTwoColumnsGridDemo from "./jsx-email/two-columns-grid-demo";
+import JxTwoColumnsImageGridDemo from "./jsx-email/two-columns-image-grid-demo";
+import JxTwoColumnsImageGridWithFullWidthFeatureDemo from "./jsx-email/two-columns-image-grid-with-full-width-feature-demo";
+import JxTwoColumnsMasonryBlogWithBoxedContentDemo from "./jsx-email/two-columns-masonry-blog-with-boxed-content-demo";
+import JxTwoColumnsMasonryImageGridWith3ImagesDemo from "./jsx-email/two-columns-masonry-image-grid-with-3-images-demo";
+import JxTwoColumnsMasonryImageGridWith4ImagesDemo from "./jsx-email/two-columns-masonry-image-grid-with-4-images-demo";
+import JxTwoColumnsPricingTableDemo from "./jsx-email/two-columns-pricing-table-demo";
+import JxTwoColumnsPricingTableWithGapsDemo from "./jsx-email/two-columns-pricing-table-with-gaps-demo";
+import JxTwoColumnsReviewsDemo from "./jsx-email/two-columns-reviews-demo";
+import JxTwoThirdsBentoGridWithStatsDemo from "./jsx-email/two-thirds-bento-grid-with-stats-demo";
+import JxVerticalSpacerDemo from "./jsx-email/vertical-spacer-demo";
 import MjAvatarWithDetailsDemo from "./mjml-react/avatar-with-details-demo";
 import MjBasicLogoCloudDemo from "./mjml-react/basic-logo-cloud-demo";
 import MjBasicPillsStatusColorsDemo from "./mjml-react/basic-pills-status-colors-demo";
@@ -407,9 +607,261 @@ import ReTwoThirdsBentoGridWithStatsDemo from "./react-email/two-thirds-bento-gr
 import ReVerticalSpacerDemo from "./react-email/vertical-spacer-demo";
 
 export const demos: Record<
-  "mjml-react" | "react-email",
+  "jsx-email" | "mjml-react" | "react-email",
   Record<string, ComponentType>
 > = {
+  "jsx-email": {
+    "avatar-with-details-demo": JxAvatarWithDetailsDemo,
+    "basic-logo-cloud-demo": JxBasicLogoCloudDemo,
+    "basic-pills-status-colors-demo": JxBasicPillsStatusColorsDemo,
+    "bento-grid-with-3-columns-and-even-split-image-stats-demo":
+      JxBentoGridWith3ColumnsAndEvenSplitImageStatsDemo,
+    "bento-grid-with-3-columns-and-even-split-text-stats-demo":
+      JxBentoGridWith3ColumnsAndEvenSplitTextStatsDemo,
+    "bento-grid-with-3-columns-and-flush-images-demo":
+      JxBentoGridWith3ColumnsAndFlushImagesDemo,
+    "bento-grid-with-3-columns-and-padded-images-demo":
+      JxBentoGridWith3ColumnsAndPaddedImagesDemo,
+    "bento-grid-with-even-split-and-image-stats-demo":
+      JxBentoGridWithEvenSplitAndImageStatsDemo,
+    "bento-grid-with-even-split-and-text-stats-demo":
+      JxBentoGridWithEvenSplitAndTextStatsDemo,
+    "bento-grid-with-even-split-and-two-thirds-demo":
+      JxBentoGridWithEvenSplitAndTwoThirdsDemo,
+    "bento-grid-with-images-and-captions-demo":
+      JxBentoGridWithImagesAndCaptionsDemo,
+    "bento-grid-with-images-and-details-demo":
+      JxBentoGridWithImagesAndDetailsDemo,
+    "bento-grid-with-two-rows-and-3-column-second-row-demo":
+      JxBentoGridWithTwoRowsAnd3ColumnSecondRowDemo,
+    "blog-post-horizontal-boxed-demo": JxBlogPostHorizontalBoxedDemo,
+    "blog-post-horizontal-boxed-with-split-images-demo":
+      JxBlogPostHorizontalBoxedWithSplitImagesDemo,
+    "blog-with-images-and-2-columns-masonry-demo":
+      JxBlogWithImagesAnd2ColumnsMasonryDemo,
+    "bordered-order-summary-card-details-demo":
+      JxBorderedOrderSummaryCardDetailsDemo,
+    "bordered-order-summary-total-bottom-demo":
+      JxBorderedOrderSummaryTotalBottomDemo,
+    "bordered-order-summary-total-top-demo": JxBorderedOrderSummaryTotalTopDemo,
+    "boxed-cta-with-background-image-demo": JxBoxedCtaWithBackgroundImageDemo,
+    "boxed-faq-with-numbered-questions-demo":
+      JxBoxedFaqWithNumberedQuestionsDemo,
+    "boxed-faq-with-numbers-and-alternating-background-colors-demo":
+      JxBoxedFaqWithNumbersAndAlternatingBackgroundColorsDemo,
+    "boxed-grid-stats-demo": JxBoxedGridStatsDemo,
+    "boxed-logo-cloud-demo": JxBoxedLogoCloudDemo,
+    "boxed-order-summary-card-details-total-bottom-demo":
+      JxBoxedOrderSummaryCardDetailsTotalBottomDemo,
+    "boxed-order-summary-card-details-total-top-demo":
+      JxBoxedOrderSummaryCardDetailsTotalTopDemo,
+    "boxed-order-summary-total-bottom-demo": JxBoxedOrderSummaryTotalBottomDemo,
+    "boxed-order-summary-total-top-demo": JxBoxedOrderSummaryTotalTopDemo,
+    "card-coupons-demo": JxCardCouponsDemo,
+    "cards-timeline-demo": JxCardsTimelineDemo,
+    "category-preview-cards-demo": JxCategoryPreviewCardsDemo,
+    "category-preview-rows-demo": JxCategoryPreviewRowsDemo,
+    "centered-testimonial-with-cta-demo": JxCenteredTestimonialWithCtaDemo,
+    "changelog-boxed-demo": JxChangelogBoxedDemo,
+    "changelog-demo": JxChangelogDemo,
+    "circle-tiles-social-logos-demo": JxCircleTilesSocialLogosDemo,
+    "collapsed-faq-with-expanded-section-and-icons-demo":
+      JxCollapsedFaqWithExpandedSectionAndIconsDemo,
+    "collapsed-faq-with-inline-cta-demo": JxCollapsedFaqWithInlineCtaDemo,
+    "collapsed-faq-with-numbers-demo": JxCollapsedFaqWithNumbersDemo,
+    "container-flush-mobile-demo": JxContainerFlushMobileDemo,
+    "container-gutters-mobile-demo": JxContainerGuttersMobileDemo,
+    "coupons-with-centered-text-demo": JxCouponsWithCenteredTextDemo,
+    "coupons-with-content-overlayed-demo": JxCouponsWithContentOverlayedDemo,
+    "cta-with-background-image-demo": JxCtaWithBackgroundImageDemo,
+    "cta-with-image-strip-demo": JxCtaWithImageStripDemo,
+    "cta-with-shifted-images-demo": JxCtaWithShiftedImagesDemo,
+    "cta-with-team-avatars-demo": JxCtaWithTeamAvatarsDemo,
+    "cta-with-title-and-action-lead-demo": JxCtaWithTitleAndActionLeadDemo,
+    "cta-with-top-large-image-demo": JxCtaWithTopLargeImageDemo,
+    "data-table-4-columns-demo": JxDataTable4ColumnsDemo,
+    "data-table-basic-demo": JxDataTableBasicDemo,
+    "data-table-change-indicator-demo": JxDataTableChangeIndicatorDemo,
+    "data-table-edit-button-demo": JxDataTableEditButtonDemo,
+    "data-table-logos-actions-demo": JxDataTableLogosActionsDemo,
+    "data-table-with-pills-demo": JxDataTableWithPillsDemo,
+    "data-table-with-progress-demo": JxDataTableWithProgressDemo,
+    "divider-with-button-demo": JxDividerWithButtonDemo,
+    "divider-with-file-type-demo": JxDividerWithFileTypeDemo,
+    "divider-with-icon-button-demo": JxDividerWithIconButtonDemo,
+    "divider-with-icon-demo": JxDividerWithIconDemo,
+    "divider-with-logo-demo": JxDividerWithLogoDemo,
+    "divider-with-social-icons-demo": JxDividerWithSocialIconsDemo,
+    "divider-with-title-demo": JxDividerWithTitleDemo,
+    "expanded-faq-with-numbers-demo": JxExpandedFaqWithNumbersDemo,
+    "expanded-faq-with-offset-answers-demo": JxExpandedFaqWithOffsetAnswersDemo,
+    "feature-with-double-tall-background-images-demo":
+      JxFeatureWithDoubleTallBackgroundImagesDemo,
+    "feature-with-full-title-and-tall-background-images-demo":
+      JxFeatureWithFullTitleAndTallBackgroundImagesDemo,
+    "feature-with-large-portrait-image-demo":
+      JxFeatureWithLargePortraitImageDemo,
+    "feature-with-multiple-product-images-demo":
+      JxFeatureWithMultipleProductImagesDemo,
+    "feature-with-product-image-demo": JxFeatureWithProductImageDemo,
+    "featured-blog-post-demo": JxFeaturedBlogPostDemo,
+    "featured-brands-logo-grid-demo": JxFeaturedBrandsLogoGridDemo,
+    "featured-post-with-large-date-demo": JxFeaturedPostWithLargeDateDemo,
+    "footer-centered-with-bordered-full-menu-demo":
+      JxFooterCenteredWithBorderedFullMenuDemo,
+    "footer-centered-with-menu-and-socials-demo":
+      JxFooterCenteredWithMenuAndSocialsDemo,
+    "footer-with-2-column-menu-demo": JxFooterWith2ColumnMenuDemo,
+    "footer-with-3-col-menu-demo": JxFooterWith3ColMenuDemo,
+    "footer-with-content-and-cta-demo": JxFooterWithContentAndCtaDemo,
+    "footer-with-legal-text-demo": JxFooterWithLegalTextDemo,
+    "footer-with-oversized-logo-and-full-menu-demo":
+      JxFooterWithOversizedLogoAndFullMenuDemo,
+    "footer-with-social-icons-and-address-demo":
+      JxFooterWithSocialIconsAndAddressDemo,
+    "footer-with-text-menu-and-socials-demo":
+      JxFooterWithTextMenuAndSocialsDemo,
+    "four-columns-grid-demo": JxFourColumnsGridDemo,
+    "full-width-featured-post-with-large-date-demo":
+      JxFullWidthFeaturedPostWithLargeDateDemo,
+    "full-width-image-demo": JxFullWidthImageDemo,
+    "full-width-image-with-overlay-demo": JxFullWidthImageWithOverlayDemo,
+    "full-width-progress-bar-demo": JxFullWidthProgressBarDemo,
+    "full-width-reviews-demo": JxFullWidthReviewsDemo,
+    "full-width-single-pricing-demo": JxFullWidthSinglePricingDemo,
+    "full-width-testimonial-demo": JxFullWidthTestimonialDemo,
+    "full-width-testimonial-with-overlapping-avatar-demo":
+      JxFullWidthTestimonialWithOverlappingAvatarDemo,
+    "grid-stats-with-accent-column-demo": JxGridStatsWithAccentColumnDemo,
+    "grid-stats-with-border-demo": JxGridStatsWithBorderDemo,
+    "grouped-overlapped-avatars-demo": JxGroupedOverlappedAvatarsDemo,
+    "grouped-overlapped-avatars-plus-count-demo":
+      JxGroupedOverlappedAvatarsPlusCountDemo,
+    "header-logo-with-links-demo": JxHeaderLogoWithLinksDemo,
+    "header-with-logo-and-badge-demo": JxHeaderWithLogoAndBadgeDemo,
+    "header-with-logo-and-finance-stats-demo":
+      JxHeaderWithLogoAndFinanceStatsDemo,
+    "header-with-logo-and-menu-demo": JxHeaderWithLogoAndMenuDemo,
+    "header-with-logo-and-social-icons-demo":
+      JxHeaderWithLogoAndSocialIconsDemo,
+    "header-with-logo-and-text-demo": JxHeaderWithLogoAndTextDemo,
+    "header-with-user-details-and-avatar-demo":
+      JxHeaderWithUserDetailsAndAvatarDemo,
+    "header-with-user-details-demo": JxHeaderWithUserDetailsDemo,
+    "hero-aligned-overlay-demo": JxHeroAlignedOverlayDemo,
+    "hero-block-overlay-demo": JxHeroBlockOverlayDemo,
+    "hero-block-with-bleed-demo": JxHeroBlockWithBleedDemo,
+    "hero-overlayed-split-demo": JxHeroOverlayedSplitDemo,
+    "hero-split-contained-demo": JxHeroSplitContainedDemo,
+    "hero-split-full-bleed-demo": JxHeroSplitFullBleedDemo,
+    "hero-with-image-grid-demo": JxHeroWithImageGridDemo,
+    "hero-with-overlapped-content-demo": JxHeroWithOverlappedContentDemo,
+    "hero-with-overlapped-image-demo": JxHeroWithOverlappedImageDemo,
+    "hero-with-overlay-gradient-demo": JxHeroWithOverlayGradientDemo,
+    "hero-with-overlayed-content-demo": JxHeroWithOverlayedContentDemo,
+    "hero-with-slanted-split-demo": JxHeroWithSlantedSplitDemo,
+    "horizontal-team-member-bios-demo": JxHorizontalTeamMemberBiosDemo,
+    "line-divider-demo": JxLineDividerDemo,
+    "logo-cloud-with-borders-demo": JxLogoCloudWithBordersDemo,
+    "logos-grid-demo": JxLogosGridDemo,
+    "masonry-grid-reviews-demo": JxMasonryGridReviewsDemo,
+    "milestone-stats-demo": JxMilestoneStatsDemo,
+    "one-column-grid-demo": JxOneColumnGridDemo,
+    "one-three-split-grid-demo": JxOneThreeSplitGridDemo,
+    "order-summary-billing-inline-demo": JxOrderSummaryBillingInlineDemo,
+    "order-summary-billing-top-demo": JxOrderSummaryBillingTopDemo,
+    "outlined-box-social-logos-demo": JxOutlinedBoxSocialLogosDemo,
+    "outlined-grid-stats-demo": JxOutlinedGridStatsDemo,
+    "outlined-logo-cloud-demo": JxOutlinedLogoCloudDemo,
+    "outlined-pill-box-social-logos-demo": JxOutlinedPillBoxSocialLogosDemo,
+    "outlined-square-tiles-social-logos-demo":
+      JxOutlinedSquareTilesSocialLogosDemo,
+    "overlay-stats-demo": JxOverlayStatsDemo,
+    "paragraph-2-columns-with-icons-and-large-padding-demo":
+      JxParagraph2ColumnsWithIconsAndLargePaddingDemo,
+    "paragraph-2-columns-with-icons-and-regular-padding-demo":
+      JxParagraph2ColumnsWithIconsAndRegularPaddingDemo,
+    "paragraph-2-columns-with-large-padding-demo":
+      JxParagraph2ColumnsWithLargePaddingDemo,
+    "paragraph-2-columns-with-regular-padding-demo":
+      JxParagraph2ColumnsWithRegularPaddingDemo,
+    "paragraph-with-large-padding-demo": JxParagraphWithLargePaddingDemo,
+    "paragraph-with-regular-padding-demo": JxParagraphWithRegularPaddingDemo,
+    "payment-timeline-demo": JxPaymentTimelineDemo,
+    "pill-box-social-logos-demo": JxPillBoxSocialLogosDemo,
+    "podcast-blog-split-demo": JxPodcastBlogSplitDemo,
+    "podcast-full-width-demo": JxPodcastFullWidthDemo,
+    "primary-buttons-demo": JxPrimaryButtonsDemo,
+    "primary-buttons-with-icon-demo": JxPrimaryButtonsWithIconDemo,
+    "product-detail-masonry-demo": JxProductDetailMasonryDemo,
+    "product-detail-three-images-demo": JxProductDetailThreeImagesDemo,
+    "product-detail-two-images-demo": JxProductDetailTwoImagesDemo,
+    "product-list-with-rows-demo": JxProductListWithRowsDemo,
+    "progress-bar-columns-demo": JxProgressBarColumnsDemo,
+    "progress-bar-group-demo": JxProgressBarGroupDemo,
+    "rolling-stats-demo": JxRollingStatsDemo,
+    "secondary-buttons-demo": JxSecondaryButtonsDemo,
+    "secondary-buttons-with-icon-demo": JxSecondaryButtonsWithIconDemo,
+    "shopping-cart-row-items-demo": JxShoppingCartRowItemsDemo,
+    "simple-footer-with-social-icons-demo": JxSimpleFooterWithSocialIconsDemo,
+    "simple-grid-stats-demo": JxSimpleGridStatsDemo,
+    "simple-social-logos-row-demo": JxSimpleSocialLogosRowDemo,
+    "simple-stats-demo": JxSimpleStatsDemo,
+    "single-image-product-detail-demo": JxSingleImageProductDetailDemo,
+    "single-post-horizontal-demo": JxSinglePostHorizontalDemo,
+    "single-stat-with-background-image-demo":
+      JxSingleStatWithBackgroundImageDemo,
+    "socials-with-inline-labels-demo": JxSocialsWithInlineLabelsDemo,
+    "socials-with-inline-tile-labels-demo": JxSocialsWithInlineTileLabelsDemo,
+    "socials-with-labels-stacked-demo": JxSocialsWithLabelsStackedDemo,
+    "socials-with-stacked-tile-labels-demo": JxSocialsWithStackedTileLabelsDemo,
+    "split-cards-demo": JxSplitCardsDemo,
+    "split-product-detail-demo": JxSplitProductDetailDemo,
+    "split-testimonial-with-cta-demo": JxSplitTestimonialWithCtaDemo,
+    "square-tiles-social-logos-demo": JxSquareTilesSocialLogosDemo,
+    "squared-box-social-logos-demo": JxSquaredBoxSocialLogosDemo,
+    "stacked-boxed-timeline-demo": JxStackedBoxedTimelineDemo,
+    "stacked-stats-demo": JxStackedStatsDemo,
+    "stacked-timeline-demo": JxStackedTimelineDemo,
+    "text-link-buttons-demo": JxTextLinkButtonsDemo,
+    "text-link-buttons-with-icon-demo": JxTextLinkButtonsWithIconDemo,
+    "three-columns-grid-demo": JxThreeColumnsGridDemo,
+    "three-columns-image-grid-demo": JxThreeColumnsImageGridDemo,
+    "three-columns-image-grid-with-full-width-feature-demo":
+      JxThreeColumnsImageGridWithFullWidthFeatureDemo,
+    "three-columns-masonry-image-grid-demo": JxThreeColumnsMasonryImageGridDemo,
+    "three-columns-masonry-image-grid-with-full-width-feature-demo":
+      JxThreeColumnsMasonryImageGridWithFullWidthFeatureDemo,
+    "three-columns-team-grid-demo": JxThreeColumnsTeamGridDemo,
+    "three-one-split-grid-demo": JxThreeOneSplitGridDemo,
+    "title-with-large-padding-demo": JxTitleWithLargePaddingDemo,
+    "title-with-regular-padding-demo": JxTitleWithRegularPaddingDemo,
+    "two-column-team-cards-demo": JxTwoColumnTeamCardsDemo,
+    "two-column-team-cards-with-details-demo":
+      JxTwoColumnTeamCardsWithDetailsDemo,
+    "two-columns-blog-with-images-and-boxed-content-demo":
+      JxTwoColumnsBlogWithImagesAndBoxedContentDemo,
+    "two-columns-blog-with-images-and-text-demo":
+      JxTwoColumnsBlogWithImagesAndTextDemo,
+    "two-columns-blog-with-images-demo": JxTwoColumnsBlogWithImagesDemo,
+    "two-columns-compact-demo": JxTwoColumnsCompactDemo,
+    "two-columns-grid-demo": JxTwoColumnsGridDemo,
+    "two-columns-image-grid-demo": JxTwoColumnsImageGridDemo,
+    "two-columns-image-grid-with-full-width-feature-demo":
+      JxTwoColumnsImageGridWithFullWidthFeatureDemo,
+    "two-columns-masonry-blog-with-boxed-content-demo":
+      JxTwoColumnsMasonryBlogWithBoxedContentDemo,
+    "two-columns-masonry-image-grid-with-3-images-demo":
+      JxTwoColumnsMasonryImageGridWith3ImagesDemo,
+    "two-columns-masonry-image-grid-with-4-images-demo":
+      JxTwoColumnsMasonryImageGridWith4ImagesDemo,
+    "two-columns-pricing-table-demo": JxTwoColumnsPricingTableDemo,
+    "two-columns-pricing-table-with-gaps-demo":
+      JxTwoColumnsPricingTableWithGapsDemo,
+    "two-columns-reviews-demo": JxTwoColumnsReviewsDemo,
+    "two-thirds-bento-grid-with-stats-demo": JxTwoThirdsBentoGridWithStatsDemo,
+    "vertical-spacer-demo": JxVerticalSpacerDemo,
+  },
   "mjml-react": {
     "avatar-with-details-demo": MjAvatarWithDetailsDemo,
     "basic-logo-cloud-demo": MjBasicLogoCloudDemo,

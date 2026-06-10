@@ -1,9 +1,14 @@
-import { Paragraph2ColumnsWithLargePadding } from "@/registry/bases/react-email/ui/marketing/content/paragraph-2-columns-with-large-padding";
+import { Content } from "@/registry/bases/react-email/ui/marketing/content/content";
 
 export default function Paragraph2ColumnsWithLargePaddingDemo() {
   return (
-    <Paragraph2ColumnsWithLargePadding
-      {...Paragraph2ColumnsWithLargePadding.PreviewProps}
+    <Content
+      {...Content.PreviewProps}
+      type="paragraph"
+      columns={2}
+      padding="large"
+      column1="This is the first column of a two-column paragraph layout with large padding."
+      column2="This is the second column of a two-column paragraph layout with large padding."
     />
   );
 }

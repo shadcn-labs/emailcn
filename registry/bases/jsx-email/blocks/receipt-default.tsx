@@ -7,6 +7,7 @@ import {
   Head,
   Hr,
   Html,
+  Img,
   Preview,
   Row,
   Section,
@@ -16,7 +17,99 @@ import {
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import { ProductCardSection } from "@/registry/bases/jsx-email/ui/product-card";
+
+interface ProductCardProps {
+  imageUrl?: string;
+  name?: string;
+  price?: string;
+  quantity?: number;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const ProductCardSection = ({
+  imageUrl,
+  name = "Product Name",
+  price = "$99.00",
+  quantity = 1,
+  ctaLabel = "View Details",
+  ctaHref = "#",
+}: Omit<ProductCardProps, "theme">) => (
+  <Section
+    style={{
+      backgroundColor: defaultTheme.colorBackground,
+      border: `1px solid ${defaultTheme.colorBorder}`,
+      borderRadius: "8px",
+      padding: "24px",
+    }}
+  >
+    <Row>
+      <Column style={{ verticalAlign: "top", width: "100px" }}>
+        {imageUrl ? (
+          <Img
+            src={imageUrl}
+            alt={name}
+            width={100}
+            style={{
+              borderRadius: "8px",
+              height: "auto",
+              maxWidth: "100%",
+              objectFit: "cover",
+            }}
+          />
+        ) : null}
+      </Column>
+      <Column style={{ paddingLeft: "24px", verticalAlign: "top" }}>
+        <Text
+          style={{
+            color: defaultTheme.colorText,
+            fontSize: defaultTheme.fontSizeBase,
+            fontWeight: defaultTheme.fontWeightMedium,
+            marginBottom: "8px",
+          }}
+        >
+          {name}
+        </Text>
+        <Text
+          style={{
+            color: defaultTheme.colorText,
+            fontSize: defaultTheme.fontSizeLg,
+            fontWeight: defaultTheme.fontWeightBold,
+          }}
+        >
+          {price}
+          {quantity > 1 ? (
+            <span
+              style={{
+                color: defaultTheme.colorTextMuted,
+                fontSize: defaultTheme.fontSizeSm,
+                marginLeft: "8px",
+              }}
+            >
+              {" "}
+              x {quantity}
+            </span>
+          ) : null}
+        </Text>
+        {ctaLabel ? (
+          <Text style={{ marginTop: "8px" }}>
+            <a
+              href={ctaHref}
+              style={{
+                color: defaultTheme.colorPrimary,
+                display: "inline-block",
+                fontSize: defaultTheme.fontSizeSm,
+                textDecoration: "none",
+              }}
+            >
+              {ctaLabel}
+            </a>
+          </Text>
+        ) : null}
+      </Column>
+    </Row>
+  </Section>
+);
 
 interface ReceiptItem {
   name: string;

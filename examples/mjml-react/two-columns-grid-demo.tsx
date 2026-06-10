@@ -1,5 +1,14 @@
-import { TwoColumnsGrid } from "@/registry/bases/mjml-react/ui/ui-elements/grids/2-columns-grid";
+import { Grid } from "@/registry/bases/mjml-react/ui/ui-elements/grids/grid";
 
 export default function TwoColumnsGridDemo() {
-  return <TwoColumnsGrid {...TwoColumnsGrid.PreviewProps} />;
+  return (
+    <Grid
+      {...Grid.PreviewProps}
+      cells={[
+        "Feature one description with key benefits.",
+        "Feature two description with key benefits.",
+      ]}
+      layout="2"
+    />
+  );
 }

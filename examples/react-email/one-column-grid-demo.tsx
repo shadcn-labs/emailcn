@@ -1,5 +1,11 @@
-import { OneColumnGrid } from "@/registry/bases/react-email/ui/ui-elements/grids/one-column-grid";
+import { Grid } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
 
 export default function OneColumnGridDemo() {
-  return <OneColumnGrid {...OneColumnGrid.PreviewProps} />;
+  return (
+    <Grid
+      {...Grid.PreviewProps}
+      cells={["Full width content spanning the entire row."]}
+      layout="1"
+    />
+  );
 }

@@ -1,5 +1,11 @@
-import { ThreeColumnsGrid } from "@/registry/bases/react-email/ui/ui-elements/grids/3-columns-grid";
+import { Grid } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
 
 export default function ThreeColumnsGridDemo() {
-  return <ThreeColumnsGrid {...ThreeColumnsGrid.PreviewProps} />;
+  return (
+    <Grid
+      {...Grid.PreviewProps}
+      cells={["Column one", "Column two", "Column three"]}
+      layout="3"
+    />
+  );
 }

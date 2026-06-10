@@ -1,5 +1,13 @@
-import { TextLinkButtonsWithIcon } from "@/registry/bases/mjml-react/ui/ui-elements/buttons/text-link-buttons-with-icon";
+import { Buttons } from "@/registry/bases/mjml-react/ui/ui-elements/buttons/buttons";
 
 export default function TextLinkButtonsWithIconDemo() {
-  return <TextLinkButtonsWithIcon {...TextLinkButtonsWithIcon.PreviewProps} />;
+  return (
+    <Buttons
+      {...Buttons.PreviewProps}
+      variant="text"
+      icon={"\u2192"}
+      label="View Details"
+      href="https://example.com"
+    />
+  );
 }

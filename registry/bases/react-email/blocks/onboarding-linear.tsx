@@ -12,7 +12,7 @@ import {
 } from "react-email";
 
 import { linearTheme } from "@/registry/bases/react-email/themes/linear";
-import { TitleWithRegularPaddingSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/title-with-regular-padding";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
 import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
 import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
 import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu";
@@ -59,7 +59,7 @@ export const OnboardingLinear = ({
               align="left"
             />
 
-            <ContentGridSection title="Issue Tracking" />
+            <ContentGridSection type="title" title="Issue Tracking" />
 
             <CTABannerSection
               heading="Start tracking"

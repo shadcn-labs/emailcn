@@ -1,5 +1,12 @@
-import { TitleWithRegularPadding } from "@/registry/bases/mjml-react/ui/marketing/content/title-with-regular-padding";
+import { Content } from "@/registry/bases/mjml-react/ui/marketing/content/content";
 
 export default function TitleWithRegularPaddingDemo() {
-  return <TitleWithRegularPadding {...TitleWithRegularPadding.PreviewProps} />;
+  return (
+    <Content
+      {...Content.PreviewProps}
+      type="title"
+      padding="regular"
+      title="Section Title"
+    />
+  );
 }

@@ -1,5 +1,13 @@
-import { PrimaryButtonsWithIcon } from "@/registry/bases/react-email/ui/ui-elements/buttons/primary-buttons-with-icon";
+import { Buttons } from "@/registry/bases/react-email/ui/ui-elements/buttons/buttons";
 
 export default function PrimaryButtonsWithIconDemo() {
-  return <PrimaryButtonsWithIcon {...PrimaryButtonsWithIcon.PreviewProps} />;
+  return (
+    <Buttons
+      {...Buttons.PreviewProps}
+      variant="primary"
+      icon={"\u279C"}
+      label="Shop Now"
+      href="https://example.com/shop"
+    />
+  );
 }

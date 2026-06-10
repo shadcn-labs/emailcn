@@ -12,7 +12,7 @@ import {
 } from "react-email";
 
 import { vercelTheme } from "@/registry/bases/react-email/themes/vercel";
-import { TitleWithRegularPaddingSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/title-with-regular-padding";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
 import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
 import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
 import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu";
@@ -59,7 +59,7 @@ export const OnboardingVercel = ({
               align="left"
             />
 
-            <ContentGridSection title="Global Edge" />
+            <ContentGridSection type="title" title="Global Edge" />
 
             <CTABannerSection
               heading="Start deploying"

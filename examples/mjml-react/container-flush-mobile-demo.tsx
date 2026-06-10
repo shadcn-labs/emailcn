@@ -1,5 +1,11 @@
-import { ContainerFlushMobile } from "@/registry/bases/mjml-react/ui/ui-elements/containers/container-flush-on-mobile";
+import { Container } from "@/registry/bases/mjml-react/ui/ui-elements/containers/container";
 
 export default function ContainerFlushMobileDemo() {
-  return <ContainerFlushMobile {...ContainerFlushMobile.PreviewProps} />;
+  return (
+    <Container
+      {...Container.PreviewProps}
+      content="Flush container spans edge to edge on mobile devices."
+      mobile="flush"
+    />
+  );
 }

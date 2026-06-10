@@ -1,5 +1,11 @@
-import { FourColumnsGrid } from "@/registry/bases/mjml-react/ui/ui-elements/grids/4-columns-grid";
+import { Grid } from "@/registry/bases/mjml-react/ui/ui-elements/grids/grid";
 
 export default function FourColumnsGridDemo() {
-  return <FourColumnsGrid {...FourColumnsGrid.PreviewProps} />;
+  return (
+    <Grid
+      {...Grid.PreviewProps}
+      cells={["Col 1", "Col 2", "Col 3", "Col 4"]}
+      layout="4"
+    />
+  );
 }

@@ -112,9 +112,9 @@ export const TwoColumnsPricingTableWithGapsSection = ({
               </Text>
               <Text className="m-0 mb-2 text-3xl font-bold text-foreground">
                 {price1}
-                <Text className="text-sm font-normal text-foreground-muted">
+                <span className="text-sm font-normal text-foreground-muted">
                   {period1}
-                </Text>
+                </span>
               </Text>
               <Text className="m-0 mb-4 text-sm text-foreground-muted">
                 {desc1}
@@ -145,9 +145,9 @@ export const TwoColumnsPricingTableWithGapsSection = ({
               </Text>
               <Text className="m-0 mb-2 text-3xl font-bold text-foreground">
                 {price2}
-                <Text className="text-sm font-normal text-foreground-muted">
+                <span className="text-sm font-normal text-foreground-muted">
                   {period2}
-                </Text>
+                </span>
               </Text>
               <Text className="m-0 mb-4 text-sm text-foreground-muted">
                 {desc2}

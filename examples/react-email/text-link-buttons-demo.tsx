@@ -1,5 +1,12 @@
-import { TextLinkButtons } from "@/registry/bases/react-email/ui/ui-elements/buttons/text-link-buttons";
+import { Buttons } from "@/registry/bases/react-email/ui/ui-elements/buttons/buttons";
 
 export default function TextLinkButtonsDemo() {
-  return <TextLinkButtons {...TextLinkButtons.PreviewProps} />;
+  return (
+    <Buttons
+      {...Buttons.PreviewProps}
+      variant="text"
+      label="Unsubscribe"
+      href="https://example.com"
+    />
+  );
 }

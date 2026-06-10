@@ -2,18 +2,81 @@
 
 import {
   Body,
+  Column,
   Container,
   Head,
   Html,
+  Img,
   Link,
   Preview,
+  Row,
   Section,
   Tailwind,
   Text,
 } from "jsx-email";
 
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import { stackOverflowTheme } from "@/registry/bases/jsx-email/themes/stack-overflow";
-import { ContentGridSection } from "@/registry/bases/jsx-email/ui/content-grid";
+
+interface ContentGridProps {
+  columnCount?: 2 | 3;
+  columns?: {
+    iconUrl?: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+const ContentGridSection = ({
+  columnCount = 2,
+  columns = [
+    { description: "Description for feature 1", title: "Feature 1" },
+    { description: "Description for feature 2", title: "Feature 2" },
+  ],
+}: Omit<ContentGridProps, "theme">) => (
+  <Section style={{ padding: "48px 0" }}>
+    <Row>
+      {columns.slice(0, columnCount).map((col, index) => (
+        <Column
+          key={`${col.title}-${index}`}
+          style={{ padding: "24px", verticalAlign: "top" }}
+        >
+          {col.iconUrl ? (
+            <Img
+              src={col.iconUrl}
+              alt={col.title}
+              height={48}
+              width={48}
+              style={{
+                marginBottom: "24px",
+                objectFit: "contain",
+              }}
+            />
+          ) : null}
+          <Text
+            style={{
+              color: defaultTheme.colorText,
+              fontSize: defaultTheme.fontSizeLg,
+              fontWeight: defaultTheme.fontWeightMedium,
+              marginBottom: "8px",
+            }}
+          >
+            {col.title}
+          </Text>
+          <Text
+            style={{
+              color: defaultTheme.colorTextMuted,
+              fontSize: defaultTheme.fontSizeBase,
+              lineHeight: 1.4,
+            }}
+          >
+            {col.description}
+          </Text>
+        </Column>
+      ))}
+    </Row>
+  </Section>
+);
 
 interface Article {
   title: string;

@@ -1,5 +1,12 @@
-import { PrimaryButtons } from "@/registry/bases/mjml-react/ui/ui-elements/buttons/primary-buttons";
+import { Buttons } from "@/registry/bases/mjml-react/ui/ui-elements/buttons/buttons";
 
 export default function PrimaryButtonsDemo() {
-  return <PrimaryButtons {...PrimaryButtons.PreviewProps} />;
+  return (
+    <Buttons
+      {...Buttons.PreviewProps}
+      variant="primary"
+      label="Get Started"
+      href="https://example.com"
+    />
+  );
 }
