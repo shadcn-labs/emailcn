@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-with-pills",
+  "title": "Data Table With Pills",
+  "description": "Data Table With Pills email component",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-pills.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface DataTableWithPillsProps {\n  theme?: TailwindConfig;\n  headers?: string[];\n  rows?: { name: string; status: string; statusVariant: string }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst statusColor: Record<string, string> = {\n  active: \"bg-green-100 text-green-800\",\n  cancelled: \"bg-red-100 text-red-800\",\n  draft: \"bg-gray-100 text-gray-800\",\n  pending: \"bg-yellow-100 text-yellow-800\",\n};\n\nexport const DataTableWithPillsSection = ({\n  headers = [\"Name\", \"Status\"],\n  rows = [{ name: \"Alice\", status: \"Active\", statusVariant: \"active\" }],\n  variant = \"default\",\n}: Omit<DataTableWithPillsProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-left\";\n\n  return (\n    <Section className=\"py-4\">\n      <Section className=\"border border-border rounded-md\">\n        <Row>\n          {headers.map((header, i) => (\n            <Column\n              key={`h-${i}`}\n              className={`bg-foreground-muted/10 px-3 py-2 text-sm font-medium text-foreground ${textAlign}`}\n            >\n              {header}\n            </Column>\n          ))}\n        </Row>\n        {rows.map((row, ri) => (\n          <Row key={`r-${ri}`}>\n            <Column\n              className={`px-3 py-2 text-sm text-foreground ${textAlign}`}\n            >\n              {row.name}\n            </Column>\n            <Column className={`px-3 py-2 ${textAlign}`}>\n              <Text\n                className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${statusColor[row.statusVariant] ?? statusColor.draft}`}\n              >\n                {row.status}\n              </Text>\n            </Column>\n          </Row>\n        ))}\n      </Section>\n    </Section>\n  );\n};\n\nexport const DataTableWithPills = ({\n  theme = defaultTheme,\n  headers = [\"Name\", \"Status\"],\n  rows = [{ name: \"Alice\", status: \"Active\", statusVariant: \"active\" }],\n  variant = \"default\",\n}: DataTableWithPillsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Pill Table</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <DataTableWithPillsSection\n          headers={headers}\n          rows={rows}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nDataTableWithPills.PreviewProps = {\n  headers: [\"User\", \"Status\", \"Role\"],\n  rows: [\n    { name: \"Alice Johnson\", status: \"Active\", statusVariant: \"active\" },\n    { name: \"Bob Smith\", status: \"Pending\", statusVariant: \"pending\" },\n    { name: \"Carol Davis\", status: \"Cancelled\", statusVariant: \"cancelled\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DataTableWithPillsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/data-tables/data-table-with-pills.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

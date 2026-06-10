@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-with-oversized-logo-and-full-menu",
+  "title": "Footer With Oversized Logo And Full Menu",
+  "description": "Marketing footers variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type FooterLinksVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface FooterLinksProps {\n  theme?: EmailThemeTokens;\n  companyName?: string;\n  links?: { label: string; href: string }[];\n  variant?: FooterLinksVariant;\n}\n\nconst FooterLinksSection = ({\n  companyName,\n  links,\n  theme,\n  variant,\n}: {\n  companyName: string;\n  links: FooterLinksProps[\"links\"];\n  theme: EmailThemeTokens;\n  variant: FooterLinksVariant;\n}) => {\n  const items = links ?? [];\n\n  return (\n    <Section\n      style={{\n        backgroundColor: theme.colorBackground,\n        padding: `${theme.spacingXl ?? \"48px\"} 0 ${theme.spacingBase ?? \"24px\"} 0`,\n      }}\n    >\n      <Row>\n        {items.length > 0 ? (\n          <Column style={{ paddingBottom: theme.spacingBase ?? \"16px\" }}>\n            {items.map((link) => (\n              <Text\n                key={link.label}\n                style={{\n                  color: theme.colorTextMuted,\n                  fontFamily: theme.fontFamily,\n                  fontSize: theme.fontSizeSm ?? \"12px\",\n                  margin: 0,\n                  padding: \"0 8px\",\n                  textAlign: \"center\",\n                }}\n              >\n                <a\n                  href={link.href}\n                  style={{\n                    color: theme.colorTextMuted,\n                    textDecoration: \"none\",\n                  }}\n                >\n                  {link.label}\n                </a>\n              </Text>\n            ))}\n          </Column>\n        ) : null}\n        <Column>\n          <Text\n            style={{\n              color: theme.colorTextMuted,\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeSm ?? \"12px\",\n              margin: 0,\n              textAlign: \"center\",\n            }}\n          >\n            &copy; {new Date().getFullYear()} {companyName}. All rights\n            reserved.\n          </Text>\n        </Column>\n      </Row>\n    </Section>\n  );\n};\n\nexport const FooterWithOversizedLogoAndFullMenu = ({\n  theme = defaultTheme,\n  companyName = \"Acme Inc.\",\n  links = [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  variant = \"default\",\n}: FooterLinksProps) => (\n  <Html>\n    <Head />\n    <Preview>footer links</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <FooterLinksSection\n            companyName={companyName}\n            links={links}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nFooterWithOversizedLogoAndFullMenu.PreviewProps = {\n  companyName: \"Acme Inc.\",\n  links: [\n    { href: \"#privacy\", label: \"Privacy Policy\" },\n    { href: \"#terms\", label: \"Terms of Service\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FooterLinksProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

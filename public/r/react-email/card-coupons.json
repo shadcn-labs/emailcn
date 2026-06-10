@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-coupons",
+  "title": "Card Coupons",
+  "description": "Marketing coupons variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/coupons/card-coupons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n  Hr,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type CardCouponsVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface CardCouponsProps {\n  theme?: TailwindConfig;\n  heading?: string;\n  discount?: string;\n  code?: string;\n  description?: string;\n  expiry?: string;\n  variant?: CardCouponsVariant;\n}\n\nexport const CardCouponsSection = ({\n  heading = \"Special Offer\",\n  discount = \"20% OFF\",\n  code = \"SAVE20\",\n  description = \"On your first purchase\",\n  expiry = \"Expires in 7 days\",\n  variant = \"default\",\n}: Omit<CardCouponsProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>\n        <Section className=\"rounded-lg border-2 border-dashed border-border bg-background-muted p-8 text-center\">\n          {heading ? (\n            <Text className=\"m-0 mb-4 text-lg font-medium text-foreground-muted\">\n              {heading}\n            </Text>\n          ) : null}\n          <Text className=\"m-0 mb-4 text-4xl font-bold text-primary\">\n            {discount}\n          </Text>\n          <Text className=\"m-0 mb-6 text-xl font-mono font-bold tracking-widest text-foreground\">\n            {code}\n          </Text>\n          <Text className=\"m-0 mb-2 text-base text-foreground-muted\">\n            {description}\n          </Text>\n          <Hr className=\"border-border my-4\" />\n          {expiry ? (\n            <Text className=\"m-0 text-sm text-foreground-subtle\">{expiry}</Text>\n          ) : null}\n        </Section>\n      </Container>\n    </Section>\n  );\n};\n\nexport const CardCoupons = ({\n  theme = defaultTheme,\n  heading = \"Special Offer\",\n  discount = \"20% OFF\",\n  code = \"SAVE20\",\n  description = \"On your first purchase\",\n  expiry = \"Expires in 7 days\",\n  variant = \"default\",\n}: CardCouponsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{discount}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <CardCouponsSection\n          code={code}\n          description={description}\n          discount={discount}\n          expiry={expiry}\n          heading={heading}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nCardCoupons.PreviewProps = {\n  code: \"SAVE20\",\n  description: \"On your first purchase\",\n  discount: \"20% OFF\",\n  expiry: \"Expires in 7 days\",\n  heading: \"Special Offer\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies CardCouponsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/coupons/card-coupons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

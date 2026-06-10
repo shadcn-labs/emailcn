@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacked-stats",
+  "title": "Stacked Stats",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/stats/stacked-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type StatsMinimalVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface StatsMinimalProps {\n  theme?: EmailThemeTokens;\n  stats?: { value: string; label: string }[];\n  variant?: StatsMinimalVariant;\n}\n\nconst StatsMinimalSection = ({\n  stats,\n  theme,\n  variant,\n}: {\n  stats: StatsMinimalProps[\"stats\"];\n  theme: EmailThemeTokens;\n  variant: StatsMinimalVariant;\n}) => {\n  const items = (stats ?? []).slice(0, 3);\n\n  return (\n    <Section\n      style={{\n        backgroundColor: theme.colorBackground,\n        padding: `${theme.spacingXl ?? \"48px\"} 0`,\n      }}\n    >\n      <Row>\n        {items.map((stat, i) => (\n          <Column\n            key={stat.label + i}\n            style={{\n              padding: theme.spacingBase ?? \"24px\",\n              verticalAlign: \"top\",\n              width: `${100 / items.length}%`,\n            }}\n          >\n            <Text\n              style={{\n                color: theme.colorTextMuted,\n                fontFamily: theme.fontFamily,\n                fontSize: theme.fontSizeLg ?? \"16px\",\n                fontWeight: theme.fontWeightMedium,\n                margin: 0,\n                paddingBottom: theme.spacingBase ?? \"4px\",\n                textAlign: \"center\",\n              }}\n            >\n              {stat.value}\n            </Text>\n            <Text\n              style={{\n                color: theme.colorTextSubtle,\n                fontFamily: theme.fontFamily,\n                fontSize: theme.fontSizeSm ?? \"11px\",\n                margin: 0,\n                textAlign: \"center\",\n              }}\n            >\n              {stat.label}\n            </Text>\n          </Column>\n        ))}\n      </Row>\n    </Section>\n  );\n};\n\nexport const StackedStats = ({\n  theme = defaultTheme,\n  stats = [\n    { label: \"Users\", value: \"10K+\" },\n    { label: \"Downloads\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n  ],\n  variant = \"default\",\n}: StatsMinimalProps) => (\n  <Html>\n    <Head />\n    <Preview>stats minimal</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <StatsMinimalSection stats={stats} theme={theme} variant={variant} />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nStackedStats.PreviewProps = {\n  stats: [\n    { label: \"Active Users\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"5-Star Reviews\", value: \"10K+\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies StatsMinimalProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/stacked-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

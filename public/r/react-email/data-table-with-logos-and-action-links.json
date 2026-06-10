@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-with-logos-and-action-links",
+  "title": "Data Table With Logos And Action Links",
+  "description": "Data Table With Logos And Action Links email component",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface DataTableLogosActionsProps {\n  theme?: TailwindConfig;\n  headers?: string[];\n  rows?: {\n    logoUrl?: string;\n    name: string;\n    actionLabel?: string;\n    actionHref?: string;\n  }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const DataTableLogosActionsSection = ({\n  headers = [\"App\", \"Name\", \"Action\"],\n  rows = [{ actionHref: \"#\", actionLabel: \"View\", name: \"App 1\" }],\n  variant = \"default\",\n}: Omit<DataTableLogosActionsProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-left\";\n\n  return (\n    <Section className=\"py-4\">\n      <Section className=\"border border-border rounded-md\">\n        <Row>\n          {headers.map((header, i) => (\n            <Column\n              key={`h-${i}`}\n              className={`bg-foreground-muted/10 px-3 py-2 text-sm font-medium text-foreground ${textAlign}`}\n            >\n              {header}\n            </Column>\n          ))}\n        </Row>\n        {rows.map((row, ri) => (\n          <Row key={`r-${ri}`}>\n            <Column className=\"px-3 py-2\">\n              {row.logoUrl ? (\n                <Img\n                  src={row.logoUrl}\n                  alt={row.name}\n                  height={24}\n                  width={24}\n                  className=\"rounded-full object-cover\"\n                />\n              ) : (\n                <Text className=\"m-0 h-6 w-6 rounded-full bg-primary text-center text-xs leading-6 text-primary-fg\">\n                  {row.name.charAt(0)}\n                </Text>\n              )}\n            </Column>\n            <Column\n              className={`px-3 py-2 text-sm text-foreground ${textAlign}`}\n            >\n              {row.name}\n            </Column>\n            <Column className={`px-3 py-2 ${textAlign}`}>\n              {row.actionLabel && row.actionHref ? (\n                <a\n                  href={row.actionHref}\n                  className=\"text-xs font-medium text-primary underline\"\n                >\n                  {row.actionLabel}\n                </a>\n              ) : null}\n            </Column>\n          </Row>\n        ))}\n      </Section>\n    </Section>\n  );\n};\n\nexport const DataTableLogosActions = ({\n  theme = defaultTheme,\n  headers = [\"App\", \"Name\", \"Action\"],\n  rows = [{ actionHref: \"#\", actionLabel: \"View\", name: \"App 1\" }],\n  variant = \"default\",\n}: DataTableLogosActionsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Logo Table</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <DataTableLogosActionsSection\n          headers={headers}\n          rows={rows}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nDataTableLogosActions.PreviewProps = {\n  headers: [\"\", \"Integration\", \"\"],\n  rows: [\n    {\n      actionHref: \"#slack\",\n      actionLabel: \"Configure\",\n      logoUrl: \"https://static.photos/business/320x80/2\",\n      name: \"Slack\",\n    },\n    {\n      actionHref: \"#notion\",\n      actionLabel: \"Connect\",\n      logoUrl: \"https://static.photos/business/320x80/3\",\n      name: \"Notion\",\n    },\n    {\n      actionHref: \"#figma\",\n      actionLabel: \"Sync\",\n      logoUrl: \"https://static.photos/business/320x80/4\",\n      name: \"Figma\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DataTableLogosActionsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

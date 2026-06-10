@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rolling-stats",
+  "title": "Rolling Stats",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/stats/rolling-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type StatsFourColumnVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface StatsFourColumnProps {\n  theme?: EmailThemeTokens;\n  stats?: { value: string; label: string }[];\n  variant?: StatsFourColumnVariant;\n}\n\nconst StatsFourColumnSection = ({\n  stats,\n  theme,\n  variant,\n}: {\n  stats: StatsFourColumnProps[\"stats\"];\n  theme: EmailThemeTokens;\n  variant: StatsFourColumnVariant;\n}) => {\n  const items = (stats ?? []).slice(0, 4);\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {items.map((stat, i) => (\n        <MjmlColumn\n          key={stat.label + i}\n          width=\"25%\"\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"top\"\n        >\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize=\"24px\"\n            fontWeight={theme.fontWeightBold}\n            paddingBottom={theme.spacingBase ?? \"4px\"}\n          >\n            {stat.value}\n          </MjmlText>\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm ?? \"11px\"}\n          >\n            {stat.label}\n          </MjmlText>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const RollingStats = ({\n  theme = defaultTheme,\n  stats = [\n    { label: \"Users\", value: \"10K+\" },\n    { label: \"Downloads\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"Reviews\", value: \"5K+\" },\n  ],\n  variant = \"default\",\n}: StatsFourColumnProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>stats 4-col</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <StatsFourColumnSection stats={stats} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nRollingStats.PreviewProps = {\n  stats: [\n    { label: \"Active Users\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"Reviews\", value: \"10K+\" },\n    { label: \"Years\", value: \"5+\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies StatsFourColumnProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/rolling-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

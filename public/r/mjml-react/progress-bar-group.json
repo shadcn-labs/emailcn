@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-bar-group",
+  "title": "Progress Bar Group",
+  "description": "UI Elements progress-bars variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/progress-bars/progress-bar-group.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface ProgressBarGroupProps {\n  theme?: EmailThemeTokens;\n  items?: { label: string; value: number }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst ProgressBarGroupSection = ({\n  items,\n  theme,\n}: {\n  items: NonNullable<ProgressBarGroupProps[\"items\"]>;\n  theme: EmailThemeTokens;\n}) => (\n  <MjmlSection padding={`${theme.spacingLg ?? \"32px\"} 0`}>\n    <MjmlColumn>\n      {items.map((item) => {\n        const clamped = Math.max(0, Math.min(100, item.value));\n        return (\n          <MjmlSection\n            key={item.label}\n            padding={`0 0 ${theme.spacingBase ?? \"16px\"}`}\n          >\n            <MjmlColumn>\n              <MjmlText\n                color={theme.colorText}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeSm ?? \"12px\"}\n                paddingBottom={theme.spacingBase ?? \"16px\"}\n              >\n                {item.label}\n              </MjmlText>\n              <MjmlSection\n                backgroundColor={theme.colorBackgroundSubtle ?? \"#f3f4f6\"}\n                borderRadius={theme.borderRadius}\n                padding=\"0\"\n              >\n                {clamped > 0 ? (\n                  <MjmlColumn\n                    backgroundColor={theme.colorPrimary}\n                    borderRadius={theme.borderRadius}\n                    width={`${clamped}%`}\n                    padding=\"6px 0\"\n                  >\n                    <MjmlText\n                      align=\"center\"\n                      color={theme.colorPrimaryForeground}\n                      fontFamily={theme.fontFamily}\n                      fontSize=\"10px\"\n                      fontWeight={theme.fontWeightBold ?? \"600\"}\n                      padding=\"0\"\n                    >\n                      {clamped}%\n                    </MjmlText>\n                  </MjmlColumn>\n                ) : null}\n                {clamped < 100 ? (\n                  <MjmlColumn width={`${100 - clamped}%`} padding=\"0\" />\n                ) : null}\n              </MjmlSection>\n            </MjmlColumn>\n          </MjmlSection>\n        );\n      })}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const ProgressBarGroup = ({\n  theme = defaultTheme,\n  items = [\n    { label: \"Task 1\", value: 80 },\n    { label: \"Task 2\", value: 60 },\n  ],\n  variant = \"default\",\n}: ProgressBarGroupProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>progress-group</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ProgressBarGroupSection items={items} theme={theme} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nProgressBarGroup.PreviewProps = {\n  items: [\n    { label: \"Research\", value: 100 },\n    { label: \"Design\", value: 75 },\n    { label: \"Dev\", value: 50 },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ProgressBarGroupProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/progress-bars/progress-bar-group.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

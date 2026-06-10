@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-image-grid",
+  "title": "2 Columns Image Grid",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/images/2-columns-image-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type ImageGridVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageGridProps {\n  theme?: EmailThemeTokens;\n  images?: { src: string; alt: string }[];\n  columns?: 2 | 3;\n  variant?: ImageGridVariant;\n}\n\nconst ImageGridSection = ({\n  columns,\n  images,\n  theme,\n  variant,\n}: {\n  columns: 2 | 3;\n  images: ImageGridProps[\"images\"];\n  theme: EmailThemeTokens;\n  variant: ImageGridVariant;\n}) => {\n  const slice = (images ?? []).slice(0, columns);\n  const widthPct = `${100 / columns}%`;\n\n  return (\n    <Section\n      style={{\n        backgroundColor: theme.colorBackground,\n        padding: `${theme.spacingXl ?? \"48px\"} 0`,\n      }}\n    >\n      <Row>\n        {slice.length > 0 ? (\n          slice.map((img) => (\n            <Column\n              key={img.src}\n              style={{ padding: theme.spacingBase ?? \"24px\", width: widthPct }}\n            >\n              <Img\n                alt={img.alt}\n                src={img.src}\n                width={260}\n                style={{\n                  borderRadius: theme.borderRadius,\n                  display: \"block\",\n                  margin: \"0 auto\",\n                  maxWidth: \"100%\",\n                }}\n              />\n            </Column>\n          ))\n        ) : (\n          <Column>\n            <Text\n              style={{\n                color: theme.colorTextMuted,\n                fontFamily: theme.fontFamily,\n                fontSize: theme.fontSizeBase,\n                margin: 0,\n              }}\n            >\n              No images to display.\n            </Text>\n          </Column>\n        )}\n      </Row>\n    </Section>\n  );\n};\n\nexport const TwoColumnsImageGrid = ({\n  theme = defaultTheme,\n  images = [\n    { alt: \"Image 1\", src: \"https://static.photos/technology/400x300/2\" },\n    { alt: \"Image 2\", src: \"https://static.photos/technology/400x300/3\" },\n  ],\n  columns = 2,\n  variant = \"default\",\n}: ImageGridProps) => (\n  <Html>\n    <Head />\n    <Preview>image grid</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <ImageGridSection\n            columns={columns}\n            images={images}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nTwoColumnsImageGrid.PreviewProps = {\n  columns: 2,\n  images: [\n    {\n      alt: \"Screenshot 1\",\n      src: \"https://static.photos/technology/400x300/4\",\n    },\n    {\n      alt: \"Screenshot 2\",\n      src: \"https://static.photos/technology/400x300/5\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageGridProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/2-columns-image-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

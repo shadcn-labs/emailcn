@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "single-stat-with-background-image",
+  "title": "Single Stat With Background Image",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/stats/single-stat-with-background-image.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type StatsInlineVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface StatsInlineProps {\n  theme?: EmailThemeTokens;\n  stats?: { value: string; label: string }[];\n  variant?: StatsInlineVariant;\n}\n\nconst StatsInlineSection = ({\n  stats,\n  theme,\n  variant,\n}: {\n  stats: StatsInlineProps[\"stats\"];\n  theme: EmailThemeTokens;\n  variant: StatsInlineVariant;\n}) => {\n  const items = (stats ?? []).slice(0, 4);\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      {items.map((stat, i) => (\n        <MjmlColumn\n          key={stat.label + i}\n          width={`${100 / items.length}%`}\n          padding={theme.spacingBase ?? \"24px\"}\n          verticalAlign=\"top\"\n        >\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeLg ?? \"16px\"}\n            fontWeight={theme.fontWeightBold}\n            paddingBottom={theme.spacingBase ?? \"4px\"}\n          >\n            {stat.value}\n          </MjmlText>\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm ?? \"12px\"}\n          >\n            {stat.label}\n          </MjmlText>\n        </MjmlColumn>\n      ))}\n    </MjmlSection>\n  );\n};\n\nexport const SingleStatWithBackgroundImage = ({\n  theme = defaultTheme,\n  stats = [\n    { label: \"Users\", value: \"10K+\" },\n    { label: \"Downloads\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"Reviews\", value: \"5K+\" },\n  ],\n  variant = \"default\",\n}: StatsInlineProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>stats inline</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <StatsInlineSection stats={stats} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nSingleStatWithBackgroundImage.PreviewProps = {\n  stats: [\n    { label: \"Active Users\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"5-Star Reviews\", value: \"10K+\" },\n    { label: \"Years\", value: \"5+\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies StatsInlineProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/single-stat-with-background-image.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

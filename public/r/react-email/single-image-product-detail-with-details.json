@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "single-image-product-detail-with-details",
+  "title": "Single Image Product Detail With Details",
+  "description": "Ecommerce product-detail variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Button,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface SingleImageProductDetailProps {\n  theme?: TailwindConfig;\n  imageUrl?: string;\n  name?: string;\n  price?: string;\n  description?: string;\n  features?: string[];\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const SingleImageProductDetailSection = ({\n  imageUrl,\n  name = \"Product Name\",\n  price = \"$99.00\",\n  description = \"Product description goes here.\",\n  features = [\"Feature 1\", \"Feature 2\", \"Feature 3\"],\n  ctaLabel = \"Buy Now\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: Omit<SingleImageProductDetailProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-center\";\n\n  return (\n    <Section className=\"py-12\">\n      <Section className=\"text-center\">\n        {imageUrl ? (\n          <Img\n            src={imageUrl}\n            alt={name}\n            className=\"mx-auto mb-6 h-auto max-w-full rounded-md object-cover\"\n          />\n        ) : null}\n        <Text\n          className={`mb-2 text-2xl font-semibold text-foreground ${textAlign}`}\n        >\n          {name}\n        </Text>\n        <Text className={`mb-4 text-xl font-bold text-foreground ${textAlign}`}>\n          {price}\n        </Text>\n        <Text\n          className={`mb-6 text-base leading-snug text-foreground-muted ${textAlign}`}\n        >\n          {description}\n        </Text>\n        {features.length > 0 ? (\n          <Section className={`mb-6 ${textAlign}`}>\n            {features.map((feature, index) => (\n              <Text\n                key={`${feature}-${index}`}\n                className=\"m-0 mb-1 text-base text-foreground\"\n              >\n                &#10003; {feature}\n              </Text>\n            ))}\n          </Section>\n        ) : null}\n        {ctaLabel && ctaHref ? (\n          <Button\n            href={ctaHref}\n            className=\"inline-block rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-fg no-underline\"\n          >\n            {ctaLabel}\n          </Button>\n        ) : null}\n      </Section>\n    </Section>\n  );\n};\n\nexport const SingleImageProductDetail = ({\n  theme = defaultTheme,\n  imageUrl,\n  name = \"Product Name\",\n  price = \"$99.00\",\n  description = \"Product description goes here.\",\n  features = [\"Feature 1\", \"Feature 2\", \"Feature 3\"],\n  ctaLabel = \"Buy Now\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: SingleImageProductDetailProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{name}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <SingleImageProductDetailSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          description={description}\n          features={features}\n          imageUrl={imageUrl}\n          name={name}\n          price={price}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nSingleImageProductDetail.PreviewProps = {\n  ctaHref: \"https://example.com/buy\",\n  ctaLabel: \"Shop Now\",\n  description:\n    \"A stunning product designed with elegance and functionality in mind.\",\n  features: [\n    \"Handcrafted quality\",\n    \"Eco-friendly materials\",\n    \"Limited edition\",\n  ],\n  imageUrl: \"https://static.photos/technology/640x640/2\",\n  name: \"Artisan Watch\",\n  price: \"$299.00\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies SingleImageProductDetailProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

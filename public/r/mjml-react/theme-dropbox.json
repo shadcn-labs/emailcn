@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-dropbox",
+  "title": "Dropbox Email Theme (MJML)",
+  "description": "Dropbox email theme tokens for MJML templates",
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/themes/dropbox.ts",
+      "content": "export const dropboxTheme = {\n  borderRadius: \"6px\",\n  borderRadiusLg: \"12px\",\n  button: {\n    primary: {\n      backgroundColor: \"#0061ff\",\n      borderRadius: \"6px\",\n      color: \"#ffffff\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n    secondary: {\n      backgroundColor: \"transparent\",\n      border: \"1px solid #0061ff\",\n      borderRadius: \"6px\",\n      color: \"#0061ff\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n  },\n  colorBackground: \"#ffffff\",\n  colorBackgroundMuted: \"#f7f8fa\",\n  colorBackgroundSubtle: \"#f3f4f6\",\n  colorBorder: \"#e5e7eb\",\n  colorBorderSubtle: \"#f3f4f6\",\n  colorDanger: \"#ef4444\",\n  colorPrimary: \"#0061ff\",\n  colorPrimaryForeground: \"#ffffff\",\n  colorPrimaryHover: \"#0052dd\",\n  colorSuccess: \"#10b981\",\n  colorText: \"#1f2328\",\n  colorTextMuted: \"#656d77\",\n  colorTextSubtle: \"#9ca3af\",\n  colorWarning: \"#f59e0b\",\n  containerWidth: \"600px\",\n  fontFamily: '\"Inter\", \"Helvetica Neue\", Helvetica, Arial, sans-serif',\n  fontFamilyMono: '\"SF Mono\", \"Menlo\", \"Monaco\", monospace',\n  fontSizeBase: \"14px\",\n  fontSizeHeading: \"28px\",\n  fontSizeLg: \"16px\",\n  fontSizeSm: \"12px\",\n  fontSizeXl: \"20px\",\n  fontWeightBold: \"600\",\n  fontWeightMedium: \"500\",\n  fontWeightNormal: \"400\",\n  lineHeightBase: \"1.5\",\n  spacingBase: \"24px\",\n  spacingLg: \"32px\",\n  spacingXl: \"48px\",\n};\n",
+      "type": "registry:file",
+      "target": "components/emails/themes/theme-dropbox.ts"
+    }
+  ],
+  "categories": [
+    "theme"
+  ],
+  "type": "registry:file"
+}

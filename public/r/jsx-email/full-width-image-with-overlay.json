@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-width-image-with-overlay",
+  "title": "Full Width Image With Overlay",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/images/full-width-image-with-overlay.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type ImageSplitVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageSplitProps {\n  theme?: EmailThemeTokens;\n  leftSrc?: string;\n  leftAlt?: string;\n  rightSrc?: string;\n  rightAlt?: string;\n  variant?: ImageSplitVariant;\n}\n\nconst ImageSplitSection = ({\n  leftAlt,\n  leftSrc,\n  rightAlt,\n  rightSrc,\n  theme,\n  variant,\n}: {\n  leftAlt: string;\n  leftSrc: string;\n  rightAlt: string;\n  rightSrc: string;\n  theme: EmailThemeTokens;\n  variant: ImageSplitVariant;\n}) => (\n  <Section style={{ backgroundColor: theme.colorBackground, padding: \"0\" }}>\n    <Row>\n      <Column style={{ padding: \"4px\", width: \"50%\" }}>\n        <Img\n          alt={leftAlt}\n          src={leftSrc}\n          width={290}\n          style={{\n            borderRadius: theme.borderRadius,\n            display: \"block\",\n            margin: \"0 auto\",\n            maxWidth: \"100%\",\n          }}\n        />\n      </Column>\n      <Column style={{ padding: \"4px\", width: \"50%\" }}>\n        <Img\n          alt={rightAlt}\n          src={rightSrc}\n          width={290}\n          style={{\n            borderRadius: theme.borderRadius,\n            display: \"block\",\n            margin: \"0 auto\",\n            maxWidth: \"100%\",\n          }}\n        />\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const FullWidthImageWithOverlay = ({\n  theme = defaultTheme,\n  leftSrc = \"https://static.photos/city/400x300/2\",\n  leftAlt = \"left\",\n  rightSrc = \"https://static.photos/city/400x300/3\",\n  rightAlt = \"right\",\n  variant = \"default\",\n}: ImageSplitProps) => (\n  <Html>\n    <Head />\n    <Preview>split image</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <ImageSplitSection\n            leftAlt={leftAlt}\n            leftSrc={leftSrc}\n            rightAlt={rightAlt}\n            rightSrc={rightSrc}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nFullWidthImageWithOverlay.PreviewProps = {\n  leftAlt: \"before\",\n  leftSrc: \"https://static.photos/city/400x300/4\",\n  rightAlt: \"after\",\n  rightSrc: \"https://static.photos/city/400x300/5\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageSplitProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/full-width-image-with-overlay.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

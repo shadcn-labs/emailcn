@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pill-box-social-logos",
+  "title": "Pill Box Social Logos",
+  "description": "Marketing social variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/social/pill-box-social-logos.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type SocialLinksDarkVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface SocialLinksDarkProps {\n  theme?: EmailThemeTokens;\n  links?: { platform: string; href: string }[];\n  variant?: SocialLinksDarkVariant;\n}\n\nconst SocialLinksDarkSection = ({\n  links,\n  theme,\n  variant,\n}: {\n  links: SocialLinksDarkProps[\"links\"];\n  theme: EmailThemeTokens;\n  variant: SocialLinksDarkVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorText,\n      padding: `${theme.spacingBase ?? \"24px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column>\n        {(links ?? []).map((l) => (\n          <Text\n            key={l.platform}\n            style={{\n              color: theme.colorBackground,\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeSm ?? \"12px\",\n              margin: 0,\n              padding: \"0 12px\",\n              textAlign: \"center\",\n            }}\n          >\n            <a\n              href={l.href}\n              style={{ color: theme.colorBackground, textDecoration: \"none\" }}\n            >\n              {l.platform}\n            </a>\n          </Text>\n        ))}\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const PillBoxSocialLogos = ({\n  theme = defaultTheme,\n  links = [\n    { href: \"https://twitter.com\", platform: \"Twitter\" },\n    { href: \"https://github.com\", platform: \"GitHub\" },\n    { href: \"https://linkedin.com\", platform: \"LinkedIn\" },\n  ],\n  variant = \"default\",\n}: SocialLinksDarkProps) => (\n  <Html>\n    <Head />\n    <Preview>social dark</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <SocialLinksDarkSection\n            links={links}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\nPillBoxSocialLogos.PreviewProps = {\n  links: [\n    { href: \"https://twitter.com\", platform: \"Twitter\" },\n    { href: \"https://github.com\", platform: \"GitHub\" },\n    { href: \"https://linkedin.com\", platform: \"LinkedIn\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies SocialLinksDarkProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/social/pill-box-social-logos.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

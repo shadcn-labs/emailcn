@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "basic-pills-with-status-colors",
+  "title": "Basic Pills With Status Colors",
+  "description": "UI Elements pills variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/pills/basic-pills-with-status-colors.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type PillStatusVariant =\n  | \"default\"\n  | \"success\"\n  | \"warning\"\n  | \"danger\"\n  | \"info\";\n\nexport interface BasicPillsStatusColorsProps {\n  theme?: TailwindConfig;\n  pills?: { label: string; variant: PillStatusVariant }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst pillVariantClasses: Record<PillStatusVariant, string> = {\n  danger: \"bg-red-100 text-red-800\",\n  default: \"bg-foreground-muted/10 text-foreground\",\n  info: \"bg-blue-100 text-blue-800\",\n  success: \"bg-green-100 text-green-800\",\n  warning: \"bg-yellow-100 text-yellow-800\",\n};\n\nexport const BasicPillsStatusColorsSection = ({\n  pills = [\n    { label: \"Default\", variant: \"default\" },\n    { label: \"Success\", variant: \"success\" },\n    { label: \"Warning\", variant: \"warning\" },\n    { label: \"Danger\", variant: \"danger\" },\n    { label: \"Info\", variant: \"info\" },\n  ],\n  variant = \"default\",\n}: Omit<BasicPillsStatusColorsProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-center\";\n\n  return (\n    <Section className={`py-4 ${textAlign}`}>\n      {pills.map((pill, index) => (\n        <Text\n          key={`${pill.label}-${index}`}\n          className={`inline-block rounded-full px-3 py-1 text-xs font-medium mr-2 mb-2 ${pillVariantClasses[pill.variant]}`}\n        >\n          {pill.label}\n        </Text>\n      ))}\n    </Section>\n  );\n};\n\nexport const BasicPillsStatusColors = ({\n  theme = defaultTheme,\n  pills = [\n    { label: \"Default\", variant: \"default\" },\n    { label: \"Success\", variant: \"success\" },\n    { label: \"Warning\", variant: \"warning\" },\n    { label: \"Danger\", variant: \"danger\" },\n    { label: \"Info\", variant: \"info\" },\n  ],\n  variant = \"default\",\n}: BasicPillsStatusColorsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Pills</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <BasicPillsStatusColorsSection pills={pills} variant={variant} />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nBasicPillsStatusColors.PreviewProps = {\n  pills: [\n    { label: \"Active\", variant: \"success\" },\n    { label: \"Pending\", variant: \"warning\" },\n    { label: \"Cancelled\", variant: \"danger\" },\n    { label: \"New\", variant: \"info\" },\n    { label: \"Draft\", variant: \"default\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BasicPillsStatusColorsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/pills/basic-pills-with-status-colors.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cards-timeline",
+  "title": "Cards Timeline",
+  "description": "Marketing timelines variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/timelines/cards-timeline.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type CardsTimelineVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface CardsTimelineProps {\n  theme?: TailwindConfig;\n  heading?: string;\n  step1?: string;\n  step1Desc?: string;\n  step2?: string;\n  step2Desc?: string;\n  step3?: string;\n  step3Desc?: string;\n  variant?: CardsTimelineVariant;\n}\n\nexport const CardsTimelineSection = ({\n  heading = \"Timeline\",\n  step1 = \"Discovery\",\n  step1Desc = \"Understanding requirements and goals.\",\n  step2 = \"Design\",\n  step2Desc = \"Creating wireframes and prototypes.\",\n  step3 = \"Delivery\",\n  step3Desc = \"Launching the final product.\",\n  variant = \"default\",\n}: Omit<CardsTimelineProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>\n        {heading ? (\n          <Text className=\"m-0 mb-8 text-center text-2xl font-bold text-foreground\">\n            {heading}\n          </Text>\n        ) : null}\n        <Section className=\"mb-4 rounded-lg bg-background-muted p-6\">\n          <Text className=\"m-0 mb-2 text-base font-bold text-foreground\">\n            {step1}\n          </Text>\n          <Text className=\"m-0 text-sm leading-relaxed text-foreground-muted\">\n            {step1Desc}\n          </Text>\n        </Section>\n        <Section className=\"mb-4 rounded-lg bg-background-muted p-6\">\n          <Text className=\"m-0 mb-2 text-base font-bold text-foreground\">\n            {step2}\n          </Text>\n          <Text className=\"m-0 text-sm leading-relaxed text-foreground-muted\">\n            {step2Desc}\n          </Text>\n        </Section>\n        <Section className=\"rounded-lg bg-background-muted p-6\">\n          <Text className=\"m-0 mb-2 text-base font-bold text-foreground\">\n            {step3}\n          </Text>\n          <Text className=\"m-0 text-sm leading-relaxed text-foreground-muted\">\n            {step3Desc}\n          </Text>\n        </Section>\n      </Container>\n    </Section>\n  );\n};\n\nexport const CardsTimeline = ({\n  theme = defaultTheme,\n  heading = \"Timeline\",\n  step1 = \"Discovery\",\n  step1Desc = \"Understanding requirements and goals.\",\n  step2 = \"Design\",\n  step2Desc = \"Creating wireframes and prototypes.\",\n  step3 = \"Delivery\",\n  step3Desc = \"Launching the final product.\",\n  variant = \"default\",\n}: CardsTimelineProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{heading}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <CardsTimelineSection\n          heading={heading}\n          step1={step1}\n          step1Desc={step1Desc}\n          step2={step2}\n          step2Desc={step2Desc}\n          step3={step3}\n          step3Desc={step3Desc}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nCardsTimeline.PreviewProps = {\n  heading: \"Timeline\",\n  step1: \"Discovery\",\n  step1Desc: \"Understanding requirements and defining project goals.\",\n  step2: \"Design\",\n  step2Desc: \"Creating wireframes, prototypes, and visual designs.\",\n  step3: \"Delivery\",\n  step3Desc: \"Development, testing, and launching the final product.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies CardsTimelineProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/timelines/cards-timeline.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

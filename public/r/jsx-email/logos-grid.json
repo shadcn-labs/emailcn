@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logos-grid",
+  "title": "Logos Grid",
+  "description": "Marketing logos variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/logos/logos-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type LogosGridVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface LogosGridProps {\n  theme?: EmailThemeTokens;\n  logos?: { src: string; alt: string; width?: number }[];\n  variant?: LogosGridVariant;\n}\n\nconst LogosGridSection = ({\n  logos,\n  theme,\n  variant,\n}: {\n  logos: LogosGridProps[\"logos\"];\n  theme: EmailThemeTokens;\n  variant: LogosGridVariant;\n}) => {\n  const items = logos ?? [];\n  const rows: { src: string; alt: string; width?: number }[][] = [];\n  for (let i = 0; i < items.length; i += 3) {\n    rows.push(items.slice(i, i + 3));\n  }\n\n  return (\n    <Section\n      style={{\n        backgroundColor: theme.colorBackground,\n        padding: `${theme.spacingXl ?? \"48px\"} 0`,\n      }}\n    >\n      <Row>\n        {rows.map((row, ri) =>\n          row.map((logo, ci) => (\n            <Column\n              key={`${logo.alt}-${ri}-${ci}`}\n              style={{\n                padding: theme.spacingBase ?? \"24px\",\n                verticalAlign: \"middle\",\n                width: \"33.33%\",\n              }}\n            >\n              <Img\n                alt={logo.alt}\n                src={logo.src}\n                width={logo.width ?? 120}\n                style={{ display: \"block\", margin: \"0 auto\", maxWidth: \"100%\" }}\n              />\n            </Column>\n          ))\n        )}\n      </Row>\n    </Section>\n  );\n};\n\nexport const LogosGrid = ({\n  theme = defaultTheme,\n  logos = [\n    { alt: \"Company 1\", src: \"https://static.photos/business/120x40/2\" },\n    { alt: \"Company 2\", src: \"https://static.photos/business/120x40/3\" },\n    { alt: \"Company 3\", src: \"https://static.photos/business/120x40/4\" },\n    { alt: \"Company 4\", src: \"https://static.photos/business/120x40/5\" },\n    { alt: \"Company 5\", src: \"https://static.photos/business/120x40/6\" },\n    { alt: \"Company 6\", src: \"https://static.photos/business/120x40/7\" },\n  ],\n  variant = \"default\",\n}: LogosGridProps) => (\n  <Html>\n    <Head />\n    <Preview>logos grid</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <LogosGridSection logos={logos} theme={theme} variant={variant} />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nLogosGrid.PreviewProps = {\n  logos: [\n    { alt: \"Acme\", src: \"https://static.photos/business/120x40/8\", width: 120 },\n    {\n      alt: \"TechCo\",\n      src: \"https://static.photos/business/120x40/9\",\n      width: 120,\n    },\n    {\n      alt: \"Global\",\n      src: \"https://static.photos/business/120x40/10\",\n      width: 120,\n    },\n    {\n      alt: \"Nova\",\n      src: \"https://static.photos/business/120x40/11\",\n      width: 120,\n    },\n    {\n      alt: \"Pulse\",\n      src: \"https://static.photos/business/120x40/12\",\n      width: 120,\n    },\n    {\n      alt: \"Orbit\",\n      src: \"https://static.photos/business/120x40/13\",\n      width: 120,\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies LogosGridProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/logos/logos-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

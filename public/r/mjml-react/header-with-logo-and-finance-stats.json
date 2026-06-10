@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo-and-finance-stats",
+  "title": "Header With Logo And Finance Stats",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-finance-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type HeaderLogoVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface HeaderLogoProps {\n  theme?: EmailThemeTokens;\n  logoUrl?: string;\n  logoAlt?: string;\n  logoWidth?: number;\n  variant?: HeaderLogoVariant;\n}\n\nconst HeaderLogoSection = ({\n  logoAlt,\n  logoUrl,\n  logoWidth,\n  theme,\n  variant,\n}: {\n  logoAlt: string;\n  logoUrl?: string;\n  logoWidth: number;\n  theme: EmailThemeTokens;\n  variant: HeaderLogoVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingBase ?? \"24px\"} 0`}\n  >\n    <MjmlColumn>\n      {logoUrl ? (\n        <MjmlImage\n          align=\"center\"\n          alt={logoAlt}\n          src={logoUrl}\n          width={logoWidth}\n        />\n      ) : (\n        <MjmlText\n          align=\"center\"\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeXl ?? \"20px\"}\n          fontWeight={theme.fontWeightBold}\n        >\n          {logoAlt}\n        </MjmlText>\n      )}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const HeaderWithLogoAndFinanceStats = ({\n  theme = defaultTheme,\n  logoUrl,\n  logoAlt = \"Logo\",\n  logoWidth = 120,\n  variant = \"default\",\n}: HeaderLogoProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>header logo</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <HeaderLogoSection\n          logoAlt={logoAlt}\n          logoUrl={logoUrl}\n          logoWidth={logoWidth}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHeaderWithLogoAndFinanceStats.PreviewProps = {\n  logoAlt: \"Acme\",\n  logoUrl: \"https://static.photos/business/120x40/2\",\n  logoWidth: 120,\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeaderLogoProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo-and-finance-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

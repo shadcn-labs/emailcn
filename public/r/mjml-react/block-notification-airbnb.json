@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "block-notification-airbnb",
+  "title": "Notification — Airbnb (MJML)",
+  "description": "Airbnb review request notification",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-airbnb.json",
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/blocks/notification-airbnb.tsx",
+      "content": "// MJML parity block — mirrored from react-email (notification-airbnb.tsx)\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { airbnbTheme } from \"@/components/emails/themes/theme-airbnb\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\ntype Props = Record<string, never>;\n\nexport const NotificationAirbnb = (_props: Props) => {\n  const theme: EmailThemeTokens = airbnbTheme;\n\n  return (\n    <Mjml>\n      <MjmlHead>\n        <MjmlPreview>Email preview</MjmlPreview>\n        <MjmlAttributes>\n          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />\n          <MjmlText\n            fontSize={theme.fontSizeBase}\n            lineHeight={theme.lineHeightBase}\n          />\n        </MjmlAttributes>\n      </MjmlHead>\n      <MjmlBody\n        backgroundColor={theme.colorBackground}\n        width={theme.containerWidth}\n      >\n        <MjmlWrapper padding=\"0\">\n          <MjmlSection padding={`${theme.spacingXl ?? \"24px\"} 0`}>\n            <MjmlColumn>\n              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>\n                MJML parity placeholder for notification-airbnb.tsx — replace\n                with full markup.\n              </MjmlText>\n            </MjmlColumn>\n          </MjmlSection>\n        </MjmlWrapper>\n      </MjmlBody>\n    </Mjml>\n  );\n};\n\nNotificationAirbnb.PreviewProps = {} satisfies Props;\n",
+      "type": "registry:component",
+      "target": "components/emails/notification-airbnb.tsx"
+    }
+  ],
+  "categories": [
+    "notification"
+  ],
+  "type": "registry:block"
+}

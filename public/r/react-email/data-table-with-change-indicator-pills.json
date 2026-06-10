@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-with-change-indicator-pills",
+  "title": "Data Table With Change Indicator Pills",
+  "description": "Data Table With Change Indicator Pills email component",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface DataTableChangeIndicatorProps {\n  theme?: TailwindConfig;\n  headers?: string[];\n  rows?: {\n    name: string;\n    value: string;\n    change: string;\n    direction: \"up\" | \"down\";\n  }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const DataTableChangeIndicatorSection = ({\n  headers = [\"Metric\", \"Value\", \"Change\"],\n  rows = [\n    {\n      change: \"+8.2%\",\n      direction: \"up\" as const,\n      name: \"Revenue\",\n      value: \"$12.5K\",\n    },\n  ],\n  variant = \"default\",\n}: Omit<DataTableChangeIndicatorProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-left\";\n\n  return (\n    <Section className=\"py-4\">\n      <Section className=\"border border-border rounded-md\">\n        <Row>\n          {headers.map((header, i) => (\n            <Column\n              key={`h-${i}`}\n              className={`bg-foreground-muted/10 px-3 py-2 text-sm font-medium text-foreground ${textAlign}`}\n            >\n              {header}\n            </Column>\n          ))}\n        </Row>\n        {rows.map((row, ri) => (\n          <Row key={`r-${ri}`}>\n            <Column\n              className={`px-3 py-2 text-sm text-foreground ${textAlign}`}\n            >\n              {row.name}\n            </Column>\n            <Column\n              className={`px-3 py-2 text-sm text-foreground ${textAlign}`}\n            >\n              {row.value}\n            </Column>\n            <Column className={`px-3 py-2 ${textAlign}`}>\n              <Text\n                className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${\n                  row.direction === \"up\"\n                    ? \"bg-green-100 text-green-800\"\n                    : \"bg-red-100 text-red-800\"\n                }`}\n              >\n                {row.direction === \"up\" ? \"\\u2191\" : \"\\u2193\"} {row.change}\n              </Text>\n            </Column>\n          </Row>\n        ))}\n      </Section>\n    </Section>\n  );\n};\n\nexport const DataTableChangeIndicator = ({\n  theme = defaultTheme,\n  headers = [\"Metric\", \"Value\", \"Change\"],\n  rows = [\n    {\n      change: \"+8.2%\",\n      direction: \"up\" as const,\n      name: \"Revenue\",\n      value: \"$12.5K\",\n    },\n  ],\n  variant = \"default\",\n}: DataTableChangeIndicatorProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Change Indicators</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <DataTableChangeIndicatorSection\n          headers={headers}\n          rows={rows}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nDataTableChangeIndicator.PreviewProps = {\n  headers: [\"Metric\", \"Value\", \"Change\"],\n  rows: [\n    { change: \"+8.2%\", direction: \"up\", name: \"Revenue\", value: \"$12.5K\" },\n    { change: \"+2.1%\", direction: \"up\", name: \"Costs\", value: \"$4.2K\" },\n    { change: \"-1.5%\", direction: \"down\", name: \"Churn\", value: \"3.1%\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DataTableChangeIndicatorProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

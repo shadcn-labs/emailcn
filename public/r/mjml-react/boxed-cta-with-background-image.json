@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "boxed-cta-with-background-image",
+  "title": "Boxed Cta With Background Image",
+  "description": "Marketing cta variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlButton,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type CTAAccentVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface CTAAccentProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  subtext?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: CTAAccentVariant;\n}\n\nconst CTAAccentSection = ({\n  ctaHref,\n  ctaLabel,\n  heading,\n  subtext,\n  theme,\n  variant,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  heading: string;\n  subtext: string;\n  theme: EmailThemeTokens;\n  variant: CTAAccentVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackgroundMuted}\n    borderRadius={theme.borderRadius}\n    border={`1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`}\n    padding={theme.spacingXl ?? \"24px\"}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeXl ?? \"20px\"}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        {heading}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeBase ?? \"14px\"}\n        paddingBottom={theme.spacingLg ?? \"24px\"}\n      >\n        {subtext}\n      </MjmlText>\n      {ctaLabel && ctaHref ? (\n        <MjmlButton\n          align=\"center\"\n          backgroundColor={theme.colorPrimary}\n          borderRadius={theme.borderRadius}\n          color={theme.colorPrimaryForeground}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm ?? \"14px\"}\n          fontWeight={theme.fontWeightMedium}\n          href={ctaHref}\n          innerPadding={`${theme.spacingBase ?? \"16px\"} ${theme.spacingLg ?? \"24px\"}`}\n        >\n          {ctaLabel}\n        </MjmlButton>\n      ) : null}\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const BoxedCtaWithBackgroundImage = ({\n  theme = defaultTheme,\n  heading = \"Featured Announcement\",\n  subtext = \"Check out what's new and exciting.\",\n  ctaLabel = \"Learn More\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: CTAAccentProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>cta accent</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <CTAAccentSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          heading={heading}\n          subtext={subtext}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nBoxedCtaWithBackgroundImage.PreviewProps = {\n  ctaHref: \"https://example.com/learn\",\n  ctaLabel: \"Learn More\",\n  heading: \"New Features Available\",\n  subtext: \"Discover what's new in our latest release.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies CTAAccentProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/cta/boxed-cta-with-background-image.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

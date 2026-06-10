@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-with-4-columns",
+  "title": "Data Table With 4 Columns",
+  "description": "Data Table With 4 Columns email component",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface DataTable4ColumnsProps {\n  theme?: TailwindConfig;\n  headers?: string[];\n  rows?: string[][];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const DataTable4ColumnsSection = ({\n  headers = [\"Name\", \"Type\", \"Status\", \"Value\"],\n  rows = [[\"Item A\", \"Standard\", \"Active\", \"$100\"]],\n  variant = \"default\",\n}: Omit<DataTable4ColumnsProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-left\";\n\n  return (\n    <Section className=\"py-4\">\n      <Section className=\"border border-border rounded-md\">\n        <Row>\n          {headers.map((header, i) => (\n            <Column\n              key={`h-${i}`}\n              style={{ width: `${100 / headers.length}%` }}\n              className={`bg-foreground-muted/10 px-3 py-2 text-sm font-medium text-foreground ${textAlign}`}\n            >\n              {header}\n            </Column>\n          ))}\n        </Row>\n        {rows.map((row, ri) => (\n          <Row key={`r-${ri}`}>\n            {row.map((cell, ci) => (\n              <Column\n                key={`c-${ri}-${ci}`}\n                style={{ width: `${100 / headers.length}%` }}\n                className={`px-3 py-2 text-sm text-foreground ${textAlign}`}\n              >\n                {cell}\n              </Column>\n            ))}\n          </Row>\n        ))}\n      </Section>\n    </Section>\n  );\n};\n\nexport const DataTable4Columns = ({\n  theme = defaultTheme,\n  headers = [\"Name\", \"Type\", \"Status\", \"Value\"],\n  rows = [[\"Item A\", \"Standard\", \"Active\", \"$100\"]],\n  variant = \"default\",\n}: DataTable4ColumnsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>4 Column Table</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <DataTable4ColumnsSection\n          headers={headers}\n          rows={rows}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nDataTable4Columns.PreviewProps = {\n  headers: [\"Product\", \"Category\", \"Stock\", \"Price\"],\n  rows: [\n    [\"Widget A\", \"Electronics\", \"In Stock\", \"$29.00\"],\n    [\"Widget B\", \"Accessories\", \"Low Stock\", \"$49.00\"],\n    [\"Widget C\", \"Home\", \"Out of Stock\", \"$19.00\"],\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DataTable4ColumnsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/data-tables/data-table-with-4-columns.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

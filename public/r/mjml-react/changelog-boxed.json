@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "changelog-boxed",
+  "title": "Changelog Boxed",
+  "description": "Marketing timelines variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/timelines/changelog-boxed.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type TimelineBorderedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface TimelineBorderedProps {\n  theme?: EmailThemeTokens;\n  events?: { date: string; title: string; description: string }[];\n  variant?: TimelineBorderedVariant;\n}\nconst TimelineBorderedSection = ({\n  events,\n  theme,\n  variant,\n}: {\n  events: TimelineBorderedProps[\"events\"];\n  theme: EmailThemeTokens;\n  variant: TimelineBorderedVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(events ?? []).map((e, i) => (\n      <MjmlSection\n        key={e.title + i}\n        padding={`${theme.spacingBase ?? \"16px\"} 0`}\n      >\n        <MjmlColumn width=\"80px\" padding=\"0\" verticalAlign=\"top\">\n          <MjmlText\n            color={theme.colorPrimary}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm}\n            fontWeight={theme.fontWeightBold}\n          >\n            {e.date}\n          </MjmlText>\n        </MjmlColumn>\n        <MjmlColumn\n          padding=\"0 0 0 16px\"\n          verticalAlign=\"top\"\n          borderLeft={`2px solid ${theme.colorPrimary}`}\n        >\n          <MjmlText\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"4px\"}\n          >\n            {e.title}\n          </MjmlText>\n          <MjmlText\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n            lineHeight={theme.lineHeightBase}\n          >\n            {e.description}\n          </MjmlText>\n        </MjmlColumn>\n      </MjmlSection>\n    ))}\n  </MjmlSection>\n);\nexport const ChangelogBoxed = ({\n  theme = defaultTheme,\n  events = [\n    { date: \"2024-01\", description: \"Initial release.\", title: \"v1.0.0\" },\n  ],\n  variant = \"default\",\n}: TimelineBorderedProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>timeline bordered</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TimelineBorderedSection\n          events={events}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nChangelogBoxed.PreviewProps = {\n  events: [\n    {\n      date: \"May 2026\",\n      description: \"Major update with new components.\",\n      title: \"v2.0.0\",\n    },\n    { date: \"Apr 2026\", description: \"New components added.\", title: \"v1.5.0\" },\n    { date: \"Mar 2026\", description: \"Initial release.\", title: \"v1.0.0\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TimelineBorderedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/timelines/changelog-boxed.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

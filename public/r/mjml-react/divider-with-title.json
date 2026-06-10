@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-with-title",
+  "title": "Divider With Title",
+  "description": "UI Elements spacing variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-title.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface DividerWithTitleProps {\n  theme?: EmailThemeTokens;\n  title?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst DividerWithTitleSection = ({\n  title,\n  theme,\n  variant,\n}: {\n  title: string;\n  theme: EmailThemeTokens;\n  variant: NonNullable<DividerWithTitleProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <MjmlSection padding={`${theme.spacingBase ?? \"16px\"} 0`}>\n      <MjmlColumn>\n        <MjmlDivider\n          borderColor={theme.colorBorder}\n          paddingBottom={theme.spacingBase ?? \"16px\"}\n        />\n        <MjmlText\n          align={alignText}\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase ?? \"14px\"}\n          fontWeight={theme.fontWeightMedium ?? \"500\"}\n        >\n          {title}\n        </MjmlText>\n        <MjmlDivider\n          borderColor={theme.colorBorder}\n          paddingTop={theme.spacingBase ?? \"16px\"}\n        />\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const DividerWithTitle = ({\n  theme = defaultTheme,\n  title = \"Section\",\n  variant = \"default\",\n}: DividerWithTitleProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>divider-title</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <DividerWithTitleSection\n          title={title}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nDividerWithTitle.PreviewProps = {\n  theme: defaultTheme,\n  title: \"Featured Products\",\n  variant: \"default\",\n} satisfies DividerWithTitleProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/spacing/divider-with-title.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

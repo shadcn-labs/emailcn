@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "outlined-logo-cloud",
+  "title": "Outlined Logo Cloud",
+  "description": "Marketing logos variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/logos/outlined-logo-cloud.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type LogosInlineVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface LogosInlineProps {\n  theme?: EmailThemeTokens;\n  logos?: { src: string; alt: string; width?: number }[];\n  variant?: LogosInlineVariant;\n}\n\nconst LogosInlineSection = ({\n  logos,\n  theme,\n  variant,\n}: {\n  logos: LogosInlineProps[\"logos\"];\n  theme: EmailThemeTokens;\n  variant: LogosInlineVariant;\n}) => {\n  const items = logos ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      <MjmlColumn>\n        {items.slice(0, 6).map((logo, i) => (\n          <span key={logo.alt + i}>\n            <MjmlImage\n              align=\"center\"\n              alt={logo.alt}\n              src={logo.src}\n              width={logo.width ?? 100}\n            />\n          </span>\n        ))}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const OutlinedLogoCloud = ({\n  theme = defaultTheme,\n  logos = [\n    { alt: \"Company 1\", src: \"https://static.photos/business/100x30/2\" },\n    { alt: \"Company 2\", src: \"https://static.photos/business/100x30/3\" },\n    { alt: \"Company 3\", src: \"https://static.photos/business/100x30/4\" },\n    { alt: \"Company 4\", src: \"https://static.photos/business/100x30/5\" },\n  ],\n  variant = \"default\",\n}: LogosInlineProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>logos inline</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <LogosInlineSection logos={logos} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nOutlinedLogoCloud.PreviewProps = {\n  logos: [\n    { alt: \"Acme\", src: \"https://static.photos/business/100x30/6\", width: 100 },\n    {\n      alt: \"TechCo\",\n      src: \"https://static.photos/business/100x30/7\",\n      width: 100,\n    },\n    {\n      alt: \"Global\",\n      src: \"https://static.photos/business/100x30/8\",\n      width: 100,\n    },\n    { alt: \"Nova\", src: \"https://static.photos/business/100x30/9\", width: 100 },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies LogosInlineProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/logos/outlined-logo-cloud.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

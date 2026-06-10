@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsed-faq-with-numbers",
+  "title": "Collapsed Faq With Numbers",
+  "description": "Marketing faq variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/faq/collapsed-faq-with-numbers.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type FAQDarkVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface FAQDarkProps {\n  theme?: EmailThemeTokens;\n  items?: { question: string; answer: string }[];\n  variant?: FAQDarkVariant;\n}\nconst FAQDarkSection = ({\n  items,\n  theme,\n  variant,\n}: {\n  items: FAQDarkProps[\"items\"];\n  theme: EmailThemeTokens;\n  variant: FAQDarkVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorText,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column>\n        {(items ?? []).map((item, i) => (\n          <Section\n            key={item.question + i}\n            style={{ padding: `${theme.spacingBase ?? \"16px\"} 0` }}\n          >\n            <Row>\n              <Text\n                style={{\n                  color: theme.colorBackground,\n                  fontFamily: theme.fontFamily,\n                  fontSize: theme.fontSizeBase,\n                  fontWeight: theme.fontWeightMedium,\n                  margin: 0,\n                  paddingBottom: theme.spacingBase ?? \"8px\",\n                }}\n              >\n                {item.question}\n              </Text>\n              <Text\n                style={{\n                  color: theme.colorTextMuted,\n                  fontFamily: theme.fontFamily,\n                  fontSize: theme.fontSizeBase,\n                  lineHeight: theme.lineHeightBase,\n                  margin: 0,\n                }}\n              >\n                {item.answer}\n              </Text>\n            </Row>\n          </Section>\n        ))}\n      </Column>\n    </Row>\n  </Section>\n);\nexport const CollapsedFaqWithNumbers = ({\n  theme = defaultTheme,\n  items = [{ answer: \"This is the answer.\", question: \"What is this?\" }],\n  variant = \"default\",\n}: FAQDarkProps) => (\n  <Html>\n    <Head />\n    <Preview>FAQ dark</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <FAQDarkSection items={items} theme={theme} variant={variant} />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\nCollapsedFaqWithNumbers.PreviewProps = {\n  items: [\n    {\n      answer: \"A collection of responsive email components.\",\n      question: \"What is EmailCN?\",\n    },\n    { answer: \"MIT license.\", question: \"What license?\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FAQDarkProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/faq/collapsed-faq-with-numbers.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

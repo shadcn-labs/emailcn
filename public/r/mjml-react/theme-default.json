@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-default",
+  "title": "Default Email Theme (MJML)",
+  "description": "Default email theme tokens for MJML templates",
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/themes/default.ts",
+      "content": "export interface EmailThemeTokens {\n  borderRadius: string;\n  borderRadiusLg: string;\n  button: {\n    primary: {\n      backgroundColor: string;\n      borderRadius: string;\n      color: string;\n      fontSize: string;\n      fontWeight: string;\n      paddingX: string;\n      paddingY: string;\n    };\n    secondary: {\n      backgroundColor: string;\n      border: string;\n      borderRadius: string;\n      color: string;\n      fontSize: string;\n      fontWeight: string;\n      paddingX: string;\n      paddingY: string;\n    };\n  };\n  colorBackground: string;\n  colorBackgroundMuted: string;\n  colorBackgroundSubtle: string;\n  colorBorder: string;\n  colorBorderSubtle: string;\n  colorDanger: string;\n  colorPrimary: string;\n  colorPrimaryForeground: string;\n  colorPrimaryHover: string;\n  colorSuccess: string;\n  colorText: string;\n  colorTextMuted: string;\n  colorTextSubtle: string;\n  colorWarning: string;\n  containerWidth: string;\n  fontFamily: string;\n  fontFamilyMono: string;\n  fontSizeBase: string;\n  fontSizeHeading: string;\n  fontSizeLg: string;\n  fontSizeSm: string;\n  fontSizeXl: string;\n  fontWeightBold: string;\n  fontWeightMedium: string;\n  fontWeightNormal: string;\n  lineHeightBase: string;\n  spacingBase: string;\n  spacingLg: string;\n  spacingXl: string;\n}\n\nexport const defaultTheme: EmailThemeTokens = {\n  borderRadius: \"6px\",\n  borderRadiusLg: \"12px\",\n  button: {\n    primary: {\n      backgroundColor: \"#111827\",\n      borderRadius: \"6px\",\n      color: \"#ffffff\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n    secondary: {\n      backgroundColor: \"transparent\",\n      border: \"1px solid #e5e7eb\",\n      borderRadius: \"6px\",\n      color: \"#111827\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n  },\n  colorBackground: \"#ffffff\",\n  colorBackgroundMuted: \"#f9fafb\",\n  colorBackgroundSubtle: \"#f3f4f6\",\n  colorBorder: \"#e5e7eb\",\n  colorBorderSubtle: \"#f3f4f6\",\n  colorDanger: \"#ef4444\",\n  colorPrimary: \"#111827\",\n  colorPrimaryForeground: \"#ffffff\",\n  colorPrimaryHover: \"#374151\",\n  colorSuccess: \"#10b981\",\n  colorText: \"#111827\",\n  colorTextMuted: \"#6b7280\",\n  colorTextSubtle: \"#9ca3af\",\n  colorWarning: \"#f59e0b\",\n  containerWidth: \"600px\",\n  fontFamily:\n    '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif',\n  fontFamilyMono: '\"Menlo\", \"Monaco\", \"Courier New\", monospace',\n  fontSizeBase: \"14px\",\n  fontSizeHeading: \"28px\",\n  fontSizeLg: \"16px\",\n  fontSizeSm: \"12px\",\n  fontSizeXl: \"20px\",\n  fontWeightBold: \"600\",\n  fontWeightMedium: \"500\",\n  fontWeightNormal: \"400\",\n  lineHeightBase: \"1.6\",\n  spacingBase: \"24px\",\n  spacingLg: \"32px\",\n  spacingXl: \"48px\",\n};\n",
+      "type": "registry:file",
+      "target": "components/emails/themes/theme-default.ts"
+    }
+  ],
+  "categories": [
+    "theme",
+    "mjml"
+  ],
+  "type": "registry:file"
+}

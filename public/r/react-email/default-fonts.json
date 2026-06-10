@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "default-fonts",
+  "title": "Email Default Fonts",
+  "description": "Inter webfont declarations for React Email templates (use inside Head)",
+  "dependencies": [
+    "react-email"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/fonts/default.tsx",
+      "content": "import { Font } from \"react-email\";\n\n/** From [Resend Barebones demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/01-Barebone/theme-fonts.tsx). */\nexport const DefaultFonts = () => (\n  <>\n    <style\n      dangerouslySetInnerHTML={{\n        __html: `@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');`,\n      }}\n    />\n    <Font\n      fontFamily=\"Inter\"\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf\",\n      }}\n      fontWeight={400}\n      fontStyle=\"normal\"\n    />\n    <Font\n      fontFamily=\"Inter\"\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf\",\n      }}\n      fontWeight={500}\n      fontStyle=\"normal\"\n    />\n    <Font\n      fontFamily=\"Inter\"\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf\",\n      }}\n      fontWeight={600}\n      fontStyle=\"normal\"\n    />\n  </>\n);\n",
+      "type": "registry:file",
+      "target": "components/emails/fonts/default.tsx"
+    }
+  ],
+  "categories": [
+    "email-font"
+  ],
+  "type": "registry:file"
+}

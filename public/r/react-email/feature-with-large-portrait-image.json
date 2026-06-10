@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-with-large-portrait-image",
+  "title": "Feature With Large Portrait Image",
+  "description": "Marketing feature variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/feature/feature-with-large-portrait-image.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type FeatureWithLargePortraitImageVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface FeatureWithLargePortraitImageProps {\n  theme?: TailwindConfig;\n  heading?: string;\n  body?: string;\n  imageSrc?: string;\n  imageAlt?: string;\n  variant?: FeatureWithLargePortraitImageVariant;\n}\n\nexport const FeatureWithLargePortraitImageSection = ({\n  heading = \"About Us\",\n  body = \"Learn more about our story.\",\n  imageSrc = \"https://static.photos/people/400x600/2\",\n  imageAlt = \"\",\n  variant = \"default\",\n}: Omit<FeatureWithLargePortraitImageProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>\n        <Row>\n          <Column className=\"w-1/2 pr-8 align-middle\">\n            <Img\n              src={imageSrc}\n              alt={imageAlt}\n              width=\"400\"\n              height=\"600\"\n              className=\"w-full h-auto rounded-lg object-cover\"\n            />\n          </Column>\n          <Column className=\"w-1/2 align-middle\">\n            <Text className=\"m-0 text-2xl font-bold text-heading leading-snug text-foreground\">\n              {heading}\n            </Text>\n            <Text className=\"mt-4 mb-0 text-base leading-relaxed text-foreground-muted\">\n              {body}\n            </Text>\n          </Column>\n        </Row>\n      </Section>\n    </Section>\n  );\n};\n\nexport const FeatureWithLargePortraitImage = ({\n  theme = defaultTheme,\n  heading = \"About Us\",\n  body = \"Learn more about our story.\",\n  imageSrc = \"https://static.photos/people/400x600/3\",\n  imageAlt = \"\",\n  variant = \"default\",\n}: FeatureWithLargePortraitImageProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{heading}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <FeatureWithLargePortraitImageSection\n          body={body}\n          heading={heading}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nFeatureWithLargePortraitImage.PreviewProps = {\n  body: \"We started with a simple idea: make email beautiful. Today we help thousands of teams create stunning emails that their customers love.\",\n  heading: \"About Us\",\n  imageAlt: \"Portrait\",\n  imageSrc: \"https://static.photos/people/400x600/4\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FeatureWithLargePortraitImageProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/feature/feature-with-large-portrait-image.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-github",
+  "title": "Github Email Theme (MJML)",
+  "description": "Github email theme tokens for MJML templates",
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/themes/github.ts",
+      "content": "export const githubTheme = {\n  borderRadius: \"6px\",\n  borderRadiusLg: \"12px\",\n  button: {\n    primary: {\n      backgroundColor: \"#2ea44f\",\n      borderRadius: \"6px\",\n      color: \"#ffffff\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n    secondary: {\n      backgroundColor: \"transparent\",\n      border: \"1px solid #444d56\",\n      borderRadius: \"6px\",\n      color: \"#e1e4e8\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n  },\n  colorBackground: \"#24292e\",\n  colorBackgroundMuted: \"#1f2428\",\n  colorBackgroundSubtle: \"#2b3038\",\n  colorBorder: \"#444d56\",\n  colorBorderSubtle: \"#2b3038\",\n  colorDanger: \"#f85149\",\n  colorPrimary: \"#2ea44f\",\n  colorPrimaryForeground: \"#ffffff\",\n  colorPrimaryHover: \"#2c974b\",\n  colorSuccess: \"#2ea44f\",\n  colorText: \"#e1e4e8\",\n  colorTextMuted: \"#959da5\",\n  colorTextSubtle: \"#6b7280\",\n  colorWarning: \"#d29922\",\n  containerWidth: \"600px\",\n  fontFamily: '\"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, monospace',\n  fontFamilyMono:\n    '\"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, monospace',\n  fontSizeBase: \"14px\",\n  fontSizeHeading: \"28px\",\n  fontSizeLg: \"16px\",\n  fontSizeSm: \"12px\",\n  fontSizeXl: \"20px\",\n  fontWeightBold: \"600\",\n  fontWeightMedium: \"500\",\n  fontWeightNormal: \"400\",\n  lineHeightBase: \"1.6\",\n  spacingBase: \"24px\",\n  spacingLg: \"32px\",\n  spacingXl: \"48px\",\n};\n",
+      "type": "registry:file",
+      "target": "components/emails/themes/theme-github.ts"
+    }
+  ],
+  "categories": [
+    "theme",
+    "mjml"
+  ],
+  "type": "registry:file"
+}

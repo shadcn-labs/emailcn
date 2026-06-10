@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stacked-stats",
+  "title": "Stacked Stats",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/stats/stacked-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type StackedStatsVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface StackedStatsProps {\n  theme?: TailwindConfig;\n  stat1?: string;\n  stat1Label?: string;\n  stat2?: string;\n  stat2Label?: string;\n  stat3?: string;\n  stat3Label?: string;\n  variant?: StackedStatsVariant;\n}\n\nexport const StackedStatsSection = ({\n  stat1 = \"99.9%\",\n  stat1Label = \"Uptime\",\n  stat2 = \"10M+\",\n  stat2Label = \"Users\",\n  stat3 = \"150+\",\n  stat3Label = \"Countries\",\n  variant = \"default\",\n}: Omit<StackedStatsProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Section\n        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}\n      >\n        <Text className=\"m-0 mb-6 text-3xl font-bold text-foreground\">\n          {stat1}\n        </Text>\n        <Text className=\"mt-0 mb-8 text-sm uppercase tracking-wider text-foreground-muted\">\n          {stat1Label}\n        </Text>\n        <Text className=\"m-0 mb-6 text-3xl font-bold text-foreground\">\n          {stat2}\n        </Text>\n        <Text className=\"mt-0 mb-8 text-sm uppercase tracking-wider text-foreground-muted\">\n          {stat2Label}\n        </Text>\n        <Text className=\"m-0 text-3xl font-bold text-foreground\">{stat3}</Text>\n        <Text className=\"mt-2 mb-0 text-sm uppercase tracking-wider text-foreground-muted\">\n          {stat3Label}\n        </Text>\n      </Section>\n    </Section>\n  );\n};\n\nexport const StackedStats = ({\n  theme = defaultTheme,\n  stat1 = \"99.9%\",\n  stat1Label = \"Uptime\",\n  stat2 = \"10M+\",\n  stat2Label = \"Users\",\n  stat3 = \"150+\",\n  stat3Label = \"Countries\",\n  variant = \"default\",\n}: StackedStatsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Stats</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <StackedStatsSection\n          stat1={stat1}\n          stat1Label={stat1Label}\n          stat2={stat2}\n          stat2Label={stat2Label}\n          stat3={stat3}\n          stat3Label={stat3Label}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nStackedStats.PreviewProps = {\n  stat1: \"99.9%\",\n  stat1Label: \"Uptime\",\n  stat2: \"10M+\",\n  stat2Label: \"Users\",\n  stat3: \"150+\",\n  stat3Label: \"Countries\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies StackedStatsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/stacked-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

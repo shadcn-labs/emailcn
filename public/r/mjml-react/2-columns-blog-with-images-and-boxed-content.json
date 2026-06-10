@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-blog-with-images-and-boxed-content",
+  "title": "2 Columns Blog With Images And Boxed Content",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type BlogWithCtaVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface BlogWithCtaProps {\n  theme?: EmailThemeTokens;\n  posts?: { imageUrl?: string; title: string; description: string }[];\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: BlogWithCtaVariant;\n}\nconst BlogWithCtaSection = ({\n  ctaHref,\n  ctaLabel,\n  posts,\n  theme,\n  variant,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  posts: BlogWithCtaProps[\"posts\"];\n  theme: EmailThemeTokens;\n  variant: BlogWithCtaVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(posts ?? []).slice(0, 2).map((post, i) => (\n      <MjmlColumn\n        key={post.title + i}\n        width=\"50%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        {post.imageUrl ? (\n          <MjmlImage\n            alt={post.title}\n            borderRadius={theme.borderRadius}\n            src={post.imageUrl}\n            width={260}\n            paddingBottom={theme.spacingBase ?? \"16px\"}\n          />\n        ) : null}\n        <MjmlText\n          color={theme.colorText}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeLg}\n          fontWeight={theme.fontWeightMedium}\n          paddingBottom={theme.spacingBase ?? \"8px\"}\n        >\n          {post.title}\n        </MjmlText>\n        <MjmlText\n          color={theme.colorTextMuted}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        >\n          {post.description}\n        </MjmlText>\n      </MjmlColumn>\n    ))}\n    {ctaLabel && ctaHref ? (\n      <MjmlColumn>\n        <MjmlText\n          align=\"center\"\n          color={theme.colorPrimary}\n          fontFamily={theme.fontFamily}\n          fontSize={theme.fontSizeSm}\n          fontWeight={theme.fontWeightMedium}\n        >\n          <a href={ctaHref} style={{ color: theme.colorPrimary }}>\n            {ctaLabel}\n          </a>\n        </MjmlText>\n      </MjmlColumn>\n    ) : null}\n  </MjmlSection>\n);\nexport const TwoColumnsBlogWithImagesAndBoxedContent = ({\n  theme = defaultTheme,\n  posts = [{ description: \"Description.\", title: \"Post Title\" }],\n  ctaLabel = \"Read More\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: BlogWithCtaProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>blog with cta</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <BlogWithCtaSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          posts={posts}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nTwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {\n  ctaHref: \"https://example.com/blog\",\n  ctaLabel: \"View All Posts\",\n  posts: [\n    {\n      description: \"Learn how to build better emails.\",\n      imageUrl: \"https://static.photos/travel/400x250/2\",\n      title: \"Getting Started\",\n    },\n    {\n      description: \"Tips for responsive design.\",\n      imageUrl: \"https://static.photos/travel/400x250/3\",\n      title: \"Design Tips\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BlogWithCtaProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

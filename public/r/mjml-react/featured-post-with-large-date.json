@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "featured-post-with-large-date",
+  "title": "Featured Post With Large Date",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/blog/featured-post-with-large-date.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type BlogImageCardVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface BlogImageCardProps {\n  theme?: EmailThemeTokens;\n  posts?: {\n    imageUrl: string;\n    imageAlt: string;\n    title: string;\n    description: string;\n  }[];\n  variant?: BlogImageCardVariant;\n}\nconst BlogImageCardSection = ({\n  posts,\n  theme,\n  variant,\n}: {\n  posts: BlogImageCardProps[\"posts\"];\n  theme: EmailThemeTokens;\n  variant: BlogImageCardVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(posts ?? []).slice(0, 2).map((post, i) => (\n      <MjmlColumn\n        key={post.title + i}\n        width=\"50%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        <MjmlSection\n          backgroundColor={theme.colorBackgroundMuted}\n          borderRadius={theme.borderRadius}\n        >\n          <MjmlImage alt={post.imageAlt} src={post.imageUrl} width={280} />\n          <MjmlColumn padding={theme.spacingBase ?? \"16px\"}>\n            <MjmlText\n              color={theme.colorText}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeBase}\n              fontWeight={theme.fontWeightMedium}\n              paddingBottom={theme.spacingBase ?? \"4px\"}\n            >\n              {post.title}\n            </MjmlText>\n            <MjmlText\n              color={theme.colorTextMuted}\n              fontFamily={theme.fontFamily}\n              fontSize={theme.fontSizeSm}\n              lineHeight={theme.lineHeightBase}\n            >\n              {post.description}\n            </MjmlText>\n          </MjmlColumn>\n        </MjmlSection>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const FeaturedPostWithLargeDate = ({\n  theme = defaultTheme,\n  posts = [\n    {\n      description: \"Description 1\",\n      imageAlt: \"img\",\n      imageUrl: \"https://static.photos/travel/400x250/2\",\n      title: \"Post 1\",\n    },\n    {\n      description: \"Description 2\",\n      imageAlt: \"img\",\n      imageUrl: \"https://static.photos/travel/400x250/3\",\n      title: \"Post 2\",\n    },\n  ],\n  variant = \"default\",\n}: BlogImageCardProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>blog image card</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <BlogImageCardSection posts={posts} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nFeaturedPostWithLargeDate.PreviewProps = {\n  posts: [\n    {\n      description: \"A comprehensive guide to building email components.\",\n      imageAlt: \"guide\",\n      imageUrl: \"https://static.photos/travel/400x250/4\",\n      title: \"Getting Started Guide\",\n    },\n    {\n      description: \"Tips for designing responsive email layouts.\",\n      imageAlt: \"tips\",\n      imageUrl: \"https://static.photos/travel/400x250/5\",\n      title: \"Design Best Practices\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BlogImageCardProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/featured-post-with-large-date.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

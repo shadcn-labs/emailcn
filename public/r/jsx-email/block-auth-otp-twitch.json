@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "block-auth-otp-twitch",
+  "title": "Auth OTP — Twitch",
+  "description": "Twitch-style OTP verification code email",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/default-fonts.json",
+    "https://emailcn.dev/r/jsx-email/theme-twitch.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/blocks/auth-otp-twitch.tsx",
+      "content": "// Subject: Your verification code for {_productName}\n\nimport {\n  Body,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"jsx-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { twitchTheme } from \"@/components/emails/themes/theme-twitch\";\n\ninterface Props {\n  _logoUrl?: string;\n  _logoAlt?: string;\n  otpCode?: string;\n  expiresInMinutes?: number;\n  _recipientEmail?: string;\n  _productName?: string;\n}\n\nexport const AuthOtpTwitch = ({\n  otpCode = \"123456\",\n  expiresInMinutes = 10,\n  _productName = \"Twitch\",\n}: Props) => {\n  const codeDigits = [...otpCode];\n\n  return (\n    <Html>\n      <Head>\n        <DefaultFonts />\n      </Head>\n      <Preview>Your verification code</Preview>\n      <Tailwind>\n        <Body\n          style={{\n            backgroundColor: twitchTheme.colorBackground,\n            fontFamily: twitchTheme.fontFamily,\n            margin: 0,\n          }}\n        >\n          <Container\n            style={{ maxWidth: twitchTheme.containerWidth, padding: \"32px 0\" }}\n          >\n            <Section style={{ paddingTop: twitchTheme.spacingXl }}>\n              <Text\n                style={{\n                  color: twitchTheme.colorText,\n                  fontSize: twitchTheme.fontSizeXl,\n                  fontWeight: twitchTheme.fontWeightMedium,\n                  marginBottom: twitchTheme.spacingBase,\n                }}\n              >\n                Your verification code\n              </Text>\n              <Text\n                style={{\n                  color: twitchTheme.colorTextMuted,\n                  fontSize: twitchTheme.fontSizeBase,\n                  lineHeight: twitchTheme.lineHeightBase,\n                  marginBottom: twitchTheme.spacingBase,\n                }}\n              >\n                Enter this code to sign in to your {_productName} account. This\n                code expires in {expiresInMinutes} minutes.\n              </Text>\n            </Section>\n\n            <Section\n              style={{\n                backgroundColor: twitchTheme.colorBackgroundMuted,\n                borderRadius: twitchTheme.borderRadius,\n                marginTop: twitchTheme.spacingBase,\n                paddingBottom: \"24px\",\n                paddingLeft: \"32px\",\n                paddingRight: \"32px\",\n                paddingTop: \"24px\",\n              }}\n            >\n              <Text\n                style={{\n                  color: twitchTheme.colorText,\n                  fontFamily: twitchTheme.fontFamilyMono,\n                  fontSize: \"32px\",\n                  fontWeight: twitchTheme.fontWeightBold,\n                  letterSpacing: \"8px\",\n                  textAlign: \"center\" as const,\n                }}\n              >\n                {codeDigits.map((digit, index) => (\n                  <span key={index}>{digit}</span>\n                ))}\n              </Text>\n            </Section>\n\n            <Text\n              style={{\n                color: twitchTheme.colorTextMuted,\n                fontSize: twitchTheme.fontSizeSm,\n                marginTop: twitchTheme.spacingLg,\n              }}\n            >\n              If you didn&apos;t request this, you can safely ignore this email.\n            </Text>\n          </Container>\n        </Body>\n      </Tailwind>\n    </Html>\n  );\n};\n\nAuthOtpTwitch.PreviewProps = {\n  _logoAlt: \"Twitch\",\n  _logoUrl: \"https://example.com/logo.png\",\n  _productName: \"Twitch\",\n  _recipientEmail: \"you@example.com\",\n  expiresInMinutes: 10,\n  otpCode: \"123456\",\n} satisfies Props;\n",
+      "type": "registry:component",
+      "target": "components/emails/auth-otp-twitch.tsx"
+    }
+  ],
+  "categories": [
+    "auth"
+  ],
+  "type": "registry:block"
+}

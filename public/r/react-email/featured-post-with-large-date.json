@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "featured-post-with-large-date",
+  "title": "Featured Post With Large Date",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/blog/featured-post-with-large-date.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type FeaturedPostWithLargeDateVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface FeaturedPostWithLargeDateProps {\n  theme?: TailwindConfig;\n  imageSrc?: string;\n  imageAlt?: string;\n  date?: string;\n  month?: string;\n  title?: string;\n  excerpt?: string;\n  variant?: FeaturedPostWithLargeDateVariant;\n}\n\nexport const FeaturedPostWithLargeDateSection = ({\n  imageSrc = \"https://static.photos/travel/500x300/2\",\n  imageAlt = \"\",\n  date = \"15\",\n  month = \"MAR\",\n  title = \"Article Title\",\n  excerpt = \"A brief excerpt of the article.\",\n  variant = \"default\",\n}: Omit<FeaturedPostWithLargeDateProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>\n        <Row>\n          <Column className=\"w-1/4 pr-6 text-center align-middle\">\n            <Text className=\"m-0 text-4xl font-bold text-foreground\">\n              {date}\n            </Text>\n            <Text className=\"m-0 text-sm font-medium uppercase tracking-wider text-foreground-muted\">\n              {month}\n            </Text>\n          </Column>\n          <Column className=\"w-1/2 pr-6 align-middle\">\n            <Img\n              src={imageSrc}\n              alt={imageAlt}\n              width=\"500\"\n              height=\"300\"\n              className=\"w-full h-auto rounded-lg object-cover\"\n            />\n          </Column>\n          <Column className=\"w-1/4 align-middle\">\n            <Text className=\"m-0 mb-2 text-lg font-bold text-foreground\">\n              {title}\n            </Text>\n            <Text className=\"m-0 text-sm text-foreground-muted\">{excerpt}</Text>\n          </Column>\n        </Row>\n      </Section>\n    </Section>\n  );\n};\n\nexport const FeaturedPostWithLargeDate = ({\n  theme = defaultTheme,\n  imageSrc = \"https://static.photos/travel/500x300/3\",\n  imageAlt = \"\",\n  date = \"15\",\n  month = \"MAR\",\n  title = \"Article Title\",\n  excerpt = \"A brief excerpt of the article.\",\n  variant = \"default\",\n}: FeaturedPostWithLargeDateProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{title}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <FeaturedPostWithLargeDateSection\n          date={date}\n          excerpt={excerpt}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          month={month}\n          title={title}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nFeaturedPostWithLargeDate.PreviewProps = {\n  date: \"15\",\n  excerpt: \"Exploring the latest trends in email design and development.\",\n  imageAlt: \"Article\",\n  imageSrc: \"https://static.photos/travel/500x300/4\",\n  month: \"MAR\",\n  theme: defaultTheme,\n  title: \"Email Design Trends 2024\",\n  variant: \"default\",\n} satisfies FeaturedPostWithLargeDateProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/featured-post-with-large-date.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

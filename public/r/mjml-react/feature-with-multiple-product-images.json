@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-with-multiple-product-images",
+  "title": "Feature With Multiple Product Images",
+  "description": "Marketing feature variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/feature/feature-with-multiple-product-images.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type FeatureListVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface FeatureListProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  items?: { icon?: string; title: string; description: string }[];\n  variant?: FeatureListVariant;\n}\n\nconst FeatureListSection = ({\n  heading,\n  items,\n  theme,\n  variant,\n}: {\n  heading: string;\n  items: FeatureListProps[\"items\"];\n  theme: EmailThemeTokens;\n  variant: FeatureListVariant;\n}) => {\n  const list = items ?? [];\n\n  return (\n    <MjmlSection\n      backgroundColor={theme.colorBackground}\n      padding={`${theme.spacingXl ?? \"48px\"} 0`}\n    >\n      <MjmlColumn>\n        {heading ? (\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeHeading}\n            fontWeight={theme.fontWeightBold}\n            paddingBottom={theme.spacingXl ?? \"48px\"}\n          >\n            {heading}\n          </MjmlText>\n        ) : null}\n        {list.slice(0, 4).map((item, i) => (\n          <MjmlSection\n            key={item.title + i}\n            padding={`${theme.spacingBase ?? \"24px\"} 0`}\n          >\n            <MjmlColumn width=\"10%\" padding=\"0\" verticalAlign=\"top\">\n              {item.icon ? (\n                <MjmlImage alt={item.title} src={item.icon} width={24} />\n              ) : null}\n            </MjmlColumn>\n            <MjmlColumn width=\"90%\" padding=\"0 0 0 16px\" verticalAlign=\"top\">\n              <MjmlText\n                color={theme.colorText}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeLg ?? \"16px\"}\n                fontWeight={theme.fontWeightMedium}\n                paddingBottom={theme.spacingBase ?? \"8px\"}\n              >\n                {item.title}\n              </MjmlText>\n              <MjmlText\n                color={theme.colorTextMuted}\n                fontFamily={theme.fontFamily}\n                fontSize={theme.fontSizeBase ?? \"14px\"}\n                lineHeight={theme.lineHeightBase}\n              >\n                {item.description}\n              </MjmlText>\n            </MjmlColumn>\n          </MjmlSection>\n        ))}\n      </MjmlColumn>\n    </MjmlSection>\n  );\n};\n\nexport const FeatureWithMultipleProductImages = ({\n  theme = defaultTheme,\n  heading = \"Key Features\",\n  items = [\n    { description: \"Description for feature one.\", title: \"Feature One\" },\n    { description: \"Description for feature two.\", title: \"Feature Two\" },\n  ],\n  variant = \"default\",\n}: FeatureListProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>feature list</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <FeatureListSection\n          heading={heading}\n          items={items}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nFeatureWithMultipleProductImages.PreviewProps = {\n  heading: \"Key Features\",\n  items: [\n    {\n      description: \"Build responsive emails quickly.\",\n      title: \"Fast Prototyping\",\n    },\n    {\n      description: \"Works across all email clients.\",\n      title: \"Cross-Client Support\",\n    },\n    {\n      description: \"Easily customize every component.\",\n      title: \"Fully Customizable\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FeatureListProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/feature/feature-with-multiple-product-images.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo-and-menu",
+  "title": "Header With Logo And Menu",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-menu.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type HeaderAccentVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface HeaderAccentProps {\n  theme?: EmailThemeTokens;\n  title?: string;\n  subtitle?: string;\n  variant?: HeaderAccentVariant;\n}\n\nconst HeaderAccentSection = ({\n  subtitle,\n  theme,\n  title,\n  variant,\n}: {\n  subtitle: string;\n  theme: EmailThemeTokens;\n  title: string;\n  variant: HeaderAccentVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackgroundMuted,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column>\n        <Text\n          style={{\n            color: theme.colorPrimary,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeSm ?? \"12px\",\n            fontWeight: theme.fontWeightBold,\n            margin: 0,\n            paddingBottom: theme.spacingBase ?? \"16px\",\n            textAlign: \"center\",\n          }}\n        >\n          {subtitle}\n        </Text>\n        <Text\n          style={{\n            color: theme.colorText,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeHeading,\n            fontWeight: theme.fontWeightBold,\n            margin: 0,\n            textAlign: \"center\",\n          }}\n        >\n          {title}\n        </Text>\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const HeaderWithLogoAndMenu = ({\n  theme = defaultTheme,\n  title = \"Main Title\",\n  subtitle = \"SECTION LABEL\",\n  variant = \"default\",\n}: HeaderAccentProps) => (\n  <Html>\n    <Head />\n    <Preview>header accent</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <HeaderAccentSection\n            subtitle={subtitle}\n            theme={theme}\n            title={title}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nHeaderWithLogoAndMenu.PreviewProps = {\n  subtitle: \"WHAT'S NEW\",\n  theme: defaultTheme,\n  title: \"Latest Features & Updates\",\n  variant: \"default\",\n} satisfies HeaderAccentProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo-and-menu.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

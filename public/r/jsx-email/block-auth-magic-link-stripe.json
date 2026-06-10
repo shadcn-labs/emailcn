@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "block-auth-magic-link-stripe",
+  "title": "Auth Magic Link — Stripe",
+  "description": "Stripe-style magic link login email",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/default-fonts.json",
+    "https://emailcn.dev/r/jsx-email/theme-stripe.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/blocks/auth-magic-link-stripe.tsx",
+      "content": "// Subject: Your login link for {_productName}\n\nimport {\n  Body,\n  Button,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"jsx-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { stripeTheme } from \"@/components/emails/themes/theme-stripe\";\n\ninterface Props {\n  _logoUrl?: string;\n  _logoAlt?: string;\n  magicLinkHref?: string;\n  expiresInMinutes?: number;\n  _recipientEmail?: string;\n  _productName?: string;\n}\n\nexport const AuthMagicLinkStripe = ({\n  magicLinkHref = \"#\",\n  expiresInMinutes = 30,\n  _productName = \"Stripe\",\n}: Props) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Your login link</Preview>\n    <Tailwind>\n      <Body\n        style={{\n          backgroundColor: stripeTheme.colorBackground,\n          fontFamily: stripeTheme.fontFamily,\n          margin: 0,\n        }}\n      >\n        <Container\n          style={{ maxWidth: stripeTheme.containerWidth, padding: \"32px 0\" }}\n        >\n          <Section style={{ paddingTop: stripeTheme.spacingXl }}>\n            <Text\n              style={{\n                color: stripeTheme.colorText,\n                fontSize: stripeTheme.fontSizeXl,\n                fontWeight: stripeTheme.fontWeightMedium,\n                marginBottom: stripeTheme.spacingBase,\n              }}\n            >\n              Sign in to {_productName}\n            </Text>\n            <Text\n              style={{\n                color: stripeTheme.colorTextMuted,\n                fontSize: stripeTheme.fontSizeBase,\n                lineHeight: stripeTheme.lineHeightBase,\n                marginBottom: stripeTheme.spacingBase,\n              }}\n            >\n              Click the button below to sign in to your {_productName} account.\n              This link expires in {expiresInMinutes} minutes.\n            </Text>\n            <Text\n              style={{\n                color: stripeTheme.colorTextMuted,\n                fontSize: stripeTheme.fontSizeBase,\n                lineHeight: stripeTheme.lineHeightBase,\n                marginBottom: stripeTheme.spacingBase,\n              }}\n            >\n              If you didn&apos;t request this, you can safely ignore this email.\n            </Text>\n          </Section>\n\n          <Section style={{ paddingTop: stripeTheme.spacingXl }}>\n            <Button\n              href={magicLinkHref}\n              width={160}\n              height={40}\n              style={{\n                backgroundColor: stripeTheme.button.primary.backgroundColor,\n                borderRadius: stripeTheme.button.primary.borderRadius,\n                color: stripeTheme.button.primary.color,\n                display: \"inline-block\",\n                fontSize: stripeTheme.button.primary.fontSize,\n                fontWeight: stripeTheme.button.primary.fontWeight,\n                height: \"auto\",\n                paddingBottom: stripeTheme.button.primary.paddingY,\n                paddingLeft: stripeTheme.button.primary.paddingX,\n                paddingRight: stripeTheme.button.primary.paddingX,\n                paddingTop: stripeTheme.button.primary.paddingY,\n                textDecoration: \"none\",\n                width: \"auto\",\n              }}\n            >\n              Sign in to {_productName}\n            </Button>\n          </Section>\n\n          <Text\n            style={{\n              color: stripeTheme.colorTextMuted,\n              fontSize: stripeTheme.fontSizeSm,\n              marginTop: stripeTheme.spacingLg,\n            }}\n          >\n            This link will expire in {expiresInMinutes} minutes. If you need\n            help, reply to this email.\n          </Text>\n        </Container>\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nAuthMagicLinkStripe.PreviewProps = {\n  _logoAlt: \"Stripe\",\n  _logoUrl: \"https://example.com/logo.png\",\n  _productName: \"Stripe\",\n  _recipientEmail: \"you@example.com\",\n  expiresInMinutes: 30,\n  magicLinkHref: \"https://example.com/login?token=abc123\",\n} satisfies Props;\n",
+      "type": "registry:component",
+      "target": "components/emails/auth-magic-link-stripe.tsx"
+    }
+  ],
+  "categories": [
+    "auth"
+  ],
+  "type": "registry:block"
+}

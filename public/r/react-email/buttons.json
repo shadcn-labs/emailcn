@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "buttons",
+  "title": "Buttons",
+  "description": "UI Elements buttons variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/buttons/buttons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Button,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface ButtonsProps {\n  theme?: TailwindConfig;\n  label?: string;\n  href?: string;\n  icon?: string;\n  variant?: \"primary\" | \"secondary\" | \"text\";\n  align?: \"left\" | \"center\" | \"right\";\n}\n\nconst VARIANT_CLASSES = {\n  primary:\n    \"inline-block rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-fg no-underline\",\n  secondary:\n    \"inline-block rounded-md border border-border bg-transparent px-6 py-3 text-sm font-medium text-foreground no-underline\",\n  text: \"text-sm font-medium text-primary underline\",\n} as const;\n\nexport const ButtonsSection = ({\n  label = \"Click Here\",\n  href = \"#\",\n  icon,\n  variant = \"primary\",\n  align = \"center\",\n}: Omit<ButtonsProps, \"theme\">) => {\n  const alignClass =\n    align === \"left\"\n      ? \"text-left\"\n      : align === \"right\"\n        ? \"text-right\"\n        : \"text-center\";\n\n  const content = icon ? `${icon} ${label}` : label;\n\n  return (\n    <Section className={`py-4 ${alignClass}`}>\n      {variant === \"text\" ? (\n        <a href={href} className={VARIANT_CLASSES.text}>\n          {content}\n        </a>\n      ) : (\n        <Button href={href} className={VARIANT_CLASSES[variant]}>\n          {content}\n        </Button>\n      )}\n    </Section>\n  );\n};\n\nexport const Buttons = ({\n  theme = defaultTheme,\n  label = \"Click Here\",\n  href = \"#\",\n  icon,\n  variant = \"primary\",\n  align = \"center\",\n}: ButtonsProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{label}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <ButtonsSection\n          label={label}\n          href={href}\n          icon={icon}\n          variant={variant}\n          align={align}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nButtons.PreviewProps = {\n  align: \"center\",\n  href: \"https://example.com\",\n  label: \"Get Started\",\n  theme: defaultTheme,\n  variant: \"primary\",\n} satisfies ButtonsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/buttons/buttons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

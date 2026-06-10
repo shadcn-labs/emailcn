@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "3-columns-masonry-image-grid",
+  "title": "3 Columns Masonry Image Grid",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/images/3-columns-masonry-image-grid.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type ImageRoundedVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageRoundedProps {\n  theme?: EmailThemeTokens;\n  src?: string;\n  alt?: string;\n  size?: number;\n  variant?: ImageRoundedVariant;\n}\n\nconst ImageRoundedSection = ({\n  alt,\n  size,\n  src,\n  theme,\n  variant,\n}: {\n  alt: string;\n  size: number;\n  src: string;\n  theme: EmailThemeTokens;\n  variant: ImageRoundedVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackground,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column>\n        <Img\n          alt={alt}\n          src={src}\n          width={size}\n          height={size}\n          style={{\n            borderRadius: \"50%\",\n            display: \"block\",\n            margin: \"0 auto\",\n            maxWidth: \"100%\",\n          }}\n        />\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const ThreeColumnsMasonryImageGrid = ({\n  theme = defaultTheme,\n  src = \"https://api.dicebear.com/9.x/lorelei/png?seed=grid-avatar-1&size=200\",\n  alt = \"avatar\",\n  size = 200,\n  variant = \"default\",\n}: ImageRoundedProps) => (\n  <Html>\n    <Head />\n    <Preview>rounded image</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <ImageRoundedSection\n            alt={alt}\n            size={size}\n            src={src}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nThreeColumnsMasonryImageGrid.PreviewProps = {\n  alt: \"profile photo\",\n  size: 200,\n  src: \"https://api.dicebear.com/9.x/lorelei/png?seed=grid-avatar-2&size=200\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies ImageRoundedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/3-columns-masonry-image-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

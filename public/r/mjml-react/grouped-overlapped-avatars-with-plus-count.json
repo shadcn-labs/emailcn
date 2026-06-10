@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grouped-overlapped-avatars-with-plus-count",
+  "title": "Grouped Overlapped Avatars With Plus Count",
+  "description": "UI Elements avatars variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface GroupedOverlappedAvatarsPlusCountProps {\n  theme?: EmailThemeTokens;\n  avatars?: { url?: string; name: string }[];\n  plusCount?: number;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst GroupedOverlappedAvatarsPlusCountSection = ({\n  avatars,\n  plusCount,\n  theme,\n}: {\n  avatars: NonNullable<GroupedOverlappedAvatarsPlusCountProps[\"avatars\"]>;\n  plusCount: number;\n  theme: EmailThemeTokens;\n}) => (\n  <MjmlSection padding={`${theme.spacingBase ?? \"24px\"} 0`}>\n    {avatars.slice(0, 3).map((avatar, i) => (\n      <MjmlColumn\n        key={avatar.name}\n        width=\"40px\"\n        padding={i > 0 ? \"0 0 0 -12px\" : \"0\"}\n      >\n        {avatar.url ? (\n          <MjmlImage\n            alt={avatar.name}\n            borderRadius=\"999px\"\n            height={36}\n            src={avatar.url}\n            width={36}\n          />\n        ) : (\n          <MjmlText fontFamily={theme.fontFamily} fontSize=\"14px\">\n            <span\n              style={{\n                backgroundColor: theme.colorPrimary,\n                border: `Twopx solid ${theme.colorBackground}`,\n                borderRadius: \"999px\",\n                color: theme.colorPrimaryForeground ?? \"#ffffff\",\n                display: \"inline-block\",\n                height: 36,\n                lineHeight: \"36px\",\n                textAlign: \"center\",\n                width: 36,\n              }}\n            >\n              {avatar.name.charAt(0)}\n            </span>\n          </MjmlText>\n        )}\n      </MjmlColumn>\n    ))}\n    {plusCount > 0 ? (\n      <MjmlColumn width=\"40px\" padding=\"0 0 0 -12px\">\n        <MjmlText fontFamily={theme.fontFamily} fontSize=\"12px\">\n          <span\n            style={{\n              backgroundColor: theme.colorBackgroundMuted,\n              border: `Twopx solid ${theme.colorBackground}`,\n              borderRadius: \"999px\",\n              color: theme.colorTextMuted,\n              display: \"inline-block\",\n              height: 36,\n              lineHeight: \"36px\",\n              textAlign: \"center\",\n              width: 36,\n            }}\n          >\n            +{plusCount}\n          </span>\n        </MjmlText>\n      </MjmlColumn>\n    ) : null}\n  </MjmlSection>\n);\n\nexport const GroupedOverlappedAvatarsPlusCount = ({\n  theme = defaultTheme,\n  avatars = [{ name: \"A\" }, { name: \"B\" }, { name: \"C\" }],\n  plusCount = 5,\n  variant = \"default\",\n}: GroupedOverlappedAvatarsPlusCountProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>grouped-plus</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <GroupedOverlappedAvatarsPlusCountSection\n          avatars={avatars}\n          plusCount={plusCount}\n          theme={theme}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nGroupedOverlappedAvatarsPlusCount.PreviewProps = {\n  avatars: [\n    {\n      name: \"A\",\n      url: \"https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128\",\n    },\n    {\n      name: \"B\",\n      url: \"https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128\",\n    },\n    {\n      name: \"C\",\n      url: \"https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-3&size=128\",\n    },\n  ],\n  plusCount: 12,\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies GroupedOverlappedAvatarsPlusCountProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

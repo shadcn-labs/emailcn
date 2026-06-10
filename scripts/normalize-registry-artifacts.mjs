@@ -1,28 +1,38 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const outDir = path.join(process.cwd(), "public", "r");
+const outRoot = path.join(process.cwd(), "public", "r");
+const STYLES = ["react-email", "mjml-react", "jsx-email"];
 
-const replacements = [
+// Rewrites installed import paths to match each item's file target (see
+// scripts/sync-registry-items.mjs). Item names are identical across styles,
+// so the rules only vary by the base path being replaced.
+const baseRules = STYLES.flatMap((base) => [
   [
-    /@\/registry\/bases\/react-email\/fonts\/([^"']+)/g,
+    new RegExp(`@\\/registry\\/bases\\/${base}\\/themes\\/([^"']+)`, "g"),
+    "@/components/emails/themes/theme-$1",
+  ],
+  [
+    new RegExp(`@\\/registry\\/bases\\/${base}\\/fonts\\/([^"']+)`, "g"),
     "@/components/emails/fonts/$1",
   ],
-  [/@\/registry\/bases\/react-email\/ui\/([^"']+)/g, "@/components/emails/$1"],
+  [
+    new RegExp(`@\\/registry\\/bases\\/${base}\\/ui\\/([^"']+)`, "g"),
+    "@/components/emails/$1",
+  ],
+  [
+    new RegExp(`@\\/registry\\/bases\\/${base}\\/blocks\\/([^"']+)`, "g"),
+    "@/components/emails/$1",
+  ],
+]);
+
+const replacements = [
+  ...baseRules,
   [/@\/registry\/themes\/([^"']+)/g, "@/components/emails/themes/$1"],
   [/@\/registry\/lib\/resolve-theme/g, "@/components/emails/lib/resolve-theme"],
   [
     /(?:\.\.\/)+lib\/get-layout-tokens/g,
     "@/components/emails/lib/get-layout-tokens",
-  ],
-  [
-    /@\/registry\/bases\/mjml-react\/themes\/([^"']+)/g,
-    "@/components/emails/themes/mjml-$1",
-  ],
-  [/@\/registry\/bases\/mjml-react\/ui\/([^"']+)/g, "@/components/emails/$1"],
-  [
-    /@\/registry\/bases\/mjml-react\/blocks\/([^"']+)/g,
-    "@/components/emails/$1",
   ],
 ];
 
@@ -36,31 +46,37 @@ const normalizeCode = (code) => {
   return updated;
 };
 
-for (const fileName of fs.readdirSync(outDir)) {
-  if (!fileName.endsWith(".json")) {
-    continue;
-  }
-
-  const filePath = path.join(outDir, fileName);
-  const item = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  let changed = false;
-
-  for (const file of item.files ?? []) {
-    if (typeof file.target === "string" && file.target.startsWith("emails/")) {
-      file.target = `components/${file.target}`;
-      changed = true;
+for (const style of STYLES) {
+  const outDir = path.join(outRoot, style);
+  for (const fileName of fs.readdirSync(outDir)) {
+    if (!fileName.endsWith(".json")) {
+      continue;
     }
 
-    if (typeof file.content === "string") {
-      const content = normalizeCode(file.content);
-      if (content !== file.content) {
-        file.content = content;
+    const filePath = path.join(outDir, fileName);
+    const item = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    let changed = false;
+
+    for (const file of item.files ?? []) {
+      if (
+        typeof file.target === "string" &&
+        file.target.startsWith("emails/")
+      ) {
+        file.target = `components/${file.target}`;
         changed = true;
       }
-    }
-  }
 
-  if (changed) {
-    fs.writeFileSync(filePath, `${JSON.stringify(item, null, 2)}\n`);
+      if (typeof file.content === "string") {
+        const content = normalizeCode(file.content);
+        if (content !== file.content) {
+          file.content = content;
+          changed = true;
+        }
+      }
+    }
+
+    if (changed) {
+      fs.writeFileSync(filePath, `${JSON.stringify(item, null, 2)}\n`);
+    }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-with-content-and-cta",
+  "title": "Footer With Content And Cta",
+  "description": "Marketing footers variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-content-and-cta.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type FooterDisclaimerVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface FooterDisclaimerProps {\n  theme?: EmailThemeTokens;\n  companyName?: string;\n  disclaimer?: string;\n  variant?: FooterDisclaimerVariant;\n}\n\nconst FooterDisclaimerSection = ({\n  companyName,\n  disclaimer,\n  theme,\n  variant,\n}: {\n  companyName: string;\n  disclaimer: string;\n  theme: EmailThemeTokens;\n  variant: FooterDisclaimerVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackgroundSubtle,\n      padding: `${theme.spacingBase ?? \"24px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column>\n        <Text\n          style={{\n            color: theme.colorTextMuted,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeSm ?? \"11px\",\n            margin: 0,\n            paddingBottom: theme.spacingBase ?? \"8px\",\n            textAlign: \"center\",\n          }}\n        >\n          {disclaimer}\n        </Text>\n        <Text\n          style={{\n            color: theme.colorTextMuted,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeSm ?? \"11px\",\n            margin: 0,\n            textAlign: \"center\",\n          }}\n        >\n          &copy; {new Date().getFullYear()} {companyName}\n        </Text>\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const FooterWithContentAndCta = ({\n  theme = defaultTheme,\n  companyName = \"Acme Inc.\",\n  disclaimer = \"This email was sent to you because you signed up for our newsletter.\",\n  variant = \"default\",\n}: FooterDisclaimerProps) => (\n  <Html>\n    <Head />\n    <Preview>footer disclaimer</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <FooterDisclaimerSection\n            companyName={companyName}\n            disclaimer={disclaimer}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\nFooterWithContentAndCta.PreviewProps = {\n  companyName: \"Acme Inc.\",\n  disclaimer:\n    \"This email was sent to you because you opted in to receive updates.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FooterDisclaimerProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/footers/footer-with-content-and-cta.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

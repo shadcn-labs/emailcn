@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-twitch",
+  "title": "Twitch Email Theme (JSX Email)",
+  "description": "Twitch email theme tokens for JSX Email templates",
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/themes/twitch.ts",
+      "content": "export const twitchTheme = {\n  borderRadius: \"6px\",\n  borderRadiusLg: \"12px\",\n  button: {\n    primary: {\n      backgroundColor: \"#9147ff\",\n      borderRadius: \"6px\",\n      color: \"#ffffff\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n    secondary: {\n      backgroundColor: \"transparent\",\n      border: \"1px solid #9147ff\",\n      borderRadius: \"6px\",\n      color: \"#9147ff\",\n      fontSize: \"14px\",\n      fontWeight: \"500\",\n      paddingX: \"24px\",\n      paddingY: \"12px\",\n    },\n  },\n  colorBackground: \"#ffffff\",\n  colorBackgroundMuted: \"#f5f0ff\",\n  colorBackgroundSubtle: \"#f3f4f6\",\n  colorBorder: \"#e5e7eb\",\n  colorBorderSubtle: \"#f3f4f6\",\n  colorDanger: \"#ef4444\",\n  colorPrimary: \"#9147ff\",\n  colorPrimaryForeground: \"#ffffff\",\n  colorPrimaryHover: \"#772ce8\",\n  colorSuccess: \"#10b981\",\n  colorText: \"#111827\",\n  colorTextMuted: \"#6b7280\",\n  colorTextSubtle: \"#9ca3af\",\n  colorWarning: \"#f59e0b\",\n  containerWidth: \"600px\",\n  fontFamily:\n    '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif',\n  fontFamilyMono: '\"Menlo\", \"Monaco\", \"Courier New\", monospace',\n  fontSizeBase: \"14px\",\n  fontSizeHeading: \"28px\",\n  fontSizeLg: \"16px\",\n  fontSizeSm: \"12px\",\n  fontSizeXl: \"20px\",\n  fontWeightBold: \"600\",\n  fontWeightMedium: \"500\",\n  fontWeightNormal: \"400\",\n  lineHeightBase: \"1.6\",\n  spacingBase: \"24px\",\n  spacingLg: \"32px\",\n  spacingXl: \"48px\",\n};\n",
+      "type": "registry:file",
+      "target": "components/emails/themes/theme-twitch.ts"
+    }
+  ],
+  "categories": [
+    "theme"
+  ],
+  "type": "registry:file"
+}

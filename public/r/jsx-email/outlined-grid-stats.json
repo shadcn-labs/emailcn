@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "outlined-grid-stats",
+  "title": "Outlined Grid Stats",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/stats/outlined-grid-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type StatsBorderedVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface StatsBorderedProps {\n  theme?: EmailThemeTokens;\n  stats?: { value: string; label: string }[];\n  columns?: 2 | 3 | 4;\n  variant?: StatsBorderedVariant;\n}\n\nconst StatsBorderedSection = ({\n  columns,\n  stats,\n  theme,\n  variant,\n}: {\n  columns: 2 | 3 | 4;\n  stats: StatsBorderedProps[\"stats\"];\n  theme: EmailThemeTokens;\n  variant: StatsBorderedVariant;\n}) => {\n  const colWidth = `${100 / columns}%`;\n  const items = (stats ?? []).slice(0, columns);\n\n  return (\n    <Section\n      style={{\n        backgroundColor: theme.colorBackground,\n        padding: `${theme.spacingXl ?? \"48px\"} 0`,\n      }}\n    >\n      <Row>\n        {items.map((stat, i) => (\n          <Column\n            key={stat.label + i}\n            style={{\n              borderRight:\n                i < items.length - 1\n                  ? `1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`\n                  : \"none\",\n              padding: theme.spacingBase ?? \"24px\",\n              verticalAlign: \"top\",\n              width: colWidth,\n            }}\n          >\n            <Text\n              style={{\n                color: theme.colorText,\n                fontFamily: theme.fontFamily,\n                fontSize: \"28px\",\n                fontWeight: theme.fontWeightBold,\n                margin: 0,\n                paddingBottom: theme.spacingBase ?? \"8px\",\n                textAlign: \"center\",\n              }}\n            >\n              {stat.value}\n            </Text>\n            <Text\n              style={{\n                color: theme.colorTextMuted,\n                fontFamily: theme.fontFamily,\n                fontSize: theme.fontSizeSm ?? \"14px\",\n                margin: 0,\n                textAlign: \"center\",\n              }}\n            >\n              {stat.label}\n            </Text>\n          </Column>\n        ))}\n      </Row>\n    </Section>\n  );\n};\n\nexport const OutlinedGridStats = ({\n  theme = defaultTheme,\n  stats = [\n    { label: \"Users\", value: \"10K+\" },\n    { label: \"Downloads\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n  ],\n  columns = 3,\n  variant = \"default\",\n}: StatsBorderedProps) => (\n  <Html>\n    <Head />\n    <Preview>stats bordered</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <StatsBorderedSection\n            columns={columns}\n            stats={stats}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nOutlinedGridStats.PreviewProps = {\n  columns: 3,\n  stats: [\n    { label: \"Active Users\", value: \"50K+\" },\n    { label: \"Countries\", value: \"120+\" },\n    { label: \"5-Star Reviews\", value: \"10K+\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies StatsBorderedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/outlined-grid-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

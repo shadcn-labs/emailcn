@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-overlayed-split",
+  "title": "Hero Overlayed Split",
+  "description": "Marketing hero variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/hero/hero-overlayed-split.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Button,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n  Img,\n  Row,\n  Column,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type HeroOverlayedSplitVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface HeroOverlayedSplitProps {\n  theme?: TailwindConfig;\n  heading?: string;\n  subheading?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  imageSrc?: string;\n  imageAlt?: string;\n  variant?: HeroOverlayedSplitVariant;\n}\n\nexport const HeroOverlayedSplitSection = ({\n  ctaHref = \"#\",\n  ctaLabel = \"Get Started\",\n  heading = \"Welcome\",\n  subheading = \"Get started with your account\",\n  imageSrc = \"https://static.photos/city/600x500/2\",\n  imageAlt = \"\",\n  variant = \"default\",\n}: Omit<HeroOverlayedSplitProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section\n      className={`relative overflow-hidden bg-background ${getVariantClass()}`}\n    >\n      <Row>\n        <Column className=\"w-1/2 align-top\">\n          <Img\n            src={imageSrc}\n            alt={imageAlt}\n            width=\"600\"\n            height=\"500\"\n            className=\"w-full h-auto object-cover\"\n          />\n        </Column>\n        <Column className=\"relative w-1/2 align-middle px-10 py-16\">\n          <div className={`relative z-10 ${getUnskewClass()}`}>\n            <Text className=\"m-0 font-bold text-heading leading-snug text-foreground\">\n              {heading}\n            </Text>\n            <Text className=\"mt-4 mb-8 text-lg leading-snug text-foreground-muted\">\n              {subheading}\n            </Text>\n            {ctaLabel && ctaHref ? (\n              <Button\n                href={ctaHref}\n                className=\"inline-block rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-fg no-underline\"\n              >\n                {ctaLabel}\n              </Button>\n            ) : null}\n          </div>\n        </Column>\n      </Row>\n    </Section>\n  );\n};\n\nexport const HeroOverlayedSplit = ({\n  ctaHref = \"#\",\n  ctaLabel = \"Get Started\",\n  heading = \"Welcome\",\n  imageAlt = \"\",\n  imageSrc = \"https://static.photos/city/600x500/3\",\n  subheading = \"Get started with your account\",\n  theme = defaultTheme,\n  variant = \"default\",\n}: HeroOverlayedSplitProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{heading}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <HeroOverlayedSplitSection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          heading={heading}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          subheading={subheading}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nHeroOverlayedSplit.PreviewProps = {\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Get Started\",\n  heading: \"Welcome to Acme\",\n  imageAlt: \"Split image\",\n  imageSrc: \"https://static.photos/city/600x500/4\",\n  subheading: \"Build faster with the tools you love.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeroOverlayedSplitProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/hero/hero-overlayed-split.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

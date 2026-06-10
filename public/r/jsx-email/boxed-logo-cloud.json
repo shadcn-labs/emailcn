@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "boxed-logo-cloud",
+  "title": "Boxed Logo Cloud",
+  "description": "Marketing logos variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/logos/boxed-logo-cloud.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type LogosBorderedVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface LogosBorderedProps {\n  theme?: EmailThemeTokens;\n  logos?: { src: string; alt: string; width?: number }[];\n  variant?: LogosBorderedVariant;\n}\n\nconst LogosBorderedSection = ({\n  logos,\n  theme,\n  variant,\n}: {\n  logos: LogosBorderedProps[\"logos\"];\n  theme: EmailThemeTokens;\n  variant: LogosBorderedVariant;\n}) => {\n  const items = logos ?? [];\n\n  return (\n    <Section\n      style={{\n        backgroundColor: theme.colorBackground,\n        padding: `${theme.spacingXl ?? \"48px\"} 0`,\n      }}\n    >\n      <Row>\n        {items.slice(0, 4).map((logo, i) => (\n          <Column\n            key={logo.alt + i}\n            style={{\n              padding: theme.spacingBase ?? \"24px\",\n              verticalAlign: \"middle\",\n              width: `${100 / Math.min(items.length, 4)}%`,\n            }}\n          >\n            <Section\n              style={{\n                backgroundColor: theme.colorBackgroundMuted,\n                border: `1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`,\n                borderRadius: theme.borderRadius,\n                padding: theme.spacingBase ?? \"24px\",\n              }}\n            >\n              <Row>\n                <Img\n                  alt={logo.alt}\n                  src={logo.src}\n                  width={logo.width ?? 120}\n                  style={{\n                    display: \"block\",\n                    margin: \"0 auto\",\n                    maxWidth: \"100%\",\n                  }}\n                />\n              </Row>\n            </Section>\n          </Column>\n        ))}\n      </Row>\n    </Section>\n  );\n};\n\nexport const BoxedLogoCloud = ({\n  theme = defaultTheme,\n  logos = [\n    { alt: \"Company 1\", src: \"https://static.photos/business/120x40/2\" },\n    { alt: \"Company 2\", src: \"https://static.photos/business/120x40/3\" },\n    { alt: \"Company 3\", src: \"https://static.photos/business/120x40/4\" },\n  ],\n  variant = \"default\",\n}: LogosBorderedProps) => (\n  <Html>\n    <Head />\n    <Preview>logos bordered</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <LogosBorderedSection logos={logos} theme={theme} variant={variant} />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nBoxedLogoCloud.PreviewProps = {\n  logos: [\n    {\n      alt: \"Acme Corp\",\n      src: \"https://static.photos/business/120x40/5\",\n      width: 120,\n    },\n    {\n      alt: \"TechCo\",\n      src: \"https://static.photos/business/120x40/6\",\n      width: 120,\n    },\n    {\n      alt: \"Global Inc\",\n      src: \"https://static.photos/business/120x40/7\",\n      width: 120,\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies LogosBorderedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/logos/boxed-logo-cloud.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-blog-with-images",
+  "title": "2 Columns Blog With Images",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/blog/2-columns-blog-with-images.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type BlogCompactVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface BlogCompactProps {\n  theme?: EmailThemeTokens;\n  posts?: { title: string; description: string }[];\n  variant?: BlogCompactVariant;\n}\nconst BlogCompactSection = ({\n  posts,\n  theme,\n  variant,\n}: {\n  posts: BlogCompactProps[\"posts\"];\n  theme: EmailThemeTokens;\n  variant: BlogCompactVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackground,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      {(posts ?? []).slice(0, 3).map((post, i) => (\n        <Column\n          key={post.title + i}\n          style={{\n            padding: theme.spacingBase ?? \"16px\",\n            verticalAlign: \"top\",\n            width: \"33.33%\",\n          }}\n        >\n          <Text\n            style={{\n              color: theme.colorText,\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeBase,\n              fontWeight: theme.fontWeightMedium,\n              margin: 0,\n              paddingBottom: theme.spacingBase ?? \"4px\",\n            }}\n          >\n            {post.title}\n          </Text>\n          <Text\n            style={{\n              color: theme.colorTextMuted,\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeSm,\n              lineHeight: theme.lineHeightBase,\n              margin: 0,\n            }}\n          >\n            {post.description}\n          </Text>\n        </Column>\n      ))}\n    </Row>\n  </Section>\n);\nexport const TwoColumnsBlogWithImages = ({\n  theme = defaultTheme,\n  posts = [\n    { description: \"Description 1\", title: \"Post 1\" },\n    { description: \"Description 2\", title: \"Post 2\" },\n    { description: \"Description 3\", title: \"Post 3\" },\n  ],\n  variant = \"default\",\n}: BlogCompactProps) => (\n  <Html>\n    <Head />\n    <Preview>blog compact</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <BlogCompactSection posts={posts} theme={theme} variant={variant} />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\nTwoColumnsBlogWithImages.PreviewProps = {\n  posts: [\n    {\n      description: \"A guide to building email components.\",\n      title: \"Getting Started\",\n    },\n    { description: \"Tips for responsive email design.\", title: \"Design Tips\" },\n    { description: \"Advanced techniques for power users.\", title: \"Advanced\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BlogCompactProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/2-columns-blog-with-images.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-with-team-avatars",
+  "title": "Cta With Team Avatars",
+  "description": "Marketing cta variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-team-avatars.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Button,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type CTAOutlineVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface CTAOutlineProps {\n  theme?: EmailThemeTokens;\n  heading?: string;\n  subtext?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  variant?: CTAOutlineVariant;\n}\n\nconst CTAOutlineSection = ({\n  ctaHref,\n  ctaLabel,\n  heading,\n  subtext,\n  theme,\n  variant,\n}: {\n  ctaHref: string;\n  ctaLabel: string;\n  heading: string;\n  subtext: string;\n  theme: EmailThemeTokens;\n  variant: CTAOutlineVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: \"transparent\",\n      border: `1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`,\n      borderRadius: theme.borderRadius,\n      padding: theme.spacingXl ?? \"24px\",\n    }}\n  >\n    <Row>\n      <Column>\n        <Text\n          style={{\n            color: theme.colorText,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeXl ?? \"20px\",\n            fontWeight: theme.fontWeightMedium,\n            margin: 0,\n            paddingBottom: theme.spacingBase ?? \"16px\",\n            textAlign: \"center\",\n          }}\n        >\n          {heading}\n        </Text>\n        <Text\n          style={{\n            color: theme.colorTextMuted,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeBase ?? \"14px\",\n            margin: 0,\n            paddingBottom: theme.spacingLg ?? \"24px\",\n            textAlign: \"center\",\n          }}\n        >\n          {subtext}\n        </Text>\n        {ctaLabel && ctaHref ? (\n          <Button\n            href={ctaHref}\n            align=\"center\"\n            width={160}\n            height={40}\n            style={{\n              backgroundColor: theme.colorPrimary,\n              borderRadius: theme.borderRadius,\n              color: theme.colorPrimaryForeground,\n              display: \"inline-block\",\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeSm ?? \"14px\",\n              fontWeight: theme.fontWeightMedium,\n              height: \"auto\",\n              padding: `${theme.spacingBase ?? \"16px\"} ${theme.spacingLg ?? \"24px\"}`,\n              textDecoration: \"none\",\n              width: \"auto\",\n            }}\n          >\n            {ctaLabel}\n          </Button>\n        ) : null}\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const CtaWithTeamAvatars = ({\n  theme = defaultTheme,\n  heading = \"Special Offer\",\n  subtext = \"Limited time deal just for you.\",\n  ctaLabel = \"Shop Now\",\n  ctaHref = \"#\",\n  variant = \"default\",\n}: CTAOutlineProps) => (\n  <Html>\n    <Head />\n    <Preview>cta outline</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <CTAOutlineSection\n            ctaHref={ctaHref}\n            ctaLabel={ctaLabel}\n            heading={heading}\n            subtext={subtext}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nCtaWithTeamAvatars.PreviewProps = {\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Shop Now\",\n  heading: \"Limited Time Offer\",\n  subtext: \"Save 20% on your first order with code WELCOME20.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies CTAOutlineProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/cta/cta-with-team-avatars.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

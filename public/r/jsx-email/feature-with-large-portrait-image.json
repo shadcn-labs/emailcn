@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-with-large-portrait-image",
+  "title": "Feature With Large Portrait Image",
+  "description": "Marketing feature variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/feature/feature-with-large-portrait-image.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type FeatureLeftImageVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface FeatureLeftImageProps {\n  theme?: EmailThemeTokens;\n  imageSrc?: string;\n  imageAlt?: string;\n  heading?: string;\n  body?: string;\n  variant?: FeatureLeftImageVariant;\n}\n\nconst FeatureLeftImageSection = ({\n  body,\n  heading,\n  imageAlt,\n  imageSrc,\n  theme,\n  variant,\n}: {\n  body: string;\n  heading: string;\n  imageAlt: string;\n  imageSrc: string;\n  theme: EmailThemeTokens;\n  variant: FeatureLeftImageVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackground,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column\n        style={{ padding: \"0 12px\", verticalAlign: \"middle\", width: \"40%\" }}\n      >\n        <Img\n          alt={imageAlt}\n          src={imageSrc}\n          width={220}\n          style={{\n            borderRadius: theme.borderRadius,\n            display: \"block\",\n            margin: \"0 auto\",\n            maxWidth: \"100%\",\n          }}\n        />\n      </Column>\n      <Column\n        style={{ padding: \"0 12px\", verticalAlign: \"middle\", width: \"60%\" }}\n      >\n        <Text\n          style={{\n            color: theme.colorText,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeXl ?? \"20px\",\n            fontWeight: theme.fontWeightMedium,\n            margin: 0,\n            paddingBottom: theme.spacingBase ?? \"16px\",\n          }}\n        >\n          {heading}\n        </Text>\n        <Text\n          style={{\n            color: theme.colorTextMuted,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeBase ?? \"14px\",\n            lineHeight: theme.lineHeightBase,\n            margin: 0,\n          }}\n        >\n          {body}\n        </Text>\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const FeatureWithLargePortraitImage = ({\n  theme = defaultTheme,\n  imageSrc = \"https://static.photos/technology/400x300/2\",\n  imageAlt = \"feature\",\n  heading = \"Feature Title\",\n  body = \"Description of the feature shown on the left side.\",\n  variant = \"default\",\n}: FeatureLeftImageProps) => (\n  <Html>\n    <Head />\n    <Preview>feature left image</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <FeatureLeftImageSection\n            body={body}\n            heading={heading}\n            imageAlt={imageAlt}\n            imageSrc={imageSrc}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nFeatureWithLargePortraitImage.PreviewProps = {\n  body: \"Image displayed on the left with supporting text on the right.\",\n  heading: \"Feature with Left Image\",\n  imageAlt: \"feature\",\n  imageSrc: \"https://static.photos/technology/400x300/3\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies FeatureLeftImageProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/feature/feature-with-large-portrait-image.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

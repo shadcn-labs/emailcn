@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-width-progress-bar",
+  "title": "Full Width Progress Bar",
+  "description": "UI Elements progress-bars variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/progress-bars/full-width-progress-bar.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface FullWidthProgressBarProps {\n  theme?: TailwindConfig;\n  value?: number;\n  label?: string;\n  showLabel?: boolean;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const FullWidthProgressBarSection = ({\n  value = 50,\n  label,\n  showLabel = true,\n  variant = \"default\",\n}: Omit<FullWidthProgressBarProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-center\";\n\n  return (\n    <Section className=\"py-4\">\n      {label ? (\n        <Text className={`mb-2 text-sm text-foreground ${textAlign}`}>\n          {label}\n        </Text>\n      ) : null}\n      <Section className=\"rounded-full bg-foreground-muted/10\">\n        <Section\n          style={{ width: `${Math.min(100, Math.max(0, value))}%` }}\n          className=\"rounded-full bg-primary py-2\"\n        >\n          {showLabel ? (\n            <Text className=\"m-0 text-center text-xs font-medium text-primary-fg\">\n              {value}%\n            </Text>\n          ) : null}\n        </Section>\n      </Section>\n    </Section>\n  );\n};\n\nexport const FullWidthProgressBar = ({\n  theme = defaultTheme,\n  value = 50,\n  label,\n  showLabel = true,\n  variant = \"default\",\n}: FullWidthProgressBarProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{`Progress ${value}%`}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <FullWidthProgressBarSection\n          label={label}\n          showLabel={showLabel}\n          value={value}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nFullWidthProgressBar.PreviewProps = {\n  label: \"Completion\",\n  showLabel: true,\n  theme: defaultTheme,\n  value: 65,\n  variant: \"default\",\n} satisfies FullWidthProgressBarProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

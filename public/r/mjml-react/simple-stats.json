@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "simple-stats",
+  "title": "Simple Stats",
+  "description": "Marketing stats variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/stats/simple-stats.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type StatsHighlightVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface StatsHighlightProps {\n  theme?: EmailThemeTokens;\n  value?: string;\n  label?: string;\n  variant?: StatsHighlightVariant;\n}\n\nconst StatsHighlightSection = ({\n  label,\n  theme,\n  value,\n  variant,\n}: {\n  label: string;\n  theme: EmailThemeTokens;\n  value: string;\n  variant: StatsHighlightVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimary}\n        fontFamily={theme.fontFamily}\n        fontSize=\"36px\"\n        fontWeight={theme.fontWeightBold}\n        paddingBottom={theme.spacingBase ?? \"8px\"}\n      >\n        {value}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg ?? \"16px\"}\n      >\n        {label}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const SimpleStats = ({\n  theme = defaultTheme,\n  value = \"99.9%\",\n  label = \"Uptime\",\n  variant = \"default\",\n}: StatsHighlightProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>stats highlight</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <StatsHighlightSection\n          label={label}\n          theme={theme}\n          value={value}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nSimpleStats.PreviewProps = {\n  label: \"Customer Satisfaction\",\n  theme: defaultTheme,\n  value: \"99.9%\",\n  variant: \"default\",\n} satisfies StatsHighlightProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/stats/simple-stats.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

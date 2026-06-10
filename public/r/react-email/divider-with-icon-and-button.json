@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-with-icon-and-button",
+  "title": "Divider With Icon And Button",
+  "description": "UI Elements spacing variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon-and-button.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Button,\n  Head,\n  Hr,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface DividerWithIconButtonProps {\n  theme?: TailwindConfig;\n  icon?: string;\n  label?: string;\n  href?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const DividerWithIconButtonSection = ({\n  icon = \"\\u279C\",\n  label = \"Learn More\",\n  href = \"#\",\n  variant = \"default\",\n}: Omit<DividerWithIconButtonProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-center\";\n\n  return (\n    <Section className=\"py-6\">\n      <div className=\"flex items-center\">\n        <Hr className=\"flex-1 border-border\" />\n        <div className={`mx-4 flex items-center gap-2 ${textAlign}`}>\n          <Text className=\"m-0 text-lg\">{icon}</Text>\n          <Button\n            href={href}\n            className=\"inline-block rounded-md bg-primary px-4 py-2 text-xs font-medium text-primary-fg no-underline whitespace-nowrap\"\n          >\n            {label}\n          </Button>\n        </div>\n        <Hr className=\"flex-1 border-border\" />\n      </div>\n    </Section>\n  );\n};\n\nexport const DividerWithIconButton = ({\n  theme = defaultTheme,\n  icon = \"\\u279C\",\n  label = \"Learn More\",\n  href = \"#\",\n  variant = \"default\",\n}: DividerWithIconButtonProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{label}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <DividerWithIconButtonSection\n          icon={icon}\n          label={label}\n          href={href}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nDividerWithIconButton.PreviewProps = {\n  href: \"https://example.com/discover\",\n  icon: \"\\u279C\",\n  label: \"Discover\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DividerWithIconButtonProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/spacing/divider-with-icon-and-button.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

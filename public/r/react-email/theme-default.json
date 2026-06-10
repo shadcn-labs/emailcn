@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-default",
+  "title": "Default Email Theme (React Email)",
+  "description": "Default email theme tokens for React Email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/themes/default.ts",
+      "content": "import type { TailwindConfig } from \"react-email\";\nimport plugin from \"tailwindcss/plugin\";\n\nconst colors = {\n  bg: \"#ffffff\",\n  \"bg-2\": \"#f9fafb\",\n  brand: \"#111827\",\n  fg: \"#111827\",\n  \"fg-2\": \"#6b7280\",\n  \"fg-3\": \"#9ca3af\",\n  stroke: \"#e5e7eb\",\n  \"stroke-strong\": \"#f3f4f6\",\n} as const;\n\nconst fontScale = {\n  \"11\": {\n    fontSize: \"11px\",\n    fontWeight: \"400\",\n    letterSpacing: \"-0.033px\",\n    lineHeight: \"1.5\",\n  },\n  \"13\": {\n    fontSize: \"13px\",\n    fontWeight: \"400\",\n    letterSpacing: \"-0.039px\",\n    lineHeight: \"1.5\",\n  },\n  \"14\": { fontSize: \"14px\", lineHeight: \"1.5\" },\n  \"16\": {\n    fontSize: \"16px\",\n    fontWeight: \"400\",\n    letterSpacing: \"-0.048px\",\n    lineHeight: \"1.5\",\n  },\n  \"20\": {\n    fontSize: \"20px\",\n    fontWeight: \"500\",\n    letterSpacing: \"-0.1px\",\n    lineHeight: \"1.2\",\n  },\n  \"24\": {\n    fontSize: \"24px\",\n    fontWeight: \"600\",\n    letterSpacing: \"-0.084px\",\n    lineHeight: \"1\",\n  },\n  \"28\": {\n    fontSize: \"28px\",\n    fontWeight: \"600\",\n    letterSpacing: \"-0.084px\",\n    lineHeight: \"1.3\",\n  },\n} as const;\n\nexport const DefaultTailwindConfig: TailwindConfig = {\n  plugins: [\n    plugin(({ addUtilities, addVariant }) => {\n      addVariant(\"mobile\", \"@media (max-width: 600px)\");\n      const utilities: Record<string, Record<string, string>> = {};\n      for (const [step, token] of Object.entries(fontScale)) {\n        utilities[`.font-${step}`] = token;\n      }\n      addUtilities(utilities);\n    }),\n  ],\n  theme: {\n    extend: {\n      colors,\n      fontFamily: {\n        mono: ['\"Menlo\", \"Monaco\", \"Courier New\", monospace'],\n        sans: [\n          '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif',\n        ],\n      },\n    },\n  },\n};\n\nexport const defaultTheme = DefaultTailwindConfig;\n",
+      "type": "registry:file",
+      "target": "components/emails/themes/theme-default.ts"
+    }
+  ],
+  "categories": [
+    "theme"
+  ],
+  "type": "registry:file"
+}

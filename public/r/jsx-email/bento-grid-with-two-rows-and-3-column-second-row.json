@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid-with-two-rows-and-3-column-second-row",
+  "title": "Bento Grid With Two Rows And 3 Column Second Row",
+  "description": "Marketing bento-grids variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type BentoGridMasonryVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\nexport interface BentoGridMasonryProps {\n  theme?: EmailThemeTokens;\n  images?: { src: string; alt: string; wide?: boolean }[];\n  variant?: BentoGridMasonryVariant;\n}\nconst BentoGridMasonrySection = ({\n  images,\n  theme,\n  variant,\n}: {\n  images: BentoGridMasonryProps[\"images\"];\n  theme: EmailThemeTokens;\n  variant: BentoGridMasonryVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackground,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      {(images ?? []).slice(0, 3).map((img, i) => (\n        <Column\n          key={img.alt + i}\n          style={{\n            padding: \"4px\",\n            verticalAlign: \"top\",\n            width: img.wide ? \"50%\" : \"25%\",\n          }}\n        >\n          <Img\n            alt={img.alt}\n            src={img.src}\n            width={img.wide ? 290 : 140}\n            style={{\n              borderRadius: theme.borderRadius,\n              display: \"block\",\n              margin: \"0 auto\",\n              maxWidth: \"100%\",\n            }}\n          />\n        </Column>\n      ))}\n    </Row>\n  </Section>\n);\nexport const BentoGridWithTwoRowsAnd3ColumnSecondRow = ({\n  theme = defaultTheme,\n  images = [\n    {\n      alt: \"Wide\",\n      src: \"https://static.photos/business/600x300/2\",\n      wide: true,\n    },\n    { alt: \"Small 1\", src: \"https://static.photos/technology/300x300/3\" },\n    { alt: \"Small 2\", src: \"https://static.photos/technology/300x300/4\" },\n  ],\n  variant = \"default\",\n}: BentoGridMasonryProps) => (\n  <Html>\n    <Head />\n    <Preview>bento masonry</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <BentoGridMasonrySection\n            images={images}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\nBentoGridWithTwoRowsAnd3ColumnSecondRow.PreviewProps = {\n  images: [\n    {\n      alt: \"featured\",\n      src: \"https://static.photos/business/600x300/5\",\n      wide: true,\n    },\n    { alt: \"item 1\", src: \"https://static.photos/technology/300x300/6\" },\n    { alt: \"item 2\", src: \"https://static.photos/technology/300x300/7\" },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies BentoGridMasonryProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

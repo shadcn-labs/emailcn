@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "single-post-horizontal",
+  "title": "Single Post Horizontal",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/blog/single-post-horizontal.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type SinglePostHorizontalVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface SinglePostHorizontalProps {\n  theme?: TailwindConfig;\n  imageSrc?: string;\n  imageAlt?: string;\n  title?: string;\n  excerpt?: string;\n  author?: string;\n  variant?: SinglePostHorizontalVariant;\n}\n\nexport const SinglePostHorizontalSection = ({\n  imageSrc = \"https://static.photos/travel/300x200/2\",\n  imageAlt = \"\",\n  title = \"Featured Post\",\n  excerpt = \"A brief summary of the featured blog post content.\",\n  author = \"John Doe\",\n  variant = \"default\",\n}: Omit<SinglePostHorizontalProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>\n        <Row>\n          <Column className=\"w-1/2 pr-6 align-middle\">\n            <Img\n              src={imageSrc}\n              alt={imageAlt}\n              width=\"300\"\n              height=\"200\"\n              className=\"w-full h-auto rounded-lg object-cover\"\n            />\n          </Column>\n          <Column className=\"w-1/2 align-middle\">\n            <Text className=\"m-0 mb-2 text-xl font-bold text-foreground\">\n              {title}\n            </Text>\n            <Text className=\"m-0 mb-4 text-sm leading-snug text-foreground-muted\">\n              {excerpt}\n            </Text>\n            {author ? (\n              <Text className=\"m-0 text-xs text-foreground-subtle\">\n                By {author}\n              </Text>\n            ) : null}\n          </Column>\n        </Row>\n      </Section>\n    </Section>\n  );\n};\n\nexport const SinglePostHorizontal = ({\n  theme = defaultTheme,\n  imageSrc = \"https://static.photos/travel/300x200/3\",\n  imageAlt = \"\",\n  title = \"Featured Post\",\n  excerpt = \"A brief summary of the featured blog post content.\",\n  author = \"John Doe\",\n  variant = \"default\",\n}: SinglePostHorizontalProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{title}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <SinglePostHorizontalSection\n          author={author}\n          excerpt={excerpt}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          title={title}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nSinglePostHorizontal.PreviewProps = {\n  author: \"John Doe\",\n  excerpt:\n    \"Discover the top 10 strategies for growing your email list in 2024.\",\n  imageAlt: \"Featured Post\",\n  imageSrc: \"https://static.photos/travel/300x200/4\",\n  theme: defaultTheme,\n  title: \"How to Grow Your Email List\",\n  variant: \"default\",\n} satisfies SinglePostHorizontalProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/single-post-horizontal.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

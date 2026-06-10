@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container",
+  "title": "Container",
+  "description": "UI Elements containers variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/containers/container.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container as EmailContainer,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface ContainerProps {\n  theme?: EmailThemeTokens;\n  content?: string;\n  mobile?: \"gutters\" | \"flush\";\n  align?: \"left\" | \"center\" | \"right\";\n}\n\nconst ContainerSection = ({\n  content,\n  theme,\n  mobile,\n  align,\n}: {\n  content: string;\n  theme: EmailThemeTokens;\n  mobile: NonNullable<ContainerProps[\"mobile\"]>;\n  align: NonNullable<ContainerProps[\"align\"]>;\n}) => (\n  <Section style={{ padding: \"0\" }}>\n    <Section\n      style={{\n        padding: mobile === \"flush\" ? \"0\" : `0 ${theme.spacingBase ?? \"16px\"}`,\n      }}\n    >\n      <Row>\n        <Column>\n          <Text\n            style={{\n              color: theme.colorText,\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeBase ?? \"14px\",\n              margin: 0,\n              textAlign: align,\n            }}\n          >\n            {content}\n          </Text>\n        </Column>\n      </Row>\n    </Section>\n  </Section>\n);\n\nexport const Container = ({\n  theme = defaultTheme,\n  content = \"Container content.\",\n  mobile = \"gutters\",\n  align = \"center\",\n}: ContainerProps) => (\n  <Html>\n    <Head />\n    <Preview>Container</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <EmailContainer style={{ maxWidth: theme.containerWidth }}>\n        <ContainerSection\n          content={content}\n          theme={theme}\n          mobile={mobile}\n          align={align}\n        />\n      </EmailContainer>\n    </Body>\n  </Html>\n);\n\nContainer.PreviewProps = {\n  align: \"center\",\n  content: \"Container with padding on mobile for comfortable reading.\",\n  mobile: \"gutters\",\n  theme: defaultTheme,\n} satisfies ContainerProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/containers/container.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-with-icon",
+  "title": "Divider With Icon",
+  "description": "UI Elements spacing variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Head,\n  Hr,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport interface DividerWithIconProps {\n  theme?: TailwindConfig;\n  icon?: string;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const DividerWithIconSection = ({\n  icon = \"\\u2728\",\n  variant = \"default\",\n}: Omit<DividerWithIconProps, \"theme\">) => {\n  const textAlign =\n    variant === \"slanted-left\"\n      ? \"text-left\"\n      : variant === \"slanted-right\"\n        ? \"text-right\"\n        : \"text-center\";\n\n  return (\n    <Section className=\"py-6\">\n      <div className=\"flex items-center\">\n        <Hr className=\"flex-1 border-border\" />\n        <Text className={`mx-4 m-0 text-lg whitespace-nowrap ${textAlign}`}>\n          {icon}\n        </Text>\n        <Hr className=\"flex-1 border-border\" />\n      </div>\n    </Section>\n  );\n};\n\nexport const DividerWithIcon = ({\n  theme = defaultTheme,\n  icon = \"\\u2728\",\n  variant = \"default\",\n}: DividerWithIconProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>—</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <DividerWithIconSection icon={icon} variant={variant} />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nDividerWithIcon.PreviewProps = {\n  icon: \"\\u2728\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DividerWithIconProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/spacing/divider-with-icon.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

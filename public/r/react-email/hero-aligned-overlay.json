@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-aligned-overlay",
+  "title": "Hero Aligned Overlay",
+  "description": "Marketing hero variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/hero/hero-aligned-overlay.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Button,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Tailwind,\n  Text,\n  Img,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type HeroAlignedOverlayVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface HeroAlignedOverlayProps {\n  theme?: TailwindConfig;\n  heading?: string;\n  subheading?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  imageSrc?: string;\n  imageAlt?: string;\n  variant?: HeroAlignedOverlayVariant;\n}\n\nexport const HeroAlignedOverlaySection = ({\n  ctaHref = \"#\",\n  ctaLabel = \"Get Started\",\n  heading = \"Welcome\",\n  subheading = \"Get started with your account\",\n  imageSrc = \"https://static.photos/city/1200x600/2\",\n  imageAlt = \"\",\n  variant = \"default\",\n}: Omit<HeroAlignedOverlayProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`relative overflow-hidden ${getVariantClass()}`}>\n      <div className=\"relative w-full\">\n        <Img\n          src={imageSrc}\n          alt={imageAlt}\n          width=\"1200\"\n          height=\"600\"\n          className=\"w-full h-auto object-cover\"\n        />\n        <div className=\"absolute inset-0 bg-gradient-to-t from-black/60 to-transparent\">\n          <Container\n            className={`mx-auto max-w-container px-6 ${getUnskewClass()}`}\n          >\n            <div className=\"flex items-end justify-start h-full pt-48 pb-16\">\n              <div>\n                <Text className=\"m-0 font-bold text-heading leading-snug text-white text-left\">\n                  {heading}\n                </Text>\n                <Text className=\"mt-4 mb-8 text-lg leading-snug text-white/80 text-left\">\n                  {subheading}\n                </Text>\n                {ctaLabel && ctaHref ? (\n                  <div className=\"text-left\">\n                    <Button\n                      href={ctaHref}\n                      className=\"inline-block rounded-md bg-white px-6 py-3 text-sm font-medium text-gray-900 no-underline\"\n                    >\n                      {ctaLabel}\n                    </Button>\n                  </div>\n                ) : null}\n              </div>\n            </div>\n          </Container>\n        </div>\n      </div>\n    </Section>\n  );\n};\n\nexport const HeroAlignedOverlay = ({\n  ctaHref = \"#\",\n  ctaLabel = \"Get Started\",\n  heading = \"Welcome\",\n  imageAlt = \"\",\n  imageSrc = \"https://static.photos/city/1200x600/3\",\n  subheading = \"Get started with your account\",\n  theme = defaultTheme,\n  variant = \"default\",\n}: HeroAlignedOverlayProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{heading}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <HeroAlignedOverlaySection\n          ctaHref={ctaHref}\n          ctaLabel={ctaLabel}\n          heading={heading}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          subheading={subheading}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nHeroAlignedOverlay.PreviewProps = {\n  ctaHref: \"https://example.com\",\n  ctaLabel: \"Get Started\",\n  heading: \"Welcome to Acme\",\n  imageAlt: \"Background image\",\n  imageSrc: \"https://static.photos/city/1200x600/4\",\n  subheading: \"Build faster with the tools you love.\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeroAlignedOverlayProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/hero/hero-aligned-overlay.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

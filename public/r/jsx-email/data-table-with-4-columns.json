@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-with-4-columns",
+  "title": "Data Table With 4 Columns",
+  "description": "Data Table With 4 Columns email component",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface DataTable4ColumnsProps {\n  theme?: EmailThemeTokens;\n  headers?: string[];\n  rows?: string[][];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst DataTable4ColumnsSection = ({\n  headers,\n  rows,\n  theme,\n}: {\n  headers: string[];\n  rows: string[][];\n  theme: EmailThemeTokens;\n}) => {\n  const cellWidth = `${100 / headers.length}%`;\n  return (\n    <Section\n      style={{\n        border: `1px solid ${theme.colorBorder ?? \"#e5e7eb\"}`,\n        borderRadius: theme.borderRadius,\n        padding: \"0\",\n      }}\n    >\n      <Row>\n        <Section\n          style={{\n            backgroundColor: theme.colorBackgroundMuted,\n            padding: `${theme.spacingBase ?? \"16px\"} ${theme.spacingBase ?? \"16px\"}`,\n          }}\n        >\n          <Row>\n            {headers.map((h) => (\n              <Column key={h} style={{ width: cellWidth }}>\n                <Text\n                  style={{\n                    color: theme.colorText,\n                    fontFamily: theme.fontFamily,\n                    fontSize: theme.fontSizeBase ?? \"14px\",\n                    fontWeight: theme.fontWeightBold ?? \"600\",\n                    margin: 0,\n                    padding: \"0\",\n                  }}\n                >\n                  {h}\n                </Text>\n              </Column>\n            ))}\n          </Row>\n        </Section>\n        {rows.map((row, ri) => (\n          <Section\n            key={ri}\n            style={{\n              padding: `${theme.spacingBase ?? \"16px\"} ${theme.spacingBase ?? \"16px\"}`,\n            }}\n          >\n            <Row>\n              {headers.map((_, ci) => (\n                <Column key={ci} style={{ width: cellWidth }}>\n                  <Text\n                    style={{\n                      color: theme.colorText,\n                      fontFamily: theme.fontFamily,\n                      fontSize: theme.fontSizeBase ?? \"14px\",\n                      margin: 0,\n                      padding: \"0\",\n                    }}\n                  >\n                    {row[ci] ?? \"\"}\n                  </Text>\n                </Column>\n              ))}\n            </Row>\n          </Section>\n        ))}\n      </Row>\n    </Section>\n  );\n};\n\nexport const DataTable4Columns = ({\n  theme = defaultTheme,\n  headers = [\"Name\", \"Type\", \"Status\", \"Val\"],\n  rows = [[\"A\", \"Std\", \"Active\", \"$100\"]],\n  variant = \"default\",\n}: DataTable4ColumnsProps) => (\n  <Html>\n    <Head />\n    <Preview>table-Fourcol</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <DataTable4ColumnsSection\n            headers={headers}\n            rows={rows}\n            theme={theme}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nDataTable4Columns.PreviewProps = {\n  headers: [\"Product\", \"Category\", \"Stock\", \"Price\"],\n  rows: [\n    [\"Widget A\", \"Electronics\", \"In Stock\", \"$29\"],\n    [\"Widget B\", \"Accessories\", \"Low\", \"$49\"],\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies DataTable4ColumnsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/data-tables/data-table-with-4-columns.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

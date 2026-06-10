@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-width-progress-bar",
+  "title": "Full Width Progress Bar",
+  "description": "UI Elements progress-bars variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/full-width-progress-bar.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface FullWidthProgressBarProps {\n  theme?: EmailThemeTokens;\n  value?: number;\n  label?: string;\n  showLabel?: boolean;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst FullWidthProgressBarSection = ({\n  value,\n  label,\n  showLabel,\n  theme,\n}: {\n  value: number;\n  label?: string;\n  showLabel: boolean;\n  theme: EmailThemeTokens;\n}) => {\n  const clamped = Math.max(0, Math.min(100, value));\n  const fillWidth = `${clamped}%`;\n  const emptyWidth = `${100 - clamped}%`;\n\n  return (\n    <Section style={{ padding: `${theme.spacingLg ?? \"32px\"} 0` }}>\n      <Row>\n        <Column>\n          {label || showLabel ? (\n            <Text\n              style={{\n                color: theme.colorText,\n                fontFamily: theme.fontFamily,\n                fontSize: theme.fontSizeBase ?? \"14px\",\n                fontWeight: theme.fontWeightMedium ?? \"500\",\n                margin: 0,\n                paddingBottom: theme.spacingBase ?? \"16px\",\n              }}\n            >\n              {label ?? `${clamped}%`}\n              {showLabel && label ? ` — ${clamped}%` : null}\n            </Text>\n          ) : null}\n          <Section\n            style={{\n              backgroundColor: theme.colorBackgroundSubtle ?? \"#f3f4f6\",\n              borderRadius: theme.borderRadius,\n              padding: \"0\",\n            }}\n          >\n            <Row>\n              {clamped > 0 ? (\n                <Column\n                  style={{\n                    backgroundColor: theme.colorPrimary,\n                    borderRadius: theme.borderRadius,\n                    padding: \"8px 0\",\n                    width: fillWidth,\n                  }}\n                >\n                  <Text\n                    style={{\n                      color: theme.colorPrimaryForeground,\n                      fontFamily: theme.fontFamily,\n                      fontSize: theme.fontSizeSm ?? \"12px\",\n                      fontWeight: theme.fontWeightBold ?? \"600\",\n                      margin: 0,\n                      padding: \"0\",\n                      textAlign: \"center\",\n                    }}\n                  >\n                    {clamped}%\n                  </Text>\n                </Column>\n              ) : null}\n              {clamped < 100 ? (\n                <Column style={{ padding: \"0\", width: emptyWidth }}></Column>\n              ) : null}\n            </Row>\n          </Section>\n        </Column>\n      </Row>\n    </Section>\n  );\n};\n\nexport const FullWidthProgressBar = ({\n  theme = defaultTheme,\n  value = 65,\n  label,\n  showLabel = true,\n  variant = \"default\",\n}: FullWidthProgressBarProps) => (\n  <Html>\n    <Head />\n    <Preview>progress-bar</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <FullWidthProgressBarSection\n            value={value}\n            label={label}\n            showLabel={showLabel}\n            theme={theme}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nFullWidthProgressBar.PreviewProps = {\n  label: \"Progress\",\n  showLabel: true,\n  theme: defaultTheme,\n  value: 65,\n  variant: \"default\",\n} satisfies FullWidthProgressBarProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

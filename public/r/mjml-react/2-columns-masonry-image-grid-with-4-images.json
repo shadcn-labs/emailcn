@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-columns-masonry-image-grid-with-4-images",
+  "title": "2 Columns Masonry Image Grid With 4 Images",
+  "description": "Marketing images variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type ImageCardVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface ImageCardProps {\n  theme?: EmailThemeTokens;\n  src?: string;\n  alt?: string;\n  title?: string;\n  description?: string;\n  variant?: ImageCardVariant;\n}\n\nconst ImageCardSection = ({\n  alt,\n  description,\n  src,\n  theme,\n  title,\n  variant,\n}: {\n  alt: string;\n  description: string;\n  src: string;\n  theme: EmailThemeTokens;\n  title: string;\n  variant: ImageCardVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackgroundMuted}\n    borderRadius={theme.borderRadius}\n    padding=\"0\"\n  >\n    <MjmlColumn padding=\"0\">\n      <MjmlImage align=\"center\" alt={alt} src={src} width={600} padding=\"0\" />\n    </MjmlColumn>\n    <MjmlColumn padding={`${theme.spacingBase ?? \"24px\"}`}>\n      <MjmlText\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeLg ?? \"16px\"}\n        fontWeight={theme.fontWeightMedium}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        {title}\n      </MjmlText>\n      <MjmlText\n        color={theme.colorTextMuted}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeBase ?? \"14px\"}\n        lineHeight={theme.lineHeightBase}\n      >\n        {description}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const TwoColumnsMasonryImageGridWith4Images = ({\n  theme = defaultTheme,\n  src = \"https://static.photos/business/600x300/2\",\n  alt = \"card image\",\n  title = \"Image Card Title\",\n  description = \"A description that accompanies the image card.\",\n  variant = \"default\",\n}: ImageCardProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>image card</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <ImageCardSection\n          alt={alt}\n          description={description}\n          src={src}\n          theme={theme}\n          title={title}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nTwoColumnsMasonryImageGridWith4Images.PreviewProps = {\n  alt: \"card image\",\n  description:\n    \"This card layout pairs an image with descriptive text below it.\",\n  src: \"https://static.photos/business/600x300/3\",\n  theme: defaultTheme,\n  title: \"Image Card\",\n  variant: \"default\",\n} satisfies ImageCardProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

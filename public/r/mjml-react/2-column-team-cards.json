@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "2-column-team-cards",
+  "title": "2 Column Team Cards",
+  "description": "Marketing team variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/team/2-column-team-cards.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type TeamCardVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\nexport interface TeamCardProps {\n  theme?: EmailThemeTokens;\n  members?: { avatarUrl?: string; name: string; role: string }[];\n  variant?: TeamCardVariant;\n}\nconst TeamCardSection = ({\n  members,\n  theme,\n  variant,\n}: {\n  members: TeamCardProps[\"members\"];\n  theme: EmailThemeTokens;\n  variant: TeamCardVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    {(members ?? []).slice(0, 3).map((m, i) => (\n      <MjmlColumn\n        key={m.name + i}\n        width=\"33.33%\"\n        padding={theme.spacingBase ?? \"16px\"}\n        verticalAlign=\"top\"\n      >\n        <MjmlSection\n          backgroundColor={theme.colorBackgroundMuted}\n          border={`1px solid ${theme.colorBorder}`}\n          borderRadius={theme.borderRadius}\n          padding={theme.spacingBase ?? \"16px\"}\n        >\n          {m.avatarUrl ? (\n            <MjmlImage\n              align=\"center\"\n              alt={m.name}\n              borderRadius=\"50%\"\n              src={m.avatarUrl}\n              width={64}\n              height={64}\n              paddingBottom={theme.spacingBase ?? \"12px\"}\n            />\n          ) : null}\n          <MjmlText\n            align=\"center\"\n            color={theme.colorText}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeBase}\n            fontWeight={theme.fontWeightMedium}\n            paddingBottom={theme.spacingBase ?? \"4px\"}\n          >\n            {m.name}\n          </MjmlText>\n          <MjmlText\n            align=\"center\"\n            color={theme.colorTextMuted}\n            fontFamily={theme.fontFamily}\n            fontSize={theme.fontSizeSm}\n          >\n            {m.role}\n          </MjmlText>\n        </MjmlSection>\n      </MjmlColumn>\n    ))}\n  </MjmlSection>\n);\nexport const TwoColumnTeamCards = ({\n  theme = defaultTheme,\n  members = [{ name: \"John Doe\", role: \"CEO\" }],\n  variant = \"default\",\n}: TeamCardProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>team card</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <TeamCardSection members={members} theme={theme} variant={variant} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\nTwoColumnTeamCards.PreviewProps = {\n  members: [\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-1&size=64\",\n      name: \"Alex Johnson\",\n      role: \"CEO\",\n    },\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-2&size=64\",\n      name: \"Maria Garcia\",\n      role: \"CTO\",\n    },\n    {\n      avatarUrl:\n        \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-3&size=64\",\n      name: \"David Kim\",\n      role: \"Design Lead\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies TeamCardProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/team/2-column-team-cards.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

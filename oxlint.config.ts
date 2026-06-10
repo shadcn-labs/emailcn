@@ -8,6 +8,7 @@ export default defineConfig({
   extends: [core, react, next, vitest],
   ignorePatterns: [
     "public/r/**",
+    "registry-*.json",
     ".agents/**",
     ".cursor/**",
     ".changeset/**",

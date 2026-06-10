@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grouped-overlapped-avatars",
+  "title": "Grouped Overlapped Avatars",
+  "description": "UI Elements avatars variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport interface GroupedOverlappedAvatarsProps {\n  theme?: EmailThemeTokens;\n  avatars?: { url?: string; name: string }[];\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nconst GroupedOverlappedAvatarsSection = ({\n  avatars,\n  theme,\n  variant,\n}: {\n  avatars: NonNullable<GroupedOverlappedAvatarsProps[\"avatars\"]>;\n  theme: EmailThemeTokens;\n  variant: NonNullable<GroupedOverlappedAvatarsProps[\"variant\"]>;\n}) => {\n  const alignText =\n    variant === \"slanted-left\"\n      ? \"left\"\n      : variant === \"slanted-right\"\n        ? \"right\"\n        : \"center\";\n  return (\n    <Section style={{ padding: `${theme.spacingBase ?? \"24px\"} 0` }}>\n      <Row>\n        {avatars.slice(0, 4).map((avatar, i) => (\n          <Column\n            key={avatar.name}\n            style={{ padding: i > 0 ? \"0 0 0 -12px\" : \"0\", width: \"40px\" }}\n          >\n            {avatar.url ? (\n              <Img\n                alt={avatar.name}\n                height={36}\n                src={avatar.url}\n                width={36}\n                style={{\n                  borderRadius: \"999px\",\n                  display: \"block\",\n                  margin: \"0 auto\",\n                  maxWidth: \"100%\",\n                }}\n              />\n            ) : (\n              <Text\n                style={{\n                  fontFamily: theme.fontFamily,\n                  fontSize: \"14px\",\n                  margin: 0,\n                  textAlign: alignText,\n                }}\n              >\n                <span\n                  style={{\n                    backgroundColor: theme.colorPrimary,\n                    border: `Twopx solid ${theme.colorBackground}`,\n                    borderRadius: \"999px\",\n                    color: theme.colorPrimaryForeground ?? \"#ffffff\",\n                    display: \"inline-block\",\n                    height: 36,\n                    lineHeight: \"36px\",\n                    textAlign: \"center\",\n                    width: 36,\n                  }}\n                >\n                  {avatar.name.charAt(0)}\n                </span>\n              </Text>\n            )}\n          </Column>\n        ))}\n      </Row>\n    </Section>\n  );\n};\n\nexport const GroupedOverlappedAvatars = ({\n  theme = defaultTheme,\n  avatars = [{ name: \"A\" }, { name: \"B\" }, { name: \"C\" }],\n  variant = \"default\",\n}: GroupedOverlappedAvatarsProps) => (\n  <Html>\n    <Head />\n    <Preview>grouped-avatars</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <GroupedOverlappedAvatarsSection\n            avatars={avatars}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nGroupedOverlappedAvatars.PreviewProps = {\n  avatars: [\n    {\n      name: \"A\",\n      url: \"https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128\",\n    },\n    {\n      name: \"B\",\n      url: \"https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128\",\n    },\n    {\n      name: \"C\",\n      url: \"https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-3&size=128\",\n    },\n  ],\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies GroupedOverlappedAvatarsProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

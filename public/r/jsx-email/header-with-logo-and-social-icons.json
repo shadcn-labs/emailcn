@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo-and-social-icons",
+  "title": "Header With Logo And Social Icons",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-social-icons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type HeaderBadgeVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface HeaderBadgeProps {\n  theme?: EmailThemeTokens;\n  badge?: string;\n  heading?: string;\n  variant?: HeaderBadgeVariant;\n}\n\nconst HeaderBadgeSection = ({\n  badge,\n  heading,\n  theme,\n  variant,\n}: {\n  badge: string;\n  heading: string;\n  theme: EmailThemeTokens;\n  variant: HeaderBadgeVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackground,\n      padding: `${theme.spacingXl ?? \"48px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column>\n        <Text\n          style={{\n            color: theme.colorPrimary,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeSm ?? \"12px\",\n            fontWeight: theme.fontWeightBold,\n            margin: 0,\n            paddingBottom: theme.spacingBase ?? \"16px\",\n            textAlign: \"center\",\n          }}\n        >\n          {badge}\n        </Text>\n        <Text\n          style={{\n            color: theme.colorText,\n            fontFamily: theme.fontFamily,\n            fontSize: theme.fontSizeHeading,\n            fontWeight: theme.fontWeightBold,\n            margin: 0,\n            textAlign: \"center\",\n          }}\n        >\n          {heading}\n        </Text>\n      </Column>\n    </Row>\n  </Section>\n);\n\nexport const HeaderWithLogoAndSocialIcons = ({\n  theme = defaultTheme,\n  badge = \"NEW\",\n  heading = \"Introducing Our Latest Feature\",\n  variant = \"default\",\n}: HeaderBadgeProps) => (\n  <Html>\n    <Head />\n    <Preview>header badge</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <HeaderBadgeSection\n            badge={badge}\n            heading={heading}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nHeaderWithLogoAndSocialIcons.PreviewProps = {\n  badge: \"ANNOUNCEMENT\",\n  heading: \"Big News Coming Soon\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeaderBadgeProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo-and-social-icons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

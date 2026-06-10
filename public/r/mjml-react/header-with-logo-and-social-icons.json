@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo-and-social-icons",
+  "title": "Header With Logo And Social Icons",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-social-icons.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Mjml,\n  MjmlAll,\n  MjmlAttributes,\n  MjmlBody,\n  MjmlColumn,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type HeaderBadgeVariant = \"default\" | \"slanted-left\" | \"slanted-right\";\n\nexport interface HeaderBadgeProps {\n  theme?: EmailThemeTokens;\n  badge?: string;\n  heading?: string;\n  variant?: HeaderBadgeVariant;\n}\n\nconst HeaderBadgeSection = ({\n  badge,\n  heading,\n  theme,\n  variant,\n}: {\n  badge: string;\n  heading: string;\n  theme: EmailThemeTokens;\n  variant: HeaderBadgeVariant;\n}) => (\n  <MjmlSection\n    backgroundColor={theme.colorBackground}\n    padding={`${theme.spacingXl ?? \"48px\"} 0`}\n  >\n    <MjmlColumn>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorPrimary}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeSm ?? \"12px\"}\n        fontWeight={theme.fontWeightBold}\n        paddingBottom={theme.spacingBase ?? \"16px\"}\n      >\n        {badge}\n      </MjmlText>\n      <MjmlText\n        align=\"center\"\n        color={theme.colorText}\n        fontFamily={theme.fontFamily}\n        fontSize={theme.fontSizeHeading}\n        fontWeight={theme.fontWeightBold}\n      >\n        {heading}\n      </MjmlText>\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const HeaderWithLogoAndSocialIcons = ({\n  theme = defaultTheme,\n  badge = \"NEW\",\n  heading = \"Introducing Our Latest Feature\",\n  variant = \"default\",\n}: HeaderBadgeProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>header badge</MjmlPreview>\n      <MjmlAttributes>\n        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />\n        <MjmlText\n          fontSize={theme.fontSizeBase}\n          lineHeight={theme.lineHeightBase}\n        />\n      </MjmlAttributes>\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">\n        <HeaderBadgeSection\n          badge={badge}\n          heading={heading}\n          theme={theme}\n          variant={variant}\n        />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nHeaderWithLogoAndSocialIcons.PreviewProps = {\n  badge: \"ANNOUNCEMENT\",\n  heading: \"Big News Coming Soon\",\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeaderBadgeProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo-and-social-icons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

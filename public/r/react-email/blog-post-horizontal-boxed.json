@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-post-horizontal-boxed",
+  "title": "Blog Post Horizontal Boxed",
+  "description": "Marketing blog variant for email templates",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/react-email/default-fonts.json",
+    "https://emailcn.dev/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/blog/blog-post-horizontal-boxed.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Tailwind,\n  Text,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/emails/fonts/default\";\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\n\nexport type BlogPostHorizontalBoxedVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface BlogPostHorizontalBoxedProps {\n  theme?: TailwindConfig;\n  imageSrc?: string;\n  imageAlt?: string;\n  title?: string;\n  excerpt?: string;\n  variant?: BlogPostHorizontalBoxedVariant;\n}\n\nexport const BlogPostHorizontalBoxedSection = ({\n  imageSrc = \"https://static.photos/travel/250x200/2\",\n  imageAlt = \"\",\n  title = \"Blog Post Title\",\n  excerpt = \"A brief summary of the blog post.\",\n  variant = \"default\",\n}: Omit<BlogPostHorizontalBoxedProps, \"theme\">) => {\n  const getVariantClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[-10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  const getUnskewClass = () => {\n    switch (variant) {\n      case \"slanted-left\": {\n        return \"skew-x-[10deg]\";\n      }\n      case \"slanted-right\": {\n        return \"skew-x-[-10deg]\";\n      }\n      default: {\n        return \"\";\n      }\n    }\n  };\n\n  return (\n    <Section className={`bg-background py-16 ${getVariantClass()}`}>\n      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>\n        <Section className=\"rounded-lg border border-border p-4\">\n          <Row>\n            <Column className=\"w-1/3 pr-4 align-middle\">\n              <Img\n                src={imageSrc}\n                alt={imageAlt}\n                width=\"250\"\n                height=\"200\"\n                className=\"w-full h-auto rounded object-cover\"\n              />\n            </Column>\n            <Column className=\"w-2/3 align-middle\">\n              <Text className=\"m-0 mb-2 text-lg font-medium text-foreground\">\n                {title}\n              </Text>\n              <Text className=\"m-0 text-sm leading-snug text-foreground-muted\">\n                {excerpt}\n              </Text>\n            </Column>\n          </Row>\n        </Section>\n      </Section>\n    </Section>\n  );\n};\n\nexport const BlogPostHorizontalBoxed = ({\n  theme = defaultTheme,\n  imageSrc = \"https://static.photos/travel/250x200/3\",\n  imageAlt = \"\",\n  title = \"Blog Post Title\",\n  excerpt = \"A brief summary of the blog post.\",\n  variant = \"default\",\n}: BlogPostHorizontalBoxedProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{title}</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <BlogPostHorizontalBoxedSection\n          excerpt={excerpt}\n          imageAlt={imageAlt}\n          imageSrc={imageSrc}\n          title={title}\n          variant={variant}\n        />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nBlogPostHorizontalBoxed.PreviewProps = {\n  excerpt:\n    \"Learn how our latest features can help you build better emails faster.\",\n  imageAlt: \"Blog Post\",\n  imageSrc: \"https://static.photos/travel/250x200/4\",\n  theme: defaultTheme,\n  title: \"What's New in Version 2.0\",\n  variant: \"default\",\n} satisfies BlogPostHorizontalBoxedProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/blog/blog-post-horizontal-boxed.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

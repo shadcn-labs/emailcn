@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-with-logo",
+  "title": "Header With Logo",
+  "description": "Marketing headers variant for email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.dev/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo.tsx",
+      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport {\n  Body,\n  Column,\n  Container,\n  Head,\n  Html,\n  Img,\n  Preview,\n  Row,\n  Section,\n  Text,\n} from \"jsx-email\";\n\nimport { defaultTheme } from \"@/components/emails/themes/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/emails/themes/theme-default\";\n\nexport type HeaderLogoWithLinksVariant =\n  | \"default\"\n  | \"slanted-left\"\n  | \"slanted-right\";\n\nexport interface HeaderLogoWithLinksProps {\n  theme?: EmailThemeTokens;\n  logoUrl?: string;\n  logoAlt?: string;\n  logoWidth?: number;\n  links?: { label: string; href: string }[];\n  variant?: HeaderLogoWithLinksVariant;\n}\n\nconst HeaderLogoWithLinksSection = ({\n  links,\n  logoAlt,\n  logoUrl,\n  logoWidth,\n  theme,\n  variant,\n}: {\n  links: HeaderLogoWithLinksProps[\"links\"];\n  logoAlt: string;\n  logoUrl?: string;\n  logoWidth: number;\n  theme: EmailThemeTokens;\n  variant: HeaderLogoWithLinksVariant;\n}) => (\n  <Section\n    style={{\n      backgroundColor: theme.colorBackground,\n      padding: `${theme.spacingBase ?? \"24px\"} 0`,\n    }}\n  >\n    <Row>\n      <Column style={{ verticalAlign: \"middle\", width: \"50%\" }}>\n        {logoUrl ? (\n          <Img\n            alt={logoAlt}\n            src={logoUrl}\n            width={logoWidth}\n            style={{ display: \"block\", maxWidth: \"100%\" }}\n          />\n        ) : (\n          <Text\n            style={{\n              color: theme.colorText,\n              fontFamily: theme.fontFamily,\n              fontSize: theme.fontSizeXl ?? \"20px\",\n              fontWeight: theme.fontWeightBold,\n              margin: 0,\n              textAlign: \"left\",\n            }}\n          >\n            {logoAlt}\n          </Text>\n        )}\n      </Column>\n      {links && links.length > 0 ? (\n        <Column style={{ verticalAlign: \"middle\", width: \"50%\" }}>\n          {links.map((link) => (\n            <Text\n              key={link.label}\n              style={{\n                color: theme.colorTextMuted,\n                fontFamily: theme.fontFamily,\n                fontSize: theme.fontSizeSm ?? \"12px\",\n                margin: 0,\n                padding: \"0 0 0 16px\",\n                textAlign: \"right\",\n              }}\n            >\n              <a\n                href={link.href}\n                style={{ color: theme.colorTextMuted, textDecoration: \"none\" }}\n              >\n                {link.label}\n              </a>\n            </Text>\n          ))}\n        </Column>\n      ) : null}\n    </Row>\n  </Section>\n);\n\nexport const HeaderLogoWithLinks = ({\n  theme = defaultTheme,\n  logoUrl,\n  logoAlt = \"Logo\",\n  logoWidth = 120,\n  links = [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  variant = \"default\",\n}: HeaderLogoWithLinksProps) => (\n  <Html>\n    <Head />\n    <Preview>header with links</Preview>\n    <Body\n      style={{\n        backgroundColor: theme.colorBackground,\n        color: theme.colorTextMuted,\n        fontFamily: theme.fontFamily,\n        fontSize: theme.fontSizeBase,\n        lineHeight: theme.lineHeightBase,\n        margin: 0,\n      }}\n    >\n      <Container style={{ maxWidth: theme.containerWidth }}>\n        <Section style={{ padding: \"0\" }}>\n          <HeaderLogoWithLinksSection\n            links={links}\n            logoAlt={logoAlt}\n            logoUrl={logoUrl}\n            logoWidth={logoWidth}\n            theme={theme}\n            variant={variant}\n          />\n        </Section>\n      </Container>\n    </Body>\n  </Html>\n);\n\nHeaderLogoWithLinks.PreviewProps = {\n  links: [\n    { href: \"#features\", label: \"Features\" },\n    { href: \"#pricing\", label: \"Pricing\" },\n  ],\n  logoAlt: \"Acme\",\n  logoUrl: \"https://static.photos/business/120x40/2\",\n  logoWidth: 120,\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies HeaderLogoWithLinksProps;\n",
+      "type": "registry:component",
+      "target": "components/emails/marketing/headers/header-with-logo.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}
