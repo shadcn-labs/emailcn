@@ -3,16 +3,26 @@ title: "Registry"
 description: "Learn how to use the emailcn registry with the shadcn CLI."
 ---
 
-The **emailcn** registry ships React Email and MJML React email components, blocks, themes, and font helpers in the [shadcn registry format](https://ui.shadcn.com/docs/registry). Register the namespace once in `components.json`, then pull items by name with the CLI.
+The **emailcn** registry ships components, blocks, themes, and font helpers in the [shadcn registry format](https://ui.shadcn.com/docs/registry), in three **styles**: `react-email`, `mjml-react`, and `jsx-email`. Every item has the same name in every style — the style you configure decides which implementation you get.
 
 ## Setup
 
-Add a **registries** entry for this site. See the [shadcn registry documentation](https://ui.shadcn.com/docs/registry) for all `components.json` fields and behaviors.
+Add a **registries** entry for this site, pointing at the style you want. See the [shadcn registry documentation](https://ui.shadcn.com/docs/registry) for all `components.json` fields and behaviors.
 
 ```json
 {
   "registries": {
-    "@emailcn": "https://emailcn.dev/r/{name}.json"
+    "@emailcn": "https://emailcn.dev/r/react-email/{name}.json"
+  }
+}
+```
+
+Swap `react-email` for `mjml-react` or `jsx-email` to use those styles:
+
+```json
+{
+  "registries": {
+    "@emailcn": "https://emailcn.dev/r/jsx-email/{name}.json"
   }
 }
 ```
@@ -21,32 +31,34 @@ You can replace `@emailcn` with another namespace; it only needs to match what y
 
 ## Usage
 
-**React Email** — names have **no** prefix:
+Item names are identical across styles, with **no** prefix:
 
 ```bash
-npx dlx shadcn@latest add @emailcn/hero
+npx shadcn@latest add @emailcn/buttons
 ```
 
-**MJML** — use the **`mjml-`** prefix:
+**Themes** are `theme-<id>`:
 
 ```bash
-npx dlx shadcn@latest add @emailcn/mjml-hero
+npx shadcn@latest add @emailcn/theme-stripe
 ```
 
-**Themes** are `theme-<id>.json`:
+**Blocks** are `block-<id>`:
 
 ```bash
-npx dlx shadcn@latest add @emailcn/theme-stripe
+npx shadcn@latest add @emailcn/block-onboarding-default
 ```
 
-**Fonts** (React Email helpers) — e.g. `default-fonts`, `tech-fonts`:
+**Fonts** (React Email and JSX Email styles) — e.g. `default-fonts`, `tech-fonts`:
 
 ```bash
-npx dlx shadcn@latest add @emailcn/default-fonts
+npx shadcn@latest add @emailcn/default-fonts
 ```
 
-Without a registry alias, use the full URL shown on each docs page:
+Without a registry alias, use the full per-style URL:
 
 ```bash
-npx dlx shadcn@latest add https://emailcn.dev/r/hero.json
+npx shadcn@latest add https://emailcn.dev/r/react-email/buttons.json
 ```
+
+Each style also serves its full index at `https://emailcn.dev/r/<style>/registry.json`.

@@ -7,6 +7,9 @@ description: "Install email components, blocks, themes, and font helpers from th
 
 - **React Email** templates: a project with **`react-email`** installed.
 - **MJML** templates: a project with **`@faire/mjml-react`** installed.
+- **JSX Email** templates: a project with **`jsx-email`** installed.
+
+Configure the `@emailcn` namespace for your preferred style first — see [Registry](/docs/registry).
 
 ## Installation
 
@@ -21,21 +24,20 @@ npx shadcn@latest add @emailcn/block-onboarding-default
 Import and use the component:
 
 ```tsx
-import { Hero } from "@/components/emails/hero";
+import { OnboardingDefault } from "@/components/emails/onboarding-default";
 
 export function WelcomeEmail() {
-  return <Hero heading="Welcome!" subheading="Thanks for joining us." />;
+  return <OnboardingDefault _firstName="Ada" _productName="Acme" />;
 }
 ```
 
-Compose with one outer document and components:
+Components install with a `*Section` export you can compose inside your own document (React Email style shown):
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import { DefaultFonts } from "@/components/emails/fonts/default";
-import { FooterSection } from "@/components/emails/footer";
-import { HeroSection } from "@/components/emails/hero";
-import { defaultTheme } from "@/components/emails/themes/default";
+import { defaultTheme } from "@/components/emails/themes/theme-default";
+import { ButtonsSection } from "@/components/emails/ui-elements/buttons/buttons";
 
 export function WelcomeEmail() {
   return (
@@ -47,11 +49,7 @@ export function WelcomeEmail() {
       <Tailwind config={defaultTheme}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container">
-            <HeroSection
-              heading="Welcome!"
-              subheading="Thanks for joining us."
-            />
-            <FooterSection companyName="Acme" />
+            <ButtonsSection label="Get Started" href="https://example.com" />
           </Container>
         </Body>
       </Tailwind>

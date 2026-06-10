@@ -10,7 +10,7 @@ description: "Learn how to use the shadcn MCP (Model Context Protocol) server wi
 Run:
 
 ```bash
-npx dlx shadcn@latest mcp init
+npx shadcn@latest mcp init
 ```
 
 Choose your MCP client when prompted, then enable the MCP server in that client to finish setup.
@@ -19,10 +19,10 @@ Choose your MCP client when prompted, then enable the MCP server in that client 
 
 With MCP enabled, you can ask your IDE to work with **emailcn** patterns. Example prompts:
 
-- Add a **React Email** welcome flow using **`Hero`**, **`ContentGrid`**, **`Footer`**, and **`defaultTheme`**.
+- Add a **React Email** welcome flow using **`block-onboarding-default`**, a **`heroes`** variant, and **`defaultTheme`**.
 - Scaffold a **magic link** or **OTP** auth email from **`block-auth-magic-link-default`** / **`block-auth-otp-default`**.
-- Build a **receipt** or **notification** layout using existing blocks and **`ProductCard`**.
-- Create an **MJML** variant with **`mjml-hero`** and **`mjml-footer`**, sharing the same theme tokens as React Email.
+- Build a **receipt** or **notification** layout using existing blocks and **`data-tables`** components.
+- Create an **MJML** variant of the same items from the **`mjml-react`** style — item names are identical across styles and share the same theme tokens.
 - Wire **`DefaultFonts`** and a **`tech-fonts`** preset to match a Resend-style demo.
 
-Install items with **`npx shadcn@latest add @emailcn/<name>`** or the **`https://emailcn.dev/r/<name>.json`** URL on each docs page, then import from **`@/components/emails/...`** as usual.
+Install items with **`npx shadcn@latest add @emailcn/<name>`** or the **`https://emailcn.dev/r/<style>/<name>.json`** URL on each docs page (styles: `react-email`, `mjml-react`, `jsx-email`), then import from **`@/components/emails/...`** as usual. See the [registry docs](/docs/registry) for configuring the `@emailcn` namespace per style.
