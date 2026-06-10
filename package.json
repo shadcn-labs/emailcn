@@ -26,6 +26,7 @@
     "fumadocs-core": "^16.7.16",
     "fumadocs-mdx": "^14.3.0",
     "jotai": "^2.19.1",
+    "jsx-email": "^3.0.1",
     "lucide-react": "1.8.0",
     "mjml-browser": "^5.0.1",
     "motion": "^12.38.0",
