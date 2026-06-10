@@ -37,10 +37,11 @@ import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { usePackageManager } from "@/hooks/use-package-manager";
 import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
+import type { PageTreeFolder } from "@/lib/page-tree";
 import {
   getCategoryFolders,
   getCurrentBase,
-  getFolderPages,
+  getFolderItems,
 } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
@@ -76,6 +77,32 @@ const parseDocPageUrl = (url: string): DocUrlKind => {
     return { kind: "template", slug: parts.at(-1) ?? "" };
   }
   return { kind: "page" };
+};
+
+const asText = (name: React.ReactNode) =>
+  typeof name === "string" ? name : String(name);
+
+/**
+ * Flatten a folder one nesting level deep, prefixing pages inside component
+ * family folders with the family name (e.g. "Bento Grids: Images with
+ * Captions") so search results stay unambiguous.
+ */
+const getSearchablePages = (folder: PageTreeFolder) => {
+  const pages: { name: string; url: string }[] = [];
+  for (const item of getFolderItems(folder)) {
+    if (item.type === "page") {
+      pages.push({ name: asText(item.page.name), url: item.page.url });
+      continue;
+    }
+    const family = asText(item.name);
+    if (item.index) {
+      pages.push({ name: family, url: item.index.url });
+    }
+    for (const page of item.pages) {
+      pages.push({ name: `${family}: ${asText(page.name)}`, url: page.url });
+    }
+  }
+  return pages;
 };
 
 const searchKeywordsFromUrl = (url: string) => {
@@ -200,31 +227,15 @@ export const CommandMenu = ({
 
       if (isComponentsFolder(item)) {
         for (const category of getCategoryFolders(item, currentBase)) {
-          const pages = getFolderPages(category).map((p) => ({
-            name: typeof p.name === "string" ? p.name : String(p.name),
-            url: p.url,
-          }));
+          const pages = getSearchablePages(category);
           if (pages.length > 0) {
-            groups.push({
-              label:
-                typeof category.name === "string"
-                  ? category.name
-                  : String(category.name),
-              pages,
-            });
+            groups.push({ label: asText(category.name), pages });
           }
         }
       } else {
-        const pages = getFolderPages(item).map((p) => ({
-          name: typeof p.name === "string" ? p.name : String(p.name),
-          url: p.url,
-        }));
+        const pages = getSearchablePages(item);
         if (pages.length > 0) {
-          groups.push({
-            label:
-              typeof item.name === "string" ? item.name : String(item.name),
-            pages,
-          });
+          groups.push({ label: asText(item.name), pages });
         }
       }
     }

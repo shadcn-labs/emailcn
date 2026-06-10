@@ -12,7 +12,7 @@ import { SITE } from "@/constants/site";
 import type { PackageManager } from "@/hooks/use-package-manager";
 import { usePackageManager } from "@/hooks/use-package-manager";
 import { cn } from "@/lib/utils";
-import registry from "@/registry.json";
+import registry from "@/registry-react-email.json";
 
 const pmCommands = {
   bun: "bunx --bun",

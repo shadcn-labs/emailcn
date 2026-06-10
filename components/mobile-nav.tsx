@@ -14,10 +14,11 @@ import {
 } from "@/components/ui/popover";
 import { ROUTES } from "@/constants/routes";
 import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
+import type { FolderItem } from "@/lib/page-tree";
 import {
   getCategoryFolders,
   getCurrentBase,
-  getFolderPages,
+  getFolderItems,
 } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
@@ -52,25 +53,59 @@ const MobileLink = ({
 
 const MobileNavGroup = ({
   label,
-  pages,
+  items,
   setOpen,
 }: {
   label: React.ReactNode;
-  pages: { url: string; name: React.ReactNode }[];
+  items: FolderItem[];
   setOpen: (open: boolean) => void;
 }) => {
-  if (pages.length === 0) {
+  if (items.length === 0) {
     return null;
   }
   return (
     <div className="flex flex-col gap-4">
       <div className="text-muted-foreground text-sm font-medium">{label}</div>
       <div className="flex flex-col gap-3">
-        {pages.map((page) => (
-          <MobileLink key={page.url} href={page.url} onOpenChange={setOpen}>
-            {page.name}
-          </MobileLink>
-        ))}
+        {items.map((item) => {
+          if (item.type === "page") {
+            return (
+              <MobileLink
+                key={item.page.url}
+                href={item.page.url}
+                onOpenChange={setOpen}
+              >
+                {item.page.name}
+              </MobileLink>
+            );
+          }
+          return (
+            <div
+              className="flex flex-col gap-3"
+              key={item.$id ?? item.index?.url}
+            >
+              {item.index ? (
+                <MobileLink href={item.index.url} onOpenChange={setOpen}>
+                  {item.name}
+                </MobileLink>
+              ) : (
+                <div className="text-2xl font-medium">{item.name}</div>
+              )}
+              <div className="flex flex-col gap-2 border-l pl-4">
+                {item.pages.map((page) => (
+                  <MobileLink
+                    className="text-lg"
+                    key={page.url}
+                    href={page.url}
+                    onOpenChange={setOpen}
+                  >
+                    {page.name}
+                  </MobileLink>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -161,7 +196,7 @@ export const MobileNav = ({
                 <MobileNavGroup
                   key={category.$id}
                   label={category.name}
-                  pages={getFolderPages(category)}
+                  items={getFolderItems(category)}
                   setOpen={setOpen}
                 />
               ));
@@ -171,7 +206,7 @@ export const MobileNav = ({
               <MobileNavGroup
                 key={item.$id}
                 label={item.name}
-                pages={getFolderPages(item)}
+                items={getFolderItems(item)}
                 setOpen={setOpen}
               />
             );

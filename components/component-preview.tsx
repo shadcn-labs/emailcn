@@ -1,5 +1,9 @@
 import { renderToMjml } from "@faire/mjml-react/utils/renderToMjml";
 import { render as renderReactEmail, toPlainText } from "@react-email/render";
+import {
+  render as renderJsxEmail,
+  renderPlainText as renderJsxEmailPlainText,
+} from "jsx-email";
 import mjml2html from "mjml-browser";
 
 import { ComponentPreviewClient } from "@/components/component-preview-client";
@@ -34,10 +38,16 @@ export const ComponentPreview = async ({
   let plainText: string | null = null;
 
   try {
+    if (!Demo) {
+      throw new Error(`No demo named "${name}" for base "${base}"`);
+    }
     if (base === "react-email") {
       const result = await renderReactEmail(<Demo />, { pretty: true });
       html = result;
       plainText = toPlainText(html);
+    } else if (base === "jsx-email") {
+      html = await renderJsxEmail(<Demo />, { pretty: true });
+      plainText = await renderJsxEmailPlainText(<Demo />);
     } else {
       const result = await mjml2html(renderToMjml(<Demo />), {
         keepComments: false,

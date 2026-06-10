@@ -2,7 +2,11 @@ import Link from "next/link";
 
 import { isComponentsFolder } from "@/lib/docs";
 import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
-import { getCategoryFolders, getFolderPages } from "@/lib/page-tree";
+import {
+  getCategoryFolders,
+  getFolderEntries,
+  getFolderPages,
+} from "@/lib/page-tree";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { DEFAULT_BASE } from "@/registry/bases";
@@ -50,7 +54,7 @@ const CategoryGrid = ({
 }) => (
   <div className={cn("flex flex-col gap-10", className)}>
     {categories.map((cat) => {
-      const pages = getFolderPages(cat);
+      const pages = getFolderEntries(cat);
       if (pages.length === 0) {
         return null;
       }
@@ -109,7 +113,7 @@ export const ComponentsList = ({
       return null;
     }
     return (
-      <ComponentGrid className={className} pages={getFolderPages(match)} />
+      <ComponentGrid className={className} pages={getFolderEntries(match)} />
     );
   }
 

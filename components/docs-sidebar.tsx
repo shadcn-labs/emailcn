@@ -1,8 +1,15 @@
 "use client";
 
+import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
   Sidebar,
   SidebarContent,
@@ -12,13 +19,17 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
 import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
+import type { FolderItem } from "@/lib/page-tree";
 import {
   getCategoryFolders,
   getCurrentBase,
-  getFolderPages,
+  getFolderItems,
 } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 
@@ -36,16 +47,105 @@ const TOP_LEVEL_SECTIONS = [
 const MENU_BUTTON_CLS =
   "data-[active=true]:bg-accent data-[active=true]:border-accent relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md";
 
+const SidebarPageItem = ({
+  page,
+  pathname,
+}: {
+  page: { url: string; name: React.ReactNode };
+  pathname: string;
+}) => (
+  <SidebarMenuItem>
+    <SidebarMenuButton
+      asChild
+      isActive={page.url === pathname}
+      className={MENU_BUTTON_CLS}
+    >
+      <Link href={page.url}>
+        <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
+        {page.name}
+      </Link>
+    </SidebarMenuButton>
+  </SidebarMenuItem>
+);
+
+const SidebarFamilyGroup = ({
+  group,
+  pathname,
+}: {
+  group: Extract<FolderItem, { type: "group" }>;
+  pathname: string;
+}) => {
+  const containsActive =
+    group.index?.url === pathname ||
+    group.pages.some((page) => page.url === pathname);
+  const [open, setOpen] = useState(containsActive);
+
+  useEffect(() => {
+    if (containsActive) {
+      setOpen(true);
+    }
+  }, [containsActive]);
+
+  return (
+    <Collapsible
+      asChild
+      className="group/collapsible"
+      onOpenChange={setOpen}
+      open={open}
+    >
+      <SidebarMenuItem>
+        <CollapsibleTrigger asChild>
+          <SidebarMenuButton
+            className={MENU_BUTTON_CLS}
+            isActive={group.index?.url === pathname}
+          >
+            {group.name}
+            <ChevronRightIcon className="size-3 transition-transform group-data-[state=open]/collapsible:rotate-90" />
+          </SidebarMenuButton>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <SidebarMenuSub className="mr-0 pr-0">
+            {group.index ? (
+              <SidebarMenuSubItem>
+                <SidebarMenuSubButton
+                  asChild
+                  className="text-[0.8rem]"
+                  isActive={group.index.url === pathname}
+                  size="sm"
+                >
+                  <Link href={group.index.url}>Overview</Link>
+                </SidebarMenuSubButton>
+              </SidebarMenuSubItem>
+            ) : null}
+            {group.pages.map((page) => (
+              <SidebarMenuSubItem key={page.url}>
+                <SidebarMenuSubButton
+                  asChild
+                  className="h-auto min-h-7 py-1 text-[0.8rem] whitespace-normal"
+                  isActive={page.url === pathname}
+                  size="sm"
+                >
+                  <Link href={page.url}>{page.name}</Link>
+                </SidebarMenuSubButton>
+              </SidebarMenuSubItem>
+            ))}
+          </SidebarMenuSub>
+        </CollapsibleContent>
+      </SidebarMenuItem>
+    </Collapsible>
+  );
+};
+
 const SidebarPageGroup = ({
   label,
-  pages,
+  items,
   pathname,
 }: {
   label: React.ReactNode;
-  pages: { url: string; name: React.ReactNode }[];
+  items: FolderItem[];
   pathname: string;
 }) => {
-  if (pages.length === 0) {
+  if (items.length === 0) {
     return null;
   }
   return (
@@ -55,20 +155,21 @@ const SidebarPageGroup = ({
       </SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
-          {pages.map((page) => (
-            <SidebarMenuItem key={page.url}>
-              <SidebarMenuButton
-                asChild
-                isActive={page.url === pathname}
-                className={MENU_BUTTON_CLS}
-              >
-                <Link href={page.url}>
-                  <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-                  {page.name}
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+          {items.map((item) =>
+            item.type === "page" ? (
+              <SidebarPageItem
+                key={item.page.url}
+                page={item.page}
+                pathname={pathname}
+              />
+            ) : (
+              <SidebarFamilyGroup
+                group={item}
+                key={item.$id ?? item.index?.url}
+                pathname={pathname}
+              />
+            )
+          )}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
@@ -134,7 +235,7 @@ export const DocsSidebar = ({
               <SidebarPageGroup
                 key={category.$id}
                 label={category.name}
-                pages={getFolderPages(category)}
+                items={getFolderItems(category)}
                 pathname={pathname}
               />
             ));
@@ -144,7 +245,7 @@ export const DocsSidebar = ({
             <SidebarPageGroup
               key={item.$id}
               label={item.name}
-              pages={getFolderPages(item)}
+              items={getFolderItems(item)}
               pathname={pathname}
             />
           );

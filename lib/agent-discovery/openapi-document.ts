@@ -94,8 +94,19 @@ export const buildOpenApiDocument = (
           summary: "This OpenAPI document",
         },
       },
-      "/r/registry.json": {
+      "/r/{style}/registry.json": {
         get: {
+          parameters: [
+            {
+              in: "path",
+              name: "style",
+              required: true,
+              schema: {
+                enum: ["react-email", "mjml-react", "jsx-email"],
+                type: "string",
+              },
+            },
+          ],
           responses: {
             "200": {
               content: {
@@ -106,7 +117,7 @@ export const buildOpenApiDocument = (
               description: "Registry manifest",
             },
           },
-          summary: "shadcn/ui component registry index",
+          summary: "shadcn/ui component registry index (per style)",
         },
       },
       [ROUTES.DOCS]: {

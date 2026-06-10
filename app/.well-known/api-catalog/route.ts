@@ -39,7 +39,7 @@ const catalogLinkset = (origin: string) => {
         status: [{ href: `${base}/api/status`, type: "application/json" }],
       },
       {
-        anchor: `${base}/r/registry.json`,
+        anchor: `${base}/r/react-email/registry.json`,
         "service-desc": [
           { href: `${base}/openapi.json`, type: "application/json" },
         ],
