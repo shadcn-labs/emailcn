@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "homepage": "https://emailcn.dev",
+  "homepage": "https://emailcn.vercel.app",
   "items": [
     {
       "categories": [
@@ -382,8 +382,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -405,8 +405,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -428,8 +428,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -451,8 +451,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -474,8 +474,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -497,8 +497,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -520,8 +520,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -543,8 +543,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -566,8 +566,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -589,8 +589,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -612,8 +612,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -635,8 +635,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -658,8 +658,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -681,8 +681,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -704,8 +704,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -727,8 +727,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -750,8 +750,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -773,8 +773,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -796,8 +796,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -819,8 +819,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -842,8 +842,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -865,8 +865,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -888,8 +888,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -911,8 +911,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -934,8 +934,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -957,8 +957,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -980,8 +980,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1003,8 +1003,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1026,8 +1026,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1049,8 +1049,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1072,8 +1072,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1095,8 +1095,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1118,8 +1118,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1141,8 +1141,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1164,8 +1164,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1187,8 +1187,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1210,8 +1210,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1233,8 +1233,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1256,8 +1256,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1279,8 +1279,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1302,8 +1302,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1325,8 +1325,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1348,8 +1348,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1371,8 +1371,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1394,8 +1394,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1417,8 +1417,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1440,8 +1440,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1463,8 +1463,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1486,8 +1486,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1509,8 +1509,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1532,8 +1532,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1555,8 +1555,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1578,8 +1578,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1601,8 +1601,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1624,8 +1624,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1647,8 +1647,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1670,8 +1670,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1693,8 +1693,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1716,8 +1716,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1739,8 +1739,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1762,8 +1762,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1785,8 +1785,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1808,8 +1808,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1831,8 +1831,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1854,8 +1854,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1877,8 +1877,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1900,8 +1900,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1923,8 +1923,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1946,8 +1946,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1969,8 +1969,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1992,8 +1992,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2015,8 +2015,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2038,8 +2038,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2061,8 +2061,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2084,8 +2084,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2107,8 +2107,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2130,8 +2130,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2153,8 +2153,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2176,8 +2176,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2199,8 +2199,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2222,8 +2222,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2245,8 +2245,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2268,8 +2268,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2291,8 +2291,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2314,8 +2314,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2337,8 +2337,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2360,8 +2360,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2383,8 +2383,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2406,8 +2406,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2429,8 +2429,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2452,8 +2452,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2475,8 +2475,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2498,8 +2498,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2521,8 +2521,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2544,8 +2544,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2567,8 +2567,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2590,8 +2590,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2613,8 +2613,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2636,8 +2636,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2659,8 +2659,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2682,8 +2682,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2705,8 +2705,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2728,8 +2728,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2751,8 +2751,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2774,8 +2774,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2797,8 +2797,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2820,8 +2820,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2843,8 +2843,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2866,8 +2866,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2889,8 +2889,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2912,8 +2912,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2935,8 +2935,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2958,8 +2958,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2981,8 +2981,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3004,8 +3004,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3027,8 +3027,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3050,8 +3050,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3073,8 +3073,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3096,8 +3096,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3119,8 +3119,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3142,8 +3142,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3165,8 +3165,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3188,8 +3188,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3211,8 +3211,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3234,8 +3234,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3257,8 +3257,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3280,8 +3280,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3303,8 +3303,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3326,8 +3326,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3349,8 +3349,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3372,8 +3372,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3395,8 +3395,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3418,8 +3418,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3441,8 +3441,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3464,8 +3464,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3487,8 +3487,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3510,8 +3510,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3533,8 +3533,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3556,8 +3556,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3579,8 +3579,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3602,8 +3602,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3625,8 +3625,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3648,8 +3648,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3671,8 +3671,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3694,8 +3694,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3717,8 +3717,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3740,8 +3740,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3763,8 +3763,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3786,8 +3786,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3809,8 +3809,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3832,8 +3832,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3855,8 +3855,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3878,8 +3878,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3901,8 +3901,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3924,8 +3924,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3947,8 +3947,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3970,8 +3970,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -3993,8 +3993,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4016,8 +4016,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4039,8 +4039,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4062,8 +4062,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4085,8 +4085,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4108,8 +4108,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4131,8 +4131,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4154,8 +4154,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4177,8 +4177,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4200,8 +4200,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4223,8 +4223,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4246,8 +4246,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4269,8 +4269,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4292,8 +4292,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4315,8 +4315,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4338,8 +4338,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4361,8 +4361,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4384,8 +4384,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4407,8 +4407,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4430,8 +4430,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4453,8 +4453,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4476,8 +4476,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4499,8 +4499,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4522,8 +4522,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4545,8 +4545,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/default-fonts.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4568,7 +4568,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4590,7 +4590,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-raycast.json"
+        "https://emailcn.vercel.app/r/react-email/theme-raycast.json"
       ]
     },
     {
@@ -4612,7 +4612,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-stripe.json"
+        "https://emailcn.vercel.app/r/react-email/theme-stripe.json"
       ]
     },
     {
@@ -4634,7 +4634,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4656,7 +4656,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-twitch.json"
+        "https://emailcn.vercel.app/r/react-email/theme-twitch.json"
       ]
     },
     {
@@ -4678,7 +4678,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4700,7 +4700,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-dropbox.json"
+        "https://emailcn.vercel.app/r/react-email/theme-dropbox.json"
       ]
     },
     {
@@ -4722,7 +4722,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-notion.json"
+        "https://emailcn.vercel.app/r/react-email/theme-notion.json"
       ]
     },
     {
@@ -4744,7 +4744,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4766,7 +4766,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-vercel.json"
+        "https://emailcn.vercel.app/r/react-email/theme-vercel.json"
       ]
     },
     {
@@ -4788,8 +4788,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/content.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/content.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4811,8 +4811,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/content.json",
-        "https://emailcn.dev/r/react-email/theme-stack-overflow.json"
+        "https://emailcn.vercel.app/r/react-email/content.json",
+        "https://emailcn.vercel.app/r/react-email/theme-stack-overflow.json"
       ]
     },
     {
@@ -4834,7 +4834,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-airbnb.json"
+        "https://emailcn.vercel.app/r/react-email/theme-airbnb.json"
       ]
     },
     {
@@ -4856,7 +4856,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4878,7 +4878,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-linear.json"
+        "https://emailcn.vercel.app/r/react-email/theme-linear.json"
       ]
     },
     {
@@ -4900,7 +4900,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/theme-slack.json"
+        "https://emailcn.vercel.app/r/react-email/theme-slack.json"
       ]
     },
     {
@@ -4922,11 +4922,11 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/content.json",
-        "https://emailcn.dev/r/react-email/cta-with-title-and-action-lead.json",
-        "https://emailcn.dev/r/react-email/footer-with-text-menu-and-socials.json",
-        "https://emailcn.dev/r/react-email/hero-with-overlayed-content.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/content.json",
+        "https://emailcn.vercel.app/r/react-email/cta-with-title-and-action-lead.json",
+        "https://emailcn.vercel.app/r/react-email/footer-with-text-menu-and-socials.json",
+        "https://emailcn.vercel.app/r/react-email/hero-with-overlayed-content.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -4948,12 +4948,12 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/content.json",
-        "https://emailcn.dev/r/react-email/cta-with-title-and-action-lead.json",
-        "https://emailcn.dev/r/react-email/footer-with-text-menu-and-socials.json",
-        "https://emailcn.dev/r/react-email/header-with-logo-and-menu.json",
-        "https://emailcn.dev/r/react-email/hero-with-overlayed-content.json",
-        "https://emailcn.dev/r/react-email/theme-linear.json"
+        "https://emailcn.vercel.app/r/react-email/content.json",
+        "https://emailcn.vercel.app/r/react-email/cta-with-title-and-action-lead.json",
+        "https://emailcn.vercel.app/r/react-email/footer-with-text-menu-and-socials.json",
+        "https://emailcn.vercel.app/r/react-email/header-with-logo-and-menu.json",
+        "https://emailcn.vercel.app/r/react-email/hero-with-overlayed-content.json",
+        "https://emailcn.vercel.app/r/react-email/theme-linear.json"
       ]
     },
     {
@@ -4975,12 +4975,12 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/content.json",
-        "https://emailcn.dev/r/react-email/cta-with-title-and-action-lead.json",
-        "https://emailcn.dev/r/react-email/footer-with-text-menu-and-socials.json",
-        "https://emailcn.dev/r/react-email/header-with-logo-and-menu.json",
-        "https://emailcn.dev/r/react-email/hero-with-overlayed-content.json",
-        "https://emailcn.dev/r/react-email/theme-vercel.json"
+        "https://emailcn.vercel.app/r/react-email/content.json",
+        "https://emailcn.vercel.app/r/react-email/cta-with-title-and-action-lead.json",
+        "https://emailcn.vercel.app/r/react-email/footer-with-text-menu-and-socials.json",
+        "https://emailcn.vercel.app/r/react-email/header-with-logo-and-menu.json",
+        "https://emailcn.vercel.app/r/react-email/hero-with-overlayed-content.json",
+        "https://emailcn.vercel.app/r/react-email/theme-vercel.json"
       ]
     },
     {
@@ -5002,8 +5002,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/product-list-with-rows.json",
-        "https://emailcn.dev/r/react-email/theme-apple.json"
+        "https://emailcn.vercel.app/r/react-email/product-list-with-rows.json",
+        "https://emailcn.vercel.app/r/react-email/theme-apple.json"
       ]
     },
     {
@@ -5025,8 +5025,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/product-list-with-rows.json",
-        "https://emailcn.dev/r/react-email/theme-default.json"
+        "https://emailcn.vercel.app/r/react-email/product-list-with-rows.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
     {
@@ -5048,8 +5048,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/product-list-with-rows.json",
-        "https://emailcn.dev/r/react-email/theme-nike.json"
+        "https://emailcn.vercel.app/r/react-email/product-list-with-rows.json",
+        "https://emailcn.vercel.app/r/react-email/theme-nike.json"
       ]
     },
     {
@@ -5071,8 +5071,8 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/react-email/product-list-with-rows.json",
-        "https://emailcn.dev/r/react-email/theme-stripe.json"
+        "https://emailcn.vercel.app/r/react-email/product-list-with-rows.json",
+        "https://emailcn.vercel.app/r/react-email/theme-stripe.json"
       ]
     }
   ],

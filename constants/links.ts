@@ -9,7 +9,7 @@ const GITHUB_URL = `https://github.com/${GITHUB.org}/${GITHUB.repo}`;
 
 export const LINK = {
   DISCORD: "https://discord.gg/N6G36KhYK4",
-  EMAILCN: "https://emailcn.dev",
+  EMAILCN: "https://emailcn.vercel.app",
   GITHUB: GITHUB_URL,
   LICENSE: `${GITHUB_URL}/blob/${GITHUB.branch}/LICENSE`,
   PORTFOLIO: "https://aniketpawar.com",

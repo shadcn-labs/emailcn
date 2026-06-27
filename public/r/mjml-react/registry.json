@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "homepage": "https://emailcn.dev",
+  "homepage": "https://emailcn.vercel.app",
   "items": [
     {
       "categories": [
@@ -256,7 +256,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -279,7 +279,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -302,7 +302,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -325,7 +325,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -348,7 +348,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -371,7 +371,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -394,7 +394,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -417,7 +417,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -440,7 +440,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -463,7 +463,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -486,7 +486,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -509,7 +509,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -532,7 +532,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -555,7 +555,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -578,7 +578,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -601,7 +601,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -624,7 +624,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -647,7 +647,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -670,7 +670,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -693,7 +693,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -716,7 +716,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -739,7 +739,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -762,7 +762,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -785,7 +785,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -808,7 +808,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -831,7 +831,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -854,7 +854,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -877,7 +877,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -900,7 +900,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -923,7 +923,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -946,7 +946,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -969,7 +969,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -992,7 +992,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1015,7 +1015,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1038,7 +1038,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1061,7 +1061,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1084,7 +1084,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1107,7 +1107,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1130,7 +1130,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1153,7 +1153,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1176,7 +1176,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1199,7 +1199,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1222,7 +1222,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1245,7 +1245,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1268,7 +1268,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1291,7 +1291,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1314,7 +1314,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1337,7 +1337,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1360,7 +1360,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1383,7 +1383,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1406,7 +1406,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1429,7 +1429,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1452,7 +1452,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1475,7 +1475,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1498,7 +1498,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1521,7 +1521,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1544,7 +1544,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1567,7 +1567,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1590,7 +1590,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1613,7 +1613,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1636,7 +1636,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1659,7 +1659,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1682,7 +1682,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1705,7 +1705,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1728,7 +1728,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1751,7 +1751,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1774,7 +1774,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1797,7 +1797,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1820,7 +1820,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1843,7 +1843,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1866,7 +1866,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1889,7 +1889,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1912,7 +1912,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1935,7 +1935,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1958,7 +1958,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -1981,7 +1981,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2004,7 +2004,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2027,7 +2027,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2050,7 +2050,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2073,7 +2073,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2096,7 +2096,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2119,7 +2119,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2142,7 +2142,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2165,7 +2165,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2188,7 +2188,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2211,7 +2211,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2234,7 +2234,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2257,7 +2257,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2280,7 +2280,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2303,7 +2303,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2326,7 +2326,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2349,7 +2349,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2372,7 +2372,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2395,7 +2395,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2418,7 +2418,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2441,7 +2441,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2464,7 +2464,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2487,7 +2487,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2510,7 +2510,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2533,7 +2533,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2556,7 +2556,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2579,7 +2579,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2602,7 +2602,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2625,7 +2625,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2648,7 +2648,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2671,7 +2671,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2694,7 +2694,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2717,7 +2717,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2740,7 +2740,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2763,7 +2763,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2786,7 +2786,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2809,7 +2809,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2832,7 +2832,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2855,7 +2855,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2878,7 +2878,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2901,7 +2901,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2924,7 +2924,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2947,7 +2947,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2970,7 +2970,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2993,7 +2993,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3016,7 +3016,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3039,7 +3039,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3062,7 +3062,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3085,7 +3085,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3108,7 +3108,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3131,7 +3131,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3154,7 +3154,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3177,7 +3177,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3200,7 +3200,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3223,7 +3223,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3246,7 +3246,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3269,7 +3269,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3292,7 +3292,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3315,7 +3315,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3338,7 +3338,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3361,7 +3361,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3384,7 +3384,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3407,7 +3407,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3430,7 +3430,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3453,7 +3453,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3476,7 +3476,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3499,7 +3499,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3522,7 +3522,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3545,7 +3545,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3568,7 +3568,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3591,7 +3591,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3614,7 +3614,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3637,7 +3637,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3660,7 +3660,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3683,7 +3683,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3706,7 +3706,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3729,7 +3729,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3752,7 +3752,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3775,7 +3775,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3798,7 +3798,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3821,7 +3821,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3844,7 +3844,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3867,7 +3867,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3890,7 +3890,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3913,7 +3913,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3936,7 +3936,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3959,7 +3959,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3982,7 +3982,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4005,7 +4005,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4028,7 +4028,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4051,7 +4051,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4074,7 +4074,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4097,7 +4097,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4120,7 +4120,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4143,7 +4143,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4166,7 +4166,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4189,7 +4189,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4212,7 +4212,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4235,7 +4235,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4258,7 +4258,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4281,7 +4281,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4304,7 +4304,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4327,7 +4327,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4350,7 +4350,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4373,7 +4373,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4396,7 +4396,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4419,7 +4419,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4442,7 +4442,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4465,8 +4465,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-raycast.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-raycast.json"
       ]
     },
     {
@@ -4489,8 +4489,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-stripe.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-stripe.json"
       ]
     },
     {
@@ -4513,7 +4513,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4536,8 +4536,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-twitch.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-twitch.json"
       ]
     },
     {
@@ -4560,7 +4560,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4583,8 +4583,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-dropbox.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-dropbox.json"
       ]
     },
     {
@@ -4607,8 +4607,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-notion.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-notion.json"
       ]
     },
     {
@@ -4631,7 +4631,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4654,8 +4654,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-vercel.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-vercel.json"
       ]
     },
     {
@@ -4678,7 +4678,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4701,8 +4701,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-stack-overflow.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-stack-overflow.json"
       ]
     },
     {
@@ -4725,8 +4725,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-airbnb.json",
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4749,7 +4749,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4772,8 +4772,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-linear.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-linear.json"
       ]
     },
     {
@@ -4796,8 +4796,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-slack.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-slack.json"
       ]
     },
     {
@@ -4820,7 +4820,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4843,8 +4843,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-linear.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-linear.json"
       ]
     },
     {
@@ -4867,8 +4867,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-vercel.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-vercel.json"
       ]
     },
     {
@@ -4891,8 +4891,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-apple.json",
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-apple.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4915,7 +4915,7 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4938,8 +4938,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-nike.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-nike.json"
       ]
     },
     {
@@ -4962,8 +4962,8 @@
         "mjml-browser"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/mjml-react/theme-default.json",
-        "https://emailcn.dev/r/mjml-react/theme-stripe.json"
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-stripe.json"
       ]
     }
   ],

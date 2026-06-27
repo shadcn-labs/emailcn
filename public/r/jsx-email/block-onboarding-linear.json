@@ -7,9 +7,9 @@
     "jsx-email"
   ],
   "registryDependencies": [
-    "https://emailcn.dev/r/jsx-email/default-fonts.json",
-    "https://emailcn.dev/r/jsx-email/theme-default.json",
-    "https://emailcn.dev/r/jsx-email/theme-linear.json"
+    "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+    "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
+    "https://emailcn.vercel.app/r/jsx-email/theme-linear.json"
   ],
   "files": [
     {

@@ -7,7 +7,7 @@
     "jsx-email"
   ],
   "registryDependencies": [
-    "https://emailcn.dev/r/jsx-email/theme-default.json"
+    "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
   ],
   "files": [
     {

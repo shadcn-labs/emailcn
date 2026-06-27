@@ -7,12 +7,12 @@
     "react-email"
   ],
   "registryDependencies": [
-    "https://emailcn.dev/r/react-email/content.json",
-    "https://emailcn.dev/r/react-email/cta-with-title-and-action-lead.json",
-    "https://emailcn.dev/r/react-email/footer-with-text-menu-and-socials.json",
-    "https://emailcn.dev/r/react-email/header-with-logo-and-menu.json",
-    "https://emailcn.dev/r/react-email/hero-with-overlayed-content.json",
-    "https://emailcn.dev/r/react-email/theme-vercel.json"
+    "https://emailcn.vercel.app/r/react-email/content.json",
+    "https://emailcn.vercel.app/r/react-email/cta-with-title-and-action-lead.json",
+    "https://emailcn.vercel.app/r/react-email/footer-with-text-menu-and-socials.json",
+    "https://emailcn.vercel.app/r/react-email/header-with-logo-and-menu.json",
+    "https://emailcn.vercel.app/r/react-email/hero-with-overlayed-content.json",
+    "https://emailcn.vercel.app/r/react-email/theme-vercel.json"
   ],
   "files": [
     {

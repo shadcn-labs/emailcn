@@ -11,7 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const REGISTRY_URL = "https://emailcn.dev/r";
+const REGISTRY_URL = "https://emailcn.vercel.app/r";
 
 const BASES = [
   {
@@ -211,7 +211,7 @@ for (const base of BASES) {
 
   const registry = {
     $schema: "https://ui.shadcn.com/schema/registry.json",
-    homepage: "https://emailcn.dev",
+    homepage: "https://emailcn.vercel.app",
     items,
     name: "emailcn",
   };

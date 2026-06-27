@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "homepage": "https://emailcn.dev",
+  "homepage": "https://emailcn.vercel.app",
   "items": [
     {
       "categories": [
@@ -340,7 +340,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -362,7 +362,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -384,7 +384,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -406,7 +406,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -428,7 +428,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -450,7 +450,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -472,7 +472,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -494,7 +494,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -516,7 +516,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -538,7 +538,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -560,7 +560,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -582,7 +582,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -604,7 +604,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -626,7 +626,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -648,7 +648,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -670,7 +670,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -692,7 +692,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -714,7 +714,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -736,7 +736,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -758,7 +758,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -780,7 +780,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -802,7 +802,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -824,7 +824,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -846,7 +846,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -868,7 +868,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -890,7 +890,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -912,7 +912,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -934,7 +934,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -956,7 +956,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -978,7 +978,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1000,7 +1000,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1022,7 +1022,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1044,7 +1044,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1066,7 +1066,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1088,7 +1088,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1110,7 +1110,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1132,7 +1132,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1154,7 +1154,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1176,7 +1176,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1198,7 +1198,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1220,7 +1220,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1242,7 +1242,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1264,7 +1264,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1286,7 +1286,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1308,7 +1308,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1330,7 +1330,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1352,7 +1352,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1374,7 +1374,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1396,7 +1396,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1418,7 +1418,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1440,7 +1440,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1462,7 +1462,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1484,7 +1484,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1506,7 +1506,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1528,7 +1528,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1550,7 +1550,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1572,7 +1572,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1594,7 +1594,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1616,7 +1616,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1638,7 +1638,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1660,7 +1660,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1682,7 +1682,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1704,7 +1704,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1726,7 +1726,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1748,7 +1748,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1770,7 +1770,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1792,7 +1792,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1814,7 +1814,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1836,7 +1836,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1858,7 +1858,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1880,7 +1880,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1902,7 +1902,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1924,7 +1924,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1946,7 +1946,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1968,7 +1968,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -1990,7 +1990,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2012,7 +2012,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2034,7 +2034,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2056,7 +2056,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2078,7 +2078,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2100,7 +2100,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2122,7 +2122,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2144,7 +2144,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2166,7 +2166,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2188,7 +2188,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2210,7 +2210,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2232,7 +2232,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2254,7 +2254,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2276,7 +2276,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2298,7 +2298,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2320,7 +2320,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2342,7 +2342,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2364,7 +2364,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2386,7 +2386,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2408,7 +2408,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2430,7 +2430,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2452,7 +2452,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2474,7 +2474,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2496,7 +2496,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2518,7 +2518,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2540,7 +2540,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2562,7 +2562,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2584,7 +2584,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2606,7 +2606,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2628,7 +2628,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2650,7 +2650,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2672,7 +2672,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2694,7 +2694,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2716,7 +2716,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2738,7 +2738,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2760,7 +2760,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2782,7 +2782,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2804,7 +2804,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2826,7 +2826,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2848,7 +2848,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2870,7 +2870,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2892,7 +2892,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2914,7 +2914,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2936,7 +2936,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2958,7 +2958,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -2980,7 +2980,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3002,7 +3002,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3024,7 +3024,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3046,7 +3046,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3068,7 +3068,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3090,7 +3090,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3112,7 +3112,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3134,7 +3134,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3156,7 +3156,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3178,7 +3178,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3200,7 +3200,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3222,7 +3222,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3244,7 +3244,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3266,7 +3266,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3288,7 +3288,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3310,7 +3310,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3332,7 +3332,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3354,7 +3354,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3376,7 +3376,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3398,7 +3398,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3420,7 +3420,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3442,7 +3442,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3464,7 +3464,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3486,7 +3486,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3508,7 +3508,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3530,7 +3530,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3552,7 +3552,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3574,7 +3574,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3596,7 +3596,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3618,7 +3618,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3640,7 +3640,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3662,7 +3662,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3684,7 +3684,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3706,7 +3706,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3728,7 +3728,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3750,7 +3750,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3772,7 +3772,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3794,7 +3794,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3816,7 +3816,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3838,7 +3838,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3860,7 +3860,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3882,7 +3882,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3904,7 +3904,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3926,7 +3926,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3948,7 +3948,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3970,7 +3970,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -3992,7 +3992,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4014,7 +4014,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4036,7 +4036,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4058,7 +4058,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4080,7 +4080,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4102,7 +4102,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4124,7 +4124,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4146,7 +4146,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4168,7 +4168,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4190,7 +4190,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4212,7 +4212,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4234,7 +4234,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4256,7 +4256,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4278,7 +4278,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4300,7 +4300,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4322,7 +4322,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4344,8 +4344,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4367,8 +4367,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-raycast.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-raycast.json"
       ]
     },
     {
@@ -4390,8 +4390,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-stripe.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-stripe.json"
       ]
     },
     {
@@ -4413,8 +4413,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4436,8 +4436,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-twitch.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-twitch.json"
       ]
     },
     {
@@ -4459,8 +4459,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4482,8 +4482,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-dropbox.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-dropbox.json"
       ]
     },
     {
@@ -4505,8 +4505,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-notion.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-notion.json"
       ]
     },
     {
@@ -4528,8 +4528,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4551,8 +4551,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-vercel.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-vercel.json"
       ]
     },
     {
@@ -4574,7 +4574,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4596,8 +4596,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json",
-        "https://emailcn.dev/r/jsx-email/theme-stack-overflow.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-stack-overflow.json"
       ]
     },
     {
@@ -4619,7 +4619,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-airbnb.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-airbnb.json"
       ]
     },
     {
@@ -4641,7 +4641,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4663,7 +4663,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-linear.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-linear.json"
       ]
     },
     {
@@ -4685,7 +4685,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/theme-slack.json"
+        "https://emailcn.vercel.app/r/jsx-email/theme-slack.json"
       ]
     },
     {
@@ -4707,8 +4707,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4730,9 +4730,9 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json",
-        "https://emailcn.dev/r/jsx-email/theme-linear.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-linear.json"
       ]
     },
     {
@@ -4754,9 +4754,9 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json",
-        "https://emailcn.dev/r/jsx-email/theme-vercel.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-vercel.json"
       ]
     },
     {
@@ -4778,9 +4778,9 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-apple.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-apple.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4802,8 +4802,8 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -4825,9 +4825,9 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json",
-        "https://emailcn.dev/r/jsx-email/theme-nike.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-nike.json"
       ]
     },
     {
@@ -4849,9 +4849,9 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.dev/r/jsx-email/default-fonts.json",
-        "https://emailcn.dev/r/jsx-email/theme-default.json",
-        "https://emailcn.dev/r/jsx-email/theme-stripe.json"
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
+        "https://emailcn.vercel.app/r/jsx-email/theme-stripe.json"
       ]
     }
   ],

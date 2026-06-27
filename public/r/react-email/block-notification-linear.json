@@ -7,7 +7,7 @@
     "react-email"
   ],
   "registryDependencies": [
-    "https://emailcn.dev/r/react-email/theme-linear.json"
+    "https://emailcn.vercel.app/r/react-email/theme-linear.json"
   ],
   "files": [
     {

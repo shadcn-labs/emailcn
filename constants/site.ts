@@ -1,4 +1,4 @@
-export const FALLBACK_SITE_ORIGIN = "https://emailcn.dev" as const;
+export const FALLBACK_SITE_ORIGIN = "https://emailcn.vercel.app" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {
