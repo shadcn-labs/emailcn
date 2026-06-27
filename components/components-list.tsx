@@ -19,6 +19,22 @@ const getFolder = (name: string): PageTreeFolder | undefined => {
   }
 };
 
+const matchFolder = (
+  folders: PageTreeFolder[],
+  key: string
+): PageTreeFolder | undefined =>
+  folders.find(
+    (folder) =>
+      folder.$id === key ||
+      String(folder.$id ?? "").endsWith(`/${key}`) ||
+      (typeof folder.name === "string" &&
+        (folder.name.toLowerCase() === key.toLowerCase() ||
+          folder.name.split(" ").join("-").toLowerCase() === key.toLowerCase()))
+  );
+
+const getChildFolders = (folder: PageTreeFolder): PageTreeFolder[] =>
+  folder.children.filter((c): c is PageTreeFolder => c.type === "folder");
+
 const ComponentGrid = ({
   className,
   pages,
@@ -74,11 +90,13 @@ const CategoryGrid = ({
 export const ComponentsList = ({
   folderName = "Components",
   category,
+  subcategory,
   base = DEFAULT_BASE,
   className,
 }: {
   folderName?: string;
   category?: string;
+  subcategory?: string;
   base?: string;
   className?: string;
 }) => {
@@ -102,16 +120,24 @@ export const ComponentsList = ({
   const categories = getCategoryFolders(folder, base);
 
   if (category) {
-    const match = categories.find(
-      (cat) =>
-        cat.$id === category ||
-        String(cat.$id ?? "").endsWith(`/${category}`) ||
-        (typeof cat.name === "string" &&
-          cat.name.toLowerCase() === category.toLowerCase())
-    );
+    const match = matchFolder(categories, category);
     if (!match) {
       return null;
     }
+
+    if (subcategory) {
+      const subMatch = matchFolder(getChildFolders(match), subcategory);
+      if (!subMatch) {
+        return null;
+      }
+      return (
+        <ComponentGrid
+          className={className}
+          pages={getFolderEntries(subMatch)}
+        />
+      );
+    }
+
     return (
       <ComponentGrid className={className} pages={getFolderEntries(match)} />
     );

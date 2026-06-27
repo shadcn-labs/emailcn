@@ -181,7 +181,8 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
                   ["components", "blocks"].includes(params.slug[0]) &&
                   params.slug[1] &&
                   params.slug[2] &&
-                  params.slug[3] && (
+                  params.slug[3] &&
+                  params.slug[4] && (
                     <DocsBaseSwitcher
                       base={params.slug[1]}
                       component={params.slug.slice(2).join("/")}
