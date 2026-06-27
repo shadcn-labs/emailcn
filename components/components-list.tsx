@@ -3,7 +3,8 @@ import Link from "next/link";
 import { isComponentsFolder } from "@/lib/docs";
 import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
 import {
-  getCategoryFolders,
+  childFolders,
+  findChildFolder,
   getFolderEntries,
   getFolderPages,
 } from "@/lib/page-tree";
@@ -18,22 +19,6 @@ const getFolder = (name: string): PageTreeFolder | undefined => {
     }
   }
 };
-
-const matchFolder = (
-  folders: PageTreeFolder[],
-  key: string
-): PageTreeFolder | undefined =>
-  folders.find(
-    (folder) =>
-      folder.$id === key ||
-      String(folder.$id ?? "").endsWith(`/${key}`) ||
-      (typeof folder.name === "string" &&
-        (folder.name.toLowerCase() === key.toLowerCase() ||
-          folder.name.split(" ").join("-").toLowerCase() === key.toLowerCase()))
-  );
-
-const getChildFolders = (folder: PageTreeFolder): PageTreeFolder[] =>
-  folder.children.filter((c): c is PageTreeFolder => c.type === "folder");
 
 const ComponentGrid = ({
   className,
@@ -107,42 +92,37 @@ export const ComponentsList = ({
 
   if (!isComponentsFolder(folder)) {
     const pages = getFolderPages(folder, base);
-    if (pages.length > 0) {
-      return <ComponentGrid className={className} pages={pages} />;
-    }
-    const allPages = getFolderPages(folder);
-    if (allPages.length === 0) {
+    const fallback = pages.length > 0 ? pages : getFolderPages(folder);
+    if (fallback.length === 0) {
       return null;
     }
-    return <ComponentGrid className={className} pages={allPages} />;
+    return <ComponentGrid className={className} pages={fallback} />;
   }
 
-  const categories = getCategoryFolders(folder, base);
+  const baseFolder = findChildFolder(folder, base);
+  if (!baseFolder) {
+    return null;
+  }
 
   if (category) {
-    const match = matchFolder(categories, category);
-    if (!match) {
+    const categoryFolder = findChildFolder(baseFolder, category);
+    if (!categoryFolder) {
       return null;
     }
 
-    if (subcategory) {
-      const subMatch = matchFolder(getChildFolders(match), subcategory);
-      if (!subMatch) {
-        return null;
-      }
-      return (
-        <ComponentGrid
-          className={className}
-          pages={getFolderEntries(subMatch)}
-        />
-      );
+    const target = subcategory
+      ? findChildFolder(categoryFolder, subcategory)
+      : categoryFolder;
+    if (!target) {
+      return null;
     }
 
     return (
-      <ComponentGrid className={className} pages={getFolderEntries(match)} />
+      <ComponentGrid className={className} pages={getFolderEntries(target)} />
     );
   }
 
+  const categories = childFolders(baseFolder);
   if (categories.length === 0) {
     return null;
   }
