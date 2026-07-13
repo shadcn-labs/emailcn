@@ -4,117 +4,55 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
-  MjmlButton,
   MjmlColumn,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type CouponCenteredVariant =
+export type CouponsWithCenteredTextVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface CouponCenteredProps {
+export interface CouponsWithCenteredTextProps {
   theme?: EmailThemeTokens;
-  code?: string;
+  heading?: string;
   discount?: string;
+  code?: string;
   description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: CouponCenteredVariant;
+  variant?: CouponsWithCenteredTextVariant;
 }
 
-const CouponCenteredSection = ({
-  code,
-  ctaHref,
-  ctaLabel,
-  description,
-  discount,
-  theme,
-  variant,
-}: {
-  code: string;
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  discount: string;
-  theme: EmailThemeTokens;
-  variant: CouponCenteredVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "12px"}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {discount}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamilyMono}
-        fontSize="28px"
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {code}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase ?? "14px"}
-        paddingBottom={theme.spacingLg ?? "24px"}
-      >
-        {description}
-      </MjmlText>
-      {ctaLabel && ctaHref ? (
-        <MjmlButton
-          align="center"
-          backgroundColor={theme.colorPrimary}
-          borderRadius={theme.borderRadius}
-          color={theme.colorPrimaryForeground}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "14px"}
-          fontWeight={theme.fontWeightMedium}
-          href={ctaHref}
-          innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
-        >
-          {ctaLabel}
-        </MjmlButton>
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: CouponsWithCenteredTextVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const CouponsWithCenteredText = ({
   theme = defaultTheme,
-  code = "SAVE20",
-  discount = "20% OFF",
-  description = "Use code at checkout to receive your discount.",
-  ctaLabel = "Shop Now",
-  ctaHref = "#",
+  heading = "Your Coupon",
+  discount = "15% OFF",
+  code = "WELCOME15",
+  description = "Welcome discount for new customers",
   variant = "default",
-}: CouponCenteredProps) => (
+}: CouponsWithCenteredTextProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>coupon centered</MjmlPreview>
+      <MjmlPreview>{discount}</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -125,27 +63,68 @@ export const CouponsWithCenteredText = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <CouponCenteredSection
-          code={code}
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          description={description}
-          discount={discount}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding="64px 0"
+      >
+        <MjmlColumn>
+          {heading ? (
+            <MjmlText
+              align="center"
+              color={theme.colorTextMuted}
+              fontSize={theme.fontSizeLg}
+              fontWeight={theme.fontWeightMedium}
+              paddingBottom="16px"
+            >
+              {heading}
+            </MjmlText>
+          ) : null}
+          <MjmlText
+            align="center"
+            color={theme.colorPrimary}
+            fontSize={theme.fontSizeXl}
+            fontWeight={theme.fontWeightBold}
+            paddingBottom="16px"
+          >
+            {discount}
+          </MjmlText>
+          <MjmlText
+            align="center"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeBase}
+            paddingBottom="24px"
+          >
+            {description}
+          </MjmlText>
+          <MjmlText align="center">
+            <span
+              style={{
+                backgroundColor: theme.colorBackgroundMuted,
+                borderRadius: theme.borderRadius,
+                color: theme.colorText,
+                display: "inline-block",
+                fontFamily: theme.fontFamilyMono,
+                fontSize: theme.fontSizeLg,
+                fontWeight: theme.fontWeightBold,
+                letterSpacing: "0.1em",
+                padding: "16px 32px",
+              }}
+            >
+              {code}
+            </span>
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 CouponsWithCenteredText.PreviewProps = {
-  code: "FLASH50",
-  ctaHref: "https://example.com/shop",
-  ctaLabel: "Shop Sale",
-  description: "Flash sale! 50% off select items. Limited time only.",
-  discount: "50% OFF",
+  code: "WELCOME15",
+  description: "Welcome discount for new customers",
+  discount: "15% OFF",
+  heading: "Your Coupon",
   theme: defaultTheme,
   variant: "default",
-} satisfies CouponCenteredProps;
+} satisfies CouponsWithCenteredTextProps;

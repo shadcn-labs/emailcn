@@ -9,8 +9,8 @@ import {
   MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
@@ -23,87 +23,35 @@ export type HeaderLogoWithLinksVariant =
 
 export interface HeaderLogoWithLinksProps {
   theme?: EmailThemeTokens;
-  logoUrl?: string;
+  logoSrc?: string;
   logoAlt?: string;
-  logoWidth?: number;
-  links?: { label: string; href: string }[];
   variant?: HeaderLogoWithLinksVariant;
 }
 
-const HeaderLogoWithLinksSection = ({
-  links,
-  logoAlt,
-  logoUrl,
-  logoWidth,
-  theme,
-  variant,
-}: {
-  links: HeaderLogoWithLinksProps["links"];
-  logoAlt: string;
-  logoUrl?: string;
-  logoWidth: number;
-  theme: EmailThemeTokens;
-  variant: HeaderLogoWithLinksVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingBase ?? "24px"} 0`}
-  >
-    <MjmlColumn width="50%" verticalAlign="middle">
-      {logoUrl ? (
-        <MjmlImage align="left" alt={logoAlt} src={logoUrl} width={logoWidth} />
-      ) : (
-        <MjmlText
-          align="left"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeXl ?? "20px"}
-          fontWeight={theme.fontWeightBold}
-        >
-          {logoAlt}
-        </MjmlText>
-      )}
-    </MjmlColumn>
-    {links && links.length > 0 ? (
-      <MjmlColumn width="50%" verticalAlign="middle">
-        {links.map((link) => (
-          <MjmlText
-            key={link.label}
-            align="right"
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm ?? "12px"}
-            padding="0 0 0 16px"
-          >
-            <a
-              href={link.href}
-              style={{ color: theme.colorTextMuted, textDecoration: "none" }}
-            >
-              {link.label}
-            </a>
-          </MjmlText>
-        ))}
-      </MjmlColumn>
-    ) : null}
-  </MjmlSection>
-);
+const variantClass = (variant: HeaderLogoWithLinksVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const HeaderLogoWithLinks = ({
   theme = defaultTheme,
-  logoUrl,
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
-  logoWidth = 120,
-  links = [
-    { href: "#features", label: "Features" },
-    { href: "#pricing", label: "Pricing" },
-  ],
   variant = "default",
 }: HeaderLogoWithLinksProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>header with links</MjmlPreview>
+      <MjmlPreview>Header</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left div { transform: skewX(-10deg); }
+        .ec-skew-left img { transform: skewX(10deg); }
+        .ec-skew-right div { transform: skewX(10deg); }
+        .ec-skew-right img { transform: skewX(-10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -114,28 +62,28 @@ export const HeaderLogoWithLinks = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <HeaderLogoWithLinksSection
-          links={links}
-          logoAlt={logoAlt}
-          logoUrl={logoUrl}
-          logoWidth={logoWidth}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding={`${theme.spacingBase ?? "24px"} 0`}
+      >
+        <MjmlColumn>
+          <MjmlImage
+            align="center"
+            alt={logoAlt}
+            height={30}
+            src={logoSrc}
+            width={120}
+          />
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 HeaderLogoWithLinks.PreviewProps = {
-  links: [
-    { href: "#features", label: "Features" },
-    { href: "#pricing", label: "Pricing" },
-  ],
-  logoAlt: "Acme",
-  logoUrl: "https://static.photos/business/120x40/2",
-  logoWidth: 120,
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
   variant: "default",
 } satisfies HeaderLogoWithLinksProps;

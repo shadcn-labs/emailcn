@@ -6,60 +6,54 @@ import {
   MjmlBody,
   MjmlColumn,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type HeaderMinimalVariant = "default" | "slanted-left" | "slanted-right";
+export type HeaderWithUserDetailsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface HeaderMinimalProps {
+export interface HeaderWithUserDetailsProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  variant?: HeaderMinimalVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  userName?: string;
+  userEmail?: string;
+  variant?: HeaderWithUserDetailsVariant;
 }
 
-const HeaderMinimalSection = ({
-  theme,
-  title,
-  variant,
-}: {
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderMinimalVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "24px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeXl ?? "20px"}
-        fontWeight={theme.fontWeightMedium}
-      >
-        {title}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: HeaderWithUserDetailsVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const HeaderWithUserDetails = ({
   theme = defaultTheme,
-  title = "Section Title",
+  logoSrc = "https://static.photos/business/120x30/3",
+  logoAlt = "Logo",
+  userName = "John Doe",
+  userEmail = "john@example.com",
   variant = "default",
-}: HeaderMinimalProps) => (
+}: HeaderWithUserDetailsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>header minimal</MjmlPreview>
+      <MjmlPreview>Header</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -70,15 +64,49 @@ export const HeaderWithUserDetails = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <HeaderMinimalSection theme={theme} title={title} variant={variant} />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding={`${theme.spacingBase ?? "24px"} 0`}
+      >
+        <MjmlColumn verticalAlign="middle" width="50%">
+          <MjmlImage
+            align="left"
+            alt={logoAlt}
+            height={30}
+            src={logoSrc}
+            width={120}
+          />
+        </MjmlColumn>
+        <MjmlColumn verticalAlign="middle" width="50%">
+          <MjmlText
+            align="right"
+            color={theme.colorText}
+            fontSize={theme.fontSizeSm}
+            fontWeight={theme.fontWeightMedium}
+            paddingBottom="0"
+          >
+            {userName}
+          </MjmlText>
+          <MjmlText
+            align="right"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeSm}
+            paddingTop="0"
+          >
+            {userEmail}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 HeaderWithUserDetails.PreviewProps = {
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
-  title: "What Our Customers Say",
+  userEmail: "john@example.com",
+  userName: "John Doe",
   variant: "default",
-} satisfies HeaderMinimalProps;
+} satisfies HeaderWithUserDetailsProps;

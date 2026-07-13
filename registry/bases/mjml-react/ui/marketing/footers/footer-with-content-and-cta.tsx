@@ -4,77 +4,56 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
+  MjmlButton,
   MjmlColumn,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type FooterDisclaimerVariant =
+export type FooterWithContentAndCtaVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface FooterDisclaimerProps {
+export interface FooterWithContentAndCtaProps {
   theme?: EmailThemeTokens;
-  companyName?: string;
-  disclaimer?: string;
-  variant?: FooterDisclaimerVariant;
+  heading?: string;
+  subtext?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  variant?: FooterWithContentAndCtaVariant;
 }
 
-const FooterDisclaimerSection = ({
-  companyName,
-  disclaimer,
-  theme,
-  variant,
-}: {
-  companyName: string;
-  disclaimer: string;
-  theme: EmailThemeTokens;
-  variant: FooterDisclaimerVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackgroundSubtle}
-    padding={`${theme.spacingBase ?? "24px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "11px"}
-        paddingBottom={theme.spacingBase ?? "8px"}
-      >
-        {disclaimer}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "11px"}
-      >
-        &copy; {new Date().getFullYear()} {companyName}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: FooterWithContentAndCtaVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const FooterWithContentAndCta = ({
   theme = defaultTheme,
-  companyName = "Acme Inc.",
-  disclaimer = "This email was sent to you because you signed up for our newsletter.",
+  heading = "Stay in touch",
+  subtext = "Subscribe to our newsletter.",
+  ctaLabel = "Subscribe",
+  ctaHref = "#",
   variant = "default",
-}: FooterDisclaimerProps) => (
+}: FooterWithContentAndCtaProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>footer disclaimer</MjmlPreview>
+      <MjmlPreview>{heading}</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -85,21 +64,54 @@ export const FooterWithContentAndCta = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <FooterDisclaimerSection
-          companyName={companyName}
-          disclaimer={disclaimer}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding="32px 0"
+      >
+        <MjmlColumn>
+          <MjmlText
+            align="center"
+            color={theme.colorText}
+            fontSize={theme.fontSizeLg}
+            fontWeight={theme.fontWeightMedium}
+            paddingBottom="8px"
+          >
+            {heading}
+          </MjmlText>
+          <MjmlText
+            align="center"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeSm}
+            paddingBottom="24px"
+          >
+            {subtext}
+          </MjmlText>
+          {ctaLabel && ctaHref ? (
+            <MjmlButton
+              align="center"
+              backgroundColor={theme.colorPrimary}
+              borderRadius={theme.borderRadius}
+              color={theme.colorPrimaryForeground ?? "#ffffff"}
+              fontSize={theme.fontSizeSm}
+              fontWeight={theme.fontWeightMedium}
+              href={ctaHref}
+              innerPadding="8px 24px"
+            >
+              {ctaLabel}
+            </MjmlButton>
+          ) : null}
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
+
 FooterWithContentAndCta.PreviewProps = {
-  companyName: "Acme Inc.",
-  disclaimer:
-    "This email was sent to you because you opted in to receive updates.",
+  ctaHref: "https://example.com",
+  ctaLabel: "Subscribe",
+  heading: "Stay in touch",
+  subtext: "Subscribe to our newsletter.",
   theme: defaultTheme,
   variant: "default",
-} satisfies FooterDisclaimerProps;
+} satisfies FooterWithContentAndCtaProps;

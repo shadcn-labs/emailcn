@@ -15,102 +15,138 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type HeaderLogoVariant = "default" | "slanted-left" | "slanted-right";
+export type HeaderWithLogoAndFinanceStatsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface HeaderLogoProps {
+export interface HeaderWithLogoAndFinanceStatsProps {
   theme?: EmailThemeTokens;
-  logoUrl?: string;
+  logoSrc?: string;
   logoAlt?: string;
-  logoWidth?: number;
-  variant?: HeaderLogoVariant;
+  stat1?: string;
+  stat1Label?: string;
+  stat2?: string;
+  stat2Label?: string;
+  variant?: HeaderWithLogoAndFinanceStatsVariant;
 }
-
-const HeaderLogoSection = ({
-  logoAlt,
-  logoUrl,
-  logoWidth,
-  theme,
-  variant,
-}: {
-  logoAlt: string;
-  logoUrl?: string;
-  logoWidth: number;
-  theme: EmailThemeTokens;
-  variant: HeaderLogoVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingBase ?? "24px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {logoUrl ? (
-          <Img
-            alt={logoAlt}
-            src={logoUrl}
-            width={logoWidth}
-            style={{ display: "block", margin: "0 auto", maxWidth: "100%" }}
-          />
-        ) : (
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeXl ?? "20px",
-              fontWeight: theme.fontWeightBold,
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            {logoAlt}
-          </Text>
-        )}
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const HeaderWithLogoAndFinanceStats = ({
   theme = defaultTheme,
-  logoUrl,
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
-  logoWidth = 120,
+  stat1 = "$12,450",
+  stat1Label = "Balance",
+  stat2 = "+5.2%",
+  stat2Label = "Change",
   variant = "default",
-}: HeaderLogoProps) => (
-  <Html>
-    <Head />
-    <Preview>header logo</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeaderLogoSection
-            logoAlt={logoAlt}
-            logoUrl={logoUrl}
-            logoWidth={logoWidth}
-            theme={theme}
-            variant={variant}
-          />
+}: HeaderWithLogoAndFinanceStatsProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  const labelStyle = {
+    color: theme.colorTextMuted,
+    fontSize: theme.fontSizeSm,
+    margin: 0,
+  };
+  return (
+    <Html>
+      <Head />
+      <Preview>Header</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "24px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Row>
+              <Column style={{ verticalAlign: "middle", width: "50%" }}>
+                <Img
+                  src={logoSrc}
+                  alt={logoAlt}
+                  width="120"
+                  height="30"
+                  style={{ height: "auto", objectFit: "contain" }}
+                />
+              </Column>
+              <Column
+                style={{
+                  paddingRight: "24px",
+                  textAlign: "right",
+                  verticalAlign: "middle",
+                  width: "25%",
+                }}
+              >
+                <Text style={labelStyle}>{stat1Label}</Text>
+                <Text
+                  style={{
+                    color: theme.colorText,
+                    fontSize: theme.fontSizeSm,
+                    fontWeight: theme.fontWeightBold,
+                    margin: 0,
+                  }}
+                >
+                  {stat1}
+                </Text>
+              </Column>
+              <Column
+                style={{
+                  textAlign: "right",
+                  verticalAlign: "middle",
+                  width: "25%",
+                }}
+              >
+                <Text style={labelStyle}>{stat2Label}</Text>
+                <Text
+                  style={{
+                    color: theme.colorSuccess,
+                    fontSize: theme.fontSizeSm,
+                    fontWeight: theme.fontWeightBold,
+                    margin: 0,
+                  }}
+                >
+                  {stat2}
+                </Text>
+              </Column>
+            </Row>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 HeaderWithLogoAndFinanceStats.PreviewProps = {
-  logoAlt: "Acme",
-  logoUrl: "https://static.photos/business/120x40/2",
-  logoWidth: 120,
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
+  stat1: "$12,450",
+  stat1Label: "Balance",
+  stat2: "+5.2%",
+  stat2Label: "Change",
   theme: defaultTheme,
   variant: "default",
-} satisfies HeaderLogoProps;
+} satisfies HeaderWithLogoAndFinanceStatsProps;

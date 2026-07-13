@@ -1,0 +1,61 @@
+---
+title: "Boxed Order Summary with Total Top"
+description: "Ecommerce order-summary variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-total-bottom-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-order-summary-with-total-top
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedOrderSummaryWithTotalTop } from "@/components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top";
+```
+
+```tsx
+<BoxedOrderSummaryWithTotalTop
+  {...BoxedOrderSummaryWithTotalTop.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,5 +1,5 @@
-import { SquareTilesSocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/square-tiles-social-logos";
+import { SocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/social-logos";
 
 export default function SquareTilesSocialLogosDemo() {
-  return <SquareTilesSocialLogos {...SquareTilesSocialLogos.PreviewProps} />;
+  return <SocialLogos {...SocialLogos.PreviewProps} tile="square" />;
 }

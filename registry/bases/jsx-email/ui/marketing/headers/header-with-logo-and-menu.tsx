@@ -5,6 +5,7 @@ import {
   Container,
   Head,
   Html,
+  Img,
   Preview,
   Row,
   Section,
@@ -14,100 +15,136 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type HeaderAccentVariant = "default" | "slanted-left" | "slanted-right";
+export type HeaderWithLogoAndMenuVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface HeaderAccentProps {
+export interface HeaderWithLogoAndMenuProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  subtitle?: string;
-  variant?: HeaderAccentVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  link1?: string;
+  link1Href?: string;
+  link2?: string;
+  link2Href?: string;
+  link3?: string;
+  link3Href?: string;
+  link4?: string;
+  link4Href?: string;
+  variant?: HeaderWithLogoAndMenuVariant;
 }
-
-const HeaderAccentSection = ({
-  subtitle,
-  theme,
-  title,
-  variant,
-}: {
-  subtitle: string;
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderAccentVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackgroundMuted,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorPrimary,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "12px",
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {subtitle}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            textAlign: "center",
-          }}
-        >
-          {title}
-        </Text>
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const HeaderWithLogoAndMenu = ({
   theme = defaultTheme,
-  title = "Main Title",
-  subtitle = "SECTION LABEL",
+  logoSrc = "https://static.photos/business/120x30/3",
+  logoAlt = "Logo",
+  link1 = "Features",
+  link1Href = "#",
+  link2 = "Pricing",
+  link2Href = "#",
+  link3 = "About",
+  link3Href = "#",
+  link4 = "Contact",
+  link4Href = "#",
   variant = "default",
-}: HeaderAccentProps) => (
-  <Html>
-    <Head />
-    <Preview>header accent</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeaderAccentSection
-            subtitle={subtitle}
-            theme={theme}
-            title={title}
-            variant={variant}
-          />
+}: HeaderWithLogoAndMenuProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  const links = [
+    { href: link1Href, label: link1 },
+    { href: link2Href, label: link2 },
+    { href: link3Href, label: link3 },
+    { href: link4Href, label: link4 },
+  ];
+  return (
+    <Html>
+      <Head />
+      <Preview>Header</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "24px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Row>
+              <Column style={{ verticalAlign: "middle", width: "50%" }}>
+                <Img
+                  src={logoSrc}
+                  alt={logoAlt}
+                  width="120"
+                  height="30"
+                  style={{ height: "auto", objectFit: "contain" }}
+                />
+              </Column>
+              <Column
+                style={{
+                  textAlign: "right",
+                  verticalAlign: "middle",
+                  width: "50%",
+                }}
+              >
+                <Text style={{ margin: 0 }}>
+                  {links.map((link, index) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      style={{
+                        color: theme.colorTextMuted,
+                        fontSize: theme.fontSizeSm,
+                        marginLeft: index === 0 ? 0 : "16px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </Text>
+              </Column>
+            </Row>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 HeaderWithLogoAndMenu.PreviewProps = {
-  subtitle: "WHAT'S NEW",
+  link1: "Features",
+  link1Href: "#",
+  link2: "Pricing",
+  link2Href: "#",
+  link3: "About",
+  link3Href: "#",
+  link4: "Contact",
+  link4Href: "#",
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
-  title: "Latest Features & Updates",
   variant: "default",
-} satisfies HeaderAccentProps;
+} satisfies HeaderWithLogoAndMenuProps;

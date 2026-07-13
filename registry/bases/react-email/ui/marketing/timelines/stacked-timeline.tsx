@@ -19,6 +19,8 @@ export type StackedTimelineVariant =
   | "slanted-left"
   | "slanted-right";
 
+export type StackedTimelineLayout = "line" | "boxed";
+
 export interface StackedTimelineProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -29,7 +31,17 @@ export interface StackedTimelineProps {
   step3?: string;
   step3Desc?: string;
   variant?: StackedTimelineVariant;
+  layout?: StackedTimelineLayout;
 }
+
+const itemClass = (layout: StackedTimelineLayout, isLast: boolean) => {
+  const spacing = isLast ? "" : layout === "boxed" ? "mb-4 " : "mb-6 ";
+  const look =
+    layout === "boxed"
+      ? "rounded-lg border border-border p-6"
+      : "pl-8 border-l-2 border-border";
+  return `${spacing}${look}`;
+};
 
 export const StackedTimelineSection = ({
   heading = "How It Works",
@@ -40,6 +52,7 @@ export const StackedTimelineSection = ({
   step3 = "Step 3",
   step3Desc = "Description of step three.",
   variant = "default",
+  layout = "line",
 }: Omit<StackedTimelineProps, "theme">) => {
   const getVariantClass = () => {
     switch (variant) {
@@ -77,7 +90,7 @@ export const StackedTimelineSection = ({
             {heading}
           </Text>
         ) : null}
-        <Section className="mb-6 pl-8 border-l-2 border-border">
+        <Section className={itemClass(layout, false)}>
           <Text className="m-0 mb-2 text-base font-bold text-foreground">
             {step1}
           </Text>
@@ -85,7 +98,7 @@ export const StackedTimelineSection = ({
             {step1Desc}
           </Text>
         </Section>
-        <Section className="mb-6 pl-8 border-l-2 border-border">
+        <Section className={itemClass(layout, false)}>
           <Text className="m-0 mb-2 text-base font-bold text-foreground">
             {step2}
           </Text>
@@ -93,7 +106,7 @@ export const StackedTimelineSection = ({
             {step2Desc}
           </Text>
         </Section>
-        <Section className="pl-8 border-l-2 border-border">
+        <Section className={itemClass(layout, true)}>
           <Text className="m-0 mb-2 text-base font-bold text-foreground">
             {step3}
           </Text>
@@ -116,6 +129,7 @@ export const StackedTimeline = ({
   step3 = "Step 3",
   step3Desc = "Description of step three.",
   variant = "default",
+  layout = "line",
 }: StackedTimelineProps) => (
   <Html>
     <Head>
@@ -126,6 +140,7 @@ export const StackedTimeline = ({
       <Body className="m-0 bg-background font-sans">
         <StackedTimelineSection
           heading={heading}
+          layout={layout}
           step1={step1}
           step1Desc={step1Desc}
           step2={step2}
@@ -141,6 +156,7 @@ export const StackedTimeline = ({
 
 StackedTimeline.PreviewProps = {
   heading: "How It Works",
+  layout: "line",
   step1: "Sign Up",
   step1Desc: "Create your free account in just 30 seconds.",
   step2: "Build",

@@ -1,0 +1,56 @@
+---
+title: "Split Full Bleed"
+description: "Marketing hero variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="hero-split-full-bleed-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-split-full-bleed
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/hero-split-full-bleed.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/hero/hero-split-full-bleed.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroSplitFullBleed } from "@/components/emails/marketing/hero/hero-split-full-bleed";
+```
+
+```tsx
+<HeroSplitFullBleed {...HeroSplitFullBleed.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

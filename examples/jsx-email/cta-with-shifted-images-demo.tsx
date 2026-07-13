@@ -1,5 +1,5 @@
-import { CtaWithShiftedImages } from "@/registry/bases/jsx-email/ui/marketing/cta/cta-with-shifted-images";
+import { CTAWithShiftedImages } from "@/registry/bases/jsx-email/ui/marketing/cta/cta-with-shifted-images";
 
-export default function CtaWithShiftedImagesDemo() {
-  return <CtaWithShiftedImages {...CtaWithShiftedImages.PreviewProps} />;
+export default function CTAWithShiftedImagesDemo() {
+  return <CTAWithShiftedImages {...CTAWithShiftedImages.PreviewProps} />;
 }

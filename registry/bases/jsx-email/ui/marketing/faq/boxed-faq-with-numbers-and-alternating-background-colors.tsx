@@ -1,152 +1,141 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Preview, Section, Text } from "jsx-email";
 
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FAQWithSearchVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQWithSearchProps {
+export type BoxedFaqWithNumbersAndAlternatingBackgroundColorsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
+
+export interface BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps {
   theme?: EmailThemeTokens;
   heading?: string;
-  items?: { question: string; answer: string }[];
-  variant?: FAQWithSearchVariant;
+  q1?: string;
+  a1?: string;
+  q2?: string;
+  a2?: string;
+  q3?: string;
+  a3?: string;
+  variant?: BoxedFaqWithNumbersAndAlternatingBackgroundColorsVariant;
 }
-const FAQWithSearchSection = ({
-  heading,
-  items,
-  theme,
-  variant,
-}: {
-  heading: string;
-  items: FAQWithSearchProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQWithSearchVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {heading ? (
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeHeading,
-              fontWeight: theme.fontWeightBold,
-              margin: 0,
-              paddingBottom: theme.spacingXl ?? "48px",
-              textAlign: "center",
-            }}
-          >
-            {heading}
-          </Text>
-        ) : null}
-      </Column>
-      {(items ?? []).map((item, i) => (
-        <Column key={item.question + i}>
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "8px",
-            }}
-          >
-            {item.question}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase,
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "16px",
-            }}
-          >
-            {item.answer}
-          </Text>
-          {i < (items ?? []).length - 1 ? (
-            <Hr
-              style={{
-                borderBottomWidth: 0,
-                borderLeftWidth: 0,
-                borderRightWidth: 0,
-                borderTopColor: theme.colorBorder,
-                borderTopStyle: "solid",
-                borderTopWidth: "1px",
-                marginBottom: theme.spacingBase ?? "16px",
-                width: "100%",
-              }}
-            />
-          ) : null}
-        </Column>
-      ))}
-    </Row>
-  </Section>
-);
+
 export const BoxedFaqWithNumbersAndAlternatingBackgroundColors = ({
   theme = defaultTheme,
-  heading = "Frequently Asked Questions",
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
+  heading = "FAQ",
+  q1 = "What is this product?",
+  a1 = "This product helps you build beautiful emails.",
+  q2 = "How does pricing work?",
+  a2 = "We offer flexible pricing plans.",
+  q3 = "Is there customer support?",
+  a3 = "Yes, we offer 24/7 support.",
   variant = "default",
-}: FAQWithSearchProps) => (
-  <Html>
-    <Head />
-    <Preview>FAQ with search</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FAQWithSearchSection
-            heading={heading}
-            items={items}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+}: BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  const questionStyle = {
+    color: theme.colorText,
+    fontSize: theme.fontSizeSm,
+    fontWeight: theme.fontWeightBold,
+    margin: "0 0 8px",
+  } as const;
+  const answerStyle = {
+    color: theme.colorTextMuted,
+    fontSize: theme.fontSizeSm,
+    lineHeight: theme.lineHeightBase,
+    margin: 0,
+  } as const;
+  return (
+    <Html>
+      <Head />
+      <Preview>{heading}</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Container style={{ margin: "0 auto", maxWidth: theme.containerWidth }}>
+          <Section
+            style={{
+              backgroundColor: theme.colorBackground,
+              padding: "64px 0",
+              transform: skew,
+            }}
+          >
+            <Section style={{ transform: unskew }}>
+              {heading ? (
+                <Text
+                  style={{
+                    color: theme.colorText,
+                    fontSize: theme.fontSizeHeading,
+                    fontWeight: theme.fontWeightBold,
+                    margin: "0 0 32px",
+                    textAlign: "center",
+                  }}
+                >
+                  {heading}
+                </Text>
+              ) : null}
+              <Section
+                style={{
+                  backgroundColor: theme.colorBackgroundMuted,
+                  borderTopLeftRadius: theme.borderRadiusLg,
+                  borderTopRightRadius: theme.borderRadiusLg,
+                  padding: "24px",
+                }}
+              >
+                <Text style={questionStyle}>01. {q1}</Text>
+                <Text style={answerStyle}>{a1}</Text>
+              </Section>
+              <Section
+                style={{
+                  backgroundColor: theme.colorBackground,
+                  padding: "24px",
+                }}
+              >
+                <Text style={questionStyle}>02. {q2}</Text>
+                <Text style={answerStyle}>{a2}</Text>
+              </Section>
+              <Section
+                style={{
+                  backgroundColor: theme.colorBackgroundMuted,
+                  borderBottomLeftRadius: theme.borderRadiusLg,
+                  borderBottomRightRadius: theme.borderRadiusLg,
+                  padding: "24px",
+                }}
+              >
+                <Text style={questionStyle}>03. {q3}</Text>
+                <Text style={answerStyle}>{a3}</Text>
+              </Section>
+            </Section>
+          </Section>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
+
 BoxedFaqWithNumbersAndAlternatingBackgroundColors.PreviewProps = {
-  heading: "Frequently Asked Questions",
-  items: [
-    {
-      answer: "A collection of responsive email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, they work across all major clients.",
-      question: "Are they responsive?",
-    },
-    { answer: "MIT license.", question: "What license?" },
-  ],
+  a1: "This product helps you build beautiful emails quickly and easily.",
+  a2: "We offer flexible pricing plans to suit your needs, starting at $9/month.",
+  a3: "Yes, we offer 24/7 customer support via email and live chat.",
+  heading: "FAQ",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
   variant: "default",
-} satisfies FAQWithSearchProps;
+} satisfies BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps;

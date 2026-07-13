@@ -5,6 +5,7 @@ import {
   Container,
   Head,
   Html,
+  Img,
   Preview,
   Row,
   Section,
@@ -14,77 +15,115 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type HeaderMinimalVariant = "default" | "slanted-left" | "slanted-right";
+export type HeaderWithUserDetailsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface HeaderMinimalProps {
+export interface HeaderWithUserDetailsProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  variant?: HeaderMinimalVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  userName?: string;
+  userEmail?: string;
+  variant?: HeaderWithUserDetailsVariant;
 }
-
-const HeaderMinimalSection = ({
-  theme,
-  title,
-  variant,
-}: {
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderMinimalVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "24px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeXl ?? "20px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            textAlign: "center",
-          }}
-        >
-          {title}
-        </Text>
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const HeaderWithUserDetails = ({
   theme = defaultTheme,
-  title = "Section Title",
+  logoSrc = "https://static.photos/business/120x30/3",
+  logoAlt = "Logo",
+  userName = "John Doe",
+  userEmail = "john@example.com",
   variant = "default",
-}: HeaderMinimalProps) => (
-  <Html>
-    <Head />
-    <Preview>header minimal</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeaderMinimalSection theme={theme} title={title} variant={variant} />
+}: HeaderWithUserDetailsProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>Header</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "24px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Row>
+              <Column style={{ verticalAlign: "middle", width: "50%" }}>
+                <Img
+                  src={logoSrc}
+                  alt={logoAlt}
+                  width="120"
+                  height="30"
+                  style={{ height: "auto", objectFit: "contain" }}
+                />
+              </Column>
+              <Column
+                style={{
+                  textAlign: "right",
+                  verticalAlign: "middle",
+                  width: "50%",
+                }}
+              >
+                <Text
+                  style={{
+                    color: theme.colorText,
+                    fontSize: theme.fontSizeSm,
+                    fontWeight: theme.fontWeightMedium,
+                    margin: 0,
+                  }}
+                >
+                  {userName}
+                </Text>
+                <Text
+                  style={{
+                    color: theme.colorTextMuted,
+                    fontSize: theme.fontSizeSm,
+                    margin: 0,
+                  }}
+                >
+                  {userEmail}
+                </Text>
+              </Column>
+            </Row>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 HeaderWithUserDetails.PreviewProps = {
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
-  title: "What Our Customers Say",
+  userEmail: "john@example.com",
+  userName: "John Doe",
   variant: "default",
-} satisfies HeaderMinimalProps;
+} satisfies HeaderWithUserDetailsProps;

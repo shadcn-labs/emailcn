@@ -1,0 +1,61 @@
+---
+title: "Boxed FAQ with Numbers and Alternating Background"
+description: "Marketing faq variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-faq-with-numbers-and-alternating-background-colors-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-faq-with-numbers-and-alternating-background-colors
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedFaqWithNumbersAndAlternatingBackgroundColors } from "@/components/emails/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors";
+```
+
+```tsx
+<BoxedFaqWithNumbersAndAlternatingBackgroundColors
+  {...BoxedFaqWithNumbersAndAlternatingBackgroundColors.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

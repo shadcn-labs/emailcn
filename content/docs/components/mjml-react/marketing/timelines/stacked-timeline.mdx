@@ -3,12 +3,20 @@ title: "Stacked Timeline"
 description: "Marketing timelines variant for email templates"
 ---
 
+One `StackedTimeline` component covers both looks. Switch with the `layout`
+prop.
+
+## Line
+
 <ComponentPreview base="mjml-react" name="stacked-timeline-demo" />
+
+## Boxed
+
+<ComponentPreview base="mjml-react" name="stacked-boxed-timeline-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +28,24 @@ npx shadcn@latest add @emailcn/stacked-timeline
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/timelines/stacked-timeline.tsx"
-  base="mjml-react"
-  title="components/emails/marketing/timelines/stacked-timeline.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/timelines/stacked-timeline.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/timelines/stacked-timeline.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -54,11 +55,13 @@ import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked
 ```
 
 ```tsx
-<StackedTimeline {...StackedTimeline.PreviewProps} />
+<StackedTimeline {...StackedTimeline.PreviewProps} layout="boxed" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                             | Default        | Description          |
+| --------- | ------------------------------------------------ | -------------- | -------------------- |
+| `layout`  | `"line" \| "boxed"`                              | `"line"`       | Timeline item style  |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt         |
+| `theme`   | `EmailThemeTokens`                                 | `defaultTheme` | Email theme styling  |

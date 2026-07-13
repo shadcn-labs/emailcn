@@ -1,152 +1,138 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Preview, Section, Text } from "jsx-email";
+import type { CSSProperties } from "react";
 
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type TimelineMinimalVariant =
+export type StackedTimelineVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
-export interface TimelineMinimalProps {
+
+export type StackedTimelineLayout = "line" | "boxed";
+
+export interface StackedTimelineProps {
   theme?: EmailThemeTokens;
-  events?: { date: string; title: string; description: string }[];
-  variant?: TimelineMinimalVariant;
+  heading?: string;
+  step1?: string;
+  step1Desc?: string;
+  step2?: string;
+  step2Desc?: string;
+  step3?: string;
+  step3Desc?: string;
+  variant?: StackedTimelineVariant;
+  layout?: StackedTimelineLayout;
 }
-const TimelineMinimalSection = ({
-  events,
-  theme,
-  variant,
-}: {
-  events: TimelineMinimalProps["events"];
-  theme: EmailThemeTokens;
-  variant: TimelineMinimalVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {(events ?? []).map((e, i) => (
-          <Section
-            key={e.title + i}
-            style={{ padding: `${theme.spacingBase ?? "16px"} 0` }}
-          >
-            <Row>
-              <Text
-                style={{
-                  color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeSm,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "4px",
-                }}
-              >
-                {e.date}
-              </Text>
+
+const itemStyle = (
+  theme: EmailThemeTokens,
+  layout: StackedTimelineLayout,
+  isLast: boolean
+): CSSProperties =>
+  layout === "boxed"
+    ? {
+        border: `1px solid ${theme.colorBorder}`,
+        borderRadius: "8px",
+        marginBottom: isLast ? 0 : "16px",
+        padding: "24px",
+      }
+    : {
+        borderLeft: `2px solid ${theme.colorBorder}`,
+        marginBottom: isLast ? 0 : "24px",
+        paddingLeft: "32px",
+      };
+
+export const StackedTimeline = ({
+  theme = defaultTheme,
+  heading = "How It Works",
+  step1 = "Step 1",
+  step1Desc = "Description of step one.",
+  step2 = "Step 2",
+  step2Desc = "Description of step two.",
+  step3 = "Step 3",
+  step3Desc = "Description of step three.",
+  variant = "default",
+  layout = "line",
+}: StackedTimelineProps) => {
+  const steps = [
+    { desc: step1Desc, title: step1 },
+    { desc: step2Desc, title: step2 },
+    { desc: step3Desc, title: step3 },
+  ];
+  return (
+    <Html>
+      <Head />
+      <Preview>{heading}</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Container
+          style={{
+            margin: "0 auto",
+            maxWidth: theme.containerWidth,
+            padding: "48px 24px",
+          }}
+        >
+          {heading ? (
+            <Text
+              style={{
+                color: theme.colorText,
+                fontSize: theme.fontSizeXl,
+                fontWeight: theme.fontWeightBold,
+                margin: "0 0 32px",
+                textAlign: "center",
+              }}
+            >
+              {heading}
+            </Text>
+          ) : null}
+          {steps.map((step, i) => (
+            <Section
+              key={step.title + i}
+              style={itemStyle(theme, layout, i === steps.length - 1)}
+            >
               <Text
                 style={{
                   color: theme.colorText,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeBase,
-                  fontWeight: theme.fontWeightMedium,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "4px",
+                  fontSize: theme.fontSizeLg,
+                  fontWeight: theme.fontWeightBold,
+                  margin: "0 0 8px",
                 }}
               >
-                {e.title}
+                {step.title}
               </Text>
               <Text
                 style={{
                   color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
                   fontSize: theme.fontSizeBase,
                   lineHeight: theme.lineHeightBase,
                   margin: 0,
                 }}
               >
-                {e.description}
+                {step.desc}
               </Text>
-              {i < (events ?? []).length - 1 ? (
-                <Hr
-                  style={{
-                    borderBottomWidth: 0,
-                    borderLeftWidth: 0,
-                    borderRightWidth: 0,
-                    borderTopColor: theme.colorBorder,
-                    borderTopStyle: "solid",
-                    borderTopWidth: "1px",
-                    width: "100%",
-                  }}
-                />
-              ) : null}
-            </Row>
-          </Section>
-        ))}
-      </Column>
-    </Row>
-  </Section>
-);
-export const StackedTimeline = ({
-  theme = defaultTheme,
-  events = [
-    { date: "2024-01", description: "Initial release.", title: "v1.0.0" },
-  ],
-  variant = "default",
-}: TimelineMinimalProps) => (
-  <Html>
-    <Head />
-    <Preview>timeline minimal</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <TimelineMinimalSection
-            events={events}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+            </Section>
+          ))}
+        </Container>
+      </Body>
+    </Html>
+  );
+};
+
 StackedTimeline.PreviewProps = {
-  events: [
-    {
-      date: "May 2026",
-      description: "Major update with new components.",
-      title: "v2.0.0",
-    },
-    {
-      date: "Apr 2026",
-      description: "New testimonial and pricing components.",
-      title: "v1.5.0",
-    },
-    { date: "Mar 2026", description: "Initial release.", title: "v1.0.0" },
-  ],
+  heading: "How It Works",
+  layout: "line",
+  step1: "Sign Up",
+  step1Desc: "Create your free account in just 30 seconds.",
+  step2: "Build",
+  step2Desc: "Design beautiful emails with our drag-and-drop builder.",
+  step3: "Send",
+  step3Desc: "Deliver your campaigns to thousands of subscribers.",
   theme: defaultTheme,
   variant: "default",
-} satisfies TimelineMinimalProps;
+} satisfies StackedTimelineProps;

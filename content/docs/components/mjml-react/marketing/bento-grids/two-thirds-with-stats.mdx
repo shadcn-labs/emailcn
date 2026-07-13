@@ -1,0 +1,59 @@
+---
+title: "Two Thirds with Stats"
+description: "Marketing bento-grids variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-thirds-bento-grid-with-stats-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-thirds-bento-grid-with-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoThirdsBentoGridWithStats } from "@/components/emails/marketing/bento-grids/two-thirds-bento-grid-with-stats";
+```
+
+```tsx
+<TwoThirdsBentoGridWithStats {...TwoThirdsBentoGridWithStats.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

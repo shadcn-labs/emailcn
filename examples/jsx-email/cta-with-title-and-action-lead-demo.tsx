@@ -1,7 +1,7 @@
-import { CtaWithTitleAndActionLead } from "@/registry/bases/jsx-email/ui/marketing/cta/cta-with-title-and-action-lead";
+import { CTAWithTitleAndActionLead } from "@/registry/bases/jsx-email/ui/marketing/cta/cta-with-title-and-action-lead";
 
-export default function CtaWithTitleAndActionLeadDemo() {
+export default function CTAWithTitleAndActionLeadDemo() {
   return (
-    <CtaWithTitleAndActionLead {...CtaWithTitleAndActionLead.PreviewProps} />
+    <CTAWithTitleAndActionLead {...CTAWithTitleAndActionLead.PreviewProps} />
   );
 }

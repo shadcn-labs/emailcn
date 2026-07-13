@@ -5,126 +5,49 @@ import {
   MjmlAttributes,
   MjmlBody,
   MjmlColumn,
+  MjmlDivider,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type FooterFullVariant = "default" | "slanted-left" | "slanted-right";
+export type FooterWithLegalTextVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface FooterFullProps {
+export interface FooterWithLegalTextProps {
   theme?: EmailThemeTokens;
-  companyName?: string;
-  address?: string;
-  links?: { label: string; href: string }[];
-  unsubscribeHref?: string;
-  variant?: FooterFullVariant;
+  legalText?: string;
+  variant?: FooterWithLegalTextVariant;
 }
 
-const FooterFullSection = ({
-  address,
-  companyName,
-  links,
-  theme,
-  unsubscribeHref,
-  variant,
-}: {
-  address: string;
-  companyName: string;
-  links: FooterFullProps["links"];
-  theme: EmailThemeTokens;
-  unsubscribeHref: string;
-  variant: FooterFullVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "24px"} 0`}
-  >
-    <MjmlColumn>
-      {links && links.length > 0 ? (
-        <MjmlText
-          align="center"
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "12px"}
-          paddingBottom={theme.spacingBase ?? "16px"}
-        >
-          {links.map((link, i) => (
-            <span key={link.label}>
-              <a
-                href={link.href}
-                style={{
-                  color: theme.colorTextMuted,
-                  textDecoration: "none",
-                }}
-              >
-                {link.label}
-              </a>
-              {i < links.length - 1 ? (
-                <span style={{ color: theme.colorTextMuted, margin: "0 8px" }}>
-                  |
-                </span>
-              ) : null}
-            </span>
-          ))}
-        </MjmlText>
-      ) : null}
-      {address ? (
-        <MjmlText
-          align="center"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "12px"}
-          paddingBottom={theme.spacingBase ?? "8px"}
-        >
-          {address}
-        </MjmlText>
-      ) : null}
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "12px"}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        &copy; {new Date().getFullYear()} {companyName}. All rights reserved.
-      </MjmlText>
-      {unsubscribeHref ? (
-        <MjmlText
-          align="center"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "12px"}
-        >
-          <a href={unsubscribeHref} style={{ color: theme.colorTextMuted }}>
-            Unsubscribe
-          </a>
-        </MjmlText>
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: FooterWithLegalTextVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const FooterWithLegalText = ({
   theme = defaultTheme,
-  companyName = "Acme Inc.",
-  address = "123 Main Street, San Francisco, CA 94105",
-  links = [
-    { href: "#privacy", label: "Privacy" },
-    { href: "#terms", label: "Terms" },
-  ],
-  unsubscribeHref = "#",
+  legalText = "© 2024 Acme Inc. All rights reserved. This email was sent to you because you signed up for our newsletter.",
   variant = "default",
-}: FooterFullProps) => (
+}: FooterWithLegalTextProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>footer full</MjmlPreview>
+      <MjmlPreview>Footer</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorTextSubtle} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -135,28 +58,34 @@ export const FooterWithLegalText = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <FooterFullSection
-          address={address}
-          companyName={companyName}
-          links={links}
-          theme={theme}
-          unsubscribeHref={unsubscribeHref}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding="32px 0"
+      >
+        <MjmlColumn>
+          <MjmlDivider
+            borderColor={theme.colorBorder}
+            borderWidth="1px"
+            paddingBottom="24px"
+          />
+          <MjmlText
+            align="center"
+            color={theme.colorTextSubtle}
+            fontSize={theme.fontSizeSm}
+            lineHeight={theme.lineHeightBase}
+          >
+            {legalText}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 FooterWithLegalText.PreviewProps = {
-  address: "123 Main Street, San Francisco, CA 94105",
-  companyName: "Acme Inc.",
-  links: [
-    { href: "#privacy", label: "Privacy Policy" },
-    { href: "#terms", label: "Terms of Service" },
-  ],
+  legalText:
+    "© 2024 Acme Inc. All rights reserved. This email was sent to you because you signed up for our newsletter.",
   theme: defaultTheme,
-  unsubscribeHref: "#unsubscribe",
   variant: "default",
-} satisfies FooterFullProps;
+} satisfies FooterWithLegalTextProps;

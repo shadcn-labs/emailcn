@@ -6,79 +6,52 @@ import {
   MjmlBody,
   MjmlColumn,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type HeaderCenteredVariant =
+export type HeaderWithLogoAndTextVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface HeaderCenteredProps {
+export interface HeaderWithLogoAndTextProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  subtitle?: string;
-  variant?: HeaderCenteredVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  text?: string;
+  variant?: HeaderWithLogoAndTextVariant;
 }
 
-const HeaderCenteredSection = ({
-  subtitle,
-  theme,
-  title,
-  variant,
-}: {
-  subtitle: string;
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderCenteredVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeHeading}
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {title}
-      </MjmlText>
-      {subtitle ? (
-        <MjmlText
-          align="center"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeLg ?? "16px"}
-          lineHeight={theme.lineHeightBase}
-        >
-          {subtitle}
-        </MjmlText>
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: HeaderWithLogoAndTextVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const HeaderWithLogoAndText = ({
   theme = defaultTheme,
-  title = "Page Title",
-  subtitle = "A short description or tagline goes here.",
+  logoSrc = "https://static.photos/business/120x30/3",
+  logoAlt = "Logo",
+  text = "Welcome to our newsletter",
   variant = "default",
-}: HeaderCenteredProps) => (
+}: HeaderWithLogoAndTextProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>header centered</MjmlPreview>
+      <MjmlPreview>Header</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -89,21 +62,38 @@ export const HeaderWithLogoAndText = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <HeaderCenteredSection
-          subtitle={subtitle}
-          theme={theme}
-          title={title}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding={`${theme.spacingBase ?? "24px"} 0`}
+      >
+        <MjmlColumn verticalAlign="middle" width="33%">
+          <MjmlImage
+            align="left"
+            alt={logoAlt}
+            height={30}
+            src={logoSrc}
+            width={120}
+          />
+        </MjmlColumn>
+        <MjmlColumn verticalAlign="middle" width="67%">
+          <MjmlText
+            align="right"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeSm}
+          >
+            {text}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 HeaderWithLogoAndText.PreviewProps = {
-  subtitle: "Stay up to date with the latest news and updates.",
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
+  text: "Welcome to our newsletter",
   theme: defaultTheme,
-  title: "Welcome to Our Newsletter",
   variant: "default",
-} satisfies HeaderCenteredProps;
+} satisfies HeaderWithLogoAndTextProps;

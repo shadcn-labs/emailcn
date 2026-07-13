@@ -1,9 +1,9 @@
-import { BoxedCtaWithBackgroundImage } from "@/registry/bases/jsx-email/ui/marketing/cta/boxed-cta-with-background-image";
+import { BoxedCTAWithBackgroundImage } from "@/registry/bases/jsx-email/ui/marketing/cta/boxed-cta-with-background-image";
 
-export default function BoxedCtaWithBackgroundImageDemo() {
+export default function BoxedCTAWithBackgroundImageDemo() {
   return (
-    <BoxedCtaWithBackgroundImage
-      {...BoxedCtaWithBackgroundImage.PreviewProps}
+    <BoxedCTAWithBackgroundImage
+      {...BoxedCTAWithBackgroundImage.PreviewProps}
     />
   );
 }

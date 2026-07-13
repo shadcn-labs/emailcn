@@ -1,12 +1,11 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
-  Column,
   Container,
   Head,
+  Hr,
   Html,
   Preview,
-  Row,
   Section,
   Text,
 } from "jsx-email";
@@ -14,166 +13,86 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FooterFullVariant = "default" | "slanted-left" | "slanted-right";
+export type FooterWithLegalTextVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface FooterFullProps {
+export interface FooterWithLegalTextProps {
   theme?: EmailThemeTokens;
-  companyName?: string;
-  address?: string;
-  links?: { label: string; href: string }[];
-  unsubscribeHref?: string;
-  variant?: FooterFullVariant;
+  legalText?: string;
+  variant?: FooterWithLegalTextVariant;
 }
-
-const FooterFullSection = ({
-  address,
-  companyName,
-  links,
-  theme,
-  unsubscribeHref,
-  variant,
-}: {
-  address: string;
-  companyName: string;
-  links: FooterFullProps["links"];
-  theme: EmailThemeTokens;
-  unsubscribeHref: string;
-  variant: FooterFullVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "24px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {links && links.length > 0 ? (
-          <Text
-            style={{
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm ?? "12px",
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "16px",
-              textAlign: "center",
-            }}
-          >
-            {links.map((link, i) => (
-              <span key={link.label}>
-                <a
-                  href={link.href}
-                  style={{
-                    color: theme.colorTextMuted,
-                    textDecoration: "none",
-                  }}
-                >
-                  {link.label}
-                </a>
-                {i < links.length - 1 ? (
-                  <span
-                    style={{ color: theme.colorTextMuted, margin: "0 8px" }}
-                  >
-                    |
-                  </span>
-                ) : null}
-              </span>
-            ))}
-          </Text>
-        ) : null}
-        {address ? (
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm ?? "12px",
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "8px",
-              textAlign: "center",
-            }}
-          >
-            {address}
-          </Text>
-        ) : null}
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "12px",
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          &copy; {new Date().getFullYear()} {companyName}. All rights reserved.
-        </Text>
-        {unsubscribeHref ? (
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm ?? "12px",
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            <a href={unsubscribeHref} style={{ color: theme.colorTextMuted }}>
-              Unsubscribe
-            </a>
-          </Text>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const FooterWithLegalText = ({
   theme = defaultTheme,
-  companyName = "Acme Inc.",
-  address = "123 Main Street, San Francisco, CA 94105",
-  links = [
-    { href: "#privacy", label: "Privacy" },
-    { href: "#terms", label: "Terms" },
-  ],
-  unsubscribeHref = "#",
+  legalText = "© 2024 Acme Inc. All rights reserved. This email was sent to you because you signed up for our newsletter.",
   variant = "default",
-}: FooterFullProps) => (
-  <Html>
-    <Head />
-    <Preview>footer full</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FooterFullSection
-            address={address}
-            companyName={companyName}
-            links={links}
-            theme={theme}
-            unsubscribeHref={unsubscribeHref}
-            variant={variant}
-          />
+}: FooterWithLegalTextProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>Footer</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "32px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Hr
+              style={{
+                borderColor: theme.colorBorder,
+                margin: "0 0 24px",
+              }}
+            />
+            <Text
+              style={{
+                color: theme.colorTextSubtle,
+                fontSize: theme.fontSizeSm,
+                lineHeight: theme.lineHeightBase,
+                margin: 0,
+                textAlign: "center",
+              }}
+            >
+              {legalText}
+            </Text>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 FooterWithLegalText.PreviewProps = {
-  address: "123 Main Street, San Francisco, CA 94105",
-  companyName: "Acme Inc.",
-  links: [
-    { href: "#privacy", label: "Privacy Policy" },
-    { href: "#terms", label: "Terms of Service" },
-  ],
+  legalText:
+    "© 2024 Acme Inc. All rights reserved. This email was sent to you because you signed up for our newsletter.",
   theme: defaultTheme,
-  unsubscribeHref: "#unsubscribe",
   variant: "default",
-} satisfies FooterFullProps;
+} satisfies FooterWithLegalTextProps;

@@ -1,0 +1,56 @@
+---
+title: "Overlapped Content"
+description: "Marketing hero variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="hero-with-overlapped-content-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-with-overlapped-content
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/hero-with-overlapped-content.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/hero/hero-with-overlapped-content.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroWithOverlappedContent } from "@/components/emails/marketing/hero/hero-with-overlapped-content";
+```
+
+```tsx
+<HeroWithOverlappedContent {...HeroWithOverlappedContent.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -5,6 +5,7 @@ import {
   Container,
   Head,
   Html,
+  Img,
   Preview,
   Row,
   Section,
@@ -14,105 +15,102 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type HeaderCenteredVariant =
+export type HeaderWithLogoAndTextVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface HeaderCenteredProps {
+export interface HeaderWithLogoAndTextProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  subtitle?: string;
-  variant?: HeaderCenteredVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  text?: string;
+  variant?: HeaderWithLogoAndTextVariant;
 }
-
-const HeaderCenteredSection = ({
-  subtitle,
-  theme,
-  title,
-  variant,
-}: {
-  subtitle: string;
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderCenteredVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {title}
-        </Text>
-        {subtitle ? (
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg ?? "16px",
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            {subtitle}
-          </Text>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const HeaderWithLogoAndText = ({
   theme = defaultTheme,
-  title = "Page Title",
-  subtitle = "A short description or tagline goes here.",
+  logoSrc = "https://static.photos/business/120x30/3",
+  logoAlt = "Logo",
+  text = "Welcome to our newsletter",
   variant = "default",
-}: HeaderCenteredProps) => (
-  <Html>
-    <Head />
-    <Preview>header centered</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeaderCenteredSection
-            subtitle={subtitle}
-            theme={theme}
-            title={title}
-            variant={variant}
-          />
+}: HeaderWithLogoAndTextProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>Header</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "24px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Row>
+              <Column style={{ verticalAlign: "middle", width: "33%" }}>
+                <Img
+                  src={logoSrc}
+                  alt={logoAlt}
+                  width="120"
+                  height="30"
+                  style={{ height: "auto", objectFit: "contain" }}
+                />
+              </Column>
+              <Column
+                style={{
+                  textAlign: "right",
+                  verticalAlign: "middle",
+                  width: "67%",
+                }}
+              >
+                <Text
+                  style={{
+                    color: theme.colorTextMuted,
+                    fontSize: theme.fontSizeSm,
+                    margin: 0,
+                  }}
+                >
+                  {text}
+                </Text>
+              </Column>
+            </Row>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 HeaderWithLogoAndText.PreviewProps = {
-  subtitle: "Stay up to date with the latest news and updates.",
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
+  text: "Welcome to our newsletter",
   theme: defaultTheme,
-  title: "Welcome to Our Newsletter",
   variant: "default",
-} satisfies HeaderCenteredProps;
+} satisfies HeaderWithLogoAndTextProps;

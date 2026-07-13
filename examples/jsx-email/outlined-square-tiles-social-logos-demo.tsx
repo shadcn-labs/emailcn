@@ -1,9 +1,5 @@
-import { OutlinedSquareTilesSocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/outlined-square-tiles-social-logos";
+import { SocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/social-logos";
 
 export default function OutlinedSquareTilesSocialLogosDemo() {
-  return (
-    <OutlinedSquareTilesSocialLogos
-      {...OutlinedSquareTilesSocialLogos.PreviewProps}
-    />
-  );
+  return <SocialLogos {...SocialLogos.PreviewProps} tile="outlined-square" />;
 }

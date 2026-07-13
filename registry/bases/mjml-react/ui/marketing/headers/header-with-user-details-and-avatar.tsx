@@ -6,79 +6,58 @@ import {
   MjmlBody,
   MjmlColumn,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type HeaderLeftAlignedVariant =
+export type HeaderWithUserDetailsAndAvatarVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface HeaderLeftAlignedProps {
+export interface HeaderWithUserDetailsAndAvatarProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  subtitle?: string;
-  variant?: HeaderLeftAlignedVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  avatarSrc?: string;
+  avatarAlt?: string;
+  userName?: string;
+  userEmail?: string;
+  variant?: HeaderWithUserDetailsAndAvatarVariant;
 }
 
-const HeaderLeftAlignedSection = ({
-  subtitle,
-  theme,
-  title,
-  variant,
-}: {
-  subtitle: string;
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderLeftAlignedVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="left"
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeHeading}
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {title}
-      </MjmlText>
-      {subtitle ? (
-        <MjmlText
-          align="left"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeLg ?? "16px"}
-          lineHeight={theme.lineHeightBase}
-        >
-          {subtitle}
-        </MjmlText>
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: HeaderWithUserDetailsAndAvatarVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const HeaderWithUserDetailsAndAvatar = ({
   theme = defaultTheme,
-  title = "Page Title",
-  subtitle = "A left-aligned header section.",
+  logoSrc = "https://static.photos/business/120x30/4",
+  logoAlt = "Logo",
+  avatarSrc = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-headers-header-with-user-details-and-avatar-tsx-4&size=40",
+  avatarAlt = "",
+  userName = "John Doe",
+  userEmail = "john@example.com",
   variant = "default",
-}: HeaderLeftAlignedProps) => (
+}: HeaderWithUserDetailsAndAvatarProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>header left</MjmlPreview>
+      <MjmlPreview>Header</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -89,21 +68,62 @@ export const HeaderWithUserDetailsAndAvatar = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <HeaderLeftAlignedSection
-          subtitle={subtitle}
-          theme={theme}
-          title={title}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding={`${theme.spacingBase ?? "24px"} 0`}
+      >
+        <MjmlColumn verticalAlign="middle" width="50%">
+          <MjmlImage
+            align="left"
+            alt={logoAlt}
+            height={30}
+            src={logoSrc}
+            width={120}
+          />
+        </MjmlColumn>
+        <MjmlColumn verticalAlign="middle" width="15%">
+          <MjmlImage
+            align="right"
+            alt={avatarAlt}
+            borderRadius="9999px"
+            height={40}
+            src={avatarSrc}
+            width={40}
+          />
+        </MjmlColumn>
+        <MjmlColumn verticalAlign="middle" width="35%">
+          <MjmlText
+            align="left"
+            color={theme.colorText}
+            fontSize={theme.fontSizeSm}
+            fontWeight={theme.fontWeightMedium}
+            paddingBottom="0"
+          >
+            {userName}
+          </MjmlText>
+          <MjmlText
+            align="left"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeSm}
+            paddingTop="0"
+          >
+            {userEmail}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 HeaderWithUserDetailsAndAvatar.PreviewProps = {
-  subtitle: "Here's what's new this month.",
+  avatarAlt: "",
+  avatarSrc:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-headers-header-with-user-details-and-avatar-tsx-8&size=40",
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/8",
   theme: defaultTheme,
-  title: "Latest Updates",
+  userEmail: "john@example.com",
+  userName: "John Doe",
   variant: "default",
-} satisfies HeaderLeftAlignedProps;
+} satisfies HeaderWithUserDetailsAndAvatarProps;

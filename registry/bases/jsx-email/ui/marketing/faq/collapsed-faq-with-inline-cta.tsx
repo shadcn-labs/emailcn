@@ -1,119 +1,148 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Preview, Section, Text } from "jsx-email";
 
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FAQAccordionVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQAccordionProps {
+export type CollapsedFaqWithInlineCtaVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
+
+export interface CollapsedFaqWithInlineCtaProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQAccordionVariant;
+  heading?: string;
+  q1?: string;
+  q2?: string;
+  q3?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaText?: string;
+  variant?: CollapsedFaqWithInlineCtaVariant;
 }
-const FAQAccordionSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQAccordionProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQAccordionVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {(items ?? []).map((item, i) => (
-          <Section
-            key={item.question + i}
+
+export const CollapsedFaqWithInlineCta = ({
+  theme = defaultTheme,
+  heading = "FAQ",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+  ctaLabel = "Contact Us",
+  ctaHref = "#",
+  ctaText = "Still have questions?",
+  variant = "default",
+}: CollapsedFaqWithInlineCtaProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  const questions = [q1, q2, q3];
+  return (
+    <Html>
+      <Head />
+      <Preview>{heading}</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "64px 0",
+            transform: skew,
+          }}
+        >
+          <Container
             style={{
-              backgroundColor: theme.colorBackgroundMuted,
-              borderRadius: theme.borderRadius,
-              padding: theme.spacingBase ?? "16px",
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              textAlign: "center",
+              transform: unskew,
             }}
           >
-            <Row>
+            {heading ? (
               <Text
                 style={{
                   color: theme.colorText,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeBase,
-                  fontWeight: theme.fontWeightMedium,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "8px",
+                  fontSize: theme.fontSizeHeading,
+                  fontWeight: theme.fontWeightBold,
+                  margin: "0 0 32px",
+                  textAlign: "center",
                 }}
               >
-                {item.question}
+                {heading}
               </Text>
+            ) : null}
+            {questions.map((question, index) => (
+              <Text
+                key={question}
+                style={{
+                  color: theme.colorText,
+                  fontSize: theme.fontSizeSm,
+                  fontWeight: theme.fontWeightMedium,
+                  margin:
+                    index === questions.length - 1 ? "0 0 32px" : "0 0 16px",
+                  textAlign: "center",
+                }}
+              >
+                {question}
+              </Text>
+            ))}
+            {ctaText ? (
               <Text
                 style={{
                   color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
                   fontSize: theme.fontSizeBase,
-                  lineHeight: theme.lineHeightBase,
-                  margin: 0,
+                  margin: "0 0 16px",
+                  textAlign: "center",
                 }}
               >
-                {item.answer}
+                {ctaText}
               </Text>
-            </Row>
-          </Section>
-        ))}
-      </Column>
-    </Row>
-  </Section>
-);
-export const CollapsedFaqWithInlineCta = ({
-  theme = defaultTheme,
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
-  variant = "default",
-}: FAQAccordionProps) => (
-  <Html>
-    <Head />
-    <Preview>FAQ accordion</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FAQAccordionSection items={items} theme={theme} variant={variant} />
+            ) : null}
+            {ctaLabel && ctaHref ? (
+              <a
+                href={ctaHref}
+                style={{
+                  backgroundColor: theme.colorPrimary,
+                  borderRadius: theme.borderRadius,
+                  color: theme.colorPrimaryForeground ?? "#ffffff",
+                  display: "inline-block",
+                  fontSize: theme.fontSizeSm,
+                  fontWeight: theme.fontWeightMedium,
+                  padding: "8px 24px",
+                  textDecoration: "none",
+                }}
+              >
+                {ctaLabel}
+              </a>
+            ) : null}
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
+
 CollapsedFaqWithInlineCta.PreviewProps = {
-  items: [
-    {
-      answer: "EmailCN is a collection of email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, all components are fully responsive.",
-      question: "Are they responsive?",
-    },
-  ],
+  ctaHref: "https://example.com",
+  ctaLabel: "Contact Us",
+  ctaText: "Still have questions?",
+  heading: "FAQ",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
   variant: "default",
-} satisfies FAQAccordionProps;
+} satisfies CollapsedFaqWithInlineCtaProps;

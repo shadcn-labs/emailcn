@@ -1,0 +1,56 @@
+---
+title: "2 Column Team Cards"
+description: "2 Column Team Cards — Team email component."
+---
+
+<ComponentPreview base="mjml-react" name="two-column-team-cards-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-column-team-cards
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/team/2-column-team-cards.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/team/2-column-team-cards.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnTeamCards } from "@/components/emails/marketing/team/2-column-team-cards";
+```
+
+```tsx
+<TwoColumnTeamCards {...TwoColumnTeamCards.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

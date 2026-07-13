@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
-  Button,
   Column,
   Container,
   Head,
@@ -15,172 +14,274 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type PricingBasicVariant = "default" | "slanted-left" | "slanted-right";
+export type TwoColumnsPricingTableWithGapsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface PricingBasicProps {
+export interface TwoColumnsPricingTableWithGapsProps {
   theme?: EmailThemeTokens;
-  name?: string;
-  price?: string;
-  period?: string;
-  features?: string[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: PricingBasicVariant;
+  heading?: string;
+  plan1?: string;
+  price1?: string;
+  period1?: string;
+  desc1?: string;
+  feature1_1?: string;
+  feature1_2?: string;
+  feature1_3?: string;
+  ctaLabel1?: string;
+  ctaHref1?: string;
+  plan2?: string;
+  price2?: string;
+  period2?: string;
+  desc2?: string;
+  feature2_1?: string;
+  feature2_2?: string;
+  feature2_3?: string;
+  ctaLabel2?: string;
+  ctaHref2?: string;
+  variant?: TwoColumnsPricingTableWithGapsVariant;
 }
 
-const PricingBasicSection = ({
-  ctaHref,
-  ctaLabel,
-  features,
-  name,
-  period,
+const Card = ({
+  plan,
   price,
+  period,
+  desc,
+  features,
+  ctaLabel,
+  ctaHref,
   theme,
-  variant,
 }: {
-  ctaHref: string;
-  ctaLabel: string;
-  features: string[];
-  name: string;
-  period: string;
+  plan: string;
   price: string;
+  period: string;
+  desc: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
   theme: EmailThemeTokens;
-  variant: PricingBasicVariant;
 }) => (
   <Section
     style={{
-      backgroundColor: theme.colorBackground,
-      border: `1px solid ${theme.colorBorder ?? "#e5e7eb"}`,
-      borderRadius: theme.borderRadius,
-      padding: theme.spacingXl ?? "24px",
+      border: `1px solid ${theme.colorBorder}`,
+      borderRadius: theme.borderRadiusLg ?? theme.borderRadius,
+      padding: "24px",
+      textAlign: "center",
     }}
   >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeLg ?? "16px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {name}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {price}
-          <span
-            style={{
-              color: theme.colorTextMuted,
-              fontSize: theme.fontSizeSm ?? "14px",
-            }}
-          >
-            {period}
-          </span>
-        </Text>
-        {features.map((f, i) => (
-          <Text
-            key={name + f + i}
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase ?? "14px",
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "8px",
-              textAlign: "center",
-            }}
-          >
-            &bull; {f}
-          </Text>
-        ))}
-        <Button
-          href={ctaHref}
-          align="center"
-          width={160}
-          height={40}
-          style={{
-            backgroundColor: theme.colorPrimary,
-            borderRadius: theme.borderRadius,
-            color: theme.colorPrimaryForeground,
-            display: "inline-block",
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "14px",
-            fontWeight: theme.fontWeightMedium,
-            height: "auto",
-            padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-            textDecoration: "none",
-            width: "auto",
-          }}
-        >
-          {ctaLabel}
-        </Button>
-      </Column>
-    </Row>
+    <Text
+      style={{
+        color: theme.colorText,
+        fontSize: theme.fontSizeLg,
+        fontWeight: theme.fontWeightBold,
+        margin: "0 0 12px",
+        textAlign: "center",
+      }}
+    >
+      {plan}
+    </Text>
+    <Text
+      style={{
+        color: theme.colorText,
+        fontSize: theme.fontSizeHeading,
+        fontWeight: theme.fontWeightBold,
+        margin: "0 0 8px",
+        textAlign: "center",
+      }}
+    >
+      {price}
+      <span
+        style={{
+          color: theme.colorTextMuted,
+          fontSize: theme.fontSizeSm,
+          fontWeight: theme.fontWeightNormal,
+        }}
+      >
+        {period}
+      </span>
+    </Text>
+    <Text
+      style={{
+        color: theme.colorTextMuted,
+        fontSize: theme.fontSizeSm,
+        margin: "0 0 16px",
+        textAlign: "center",
+      }}
+    >
+      {desc}
+    </Text>
+    {features.map((feature, index) => (
+      <Text
+        key={feature}
+        style={{
+          color: theme.colorText,
+          fontSize: theme.fontSizeSm,
+          margin: index === features.length - 1 ? "0 0 24px" : "0 0 4px",
+          textAlign: "center",
+        }}
+      >
+        &bull; {feature}
+      </Text>
+    ))}
+    {ctaLabel && ctaHref ? (
+      <a
+        href={ctaHref}
+        style={{
+          backgroundColor: theme.colorPrimary,
+          borderRadius: theme.borderRadius,
+          color: theme.colorPrimaryForeground ?? "#ffffff",
+          display: "inline-block",
+          fontSize: theme.fontSizeSm,
+          fontWeight: theme.fontWeightMedium,
+          padding: "8px 24px",
+          textDecoration: "none",
+        }}
+      >
+        {ctaLabel}
+      </a>
+    ) : null}
   </Section>
 );
 
 export const TwoColumnsPricingTableWithGaps = ({
   theme = defaultTheme,
-  name = "Basic",
-  price = "$9",
-  period = "/mo",
-  features = ["1 user", "5 projects"],
-  ctaLabel = "Get Started",
-  ctaHref = "#",
+  heading = "Plans",
+  plan1 = "Starter",
+  price1 = "$9",
+  period1 = "/month",
+  desc1 = "For individuals.",
+  feature1_1 = "1,000 emails",
+  feature1_2 = "Basic templates",
+  feature1_3 = "Email support",
+  ctaLabel1 = "Get Started",
+  ctaHref1 = "#",
+  plan2 = "Pro",
+  price2 = "$29",
+  period2 = "/month",
+  desc2 = "For teams.",
+  feature2_1 = "Unlimited emails",
+  feature2_2 = "Custom templates",
+  feature2_3 = "Priority support",
+  ctaLabel2 = "Subscribe",
+  ctaHref2 = "#",
   variant = "default",
-}: PricingBasicProps) => (
-  <Html>
-    <Head />
-    <Preview>pricing basic</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <PricingBasicSection
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            features={features}
-            name={name}
-            period={period}
-            price={price}
-            theme={theme}
-            variant={variant}
-          />
+}: TwoColumnsPricingTableWithGapsProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>{heading}</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "64px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            {heading ? (
+              <Text
+                style={{
+                  color: theme.colorText,
+                  fontSize: theme.fontSizeHeading,
+                  fontWeight: theme.fontWeightBold,
+                  margin: "0 0 32px",
+                  textAlign: "center",
+                }}
+              >
+                {heading}
+              </Text>
+            ) : null}
+            <Row>
+              <Column
+                style={{
+                  paddingRight: "24px",
+                  verticalAlign: "top",
+                  width: "50%",
+                }}
+              >
+                <Card
+                  ctaHref={ctaHref1}
+                  ctaLabel={ctaLabel1}
+                  desc={desc1}
+                  features={[feature1_1, feature1_2, feature1_3]}
+                  period={period1}
+                  plan={plan1}
+                  price={price1}
+                  theme={theme}
+                />
+              </Column>
+              <Column
+                style={{
+                  paddingLeft: "24px",
+                  verticalAlign: "top",
+                  width: "50%",
+                }}
+              >
+                <Card
+                  ctaHref={ctaHref2}
+                  ctaLabel={ctaLabel2}
+                  desc={desc2}
+                  features={[feature2_1, feature2_2, feature2_3]}
+                  period={period2}
+                  plan={plan2}
+                  price={price2}
+                  theme={theme}
+                />
+              </Column>
+            </Row>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 TwoColumnsPricingTableWithGaps.PreviewProps = {
-  ctaHref: "https://example.com/signup",
-  ctaLabel: "Get Started",
-  features: ["1 user", "5 projects", "Basic support"],
-  name: "Basic",
-  period: "/mo",
-  price: "$9",
+  ctaHref1: "#",
+  ctaHref2: "#",
+  ctaLabel1: "Get Started",
+  ctaLabel2: "Subscribe",
+  desc1: "For individuals.",
+  desc2: "For teams.",
+  feature1_1: "1,000 emails",
+  feature1_2: "Basic templates",
+  feature1_3: "Email support",
+  feature2_1: "Unlimited emails",
+  feature2_2: "Custom templates",
+  feature2_3: "Priority support",
+  heading: "Plans",
+  period1: "/month",
+  period2: "/month",
+  plan1: "Starter",
+  plan2: "Pro",
+  price1: "$9",
+  price2: "$29",
   theme: defaultTheme,
   variant: "default",
-} satisfies PricingBasicProps;
+} satisfies TwoColumnsPricingTableWithGapsProps;

@@ -1,5 +1,5 @@
-import { OutlinedGridStats } from "@/registry/bases/mjml-react/ui/marketing/stats/outlined-grid-stats";
+import { GridStats } from "@/registry/bases/mjml-react/ui/marketing/stats/grid-stats";
 
 export default function OutlinedGridStatsDemo() {
-  return <OutlinedGridStats {...OutlinedGridStats.PreviewProps} />;
+  return <GridStats {...GridStats.PreviewProps} tone="outlined" />;
 }

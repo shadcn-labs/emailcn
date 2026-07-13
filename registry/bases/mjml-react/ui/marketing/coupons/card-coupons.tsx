@@ -4,119 +4,54 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
-  MjmlButton,
   MjmlColumn,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type CouponCardDefaultVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type CardCouponsVariant = "default" | "slanted-left" | "slanted-right";
 
-export interface CouponCardDefaultProps {
+export interface CardCouponsProps {
   theme?: EmailThemeTokens;
-  code?: string;
+  heading?: string;
   discount?: string;
+  code?: string;
   description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: CouponCardDefaultVariant;
+  expiry?: string;
+  variant?: CardCouponsVariant;
 }
 
-const CouponCardDefaultSection = ({
-  code,
-  ctaHref,
-  ctaLabel,
-  description,
-  discount,
-  theme,
-  variant,
-}: {
-  code: string;
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  discount: string;
-  theme: EmailThemeTokens;
-  variant: CouponCardDefaultVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    border={`2px dashed ${theme.colorBorder ?? "#e5e7eb"}`}
-    borderRadius={theme.borderRadius}
-    padding={theme.spacingXl ?? "24px"}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "12px"}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {discount}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamilyMono}
-        fontSize="28px"
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {code}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase ?? "14px"}
-        paddingBottom={theme.spacingLg ?? "24px"}
-      >
-        {description}
-      </MjmlText>
-      {ctaLabel && ctaHref ? (
-        <MjmlButton
-          align="center"
-          backgroundColor={theme.colorPrimary}
-          borderRadius={theme.borderRadius}
-          color={theme.colorPrimaryForeground}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "14px"}
-          fontWeight={theme.fontWeightMedium}
-          href={ctaHref}
-          innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
-        >
-          {ctaLabel}
-        </MjmlButton>
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: CardCouponsVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const CardCoupons = ({
   theme = defaultTheme,
-  code = "SAVE20",
+  heading = "Special Offer",
   discount = "20% OFF",
-  description = "Use code at checkout to receive your discount.",
-  ctaLabel = "Shop Now",
-  ctaHref = "#",
+  code = "SAVE20",
+  description = "On your first purchase",
+  expiry = "Expires in 7 days",
   variant = "default",
-}: CouponCardDefaultProps) => (
+}: CardCouponsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>coupon card</MjmlPreview>
+      <MjmlPreview>{discount}</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -127,28 +62,77 @@ export const CardCoupons = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <CouponCardDefaultSection
-          code={code}
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          description={description}
-          discount={discount}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding="64px 0"
+      >
+        <MjmlColumn
+          backgroundColor={theme.colorBackgroundMuted}
+          border={`2px dashed ${theme.colorBorder}`}
+          borderRadius={theme.borderRadiusLg ?? theme.borderRadius}
+          padding="32px"
+        >
+          {heading ? (
+            <MjmlText
+              align="center"
+              color={theme.colorTextMuted}
+              fontSize={theme.fontSizeLg}
+              fontWeight={theme.fontWeightMedium}
+              paddingBottom="16px"
+            >
+              {heading}
+            </MjmlText>
+          ) : null}
+          <MjmlText
+            align="center"
+            color={theme.colorPrimary}
+            fontSize={theme.fontSizeXl}
+            fontWeight={theme.fontWeightBold}
+            paddingBottom="16px"
+          >
+            {discount}
+          </MjmlText>
+          <MjmlText
+            align="center"
+            color={theme.colorText}
+            fontFamily={theme.fontFamilyMono}
+            fontSize={theme.fontSizeLg}
+            fontWeight={theme.fontWeightBold}
+            letterSpacing="0.1em"
+            paddingBottom="24px"
+          >
+            {code}
+          </MjmlText>
+          <MjmlText
+            align="center"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeBase}
+            paddingBottom="16px"
+          >
+            {description}
+          </MjmlText>
+          {expiry ? (
+            <MjmlText
+              align="center"
+              color={theme.colorTextSubtle}
+              fontSize={theme.fontSizeSm}
+            >
+              {expiry}
+            </MjmlText>
+          ) : null}
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 CardCoupons.PreviewProps = {
-  code: "WELCOME25",
-  ctaHref: "https://example.com/shop",
-  ctaLabel: "Redeem Now",
-  description:
-    "Valid on all orders over $50. Cannot be combined with other offers.",
-  discount: "25% OFF",
+  code: "SAVE20",
+  description: "On your first purchase",
+  discount: "20% OFF",
+  expiry: "Expires in 7 days",
+  heading: "Special Offer",
   theme: defaultTheme,
   variant: "default",
-} satisfies CouponCardDefaultProps;
+} satisfies CardCouponsProps;

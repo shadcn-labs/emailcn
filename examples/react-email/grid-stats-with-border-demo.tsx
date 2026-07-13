@@ -1,5 +1,5 @@
-import { GridStatsWithBorder } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats-with-border";
+import { GridStats } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats";
 
 export default function GridStatsWithBorderDemo() {
-  return <GridStatsWithBorder {...GridStatsWithBorder.PreviewProps} />;
+  return <GridStats {...GridStats.PreviewProps} tone="border" />;
 }

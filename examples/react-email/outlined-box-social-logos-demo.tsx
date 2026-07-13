@@ -1,5 +1,5 @@
-import { OutlinedBoxSocialLogos } from "@/registry/bases/react-email/ui/marketing/social/outlined-box-social-logos";
+import { SocialLogos } from "@/registry/bases/react-email/ui/marketing/social/social-logos";
 
 export default function OutlinedBoxSocialLogosDemo() {
-  return <OutlinedBoxSocialLogos {...OutlinedBoxSocialLogos.PreviewProps} />;
+  return <SocialLogos {...SocialLogos.PreviewProps} tile="outlined-box" />;
 }

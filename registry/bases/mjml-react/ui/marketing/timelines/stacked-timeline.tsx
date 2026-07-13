@@ -5,7 +5,6 @@ import {
   MjmlAttributes,
   MjmlBody,
   MjmlColumn,
-  MjmlDivider,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
@@ -16,113 +15,127 @@ import {
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type TimelineMinimalVariant =
+export type StackedTimelineVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
-export interface TimelineMinimalProps {
+
+export type StackedTimelineLayout = "line" | "boxed";
+
+export interface StackedTimelineProps {
   theme?: EmailThemeTokens;
-  events?: { date: string; title: string; description: string }[];
-  variant?: TimelineMinimalVariant;
+  heading?: string;
+  step1?: string;
+  step1Desc?: string;
+  step2?: string;
+  step2Desc?: string;
+  step3?: string;
+  step3Desc?: string;
+  variant?: StackedTimelineVariant;
+  layout?: StackedTimelineLayout;
 }
-const TimelineMinimalSection = ({
-  events,
-  theme,
-  variant,
-}: {
-  events: TimelineMinimalProps["events"];
-  theme: EmailThemeTokens;
-  variant: TimelineMinimalVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {(events ?? []).map((e, i) => (
-        <MjmlSection
-          key={e.title + i}
-          padding={`${theme.spacingBase ?? "16px"} 0`}
-        >
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm}
-            paddingBottom={theme.spacingBase ?? "4px"}
-          >
-            {e.date}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "4px"}
-          >
-            {e.title}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          >
-            {e.description}
-          </MjmlText>
-          {i < (events ?? []).length - 1 ? (
-            <MjmlDivider borderColor={theme.colorBorder} borderWidth="1px" />
-          ) : null}
-        </MjmlSection>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
-);
+
+const itemAttrs = (
+  theme: EmailThemeTokens,
+  layout: StackedTimelineLayout,
+  isLast: boolean
+) =>
+  layout === "boxed"
+    ? {
+        border: `1px solid ${theme.colorBorder}`,
+        borderRadius: "8px",
+        padding: "24px",
+        paddingBottom: isLast ? "24px" : "24px",
+      }
+    : {
+        borderLeft: `2px solid ${theme.colorBorder}`,
+        padding: "0 0 0 32px",
+      };
+
 export const StackedTimeline = ({
   theme = defaultTheme,
-  events = [
-    { date: "2024-01", description: "Initial release.", title: "v1.0.0" },
-  ],
+  heading = "How It Works",
+  step1 = "Step 1",
+  step1Desc = "Description of step one.",
+  step2 = "Step 2",
+  step2Desc = "Description of step two.",
+  step3 = "Step 3",
+  step3Desc = "Description of step three.",
   variant = "default",
-}: TimelineMinimalProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>timeline minimal</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <TimelineMinimalSection
-          events={events}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
-);
+  layout = "line",
+}: StackedTimelineProps) => {
+  const steps = [
+    { desc: step1Desc, title: step1 },
+    { desc: step2Desc, title: step2 },
+    { desc: step3Desc, title: step3 },
+  ];
+  return (
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>{heading}</MjmlPreview>
+        <MjmlAttributes>
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
+        <MjmlWrapper padding="48px 24px">
+          {heading ? (
+            <MjmlSection padding="0 0 24px">
+              <MjmlColumn>
+                <MjmlText
+                  align="center"
+                  color={theme.colorText}
+                  fontSize={theme.fontSizeXl}
+                  fontWeight={theme.fontWeightBold}
+                  padding="0"
+                >
+                  {heading}
+                </MjmlText>
+              </MjmlColumn>
+            </MjmlSection>
+          ) : null}
+          {steps.map((step, i) => (
+            <MjmlSection
+              key={step.title + i}
+              paddingBottom={i === steps.length - 1 ? "0" : "16px"}
+            >
+              <MjmlColumn {...itemAttrs(theme, layout, i === steps.length - 1)}>
+                <MjmlText
+                  color={theme.colorText}
+                  fontSize={theme.fontSizeLg}
+                  fontWeight={theme.fontWeightBold}
+                  paddingBottom="8px"
+                >
+                  {step.title}
+                </MjmlText>
+                <MjmlText color={theme.colorTextMuted} padding="0">
+                  {step.desc}
+                </MjmlText>
+              </MjmlColumn>
+            </MjmlSection>
+          ))}
+        </MjmlWrapper>
+      </MjmlBody>
+    </Mjml>
+  );
+};
+
 StackedTimeline.PreviewProps = {
-  events: [
-    {
-      date: "May 2026",
-      description: "Major update with new components.",
-      title: "v2.0.0",
-    },
-    {
-      date: "Apr 2026",
-      description: "New testimonial and pricing components.",
-      title: "v1.5.0",
-    },
-    { date: "Mar 2026", description: "Initial release.", title: "v1.0.0" },
-  ],
+  heading: "How It Works",
+  layout: "line",
+  step1: "Sign Up",
+  step1Desc: "Create your free account in just 30 seconds.",
+  step2: "Build",
+  step2Desc: "Design beautiful emails with our drag-and-drop builder.",
+  step3: "Send",
+  step3Desc: "Deliver your campaigns to thousands of subscribers.",
   theme: defaultTheme,
   variant: "default",
-} satisfies TimelineMinimalProps;
+} satisfies StackedTimelineProps;

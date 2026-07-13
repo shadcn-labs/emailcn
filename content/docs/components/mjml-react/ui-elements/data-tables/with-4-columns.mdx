@@ -1,0 +1,56 @@
+---
+title: "With 4 Columns"
+description: "With 4 Columns — Data Tables email component."
+---
+
+<ComponentPreview base="mjml-react" name="data-table-4-columns-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-4-columns
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-with-4-columns.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/data-tables/data-table-with-4-columns.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableWith4Columns } from "@/components/emails/ui-elements/data-tables/data-table-with-4-columns";
+```
+
+```tsx
+<DataTableWith4Columns {...DataTableWith4Columns.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,63 @@
+---
+title: "Progress Bar Columns"
+description: "UI Elements progress-bars variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="progress-bar-columns-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/progress-bar-columns
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/progress-bars/progress-bar-columns.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/progress-bars/progress-bar-columns.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProgressBarColumns } from "@/components/emails/ui-elements/progress-bars/progress-bar-columns";
+```
+
+```tsx
+<ProgressBarColumns {...ProgressBarColumns.PreviewProps} />
+```
+
+## API Reference
+
+| Prop       | Type         | Default        | Description         |
+| ---------- | ------------ | -------------- | ------------------- |
+| `progress` | `number`     | `0`            | Progress percentage |
+| `theme`    | `EmailTheme` | `defaultTheme` | Email theme styling |

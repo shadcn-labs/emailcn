@@ -49,8 +49,6 @@ npm install jsx-email
   title="components/emails/ui-elements/containers/container.tsx"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
@@ -64,15 +62,16 @@ import { Container } from "@/components/emails/ui-elements/containers/container"
 ```
 
 ```tsx
-<Container content="Edge-to-edge content on mobile." mobile="flush" />
-<Container content="Content with comfortable padding on mobile." mobile="gutters" />
+<Container mobile="gutters">{children}</Container>
+<Container mobile="flush">{children}</Container>
 ```
 
 ## API Reference
 
-| Prop      | Type                            | Default        | Description                     |
-| --------- | ------------------------------- | -------------- | ------------------------------- |
-| `mobile`  | `"gutters" \| "flush"`          | `"gutters"`    | Side padding behavior on mobile |
-| `align`   | `"left" \| "center" \| "right"` | `"center"`     | Horizontal alignment            |
-| `content` | `string`                        | -              | Container text content          |
-| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling             |
+| Prop       | Type                            | Default        | Description                     |
+| ---------- | ------------------------------- | -------------- | ------------------------------- |
+| `mobile`   | `"gutters" \| "flush"`          | `"gutters"`    | Side padding behavior on mobile |
+| `align`    | `"left" \| "center" \| "right"` | `"center"`     | Horizontal alignment            |
+| `maxWidth` | `string`                        | `"600px"`      | Maximum container width         |
+| `children` | `React.ReactNode`               | -              | Container content               |
+| `theme`    | `EmailThemeTokens`                | `defaultTheme` | Email theme styling             |

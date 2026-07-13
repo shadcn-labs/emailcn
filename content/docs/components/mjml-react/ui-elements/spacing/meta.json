@@ -1,0 +1,14 @@
+{
+  "title": "Divider & Spacing",
+  "pages": [
+    "line-divider",
+    "divider-with-title",
+    "divider-with-icon",
+    "divider-with-icon-and-button",
+    "divider-with-button",
+    "divider-with-logo",
+    "divider-with-social-icons",
+    "divider-with-file-type",
+    "vertical-spacer"
+  ]
+}

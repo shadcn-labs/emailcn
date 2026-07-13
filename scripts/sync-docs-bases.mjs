@@ -1,15 +1,20 @@
-/* eslint-disable no-plusplus, prefer-destructuring */
-// 1) Rewrites install commands in mjml-react component docs to the canonical
-//    item names (derived from each page's ComponentSource). Item names are
-//    identical across styles; the style is selected by the registry URL
-//    (/r/<style>/<name>.json) configured in components.json.
-// 2) Mirrors the mjml-react docs tree to jsx-email (the jsx-email ui library
-//    and demos are 1:1 ports of the mjml-react ones).
+// Generates the mjml-react and jsx-email component docs from the canonical
+// react-email component docs, so all three bases expose the exact same set of
+// doc pages (same slugs, same count). Only the base-specific bits differ:
+//   - the `base="..."` attribute on ComponentPreview / ComponentSource / ComponentsList
+//   - the `registry/bases/<base>/...` source path
+//   - the theme prop type (TailwindConfig -> EmailThemeTokens)
+//   - a base-specific "Install the following dependencies" step
+//   - the base title in the root meta.json
+//
+// react-email docs are hand-authored and are the single source of truth.
+// Edit them under content/docs/components/react-email/**, then re-run this.
 import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const DOCS = path.join(ROOT, "content/docs/components");
+const SRC_BASE = "react-email";
 
 const walk = (d) =>
   fs
@@ -18,89 +23,96 @@ const walk = (d) =>
       e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]
     );
 
-// canonical install name from the ComponentSource src in the same page
-const canonicalInstall = (src) => {
-  const m = src.match(
-    /<ComponentSource[\s\S]*?src="registry\/bases\/[\w-]+\/(ui|blocks|themes|fonts)\/([\w./-]+)\.(tsx|ts)"/
-  );
-  if (!m) {
-    return null;
+// Each derived base + how it differs from the react-email source.
+const TARGETS = [
+  {
+    base: "mjml-react",
+    title: "MJML React",
+    dependency: "npm install @faire/mjml-react",
+    // The mjml/jsx demo for header-with-logo is registered under a legacy key.
+    demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
+  },
+  {
+    base: "jsx-email",
+    title: "JSX Email",
+    dependency: "npm install jsx-email",
+    demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
+  },
+];
+
+const COPY_SOURCE_STEP = "<Step>Copy the component source into your project.</Step>";
+
+const injectDependencyStep = (text, dependency) => {
+  if (!text.includes(COPY_SOURCE_STEP)) {
+    return text;
   }
-  const stem = path.basename(m[2]);
-  const kind = m[1];
-  if (kind === "blocks") {
-    return `block-${stem}`;
-  }
-  if (kind === "themes") {
-    return `theme-${stem}`;
-  }
-  if (kind === "fonts") {
-    return stem === "default" ? "default-fonts" : stem;
-  }
-  return stem;
+  const block = `<Step>Install the following dependencies:</Step>
+
+\`\`\`bash
+${dependency}
+\`\`\`
+
+${COPY_SOURCE_STEP}`;
+  // Inject once, before the (single) copy-source step on every component page.
+  return text.replace(COPY_SOURCE_STEP, block);
 };
 
-// --- 1) fix mjml install names in place ---
-let fixed = 0;
-for (const f of walk(path.join(DOCS, "mjml-react"))) {
-  if (!f.endsWith(".mdx")) {
-    continue;
+const transformMdx = (text, target) => {
+  let out = text
+    .split(`base="${SRC_BASE}"`)
+    .join(`base="${target.base}"`)
+    .split(`registry/bases/${SRC_BASE}/`)
+    .join(`registry/bases/${target.base}/`)
+    .split(`/docs/components/${SRC_BASE}/`)
+    .join(`/docs/components/${target.base}/`)
+    .split("TailwindConfig")
+    .join("EmailThemeTokens");
+  for (const [from, to] of Object.entries(target.demoRenames)) {
+    out = out.split(`name="${from}"`).join(`name="${to}"`);
   }
-  const src = fs.readFileSync(f, "utf-8");
-  const name = canonicalInstall(src);
-  if (!name) {
-    continue;
+  out = injectDependencyStep(out, target.dependency);
+  return out;
+};
+
+const transformMeta = (text, target) =>
+  text.split('"title": "React Email"').join(`"title": "${target.title}"`);
+
+const generate = (target) => {
+  const src = path.join(DOCS, SRC_BASE);
+  const dest = path.join(DOCS, target.base);
+  fs.rmSync(dest, { force: true, recursive: true });
+
+  let files = 0;
+  for (const f of walk(src)) {
+    const rel = path.relative(src, f);
+    const destPath = path.join(dest, rel);
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+    const raw = fs.readFileSync(f, "utf-8");
+    const isMeta = path.basename(f) === "meta.json";
+    fs.writeFileSync(
+      destPath,
+      isMeta ? transformMeta(raw, target) : transformMdx(raw, target)
+    );
+    files++;
   }
-  const updated = src.replaceAll(
-    /npx shadcn@latest add @emailcn\/[\w-]+/g,
-    `npx shadcn@latest add @emailcn/${name}`
-  );
-  if (updated !== src) {
-    fs.writeFileSync(f, updated);
-    fixed++;
-  }
+  console.log(`${target.base}: ${files} files generated from ${SRC_BASE}`);
+};
+
+for (const target of TARGETS) {
+  generate(target);
 }
-console.log(`mjml docs install names fixed: ${fixed}`);
 
-// --- 2) mirror mjml-react docs tree to jsx-email ---
-const SRC = path.join(DOCS, "mjml-react");
-const DEST = path.join(DOCS, "jsx-email");
-fs.rmSync(DEST, { force: true, recursive: true });
-
-const transform = (text) =>
-  text
-    .split('base="mjml-react"')
-    .join('base="jsx-email"')
-    .split("registry/bases/mjml-react/")
-    .join("registry/bases/jsx-email/")
-    .split("/docs/components/mjml-react/")
-    .join("/docs/components/jsx-email/")
-    .split("npm install @faire/mjml-react")
-    .join("npm install jsx-email")
-    .split("MJML React")
-    .join("JSX Email")
-    .split("Email components built with mjml-react")
-    .join("Email components built with jsx-email")
-    .split("(MJML)")
-    .join("(JSX Email)")
-    .split("EmailThemeTokens` | `defaultTheme`")
-    .join("EmailThemeTokens` | `defaultTheme`");
-
-let copied = 0;
-for (const f of walk(SRC)) {
-  const rel = path.relative(SRC, f);
-  const dest = path.join(DEST, rel);
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
-  fs.writeFileSync(dest, transform(fs.readFileSync(f, "utf-8")));
-  copied++;
-}
-console.log(`jsx-email docs files written: ${copied}`);
-
-// --- 3) register the base in components/meta.json ---
+// Ensure all three bases are registered in components/meta.json.
 const metaPath = path.join(DOCS, "meta.json");
 const meta = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
-if (!meta.pages.includes("jsx-email")) {
-  meta.pages.push("jsx-email");
+let metaChanged = false;
+for (const base of ["react-email", ...TARGETS.map((t) => t.base)]) {
+  if (!meta.pages.includes(base)) {
+    meta.pages.push(base);
+    metaChanged = true;
+  }
+}
+if (metaChanged) {
   fs.writeFileSync(metaPath, `${JSON.stringify(meta, null, 2)}\n`);
-  console.log("components/meta.json: added jsx-email");
+  console.log("components/meta.json updated");
 }

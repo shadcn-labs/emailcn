@@ -1,9 +1,10 @@
 {
   "title": "Feature Row",
   "pages": [
-    "feature-with-product-image",
-    "feature-with-double-tall-background-images",
-    "feature-with-large-portrait-image",
-    "feature-with-full-title-and-tall-background-images"
+    "product-image",
+    "double-tall-background-images",
+    "full-title-tall-background-images",
+    "large-portrait-image",
+    "multiple-product-images"
   ]
 }

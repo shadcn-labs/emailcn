@@ -1,0 +1,62 @@
+---
+title: "Divider with Logo"
+description: "UI Elements spacing variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="divider-with-logo-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-logo
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-logo.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-with-logo.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithLogo } from "@/components/emails/ui-elements/spacing/divider-with-logo";
+```
+
+```tsx
+<DividerWithLogo {...DividerWithLogo.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

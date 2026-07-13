@@ -2877,29 +2877,6 @@
       "description": "Marketing logos variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/boxed-logo-cloud.tsx",
-          "target": "components/emails/marketing/logos/boxed-logo-cloud.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-logo-cloud",
-      "title": "Boxed Logo Cloud",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing logos variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/logos/featured-brands-logo-grid.tsx",
           "target": "components/emails/marketing/logos/featured-brands-logo-grid.tsx",
           "type": "registry:component"
@@ -2943,16 +2920,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing logos variant for email templates",
+      "description": "Logo Cloud email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/logos-grid.tsx",
-          "target": "components/emails/marketing/logos/logos-grid.tsx",
+          "path": "registry/bases/react-email/ui/marketing/logos/logo-cloud.tsx",
+          "target": "components/emails/marketing/logos/logo-cloud.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "logos-grid",
-      "title": "Logos Grid",
+      "name": "logo-cloud",
+      "title": "Logo Cloud",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2969,13 +2946,13 @@
       "description": "Marketing logos variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/outlined-logo-cloud.tsx",
-          "target": "components/emails/marketing/logos/outlined-logo-cloud.tsx",
+          "path": "registry/bases/react-email/ui/marketing/logos/logos-grid.tsx",
+          "target": "components/emails/marketing/logos/logos-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "outlined-logo-cloud",
-      "title": "Outlined Logo Cloud",
+      "name": "logos-grid",
+      "title": "Logos Grid",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3061,121 +3038,6 @@
       "description": "Marketing social variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/circle-tiles-social-logos.tsx",
-          "target": "components/emails/marketing/social/circle-tiles-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "circle-tiles-social-logos",
-      "title": "Circle Tiles Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/outlined-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/outlined-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-box-social-logos",
-      "title": "Outlined Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/outlined-pill-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/outlined-pill-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-pill-box-social-logos",
-      "title": "Outlined Pill Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/outlined-square-tiles-social-logos.tsx",
-          "target": "components/emails/marketing/social/outlined-square-tiles-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-square-tiles-social-logos",
-      "title": "Outlined Square Tiles Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/pill-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/pill-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "pill-box-social-logos",
-      "title": "Pill Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/social/simple-social-logos-row.tsx",
           "target": "components/emails/marketing/social/simple-social-logos-row.tsx",
           "type": "registry:component"
@@ -3183,6 +3045,29 @@
       ],
       "name": "simple-social-logos-row",
       "title": "Simple Social Logos Row",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Social Logos email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/social/social-logos.tsx",
+          "target": "components/emails/marketing/social/social-logos.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "social-logos",
+      "title": "Social Logos",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3288,108 +3173,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Grid Stats email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/square-tiles-social-logos.tsx",
-          "target": "components/emails/marketing/social/square-tiles-social-logos.tsx",
+          "path": "registry/bases/react-email/ui/marketing/stats/grid-stats.tsx",
+          "target": "components/emails/marketing/stats/grid-stats.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "square-tiles-social-logos",
-      "title": "Square Tiles Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/squared-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/squared-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "squared-box-social-logos",
-      "title": "Squared Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/boxed-grid-stats.tsx",
-          "target": "components/emails/marketing/stats/boxed-grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-grid-stats",
-      "title": "Boxed Grid Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/grid-stats-with-accent-column.tsx",
-          "target": "components/emails/marketing/stats/grid-stats-with-accent-column.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "grid-stats-with-accent-column",
-      "title": "Grid Stats With Accent Column",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/grid-stats-with-border.tsx",
-          "target": "components/emails/marketing/stats/grid-stats-with-border.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "grid-stats-with-border",
-      "title": "Grid Stats With Border",
+      "name": "grid-stats",
+      "title": "Grid Stats",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3413,29 +3206,6 @@
       ],
       "name": "milestone-stats",
       "title": "Milestone Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/outlined-grid-stats.tsx",
-          "target": "components/emails/marketing/stats/outlined-grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-grid-stats",
-      "title": "Outlined Grid Stats",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3896,29 +3666,6 @@
       ],
       "name": "split-cards",
       "title": "Split Cards",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing timelines variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/timelines/stacked-boxed-timeline.tsx",
-          "target": "components/emails/marketing/timelines/stacked-boxed-timeline.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "stacked-boxed-timeline",
-      "title": "Stacked Boxed Timeline",
       "type": "registry:component",
       "dependencies": [
         "react-email"

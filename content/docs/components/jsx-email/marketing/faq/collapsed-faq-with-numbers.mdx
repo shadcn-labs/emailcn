@@ -1,0 +1,56 @@
+---
+title: "Collapsed FAQ with Numbers"
+description: "Marketing faq variant for email templates"
+---
+
+<ComponentPreview base="jsx-email" name="collapsed-faq-with-numbers-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/collapsed-faq-with-numbers
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/faq/collapsed-faq-with-numbers.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/faq/collapsed-faq-with-numbers.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CollapsedFaqWithNumbers } from "@/components/emails/marketing/faq/collapsed-faq-with-numbers";
+```
+
+```tsx
+<CollapsedFaqWithNumbers {...CollapsedFaqWithNumbers.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

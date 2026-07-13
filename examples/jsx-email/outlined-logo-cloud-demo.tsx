@@ -1,5 +1,5 @@
-import { OutlinedLogoCloud } from "@/registry/bases/jsx-email/ui/marketing/logos/outlined-logo-cloud";
+import { LogoCloud } from "@/registry/bases/jsx-email/ui/marketing/logos/logo-cloud";
 
 export default function OutlinedLogoCloudDemo() {
-  return <OutlinedLogoCloud {...OutlinedLogoCloud.PreviewProps} />;
+  return <LogoCloud {...LogoCloud.PreviewProps} tone="outlined" />;
 }

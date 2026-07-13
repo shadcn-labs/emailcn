@@ -1,0 +1,66 @@
+---
+title: "Logo Cloud"
+description: "Logo cloud with selectable boxed or outlined tiles for email templates"
+---
+
+One `LogoCloud` component covers both tile looks. Switch with the `tone` prop.
+
+## Boxed
+
+<ComponentPreview base="mjml-react" name="boxed-logo-cloud-demo" />
+
+## Outlined
+
+<ComponentPreview base="mjml-react" name="outlined-logo-cloud-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/logos/logo-cloud.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/logos/logo-cloud.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloud } from "@/components/emails/marketing/logos/logo-cloud";
+```
+
+```tsx
+<LogoCloud {...LogoCloud.PreviewProps} tone="outlined" />
+```
+
+## API Reference
+
+| Prop      | Type                                             | Default        | Description         |
+| --------- | ------------------------------------------------ | -------------- | ------------------- |
+| `tone`    | `"boxed" \| "outlined"`                          | `"boxed"`      | Logo tile style     |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt        |
+| `theme`   | `EmailThemeTokens`                                 | `defaultTheme` | Email theme styling |

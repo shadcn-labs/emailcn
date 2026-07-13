@@ -1,171 +1,164 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
-  Button,
-  Column,
   Container,
   Head,
   Html,
+  Img,
   Preview,
-  Row,
   Section,
   Text,
 } from "jsx-email";
+import type { CSSProperties } from "react";
 
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type CTAAnnouncementVariant =
+export type CTAWithBackgroundImageVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface CTAAnnouncementProps {
+export interface CTAWithBackgroundImageProps {
   theme?: EmailThemeTokens;
-  badge?: string;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  variant?: CTAAnnouncementVariant;
+  backgroundSrc?: string;
+  backgroundAlt?: string;
+  variant?: CTAWithBackgroundImageVariant;
 }
 
-const CTAAnnouncementSection = ({
-  badge,
-  ctaHref,
-  ctaLabel,
-  heading,
-  subtext,
-  theme,
-  variant,
-}: {
-  badge: string;
-  ctaHref: string;
-  ctaLabel: string;
-  heading: string;
-  subtext: string;
-  theme: EmailThemeTokens;
-  variant: CTAAnnouncementVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorPrimary,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "12px",
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {badge}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeXl ?? "20px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase ?? "14px",
-            margin: 0,
-            paddingBottom: theme.spacingLg ?? "24px",
-            textAlign: "center",
-          }}
-        >
-          {subtext}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            align="center"
-            width={160}
-            height={40}
-            style={{
-              backgroundColor: theme.colorPrimary,
-              borderRadius: theme.borderRadius,
-              color: theme.colorPrimaryForeground,
-              display: "inline-block",
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm ?? "14px",
-              fontWeight: theme.fontWeightMedium,
-              height: "auto",
-              padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-              textDecoration: "none",
-              width: "auto",
-            }}
-          >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
+const skewStyle = (variant: CTAWithBackgroundImageVariant): CSSProperties => {
+  switch (variant) {
+    case "slanted-left": {
+      return { transform: "skewX(-10deg)" };
+    }
+    case "slanted-right": {
+      return { transform: "skewX(10deg)" };
+    }
+    default: {
+      return {};
+    }
+  }
+};
 
-export const CtaWithBackgroundImage = ({
+const unskewStyle = (variant: CTAWithBackgroundImageVariant): CSSProperties => {
+  switch (variant) {
+    case "slanted-left": {
+      return { transform: "skewX(10deg)" };
+    }
+    case "slanted-right": {
+      return { transform: "skewX(-10deg)" };
+    }
+    default: {
+      return {};
+    }
+  }
+};
+
+export const CTAWithBackgroundImage = ({
   theme = defaultTheme,
-  badge = "NEW",
-  heading = "Introducing Our Latest Feature",
-  subtext = "Built to help you move faster and ship better.",
-  ctaLabel = "Learn More",
+  heading = "Limited Offer",
+  subtext = "Get 50% off your first month.",
+  ctaLabel = "Claim Offer",
   ctaHref = "#",
+  backgroundSrc = "https://static.photos/city/600x400/3",
+  backgroundAlt = "",
   variant = "default",
-}: CTAAnnouncementProps) => (
+}: CTAWithBackgroundImageProps) => (
   <Html>
     <Head />
-    <Preview>cta announcement</Preview>
+    <Preview>{heading}</Preview>
     <Body
       style={{
         backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
         fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
         margin: 0,
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <CTAAnnouncementSection
-            badge={badge}
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            heading={heading}
-            subtext={subtext}
-            theme={theme}
-            variant={variant}
-          />
+      <Container style={{ margin: "0 auto", maxWidth: theme.containerWidth }}>
+        <Section style={{ padding: "64px 0", ...skewStyle(variant) }}>
+          <Section
+            style={{
+              borderRadius: theme.borderRadiusLg,
+              overflow: "hidden",
+              position: "relative",
+              ...unskewStyle(variant),
+            }}
+          >
+            <Img
+              src={backgroundSrc}
+              alt={backgroundAlt}
+              width="600"
+              height="400"
+              style={{ height: "auto", objectFit: "cover", width: "100%" }}
+            />
+            <Section
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                bottom: 0,
+                left: 0,
+                padding: "48px",
+                position: "absolute",
+                right: 0,
+                textAlign: "center",
+                top: 0,
+              }}
+            >
+              <Text
+                style={{
+                  color: "#ffffff",
+                  fontSize: theme.fontSizeHeading,
+                  fontWeight: theme.fontWeightBold,
+                  lineHeight: 1.375,
+                  margin: 0,
+                }}
+              >
+                {heading}
+              </Text>
+              <Text
+                style={{
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: theme.fontSizeLg,
+                  margin: "16px 0 32px",
+                }}
+              >
+                {subtext}
+              </Text>
+              {ctaLabel && ctaHref ? (
+                <a
+                  href={ctaHref}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: theme.borderRadius,
+                    color: "#111827",
+                    display: "inline-block",
+                    fontSize: theme.fontSizeBase,
+                    fontWeight: theme.fontWeightMedium,
+                    padding: "12px 32px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {ctaLabel}
+                </a>
+              ) : null}
+            </Section>
+          </Section>
         </Section>
       </Container>
     </Body>
   </Html>
 );
 
-CtaWithBackgroundImage.PreviewProps = {
-  badge: "NEW",
-  ctaHref: "https://example.com/feature",
-  ctaLabel: "Learn More",
-  heading: "Introducing Our Latest Feature",
-  subtext: "Built to help you move faster and ship better.",
+CTAWithBackgroundImage.PreviewProps = {
+  backgroundAlt: "Background",
+  backgroundSrc: "https://static.photos/city/600x400/4",
+  ctaHref: "https://example.com",
+  ctaLabel: "Claim Offer",
+  heading: "Limited Offer",
+  subtext: "Get 50% off your first month.",
   theme: defaultTheme,
   variant: "default",
-} satisfies CTAAnnouncementProps;
+} satisfies CTAWithBackgroundImageProps;

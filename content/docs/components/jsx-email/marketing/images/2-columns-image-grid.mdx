@@ -1,0 +1,56 @@
+---
+title: "2 Columns Image Grid"
+description: "2 Columns Image Grid — Images email component."
+---
+
+<ComponentPreview base="jsx-email" name="two-columns-image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/images/2-columns-image-grid.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/images/2-columns-image-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsImageGrid } from "@/components/emails/marketing/images/2-columns-image-grid";
+```
+
+```tsx
+<TwoColumnsImageGrid {...TwoColumnsImageGrid.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

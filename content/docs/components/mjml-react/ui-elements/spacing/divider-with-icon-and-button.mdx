@@ -1,0 +1,62 @@
+---
+title: "Divider with Icon and Button"
+description: "UI Elements spacing variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="divider-with-icon-button-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-icon-and-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-icon-and-button.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-with-icon-and-button.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithIconAndButton } from "@/components/emails/ui-elements/spacing/divider-with-icon-and-button";
+```
+
+```tsx
+<DividerWithIconAndButton {...DividerWithIconAndButton.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,0 +1,63 @@
+---
+title: "Full Width Progress Bar"
+description: "UI Elements progress-bars variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="full-width-progress-bar-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-progress-bar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/progress-bars/full-width-progress-bar.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthProgressBar } from "@/components/emails/ui-elements/progress-bars/full-width-progress-bar";
+```
+
+```tsx
+<FullWidthProgressBar {...FullWidthProgressBar.PreviewProps} />
+```
+
+## API Reference
+
+| Prop       | Type         | Default        | Description         |
+| ---------- | ------------ | -------------- | ------------------- |
+| `progress` | `number`     | `0`            | Progress percentage |
+| `theme`    | `EmailTheme` | `defaultTheme` | Email theme styling |

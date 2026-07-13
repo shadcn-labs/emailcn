@@ -3,7 +3,16 @@ title: "Stacked Timeline"
 description: "Marketing timelines variant for email templates"
 ---
 
+One `StackedTimeline` component covers both looks. Switch with the `layout`
+prop.
+
+## Line
+
 <ComponentPreview base="react-email" name="stacked-timeline-demo" />
+
+## Boxed
+
+<ComponentPreview base="react-email" name="stacked-boxed-timeline-demo" />
 
 ## Installation
 
@@ -40,11 +49,13 @@ import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked
 ```
 
 ```tsx
-<StackedTimeline {...StackedTimeline.PreviewProps} />
+<StackedTimeline {...StackedTimeline.PreviewProps} layout="boxed" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                             | Default        | Description          |
+| --------- | ------------------------------------------------ | -------------- | -------------------- |
+| `layout`  | `"line" \| "boxed"`                              | `"line"`       | Timeline item style  |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt         |
+| `theme`   | `TailwindConfig`                                 | `defaultTheme` | Email theme styling  |

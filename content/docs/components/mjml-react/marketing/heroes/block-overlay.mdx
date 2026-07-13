@@ -1,0 +1,56 @@
+---
+title: "Block Overlay"
+description: "Marketing hero variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="hero-block-overlay-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-block-overlay
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/hero-block-overlay.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/hero/hero-block-overlay.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroBlockOverlay } from "@/components/emails/marketing/hero/hero-block-overlay";
+```
+
+```tsx
+<HeroBlockOverlay {...HeroBlockOverlay.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

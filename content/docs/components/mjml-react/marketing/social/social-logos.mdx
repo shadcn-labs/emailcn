@@ -1,0 +1,88 @@
+---
+title: "Social Logos"
+description: "Social icon row with selectable tile shapes for email templates"
+---
+
+One `SocialLogos` component covers every tile style. Switch the look with the
+`tile` prop, and tilt the row with the `variant` prop.
+
+## Square
+
+<ComponentPreview base="mjml-react" name="square-tiles-social-logos-demo" />
+
+## Circle
+
+<ComponentPreview base="mjml-react" name="circle-tiles-social-logos-demo" />
+
+## Pill
+
+<ComponentPreview base="mjml-react" name="pill-box-social-logos-demo" />
+
+## Squared Box
+
+<ComponentPreview base="mjml-react" name="squared-box-social-logos-demo" />
+
+## Outlined Box
+
+<ComponentPreview base="mjml-react" name="outlined-box-social-logos-demo" />
+
+## Outlined Pill
+
+<ComponentPreview base="mjml-react" name="outlined-pill-box-social-logos-demo" />
+
+## Outlined Square
+
+<ComponentPreview base="mjml-react" name="outlined-square-tiles-social-logos-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/social-logos
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/social/social-logos.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/social/social-logos.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialLogos } from "@/components/emails/marketing/social/social-logos";
+```
+
+```tsx
+<SocialLogos {...SocialLogos.PreviewProps} tile="circle" />
+<SocialLogos {...SocialLogos.PreviewProps} tile="outlined-pill" variant="slanted-left" />
+```
+
+## API Reference
+
+| Prop      | Type                                                                                                  | Default     | Description                |
+| --------- | ----------------------------------------------------------------------------------------------------- | ----------- | -------------------------- |
+| `tile`    | `"square" \| "circle" \| "pill" \| "squared-box" \| "outlined-box" \| "outlined-pill" \| "outlined-square"` | `"square"`  | Tile shape around each icon |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"`                                                      | `"default"` | Row tilt                   |
+| `theme`   | `EmailThemeTokens`                                                                                      | `defaultTheme` | Email theme styling     |

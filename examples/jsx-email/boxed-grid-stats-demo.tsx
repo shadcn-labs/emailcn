@@ -1,5 +1,5 @@
-import { BoxedGridStats } from "@/registry/bases/jsx-email/ui/marketing/stats/boxed-grid-stats";
+import { GridStats } from "@/registry/bases/jsx-email/ui/marketing/stats/grid-stats";
 
 export default function BoxedGridStatsDemo() {
-  return <BoxedGridStats {...BoxedGridStats.PreviewProps} />;
+  return <GridStats {...GridStats.PreviewProps} tone="boxed" />;
 }

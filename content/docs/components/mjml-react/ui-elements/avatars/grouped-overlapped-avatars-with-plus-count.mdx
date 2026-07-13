@@ -1,0 +1,58 @@
+---
+title: "Grouped Overlapped Avatars with Plus Count"
+description: "UI Elements avatars variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="grouped-overlapped-avatars-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grouped-overlapped-avatars-with-plus-count
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GroupedOverlappedAvatarsWithPlusCount } from "@/components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count";
+```
+
+```tsx
+<GroupedOverlappedAvatarsWithPlusCount
+  {...GroupedOverlappedAvatarsWithPlusCount.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

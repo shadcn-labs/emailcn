@@ -4,118 +4,56 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
-  MjmlButton,
-  MjmlColumn,
   MjmlHead,
+  MjmlHero,
   MjmlPreview,
-  MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type CouponOverlayedVariant =
+export type CouponsWithContentOverlayedVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface CouponOverlayedProps {
+export interface CouponsWithContentOverlayedProps {
   theme?: EmailThemeTokens;
-  code?: string;
   discount?: string;
+  code?: string;
   description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: CouponOverlayedVariant;
+  backgroundSrc?: string;
+  backgroundAlt?: string;
+  variant?: CouponsWithContentOverlayedVariant;
 }
 
-const CouponOverlayedSection = ({
-  code,
-  ctaHref,
-  ctaLabel,
-  description,
-  discount,
-  theme,
-  variant,
-}: {
-  code: string;
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  discount: string;
-  theme: EmailThemeTokens;
-  variant: CouponOverlayedVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorPrimary}
-    borderRadius={theme.borderRadius}
-    padding={theme.spacingXl ?? "24px"}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorPrimaryForeground}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "12px"}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {discount}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorPrimaryForeground}
-        fontFamily={theme.fontFamilyMono}
-        fontSize="28px"
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {code}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorPrimaryForeground}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase ?? "14px"}
-        paddingBottom={theme.spacingLg ?? "24px"}
-      >
-        {description}
-      </MjmlText>
-      {ctaLabel && ctaHref ? (
-        <MjmlButton
-          align="center"
-          backgroundColor={theme.colorPrimaryForeground}
-          borderRadius={theme.borderRadius}
-          color={theme.colorPrimary}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "14px"}
-          fontWeight={theme.fontWeightMedium}
-          href={ctaHref}
-          innerPadding={`${theme.spacingBase ?? "16px"} ${theme.spacingLg ?? "24px"}`}
-        >
-          {ctaLabel}
-        </MjmlButton>
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: CouponsWithContentOverlayedVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const CouponsWithContentOverlayed = ({
   theme = defaultTheme,
-  code = "VIP30",
   discount = "30% OFF",
-  description = "Exclusive VIP discount. Use code at checkout.",
-  ctaLabel = "Claim Offer",
-  ctaHref = "#",
+  code = "FLASH30",
+  description = "Flash sale - limited time only",
+  backgroundSrc = "https://static.photos/city/600x400/3",
+  backgroundAlt = "",
   variant = "default",
-}: CouponOverlayedProps) => (
+}: CouponsWithContentOverlayedProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>coupon overlayed</MjmlPreview>
+      <MjmlPreview>{discount}</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -126,27 +64,61 @@ export const CouponsWithContentOverlayed = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <CouponOverlayedSection
-          code={code}
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          description={description}
-          discount={discount}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlHero
+        backgroundColor="#1f2937"
+        backgroundHeight={400}
+        backgroundPosition="center center"
+        backgroundUrl={backgroundSrc}
+        backgroundWidth={600}
+        cssClass={variantClass(variant)}
+        mode="fluid-height"
+        padding="48px 32px"
+      >
+        <MjmlText
+          align="center"
+          color="#ffffff"
+          fontSize={theme.fontSizeXl}
+          fontWeight={theme.fontWeightBold}
+          paddingBottom="8px"
+        >
+          {discount}
+        </MjmlText>
+        <MjmlText
+          align="center"
+          color="rgba(255,255,255,0.8)"
+          fontSize={theme.fontSizeLg}
+          paddingBottom="16px"
+        >
+          {description}
+        </MjmlText>
+        <MjmlText align="center">
+          <span
+            style={{
+              backgroundColor: "rgba(255,255,255,0.2)",
+              borderRadius: theme.borderRadius,
+              color: "#ffffff",
+              display: "inline-block",
+              fontFamily: theme.fontFamilyMono,
+              fontSize: theme.fontSizeLg,
+              fontWeight: theme.fontWeightBold,
+              letterSpacing: "0.1em",
+              padding: "12px 32px",
+            }}
+          >
+            {code}
+          </span>
+        </MjmlText>
+      </MjmlHero>
     </MjmlBody>
   </Mjml>
 );
 
 CouponsWithContentOverlayed.PreviewProps = {
-  code: "VIP30",
-  ctaHref: "https://example.com/claim",
-  ctaLabel: "Claim Offer",
-  description: "Exclusive VIP discount. Use code at checkout.",
+  backgroundAlt: "",
+  backgroundSrc: "https://static.photos/city/600x400/6",
+  code: "FLASH30",
+  description: "Flash sale - limited time only",
   discount: "30% OFF",
   theme: defaultTheme,
   variant: "default",
-} satisfies CouponOverlayedProps;
+} satisfies CouponsWithContentOverlayedProps;

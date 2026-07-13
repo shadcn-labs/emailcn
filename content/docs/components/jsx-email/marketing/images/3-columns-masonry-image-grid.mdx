@@ -1,0 +1,59 @@
+---
+title: "3 Columns Masonry Image Grid"
+description: "3 Columns Masonry Image Grid — Images email component."
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/3-columns-masonry-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/images/3-columns-masonry-image-grid.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/images/3-columns-masonry-image-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ThreeColumnsMasonryImageGrid } from "@/components/emails/marketing/images/3-columns-masonry-image-grid";
+```
+
+```tsx
+<ThreeColumnsMasonryImageGrid {...ThreeColumnsMasonryImageGrid.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -1,5 +1,5 @@
-import { BoxedGridStats } from "@/registry/bases/mjml-react/ui/marketing/stats/boxed-grid-stats";
+import { GridStats } from "@/registry/bases/mjml-react/ui/marketing/stats/grid-stats";
 
 export default function BoxedGridStatsDemo() {
-  return <BoxedGridStats {...BoxedGridStats.PreviewProps} />;
+  return <GridStats {...GridStats.PreviewProps} tone="boxed" />;
 }

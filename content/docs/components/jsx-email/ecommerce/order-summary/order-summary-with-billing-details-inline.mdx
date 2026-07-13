@@ -1,0 +1,61 @@
+---
+title: "Order Summary with Billing Details (Inline)"
+description: "Order Summary with Billing Details (Inline) — Order Summary email component."
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-order-summary-card-details-total-top-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/order-summary-with-billing-details-and-payment-method-inline
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OrderSummaryWithBillingDetailsInline } from "@/components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline";
+```
+
+```tsx
+<OrderSummaryWithBillingDetailsInline
+  {...OrderSummaryWithBillingDetailsInline.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

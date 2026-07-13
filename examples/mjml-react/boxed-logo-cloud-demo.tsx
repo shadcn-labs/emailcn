@@ -1,5 +1,5 @@
-import { BoxedLogoCloud } from "@/registry/bases/mjml-react/ui/marketing/logos/boxed-logo-cloud";
+import { LogoCloud } from "@/registry/bases/mjml-react/ui/marketing/logos/logo-cloud";
 
 export default function BoxedLogoCloudDemo() {
-  return <BoxedLogoCloud {...BoxedLogoCloud.PreviewProps} />;
+  return <LogoCloud {...LogoCloud.PreviewProps} tone="boxed" />;
 }

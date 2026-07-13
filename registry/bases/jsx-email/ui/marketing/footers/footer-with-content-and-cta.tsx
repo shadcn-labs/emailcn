@@ -1,114 +1,119 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Preview, Section, Text } from "jsx-email";
 
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FooterDisclaimerVariant =
+export type FooterWithContentAndCtaVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface FooterDisclaimerProps {
+export interface FooterWithContentAndCtaProps {
   theme?: EmailThemeTokens;
-  companyName?: string;
-  disclaimer?: string;
-  variant?: FooterDisclaimerVariant;
+  heading?: string;
+  subtext?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  variant?: FooterWithContentAndCtaVariant;
 }
-
-const FooterDisclaimerSection = ({
-  companyName,
-  disclaimer,
-  theme,
-  variant,
-}: {
-  companyName: string;
-  disclaimer: string;
-  theme: EmailThemeTokens;
-  variant: FooterDisclaimerVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackgroundSubtle,
-      padding: `${theme.spacingBase ?? "24px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "11px",
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "8px",
-            textAlign: "center",
-          }}
-        >
-          {disclaimer}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "11px",
-            margin: 0,
-            textAlign: "center",
-          }}
-        >
-          &copy; {new Date().getFullYear()} {companyName}
-        </Text>
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const FooterWithContentAndCta = ({
   theme = defaultTheme,
-  companyName = "Acme Inc.",
-  disclaimer = "This email was sent to you because you signed up for our newsletter.",
+  heading = "Stay in touch",
+  subtext = "Subscribe to our newsletter.",
+  ctaLabel = "Subscribe",
+  ctaHref = "#",
   variant = "default",
-}: FooterDisclaimerProps) => (
-  <Html>
-    <Head />
-    <Preview>footer disclaimer</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FooterDisclaimerSection
-            companyName={companyName}
-            disclaimer={disclaimer}
-            theme={theme}
-            variant={variant}
-          />
+}: FooterWithContentAndCtaProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>{heading}</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "32px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              textAlign: "center",
+              transform: unskew,
+            }}
+          >
+            <Text
+              style={{
+                color: theme.colorText,
+                fontSize: theme.fontSizeLg,
+                fontWeight: theme.fontWeightMedium,
+                margin: "0 0 8px",
+                textAlign: "center",
+              }}
+            >
+              {heading}
+            </Text>
+            <Text
+              style={{
+                color: theme.colorTextMuted,
+                fontSize: theme.fontSizeSm,
+                margin: "0 0 24px",
+                textAlign: "center",
+              }}
+            >
+              {subtext}
+            </Text>
+            {ctaLabel && ctaHref ? (
+              <a
+                href={ctaHref}
+                style={{
+                  backgroundColor: theme.colorPrimary,
+                  borderRadius: theme.borderRadius,
+                  color: theme.colorPrimaryForeground ?? "#ffffff",
+                  display: "inline-block",
+                  fontSize: theme.fontSizeSm,
+                  fontWeight: theme.fontWeightMedium,
+                  padding: "8px 24px",
+                  textDecoration: "none",
+                }}
+              >
+                {ctaLabel}
+              </a>
+            ) : null}
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
+
 FooterWithContentAndCta.PreviewProps = {
-  companyName: "Acme Inc.",
-  disclaimer:
-    "This email was sent to you because you opted in to receive updates.",
+  ctaHref: "https://example.com",
+  ctaLabel: "Subscribe",
+  heading: "Stay in touch",
+  subtext: "Subscribe to our newsletter.",
   theme: defaultTheme,
   variant: "default",
-} satisfies FooterDisclaimerProps;
+} satisfies FooterWithContentAndCtaProps;

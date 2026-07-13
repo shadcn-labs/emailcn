@@ -1,0 +1,62 @@
+---
+title: "Divider with Title"
+description: "UI Elements spacing variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="divider-with-title-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-title
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-title.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-with-title.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithTitle } from "@/components/emails/ui-elements/spacing/divider-with-title";
+```
+
+```tsx
+<DividerWithTitle {...DividerWithTitle.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

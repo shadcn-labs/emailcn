@@ -8,94 +8,111 @@ import {
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type FAQDarkVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQDarkProps {
+export type CollapsedFaqWithNumbersVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
+
+export interface CollapsedFaqWithNumbersProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQDarkVariant;
+  heading?: string;
+  q1?: string;
+  q2?: string;
+  q3?: string;
+  q4?: string;
+  variant?: CollapsedFaqWithNumbersVariant;
 }
-const FAQDarkSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQDarkProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQDarkVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorText}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {(items ?? []).map((item, i) => (
-        <MjmlSection
-          key={item.question + i}
-          padding={`${theme.spacingBase ?? "16px"} 0`}
-        >
-          <MjmlText
-            color={theme.colorBackground}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "8px"}
-          >
-            {item.question}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          >
-            {item.answer}
-          </MjmlText>
-        </MjmlSection>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
-);
+
+const variantClass = (variant: CollapsedFaqWithNumbersVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
+
 export const CollapsedFaqWithNumbers = ({
   theme = defaultTheme,
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
+  heading = "FAQ",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+  q4 = "Can I cancel anytime?",
   variant = "default",
-}: FAQDarkProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>FAQ dark</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <FAQDarkSection items={items} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
-);
+}: CollapsedFaqWithNumbersProps) => {
+  const items = [
+    { n: "01", q: q1 },
+    { n: "02", q: q2 },
+    { n: "03", q: q3 },
+    { n: "04", q: q4 },
+  ];
+  return (
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>{heading}</MjmlPreview>
+        <MjmlStyle>{`
+          .ec-skew-left > div { transform: skewX(-10deg); }
+          .ec-skew-right > div { transform: skewX(10deg); }
+        `}</MjmlStyle>
+        <MjmlAttributes>
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
+        <MjmlSection
+          backgroundColor={theme.colorBackground}
+          cssClass={variantClass(variant)}
+          padding="64px 0"
+        >
+          <MjmlColumn>
+            {heading ? (
+              <MjmlText
+                align="center"
+                color={theme.colorText}
+                fontSize={theme.fontSizeHeading}
+                fontWeight={theme.fontWeightBold}
+                paddingBottom="32px"
+              >
+                {heading}
+              </MjmlText>
+            ) : null}
+            {items.map((item) => (
+              <MjmlText
+                key={item.n}
+                color={theme.colorText}
+                fontSize={theme.fontSizeSm}
+                fontWeight={theme.fontWeightMedium}
+                paddingBottom="16px"
+              >
+                {item.n}. {item.q}
+              </MjmlText>
+            ))}
+          </MjmlColumn>
+        </MjmlSection>
+      </MjmlBody>
+    </Mjml>
+  );
+};
+
 CollapsedFaqWithNumbers.PreviewProps = {
-  items: [
-    {
-      answer: "A collection of responsive email components.",
-      question: "What is EmailCN?",
-    },
-    { answer: "MIT license.", question: "What license?" },
-  ],
+  heading: "FAQ",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
+  q4: "Can I cancel anytime?",
   theme: defaultTheme,
   variant: "default",
-} satisfies FAQDarkProps;
+} satisfies CollapsedFaqWithNumbersProps;

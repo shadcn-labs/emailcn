@@ -6,82 +6,178 @@ import {
   MjmlBody,
   MjmlColumn,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type FooterMinimalVariant = "default" | "slanted-left" | "slanted-right";
+export type FooterWithTextMenuAndSocialsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface FooterMinimalProps {
+export interface FooterWithTextMenuAndSocialsProps {
   theme?: EmailThemeTokens;
-  companyName?: string;
-  variant?: FooterMinimalVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  text?: string;
+  link1?: string;
+  link1Href?: string;
+  link2?: string;
+  link2Href?: string;
+  link3?: string;
+  link3Href?: string;
+  socialSrc1?: string;
+  socialAlt1?: string;
+  socialSrc2?: string;
+  socialAlt2?: string;
+  socialSrc3?: string;
+  socialAlt3?: string;
+  variant?: FooterWithTextMenuAndSocialsVariant;
 }
 
-const FooterMinimalSection = ({
-  companyName,
-  theme,
-  variant,
-}: {
-  companyName: string;
-  theme: EmailThemeTokens;
-  variant: FooterMinimalVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackgroundMuted}
-    padding={`${theme.spacingBase ?? "24px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "12px"}
-      >
-        &copy; {new Date().getFullYear()} {companyName}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: FooterWithTextMenuAndSocialsVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const FooterWithTextMenuAndSocials = ({
   theme = defaultTheme,
-  companyName = "Acme Inc.",
+  logoSrc = "https://static.photos/business/100x25/6",
+  logoAlt = "Logo",
+  text = "© 2024 Acme Inc. All rights reserved.",
+  link1 = "Privacy",
+  link1Href = "#",
+  link2 = "Terms",
+  link2Href = "#",
+  link3 = "Contact",
+  link3Href = "#",
+  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-6&size=20",
+  socialAlt1 = "Twitter",
+  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-7&size=20",
+  socialAlt2 = "Facebook",
+  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-8&size=20",
+  socialAlt3 = "LinkedIn",
   variant = "default",
-}: FooterMinimalProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>footer minimal</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <FooterMinimalSection
-          companyName={companyName}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
-);
+}: FooterWithTextMenuAndSocialsProps) => {
+  const links = [
+    { href: link1Href, label: link1 },
+    { href: link2Href, label: link2 },
+    { href: link3Href, label: link3 },
+  ];
+  const socials = [
+    { alt: socialAlt1, src: socialSrc1 },
+    { alt: socialAlt2, src: socialSrc2 },
+    { alt: socialAlt3, src: socialSrc3 },
+  ];
+  return (
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>Footer</MjmlPreview>
+        <MjmlStyle>{`
+          .ec-skew-left > div { transform: skewX(-10deg); }
+          .ec-skew-right > div { transform: skewX(10deg); }
+        `}</MjmlStyle>
+        <MjmlAttributes>
+          <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
+        <MjmlSection
+          backgroundColor={theme.colorBackground}
+          cssClass={variantClass(variant)}
+          padding="32px 0"
+        >
+          <MjmlColumn>
+            <MjmlImage
+              align="center"
+              alt={logoAlt}
+              height={25}
+              paddingBottom="16px"
+              src={logoSrc}
+              width={100}
+            />
+            <MjmlText align="center" paddingBottom="16px">
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  style={{
+                    color: theme.colorTextMuted,
+                    fontSize: theme.fontSizeSm,
+                    margin: "0 8px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </MjmlText>
+            <MjmlText align="center" paddingBottom="16px">
+              {socials.map((social) => (
+                <img
+                  key={social.alt}
+                  alt={social.alt}
+                  src={social.src}
+                  width="20"
+                  height="20"
+                  style={{
+                    display: "inline-block",
+                    height: "auto",
+                    margin: "0 8px",
+                    objectFit: "contain",
+                    verticalAlign: "middle",
+                  }}
+                />
+              ))}
+            </MjmlText>
+            <MjmlText
+              align="center"
+              color={theme.colorTextSubtle}
+              fontSize={theme.fontSizeSm}
+            >
+              {text}
+            </MjmlText>
+          </MjmlColumn>
+        </MjmlSection>
+      </MjmlBody>
+    </Mjml>
+  );
+};
 
 FooterWithTextMenuAndSocials.PreviewProps = {
-  companyName: "Acme Inc.",
+  link1: "Privacy",
+  link1Href: "#",
+  link2: "Terms",
+  link2Href: "#",
+  link3: "Contact",
+  link3Href: "#",
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/100x25/10",
+  socialAlt1: "Twitter",
+  socialAlt2: "Facebook",
+  socialAlt3: "LinkedIn",
+  socialSrc1:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-10&size=20",
+  socialSrc2:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-11&size=20",
+  socialSrc3:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-12&size=20",
+  text: "© 2024 Acme Inc. All rights reserved.",
   theme: defaultTheme,
   variant: "default",
-} satisfies FooterMinimalProps;
+} satisfies FooterWithTextMenuAndSocialsProps;

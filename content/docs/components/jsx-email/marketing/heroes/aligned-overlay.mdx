@@ -1,0 +1,56 @@
+---
+title: "Aligned Overlay"
+description: "Marketing hero variant for email templates"
+---
+
+<ComponentPreview base="jsx-email" name="hero-aligned-overlay-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-aligned-overlay
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/hero/hero-aligned-overlay.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/hero/hero-aligned-overlay.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroAlignedOverlay } from "@/components/emails/marketing/hero/hero-aligned-overlay";
+```
+
+```tsx
+<HeroAlignedOverlay {...HeroAlignedOverlay.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

@@ -2,12 +2,14 @@
   "title": "Footers",
   "pages": [
     "footer-with-legal-text",
-    "footer-centered-with-bordered-full-menu",
-    "footer-with-2-column-menu",
-    "footer-centered-with-menu-and-socials",
-    "footer-with-oversized-logo-and-full-menu",
-    "footer-with-3-col-menu",
-    "footer-with-content-and-cta",
+    "centered-with-bordered-full-menu",
+    "centered-with-menu-and-socials",
+    "2-column-menu",
+    "3-column-menu",
+    "content-and-cta",
+    "oversized-logo-and-full-menu",
+    "social-icons-and-address",
+    "text-menu-and-socials",
     "simple-footer-with-social-icons"
   ]
 }

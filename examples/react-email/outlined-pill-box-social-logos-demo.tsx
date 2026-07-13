@@ -1,7 +1,5 @@
-import { OutlinedPillBoxSocialLogos } from "@/registry/bases/react-email/ui/marketing/social/outlined-pill-box-social-logos";
+import { SocialLogos } from "@/registry/bases/react-email/ui/marketing/social/social-logos";
 
 export default function OutlinedPillBoxSocialLogosDemo() {
-  return (
-    <OutlinedPillBoxSocialLogos {...OutlinedPillBoxSocialLogos.PreviewProps} />
-  );
+  return <SocialLogos {...SocialLogos.PreviewProps} tile="outlined-pill" />;
 }

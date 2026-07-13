@@ -1,0 +1,56 @@
+---
+title: "Background Image"
+description: "Marketing cta variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="cta-with-background-image-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-background-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/cta/cta-with-background-image.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/cta/cta-with-background-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CtaWithBackgroundImage } from "@/components/emails/marketing/cta/cta-with-background-image";
+```
+
+```tsx
+<CtaWithBackgroundImage {...CtaWithBackgroundImage.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

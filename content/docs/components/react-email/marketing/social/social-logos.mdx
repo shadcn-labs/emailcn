@@ -1,0 +1,82 @@
+---
+title: "Social Logos"
+description: "Social icon row with selectable tile shapes for email templates"
+---
+
+One `SocialLogos` component covers every tile style. Switch the look with the
+`tile` prop, and tilt the row with the `variant` prop.
+
+## Square
+
+<ComponentPreview base="react-email" name="square-tiles-social-logos-demo" />
+
+## Circle
+
+<ComponentPreview base="react-email" name="circle-tiles-social-logos-demo" />
+
+## Pill
+
+<ComponentPreview base="react-email" name="pill-box-social-logos-demo" />
+
+## Squared Box
+
+<ComponentPreview base="react-email" name="squared-box-social-logos-demo" />
+
+## Outlined Box
+
+<ComponentPreview base="react-email" name="outlined-box-social-logos-demo" />
+
+## Outlined Pill
+
+<ComponentPreview base="react-email" name="outlined-pill-box-social-logos-demo" />
+
+## Outlined Square
+
+<ComponentPreview base="react-email" name="outlined-square-tiles-social-logos-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/social-logos
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/social/social-logos.tsx"
+    base="react-email"
+    title="components/emails/marketing/social/social-logos.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialLogos } from "@/components/emails/marketing/social/social-logos";
+```
+
+```tsx
+<SocialLogos {...SocialLogos.PreviewProps} tile="circle" />
+<SocialLogos {...SocialLogos.PreviewProps} tile="outlined-pill" variant="slanted-left" />
+```
+
+## API Reference
+
+| Prop      | Type                                                                                                  | Default     | Description                |
+| --------- | ----------------------------------------------------------------------------------------------------- | ----------- | -------------------------- |
+| `tile`    | `"square" \| "circle" \| "pill" \| "squared-box" \| "outlined-box" \| "outlined-pill" \| "outlined-square"` | `"square"`  | Tile shape around each icon |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"`                                                      | `"default"` | Row tilt                   |
+| `theme`   | `TailwindConfig`                                                                                      | `defaultTheme` | Email theme styling     |

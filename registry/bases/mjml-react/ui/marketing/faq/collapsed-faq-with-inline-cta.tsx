@@ -4,103 +4,142 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
+  MjmlButton,
   MjmlColumn,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type FAQAccordionVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQAccordionProps {
+export type CollapsedFaqWithInlineCtaVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
+
+export interface CollapsedFaqWithInlineCtaProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQAccordionVariant;
+  heading?: string;
+  q1?: string;
+  q2?: string;
+  q3?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaText?: string;
+  variant?: CollapsedFaqWithInlineCtaVariant;
 }
-const FAQAccordionSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQAccordionProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQAccordionVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {(items ?? []).map((item, i) => (
-        <MjmlSection
-          key={item.question + i}
-          backgroundColor={theme.colorBackgroundMuted}
-          borderRadius={theme.borderRadius}
-          padding={theme.spacingBase ?? "16px"}
-        >
-          <MjmlText
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "8px"}
-          >
-            {item.question}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          >
-            {item.answer}
-          </MjmlText>
-        </MjmlSection>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
-);
+
+const variantClass = (variant: CollapsedFaqWithInlineCtaVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
+
 export const CollapsedFaqWithInlineCta = ({
   theme = defaultTheme,
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
+  heading = "FAQ",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+  ctaLabel = "Contact Us",
+  ctaHref = "#",
+  ctaText = "Still have questions?",
   variant = "default",
-}: FAQAccordionProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>FAQ accordion</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <FAQAccordionSection items={items} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
-);
+}: CollapsedFaqWithInlineCtaProps) => {
+  const questions = [q1, q2, q3];
+  return (
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>{heading}</MjmlPreview>
+        <MjmlStyle>{`
+          .ec-skew-left > div { transform: skewX(-10deg); }
+          .ec-skew-right > div { transform: skewX(10deg); }
+        `}</MjmlStyle>
+        <MjmlAttributes>
+          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
+          <MjmlText
+            fontSize={theme.fontSizeBase}
+            lineHeight={theme.lineHeightBase}
+          />
+        </MjmlAttributes>
+      </MjmlHead>
+      <MjmlBody
+        backgroundColor={theme.colorBackground}
+        width={theme.containerWidth}
+      >
+        <MjmlSection
+          backgroundColor={theme.colorBackground}
+          cssClass={variantClass(variant)}
+          padding="64px 0"
+        >
+          <MjmlColumn>
+            {heading ? (
+              <MjmlText
+                align="center"
+                color={theme.colorText}
+                fontSize={theme.fontSizeHeading}
+                fontWeight={theme.fontWeightBold}
+                paddingBottom="32px"
+              >
+                {heading}
+              </MjmlText>
+            ) : null}
+            {questions.map((question, index) => (
+              <MjmlText
+                key={question}
+                align="center"
+                color={theme.colorText}
+                fontSize={theme.fontSizeSm}
+                fontWeight={theme.fontWeightMedium}
+                paddingBottom={index === questions.length - 1 ? "32px" : "16px"}
+              >
+                {question}
+              </MjmlText>
+            ))}
+            {ctaText ? (
+              <MjmlText
+                align="center"
+                color={theme.colorTextMuted}
+                fontSize={theme.fontSizeBase}
+                paddingBottom="16px"
+              >
+                {ctaText}
+              </MjmlText>
+            ) : null}
+            {ctaLabel && ctaHref ? (
+              <MjmlButton
+                align="center"
+                backgroundColor={theme.colorPrimary}
+                borderRadius={theme.borderRadius}
+                color={theme.colorPrimaryForeground ?? "#ffffff"}
+                fontSize={theme.fontSizeSm}
+                fontWeight={theme.fontWeightMedium}
+                href={ctaHref}
+                innerPadding="8px 24px"
+              >
+                {ctaLabel}
+              </MjmlButton>
+            ) : null}
+          </MjmlColumn>
+        </MjmlSection>
+      </MjmlBody>
+    </Mjml>
+  );
+};
+
 CollapsedFaqWithInlineCta.PreviewProps = {
-  items: [
-    {
-      answer: "EmailCN is a collection of email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, all components are fully responsive.",
-      question: "Are they responsive?",
-    },
-  ],
+  ctaHref: "https://example.com",
+  ctaLabel: "Contact Us",
+  ctaText: "Still have questions?",
+  heading: "FAQ",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
   variant: "default",
-} satisfies FAQAccordionProps;
+} satisfies CollapsedFaqWithInlineCtaProps;

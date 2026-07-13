@@ -1,0 +1,61 @@
+---
+title: "2 Columns with Gaps"
+description: "2 Columns with Gaps — Pricing Table email component."
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-pricing-table-with-gaps-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-pricing-table-with-gaps
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/pricing/2-columns-pricing-table-with-gaps.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/pricing/2-columns-pricing-table-with-gaps.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsPricingTableWithGaps } from "@/components/emails/marketing/pricing/2-columns-pricing-table-with-gaps";
+```
+
+```tsx
+<TwoColumnsPricingTableWithGaps
+  {...TwoColumnsPricingTableWithGaps.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

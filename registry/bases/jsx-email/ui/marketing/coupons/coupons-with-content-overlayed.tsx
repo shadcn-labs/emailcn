@@ -1,13 +1,11 @@
 /* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
-  Button,
-  Column,
   Container,
   Head,
   Html,
+  Img,
   Preview,
-  Row,
   Section,
   Text,
 } from "jsx-email";
@@ -15,158 +13,150 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type CouponOverlayedVariant =
+export type CouponsWithContentOverlayedVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface CouponOverlayedProps {
+export interface CouponsWithContentOverlayedProps {
   theme?: EmailThemeTokens;
-  code?: string;
   discount?: string;
+  code?: string;
   description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: CouponOverlayedVariant;
+  backgroundSrc?: string;
+  backgroundAlt?: string;
+  variant?: CouponsWithContentOverlayedVariant;
 }
-
-const CouponOverlayedSection = ({
-  code,
-  ctaHref,
-  ctaLabel,
-  description,
-  discount,
-  theme,
-  variant,
-}: {
-  code: string;
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  discount: string;
-  theme: EmailThemeTokens;
-  variant: CouponOverlayedVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorPrimary,
-      borderRadius: theme.borderRadius,
-      padding: theme.spacingXl ?? "24px",
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorPrimaryForeground,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "12px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {discount}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorPrimaryForeground,
-            fontFamily: theme.fontFamilyMono,
-            fontSize: "28px",
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {code}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorPrimaryForeground,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase ?? "14px",
-            margin: 0,
-            paddingBottom: theme.spacingLg ?? "24px",
-            textAlign: "center",
-          }}
-        >
-          {description}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            align="center"
-            width={160}
-            height={40}
-            style={{
-              backgroundColor: theme.colorPrimaryForeground,
-              borderRadius: theme.borderRadius,
-              color: theme.colorPrimary,
-              display: "inline-block",
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm ?? "14px",
-              fontWeight: theme.fontWeightMedium,
-              height: "auto",
-              padding: `${theme.spacingBase ?? "16px"} ${theme.spacingLg ?? "24px"}`,
-              textDecoration: "none",
-              width: "auto",
-            }}
-          >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const CouponsWithContentOverlayed = ({
   theme = defaultTheme,
-  code = "VIP30",
   discount = "30% OFF",
-  description = "Exclusive VIP discount. Use code at checkout.",
-  ctaLabel = "Claim Offer",
-  ctaHref = "#",
+  code = "FLASH30",
+  description = "Flash sale - limited time only",
+  backgroundSrc = "https://static.photos/city/600x400/3",
+  backgroundAlt = "",
   variant = "default",
-}: CouponOverlayedProps) => (
-  <Html>
-    <Head />
-    <Preview>coupon overlayed</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <CouponOverlayedSection
-            code={code}
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            description={description}
-            discount={discount}
-            theme={theme}
-            variant={variant}
-          />
+}: CouponsWithContentOverlayedProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>{discount}</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "64px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Section
+              style={{
+                borderRadius: theme.borderRadiusLg ?? theme.borderRadius,
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <Img
+                src={backgroundSrc}
+                alt={backgroundAlt}
+                width="600"
+                height="400"
+                style={{
+                  display: "block",
+                  height: "auto",
+                  objectFit: "cover",
+                  width: "100%",
+                }}
+              />
+              <Section
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.5)",
+                  bottom: 0,
+                  left: 0,
+                  padding: "32px",
+                  position: "absolute",
+                  right: 0,
+                  textAlign: "center",
+                  top: 0,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "#ffffff",
+                    fontSize: theme.fontSizeXl,
+                    fontWeight: theme.fontWeightBold,
+                    margin: "0 0 8px",
+                    textAlign: "center",
+                  }}
+                >
+                  {discount}
+                </Text>
+                <Text
+                  style={{
+                    color: "rgba(255,255,255,0.8)",
+                    fontSize: theme.fontSizeLg,
+                    margin: "0 0 16px",
+                    textAlign: "center",
+                  }}
+                >
+                  {description}
+                </Text>
+                <Text
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.2)",
+                    borderRadius: theme.borderRadius,
+                    color: "#ffffff",
+                    display: "inline-block",
+                    fontFamily: theme.fontFamilyMono,
+                    fontSize: theme.fontSizeLg,
+                    fontWeight: theme.fontWeightBold,
+                    letterSpacing: "0.1em",
+                    margin: 0,
+                    padding: "12px 32px",
+                  }}
+                >
+                  {code}
+                </Text>
+              </Section>
+            </Section>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 CouponsWithContentOverlayed.PreviewProps = {
-  code: "VIP30",
-  ctaHref: "https://example.com/claim",
-  ctaLabel: "Claim Offer",
-  description: "Exclusive VIP discount. Use code at checkout.",
+  backgroundAlt: "",
+  backgroundSrc: "https://static.photos/city/600x400/6",
+  code: "FLASH30",
+  description: "Flash sale - limited time only",
   discount: "30% OFF",
   theme: defaultTheme,
   variant: "default",
-} satisfies CouponOverlayedProps;
+} satisfies CouponsWithContentOverlayedProps;

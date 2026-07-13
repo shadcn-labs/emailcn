@@ -9,75 +9,55 @@ import {
   MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type HeaderLogoVariant = "default" | "slanted-left" | "slanted-right";
+export type HeaderWithLogoAndFinanceStatsVariant =
+  | "default"
+  | "slanted-left"
+  | "slanted-right";
 
-export interface HeaderLogoProps {
+export interface HeaderWithLogoAndFinanceStatsProps {
   theme?: EmailThemeTokens;
-  logoUrl?: string;
+  logoSrc?: string;
   logoAlt?: string;
-  logoWidth?: number;
-  variant?: HeaderLogoVariant;
+  stat1?: string;
+  stat1Label?: string;
+  stat2?: string;
+  stat2Label?: string;
+  variant?: HeaderWithLogoAndFinanceStatsVariant;
 }
 
-const HeaderLogoSection = ({
-  logoAlt,
-  logoUrl,
-  logoWidth,
-  theme,
-  variant,
-}: {
-  logoAlt: string;
-  logoUrl?: string;
-  logoWidth: number;
-  theme: EmailThemeTokens;
-  variant: HeaderLogoVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingBase ?? "24px"} 0`}
-  >
-    <MjmlColumn>
-      {logoUrl ? (
-        <MjmlImage
-          align="center"
-          alt={logoAlt}
-          src={logoUrl}
-          width={logoWidth}
-        />
-      ) : (
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeXl ?? "20px"}
-          fontWeight={theme.fontWeightBold}
-        >
-          {logoAlt}
-        </MjmlText>
-      )}
-    </MjmlColumn>
-  </MjmlSection>
-);
+const variantClass = (variant: HeaderWithLogoAndFinanceStatsVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
 
 export const HeaderWithLogoAndFinanceStats = ({
   theme = defaultTheme,
-  logoUrl,
+  logoSrc = "https://static.photos/business/120x30/3",
   logoAlt = "Logo",
-  logoWidth = 120,
+  stat1 = "$12,450",
+  stat1Label = "Balance",
+  stat2 = "+5.2%",
+  stat2Label = "Change",
   variant = "default",
-}: HeaderLogoProps) => (
+}: HeaderWithLogoAndFinanceStatsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>header logo</MjmlPreview>
+      <MjmlPreview>Header</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -88,23 +68,70 @@ export const HeaderWithLogoAndFinanceStats = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <HeaderLogoSection
-          logoAlt={logoAlt}
-          logoUrl={logoUrl}
-          logoWidth={logoWidth}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        padding={`${theme.spacingBase ?? "24px"} 0`}
+      >
+        <MjmlColumn verticalAlign="middle" width="50%">
+          <MjmlImage
+            align="left"
+            alt={logoAlt}
+            height={30}
+            src={logoSrc}
+            width={120}
+          />
+        </MjmlColumn>
+        <MjmlColumn verticalAlign="middle" width="25%">
+          <MjmlText
+            align="right"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeSm}
+            paddingBottom="0"
+          >
+            {stat1Label}
+          </MjmlText>
+          <MjmlText
+            align="right"
+            color={theme.colorText}
+            fontSize={theme.fontSizeSm}
+            fontWeight={theme.fontWeightBold}
+            paddingTop="0"
+          >
+            {stat1}
+          </MjmlText>
+        </MjmlColumn>
+        <MjmlColumn verticalAlign="middle" width="25%">
+          <MjmlText
+            align="right"
+            color={theme.colorTextMuted}
+            fontSize={theme.fontSizeSm}
+            paddingBottom="0"
+          >
+            {stat2Label}
+          </MjmlText>
+          <MjmlText
+            align="right"
+            color={theme.colorSuccess}
+            fontSize={theme.fontSizeSm}
+            fontWeight={theme.fontWeightBold}
+            paddingTop="0"
+          >
+            {stat2}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 HeaderWithLogoAndFinanceStats.PreviewProps = {
-  logoAlt: "Acme",
-  logoUrl: "https://static.photos/business/120x40/2",
-  logoWidth: 120,
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/4",
+  stat1: "$12,450",
+  stat1Label: "Balance",
+  stat2: "+5.2%",
+  stat2Label: "Change",
   theme: defaultTheme,
   variant: "default",
-} satisfies HeaderLogoProps;
+} satisfies HeaderWithLogoAndFinanceStatsProps;

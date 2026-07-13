@@ -1,0 +1,61 @@
+---
+title: "Multiple Product Images"
+description: "Marketing feature variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-multiple-product-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-multiple-product-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/feature/feature-with-multiple-product-images.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/feature/feature-with-multiple-product-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeatureWithMultipleProductImages } from "@/components/emails/marketing/feature/feature-with-multiple-product-images";
+```
+
+```tsx
+<FeatureWithMultipleProductImages
+  {...FeatureWithMultipleProductImages.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

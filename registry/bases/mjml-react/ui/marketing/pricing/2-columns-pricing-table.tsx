@@ -9,128 +9,177 @@ import {
   MjmlHead,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type PricingHighlightedVariant =
+export type TwoColumnsPricingTableVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface PricingHighlightedProps {
+export interface TwoColumnsPricingTableProps {
   theme?: EmailThemeTokens;
-  name?: string;
-  price?: string;
-  period?: string;
-  features?: string[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: PricingHighlightedVariant;
+  heading?: string;
+  plan1?: string;
+  price1?: string;
+  period1?: string;
+  desc1?: string;
+  feature1_1?: string;
+  feature1_2?: string;
+  feature1_3?: string;
+  ctaLabel1?: string;
+  ctaHref1?: string;
+  plan2?: string;
+  price2?: string;
+  period2?: string;
+  desc2?: string;
+  feature2_1?: string;
+  feature2_2?: string;
+  feature2_3?: string;
+  ctaLabel2?: string;
+  ctaHref2?: string;
+  variant?: TwoColumnsPricingTableVariant;
 }
 
-const PricingHighlightedSection = ({
-  ctaHref,
-  ctaLabel,
-  features,
-  name,
-  period,
+const variantClass = (variant: TwoColumnsPricingTableVariant) =>
+  variant === "slanted-left"
+    ? "ec-skew-left"
+    : variant === "slanted-right"
+      ? "ec-skew-right"
+      : undefined;
+
+const Card = ({
+  plan,
   price,
+  period,
+  desc,
+  features,
+  ctaLabel,
+  ctaHref,
+  highlight,
   theme,
-  variant,
 }: {
-  ctaHref: string;
-  ctaLabel: string;
-  features: string[];
-  name: string;
-  period: string;
+  plan: string;
   price: string;
+  period: string;
+  desc: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  highlight: boolean;
   theme: EmailThemeTokens;
-  variant: PricingHighlightedVariant;
 }) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackgroundMuted}
-    border={`2px solid ${theme.colorPrimary ?? "#111827"}`}
-    borderRadius={theme.borderRadiusLg}
-    padding={theme.spacingXl ?? "24px"}
+  <MjmlColumn
+    border={
+      highlight
+        ? `2px solid ${theme.colorPrimary}`
+        : `1px solid ${theme.colorBorder}`
+    }
+    borderRadius={theme.borderRadiusLg ?? theme.borderRadius}
+    padding="24px"
+    verticalAlign="top"
+    width="50%"
   >
-    <MjmlColumn>
+    <MjmlText
+      align="center"
+      color={theme.colorText}
+      fontSize={theme.fontSizeLg}
+      fontWeight={theme.fontWeightBold}
+      paddingBottom="12px"
+    >
+      {plan}
+    </MjmlText>
+    <MjmlText
+      align="center"
+      color={theme.colorText}
+      fontSize={theme.fontSizeHeading}
+      fontWeight={theme.fontWeightBold}
+      paddingBottom="8px"
+    >
+      {price}
+      <span
+        style={{
+          color: theme.colorTextMuted,
+          fontSize: theme.fontSizeSm,
+          fontWeight: theme.fontWeightNormal,
+        }}
+      >
+        {period}
+      </span>
+    </MjmlText>
+    <MjmlText
+      align="center"
+      color={theme.colorTextMuted}
+      fontSize={theme.fontSizeSm}
+      paddingBottom="16px"
+    >
+      {desc}
+    </MjmlText>
+    {features.map((feature) => (
       <MjmlText
+        key={feature}
         align="center"
         color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg ?? "16px"}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "16px"}
+        fontSize={theme.fontSizeSm}
+        paddingBottom="4px"
       >
-        {name}
+        &bull; {feature}
       </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeHeading}
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {price}
-        <span
-          style={{
-            color: theme.colorTextMuted,
-            fontSize: theme.fontSizeSm ?? "14px",
-          }}
-        >
-          {period}
-        </span>
-      </MjmlText>
-      {features.map((f, i) => (
-        <MjmlText
-          key={name + f + i}
-          align="center"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-          lineHeight={theme.lineHeightBase}
-          paddingBottom={theme.spacingBase ?? "8px"}
-        >
-          &bull; {f}
-        </MjmlText>
-      ))}
+    ))}
+    {ctaLabel && ctaHref ? (
       <MjmlButton
         align="center"
         backgroundColor={theme.colorPrimary}
         borderRadius={theme.borderRadius}
-        color={theme.colorPrimaryForeground}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "14px"}
+        color={theme.colorPrimaryForeground ?? "#ffffff"}
+        fontSize={theme.fontSizeSm}
         fontWeight={theme.fontWeightMedium}
         href={ctaHref}
-        innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
+        innerPadding="8px 24px"
+        paddingTop="20px"
       >
         {ctaLabel}
       </MjmlButton>
-    </MjmlColumn>
-  </MjmlSection>
+    ) : null}
+  </MjmlColumn>
 );
 
 export const TwoColumnsPricingTable = ({
   theme = defaultTheme,
-  name = "Pro",
-  price = "$29",
-  period = "/mo",
-  features = ["5 users", "Unlimited projects", "Priority support"],
-  ctaLabel = "Get Started",
-  ctaHref = "#",
+  heading = "Plans",
+  plan1 = "Starter",
+  price1 = "$9",
+  period1 = "/month",
+  desc1 = "For individuals.",
+  feature1_1 = "1,000 emails",
+  feature1_2 = "Basic templates",
+  feature1_3 = "Email support",
+  ctaLabel1 = "Get Started",
+  ctaHref1 = "#",
+  plan2 = "Pro",
+  price2 = "$29",
+  period2 = "/month",
+  desc2 = "For teams.",
+  feature2_1 = "Unlimited emails",
+  feature2_2 = "Custom templates",
+  feature2_3 = "Priority support",
+  ctaLabel2 = "Subscribe",
+  ctaHref2 = "#",
   variant = "default",
-}: PricingHighlightedProps) => (
+}: TwoColumnsPricingTableProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>pricing highlighted</MjmlPreview>
+      <MjmlPreview>{heading}</MjmlPreview>
+      <MjmlStyle>{`
+        .ec-skew-left > div { transform: skewX(-10deg); }
+        .ec-skew-right > div { transform: skewX(10deg); }
+      `}</MjmlStyle>
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
+        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
         <MjmlText
           fontSize={theme.fontSizeBase}
           lineHeight={theme.lineHeightBase}
@@ -141,34 +190,73 @@ export const TwoColumnsPricingTable = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <PricingHighlightedSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          features={features}
-          name={name}
-          period={period}
-          price={price}
+      <MjmlSection backgroundColor={theme.colorBackground} paddingTop="64px">
+        <MjmlColumn>
+          {heading ? (
+            <MjmlText
+              align="center"
+              color={theme.colorText}
+              fontSize={theme.fontSizeHeading}
+              fontWeight={theme.fontWeightBold}
+            >
+              {heading}
+            </MjmlText>
+          ) : null}
+        </MjmlColumn>
+      </MjmlSection>
+      <MjmlSection
+        backgroundColor={theme.colorBackground}
+        cssClass={variantClass(variant)}
+        paddingBottom="64px"
+        paddingTop="24px"
+      >
+        <Card
+          ctaHref={ctaHref1}
+          ctaLabel={ctaLabel1}
+          desc={desc1}
+          features={[feature1_1, feature1_2, feature1_3]}
+          highlight={false}
+          period={period1}
+          plan={plan1}
+          price={price1}
           theme={theme}
-          variant={variant}
         />
-      </MjmlWrapper>
+        <Card
+          ctaHref={ctaHref2}
+          ctaLabel={ctaLabel2}
+          desc={desc2}
+          features={[feature2_1, feature2_2, feature2_3]}
+          highlight
+          period={period2}
+          plan={plan2}
+          price={price2}
+          theme={theme}
+        />
+      </MjmlSection>
     </MjmlBody>
   </Mjml>
 );
 
 TwoColumnsPricingTable.PreviewProps = {
-  ctaHref: "https://example.com/signup",
-  ctaLabel: "Get Started",
-  features: [
-    "5 users",
-    "Unlimited projects",
-    "Priority support",
-    "Custom branding",
-  ],
-  name: "Pro",
-  period: "/mo",
-  price: "$29",
+  ctaHref1: "#",
+  ctaHref2: "#",
+  ctaLabel1: "Get Started",
+  ctaLabel2: "Subscribe",
+  desc1: "For individuals.",
+  desc2: "For teams.",
+  feature1_1: "1,000 emails",
+  feature1_2: "Basic templates",
+  feature1_3: "Email support",
+  feature2_1: "Unlimited emails",
+  feature2_2: "Custom templates",
+  feature2_3: "Priority support",
+  heading: "Plans",
+  period1: "/month",
+  period2: "/month",
+  plan1: "Starter",
+  plan2: "Pro",
+  price1: "$9",
+  price2: "$29",
   theme: defaultTheme,
   variant: "default",
-} satisfies PricingHighlightedProps;
+} satisfies TwoColumnsPricingTableProps;

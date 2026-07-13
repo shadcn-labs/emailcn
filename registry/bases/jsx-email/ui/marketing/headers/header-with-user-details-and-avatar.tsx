@@ -5,6 +5,7 @@ import {
   Container,
   Head,
   Html,
+  Img,
   Preview,
   Row,
   Section,
@@ -14,105 +15,138 @@ import {
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type HeaderLeftAlignedVariant =
+export type HeaderWithUserDetailsAndAvatarVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
 
-export interface HeaderLeftAlignedProps {
+export interface HeaderWithUserDetailsAndAvatarProps {
   theme?: EmailThemeTokens;
-  title?: string;
-  subtitle?: string;
-  variant?: HeaderLeftAlignedVariant;
+  logoSrc?: string;
+  logoAlt?: string;
+  avatarSrc?: string;
+  avatarAlt?: string;
+  userName?: string;
+  userEmail?: string;
+  variant?: HeaderWithUserDetailsAndAvatarVariant;
 }
-
-const HeaderLeftAlignedSection = ({
-  subtitle,
-  theme,
-  title,
-  variant,
-}: {
-  subtitle: string;
-  theme: EmailThemeTokens;
-  title: string;
-  variant: HeaderLeftAlignedVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "left",
-          }}
-        >
-          {title}
-        </Text>
-        {subtitle ? (
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg ?? "16px",
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              textAlign: "left",
-            }}
-          >
-            {subtitle}
-          </Text>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
 
 export const HeaderWithUserDetailsAndAvatar = ({
   theme = defaultTheme,
-  title = "Page Title",
-  subtitle = "A left-aligned header section.",
+  logoSrc = "https://static.photos/business/120x30/4",
+  logoAlt = "Logo",
+  avatarSrc = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-jsx-email-ui-marketing-headers-header-with-user-details-and-avatar-tsx-4&size=40",
+  avatarAlt = "",
+  userName = "John Doe",
+  userEmail = "john@example.com",
   variant = "default",
-}: HeaderLeftAlignedProps) => (
-  <Html>
-    <Head />
-    <Preview>header left</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeaderLeftAlignedSection
-            subtitle={subtitle}
-            theme={theme}
-            title={title}
-            variant={variant}
-          />
+}: HeaderWithUserDetailsAndAvatarProps) => {
+  const skew =
+    variant === "slanted-left"
+      ? "skewX(-10deg)"
+      : variant === "slanted-right"
+        ? "skewX(10deg)"
+        : undefined;
+  const unskew =
+    variant === "slanted-left"
+      ? "skewX(10deg)"
+      : variant === "slanted-right"
+        ? "skewX(-10deg)"
+        : undefined;
+  return (
+    <Html>
+      <Head />
+      <Preview>Header</Preview>
+      <Body
+        style={{
+          backgroundColor: theme.colorBackground,
+          fontFamily: theme.fontFamily,
+          margin: 0,
+        }}
+      >
+        <Section
+          style={{
+            backgroundColor: theme.colorBackground,
+            padding: "24px 0",
+            transform: skew,
+          }}
+        >
+          <Container
+            style={{
+              margin: "0 auto",
+              maxWidth: theme.containerWidth,
+              transform: unskew,
+            }}
+          >
+            <Row>
+              <Column style={{ verticalAlign: "middle", width: "50%" }}>
+                <Img
+                  src={logoSrc}
+                  alt={logoAlt}
+                  width="120"
+                  height="30"
+                  style={{ height: "auto", objectFit: "contain" }}
+                />
+              </Column>
+              <Column
+                style={{
+                  paddingRight: "12px",
+                  textAlign: "right",
+                  verticalAlign: "middle",
+                  width: "12%",
+                }}
+              >
+                <Img
+                  src={avatarSrc}
+                  alt={avatarAlt}
+                  width="40"
+                  height="40"
+                  style={{ borderRadius: "9999px", objectFit: "cover" }}
+                />
+              </Column>
+              <Column
+                style={{
+                  textAlign: "left",
+                  verticalAlign: "middle",
+                  width: "38%",
+                }}
+              >
+                <Text
+                  style={{
+                    color: theme.colorText,
+                    fontSize: theme.fontSizeSm,
+                    fontWeight: theme.fontWeightMedium,
+                    margin: 0,
+                  }}
+                >
+                  {userName}
+                </Text>
+                <Text
+                  style={{
+                    color: theme.colorTextMuted,
+                    fontSize: theme.fontSizeSm,
+                    margin: 0,
+                  }}
+                >
+                  {userEmail}
+                </Text>
+              </Column>
+            </Row>
+          </Container>
         </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+      </Body>
+    </Html>
+  );
+};
 
 HeaderWithUserDetailsAndAvatar.PreviewProps = {
-  subtitle: "Here's what's new this month.",
+  avatarAlt: "",
+  avatarSrc:
+    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-jsx-email-ui-marketing-headers-header-with-user-details-and-avatar-tsx-8&size=40",
+  logoAlt: "Logo",
+  logoSrc: "https://static.photos/business/120x30/8",
   theme: defaultTheme,
-  title: "Latest Updates",
+  userEmail: "john@example.com",
+  userName: "John Doe",
   variant: "default",
-} satisfies HeaderLeftAlignedProps;
+} satisfies HeaderWithUserDetailsAndAvatarProps;

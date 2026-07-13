@@ -1,0 +1,74 @@
+---
+title: "Grid Stats"
+description: "Three-column stat grid with selectable tile tones for email templates"
+---
+
+One `GridStats` component covers every grid look. Switch with the `tone` prop.
+
+## Boxed
+
+<ComponentPreview base="mjml-react" name="boxed-grid-stats-demo" />
+
+## Outlined
+
+<ComponentPreview base="mjml-react" name="outlined-grid-stats-demo" />
+
+## Accent
+
+<ComponentPreview base="mjml-react" name="grid-stats-with-accent-column-demo" />
+
+## Border
+
+<ComponentPreview base="mjml-react" name="grid-stats-with-border-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/stats/grid-stats.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/stats/grid-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridStats } from "@/components/emails/marketing/stats/grid-stats";
+```
+
+```tsx
+<GridStats {...GridStats.PreviewProps} tone="accent" />
+```
+
+## API Reference
+
+| Prop      | Type                                             | Default        | Description         |
+| --------- | ------------------------------------------------ | -------------- | ------------------- |
+| `tone`    | `"boxed" \| "outlined" \| "accent" \| "border"`  | `"boxed"`      | Grid cell style     |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt        |
+| `theme`   | `EmailThemeTokens`                                 | `defaultTheme` | Email theme styling |

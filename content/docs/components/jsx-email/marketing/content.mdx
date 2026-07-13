@@ -17,7 +17,10 @@ One `Content` component covers titles and paragraphs. Choose `type`, set
 
 ## Paragraph
 
-<ComponentPreview base="jsx-email" name="paragraph-with-regular-padding-demo" />
+<ComponentPreview
+  base="jsx-email"
+  name="paragraph-with-regular-padding-demo"
+/>
 
 ## Paragraph with Large Padding
 
@@ -85,8 +88,6 @@ npm install jsx-email
   title="components/emails/marketing/content/content.tsx"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
-
 </Steps>
 
 </TabsContent>
@@ -127,4 +128,4 @@ import { Content } from "@/components/emails/marketing/content/content";
 | `column1` / `column2`   | `string`                 | -              | Column text (when `columns={2}`)           |
 | `iconSrc1` / `iconAlt1` | `string`                 | -              | First column icon (when `withIcons`)       |
 | `iconSrc2` / `iconAlt2` | `string`                 | -              | Second column icon (when `withIcons`)      |
-| `theme`                 | `EmailThemeTokens`       | `defaultTheme` | Email theme styling                        |
+| `theme`                 | `EmailThemeTokens`         | `defaultTheme` | Email theme styling                        |

@@ -1,17 +1,16 @@
 ---
 title: "Bordered Order Summary with Total Top"
-description: "Bordered Order Summary with Total Top — Order Summary email component."
+description: "Ecommerce order-summary variant for email templates"
 ---
 
 <ComponentPreview
   base="jsx-email"
-  name="bordered-order-summary-total-top-demo"
+  name="bordered-order-summary-total-bottom-demo"
 />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -23,41 +22,36 @@ npx shadcn@latest add @emailcn/bordered-order-summary-with-total-top
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
-  base="jsx-email"
-  title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { BorderedOrderSummaryTotalTop } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top";
+import { BorderedOrderSummaryWithTotalTop } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top";
 ```
 
 ```tsx
-<BorderedOrderSummaryTotalTop {...BorderedOrderSummaryTotalTop.PreviewProps} />
+<BorderedOrderSummaryWithTotalTop
+  {...BorderedOrderSummaryWithTotalTop.PreviewProps}
+/>
 ```
 
 ## API Reference

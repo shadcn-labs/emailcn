@@ -1,0 +1,68 @@
+---
+title: "Grid Stats"
+description: "Three-column stat grid with selectable tile tones for email templates"
+---
+
+One `GridStats` component covers every grid look. Switch with the `tone` prop.
+
+## Boxed
+
+<ComponentPreview base="react-email" name="boxed-grid-stats-demo" />
+
+## Outlined
+
+<ComponentPreview base="react-email" name="outlined-grid-stats-demo" />
+
+## Accent
+
+<ComponentPreview base="react-email" name="grid-stats-with-accent-column-demo" />
+
+## Border
+
+<ComponentPreview base="react-email" name="grid-stats-with-border-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/stats/grid-stats.tsx"
+    base="react-email"
+    title="components/emails/marketing/stats/grid-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridStats } from "@/components/emails/marketing/stats/grid-stats";
+```
+
+```tsx
+<GridStats {...GridStats.PreviewProps} tone="accent" />
+```
+
+## API Reference
+
+| Prop      | Type                                             | Default        | Description         |
+| --------- | ------------------------------------------------ | -------------- | ------------------- |
+| `tone`    | `"boxed" \| "outlined" \| "accent" \| "border"`  | `"boxed"`      | Grid cell style     |
+| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt        |
+| `theme`   | `TailwindConfig`                                 | `defaultTheme` | Email theme styling |

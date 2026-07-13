@@ -1,7 +1,5 @@
-import { GridStatsWithAccentColumn } from "@/registry/bases/jsx-email/ui/marketing/stats/grid-stats-with-accent-column";
+import { GridStats } from "@/registry/bases/jsx-email/ui/marketing/stats/grid-stats";
 
 export default function GridStatsWithAccentColumnDemo() {
-  return (
-    <GridStatsWithAccentColumn {...GridStatsWithAccentColumn.PreviewProps} />
-  );
+  return <GridStats {...GridStats.PreviewProps} tone="accent" />;
 }
