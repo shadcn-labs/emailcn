@@ -922,6 +922,28 @@
       "categories": [
         "email-component"
       ],
+      "description": "Bento Grid Layouts email component",
+      "files": [
+        {
+          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-layouts.tsx",
+          "target": "components/email/bento-grid-layouts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "bento-grid-layouts",
+      "title": "Bento Grid Layouts",
+      "type": "registry:component",
+      "dependencies": [
+        "jsx-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
       "description": "Bento Grid Shared email component",
       "files": [
         {
@@ -945,22 +967,23 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing bento-grids variant for email templates",
+      "description": "Bento Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
-          "target": "components/email/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-image-grid.tsx",
+          "target": "components/email/bento-image-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "bento-grid-with-3-columns-and-even-split-image-stats",
-      "title": "Bento Grid With 3 Columns And Even Split Image Stats",
+      "name": "bento-image-grid",
+      "title": "Bento Image Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -968,21 +991,23 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing bento-grids variant for email templates",
+      "description": "Bento Product Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
-          "target": "components/email/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-product-grid.tsx",
+          "target": "components/email/bento-product-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "bento-grid-with-3-columns-and-even-split-text-stats",
-      "title": "Bento Grid With 3 Columns And Even Split Text Stats",
+      "name": "bento-product-grid",
+      "title": "Bento Product Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -990,197 +1015,23 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing bento-grids variant for email templates",
+      "description": "Bento Stats Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
-          "target": "components/email/bento-grid-with-3-columns-and-flush-images.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-stats-grid.tsx",
+          "target": "components/email/bento-stats-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "bento-grid-with-3-columns-and-flush-images",
-      "title": "Bento Grid With 3 Columns And Flush Images",
+      "name": "bento-stats-grid",
+      "title": "Bento Stats Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
-          "target": "components/email/bento-grid-with-3-columns-and-padded-images.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-3-columns-and-padded-images",
-      "title": "Bento Grid With 3 Columns And Padded Images",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
-          "target": "components/email/bento-grid-with-even-split-and-image-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-even-split-and-image-stats",
-      "title": "Bento Grid With Even Split And Image Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
-          "target": "components/email/bento-grid-with-even-split-and-text-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-even-split-and-text-stats",
-      "title": "Bento Grid With Even Split And Text Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
-          "target": "components/email/bento-grid-with-even-split-and-two-thirds.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-even-split-and-two-thirds",
-      "title": "Bento Grid With Even Split And Two Thirds",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
-          "target": "components/email/bento-grid-with-images-and-captions.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-images-and-captions",
-      "title": "Bento Grid With Images And Captions",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
-          "target": "components/email/bento-grid-with-images-and-details.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-images-and-details",
-      "title": "Bento Grid With Images And Details",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
-          "target": "components/email/bento-grid-with-two-rows-and-3-column-second-row.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-with-two-rows-and-3-column-second-row",
-      "title": "Bento Grid With Two Rows And 3 Column Second Row",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing bento-grids variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
-          "target": "components/email/two-thirds-bento-grid-with-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "two-thirds-bento-grid-with-stats",
-      "title": "Two Thirds Bento Grid With Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
+        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },

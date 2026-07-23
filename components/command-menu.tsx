@@ -325,7 +325,7 @@ export const CommandMenu = ({
   }, [tree, currentBase]);
 
   const handleDocPageHighlight = useCallback(
-    (item: { url: string; name?: string }) => {
+    (item: { url: string; name?: string; subcategory?: string }) => {
       setShowGoToPage(true);
       const parsed = parseDocPageUrl(item.url);
       if (parsed.kind === "theme") {
@@ -339,8 +339,12 @@ export const CommandMenu = ({
         return;
       }
       if (parsed.kind === "component" || parsed.kind === "template") {
+        const registryName =
+          parsed.kind === "component" && item.subcategory === "bento-grids"
+            ? `bento-${parsed.slug}`
+            : parsed.slug;
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${registryName}`
         );
         return;
       }
@@ -387,7 +391,9 @@ export const CommandMenu = ({
         key={url}
         keywords={buildDocPageKeywords(parsed, url, breadcrumb)}
         value={[...breadcrumb, title].filter(Boolean).join(" ")}
-        onHighlight={() => handleDocPageHighlight({ name: title, url })}
+        onHighlight={() =>
+          handleDocPageHighlight({ name: title, subcategory, url })
+        }
         onSelect={() => runCommand(() => router.push(url))}
       >
         <DocPageLeadingIcon parsed={parsed} subcategory={subcategory} />

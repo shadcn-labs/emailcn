@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-image-grid",
+  "title": "Bento Image Grid",
+  "description": "Bento Image Grid email component",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
+    "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
+    "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-image-grid.tsx",
+      "content": "import { defaultTheme } from \"@/components/email/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nimport { BentoImageGridSection } from \"./bento-grid-layouts\";\nimport type { BentoImageGridProps as BentoImageGridSectionProps } from \"./bento-grid-layouts\";\nimport { BentoEmailShell } from \"./bento-grid-shared\";\n\nexport type BentoImageGridProps = BentoImageGridSectionProps & {\n  theme?: EmailThemeTokens;\n};\n\nexport const BentoImageGrid = (props: BentoImageGridProps) => (\n  <BentoEmailShell\n    preview=\"Flexible bento image grid\"\n    theme={props.theme ?? defaultTheme}\n  >\n    <BentoImageGridSection {...props} />\n  </BentoEmailShell>\n);\n\nBentoImageGrid.PreviewProps = {\n  placement: \"captions-top\",\n  style: \"captions\",\n  theme: defaultTheme,\n  variant: \"alternating\",\n} satisfies BentoImageGridProps;\n",
+      "type": "registry:component",
+      "target": "components/email/bento-image-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}
