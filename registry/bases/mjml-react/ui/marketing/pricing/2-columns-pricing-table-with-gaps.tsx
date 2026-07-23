@@ -1,166 +1,301 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlButton,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type PricingBasicVariant = "default" | "slanted-left" | "slanted-right";
-
-export interface PricingBasicProps {
-  theme?: EmailThemeTokens;
-  name?: string;
-  price?: string;
-  period?: string;
-  features?: string[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: PricingBasicVariant;
-}
-
-const PricingBasicSection = ({
-  ctaHref,
-  ctaLabel,
-  features,
-  name,
-  period,
-  price,
-  theme,
-  variant,
-}: {
+export interface ProductPricingPlan {
   ctaHref: string;
   ctaLabel: string;
-  features: string[];
+  leasePrice: string;
   name: string;
-  period: string;
+  purchasePrice: string;
+}
+
+export interface TwoColumnsPricingTableWithGapsProps {
+  theme?: EmailThemeTokens;
+  plans?: ProductPricingPlan[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  buttonBackgroundColor?: string;
+}
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .product-pricing-column { display: block !important; padding-left: 0 !important; width: 100% !important; }",
+  "  .product-pricing-column + .product-pricing-column { padding-top: 44px !important; }",
+  "}",
+].join("\n");
+
+const defaultPlans: ProductPricingPlan[] = [
+  {
+    ctaHref: "https://example.com",
+    ctaLabel: "View details",
+    leasePrice: "$499",
+    name: "Model X",
+    purchasePrice: "$142,400",
+  },
+  {
+    ctaHref: "https://example.com",
+    ctaLabel: "View details",
+    leasePrice: "$199",
+    name: "Model Y",
+    purchasePrice: "$52,400",
+  },
+];
+
+const PriceBlock = ({
+  label,
+  price,
+  period,
+  backgroundColor,
+  rounded,
+}: {
+  label: string;
   price: string;
-  theme: EmailThemeTokens;
-  variant: PricingBasicVariant;
+  period?: string;
+  backgroundColor: string;
+  rounded?: "top" | "bottom";
 }) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-    borderRadius={theme.borderRadius}
-    padding={theme.spacingXl ?? "24px"}
+  <div
+    style={{
+      backgroundColor,
+      borderBottomLeftRadius: rounded === "bottom" ? "8px" : undefined,
+      borderBottomRightRadius: rounded === "bottom" ? "8px" : undefined,
+      borderTopLeftRadius: rounded === "top" ? "8px" : undefined,
+      borderTopRightRadius: rounded === "top" ? "8px" : undefined,
+      textAlign: "center",
+    }}
   >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg ?? "16px"}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {name}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeHeading}
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        {price}
+    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+    <p
+      style={{
+        color: "#4b5563",
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: "24px",
+        margin: 0,
+        textAlign: "center",
+      }}
+    >
+      {label}
+    </p>
+    <p
+      style={{
+        color: "#030712",
+        fontFamily,
+        fontSize: "30px",
+        fontWeight: 600,
+        lineHeight: "36px",
+        margin: "8px 0 0",
+        textAlign: "center",
+      }}
+    >
+      {price}{" "}
+      {period ? (
         <span
           style={{
-            color: theme.colorTextMuted,
-            fontSize: theme.fontSizeSm ?? "14px",
+            color: "#6b7280",
+            fontSize: "14px",
+            fontWeight: 400,
+            lineHeight: "20px",
           }}
         >
           {period}
         </span>
-      </MjmlText>
-      {features.map((f, i) => (
-        <MjmlText
-          key={name + f + i}
-          align="center"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-          lineHeight={theme.lineHeightBase}
-          paddingBottom={theme.spacingBase ?? "8px"}
-        >
-          &bull; {f}
-        </MjmlText>
-      ))}
-      <MjmlButton
-        align="center"
-        backgroundColor={theme.colorPrimary}
-        borderRadius={theme.borderRadius}
-        color={theme.colorPrimaryForeground}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "14px"}
-        fontWeight={theme.fontWeightMedium}
-        href={ctaHref}
-        innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
+      ) : null}
+    </p>
+    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+  </div>
+);
+
+const ProductCard = ({
+  plan,
+  cardBackgroundColor,
+  buttonBackgroundColor,
+}: {
+  plan: ProductPricingPlan;
+  cardBackgroundColor: string;
+  buttonBackgroundColor: string;
+}) => (
+  <>
+    <div
+      style={{
+        backgroundColor: cardBackgroundColor,
+        borderTopLeftRadius: "8px",
+        borderTopRightRadius: "8px",
+        textAlign: "center",
+      }}
+    >
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <p
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "24px",
+          fontWeight: 600,
+          lineHeight: "32px",
+          margin: 0,
+          textAlign: "center",
+        }}
       >
-        {ctaLabel}
-      </MjmlButton>
-    </MjmlColumn>
-  </MjmlSection>
+        {plan.name}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+    </div>
+    <div style={{ lineHeight: "4px" }}>&zwj;</div>
+    <PriceBlock
+      backgroundColor={cardBackgroundColor}
+      label="Leasing starting at"
+      period="/Month"
+      price={plan.leasePrice}
+    />
+    <div style={{ lineHeight: "4px" }}>&zwj;</div>
+    <PriceBlock
+      backgroundColor={cardBackgroundColor}
+      label="Purchase starting at"
+      price={plan.purchasePrice}
+      rounded="bottom"
+    />
+    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+    <a
+      href={plan.ctaHref}
+      style={{
+        backgroundColor: buttonBackgroundColor,
+        borderRadius: "8px",
+        color: "#f8fafc",
+        display: "block",
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: 1,
+        padding: "10px 18px",
+        textAlign: "center",
+        textDecoration: "none",
+      }}
+    >
+      {plan.ctaLabel}
+    </a>
+  </>
+);
+
+export const TwoColumnsPricingTableWithGapsSection = ({
+  plans = defaultPlans,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  cardBackgroundColor = "#f9fafb",
+  buttonBackgroundColor = "#030712",
+}: Omit<TwoColumnsPricingTableWithGapsProps, "theme">) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ backgroundColor: pageBackgroundColor }}
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td>&zwj;</td>
+        <td
+          style={{
+            backgroundColor,
+            maxWidth: "100%",
+            paddingBottom: "44px",
+            width: "600px",
+          }}
+        >
+          <table
+            border={0}
+            cellPadding={0}
+            cellSpacing={0}
+            role="presentation"
+            width="100%"
+          >
+            <tbody>
+              <tr>
+                <td style={{ padding: "0 24px" }}>
+                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                  <table
+                    border={0}
+                    cellPadding={0}
+                    cellSpacing={0}
+                    role="presentation"
+                    width="100%"
+                  >
+                    <tbody>
+                      <tr>
+                        {plans.map((plan, index) => (
+                          <td
+                            className="product-pricing-column"
+                            key={plan.name}
+                            style={{
+                              paddingLeft: index > 0 ? "16px" : undefined,
+                              verticalAlign: "top",
+                              width: "268px",
+                            }}
+                          >
+                            <ProductCard
+                              buttonBackgroundColor={buttonBackgroundColor}
+                              cardBackgroundColor={cardBackgroundColor}
+                              plan={plan}
+                            />
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>&zwj;</td>
+      </tr>
+    </tbody>
+  </table>
 );
 
 export const TwoColumnsPricingTableWithGaps = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  name = "Basic",
-  price = "$9",
-  period = "/mo",
-  features = ["1 user", "5 projects"],
-  ctaLabel = "Get Started",
-  ctaHref = "#",
-  variant = "default",
-}: PricingBasicProps) => (
+  ...props
+}: TwoColumnsPricingTableWithGapsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>pricing basic</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
+    <MjmlPreview>Model pricing</MjmlPreview>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <PricingBasicSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          features={features}
-          name={name}
-          period={period}
-          price={price}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <TwoColumnsPricingTableWithGapsSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 TwoColumnsPricingTableWithGaps.PreviewProps = {
-  ctaHref: "https://example.com/signup",
-  ctaLabel: "Get Started",
-  features: ["1 user", "5 projects", "Basic support"],
-  name: "Basic",
-  period: "/mo",
-  price: "$9",
   theme: defaultTheme,
-  variant: "default",
-} satisfies PricingBasicProps;
+} satisfies TwoColumnsPricingTableWithGapsProps;

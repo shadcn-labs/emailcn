@@ -1,6 +1,6 @@
 ---
 title: "Image Strip"
-description: "Marketing cta variant for email templates"
+description: "A split CTA with boxed and full-height image-strip variants on either side"
 ---
 
 <ComponentPreview base="react-email" name="cta-with-image-strip-demo" />
@@ -36,15 +36,59 @@ npx shadcn@latest add @emailcn/cta-with-image-strip
 ## Usage
 
 ```tsx
-import { CtaWithImageStrip } from "@/components/emails/marketing/cta/cta-with-image-strip";
+import { CTAWithImageStrip } from "@/components/emails/marketing/cta/cta-with-image-strip";
 ```
 
 ```tsx
-<CtaWithImageStrip {...CtaWithImageStrip.PreviewProps} />
+<CTAWithImageStrip {...CTAWithImageStrip.PreviewProps} />
 ```
+
+## Examples
+
+### Boxed Right
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-image-strip-demo"
+  variant="boxed-right"
+  hideCode
+/>
+
+### Boxed Left
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-image-strip-demo"
+  variant="boxed-left"
+  hideCode
+/>
+
+### Full Right
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-image-strip-demo"
+  variant="full-right"
+  hideCode
+/>
+
+### Full Left
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-image-strip-demo"
+  variant="full-left"
+  hideCode
+/>
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                      | Type                       | Default          | Description                                          |
+| ------------------------- | -------------------------- | ---------------- | ---------------------------------------------------- |
+| `theme`                   | `TailwindConfig`           | `defaultTheme`   | React Email Tailwind configuration                   |
+| `variant`                 | `CTAWithImageStripVariant` | `"boxed-right"`  | Selects the exact Mailviews side and strip treatment |
+| `heading` / `subtext`     | `string`                   | Mailviews copy   | CTA heading and supporting text                      |
+| `ctaLabel` / `ctaHref`    | `string`                   | Mailviews CTA    | Primary action label and destination                 |
+| `imageSrc1` … `imageSrc5` | `string`                   | Variant images   | Image URLs used by the strip                         |
+| `imageAlt1` … `imageAlt5` | `string`                   | `""`             | Alternative text for each strip image                |
+| Color props               | `string`                   | Mailviews colors | Canvas, surface, strip, text, and button colors      |

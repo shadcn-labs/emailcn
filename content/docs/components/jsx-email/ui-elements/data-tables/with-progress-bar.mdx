@@ -1,0 +1,69 @@
+---
+title: "With Progress Bar"
+description: "A projects table with inline progress bars."
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview base="jsx-email" name="data-table-with-progress-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-progress-bar
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableWithProgress } from "@/components/emails/ui-elements/data-tables/data-table-with-progress-bar";
+```
+
+```tsx
+<DataTableWithProgress {...DataTableWithProgress.PreviewProps} />
+```
+
+## API Reference
+
+| Prop      | Type               | Default                   | Description                   |
+| --------- | ------------------ | ------------------------- | ----------------------------- |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`            | Renderer theme configuration. |
+| `headers` | `string[]`         | Component-specific labels | Column labels.                |
+| `rows`    | `Progress rows`    | One progress row          | Table row data.               |

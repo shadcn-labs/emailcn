@@ -1,0 +1,103 @@
+---
+title: "Divider with Icon"
+description: "A horizontal divider with an inline icon."
+---
+
+This semantic wrapper shares the exact divider frame with the other content
+dividers while keeping its own focused content props.
+
+## Examples
+
+### Center
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-icon-demo"
+  variant="center"
+/>
+
+### Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-icon-demo"
+  variant="left"
+/>
+
+### Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-icon-demo"
+  variant="right"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-icon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependency:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component and shared sources into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-icon.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-with-icon.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/fonts/default.tsx"
+  base="jsx-email"
+  title="components/emails/fonts/default.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithIcon } from "@/components/emails/ui-elements/spacing/divider-with-icon";
+```
+
+```tsx
+<DividerWithIcon {...DividerWithIcon.PreviewProps} variant="left" />
+```
+
+## API Reference
+
+| Prop      | Type                            | Default        | Description             |
+| --------- | ------------------------------- | -------------- | ----------------------- |
+| `icon`    | `string`                        | `"✨"`         | Displayed icon          |
+| `variant` | `"center" \| "left" \| "right"` | `"center"`     | Inline content position |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling     |

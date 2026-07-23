@@ -1,0 +1,95 @@
+---
+title: "3 Columns Masonry Image Grid"
+description: "A narrow two-image stack beside a wide image, with side and overlay variants"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-masonry-image-grid-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/3-columns-masonry-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/images/3-columns-masonry-image-grid.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/images/3-columns-masonry-image-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ThreeColumnsMasonryImageGrid } from "@/components/emails/marketing/images/3-columns-masonry-image-grid";
+```
+
+```tsx
+<ThreeColumnsMasonryImageGrid {...ThreeColumnsMasonryImageGrid.PreviewProps} />
+```
+
+## Examples
+
+### Stacked Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-left"
+  hideCode
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-right"
+  hideCode
+/>
+
+### Stacked Left Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-left-overlay"
+  hideCode
+/>
+
+### Stacked Right Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-right-overlay"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                | Type                                  | Default          | Description                              |
+| ------------------- | ------------------------------------- | ---------------- | ---------------------------------------- |
+| `theme`             | Renderer theme                        | `defaultTheme`   | Renderer theme configuration             |
+| `variant`           | `ThreeColumnsMasonryImageGridVariant` | `"stacked-left"` | Selects stack side and overlay mode      |
+| Stacked image props | `string`                              | Mailviews data   | Two stacked images, links, and copy      |
+| Wide image props    | `string`                              | Mailviews data   | Wide image, link, alternative text, copy |
+| Color props         | `string`                              | Mailviews colors | Canvas, surface, and overlay text colors |

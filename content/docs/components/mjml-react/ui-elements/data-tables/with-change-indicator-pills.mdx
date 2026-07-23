@@ -1,0 +1,69 @@
+---
+title: "With Change Indicator Pills"
+description: "A metrics table with positive and negative change pills."
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview base="mjml-react" name="data-table-change-indicator-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-with-change-indicator-pills
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableChangeIndicator } from "@/components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills";
+```
+
+```tsx
+<DataTableChangeIndicator {...DataTableChangeIndicator.PreviewProps} />
+```
+
+## API Reference
+
+| Prop      | Type                    | Default                   | Description                   |
+| --------- | ----------------------- | ------------------------- | ----------------------------- |
+| `theme`   | `EmailThemeTokens`      | `defaultTheme`            | Renderer theme configuration. |
+| `headers` | `string[]`              | Component-specific labels | Column labels.                |
+| `rows`    | `Change indicator rows` | One revenue metric        | Table row data.               |

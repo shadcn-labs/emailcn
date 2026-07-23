@@ -1,0 +1,104 @@
+---
+title: "Divider with Button"
+description: "A horizontal divider with an inline action button."
+---
+
+This semantic wrapper shares the exact divider frame with the other content
+dividers while keeping its own focused content props.
+
+## Examples
+
+### Center
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-button-demo"
+  variant="center"
+/>
+
+### Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-button-demo"
+  variant="left"
+/>
+
+### Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-button-demo"
+  variant="right"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependency:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component and shared sources into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-button.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-with-button.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/fonts/default.tsx"
+  base="jsx-email"
+  title="components/emails/fonts/default.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithButton } from "@/components/emails/ui-elements/spacing/divider-with-button";
+```
+
+```tsx
+<DividerWithButton {...DividerWithButton.PreviewProps} variant="left" />
+```
+
+## API Reference
+
+| Prop      | Type                            | Default        | Description             |
+| --------- | ------------------------------- | -------------- | ----------------------- |
+| `label`   | `string`                        | `"View All"`   | Button text             |
+| `href`    | `string`                        | `"#"`          | Button URL              |
+| `variant` | `"center" \| "left" \| "right"` | `"center"`     | Inline content position |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling     |

@@ -1,0 +1,102 @@
+---
+title: "Boxed with Background Image"
+description: "A boxed account-activation CTA with flush, padded, light, and dark variants"
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-cta-with-background-image-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-cta-with-background-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/cta/boxed-cta-with-background-image.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/cta/boxed-cta-with-background-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedCTAWithBackgroundImage } from "@/components/emails/marketing/cta/boxed-cta-with-background-image";
+```
+
+```tsx
+<BoxedCTAWithBackgroundImage {...BoxedCTAWithBackgroundImage.PreviewProps} />
+```
+
+## Examples
+
+### Flush Light
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="flush-light"
+  hideCode
+/>
+
+### Padded Light
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="padded-light"
+  hideCode
+/>
+
+### Flush Dark
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="flush-dark"
+  hideCode
+/>
+
+### Padded Dark
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="padded-dark"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                   | Type                                 | Default          | Description                                  |
+| ---------------------- | ------------------------------------ | ---------------- | -------------------------------------------- |
+| `theme`                | `EmailThemeTokens`                   | `defaultTheme`   | JSX Email theme tokens                       |
+| `variant`              | `BoxedCTAWithBackgroundImageVariant` | `"flush-light"`  | Selects the exact Mailviews spacing and tone |
+| `heading` / `subtext`  | `string`                             | Mailviews copy   | CTA heading and supporting text              |
+| `ctaLabel` / `ctaHref` | `string`                             | Mailviews CTA    | Primary action label and destination         |
+| `backgroundImageSrc`   | `string`                             | Mailviews glow   | Background image behind the CTA card         |
+| Color props            | `string`                             | Mailviews colors | Canvas, card, text, and button colors        |

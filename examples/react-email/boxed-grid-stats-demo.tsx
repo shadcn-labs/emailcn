@@ -1,5 +1,16 @@
-import { BoxedGridStats } from "@/registry/bases/react-email/ui/marketing/stats/boxed-grid-stats";
+import { GridStats } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats";
+import type { GridStatsLayout } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats";
 
-export default function BoxedGridStatsDemo() {
-  return <BoxedGridStats {...BoxedGridStats.PreviewProps} />;
+export default function BoxedGridStatsDemo({
+  layout,
+}: {
+  layout?: GridStatsLayout;
+}) {
+  return (
+    <GridStats
+      {...GridStats.PreviewProps}
+      layout={layout ?? GridStats.PreviewProps.layout}
+      variant="boxed"
+    />
+  );
 }

@@ -1,11 +1,37 @@
 ---
 title: "Logo with Finance Stats"
-description: "Marketing headers variant for email templates"
+description: "Mailviews logo and finance-stat header placements"
 ---
+
+All three Mailviews placements share one component through the `alignment` prop.
+
+## Examples
+
+### Left Logo
 
 <ComponentPreview
   base="react-email"
   name="header-with-logo-and-finance-stats-demo"
+  variant="left"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-finance-stats-demo"
+  variant="center"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-finance-stats-demo"
+  variant="right"
+  hideCode
 />
 
 ## Installation
@@ -45,11 +71,13 @@ import { HeaderWithLogoAndFinanceStats } from "@/components/emails/marketing/hea
 ```tsx
 <HeaderWithLogoAndFinanceStats
   {...HeaderWithLogoAndFinanceStats.PreviewProps}
+  alignment="center"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                                     | Default        | Description                              |
+| ----------- | ---------------------------------------- | -------------- | ---------------------------------------- |
+| `alignment` | `HeaderWithLogoAndFinanceStatsAlignment` | `"left"`       | Places the logo and finance stat content |
+| `theme`     | Renderer theme                           | `defaultTheme` | Renderer theme configuration             |

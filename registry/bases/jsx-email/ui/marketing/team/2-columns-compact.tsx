@@ -1,157 +1,291 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Head, Html, Preview } from "jsx-email";
+/* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type TeamCompactVariant = "default" | "slanted-left" | "slanted-right";
-export interface TeamCompactProps {
+export type TwoColumnsCompactVariant =
+  | "default"
+  | "border-top"
+  | "bordered"
+  | "accent";
+
+export interface TwoColumnsCompactProps {
   theme?: EmailThemeTokens;
-  members?: { avatarUrl?: string; name: string; role: string }[];
-  variant?: TeamCompactVariant;
+  avatarSrc1?: string;
+  avatarAlt1?: string;
+  name1?: string;
+  role1?: string;
+  avatarSrc2?: string;
+  avatarAlt2?: string;
+  name2?: string;
+  role2?: string;
+  variant?: TwoColumnsCompactVariant;
 }
-const TeamCompactSection = ({
-  members,
-  theme,
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .compact-team-stack { display: block !important; width: 100% !important; }
+    .compact-team-gap { line-height: 24px !important; }
+  }
+`;
+
+const SocialLinks = ({ lastIcon }: { lastIcon: "instagram" | "linkedin" }) => {
+  const icons = ["facebook", "x", lastIcon] as const;
+  return (
+    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
+      <tbody>
+        <tr>
+          {icons.map((icon, index) => (
+            <Fragment key={icon}>
+              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
+              <td style={{ width: "16px" }}>
+                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <img
+                    alt=""
+                    src={`https://assets.mailviews.com/images/components/icon-${icon}-dark.png`}
+                    width="16"
+                  />
+                </a>
+              </td>
+            </Fragment>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+interface CompactCardProps {
+  avatarAlt: string;
+  avatarSrc: string;
+  lastIcon: "instagram" | "linkedin";
+  name: string;
+  role: string;
+  variant: TwoColumnsCompactVariant;
+}
+
+const CompactCard = ({
+  avatarAlt,
+  avatarSrc,
+  lastIcon,
+  name,
+  role,
   variant,
-}: {
-  members: TeamCompactProps["members"];
-  theme: EmailThemeTokens;
-  variant: TeamCompactVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      {(members ?? []).slice(0, 4).map((m, i) => (
-        <Column
-          key={m.name + i}
-          style={{
-            padding: theme.spacingBase ?? "12px",
-            verticalAlign: "top",
-            width: "25%",
-          }}
-        >
-          {m.avatarUrl ? (
-            <Img
-              alt={m.name}
-              src={m.avatarUrl}
-              width={48}
-              height={48}
-              style={{
-                borderRadius: "50%",
-                display: "block",
-                margin: "0 auto",
-                maxWidth: "100%",
-                paddingBottom: theme.spacingBase ?? "8px",
-              }}
-            />
-          ) : null}
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "2px",
-              textAlign: "center",
-            }}
-          >
-            {m.name}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: "11px",
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            {m.role}
-          </Text>
-        </Column>
-      ))}
-    </Row>
-  </Section>
-);
-export const TwoColumnsCompact = ({
-  theme = defaultTheme,
-  members = [
-    { name: "John Doe", role: "CEO" },
-    { name: "Jane Smith", role: "CTO" },
-    { name: "Bob Wilson", role: "Design" },
-    { name: "Alice Lee", role: "Marketing" },
-  ],
-  variant = "default",
-}: TeamCompactProps) => (
-  <Html>
-    <Head />
-    <Preview>team compact</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+}: CompactCardProps) => {
+  const boxed = variant === "bordered" || variant === "accent";
+  const accent = variant === "accent";
+  const member = (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ width: "100%" }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <TeamCompactSection
-            members={members}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
+      <tbody>
+        <tr>
+          <td style={{ verticalAlign: "top", width: "64px" }}>
+            <img
+              alt={avatarAlt}
+              src={avatarSrc}
+              style={{
+                borderRadius: "9999px",
+                maxWidth: "100%",
+                verticalAlign: "middle",
+              }}
+              width="64"
+            />
+          </td>
+          <td style={{ width: boxed ? "16px" : "24px" }}>&zwj;</td>
+          <td>
+            <h3
+              style={{
+                color: accent ? "#fffffe" : "#030712",
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 600,
+                lineHeight: "24px",
+                margin: 0,
+              }}
+            >
+              {name}
+            </h3>
+            <p
+              style={{
+                color: accent ? "#d1d5db" : "#4b5563",
+                fontFamily,
+                fontSize: "14px",
+                lineHeight: "20px",
+                margin: 0,
+              }}
+            >
+              {role}
+            </p>
+            {boxed ? null : (
+              <>
+                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                <SocialLinks lastIcon={lastIcon} />
+              </>
+            )}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+
+  if (boxed) {
+    return (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td
+              style={{
+                backgroundColor: accent ? "#030712" : undefined,
+                border: accent ? undefined : "1px solid #d1d5db",
+                borderRadius: "8px",
+                padding: "16px",
+              }}
+            >
+              {member}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+
+  return (
+    <>
+      {variant === "border-top" ? (
+        <>
+          <div
+            style={{
+              backgroundColor: "#030712",
+              height: "2px",
+              lineHeight: "1px",
+            }}
+          >
+            &zwj;
+          </div>
+          <div style={{ lineHeight: "14px" }}>&zwj;</div>
+        </>
+      ) : null}
+      {member}
+    </>
+  );
+};
+
+export const TwoColumnsCompactSection = ({
+  avatarAlt1 = "",
+  avatarAlt2 = "",
+  avatarSrc1 = "https://assets.mailviews.com/images/components/teams/member-1-md.jpg",
+  avatarSrc2 = "https://assets.mailviews.com/images/components/teams/member-2-md.jpg",
+  name1 = "Jason Adam",
+  name2 = "Henrik Petersson",
+  role1 = "Senior Developer",
+  role2 = "Senior UX/UI designer",
+  variant = "default",
+}: Omit<TwoColumnsCompactProps, "theme">) => (
+  <>
+    <style>{responsiveStyles}</style>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: "#fffffe",
+              maxWidth: "100%",
+              padding: "44px 24px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              style={{ width: "100%" }}
+            >
+              <tbody>
+                <tr>
+                  <td
+                    className="compact-team-stack"
+                    style={{ verticalAlign: "top", width: "264px" }}
+                  >
+                    <CompactCard
+                      avatarAlt={avatarAlt1}
+                      avatarSrc={avatarSrc1}
+                      lastIcon="linkedin"
+                      name={name1}
+                      role={role1}
+                      variant={variant}
+                    />
+                  </td>
+                  <td
+                    className="compact-team-stack compact-team-gap"
+                    style={{ lineHeight: 0, width: "24px" }}
+                  >
+                    &zwj;
+                  </td>
+                  <td
+                    className="compact-team-stack"
+                    style={{ verticalAlign: "top", width: "264px" }}
+                  >
+                    <CompactCard
+                      avatarAlt={avatarAlt2}
+                      avatarSrc={avatarSrc2}
+                      lastIcon="instagram"
+                      name={name2}
+                      role={role2}
+                      variant={variant}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  </>
+);
+
+export const TwoColumnsCompact = ({
+  theme: _theme = defaultTheme,
+  ...props
+}: TwoColumnsCompactProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>Meet the team</Preview>
+    <Body style={{ margin: 0 }}>
+      <TwoColumnsCompactSection {...props} />
     </Body>
   </Html>
 );
+
 TwoColumnsCompact.PreviewProps = {
-  members: [
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-1&size=48",
-      name: "Alex Johnson",
-      role: "CEO",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-2&size=48",
-      name: "Maria Garcia",
-      role: "CTO",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-3&size=48",
-      name: "David Kim",
-      role: "Design",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-columns-compact.tsx-48-4&size=48",
-      name: "Alice Lee",
-      role: "Marketing",
-    },
-  ],
   theme: defaultTheme,
   variant: "default",
-} satisfies TeamCompactProps;
+} satisfies TwoColumnsCompactProps;

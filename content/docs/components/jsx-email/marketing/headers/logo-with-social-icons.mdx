@@ -1,0 +1,83 @@
+---
+title: "Logo with Social Icons"
+description: "Mailviews logo and social-icon header placements"
+---
+
+All three Mailviews placements share one component through the `alignment` prop.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-social-icons-demo"
+  variant="left"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-social-icons-demo"
+  variant="center"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-social-icons-demo"
+  variant="right"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo-and-social-icons
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-social-icons.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/headers/header-with-logo-and-social-icons.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndSocialIcons } from "@/components/emails/marketing/headers/header-with-logo-and-social-icons";
+```
+
+```tsx
+<HeaderWithLogoAndSocialIcons
+  {...HeaderWithLogoAndSocialIcons.PreviewProps}
+  alignment="center"
+/>
+```
+
+## API Reference
+
+| Prop        | Type                                    | Default        | Description                             |
+| ----------- | --------------------------------------- | -------------- | --------------------------------------- |
+| `alignment` | `HeaderWithLogoAndSocialIconsAlignment` | `"left"`       | Places the logo and social icon content |
+| `theme`     | Renderer theme                          | `defaultTheme` | Renderer theme configuration            |

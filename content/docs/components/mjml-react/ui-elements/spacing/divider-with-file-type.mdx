@@ -1,0 +1,97 @@
+---
+title: "Divider with File Type"
+description: "A horizontal divider with an inline file-type label."
+---
+
+This semantic wrapper shares the exact divider frame with the other content
+dividers while keeping its own focused content props.
+
+## Examples
+
+### Center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-with-file-type-demo"
+  variant="center"
+/>
+
+### Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-with-file-type-demo"
+  variant="left"
+/>
+
+### Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-with-file-type-demo"
+  variant="right"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider-with-file-type
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependency:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component and shared sources into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-file-type.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-with-file-type.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DividerWithFileType } from "@/components/emails/ui-elements/spacing/divider-with-file-type";
+```
+
+```tsx
+<DividerWithFileType {...DividerWithFileType.PreviewProps} variant="left" />
+```
+
+## API Reference
+
+| Prop       | Type                            | Default        | Description             |
+| ---------- | ------------------------------- | -------------- | ----------------------- |
+| `fileType` | `string`                        | `"PDF"`        | Displayed file type     |
+| `variant`  | `"center" \| "left" \| "right"` | `"center"`     | Inline content position |
+| `theme`    | `EmailThemeTokens`              | `defaultTheme` | Email theme styling     |

@@ -43,8 +43,49 @@ import { CouponsWithCenteredText } from "@/components/emails/marketing/coupons/c
 <CouponsWithCenteredText {...CouponsWithCenteredText.PreviewProps} />
 ```
 
+## Examples
+
+### Impact
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-centered-text-demo"
+  variant="impact"
+  hideCode
+/>
+
+### Inline
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-centered-text-demo"
+  variant="inline"
+  hideCode
+/>
+
+### Impact Alt
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-centered-text-demo"
+  variant="impact-alt"
+  hideCode
+/>
+
+### Impact Background
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-centered-text-demo"
+  variant="impact-background"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                             | Default          | Description                                       |
+| ------------- | -------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`       | Renderer theme                   | `defaultTheme`   | Renderer theme configuration                      |
+| `variant`     | `CouponsWithCenteredTextVariant` | `"impact"`       | Selects the corresponding Mailviews coupon layout |
+| Content props | `string`                         | Mailviews data   | Coupon copy, code, imagery, and action content    |
+| Color props   | `string`                         | Mailviews colors | Canvas, card, copy, code, and action colors       |

@@ -1,0 +1,97 @@
+---
+title: "Centered Text"
+description: "Marketing coupons variant for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="coupons-with-centered-text-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/coupons-with-centered-text
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/coupons/coupons-with-centered-text.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/coupons/coupons-with-centered-text.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CouponsWithCenteredText } from "@/components/emails/marketing/coupons/coupons-with-centered-text";
+```
+
+```tsx
+<CouponsWithCenteredText {...CouponsWithCenteredText.PreviewProps} />
+```
+
+## Examples
+
+### Impact
+
+<ComponentPreview
+  base="mjml-react"
+  name="coupons-with-centered-text-demo"
+  variant="impact"
+  hideCode
+/>
+
+### Inline
+
+<ComponentPreview
+  base="mjml-react"
+  name="coupons-with-centered-text-demo"
+  variant="inline"
+  hideCode
+/>
+
+### Impact Alt
+
+<ComponentPreview
+  base="mjml-react"
+  name="coupons-with-centered-text-demo"
+  variant="impact-alt"
+  hideCode
+/>
+
+### Impact Background
+
+<ComponentPreview
+  base="mjml-react"
+  name="coupons-with-centered-text-demo"
+  variant="impact-background"
+  hideCode
+/>
+
+## API Reference
+
+| Prop          | Type                             | Default          | Description                                       |
+| ------------- | -------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`       | Renderer theme                   | `defaultTheme`   | Renderer theme configuration                      |
+| `variant`     | `CouponsWithCenteredTextVariant` | `"impact"`       | Selects the corresponding Mailviews coupon layout |
+| Content props | `string`                         | Mailviews data   | Coupon copy, code, imagery, and action content    |
+| Color props   | `string`                         | Mailviews colors | Canvas, card, copy, code, and action colors       |

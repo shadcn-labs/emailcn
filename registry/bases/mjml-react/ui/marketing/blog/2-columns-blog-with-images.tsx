@@ -1,106 +1,96 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+  BlogHeading,
+} from "@/registry/bases/mjml-react/ui/marketing/blog/blog-shared";
 
-export type BlogCompactVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogCompactProps {
+export interface TwoColumnsBlogWithImagesProps {
   theme?: EmailThemeTokens;
-  posts?: { title: string; description: string }[];
-  variant?: BlogCompactVariant;
+  heading?: string;
+  imageAlt1?: string;
+  imageAlt2?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  title1?: string;
+  title2?: string;
+  excerpt1?: string;
+  excerpt2?: string;
 }
-const BlogCompactSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogCompactProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogCompactVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    {(posts ?? []).slice(0, 3).map((post, i) => (
-      <MjmlColumn
-        key={post.title + i}
-        width="33.33%"
-        padding={theme.spacingBase ?? "16px"}
-        verticalAlign="top"
-      >
-        <MjmlText
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase}
-          fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "4px"}
-        >
-          {post.title}
-        </MjmlText>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm}
-          lineHeight={theme.lineHeightBase}
-        >
-          {post.description}
-        </MjmlText>
-      </MjmlColumn>
-    ))}
-  </MjmlSection>
-);
+
+export const TwoColumnsBlogWithImagesSection = ({
+  heading = "Latest posts",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+}: Omit<TwoColumnsBlogWithImagesProps, "theme">) => {
+  const posts = [
+    {
+      excerpt: excerpt1,
+      imageAlt: imageAlt1,
+      imageSrc: imageSrc1,
+      title: title1,
+    },
+    {
+      excerpt: excerpt2,
+      imageAlt: imageAlt2,
+      imageSrc: imageSrc2,
+      title: title2,
+    },
+  ];
+
+  return (
+    <>
+      {heading ? <BlogHeading>{heading}</BlogHeading> : null}
+      <BlogContent layout="two-column-images" posts={posts} />
+    </>
+  );
+};
+
 export const TwoColumnsBlogWithImages = ({
   theme = defaultTheme,
-  posts = [
-    { description: "Description 1", title: "Post 1" },
-    { description: "Description 2", title: "Post 2" },
-    { description: "Description 3", title: "Post 3" },
-  ],
-  variant = "default",
-}: BlogCompactProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>blog compact</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BlogCompactSection posts={posts} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  heading = "Latest posts",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+}: TwoColumnsBlogWithImagesProps) => (
+  <BlogEmailShell preview={heading} theme={theme}>
+    <TwoColumnsBlogWithImagesSection
+      heading={heading}
+      imageAlt1={imageAlt1}
+      imageAlt2={imageAlt2}
+      imageSrc1={imageSrc1}
+      imageSrc2={imageSrc2}
+      title1={title1}
+      title2={title2}
+      excerpt1={excerpt1}
+      excerpt2={excerpt2}
+    />
+  </BlogEmailShell>
 );
+
 TwoColumnsBlogWithImages.PreviewProps = {
-  posts: [
-    {
-      description: "A guide to building email components.",
-      title: "Getting Started",
-    },
-    { description: "Tips for responsive email design.", title: "Design Tips" },
-    { description: "Advanced techniques for power users.", title: "Advanced" },
-  ],
+  excerpt1: "Practical ideas for clearer, more useful email experiences.",
+  excerpt2: "How small systems help teams publish consistently.",
+  heading: "Latest posts",
+  imageAlt1: "Mountain landscape",
+  imageAlt2: "Coastal landscape",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogCompactProps;
+  title1: "Designing emails people enjoy",
+  title2: "A better content workflow",
+} satisfies TwoColumnsBlogWithImagesProps;

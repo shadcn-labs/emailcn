@@ -1,14 +1,37 @@
 ---
 title: "Milestone Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews milestone progress family"
 ---
 
-<ComponentPreview base="jsx-email" name="milestone-stats-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="milestone-stats-demo"
+  variant="default"
+/>
+
+### Boxed
+
+<ComponentPreview
+  base="jsx-email"
+  name="milestone-stats-demo"
+  variant="boxed"
+/>
+
+### Accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="milestone-stats-demo"
+  variant="accent"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,45 +43,31 @@ npx shadcn@latest add @emailcn/milestone-stats
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/marketing/stats/milestone-stats.tsx"
-  base="jsx-email"
-  title="components/emails/marketing/stats/milestone-stats.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/stats/milestone-stats.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/stats/milestone-stats.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
 import { MilestoneStats } from "@/components/emails/marketing/stats/milestone-stats";
-```
 
-```tsx
-<MilestoneStats {...MilestoneStats.PreviewProps} />
+<MilestoneStats variant="boxed" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                               | Default        | Description              |
+| --------- | ---------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "boxed" \| "accent"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                 | `defaultTheme` | Email theme styling      |

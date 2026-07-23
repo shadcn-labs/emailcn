@@ -1,5 +1,16 @@
+import type { ComponentProps } from "react";
+
 import { FullWidthProgressBar } from "@/registry/bases/react-email/ui/ui-elements/progress-bars/full-width-progress-bar";
 
-export default function FullWidthProgressBarDemo() {
-  return <FullWidthProgressBar {...FullWidthProgressBar.PreviewProps} />;
+export default function FullWidthProgressBarDemo({
+  variant,
+}: {
+  variant?: ComponentProps<typeof FullWidthProgressBar>["variant"];
+}) {
+  return (
+    <FullWidthProgressBar
+      {...FullWidthProgressBar.PreviewProps}
+      variant={variant}
+    />
+  );
 }

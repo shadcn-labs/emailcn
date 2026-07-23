@@ -1,149 +1,278 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Body, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type CardsTimelineVariant = "default" | "slanted-left" | "slanted-right";
+export type CardsTimelineVariant =
+  | "default"
+  | "with-badge"
+  | "with-accent"
+  | "image-top"
+  | "image-bottom";
 
 export interface CardsTimelineProps {
   theme?: TailwindConfig;
-  heading?: string;
-  step1?: string;
-  step1Desc?: string;
-  step2?: string;
-  step2Desc?: string;
-  step3?: string;
-  step3Desc?: string;
   variant?: CardsTimelineVariant;
+  date?: string;
+  badge?: string;
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const textStyle = {
+  fontFamily,
+  margin: 0,
+} as const;
+
 export const CardsTimelineSection = ({
-  heading = "Timeline",
-  step1 = "Discovery",
-  step1Desc = "Understanding requirements and goals.",
-  step2 = "Design",
-  step2Desc = "Creating wireframes and prototypes.",
-  step3 = "Delivery",
-  step3Desc = "Launching the final product.",
+  badge = "Today",
+  date = "Monday",
+  description = "Description of event",
+  imageAlt = "One workspace. Every team.",
+  imageSrc = "https://assets.mailviews.com/images/components/timelines/cards.jpg",
+  title = "Miles traveled",
   variant = "default",
 }: Omit<CardsTimelineProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+  const dark =
+    variant === "with-accent" ||
+    variant === "image-top" ||
+    variant === "image-bottom";
+  const withBadge = variant !== "default";
+  const withCheck = variant === "with-accent";
+  const imageTop = variant === "image-top";
+  const imageBottom = variant === "image-bottom";
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+  const image = (
+    <img
+      alt={imageAlt}
+      src={imageSrc}
+      style={{
+        borderRadius: "4px",
+        maxWidth: "100%",
+        verticalAlign: "middle",
+      }}
+      width="536"
+    />
+  );
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-2xl font-bold text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Section className="mb-4 rounded-lg bg-background-muted p-6">
-          <Text className="m-0 mb-2 text-base font-bold text-foreground">
-            {step1}
-          </Text>
-          <Text className="m-0 text-sm leading-relaxed text-foreground-muted">
-            {step1Desc}
-          </Text>
-        </Section>
-        <Section className="mb-4 rounded-lg bg-background-muted p-6">
-          <Text className="m-0 mb-2 text-base font-bold text-foreground">
-            {step2}
-          </Text>
-          <Text className="m-0 text-sm leading-relaxed text-foreground-muted">
-            {step2Desc}
-          </Text>
-        </Section>
-        <Section className="rounded-lg bg-background-muted p-6">
-          <Text className="m-0 mb-2 text-base font-bold text-foreground">
-            {step3}
-          </Text>
-          <Text className="m-0 text-sm leading-relaxed text-foreground-muted">
-            {step3Desc}
-          </Text>
-        </Section>
-      </Container>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: "#fffffe",
+              maxWidth: "100%",
+              padding: variant === "default" ? 0 : "16px 0",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              style={{ width: "100%" }}
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 16px" }}>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={{ width: "100%" }}
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style={{
+                              backgroundColor: dark
+                                ? "#030712"
+                                : variant === "with-badge"
+                                  ? "#f9fafb"
+                                  : "#fffffe",
+                              borderRadius:
+                                variant === "default" ? undefined : "8px",
+                              padding: "16px",
+                            }}
+                          >
+                            {imageTop ? (
+                              <>
+                                {image}
+                                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                              </>
+                            ) : null}
+                            <table
+                              border={0}
+                              cellPadding={0}
+                              cellSpacing={0}
+                              role="presentation"
+                              style={{ width: "100%" }}
+                            >
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <table
+                                      border={0}
+                                      cellPadding={0}
+                                      cellSpacing={0}
+                                      role="presentation"
+                                    >
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                            <div
+                                              style={{
+                                                backgroundColor:
+                                                  variant === "default"
+                                                    ? "#fcd34d"
+                                                    : "#6ee7b7",
+                                                borderRadius: "9999px",
+                                                height: "12px",
+                                                lineHeight: withCheck
+                                                  ? "10px"
+                                                  : "12px",
+                                                textAlign: "center",
+                                                width: "12px",
+                                              }}
+                                            >
+                                              {withCheck ? (
+                                                <img
+                                                  alt=""
+                                                  src="https://assets.mailviews.com/images/components/timelines/icon-check.png"
+                                                  style={{
+                                                    marginBottom: "1px",
+                                                  }}
+                                                  width="8"
+                                                />
+                                              ) : (
+                                                <>&zwj;</>
+                                              )}
+                                            </div>
+                                          </td>
+                                          <td style={{ width: "8px" }}>
+                                            &zwj;
+                                          </td>
+                                          <td>
+                                            <p
+                                              style={{
+                                                ...textStyle,
+                                                color: dark
+                                                  ? "#e5e7eb"
+                                                  : "#374151",
+                                                fontSize: "12px",
+                                                lineHeight: "16px",
+                                              }}
+                                            >
+                                              {date}
+                                            </p>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                  <td style={{ textAlign: "right" }}>
+                                    {withBadge ? (
+                                      <span
+                                        style={{
+                                          backgroundColor: "#eef2ff",
+                                          border: "1px solid #c7d2fe",
+                                          borderRadius: "9999px",
+                                          color: "#4f46e5",
+                                          display: "inline-block",
+                                          fontFamily,
+                                          fontSize: "12px",
+                                          fontWeight: 500,
+                                          lineHeight: "16px",
+                                          padding: "1px 8px",
+                                        }}
+                                      >
+                                        {badge}
+                                      </span>
+                                    ) : null}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <p
+                              style={{
+                                ...textStyle,
+                                color: dark ? "#fffffe" : "#030712",
+                                fontSize: "18px",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                                marginTop: "4px",
+                              }}
+                            >
+                              {title}
+                            </p>
+                            <p
+                              style={{
+                                ...textStyle,
+                                color: dark ? "#d1d5db" : "#4b5563",
+                                fontSize: "16px",
+                                lineHeight: "24px",
+                                marginTop: "4px",
+                              }}
+                            >
+                              {description}
+                            </p>
+                            {imageBottom ? (
+                              <>
+                                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                                {image}
+                              </>
+                            ) : null}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const CardsTimeline = ({
   theme = defaultTheme,
-  heading = "Timeline",
-  step1 = "Discovery",
-  step1Desc = "Understanding requirements and goals.",
-  step2 = "Design",
-  step2Desc = "Creating wireframes and prototypes.",
-  step3 = "Delivery",
-  step3Desc = "Launching the final product.",
-  variant = "default",
+  ...props
 }: CardsTimelineProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>{heading}</Preview>
+    <Preview>Miles traveled</Preview>
     <Tailwind config={theme}>
       <Body className="m-0 bg-background font-sans">
-        <CardsTimelineSection
-          heading={heading}
-          step1={step1}
-          step1Desc={step1Desc}
-          step2={step2}
-          step2Desc={step2Desc}
-          step3={step3}
-          step3Desc={step3Desc}
-          variant={variant}
-        />
+        <CardsTimelineSection {...props} />
       </Body>
     </Tailwind>
   </Html>
 );
 
 CardsTimeline.PreviewProps = {
-  heading: "Timeline",
-  step1: "Discovery",
-  step1Desc: "Understanding requirements and defining project goals.",
-  step2: "Design",
-  step2Desc: "Creating wireframes, prototypes, and visual designs.",
-  step3: "Delivery",
-  step3Desc: "Development, testing, and launching the final product.",
   theme: defaultTheme,
   variant: "default",
 } satisfies CardsTimelineProps;

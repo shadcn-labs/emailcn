@@ -1,195 +1,297 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Body, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type PaymentTimelineVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type PaymentTimelineVariant = "3-steps" | "4-steps";
 
 export interface PaymentTimelineProps {
   theme?: TailwindConfig;
-  heading?: string;
-  step1?: string;
-  step1Desc?: string;
-  step1Amount?: string;
-  step2?: string;
-  step2Desc?: string;
-  step2Amount?: string;
-  step3?: string;
-  step3Desc?: string;
-  step3Amount?: string;
   variant?: PaymentTimelineVariant;
+  amount?: string;
+  firstDate?: string;
+  secondDate?: string;
+  thirdDate?: string;
+  fourthDate?: string;
 }
 
-export const PaymentTimelineSection = ({
-  heading = "Payment Timeline",
-  step1 = "Order Placed",
-  step1Desc = "Your order has been confirmed.",
-  step1Amount = "$99.00",
-  step2 = "Processing",
-  step2Desc = "Payment is being processed.",
-  step2Amount = "$99.00",
-  step3 = "Completed",
-  step3Desc = "Payment completed successfully.",
-  step3Amount = "$99.00",
-  variant = "default",
-}: Omit<PaymentTimelineProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const responsiveStyles = `
+  .payment-timeline-mobile { display: none; }
+  @media only screen and (max-width: 430px) {
+    .payment-timeline-desktop { display: none !important; }
+    .payment-timeline-mobile { display: block !important; }
+  }
+`;
+
+const textStyle = {
+  fontFamily,
+  margin: 0,
+} as const;
+
+const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
+  <div
+    style={{
+      backgroundColor: dark ? "#030712" : "#d1d5db",
+      borderRadius: "9999px",
+      height: "12px",
+      lineHeight: checked ? "10px" : "12px",
+      margin: "0 auto",
+      textAlign: "center",
+      width: "12px",
+    }}
+  >
+    {checked ? (
+      <img
+        alt=""
+        src="https://assets.mailviews.com/images/components/timelines/icon-check-white.png"
+        style={{ marginBottom: "1px" }}
+        width="8"
+      />
+    ) : (
+      <>&zwj;</>
+    )}
+  </div>
+);
+
+export const PaymentTimelineSection = ({
+  amount = "$9.99",
+  firstDate = "Paid: 17/11",
+  fourthDate = "17/02",
+  secondDate = "17/12",
+  thirdDate = "17/01",
+  variant = "3-steps",
+}: Omit<PaymentTimelineProps, "theme">) => {
+  const dates =
+    variant === "4-steps"
+      ? [firstDate, secondDate, thirdDate, fourthDate]
+      : [firstDate, secondDate, thirdDate];
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-2xl font-bold text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row className="mb-4">
-          <Column className="w-1/3 pr-4 text-center align-top">
-            <Section className="mb-2 mx-auto h-8 w-8 rounded-full bg-primary">
-              <Text className="m-0 text-center text-sm font-bold leading-8 text-primary-fg">
-                1
-              </Text>
-            </Section>
-            <Text className="m-0 mb-1 text-sm font-bold text-foreground">
-              {step1}
-            </Text>
-            <Text className="m-0 mb-1 text-xs text-foreground-muted">
-              {step1Desc}
-            </Text>
-            <Text className="m-0 text-xs font-medium text-foreground">
-              {step1Amount}
-            </Text>
-          </Column>
-          <Column className="w-1/3 px-4 text-center align-top">
-            <Section className="mb-2 mx-auto h-8 w-8 rounded-full bg-background-muted border border-border">
-              <Text className="m-0 text-center text-sm font-bold leading-8 text-foreground">
-                2
-              </Text>
-            </Section>
-            <Text className="m-0 mb-1 text-sm font-bold text-foreground">
-              {step2}
-            </Text>
-            <Text className="m-0 mb-1 text-xs text-foreground-muted">
-              {step2Desc}
-            </Text>
-            <Text className="m-0 text-xs font-medium text-foreground">
-              {step2Amount}
-            </Text>
-          </Column>
-          <Column className="w-1/3 pl-4 text-center align-top">
-            <Section className="mb-2 mx-auto h-8 w-8 rounded-full bg-background-muted border border-border">
-              <Text className="m-0 text-center text-sm font-bold leading-8 text-foreground">
-                3
-              </Text>
-            </Section>
-            <Text className="m-0 mb-1 text-sm font-bold text-foreground">
-              {step3}
-            </Text>
-            <Text className="m-0 mb-1 text-xs text-foreground-muted">
-              {step3Desc}
-            </Text>
-            <Text className="m-0 text-xs font-medium text-foreground">
-              {step3Amount}
-            </Text>
-          </Column>
-        </Row>
-      </Container>
-    </Section>
+    <>
+      <style>{responsiveStyles}</style>
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td>&zwj;</td>
+            <td
+              style={{
+                backgroundColor: "#fffffe",
+                maxWidth: "100%",
+                paddingBottom: "44px",
+                width: "600px",
+              }}
+            >
+              <table
+                border={0}
+                cellPadding={0}
+                cellSpacing={0}
+                role="presentation"
+                style={{ width: "100%" }}
+              >
+                <tbody>
+                  <tr>
+                    <td style={{ padding: "0 24px" }}>
+                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      <table
+                        border={0}
+                        cellPadding={0}
+                        cellSpacing={0}
+                        className="payment-timeline-desktop"
+                        role="presentation"
+                        style={{ tableLayout: "fixed", width: "100%" }}
+                      >
+                        <tbody>
+                          <tr>
+                            {dates.map((date, index) => (
+                              <td key={date}>
+                                <table
+                                  border={0}
+                                  cellPadding={0}
+                                  cellSpacing={0}
+                                  role="presentation"
+                                  style={{ width: "100%" }}
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        {index === 0 ? null : (
+                                          <div
+                                            style={{
+                                              backgroundColor:
+                                                index <= 1
+                                                  ? "#030712"
+                                                  : "#d1d5db",
+                                              height: "1px",
+                                              lineHeight: "1px",
+                                            }}
+                                          >
+                                            &zwj;
+                                          </div>
+                                        )}
+                                      </td>
+                                      <td style={{ width: "16px" }}>
+                                        <Dot
+                                          checked={index === 0}
+                                          dark={index <= 1}
+                                        />
+                                      </td>
+                                      <td>
+                                        {index === dates.length - 1 ? null : (
+                                          <div
+                                            style={{
+                                              backgroundColor:
+                                                index === 0
+                                                  ? "#030712"
+                                                  : "#d1d5db",
+                                              height: "1px",
+                                              lineHeight: "1px",
+                                            }}
+                                          >
+                                            &zwj;
+                                          </div>
+                                        )}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            ))}
+                          </tr>
+                          <tr>
+                            <td
+                              colSpan={dates.length}
+                              style={{ lineHeight: "8px" }}
+                            >
+                              &zwj;
+                            </td>
+                          </tr>
+                          <tr>
+                            {dates.map((date, index) => (
+                              <td
+                                key={date}
+                                style={{
+                                  textAlign:
+                                    index === 0
+                                      ? "left"
+                                      : index === dates.length - 1
+                                        ? "right"
+                                        : "center",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                <p
+                                  style={{
+                                    ...textStyle,
+                                    color: "#030712",
+                                    fontSize: "12px",
+                                    fontWeight: 600,
+                                    lineHeight: "16px",
+                                  }}
+                                >
+                                  {date}
+                                </p>
+                                <p
+                                  style={{
+                                    ...textStyle,
+                                    color: "#4b5563",
+                                    fontSize: "10px",
+                                    lineHeight: "16px",
+                                  }}
+                                >
+                                  {amount}
+                                </p>
+                              </td>
+                            ))}
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div className="payment-timeline-mobile">
+                        {dates.map((date, index) => (
+                          <div key={date} style={{ display: "flex" }}>
+                            <div>
+                              <div style={{ margin: "2px 0" }}>
+                                <Dot checked={index === 0} dark={index <= 1} />
+                              </div>
+                              {index === dates.length - 1 ? null : (
+                                <div
+                                  style={{
+                                    backgroundColor:
+                                      index === 0 ? "#030712" : "#d1d5db",
+                                    height: "48px",
+                                    margin: "0 auto",
+                                    width: "1px",
+                                  }}
+                                />
+                              )}
+                            </div>
+                            <div style={{ paddingLeft: "8px" }}>
+                              <p
+                                style={{
+                                  ...textStyle,
+                                  color: "#030712",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "16px",
+                                }}
+                              >
+                                {date}
+                              </p>
+                              <p
+                                style={{
+                                  ...textStyle,
+                                  color: "#4b5563",
+                                  fontSize: "10px",
+                                  lineHeight: "16px",
+                                }}
+                              >
+                                {amount}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>&zwj;</td>
+          </tr>
+        </tbody>
+      </table>
+    </>
   );
 };
 
 export const PaymentTimeline = ({
   theme = defaultTheme,
-  heading = "Payment Timeline",
-  step1 = "Order Placed",
-  step1Desc = "Your order has been confirmed.",
-  step1Amount = "$99.00",
-  step2 = "Processing",
-  step2Desc = "Payment is being processed.",
-  step2Amount = "$99.00",
-  step3 = "Completed",
-  step3Desc = "Payment completed successfully.",
-  step3Amount = "$99.00",
-  variant = "default",
+  ...props
 }: PaymentTimelineProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>{heading}</Preview>
+    <Preview>Payment timeline</Preview>
     <Tailwind config={theme}>
       <Body className="m-0 bg-background font-sans">
-        <PaymentTimelineSection
-          heading={heading}
-          step1={step1}
-          step1Amount={step1Amount}
-          step1Desc={step1Desc}
-          step2={step2}
-          step2Amount={step2Amount}
-          step2Desc={step2Desc}
-          step3={step3}
-          step3Amount={step3Amount}
-          step3Desc={step3Desc}
-          variant={variant}
-        />
+        <PaymentTimelineSection {...props} />
       </Body>
     </Tailwind>
   </Html>
 );
 
 PaymentTimeline.PreviewProps = {
-  heading: "Payment Timeline",
-  step1: "Order Placed",
-  step1Amount: "$99.00",
-  step1Desc: "Your order has been confirmed.",
-  step2: "Processing",
-  step2Amount: "$99.00",
-  step2Desc: "Payment is being processed.",
-  step3: "Completed",
-  step3Amount: "$99.00",
-  step3Desc: "Payment completed successfully.",
   theme: defaultTheme,
-  variant: "default",
+  variant: "3-steps",
 } satisfies PaymentTimelineProps;

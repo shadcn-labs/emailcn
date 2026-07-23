@@ -1,0 +1,134 @@
+---
+title: "Split Contained"
+description: "Contained split heroes with single, square, and portrait image layouts"
+---
+
+<ComponentPreview base="jsx-email" name="hero-split-contained-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-split-contained
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/hero/hero-split-contained.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/hero/hero-split-contained.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroSplitContained } from "@/components/emails/marketing/hero/hero-split-contained";
+```
+
+```tsx
+<HeroSplitContained {...HeroSplitContained.PreviewProps} />
+```
+
+## Examples
+
+### Single Image Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="single-image-left"
+  hideCode
+/>
+
+### Single Image Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="single-image-right"
+  hideCode
+/>
+
+### Square Images Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="square-images-left"
+  hideCode
+/>
+
+### Square Images Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="square-images-right"
+  hideCode
+/>
+
+### Portrait Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="portrait-top-left"
+  hideCode
+/>
+
+### Portrait Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="portrait-top-right"
+  hideCode
+/>
+
+### Portrait Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="portrait-bottom-left"
+  hideCode
+/>
+
+### Portrait Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-contained-demo"
+  variant="portrait-bottom-right"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                                        | Type                                                                                                                                                                                               | Default               | Description                                               |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | --------------------------------------------------------- |
+| `theme`                                     | `EmailThemeTokens`                                                                                                                                                                                 | `defaultTheme`        | JSX Email theme tokens                                    |
+| `variant`                                   | `"single-image-left" \| "single-image-right" \| "square-images-left" \| "square-images-right" \| "portrait-top-left" \| "portrait-top-right" \| "portrait-bottom-left" \| "portrait-bottom-right"` | `"single-image-left"` | Selects one of the eight Mailviews layouts and its preset |
+| `eyebrow` / `heading` / `subheading`        | `string`                                                                                                                                                                                           | Variant preset        | Hero title content                                        |
+| `description` / `price`                     | `string`                                                                                                                                                                                           | Variant preset        | Supporting copy and optional bold price                   |
+| `ctaLabel` / `ctaHref`                      | `string`                                                                                                                                                                                           | Variant preset        | Button label and destination                              |
+| `primaryImageSrc` / `primaryImageAlt`       | `string`                                                                                                                                                                                           | Mailviews imagery     | Single background or first stacked image                  |
+| `secondaryImageSrc` / `secondaryImageAlt`   | `string`                                                                                                                                                                                           | Mailviews imagery     | Second stacked image; unused by single-image variants     |
+| `logoSrc` / `logoAlt`                       | `string`                                                                                                                                                                                           | Variant preset        | Light or dark Mailviews logo                              |
+| `pageBackgroundColor` / `backgroundColor`   | `string`                                                                                                                                                                                           | Variant preset        | Email canvas and hero surface                             |
+| `textColor` / `mutedTextColor`              | `string`                                                                                                                                                                                           | Variant preset        | Primary and supporting copy colors                        |
+| `buttonBackgroundColor` / `buttonTextColor` | `string`                                                                                                                                                                                           | Mailviews colors      | CTA colors                                                |

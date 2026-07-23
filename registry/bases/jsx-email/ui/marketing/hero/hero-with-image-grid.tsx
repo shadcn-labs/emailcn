@@ -1,240 +1,365 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
   Button,
-  Column,
   Container,
   Head,
   Html,
   Img,
   Preview,
-  Row,
   Section,
   Text,
 } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
 export type HeroWithImageGridVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "images-bottom"
+  | "images-top"
+  | "offset-images-bottom"
+  | "offset-images-top";
+
+export interface HeroWithImageGridImage {
+  alt: string;
+  src: string;
+}
 
 export interface HeroWithImageGridProps {
   theme?: EmailThemeTokens;
+  eyebrow?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  image1Src?: string;
-  image1Alt?: string;
-  image2Src?: string;
-  image2Alt?: string;
-  image3Src?: string;
-  image3Alt?: string;
+  images?: HeroWithImageGridImage[];
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroWithImageGridVariant;
 }
 
-const ImageGridCta = ({
-  ctaHref,
-  ctaLabel,
-  theme,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  theme: EmailThemeTokens;
-}) => (
-  <Button
-    href={ctaHref}
-    align="center"
-    width={160}
-    height={40}
-    style={{
-      backgroundColor: theme.colorPrimary,
-      borderRadius: theme.borderRadius,
-      color: theme.colorPrimaryForeground,
-      display: "inline-block",
-      fontFamily: theme.fontFamily,
-      fontSize: theme.fontSizeSm,
-      fontWeight: theme.fontWeightMedium,
-      height: "auto",
-      padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-      textDecoration: "none",
-      width: "auto",
-    }}
-  >
-    {ctaLabel}
-  </Button>
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-image-grid-container {
+      width: 100% !important;
+    }
+
+    .hero-image-grid-heading {
+      font-size: 36px !important;
+      line-height: 40px !important;
+    }
+
+    .hero-image-grid-image {
+      margin: 0 12px 24px !important;
+      max-width: 96px !important;
+    }
+
+    .hero-image-grid-gap {
+      display: none !important;
+    }
+  }
+`;
+
+const regularImages: HeroWithImageGridImage[] = Array.from(
+  { length: 7 },
+  (_, index) => ({
+    alt: `Image ${index + 1}`,
+    src: `https://assets.mailviews.com/images/components/hero/mosaic-${index + 1}.jpg`,
+  })
 );
 
-const HeroWithImageGridSection = ({
+const offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
+
+const offsetImages: HeroWithImageGridImage[] = offsetImageNumbers.map(
+  (imageNumber, index) => ({
+    alt: `Image ${index + 1}`,
+    src: `https://assets.mailviews.com/images/components/hero/mosaic-${imageNumber}.jpg`,
+  })
+);
+
+const Spacer = ({ height }: { height: number }) => (
+  <div style={{ fontSize: 0, height, lineHeight: `${height}px` }}>&zwj;</div>
+);
+
+const ImageGallery = ({
+  images,
+  offset,
+}: {
+  images: HeroWithImageGridImage[];
+  offset: boolean;
+}) => {
+  const defaults = offset ? offsetImages : regularImages;
+  const resolvedImages = defaults.map((fallback, index) =>
+    images[index] ? { ...fallback, ...images[index] } : fallback
+  );
+  const imageWidth = offset ? 91 : 120;
+  const wrapAfter = offset ? 4 : 3;
+
+  return (
+    <div style={{ fontSize: 0, textAlign: "center" }}>
+      {resolvedImages.map((image, index) => (
+        <span key={`${image.src}-${index}`}>
+          <Img
+            alt={image.alt}
+            className="hero-image-grid-image"
+            src={image.src}
+            width={imageWidth}
+            style={{
+              borderRadius: "4px",
+              display: "inline-block",
+              marginBottom: "48px",
+              marginTop: offset && index % 2 === 0 ? "24px" : 0,
+              maxWidth: "100%",
+              verticalAlign: "middle",
+            }}
+          />
+          {index < resolvedImages.length - 1 && index !== wrapAfter ? (
+            <span
+              className="hero-image-grid-gap"
+              style={{ display: "inline-block", width: "24px" }}
+            >
+              &nbsp;
+            </span>
+          ) : null}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+type SectionProps = Required<
+  Omit<HeroWithImageGridProps, "theme" | "variant">
+> & {
+  variant: HeroWithImageGridVariant;
+};
+
+export const HeroWithImageGridSection = ({
+  backgroundColor,
+  buttonBackgroundColor,
+  buttonTextColor,
   ctaHref,
   ctaLabel,
+  description,
+  eyebrow,
   heading,
-  image1Alt,
-  image1Src,
-  image2Alt,
-  image2Src,
-  image3Alt,
-  image3Src,
+  images,
+  logoAlt,
+  logoHref,
+  logoSrc,
   subheading,
-  theme,
   variant,
-}: {
-  ctaHref?: string;
-  ctaLabel?: string;
-  heading: string;
-  image1Alt: string;
-  image1Src: string;
-  image2Alt: string;
-  image2Src: string;
-  image3Alt: string;
-  image3Src: string;
-  subheading: string;
-  theme: EmailThemeTokens;
-  variant: HeroWithImageGridVariant;
-}) => (
-  <Section
-    style={{ backgroundColor: theme.colorBackground, padding: "48px 0" }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase,
-            textAlign: "center",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeLg,
-            lineHeight: theme.lineHeightBase,
-            margin: 0,
-            paddingBottom: theme.spacingXl,
-            textAlign: "center",
-          }}
-        >
-          {subheading}
-        </Text>
-      </Column>
-      <Column style={{ padding: "0 8px", width: "33.33%" }}>
-        <Img
-          alt={image1Alt}
-          src={image1Src}
-          width="100%"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            paddingBottom: theme.spacingBase,
-          }}
-        />
-      </Column>
-      <Column style={{ padding: "0 8px", width: "33.33%" }}>
-        <Img
-          alt={image2Alt}
-          src={image2Src}
-          width="100%"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            paddingBottom: theme.spacingBase,
-          }}
-        />
-      </Column>
-      <Column style={{ padding: "0 8px", width: "33.33%" }}>
-        <Img
-          alt={image3Alt}
-          src={image3Src}
-          width="100%"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            paddingBottom: theme.spacingBase,
-          }}
-        />
-      </Column>
-      <Column>
+}: SectionProps) => {
+  const imagesFirst = variant.endsWith("-top");
+  const offset = variant.startsWith("offset-");
+  const gallery = <ImageGallery images={images} offset={offset} />;
+  const content = (
+    <div style={{ padding: "0 24px", textAlign: "center" }}>
+      <Spacer height={imagesFirst ? 20 : 44} />
+      <Text
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 200,
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {eyebrow}
+      </Text>
+      <h1
+        className="hero-image-grid-heading"
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "48px",
+          fontWeight: 500,
+          lineHeight: "58px",
+          margin: 0,
+        }}
+      >
+        {heading}
+      </h1>
+      <Text
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "18px",
+          lineHeight: "28px",
+          margin: 0,
+        }}
+      >
+        {subheading}
+      </Text>
+      <Text
+        style={{
+          color: "#4b5563",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 300,
+          lineHeight: "24px",
+          margin: "44px 0 0",
+        }}
+      >
+        {description}
+      </Text>
+    </div>
+  );
+
+  return (
+    <Section style={{ backgroundColor, padding: "44px 0" }}>
+      <div style={{ textAlign: "center" }}>
+        <a href={logoHref}>
+          <Img
+            alt={logoAlt}
+            src={logoSrc}
+            width="165"
+            style={{ display: "inline-block", maxWidth: "100%" }}
+          />
+        </a>
+      </div>
+      {imagesFirst ? (
+        <>
+          <Spacer height={44} />
+          {gallery}
+          {content}
+        </>
+      ) : (
+        <>
+          {content}
+          <Spacer height={44} />
+          {gallery}
+        </>
+      )}
+      <Spacer height={44} />
+      <div style={{ textAlign: "center" }}>
         {ctaLabel && ctaHref ? (
-          <ImageGridCta ctaHref={ctaHref} ctaLabel={ctaLabel} theme={theme} />
+          <Button
+            align="center"
+            height={44}
+            href={ctaHref}
+            width={166}
+            style={{
+              backgroundColor: buttonBackgroundColor,
+              borderRadius: "8px",
+              color: buttonTextColor,
+              display: "inline-block",
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 500,
+              height: "auto",
+              lineHeight: 1,
+              padding: "14px 20px",
+              textDecoration: "none",
+              width: "auto",
+            }}
+          >
+            <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+            <Img
+              alt=""
+              src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+              width="12"
+              style={{
+                display: "inline-block",
+                maxWidth: "100%",
+                verticalAlign: "baseline",
+              }}
+            />
+          </Button>
         ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
+      </div>
+    </Section>
+  );
+};
 
 export const HeroWithImageGrid = ({
+  backgroundColor = "#fffffe",
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Discover now",
+  description = "A curated look at design, culture, and creativity in motion. From classics reborn to boundary-pushing silhouettes — see what's shaping the streets today.",
+  eyebrow = "NEW ARRIVALS",
+  heading = "Step into the hype",
+  images = [],
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  pageBackgroundColor = "#f1f5f9",
+  subheading = "The evolution of the sneaker",
   theme = defaultTheme,
-  heading = "Image Grid Hero",
-  subheading = "A hero heading paired with a grid of images.",
-  ctaLabel = "View Gallery",
-  ctaHref = "#",
-  image1Src = "https://static.photos/city/300x200/2",
-  image1Alt = "image 1",
-  image2Src = "https://static.photos/city/300x200/3",
-  image2Alt = "image 2",
-  image3Src = "https://static.photos/city/300x200/4",
-  image3Alt = "image 3",
-  variant = "default",
+  variant = "images-bottom",
 }: HeroWithImageGridProps) => (
   <Html>
-    <Head />
-    <Preview>hero image grid</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>{`${heading} — ${subheading}`}</Preview>
     <Body
       style={{
-        backgroundColor: theme.colorBackground,
+        backgroundColor: pageBackgroundColor,
         color: theme.colorText,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
+        fontFamily,
         margin: 0,
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeroWithImageGridSection
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            heading={heading}
-            image1Alt={image1Alt}
-            image1Src={image1Src}
-            image2Alt={image2Alt}
-            image2Src={image2Src}
-            image3Alt={image3Alt}
-            image3Src={image3Src}
-            subheading={subheading}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
+      <Container
+        className="hero-image-grid-container"
+        style={{
+          backgroundColor,
+          margin: "0 auto",
+          maxWidth: "600px",
+          width: "600px",
+        }}
+      >
+        <HeroWithImageGridSection
+          backgroundColor={backgroundColor}
+          buttonBackgroundColor={buttonBackgroundColor}
+          buttonTextColor={buttonTextColor}
+          ctaHref={ctaHref}
+          ctaLabel={ctaLabel}
+          description={description}
+          eyebrow={eyebrow}
+          heading={heading}
+          images={images}
+          logoAlt={logoAlt}
+          logoHref={logoHref}
+          logoSrc={logoSrc}
+          pageBackgroundColor={pageBackgroundColor}
+          subheading={subheading}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 HeroWithImageGrid.PreviewProps = {
+  backgroundColor: "#fffffe",
+  buttonBackgroundColor: "#4f46e5",
+  buttonTextColor: "#fffffe",
   ctaHref: "https://example.com",
-  ctaLabel: "Browse Collection",
-  heading: "Hero with Image Grid",
-  image1Alt: "product 1",
-  image1Src: "https://static.photos/city/300x200/5",
-  image2Alt: "product 2",
-  image2Src: "https://static.photos/city/300x200/6",
-  image3Alt: "product 3",
-  image3Src: "https://static.photos/city/300x200/7",
-  subheading: "A prominent heading followed by a three-column image grid.",
+  ctaLabel: "Discover now",
+  description:
+    "A curated look at design, culture, and creativity in motion. From classics reborn to boundary-pushing silhouettes — see what's shaping the streets today.",
+  eyebrow: "NEW ARRIVALS",
+  heading: "Step into the hype",
+  images: [],
+  logoAlt: "Mailviews",
+  logoHref: "https://example.com",
+  logoSrc: "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  pageBackgroundColor: "#f1f5f9",
+  subheading: "The evolution of the sneaker",
   theme: defaultTheme,
-  variant: "default",
+  variant: "images-bottom",
 } satisfies HeroWithImageGridProps;

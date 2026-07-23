@@ -1,17 +1,47 @@
 ---
 title: "Bordered Order Summary with Total Top"
-description: "Bordered Order Summary with Total Top — Order Summary email component."
+description: "Bordered Order Summary with Total Top with every Mailviews layout variant."
 ---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Left Aligned
 
 <ComponentPreview
   base="jsx-email"
   name="bordered-order-summary-total-top-demo"
+  variant="left-aligned"
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="jsx-email"
+  name="bordered-order-summary-total-top-demo"
+  variant="right-aligned"
+/>
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="bordered-order-summary-total-top-demo"
+  variant="centered"
+/>
+
+### Justified
+
+<ComponentPreview
+  base="jsx-email"
+  name="bordered-order-summary-total-top-demo"
+  variant="justified"
 />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -23,31 +53,18 @@ npx shadcn@latest add @emailcn/bordered-order-summary-with-total-top
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
-  base="jsx-email"
-  title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -57,11 +74,15 @@ import { BorderedOrderSummaryTotalTop } from "@/components/emails/ecommerce/orde
 ```
 
 ```tsx
-<BorderedOrderSummaryTotalTop {...BorderedOrderSummaryTotalTop.PreviewProps} />
+<BorderedOrderSummaryTotalTop
+  {...BorderedOrderSummaryTotalTop.PreviewProps}
+  variant="left-aligned"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                             | Default          | Description              |
+| --------- | ---------------------------------------------------------------- | ---------------- | ------------------------ |
+| `variant` | `"left-aligned" \| "right-aligned" \| "centered" \| "justified"` | `"left-aligned"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                               | `defaultTheme`   | Email theme styling      |

@@ -1,0 +1,150 @@
+---
+title: "Grid Stats"
+description: "Mailviews grid stats treatments with their real layout variants"
+---
+
+## Examples
+
+### Simple
+
+<ComponentPreview base="jsx-email" name="simple-grid-stats-demo" />
+
+### Outlined — 3 columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-grid-stats-demo"
+  layout="three-columns"
+/>
+
+### Outlined — Bento
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-grid-stats-demo"
+  layout="bento"
+/>
+
+### Outlined — Bento reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-grid-stats-demo"
+  layout="bento-reversed"
+/>
+
+### Bordered — 3 columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="grid-stats-with-border-demo"
+  layout="three-columns"
+/>
+
+### Bordered — Bento
+
+<ComponentPreview
+  base="jsx-email"
+  name="grid-stats-with-border-demo"
+  layout="bento"
+/>
+
+### Bordered — Bento reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="grid-stats-with-border-demo"
+  layout="bento-reversed"
+/>
+
+### Boxed — 3 columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-grid-stats-demo"
+  layout="three-columns"
+/>
+
+### Boxed — Bento
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-grid-stats-demo"
+  layout="bento"
+/>
+
+### Boxed — Bento reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="boxed-grid-stats-demo"
+  layout="bento-reversed"
+/>
+
+### Accent column — 3 columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="grid-stats-with-accent-column-demo"
+  layout="three-columns"
+/>
+
+### Accent column — Bento
+
+<ComponentPreview
+  base="jsx-email"
+  name="grid-stats-with-accent-column-demo"
+  layout="bento"
+/>
+
+### Accent column — Bento reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="grid-stats-with-accent-column-demo"
+  layout="bento-reversed"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/stats/grid-stats.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/stats/grid-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridStats } from "@/components/emails/marketing/stats/grid-stats";
+
+<GridStats variant="accent-column" layout="bento" />;
+```
+
+## API Reference
+
+| Prop      | Type                                                                 | Default           | Description                      |
+| --------- | -------------------------------------------------------------------- | ----------------- | -------------------------------- |
+| `variant` | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent-column"` | `"boxed"`         | Mailviews visual treatment       |
+| `layout`  | `"three-columns" \| "bento" \| "bento-reversed"`                     | `"three-columns"` | Layout used by styled treatments |
+| `theme`   | `EmailThemeTokens`                                                   | `defaultTheme`    | Email theme styling              |

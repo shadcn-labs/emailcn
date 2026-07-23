@@ -1,8 +1,4 @@
 {
   "title": "Testimonial",
-  "pages": [
-    "centered-testimonial-with-cta",
-    "full-width-testimonial-with-overlapping-avatar",
-    "full-width-testimonial"
-  ]
+  "pages": ["with-cta", "full-width"]
 }

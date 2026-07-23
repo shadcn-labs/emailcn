@@ -1,0 +1,97 @@
+---
+title: "2 Columns Image Grid with Full Width Feature"
+description: "A two-column image grid with a full-width feature image, order, and overlay variants"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-image-grid-with-full-width-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsImageGridWithFullWidthFeature } from "@/components/emails/marketing/images/2-columns-image-grid-with-full-width-feature";
+```
+
+```tsx
+<TwoColumnsImageGridWithFullWidthFeature
+  {...TwoColumnsImageGridWithFullWidthFeature.PreviewProps}
+/>
+```
+
+## Examples
+
+### Full Width Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+  variant="full-width-top"
+  hideCode
+/>
+
+### Full Width Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+  variant="full-width-bottom"
+  hideCode
+/>
+
+### Full Width Top Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+  variant="full-width-top-overlay"
+  hideCode
+/>
+
+### Full Width Bottom Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-image-grid-with-full-width-feature-demo"
+  variant="full-width-bottom-overlay"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                | Type                                             | Default            | Description                                     |
+| ------------------- | ------------------------------------------------ | ------------------ | ----------------------------------------------- |
+| `theme`             | `TailwindConfig` / `EmailThemeTokens`            | `defaultTheme`     | Renderer theme configuration                    |
+| `variant`           | `TwoColumnsImageGridWithFullWidthFeatureVariant` | `"full-width-top"` | Selects feature order and overlay mode          |
+| Feature image props | `string`                                         | Mailviews data     | Feature image, link, alternative text, and copy |
+| Column image props  | `string`                                         | Mailviews data     | Two image links, alternative text, and copy     |
+| Color props         | `string`                                         | Mailviews colors   | Canvas, surface, and overlay text colors        |

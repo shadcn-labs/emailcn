@@ -1,34 +1,93 @@
 ---
 title: "Buttons"
-description: "A single email button component with primary, secondary, and text link styles, optional icons, and alignment."
+description: "One exact Mailviews button component with primary, secondary, and text styles in every icon placement and size."
 ---
 
-One `Buttons` component covers every style. Switch the look with the `variant`
-prop, add an optional `icon`, and control placement with `align`.
+One `Buttons` component covers the complete Mailviews set. Choose one of the
+nine visual variants below; each example includes the original five-size stack.
 
-## Primary
+## Examples
 
-<ComponentPreview base="jsx-email" name="primary-buttons-demo" />
+### Primary
 
-## Primary with Icon
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="primary"
+  hideCode
+/>
 
-<ComponentPreview base="jsx-email" name="primary-buttons-with-icon-demo" />
+### Primary with Leading Icon
 
-## Secondary
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="primary-leading-icon"
+  hideCode
+/>
 
-<ComponentPreview base="jsx-email" name="secondary-buttons-demo" />
+### Primary with Trailing Icon
 
-## Secondary with Icon
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="primary-trailing-icon"
+  hideCode
+/>
 
-<ComponentPreview base="jsx-email" name="secondary-buttons-with-icon-demo" />
+### Secondary
 
-## Text Link
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="secondary"
+  hideCode
+/>
 
-<ComponentPreview base="jsx-email" name="text-link-buttons-demo" />
+### Secondary with Leading Icon
 
-## Text Link with Icon
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="secondary-leading-icon"
+  hideCode
+/>
 
-<ComponentPreview base="jsx-email" name="text-link-buttons-with-icon-demo" />
+### Secondary with Trailing Icon
+
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="secondary-trailing-icon"
+  hideCode
+/>
+
+### Text Link
+
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="text"
+  hideCode
+/>
+
+### Text Link with Leading Icon
+
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="text-leading-icon"
+  hideCode
+/>
+
+### Text Link with Trailing Icon
+
+<ComponentPreview
+  base="jsx-email"
+  name="buttons-demo"
+  variant="text-trailing-icon"
+  hideCode
+/>
 
 ## Installation
 
@@ -50,13 +109,7 @@ npx shadcn@latest add @emailcn/buttons
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+<Step>Copy both component source files into your project.</Step>
 
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons.tsx"
@@ -64,7 +117,11 @@ npm install jsx-email
   title="components/emails/ui-elements/buttons/buttons.tsx"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/buttons/buttons-shared.tsx"
+/>
 
 </Steps>
 
@@ -79,18 +136,20 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
 ```
 
 ```tsx
-<Buttons variant="primary" label="Get Started" href="https://example.com" />
-<Buttons variant="secondary" icon="➜" label="Learn More" href="https://example.com/learn" />
-<Buttons variant="text" label="Unsubscribe" href="https://example.com" />
+<Buttons variant="primary" />
+<Buttons variant="secondary-leading-icon" />
+<Buttons variant="text-trailing-icon" />
 ```
 
 ## API Reference
 
-| Prop      | Type                                 | Default        | Description                 |
-| --------- | ------------------------------------ | -------------- | --------------------------- |
-| `variant` | `"primary" \| "secondary" \| "text"` | `"primary"`    | Button style                |
-| `label`   | `string`                             | `"Click Here"` | Button label                |
-| `href`    | `string`                             | `"#"`          | Button link URL             |
-| `icon`    | `string`                             | -              | Optional leading icon/glyph |
-| `align`   | `"left" \| "center" \| "right"`      | `"center"`     | Horizontal alignment        |
-| `theme`   | `EmailThemeTokens`                   | `defaultTheme` | Email theme styling         |
+| Prop           | Type                                                                                                                                                                                              | Default                 | Description                             |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------------------- |
+| `variant`      | `"primary" \| "primary-leading-icon" \| "primary-trailing-icon" \| "secondary" \| "secondary-leading-icon" \| "secondary-trailing-icon" \| "text" \| "text-leading-icon" \| "text-trailing-icon"` | `"primary"`             | Selects one of the examples above       |
+| `size`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "all"`                                                                                                                                                   | `"all"`                 | Renders one size or the five-size stack |
+| `label`        | `string`                                                                                                                                                                                          | Variant-specific        | Overrides the button label              |
+| `href`         | `string`                                                                                                                                                                                          | `"https://example.com"` | Button link URL                         |
+| `icon`         | `ReactNode`                                                                                                                                                                                       | Mailviews icon asset    | Overrides the variant's built-in icon   |
+| `iconPosition` | `"leading" \| "trailing"`                                                                                                                                                                         | `"leading"`             | Position for a custom icon              |
+| `align`        | `"left" \| "center" \| "right"`                                                                                                                                                                   | `"center"`              | Horizontal alignment                    |
+| `theme`        | `EmailThemeTokens`                                                                                                                                                                                | `defaultTheme`          | Email theme and container configuration |

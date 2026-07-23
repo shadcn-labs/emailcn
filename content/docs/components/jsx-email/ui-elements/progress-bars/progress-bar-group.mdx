@@ -1,0 +1,135 @@
+---
+title: "Progress Bar Group"
+description: "Mailviews-compatible progress bar component for email templates"
+---
+
+<ComponentPreview base="jsx-email" name="progress-bar-group-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/progress-bar-group
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>
+    Copy the component and shared progress rendering source into your project.
+  </Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/progress-bars/progress-bar-group.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/progress-bars/progress-bar-group.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/progress-bars/progress-bar-shared.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/progress-bars/progress-bar-shared.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProgressBarGroup } from "@/components/emails/ui-elements/progress-bars/progress-bar-group";
+```
+
+```tsx
+<ProgressBarGroup {...ProgressBarGroup.PreviewProps} />
+```
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Text
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="with-text"
+  hideCode
+/>
+
+### Text Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="text-top"
+  hideCode
+/>
+
+### Minimal Padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="minimal-padded"
+  hideCode
+/>
+
+### With Title Padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="with-title-padded"
+  hideCode
+/>
+
+### With Text Padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="with-text-padded"
+  hideCode
+/>
+
+### Text Top Padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-bar-group-demo"
+  variant="text-top-padded"
+  hideCode
+/>
+
+## API Reference
+
+| Prop          | Type                         | Default                 | Description                                  |
+| ------------- | ---------------------------- | ----------------------- | -------------------------------------------- |
+| `description` | `string`                     | FlowSync description    | Supporting copy used by text variants        |
+| `items`       | `readonly ProgressBarItem[]` | Mailviews example items | Vertical progress items                      |
+| `theme`       | `EmailTheme`                 | `defaultTheme`          | Email theme configuration                    |
+| `title`       | `string`                     | `FlowSync`              | Group heading                                |
+| `variant`     | `ProgressBarPaddedVariant`   | `text-top`              | Selects content order and horizontal padding |

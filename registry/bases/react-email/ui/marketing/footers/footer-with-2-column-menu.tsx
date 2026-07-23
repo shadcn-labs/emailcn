@@ -1,239 +1,294 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type FooterWith2ColumnMenuVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type FooterWith2ColumnMenuVariant = "left-logo" | "right-logo";
+
+export interface FooterWith2ColumnMenuLink {
+  href: string;
+  label: string;
+}
 
 export interface FooterWith2ColumnMenuProps {
   theme?: TailwindConfig;
   logoSrc?: string;
   logoAlt?: string;
-  col1Heading?: string;
-  col1Link1?: string;
-  col1Link1Href?: string;
-  col1Link2?: string;
-  col1Link2Href?: string;
-  col1Link3?: string;
-  col1Link3Href?: string;
-  col2Heading?: string;
-  col2Link1?: string;
-  col2Link1Href?: string;
-  col2Link2?: string;
-  col2Link2Href?: string;
-  col2Link3?: string;
-  col2Link3Href?: string;
+  logoHref?: string;
+  quickLinks?: FooterWith2ColumnMenuLink[];
+  connectLinks?: FooterWith2ColumnMenuLink[];
+  copyright?: string;
+  unsubscribeHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  mutedTextColor?: string;
   variant?: FooterWith2ColumnMenuVariant;
 }
 
-export const FooterWith2ColumnMenuSection = ({
-  logoSrc = "https://static.photos/business/100x25/2",
-  logoAlt = "Logo",
-  col1Heading = "Product",
-  col1Link1 = "Features",
-  col1Link1Href = "#",
-  col1Link2 = "Pricing",
-  col1Link2Href = "#",
-  col1Link3 = "FAQ",
-  col1Link3Href = "#",
-  col2Heading = "Company",
-  col2Link1 = "About",
-  col2Link1Href = "#",
-  col2Link2 = "Blog",
-  col2Link2Href = "#",
-  col2Link3 = "Contact",
-  col2Link3Href = "#",
-  variant = "default",
-}: Omit<FooterWith2ColumnMenuProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .footer-two-menu-cell { display: block !important; width: 100% !important; }",
+  "  .footer-two-menu-logo { padding-bottom: 24px !important; text-align: left !important; }",
+  "  .footer-two-menu-columns { float: none !important; margin: 0 !important; text-align: left !important; }",
+  "}",
+].join("\n");
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  connectLinks: [
+    { href: "https://facebook.com", label: "Facebook" },
+    { href: "https://github.com", label: "GitHub" },
+    { href: "https://linkedin.com", label: "LinkedIn" },
+    { href: "https://youtube.com", label: "YouTube" },
+    { href: "https://instagram.com", label: "Instagram" },
+  ],
+  copyright: "© 2026 Mailviews. No longer want to receive emails?",
+  headingColor: "#030712",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  mutedTextColor: "#9ca3af",
+  pageBackgroundColor: "#f1f5f9",
+  quickLinks: [
+    { href: "https://example.com/about", label: "About us" },
+    { href: "https://example.com/shop", label: "Shop" },
+    { href: "https://example.com/faq", label: "FAQs" },
+    { href: "https://example.com/contact", label: "Contact us" },
+  ],
+  textColor: "#6b7280",
+  unsubscribeHref: "https://example.com/unsub",
+};
+
+type SectionProps = Omit<FooterWith2ColumnMenuProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const MenuColumn = ({
+  links,
+  props,
+  title,
+}: {
+  links: FooterWith2ColumnMenuLink[];
+  props: ResolvedProps;
+  title: string;
+}) => (
+  <td style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}>
+    <p
+      style={{
+        color: props.headingColor,
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 600,
+        lineHeight: "24px",
+        margin: "0 0 10px",
+      }}
+    >
+      {title}
+    </p>
+    {links.map((link) => (
+      <p key={link.href} style={{ margin: "0 0 8px" }}>
+        <a
+          href={link.href}
+          style={{
+            color: props.textColor,
+            fontFamily,
+            fontSize: "14px",
+            lineHeight: "20px",
+            textDecoration: "none",
+          }}
+        >
+          {link.label}
+        </a>
+      </p>
+    ))}
+  </td>
+);
+
+const LogoCell = ({ props }: { props: ResolvedProps }) => (
+  <td
+    className="footer-two-menu-cell footer-two-menu-logo"
+    style={{
+      textAlign: props.variant === "right-logo" ? "right" : "left",
+      verticalAlign: "top",
+      width: "41.666667%",
+    }}
+  >
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td style={{ padding: "0 24px 24px" }}>
+            <a href={props.logoHref}>
+              <img
+                alt={props.logoAlt}
+                src={props.logoSrc}
+                style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                width={55}
+              />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </td>
+);
+
+const MenusCell = ({ props }: { props: ResolvedProps }) => (
+  <td className="footer-two-menu-cell" style={{ verticalAlign: "top" }}>
+    <table
+      align={props.variant === "left-logo" ? "right" : "left"}
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      className="footer-two-menu-columns"
+      role="presentation"
+      style={
+        props.variant === "left-logo"
+          ? { marginLeft: "auto" }
+          : { marginRight: "auto" }
       }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+    >
+      <tbody>
+        <tr>
+          <MenuColumn
+            links={props.quickLinks}
+            props={props}
+            title="Quick Links"
+          />
+          <MenuColumn
+            links={props.connectLinks}
+            props={props}
+            title="Connect"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </td>
+);
+
+export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
+  const resolved = {
+    ...defaults,
+    ...props,
+    variant: props.variant ?? "left-logo",
+  } as ResolvedProps;
+  const logo = <LogoCell props={resolved} />;
+  const menus = <MenusCell props={resolved} />;
 
   return (
-    <Section className={`bg-background py-8 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        <Section className="mb-6 text-center">
-          <Img
-            src={logoSrc}
-            alt={logoAlt}
-            width="100"
-            height="25"
-            className="mx-auto h-auto object-contain"
-          />
-        </Section>
-        <Row>
-          <Column className="w-1/2 text-center align-top">
-            <Text className="m-0 mb-3 text-sm font-medium text-foreground">
-              {col1Heading}
-            </Text>
-            <Text className="m-0 mb-2 text-xs text-foreground-muted">
-              <a
-                href={col1Link1Href}
-                className="text-foreground-muted no-underline"
-              >
-                {col1Link1}
-              </a>
-            </Text>
-            <Text className="m-0 mb-2 text-xs text-foreground-muted">
-              <a
-                href={col1Link2Href}
-                className="text-foreground-muted no-underline"
-              >
-                {col1Link2}
-              </a>
-            </Text>
-            <Text className="m-0 text-xs text-foreground-muted">
-              <a
-                href={col1Link3Href}
-                className="text-foreground-muted no-underline"
-              >
-                {col1Link3}
-              </a>
-            </Text>
-          </Column>
-          <Column className="w-1/2 text-center align-top">
-            <Text className="m-0 mb-3 text-sm font-medium text-foreground">
-              {col2Heading}
-            </Text>
-            <Text className="m-0 mb-2 text-xs text-foreground-muted">
-              <a
-                href={col2Link1Href}
-                className="text-foreground-muted no-underline"
-              >
-                {col2Link1}
-              </a>
-            </Text>
-            <Text className="m-0 mb-2 text-xs text-foreground-muted">
-              <a
-                href={col2Link2Href}
-                className="text-foreground-muted no-underline"
-              >
-                {col2Link2}
-              </a>
-            </Text>
-            <Text className="m-0 text-xs text-foreground-muted">
-              <a
-                href={col2Link3Href}
-                className="text-foreground-muted no-underline"
-              >
-                {col2Link3}
-              </a>
-            </Text>
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              padding: "44px 0 24px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  {resolved.variant === "left-logo" ? logo : menus}
+                  {resolved.variant === "left-logo" ? menus : logo}
+                </tr>
+              </tbody>
+            </table>
+            <div style={{ lineHeight: "96px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "left" }}>
+                    <p
+                      style={{
+                        color: resolved.mutedTextColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      {resolved.copyright}{" "}
+                      <a
+                        href={resolved.unsubscribeHref}
+                        style={{
+                          color: resolved.textColor,
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Unsubscribe
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const FooterWith2ColumnMenu = ({
-  theme = defaultTheme,
-  logoSrc = "https://static.photos/business/100x25/3",
-  logoAlt = "Logo",
-  col1Heading = "Product",
-  col1Link1 = "Features",
-  col1Link1Href = "#",
-  col1Link2 = "Pricing",
-  col1Link2Href = "#",
-  col1Link3 = "FAQ",
-  col1Link3Href = "#",
-  col2Heading = "Company",
-  col2Link1 = "About",
-  col2Link1Href = "#",
-  col2Link2 = "Blog",
-  col2Link2Href = "#",
-  col2Link3 = "Contact",
-  col2Link3Href = "#",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "left-logo",
+  ...props
 }: FooterWith2ColumnMenuProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>Footer</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <FooterWith2ColumnMenuSection
-          col1Heading={col1Heading}
-          col1Link1={col1Link1}
-          col1Link1Href={col1Link1Href}
-          col1Link2={col1Link2}
-          col1Link2Href={col1Link2Href}
-          col1Link3={col1Link3}
-          col1Link3Href={col1Link3Href}
-          col2Heading={col2Heading}
-          col2Link1={col2Link1}
-          col2Link1Href={col2Link1Href}
-          col2Link2={col2Link2}
-          col2Link2Href={col2Link2Href}
-          col2Link3={col2Link3}
-          col2Link3Href={col2Link3Href}
-          logoAlt={logoAlt}
-          logoSrc={logoSrc}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Footer with 2-column menu</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <FooterWith2ColumnMenuSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
+    </Body>
   </Html>
 );
 
 FooterWith2ColumnMenu.PreviewProps = {
-  col1Heading: "Product",
-  col1Link1: "Features",
-  col1Link1Href: "#",
-  col1Link2: "Pricing",
-  col1Link2Href: "#",
-  col1Link3: "FAQ",
-  col1Link3Href: "#",
-  col2Heading: "Company",
-  col2Link1: "About",
-  col2Link1Href: "#",
-  col2Link2: "Blog",
-  col2Link2Href: "#",
-  col2Link3: "Contact",
-  col2Link3Href: "#",
-  logoAlt: "Logo",
-  logoSrc: "https://static.photos/business/100x25/4",
   theme: defaultTheme,
-  variant: "default",
+  variant: "left-logo",
 } satisfies FooterWith2ColumnMenuProps;

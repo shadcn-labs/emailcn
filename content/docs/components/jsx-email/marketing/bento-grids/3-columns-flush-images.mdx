@@ -1,0 +1,100 @@
+---
+title: "3 Columns Flush Images"
+description: "Marketing bento-grids variant for email templates"
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-grid-with-3-columns-and-flush-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grid-with-3-columns-and-flush-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridWith3ColumnsAndFlushImages } from "@/components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images";
+```
+
+```tsx
+<BentoGridWith3ColumnsAndFlushImages
+  {...BentoGridWith3ColumnsAndFlushImages.PreviewProps}
+/>
+```
+
+## Examples
+
+### Captions Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-grid-with-3-columns-and-flush-images-demo"
+  variant="captions-top"
+  hideCode
+/>
+
+### Captions Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-grid-with-3-columns-and-flush-images-demo"
+  variant="captions-bottom"
+  hideCode
+/>
+
+### Captions Top Alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-grid-with-3-columns-and-flush-images-demo"
+  variant="captions-top-alt"
+  hideCode
+/>
+
+### Captions Bottom Alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-grid-with-3-columns-and-flush-images-demo"
+  variant="captions-bottom-alt"
+  hideCode
+/>
+
+## API Reference
+
+| Prop      | Type                      | Default               | Description                       |
+| --------- | ------------------------- | --------------------- | --------------------------------- |
+| `theme`   | `EmailTheme`              | `defaultTheme`        | Email theme styling               |
+| `variant` | `BentoThreeColumnVariant` | `captions-bottom-alt` | Selects one of the examples above |

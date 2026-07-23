@@ -1,0 +1,120 @@
+---
+title: "Boxed Order Summary with Card Details and Total Bottom"
+description: "Boxed Order Summary with Card Details and Total Bottom with every Mailviews layout variant."
+---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Left Aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="left-aligned"
+/>
+
+### Left Filled
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="left-filled"
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="right-aligned"
+/>
+
+### Right Filled
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="right-filled"
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="centered"
+/>
+
+### Centered Filled
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="centered-filled"
+/>
+
+### Justified
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="justified"
+/>
+
+### Justified Filled
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-order-summary-card-details-total-bottom-demo"
+  variant="justified-filled"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-order-summary-with-card-details-and-total-bottom
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedOrderSummaryCardDetailsTotalBottom } from "@/components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom";
+```
+
+```tsx
+<BoxedOrderSummaryCardDetailsTotalBottom
+  {...BoxedOrderSummaryCardDetailsTotalBottom.PreviewProps}
+  variant="left-aligned"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                                                                                                                                           | Default          | Description              |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ |
+| `variant` | `"left-aligned" \| "left-filled" \| "right-aligned" \| "right-filled" \| "centered" \| "centered-filled" \| "justified" \| "justified-filled"` | `"left-aligned"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                                                                             | `defaultTheme`   | Email theme styling      |

@@ -1,10 +1,16 @@
 {
   "title": "Bento Grids",
   "pages": [
-    "bento-grid-with-3-columns-and-flush-images",
-    "bento-grid-with-3-columns-and-even-split-image-stats",
-    "bento-grid-with-images-and-captions",
-    "bento-grid-with-images-and-details",
-    "bento-grid-with-two-rows-and-3-column-second-row"
+    "3-columns-even-split-image-stats",
+    "3-columns-even-split-text-stats",
+    "3-columns-flush-images",
+    "3-columns-padded-images",
+    "even-split-image-stats",
+    "even-split-text-stats",
+    "even-split-two-thirds",
+    "images-with-captions",
+    "images-with-details",
+    "two-rows-3-column-second-row",
+    "two-thirds-with-stats"
   ]
 }

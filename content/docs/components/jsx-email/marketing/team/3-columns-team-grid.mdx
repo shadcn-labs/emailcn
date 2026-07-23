@@ -1,0 +1,81 @@
+---
+title: "3 Columns Team Grid"
+description: "Mailviews three-column team grid family"
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-team-grid-demo"
+  variant="default"
+/>
+
+### With Accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-team-grid-demo"
+  variant="with-accent"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-team-grid-demo"
+  variant="bordered"
+/>
+
+### With Hero
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-team-grid-demo"
+  variant="with-hero"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/3-columns-team-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/team/3-columns-team-grid.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/team/3-columns-team-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ThreeColumnsTeamGrid } from "@/components/emails/marketing/team/3-columns-team-grid";
+
+<ThreeColumnsTeamGrid variant="default" />;
+```
+
+## API Reference
+
+| Prop      | Type                                                      | Default        | Description              |
+| --------- | --------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "with-accent" \| "bordered" \| "with-hero"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                        | `defaultTheme` | Email theme styling      |

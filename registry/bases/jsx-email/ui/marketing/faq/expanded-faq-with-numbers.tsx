@@ -1,128 +1,75 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  ExpandedNumbersContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/jsx-email/ui/marketing/faq/faq-shared";
 
-export type FAQGridVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQGridProps {
+export interface ExpandedFaqWithNumbersProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQGridVariant;
+  heading?: string;
+  q1?: string;
+  a1?: string;
+  q2?: string;
+  a2?: string;
+  q3?: string;
+  a3?: string;
 }
-const FAQGridSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQGridProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQGridVariant;
-}) => {
-  const list = items ?? [];
+
+export const ExpandedFaqWithNumbersSection = ({
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  a3 = "Yes, we offer customer support by email and live chat.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: Omit<ExpandedFaqWithNumbersProps, "theme">) => {
+  const items = [
+    { answer: a1, question: q1 },
+    { answer: a2, question: q2 },
+    { answer: a3, question: q3 },
+  ];
+
   return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
-      }}
-    >
-      <Row>
-        {list.slice(0, 4).map((item, i) => (
-          <Column
-            key={item.question + i}
-            style={{
-              padding: theme.spacingBase ?? "16px",
-              verticalAlign: "top",
-              width: "50%",
-            }}
-          >
-            <Text
-              style={{
-                color: theme.colorText,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeBase,
-                fontWeight: theme.fontWeightMedium,
-                margin: 0,
-                paddingBottom: theme.spacingBase ?? "8px",
-              }}
-            >
-              {item.question}
-            </Text>
-            <Text
-              style={{
-                color: theme.colorTextMuted,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeBase,
-                lineHeight: theme.lineHeightBase,
-                margin: 0,
-              }}
-            >
-              {item.answer}
-            </Text>
-          </Column>
-        ))}
-      </Row>
-    </Section>
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <ExpandedNumbersContent items={items} />
+    </>
   );
 };
+
 export const ExpandedFaqWithNumbers = ({
   theme = defaultTheme,
-  items = [
-    { answer: "Answer 1", question: "Question 1?" },
-    { answer: "Answer 2", question: "Question 2?" },
-    { answer: "Answer 3", question: "Question 3?" },
-    { answer: "Answer 4", question: "Question 4?" },
-  ],
-  variant = "default",
-}: FAQGridProps) => (
-  <Html>
-    <Head />
-    <Preview>FAQ grid</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FAQGridSection items={items} theme={theme} variant={variant} />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  a3 = "Yes, we offer customer support by email and live chat.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: ExpandedFaqWithNumbersProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <ExpandedFaqWithNumbersSection
+      a1={a1}
+      a2={a2}
+      a3={a3}
+      heading={heading}
+      q1={q1}
+      q2={q2}
+      q3={q3}
+    />
+  </FaqEmailShell>
 );
+
 ExpandedFaqWithNumbers.PreviewProps = {
-  items: [
-    {
-      answer: "A collection of responsive email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, all components are fully responsive.",
-      question: "Are they responsive?",
-    },
-    { answer: "MIT license.", question: "What license?" },
-    {
-      answer: "Yes, via our GitHub discussions.",
-      question: "Is there community support?",
-    },
-  ],
+  a1: "This product helps you build beautiful emails quickly and easily.",
+  a2: "We offer flexible pricing plans to suit your needs.",
+  a3: "Yes, we offer customer support by email and live chat.",
+  heading: "Frequently asked questions",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQGridProps;
+} satisfies ExpandedFaqWithNumbersProps;

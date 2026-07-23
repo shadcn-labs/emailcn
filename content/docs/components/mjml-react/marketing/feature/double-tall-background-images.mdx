@@ -1,0 +1,102 @@
+---
+title: "Double Tall Background Images"
+description: "Marketing feature variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-double-tall-background-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-double-tall-background-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/feature/feature-with-double-tall-background-images.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/feature/feature-with-double-tall-background-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeatureWithDoubleTallBackgroundImages } from "@/components/emails/marketing/feature/feature-with-double-tall-background-images";
+```
+
+```tsx
+<FeatureWithDoubleTallBackgroundImages
+  {...FeatureWithDoubleTallBackgroundImages.PreviewProps}
+/>
+```
+
+## Examples
+
+### Logo Top Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-double-tall-background-images-demo"
+  variant="logo-top-right"
+  hideCode
+/>
+
+### Logo Top Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-double-tall-background-images-demo"
+  variant="logo-top-left"
+  hideCode
+/>
+
+### Logo Bottom Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-double-tall-background-images-demo"
+  variant="logo-bottom-left"
+  hideCode
+/>
+
+### Logo Bottom Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-double-tall-background-images-demo"
+  variant="logo-bottom-right"
+  hideCode
+/>
+
+## API Reference
+
+| Prop          | Type                                           | Default           | Description                                         |
+| ------------- | ---------------------------------------------- | ----------------- | --------------------------------------------------- |
+| `theme`       | Renderer theme                                 | `defaultTheme`    | Renderer theme configuration                        |
+| `variant`     | `FeatureWithDoubleTallBackgroundImagesVariant` | `"logo-top-left"` | Selects logo placement and left/right column order  |
+| Content props | `string`                                       | Mailviews data    | Heading, body, action, logo, and background imagery |
+| Color props   | `string`                                       | Mailviews colors  | Canvas, surface, image, logo, copy, and link colors |

@@ -1,0 +1,75 @@
+---
+title: "Company Locations Footer"
+description: "Mailviews company-locations footer with stacked and grid variants"
+---
+
+The navigation, social links, and legal content are shared. Use the `variant` prop to select the exact Mailviews stacked or grid location layout.
+
+## Examples
+
+### Stacked
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-company-locations-demo"
+  variant="stacked"
+  hideCode
+/>
+
+### Grid
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-company-locations-demo"
+  variant="grid"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-company-locations
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/footers/footer-with-company-locations.tsx"
+    base="react-email"
+    title="components/emails/marketing/footers/footer-with-company-locations.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithCompanyLocations } from "@/components/emails/marketing/footers/footer-with-company-locations";
+```
+
+```tsx
+<FooterWithCompanyLocations
+  {...FooterWithCompanyLocations.PreviewProps}
+  variant="stacked"
+/>
+```
+
+## API Reference
+
+| Prop        | Type                  | Default       | Description                    |
+| ----------- | --------------------- | ------------- | ------------------------------ |
+| `variant`   | `"stacked" \| "grid"` | `"stacked"`   | Selects the Mailviews layout   |
+| `locations` | `CompanyLocation[]`   | variant data  | Overrides the location content |
+| `theme`     | `EmailTheme`          | default theme | Email theme styling            |

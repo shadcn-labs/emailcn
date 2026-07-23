@@ -1,133 +1,276 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Body, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type TimelineAccentVariant =
+export type CardsTimelineVariant =
   | "default"
-  | "slanted-left"
-  | "slanted-right";
-export interface TimelineAccentProps {
+  | "with-badge"
+  | "with-accent"
+  | "image-top"
+  | "image-bottom";
+
+export interface CardsTimelineProps {
   theme?: EmailThemeTokens;
-  events?: { date: string; title: string; description: string }[];
-  variant?: TimelineAccentVariant;
+  variant?: CardsTimelineVariant;
+  date?: string;
+  badge?: string;
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
-const TimelineAccentSection = ({
-  events,
-  theme,
-  variant,
-}: {
-  events: TimelineAccentProps["events"];
-  theme: EmailThemeTokens;
-  variant: TimelineAccentVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackgroundMuted,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      {(events ?? []).map((e, i) => (
-        <Column key={e.title + i}>
-          <Text
-            style={{
-              color: theme.colorPrimary,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm,
-              fontWeight: theme.fontWeightBold,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "4px",
-            }}
-          >
-            {e.date}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "4px",
-            }}
-          >
-            {e.title}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase,
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "16px",
-            }}
-          >
-            {e.description}
-          </Text>
-        </Column>
-      ))}
-    </Row>
-  </Section>
-);
-export const CardsTimeline = ({
-  theme = defaultTheme,
-  events = [
-    { date: "2024-01", description: "Initial release.", title: "v1.0.0" },
-  ],
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const textStyle = {
+  fontFamily,
+  margin: 0,
+} as const;
+
+export const CardsTimelineSection = ({
+  badge = "Today",
+  date = "Monday",
+  description = "Description of event",
+  imageAlt = "One workspace. Every team.",
+  imageSrc = "https://assets.mailviews.com/images/components/timelines/cards.jpg",
+  title = "Miles traveled",
   variant = "default",
-}: TimelineAccentProps) => (
-  <Html>
-    <Head />
-    <Preview>timeline accent</Preview>
-    <Body
+}: Omit<CardsTimelineProps, "theme">) => {
+  const dark =
+    variant === "with-accent" ||
+    variant === "image-top" ||
+    variant === "image-bottom";
+  const withBadge = variant !== "default";
+  const withCheck = variant === "with-accent";
+  const imageTop = variant === "image-top";
+  const imageBottom = variant === "image-bottom";
+
+  const image = (
+    <img
+      alt={imageAlt}
+      src={imageSrc}
       style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
+        borderRadius: "4px",
+        maxWidth: "100%",
+        verticalAlign: "middle",
       }}
+      width="536"
+    />
+  );
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <TimelineAccentSection
-            events={events}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: "#fffffe",
+              maxWidth: "100%",
+              padding: variant === "default" ? 0 : "16px 0",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              style={{ width: "100%" }}
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 16px" }}>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={{ width: "100%" }}
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style={{
+                              backgroundColor: dark
+                                ? "#030712"
+                                : variant === "with-badge"
+                                  ? "#f9fafb"
+                                  : "#fffffe",
+                              borderRadius:
+                                variant === "default" ? undefined : "8px",
+                              padding: "16px",
+                            }}
+                          >
+                            {imageTop ? (
+                              <>
+                                {image}
+                                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                              </>
+                            ) : null}
+                            <table
+                              border={0}
+                              cellPadding={0}
+                              cellSpacing={0}
+                              role="presentation"
+                              style={{ width: "100%" }}
+                            >
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <table
+                                      border={0}
+                                      cellPadding={0}
+                                      cellSpacing={0}
+                                      role="presentation"
+                                    >
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                            <div
+                                              style={{
+                                                backgroundColor:
+                                                  variant === "default"
+                                                    ? "#fcd34d"
+                                                    : "#6ee7b7",
+                                                borderRadius: "9999px",
+                                                height: "12px",
+                                                lineHeight: withCheck
+                                                  ? "10px"
+                                                  : "12px",
+                                                textAlign: "center",
+                                                width: "12px",
+                                              }}
+                                            >
+                                              {withCheck ? (
+                                                <img
+                                                  alt=""
+                                                  src="https://assets.mailviews.com/images/components/timelines/icon-check.png"
+                                                  style={{
+                                                    marginBottom: "1px",
+                                                  }}
+                                                  width="8"
+                                                />
+                                              ) : (
+                                                <>&zwj;</>
+                                              )}
+                                            </div>
+                                          </td>
+                                          <td style={{ width: "8px" }}>
+                                            &zwj;
+                                          </td>
+                                          <td>
+                                            <p
+                                              style={{
+                                                ...textStyle,
+                                                color: dark
+                                                  ? "#e5e7eb"
+                                                  : "#374151",
+                                                fontSize: "12px",
+                                                lineHeight: "16px",
+                                              }}
+                                            >
+                                              {date}
+                                            </p>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                  <td style={{ textAlign: "right" }}>
+                                    {withBadge ? (
+                                      <span
+                                        style={{
+                                          backgroundColor: "#eef2ff",
+                                          border: "1px solid #c7d2fe",
+                                          borderRadius: "9999px",
+                                          color: "#4f46e5",
+                                          display: "inline-block",
+                                          fontFamily,
+                                          fontSize: "12px",
+                                          fontWeight: 500,
+                                          lineHeight: "16px",
+                                          padding: "1px 8px",
+                                        }}
+                                      >
+                                        {badge}
+                                      </span>
+                                    ) : null}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <p
+                              style={{
+                                ...textStyle,
+                                color: dark ? "#fffffe" : "#030712",
+                                fontSize: "18px",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                                marginTop: "4px",
+                              }}
+                            >
+                              {title}
+                            </p>
+                            <p
+                              style={{
+                                ...textStyle,
+                                color: dark ? "#d1d5db" : "#4b5563",
+                                fontSize: "16px",
+                                lineHeight: "24px",
+                                marginTop: "4px",
+                              }}
+                            >
+                              {description}
+                            </p>
+                            {imageBottom ? (
+                              <>
+                                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                                {image}
+                              </>
+                            ) : null}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const CardsTimeline = ({
+  theme: _theme = defaultTheme,
+  ...props
+}: CardsTimelineProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>Miles traveled</Preview>
+    <Body style={{ margin: 0 }}>
+      <CardsTimelineSection {...props} />
     </Body>
   </Html>
 );
+
 CardsTimeline.PreviewProps = {
-  events: [
-    {
-      date: "May 2026",
-      description: "Major update with new components.",
-      title: "v2.0.0",
-    },
-    { date: "Apr 2026", description: "New components added.", title: "v1.5.0" },
-    {
-      date: "Mar 2026",
-      description: "Initial public release.",
-      title: "v1.0.0",
-    },
-  ],
   theme: defaultTheme,
   variant: "default",
-} satisfies TimelineAccentProps;
+} satisfies CardsTimelineProps;

@@ -31,7 +31,7 @@ export const BASES = [
     description:
       "A React library for building emails with JSX. Write your emails as components and render them to HTML.",
     meta: {
-      logo: "<svg xmlns='http://www.w3.org/2000/svg' width='126' height='113' viewBox='0 0 126 113' fill='none'><script/><path fill-rule='evenodd' clip-rule='evenodd' d='M.2 50v63h125.6V50h-8v55H8.2V50z' fill='currentColor'/><path d='M0 53.429v-6.003l48.307-24.614v9.606l-37.055 17.86.3-.601v1.5l-.3-.6 37.055 17.86v9.605zM79.437 0 54.683 92h-8.101L71.336 0zM126 53.429 77.693 78.042v-9.605l37.055-17.86-.3.6v-1.5l.3.6-37.055-17.86v-9.605L126 47.426z' fill='currentColor'/></svg>",
+      logo: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 126 113' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M.2 50v63h125.6V50h-8v55H8.2V50z' fill='currentColor'/><path d='M0 53.429v-6.003l48.307-24.614v9.606l-37.055 17.86.3-.601v1.5l-.3-.6 37.055 17.86v9.605zM79.437 0 54.683 92h-8.101L71.336 0zM126 53.429 77.693 78.042v-9.605l37.055-17.86-.3.6v-1.5l.3.6-37.055-17.86v-9.605L126 47.426z' fill='currentColor'/></svg>",
     },
     title: "JSX Email",
     type: "registry:style",

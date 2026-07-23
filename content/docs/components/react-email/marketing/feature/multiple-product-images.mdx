@@ -1,6 +1,6 @@
 ---
-title: "Multiple Product Images"
-description: "Marketing feature variant for email templates"
+title: "Feature with Multiple Product Images"
+description: "A product feature with logo and multi-image arrangements"
 ---
 
 <ComponentPreview
@@ -48,8 +48,49 @@ import { FeatureWithMultipleProductImages } from "@/components/emails/marketing/
 />
 ```
 
+## Examples
+
+### With Logo Left
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="logo-left"
+  hideCode
+/>
+
+### With Logo Right
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="logo-right"
+  hideCode
+/>
+
+### With Images Left
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="images-left"
+  hideCode
+/>
+
+### With Images Right
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="images-right"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                                      | Default          | Description                                               |
+| ------------- | ----------------------------------------- | ---------------- | --------------------------------------------------------- |
+| `theme`       | Renderer theme                            | `defaultTheme`   | Renderer theme configuration                              |
+| `variant`     | `FeatureWithMultipleProductImagesVariant` | `"logo-left"`    | Selects the Mailviews logo or image arrangement           |
+| Content props | `string`                                  | Mailviews data   | Heading, body, action, logo, and product image content    |
+| Color props   | `string`                                  | Mailviews colors | Canvas, surface, logo panel, copy, and action link colors |

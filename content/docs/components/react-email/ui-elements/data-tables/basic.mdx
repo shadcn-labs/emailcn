@@ -1,7 +1,11 @@
 ---
 title: "Basic"
-description: "Basic — Data Tables email component."
+description: "A simple, flexible data table for email."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="react-email" name="data-table-basic-demo" />
 
@@ -22,6 +26,19 @@ npx shadcn@latest add @emailcn/data-table-basic
 <TabsContent value="manual">
 
 <Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-basic.tsx"
@@ -36,15 +53,17 @@ npx shadcn@latest add @emailcn/data-table-basic
 ## Usage
 
 ```tsx
-import { Basic } from "@/components/emails/ui-elements/data-tables/data-table-basic";
+import { DataTableBasic } from "@/components/emails/ui-elements/data-tables/data-table-basic";
 ```
 
 ```tsx
-<Basic {...Basic.PreviewProps} />
+<DataTableBasic {...DataTableBasic.PreviewProps} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type             | Default                        | Description                   |
+| --------- | ---------------- | ------------------------------ | ----------------------------- |
+| `theme`   | `TailwindConfig` | `defaultTheme`                 | Renderer theme configuration. |
+| `headers` | `string[]`       | Component-specific labels      | Column labels.                |
+| `rows`    | `string[][]`     | [["Row 1 Data", "Row 1 Data"]] | Table row data.               |

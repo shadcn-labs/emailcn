@@ -1,0 +1,144 @@
+---
+title: "Logo Cloud"
+description: "Mailviews boxed and outlined logo clouds in every content arrangement"
+---
+
+One `LogoCloud` component covers the boxed and outlined Mailviews families. Use `tone` for the tile treatment and `variant` for the content arrangement.
+
+## Examples
+
+### Boxed — Minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### Boxed — With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### Boxed — With Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Boxed — Full
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
+
+### Boxed — Flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="boxed-logo-cloud-demo"
+  variant="flush"
+  hideCode
+/>
+
+### Outlined — Minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="outlined-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### Outlined — With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="outlined-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### Outlined — With Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="outlined-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Outlined — Full
+
+<ComponentPreview
+  base="mjml-react"
+  name="outlined-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
+
+### Outlined — Flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="outlined-logo-cloud-demo"
+  variant="flush"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/logos/logo-cloud.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/logos/logo-cloud.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloud } from "@/components/emails/marketing/logos/logo-cloud";
+```
+
+```tsx
+<LogoCloud {...LogoCloud.PreviewProps} tone="outlined" variant="flush" />
+```
+
+## API Reference
+
+| Prop      | Type               | Default        | Description                               |
+| --------- | ------------------ | -------------- | ----------------------------------------- |
+| `tone`    | `LogoCloudTone`    | `"boxed"`      | Selects boxed or outlined tiles           |
+| `variant` | `LogoCloudVariant` | `"full"`       | Selects the Mailviews content arrangement |
+| `theme`   | Renderer theme     | `defaultTheme` | Renderer theme configuration              |

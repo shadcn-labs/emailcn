@@ -1,11 +1,17 @@
 import { Grid } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
+import type { GridAlign } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
 
-export default function FourColumnsGridDemo() {
+export default function FourColumnsGridDemo({
+  variant = "center",
+}: {
+  variant?: GridAlign;
+}) {
   return (
     <Grid
       {...Grid.PreviewProps}
-      cells={["Col 1", "Col 2", "Col 3", "Col 4"]}
-      layout="4"
+      align={variant}
+      cells={["Product", "Price", "Quantity", "Total"]}
+      variant="four-columns"
     />
   );
 }

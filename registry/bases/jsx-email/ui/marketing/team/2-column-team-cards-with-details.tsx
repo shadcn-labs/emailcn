@@ -1,162 +1,335 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Head, Html, Preview } from "jsx-email";
+/* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type TeamWithBioVariant = "default" | "slanted-left" | "slanted-right";
-export interface TeamWithBioProps {
+export type TwoColumnTeamCardsWithDetailsVariant =
+  | "default"
+  | "boxed"
+  | "accent";
+
+export interface TwoColumnTeamCardsWithDetailsProps {
   theme?: EmailThemeTokens;
-  members?: { avatarUrl?: string; name: string; role: string; bio: string }[];
-  variant?: TeamWithBioVariant;
+  avatarSrc1?: string;
+  avatarAlt1?: string;
+  name1?: string;
+  role1?: string;
+  bio1?: string;
+  email1?: string;
+  avatarSrc2?: string;
+  avatarAlt2?: string;
+  name2?: string;
+  role2?: string;
+  bio2?: string;
+  email2?: string;
+  variant?: TwoColumnTeamCardsWithDetailsVariant;
 }
-const TeamWithBioSection = ({
-  members,
-  theme,
-  variant,
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .team-details-stack { display: block !important; width: 100% !important; }
+    .team-details-gap { line-height: 24px !important; }
+  }
+`;
+
+const SocialLinks = ({
+  accent,
+  lastIcon,
 }: {
-  members: TeamWithBioProps["members"];
-  theme: EmailThemeTokens;
-  variant: TeamWithBioVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      {(members ?? []).slice(0, 3).map((m, i) => (
-        <Column
-          key={m.name + i}
-          style={{
-            padding: theme.spacingBase ?? "16px",
-            verticalAlign: "top",
-            width: "33.33%",
-          }}
+  accent: boolean;
+  lastIcon: "instagram" | "linkedin";
+}) => {
+  const suffix = accent ? "light" : "dark";
+  const icons = ["facebook", "x", lastIcon] as const;
+  return (
+    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
+      <tbody>
+        <tr>
+          {icons.map((icon, index) => (
+            <Fragment key={icon}>
+              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
+              <td style={{ width: "16px" }}>
+                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <img
+                    alt=""
+                    src={`https://assets.mailviews.com/images/components/icon-${icon}-${suffix}.png`}
+                    width="16"
+                  />
+                </a>
+              </td>
+            </Fragment>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+interface DetailsCardProps {
+  accent: boolean;
+  avatarAlt: string;
+  avatarSrc: string;
+  bio: string;
+  email: string;
+  lastIcon: "instagram" | "linkedin";
+  name: string;
+  role: string;
+  variant: TwoColumnTeamCardsWithDetailsVariant;
+}
+
+const DetailsCard = ({
+  accent,
+  avatarAlt,
+  avatarSrc,
+  bio,
+  email,
+  lastIcon,
+  name,
+  role,
+  variant,
+}: DetailsCardProps) => {
+  const boxed = variant !== "default";
+  const backgroundColor = accent ? "#030712" : "#f9fafb";
+  const content = (
+    <>
+      <h3
+        style={{
+          color: accent ? "#fffffe" : "#030712",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 600,
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {name}
+      </h3>
+      <p
+        style={{
+          color: accent ? "#d1d5db" : "#4b5563",
+          fontFamily,
+          fontSize: "14px",
+          lineHeight: "20px",
+          margin: 0,
+        }}
+      >
+        {role}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <p
+        style={{
+          color: accent ? "#9ca3af" : "#4b5563",
+          fontFamily,
+          fontSize: "16px",
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {bio}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <p
+        style={{
+          fontFamily,
+          fontSize: "14px",
+          fontWeight: 500,
+          lineHeight: "20px",
+          margin: 0,
+        }}
+      >
+        <a
+          href={`mailto:${email}`}
+          style={{ color: "#4f46e5", textDecoration: "none" }}
         >
-          {m.avatarUrl ? (
-            <Img
-              alt={m.name}
-              src={m.avatarUrl}
-              width={80}
-              height={80}
+          {email}
+        </a>
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <SocialLinks accent={accent} lastIcon={lastIcon} />
+    </>
+  );
+
+  if (!boxed) {
+    return (
+      <>
+        <img
+          alt={avatarAlt}
+          src={avatarSrc}
+          style={{
+            borderRadius: "8px",
+            maxWidth: "100%",
+            verticalAlign: "middle",
+          }}
+          width="264"
+        />
+        <div style={{ lineHeight: "16px" }}>&zwj;</div>
+        {content}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor,
+          borderRadius: "8px 8px 0 0",
+        }}
+      >
+        <img
+          alt={avatarAlt}
+          src={avatarSrc}
+          style={{
+            borderRadius: "8px",
+            maxWidth: "100%",
+            verticalAlign: "middle",
+          }}
+          width="264"
+        />
+      </div>
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td
               style={{
-                borderRadius: "50%",
-                display: "block",
-                margin: "0 auto",
-                maxWidth: "100%",
-                paddingBottom: theme.spacingBase ?? "16px",
+                backgroundColor,
+                borderRadius: "0 0 8px 8px",
+                padding: "16px 24px 24px",
               }}
-            />
-          ) : null}
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "4px",
-              textAlign: "center",
-            }}
-          >
-            {m.name}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "8px",
-              textAlign: "center",
-            }}
-          >
-            {m.role}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorTextSubtle,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm,
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            {m.bio}
-          </Text>
-        </Column>
-      ))}
-    </Row>
-  </Section>
-);
-export const TwoColumnTeamCardsWithDetails = ({
-  theme = defaultTheme,
-  members = [{ bio: "Building the future.", name: "John Doe", role: "CEO" }],
+            >
+              {content}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
+};
+
+export const TwoColumnTeamCardsWithDetailsSection = ({
+  avatarAlt1 = "",
+  avatarAlt2 = "",
+  avatarSrc1 = "https://assets.mailviews.com/images/components/teams/member-1-lg.jpg",
+  avatarSrc2 = "https://assets.mailviews.com/images/components/teams/member-2-lg.jpg",
+  bio1 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
+  bio2 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
+  email1 = "jadam@example.com",
+  email2 = "hpetersson@example.com",
+  name1 = "Jason Adam",
+  name2 = "Henrik Petersson",
+  role1 = "Senior Developer",
+  role2 = "Senior UX/UI designer",
   variant = "default",
-}: TeamWithBioProps) => (
+}: Omit<TwoColumnTeamCardsWithDetailsProps, "theme">) => {
+  const accent = variant === "accent";
+  return (
+    <>
+      <style>{responsiveStyles}</style>
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td>&zwj;</td>
+            <td
+              style={{
+                backgroundColor: "#fffffe",
+                maxWidth: "100%",
+                padding: "44px 24px",
+                width: "600px",
+              }}
+            >
+              <table
+                border={0}
+                cellPadding={0}
+                cellSpacing={0}
+                role="presentation"
+                style={{ width: "100%" }}
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      className="team-details-stack"
+                      style={{ verticalAlign: "top", width: "264px" }}
+                    >
+                      <DetailsCard
+                        accent={accent}
+                        avatarAlt={avatarAlt1}
+                        avatarSrc={avatarSrc1}
+                        bio={bio1}
+                        email={email1}
+                        lastIcon="linkedin"
+                        name={name1}
+                        role={role1}
+                        variant={variant}
+                      />
+                    </td>
+                    <td
+                      className="team-details-stack team-details-gap"
+                      style={{ lineHeight: 0, width: "24px" }}
+                    >
+                      &zwj;
+                    </td>
+                    <td
+                      className="team-details-stack"
+                      style={{ verticalAlign: "top", width: "264px" }}
+                    >
+                      <DetailsCard
+                        accent={accent}
+                        avatarAlt={avatarAlt2}
+                        avatarSrc={avatarSrc2}
+                        bio={bio2}
+                        email={email2}
+                        lastIcon="instagram"
+                        name={name2}
+                        role={role2}
+                        variant={variant}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>&zwj;</td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
+};
+
+export const TwoColumnTeamCardsWithDetails = ({
+  theme: _theme = defaultTheme,
+  ...props
+}: TwoColumnTeamCardsWithDetailsProps) => (
   <Html>
-    <Head />
-    <Preview>team with bio</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <TeamWithBioSection
-            members={members}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>Meet the team</Preview>
+    <Body style={{ margin: 0 }}>
+      <TwoColumnTeamCardsWithDetailsSection {...props} />
     </Body>
   </Html>
 );
+
 TwoColumnTeamCardsWithDetails.PreviewProps = {
-  members: [
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards-with-details.tsx-80-1&size=80",
-      bio: "Building the future of email.",
-      name: "Alex Johnson",
-      role: "CEO",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards-with-details.tsx-80-2&size=80",
-      bio: "Leading engineering.",
-      name: "Maria Garcia",
-      role: "CTO",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards-with-details.tsx-80-3&size=80",
-      bio: "Designing experiences.",
-      name: "David Kim",
-      role: "Design Lead",
-    },
-  ],
   theme: defaultTheme,
   variant: "default",
-} satisfies TeamWithBioProps;
+} satisfies TwoColumnTeamCardsWithDetailsProps;

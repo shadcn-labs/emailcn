@@ -2,12 +2,20 @@
   "title": "Footers",
   "pages": [
     "footer-with-legal-text",
-    "footer-centered-with-bordered-full-menu",
-    "footer-with-2-column-menu",
-    "footer-centered-with-menu-and-socials",
-    "footer-with-oversized-logo-and-full-menu",
-    "footer-with-3-col-menu",
-    "footer-with-content-and-cta",
+    "company-locations",
+    "app-store-buttons",
+    "background-image",
+    "overlapped-cta",
+    "large-title-and-buttons",
+    "full-menu",
+    "centered-with-menu-and-socials",
+    "2-column-menu",
+    "2-column-menu-and-divider",
+    "menu-and-full-width-cta",
+    "3-column-menu",
+    "content-and-cta",
+    "social-icons-and-address",
+    "text-menu-and-socials",
     "simple-footer-with-social-icons"
   ]
 }

@@ -1,133 +1,75 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlDivider,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  AlternatingBoxedContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/mjml-react/ui/marketing/faq/faq-shared";
 
-export type FAQWithSearchVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQWithSearchProps {
+export interface BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps {
   theme?: EmailThemeTokens;
   heading?: string;
-  items?: { question: string; answer: string }[];
-  variant?: FAQWithSearchVariant;
+  q1?: string;
+  a1?: string;
+  q2?: string;
+  a2?: string;
+  q3?: string;
+  a3?: string;
 }
-const FAQWithSearchSection = ({
-  heading,
-  items,
-  theme,
-  variant,
-}: {
-  heading: string;
-  items: FAQWithSearchProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQWithSearchVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {heading ? (
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeHeading}
-          fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingXl ?? "48px"}
-        >
-          {heading}
-        </MjmlText>
-      ) : null}
-    </MjmlColumn>
-    {(items ?? []).map((item, i) => (
-      <MjmlColumn key={item.question + i}>
-        <MjmlText
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeLg}
-          fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "8px"}
-        >
-          {item.question}
-        </MjmlText>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-          paddingBottom={theme.spacingBase ?? "16px"}
-        >
-          {item.answer}
-        </MjmlText>
-        {i < (items ?? []).length - 1 ? (
-          <MjmlDivider
-            borderColor={theme.colorBorder}
-            borderWidth="1px"
-            paddingBottom={theme.spacingBase ?? "16px"}
-          />
-        ) : null}
-      </MjmlColumn>
-    ))}
-  </MjmlSection>
-);
+
+export const BoxedFaqWithNumbersAndAlternatingBackgroundColorsSection = ({
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  a3 = "Yes, we offer customer support by email and live chat.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: Omit<BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps, "theme">) => {
+  const items = [
+    { answer: a1, question: q1 },
+    { answer: a2, question: q2 },
+    { answer: a3, question: q3 },
+  ];
+
+  return (
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <AlternatingBoxedContent items={items} />
+    </>
+  );
+};
+
 export const BoxedFaqWithNumbersAndAlternatingBackgroundColors = ({
   theme = defaultTheme,
-  heading = "Frequently Asked Questions",
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
-  variant = "default",
-}: FAQWithSearchProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>FAQ with search</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <FAQWithSearchSection
-          heading={heading}
-          items={items}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  a3 = "Yes, we offer customer support by email and live chat.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <BoxedFaqWithNumbersAndAlternatingBackgroundColorsSection
+      a1={a1}
+      a2={a2}
+      a3={a3}
+      heading={heading}
+      q1={q1}
+      q2={q2}
+      q3={q3}
+    />
+  </FaqEmailShell>
 );
+
 BoxedFaqWithNumbersAndAlternatingBackgroundColors.PreviewProps = {
-  heading: "Frequently Asked Questions",
-  items: [
-    {
-      answer: "A collection of responsive email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, they work across all major clients.",
-      question: "Are they responsive?",
-    },
-    { answer: "MIT license.", question: "What license?" },
-  ],
+  a1: "This product helps you build beautiful emails quickly and easily.",
+  a2: "We offer flexible pricing plans to suit your needs.",
+  a3: "Yes, we offer customer support by email and live chat.",
+  heading: "Frequently asked questions",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQWithSearchProps;
+} satisfies BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps;

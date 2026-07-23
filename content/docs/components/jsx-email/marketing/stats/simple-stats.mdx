@@ -1,14 +1,37 @@
 ---
 title: "Simple Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews simple stats family"
 ---
 
-<ComponentPreview base="jsx-email" name="simple-stats-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview base="jsx-email" name="simple-stats-demo" variant="default" />
+
+### Outlined
+
+<ComponentPreview
+  base="jsx-email"
+  name="simple-stats-demo"
+  variant="outlined"
+/>
+
+### Boxed
+
+<ComponentPreview base="jsx-email" name="simple-stats-demo" variant="boxed" />
+
+### Bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="simple-stats-demo"
+  variant="bordered"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,45 +43,31 @@ npx shadcn@latest add @emailcn/simple-stats
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/marketing/stats/simple-stats.tsx"
-  base="jsx-email"
-  title="components/emails/marketing/stats/simple-stats.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/stats/simple-stats.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/stats/simple-stats.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
 import { SimpleStats } from "@/components/emails/marketing/stats/simple-stats";
-```
 
-```tsx
-<SimpleStats {...SimpleStats.PreviewProps} />
+<SimpleStats variant="outlined" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                               | Default        | Description              |
+| --------- | -------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "outlined" \| "boxed" \| "bordered"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                 | `defaultTheme` | Email theme styling      |

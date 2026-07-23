@@ -1,125 +1,245 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type StatsInlineVariant = "default" | "slanted-left" | "slanted-right";
+export type SingleStatWithBackgroundImageVariant =
+  | "centered"
+  | "top-left"
+  | "bottom-left"
+  | "top-right"
+  | "bottom-right";
 
-export interface StatsInlineProps {
+export interface SingleStatWithBackgroundImageProps {
   theme?: EmailThemeTokens;
-  stats?: { value: string; label: string }[];
-  variant?: StatsInlineVariant;
+  variant?: SingleStatWithBackgroundImageVariant;
+  eyebrow?: string;
+  label?: string;
+  value?: string;
+  backgroundImageSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  overlayColor?: string;
+  eyebrowColor?: string;
+  labelColor?: string;
+  valueColor?: string;
 }
 
-const StatsInlineSection = ({
-  stats,
-  theme,
-  variant,
-}: {
-  stats: StatsInlineProps["stats"];
-  theme: EmailThemeTokens;
-  variant: StatsInlineVariant;
-}) => {
-  const items = (stats ?? []).slice(0, 4);
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  backgroundImageSrc:
+    "https://assets.mailviews.com/images/components/stats/single-stat.jpg",
+  eyebrow: "Mapped trails",
+  eyebrowColor: "#d1d5db",
+  label: "Tracked by active users",
+  labelColor: "#fffffe",
+  overlayColor: "rgba(0,0,1,0.25)",
+  pageBackgroundColor: "#f1f5f9",
+  value: "3,120km",
+};
+
+const valueColors: Record<SingleStatWithBackgroundImageVariant, string> = {
+  "bottom-left": "#c7d2fe",
+  "bottom-right": "#a7f3d0",
+  centered: "#e9d5ff",
+  "top-left": "#fde68a",
+  "top-right": "#fecdd3",
+};
+
+type SectionProps = Omit<SingleStatWithBackgroundImageProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps & { valueColor: string };
+
+export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
+  const variant = props.variant ?? "centered";
+  const resolved = {
+    ...defaults,
+    valueColor: valueColors[variant],
+    ...props,
+  } as ResolvedProps;
+  const centered = variant === "centered";
+  const bottom = variant.startsWith("bottom-");
+  let align: "center" | "left" | "right" = "left";
+  let topSpace = "24px";
+  let bottomSpace = "185px";
+  if (centered) {
+    align = "center";
+    topSpace = "104px";
+    bottomSpace = "104px";
+  } else {
+    if (variant.endsWith("-right")) {
+      align = "right";
+    }
+    if (bottom) {
+      topSpace = "185px";
+      bottomSpace = "24px";
+    }
+  }
 
   return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
-      }}
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
     >
-      <Row>
-        {items.map((stat, i) => (
-          <Column
-            key={stat.label + i}
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
             style={{
-              padding: theme.spacingBase ?? "24px",
-              verticalAlign: "top",
-              width: `${100 / items.length}%`,
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              textAlign: "left",
+              width: "600px",
             }}
           >
-            <Text
-              style={{
-                color: theme.colorText,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeLg ?? "16px",
-                fontWeight: theme.fontWeightBold,
-                margin: 0,
-                paddingBottom: theme.spacingBase ?? "4px",
-                textAlign: "center",
-              }}
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
             >
-              {stat.value}
-            </Text>
-            <Text
-              style={{
-                color: theme.colorTextMuted,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeSm ?? "12px",
-                margin: 0,
-                textAlign: "center",
-              }}
-            >
-              {stat.label}
-            </Text>
-          </Column>
-        ))}
-      </Row>
-    </Section>
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  <td>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={{
+                        backgroundImage: `url('${resolved.backgroundImageSrc}')`,
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        borderRadius: "8px",
+                      }}
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div
+                              style={{
+                                backgroundColor: resolved.overlayColor,
+                                borderRadius: "8px",
+                              }}
+                            >
+                              <table
+                                border={0}
+                                cellPadding={0}
+                                cellSpacing={0}
+                                role="presentation"
+                                width="100%"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "24px" }}>&zwj;</td>
+                                    <td>
+                                      <div style={{ lineHeight: topSpace }}>
+                                        &zwj;
+                                      </div>
+                                      <p
+                                        style={{
+                                          color: resolved.eyebrowColor,
+                                          fontFamily,
+                                          fontSize: "16px",
+                                          lineHeight: "24px",
+                                          margin: 0,
+                                          textAlign: align,
+                                        }}
+                                      >
+                                        {resolved.eyebrow}
+                                      </p>
+                                      <p
+                                        style={{
+                                          color: resolved.labelColor,
+                                          fontFamily,
+                                          fontSize: "16px",
+                                          lineHeight: "24px",
+                                          margin: 0,
+                                          textAlign: align,
+                                        }}
+                                      >
+                                        {resolved.label}
+                                      </p>
+                                      <p
+                                        style={{
+                                          color: resolved.valueColor,
+                                          fontFamily,
+                                          fontSize: "72px",
+                                          fontWeight: 500,
+                                          lineHeight: "normal",
+                                          margin: 0,
+                                          textAlign: align,
+                                        }}
+                                      >
+                                        {resolved.value}
+                                      </p>
+                                      <div style={{ lineHeight: bottomSpace }}>
+                                        &zwj;
+                                      </div>
+                                    </td>
+                                    <td style={{ width: "24px" }}>&zwj;</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const SingleStatWithBackgroundImage = ({
-  theme = defaultTheme,
-  stats = [
-    { label: "Users", value: "10K+" },
-    { label: "Downloads", value: "50K+" },
-    { label: "Countries", value: "120+" },
-    { label: "Reviews", value: "5K+" },
-  ],
-  variant = "default",
-}: StatsInlineProps) => (
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "centered",
+  ...props
+}: SingleStatWithBackgroundImageProps) => (
   <Html>
-    <Head />
-    <Preview>stats inline</Preview>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>3,120km mapped trails</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <StatsInlineSection stats={stats} theme={theme} variant={variant} />
-        </Section>
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <SingleStatWithBackgroundImageSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 SingleStatWithBackgroundImage.PreviewProps = {
-  stats: [
-    { label: "Active Users", value: "50K+" },
-    { label: "Countries", value: "120+" },
-    { label: "5-Star Reviews", value: "10K+" },
-    { label: "Years", value: "5+" },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies StatsInlineProps;
+  variant: "centered",
+} satisfies SingleStatWithBackgroundImageProps;

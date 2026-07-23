@@ -1,0 +1,73 @@
+---
+title: "2 Column Team Cards with Details"
+description: "Mailviews two-column detailed team cards family"
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-with-details-demo"
+  variant="default"
+/>
+
+### Boxed
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-with-details-demo"
+  variant="boxed"
+/>
+
+### Accent
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-with-details-demo"
+  variant="accent"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-column-team-cards-with-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/team/2-column-team-cards-with-details.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/team/2-column-team-cards-with-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnTeamCardsWithDetails } from "@/components/emails/marketing/team/2-column-team-cards-with-details";
+
+<TwoColumnTeamCardsWithDetails variant="default" />;
+```
+
+## API Reference
+
+| Prop      | Type                               | Default        | Description              |
+| --------- | ---------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "boxed" \| "accent"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                 | `defaultTheme` | Email theme styling      |

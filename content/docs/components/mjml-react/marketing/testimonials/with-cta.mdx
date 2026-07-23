@@ -1,0 +1,61 @@
+---
+title: "Testimonial With CTA"
+description: "Mailviews testimonial with centered and split layout variants"
+---
+
+The centered and split examples use the same testimonial, author, and CTA
+content model, so they are variants of one component.
+
+## Examples
+
+### Centered
+
+<ComponentPreview base="mjml-react" name="centered-testimonial-with-cta-demo" />
+
+### Split
+
+<ComponentPreview base="mjml-react" name="split-testimonial-with-cta-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/testimonial-with-cta
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/testimonials/testimonial-with-cta.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/testimonials/testimonial-with-cta.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TestimonialWithCta } from "@/components/emails/marketing/testimonials/testimonial-with-cta";
+
+<TestimonialWithCta variant="split" />;
+```
+
+## API Reference
+
+| Prop      | Type                    | Default        | Description         |
+| --------- | ----------------------- | -------------- | ------------------- |
+| `variant` | `"centered" \| "split"` | `"centered"`   | Testimonial layout  |
+| `quote`   | `string`                | Mailviews copy | Testimonial copy    |
+| `theme`   | `EmailThemeTokens`      | `defaultTheme` | Email theme styling |

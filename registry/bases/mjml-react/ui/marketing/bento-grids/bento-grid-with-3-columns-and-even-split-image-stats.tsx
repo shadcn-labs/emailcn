@@ -1,144 +1,85 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlImage,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type BentoGridStatsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-export interface BentoGridStatsProps {
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  ThreeColumnStatsSection,
+} from "./bento-grid-shared";
+import type {
+  BentoImagePlacementVariant,
+  MetricCardData,
+  StatCardData,
+} from "./bento-grid-shared";
+
+type Stats = readonly [StatCardData, StatCardData, StatCardData];
+
+export interface BentoGridWith3ColumnsAndEvenSplitImageStatsProps {
+  imageAlt?: string;
+  imageSrc?: string;
+  metric?: MetricCardData;
+  stats?: Stats;
   theme?: EmailThemeTokens;
-  heading?: string;
-  stats?: { value: string; label: string; imageUrl?: string }[];
-  variant?: BentoGridStatsVariant;
+  variant?: BentoImagePlacementVariant;
 }
-const BentoGridStatsSection = ({
-  heading,
-  stats,
-  theme,
-  variant,
-}: {
-  heading: string;
-  stats: BentoGridStatsProps["stats"];
-  theme: EmailThemeTokens;
-  variant: BentoGridStatsVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    {heading ? (
-      <MjmlColumn>
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeHeading}
-          fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingXl ?? "48px"}
-        >
-          {heading}
-        </MjmlText>
-      </MjmlColumn>
-    ) : null}
-    {(stats ?? []).slice(0, 4).map((s, i) => (
-      <MjmlColumn
-        key={s.label + i}
-        width="25%"
-        padding={theme.spacingBase ?? "16px"}
-        verticalAlign="top"
-      >
-        {s.imageUrl ? (
-          <MjmlImage
-            align="center"
-            alt={s.label}
-            borderRadius={theme.borderRadius}
-            src={s.imageUrl}
-            width={200}
-            paddingBottom={theme.spacingBase ?? "12px"}
-          />
-        ) : null}
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize="24px"
-          fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingBase ?? "4px"}
-        >
-          {s.value}
-        </MjmlText>
-        <MjmlText
-          align="center"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm}
-        >
-          {s.label}
-        </MjmlText>
-      </MjmlColumn>
-    ))}
-  </MjmlSection>
+
+const metric: MetricCardData = {
+  change: "10% increase",
+  reportHref: "https://example.com",
+  reportLabel: "View report",
+  title: "API Calls",
+  value: "25,000",
+};
+const stats: Stats = [
+  { label: "Engine v2", suffix: "faster", value: "75x" },
+  { label: "Cost reduction", suffix: "faster", value: "50%" },
+  { label: "Load time", suffix: "faster", value: "75x" },
+];
+
+export const BentoGridWith3ColumnsAndEvenSplitImageStatsSection = ({
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-2.jpg`,
+  metric: metricData = metric,
+  stats: statItems = stats,
+  variant = "image-top-right",
+}: Omit<BentoGridWith3ColumnsAndEvenSplitImageStatsProps, "theme">) => (
+  <ThreeColumnStatsSection
+    imageAlt={imageAlt}
+    imageSrc={imageSrc}
+    metric={metricData}
+    mode="image"
+    stats={statItems}
+    variant={variant}
+  />
 );
+
 export const BentoGridWith3ColumnsAndEvenSplitImageStats = ({
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-2.jpg`,
+  metric: metricData = metric,
+  stats: statItems = stats,
   theme = defaultTheme,
-  heading = "By the Numbers",
-  stats = [
-    { label: "Users", value: "10K+" },
-    { label: "Downloads", value: "50K+" },
-    { label: "Countries", value: "120+" },
-    { label: "Reviews", value: "5K+" },
-  ],
-  variant = "default",
-}: BentoGridStatsProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>bento stats</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BentoGridStatsSection
-          heading={heading}
-          stats={stats}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  variant = "image-top-right",
+}: BentoGridWith3ColumnsAndEvenSplitImageStatsProps) => (
+  <BentoEmailShell
+    preview="Bento grid with 3 columns and even split image stats"
+    theme={theme}
+  >
+    <BentoGridWith3ColumnsAndEvenSplitImageStatsSection
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      metric={metricData}
+      stats={statItems}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
+
 BentoGridWith3ColumnsAndEvenSplitImageStats.PreviewProps = {
-  heading: "By the Numbers",
-  stats: [
-    { label: "Active Users", value: "50K+" },
-    { label: "Countries", value: "120+" },
-    { label: "5-Star Reviews", value: "10K+" },
-    { label: "Years in Business", value: "5+" },
-  ],
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/bento-2.jpg`,
+  metric,
+  stats,
   theme: defaultTheme,
-  variant: "default",
-} satisfies BentoGridStatsProps;
+  variant: "image-top-right",
+} satisfies BentoGridWith3ColumnsAndEvenSplitImageStatsProps;

@@ -1,0 +1,456 @@
+/* eslint-disable next/no-img-element */
+import {
+  Mjml,
+  MjmlBody,
+  MjmlFont,
+  MjmlHead,
+  MjmlPreview,
+  MjmlRaw,
+  MjmlStyle,
+  MjmlWrapper,
+} from "@faire/mjml-react";
+import type { CSSProperties, ReactNode } from "react";
+
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
+const colors = {
+  border: "#e5e7eb",
+  canvas: "#f1f5f9",
+  dark: "#030712",
+  muted: "#4b5563",
+  subtle: "#6b7280",
+  surface: "#fffffe",
+  surfaceMuted: "#f9fafb",
+} as const;
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const tableStyle: CSSProperties = {
+  borderCollapse: "separate",
+  borderSpacing: 0,
+  width: "100%",
+};
+
+const textBase: CSSProperties = { fontFamily, margin: 0 };
+
+export type BlogLayout =
+  | "featured"
+  | "featured-date"
+  | "featured-date-full"
+  | "horizontal-boxed"
+  | "horizontal-split-images"
+  | "masonry"
+  | "masonry-boxed"
+  | "podcast-full"
+  | "podcast-split"
+  | "single-horizontal"
+  | "two-column-boxed"
+  | "two-column-images"
+  | "two-column-images-text";
+
+export interface BlogPostData {
+  author?: string;
+  badge?: string;
+  date?: string;
+  episode?: string;
+  excerpt: string;
+  host?: string;
+  imageAlt: string;
+  imageSrc: string;
+  imageAlt2?: string;
+  imageSrc2?: string;
+  month?: string;
+  title: string;
+}
+
+const Image = ({
+  alt,
+  src,
+  width,
+}: {
+  alt: string;
+  src: string;
+  width: number;
+}) => (
+  <img
+    alt={alt}
+    src={src}
+    width={width}
+    style={{
+      border: "none",
+      borderRadius: "8px",
+      display: "block",
+      height: "auto",
+      maxWidth: "100%",
+      outline: "none",
+      textDecoration: "none",
+      width: "100%",
+    }}
+  />
+);
+
+const Meta = ({ post }: { post: BlogPostData }) => {
+  const label =
+    post.episode ??
+    post.badge ??
+    (post.date && post.month ? `${post.date} ${post.month}` : undefined);
+
+  return label ? (
+    <p
+      style={{
+        ...textBase,
+        color: colors.subtle,
+        fontSize: "12px",
+        fontWeight: 600,
+        letterSpacing: "0.04em",
+        lineHeight: "16px",
+        textTransform: "uppercase",
+      }}
+    >
+      {label}
+    </p>
+  ) : null;
+};
+
+const Copy = ({ post }: { post: BlogPostData }) => (
+  <>
+    <Meta post={post} />
+    <h3
+      style={{
+        ...textBase,
+        color: colors.dark,
+        fontSize: "20px",
+        fontWeight: 600,
+        lineHeight: "28px",
+        marginTop:
+          post.episode || post.badge || (post.date && post.month) ? "8px" : 0,
+      }}
+    >
+      {post.title}
+    </h3>
+    <p
+      style={{
+        ...textBase,
+        color: colors.muted,
+        fontSize: "14px",
+        lineHeight: "22px",
+        marginTop: "10px",
+      }}
+    >
+      {post.excerpt}
+    </p>
+    {post.author || post.host ? (
+      <p
+        style={{
+          ...textBase,
+          color: colors.subtle,
+          fontSize: "12px",
+          lineHeight: "16px",
+          marginTop: "12px",
+        }}
+      >
+        {post.host ? `Hosted by ${post.host}` : `By ${post.author}`}
+      </p>
+    ) : null}
+  </>
+);
+
+const VerticalCard = ({
+  boxed = false,
+  post,
+  width = 264,
+}: {
+  boxed?: boolean;
+  post: BlogPostData;
+  width?: number;
+}) => (
+  <table
+    role="presentation"
+    style={{
+      ...tableStyle,
+      backgroundColor: boxed ? colors.surfaceMuted : undefined,
+      border: boxed ? `1px solid ${colors.border}` : undefined,
+      borderRadius: "8px",
+      overflow: "hidden",
+    }}
+  >
+    <tbody>
+      <tr>
+        <td>
+          <Image alt={post.imageAlt} src={post.imageSrc} width={width} />
+        </td>
+      </tr>
+      <tr>
+        <td style={{ padding: boxed ? "20px" : "16px 0 0" }}>
+          <Copy post={post} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const Gap = ({ width = 24 }: { width?: number }) => (
+  <td
+    className="blog-gap"
+    width={width}
+    style={{ fontSize: 0, lineHeight: "1px", width: `${width}px` }}
+  >
+    &zwj;
+  </td>
+);
+
+const BlogColumnFragment = ({
+  boxed,
+  index,
+  post,
+}: {
+  boxed: boolean;
+  index: number;
+  post: BlogPostData;
+}) => (
+  <>
+    {index > 0 ? <Gap /> : null}
+    <td
+      className="blog-column"
+      style={{ verticalAlign: "top", width: "264px" }}
+    >
+      <VerticalCard boxed={boxed} post={post} />
+    </td>
+  </>
+);
+
+const TwoColumns = ({
+  boxed,
+  posts,
+}: {
+  boxed: boolean;
+  posts: readonly BlogPostData[];
+}) => (
+  <table role="presentation" style={tableStyle}>
+    <tbody>
+      <tr>
+        {posts.slice(0, 2).map((post, index) => (
+          <BlogColumnFragment
+            boxed={boxed}
+            index={index}
+            key={`${post.title}-${index}`}
+            post={post}
+          />
+        ))}
+      </tr>
+    </tbody>
+  </table>
+);
+
+const Masonry = ({
+  boxed,
+  posts,
+}: {
+  boxed: boolean;
+  posts: readonly BlogPostData[];
+}) => (
+  <table role="presentation" style={tableStyle}>
+    <tbody>
+      <tr>
+        <td
+          className="blog-column"
+          style={{ verticalAlign: "top", width: "264px" }}
+        >
+          <VerticalCard boxed={boxed} post={posts[0]} />
+        </td>
+        <Gap />
+        <td
+          className="blog-column"
+          style={{ verticalAlign: "top", width: "264px" }}
+        >
+          <VerticalCard boxed={boxed} post={posts[1]} />
+          <div style={{ height: "16px", lineHeight: "16px" }}>&zwj;</div>
+          <VerticalCard boxed={boxed} post={posts[2]} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const Horizontal = ({
+  boxed = false,
+  post,
+}: {
+  boxed?: boolean;
+  post: BlogPostData;
+}) => (
+  <table
+    role="presentation"
+    style={{
+      ...tableStyle,
+      backgroundColor: boxed ? colors.surfaceMuted : undefined,
+      border: boxed ? `1px solid ${colors.border}` : undefined,
+      borderRadius: "8px",
+      overflow: "hidden",
+    }}
+  >
+    <tbody>
+      <tr>
+        <td
+          className="blog-column"
+          width={220}
+          style={{ verticalAlign: "top" }}
+        >
+          <Image alt={post.imageAlt} src={post.imageSrc} width={220} />
+        </td>
+        <td
+          className="blog-column"
+          style={{
+            padding: boxed ? "20px" : "0 0 0 24px",
+            verticalAlign: "middle",
+          }}
+        >
+          <Copy post={post} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const SplitImages = ({ post }: { post: BlogPostData }) => (
+  <table
+    role="presentation"
+    style={{
+      ...tableStyle,
+      backgroundColor: colors.surfaceMuted,
+      border: `1px solid ${colors.border}`,
+      borderRadius: "8px",
+      overflow: "hidden",
+    }}
+  >
+    <tbody>
+      <tr>
+        <td
+          className="blog-column"
+          width={112}
+          style={{ verticalAlign: "top" }}
+        >
+          <Image alt={post.imageAlt} src={post.imageSrc} width={112} />
+        </td>
+        <td
+          className="blog-column"
+          width={112}
+          style={{ paddingLeft: "8px", verticalAlign: "top" }}
+        >
+          <Image
+            alt={post.imageAlt2 ?? ""}
+            src={post.imageSrc2 ?? post.imageSrc}
+            width={112}
+          />
+        </td>
+        <td
+          className="blog-column"
+          style={{ padding: "20px", verticalAlign: "middle" }}
+        >
+          <Copy post={post} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const FullWidth = ({ post }: { post: BlogPostData }) => (
+  <table role="presentation" style={tableStyle}>
+    <tbody>
+      <tr>
+        <td>
+          <Image alt={post.imageAlt} src={post.imageSrc} width={552} />
+        </td>
+      </tr>
+      <tr>
+        <td style={{ paddingTop: "20px" }}>
+          <Copy post={post} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+export const BlogContent = ({
+  layout,
+  posts,
+}: {
+  layout: BlogLayout;
+  posts: readonly BlogPostData[];
+}) => {
+  if (layout === "horizontal-split-images") {
+    return <SplitImages post={posts[0]} />;
+  }
+  if (
+    layout === "horizontal-boxed" ||
+    layout === "podcast-split" ||
+    layout === "featured-date"
+  ) {
+    return <Horizontal boxed={layout === "horizontal-boxed"} post={posts[0]} />;
+  }
+  if (layout === "single-horizontal") {
+    return <Horizontal post={posts[0]} />;
+  }
+  if (layout === "masonry" || layout === "masonry-boxed") {
+    return <Masonry boxed={layout === "masonry-boxed"} posts={posts} />;
+  }
+  if (
+    layout === "two-column-images" ||
+    layout === "two-column-images-text" ||
+    layout === "two-column-boxed"
+  ) {
+    return <TwoColumns boxed={layout === "two-column-boxed"} posts={posts} />;
+  }
+  return <FullWidth post={posts[0]} />;
+};
+
+export const BlogHeading = ({ children }: { children: ReactNode }) => (
+  <>
+    <h2
+      style={{
+        ...textBase,
+        color: colors.dark,
+        fontSize: "28px",
+        fontWeight: 600,
+        lineHeight: "36px",
+        textAlign: "center",
+      }}
+    >
+      {children}
+    </h2>
+    <div style={{ height: "32px", lineHeight: "32px" }}>&zwj;</div>
+  </>
+);
+
+export const BlogEmailShell = ({
+  children,
+  preview,
+  theme,
+}: {
+  children: ReactNode;
+  preview: string;
+  theme: EmailThemeTokens;
+}) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>{preview}</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>
+        {[
+          "@media only screen and (max-width: 599px) {",
+          "  .blog-column { display: block !important; width: 100% !important; }",
+          "  .blog-gap { display: block !important; height: 24px !important; line-height: 24px !important; width: 100% !important; }",
+          "}",
+        ].join("\n")}
+      </MjmlStyle>
+    </MjmlHead>
+    <MjmlBody backgroundColor={colors.canvas} width={theme.containerWidth}>
+      <MjmlWrapper backgroundColor={colors.surface} padding="44px 24px">
+        <MjmlRaw>
+          <div style={{ textAlign: "left" }}>{children}</div>
+        </MjmlRaw>
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);

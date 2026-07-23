@@ -1,8 +1,10 @@
 {
   "title": "Team",
   "pages": [
-    "two-column-team-cards-with-details",
     "horizontal-team-member-bios",
-    "three-columns-team-grid"
+    "2-column-team-cards-with-details",
+    "2-column-team-cards",
+    "2-columns-compact",
+    "3-columns-team-grid"
   ]
 }

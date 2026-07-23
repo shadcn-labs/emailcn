@@ -1,5 +1,5 @@
-import { SquareTilesSocialLogos } from "@/registry/bases/mjml-react/ui/marketing/social/square-tiles-social-logos";
+import { SocialLogos } from "@/registry/bases/mjml-react/ui/marketing/social/social-logos";
 
 export default function SquareTilesSocialLogosDemo() {
-  return <SquareTilesSocialLogos {...SquareTilesSocialLogos.PreviewProps} />;
+  return <SocialLogos {...SocialLogos.PreviewProps} variant="square-tiles" />;
 }

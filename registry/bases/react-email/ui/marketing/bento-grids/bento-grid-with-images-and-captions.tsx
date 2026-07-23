@@ -1,193 +1,128 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type BentoGridWithImagesAndCaptionsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+import {
+  AlternatingImageCardsSection,
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+} from "./bento-grid-shared";
+import type {
+  BentoCaptionsVariant,
+  BentoImageCardItem,
+} from "./bento-grid-shared";
+
+type Items = readonly [
+  BentoImageCardItem,
+  BentoImageCardItem,
+  BentoImageCardItem,
+  BentoImageCardItem,
+];
 
 export interface BentoGridWithImagesAndCaptionsProps {
+  items?: Items;
   theme?: TailwindConfig;
-  heading?: string;
-  subheading?: string;
-  imageSrc1?: string;
-  imageAlt1?: string;
-  caption1?: string;
-  imageSrc2?: string;
-  imageAlt2?: string;
-  caption2?: string;
-  imageSrc3?: string;
-  imageAlt3?: string;
-  caption3?: string;
-  variant?: BentoGridWithImagesAndCaptionsVariant;
+  variant?: BentoCaptionsVariant;
 }
 
+const captionsTopItems: Items = [
+  {
+    imageAlt: "Monochrome Mood",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-1.jpg`,
+    title: "Monochrome Mood",
+  },
+  {
+    imageAlt: "Bold Moves",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-2.jpg`,
+    title: "Bold moves",
+  },
+  {
+    imageAlt: "Redux Denim",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-3.jpg`,
+    title: "Redux Denim",
+  },
+  {
+    imageAlt: "Casual Cool",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-4.jpg`,
+    title: "Casual Cool",
+  },
+];
+
+const captionsTopReverseItems: Items = [
+  {
+    imageAlt: "Bold Moves",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-2.jpg`,
+    title: "Monochrome Mood",
+  },
+  {
+    imageAlt: "Monochrome Mood",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-1.jpg`,
+    title: "Bold moves",
+  },
+  {
+    imageAlt: "Casual Cool",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-4.jpg`,
+    title: "Redux Denim",
+  },
+  {
+    imageAlt: "Redux Denim",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-3.jpg`,
+    title: "Casual Cool",
+  },
+];
+
+const captionsBottomReverseItems: Items = [
+  {
+    imageAlt: "Bold Moves",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-2.jpg`,
+    title: "Bold moves",
+  },
+  {
+    imageAlt: "Monochrome Mood",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-1.jpg`,
+    title: "Monochrome Mood",
+  },
+  {
+    imageAlt: "Casual Cool",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-4.jpg`,
+    title: "Casual Cool",
+  },
+  {
+    imageAlt: "Redux Denim",
+    imageSrc: `${BENTO_ASSET_ROOT}/1-bento-3.jpg`,
+    title: "Redux Denim",
+  },
+];
+
+const defaultItemsByVariant = {
+  "captions-bottom": captionsTopItems,
+  "captions-bottom-reverse": captionsBottomReverseItems,
+  "captions-top": captionsTopItems,
+  "captions-top-reverse": captionsTopReverseItems,
+} satisfies Record<BentoCaptionsVariant, Items>;
+
 export const BentoGridWithImagesAndCaptionsSection = ({
-  heading = "Our Work",
-  subheading = "A selection of our recent projects.",
-  imageSrc1 = "https://static.photos/nature/400x300/2",
-  imageAlt1 = "",
-  caption1 = "Project Alpha",
-  imageSrc2 = "https://static.photos/nature/400x300/3",
-  imageAlt2 = "",
-  caption2 = "Project Beta",
-  imageSrc3 = "https://static.photos/nature/400x300/4",
-  imageAlt3 = "",
-  caption3 = "Project Gamma",
-  variant = "default",
-}: Omit<BentoGridWithImagesAndCaptionsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center font-bold text-heading leading-snug text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        {subheading ? (
-          <Text className="mt-0 mb-12 text-center text-lg text-foreground-muted">
-            {subheading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/3 px-3 align-top">
-            <Img
-              src={imageSrc1}
-              alt={imageAlt1}
-              width="400"
-              height="300"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-            <Text className="mt-3 mb-0 text-base font-medium text-foreground">
-              {caption1}
-            </Text>
-          </Column>
-          <Column className="w-1/3 px-3 align-top">
-            <Img
-              src={imageSrc2}
-              alt={imageAlt2}
-              width="400"
-              height="300"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-            <Text className="mt-3 mb-0 text-base font-medium text-foreground">
-              {caption2}
-            </Text>
-          </Column>
-          <Column className="w-1/3 px-3 align-top">
-            <Img
-              src={imageSrc3}
-              alt={imageAlt3}
-              width="400"
-              height="300"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-            <Text className="mt-3 mb-0 text-base font-medium text-foreground">
-              {caption3}
-            </Text>
-          </Column>
-        </Row>
-      </Section>
-    </Section>
-  );
-};
+  items,
+  variant = "captions-top",
+}: Omit<BentoGridWithImagesAndCaptionsProps, "theme">) => (
+  <AlternatingImageCardsSection
+    items={items ?? defaultItemsByVariant[variant]}
+    variant={variant}
+  />
+);
 
 export const BentoGridWithImagesAndCaptions = ({
+  items,
   theme = defaultTheme,
-  heading = "Our Work",
-  subheading = "A selection of our recent projects.",
-  imageSrc1 = "https://static.photos/nature/400x300/5",
-  imageAlt1 = "",
-  caption1 = "Project Alpha",
-  imageSrc2 = "https://static.photos/nature/400x300/6",
-  imageAlt2 = "",
-  caption2 = "Project Beta",
-  imageSrc3 = "https://static.photos/nature/400x300/7",
-  imageAlt3 = "",
-  caption3 = "Project Gamma",
-  variant = "default",
+  variant = "captions-top",
 }: BentoGridWithImagesAndCaptionsProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <BentoGridWithImagesAndCaptionsSection
-          caption1={caption1}
-          caption2={caption2}
-          caption3={caption3}
-          heading={heading}
-          imageAlt1={imageAlt1}
-          imageAlt2={imageAlt2}
-          imageAlt3={imageAlt3}
-          imageSrc1={imageSrc1}
-          imageSrc2={imageSrc2}
-          imageSrc3={imageSrc3}
-          subheading={subheading}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <BentoEmailShell preview="Bento grid with images and captions" theme={theme}>
+    <BentoGridWithImagesAndCaptionsSection items={items} variant={variant} />
+  </BentoEmailShell>
 );
 
 BentoGridWithImagesAndCaptions.PreviewProps = {
-  caption1: "Project Alpha",
-  caption2: "Project Beta",
-  caption3: "Project Gamma",
-  heading: "Our Work",
-  imageAlt1: "Project Alpha",
-  imageAlt2: "Project Beta",
-  imageAlt3: "Project Gamma",
-  imageSrc1: "https://static.photos/nature/400x300/8",
-  imageSrc2: "https://static.photos/nature/400x300/9",
-  imageSrc3: "https://static.photos/nature/400x300/10",
-  subheading: "A selection of our recent projects.",
+  items: defaultItemsByVariant["captions-top"],
   theme: defaultTheme,
-  variant: "default",
+  variant: "captions-top",
 } satisfies BentoGridWithImagesAndCaptionsProps;

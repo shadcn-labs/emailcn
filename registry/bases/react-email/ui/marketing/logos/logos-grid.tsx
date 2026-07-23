@@ -1,217 +1,359 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Fragment } from "react";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type LogosGridVariant = "default" | "slanted-left" | "slanted-right";
+export type LogosGridTone = "boxed" | "outlined" | "bordered";
 
 export interface LogosGridProps {
   theme?: TailwindConfig;
-  heading?: string;
-  logoSrc1?: string;
-  logoAlt1?: string;
-  logoSrc2?: string;
-  logoAlt2?: string;
-  logoSrc3?: string;
-  logoAlt3?: string;
-  logoSrc4?: string;
-  logoAlt4?: string;
-  logoSrc5?: string;
-  logoAlt5?: string;
-  logoSrc6?: string;
-  logoAlt6?: string;
-  variant?: LogosGridVariant;
+  title?: string;
+  description?: string;
+  logos?: { alt: string; src: string; width: number }[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  boxBackgroundColor?: string;
+  borderColor?: string;
+  titleColor?: string;
+  textColor?: string;
+  tone?: LogosGridTone;
 }
 
-export const LogosGridSection = ({
-  heading = "Trusted by",
-  logoSrc1 = "https://static.photos/business/120x40/2",
-  logoAlt1 = "Logo 1",
-  logoSrc2 = "https://static.photos/business/120x40/3",
-  logoAlt2 = "Logo 2",
-  logoSrc3 = "https://static.photos/business/120x40/4",
-  logoAlt3 = "Logo 3",
-  logoSrc4 = "https://static.photos/business/120x40/5",
-  logoAlt4 = "Logo 4",
-  logoSrc5 = "https://static.photos/business/120x40/6",
-  logoAlt5 = "Logo 5",
-  logoSrc6 = "https://static.photos/business/120x40/7",
-  logoAlt6 = "Logo 6",
-  variant = "default",
-}: Omit<LogosGridProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .logos-grid-item {
+      display: inline-block !important;
+      margin: 0 8px 16px !important;
     }
-  };
+    .logos-grid-gap { display: none !important; }
+    .logos-grid-description-gap { line-height: 20px !important; }
+  }
+  @media only screen and (max-width: 430px) {
+    .logos-grid-bordered-item { display: block !important; width: 100% !important; }
+    .logos-grid-divider {
+      display: block !important;
+      line-height: 1px !important;
+      width: 100% !important;
+    }
+  }
+`;
 
+const defaultLogos = [
+  {
+    alt: "Stripe",
+    src: "https://assets.mailviews.com/images/components/logos/logo-stripe.png",
+    width: 57,
+  },
+  {
+    alt: "Apple Pay",
+    src: "https://assets.mailviews.com/images/components/logos/logo-apple-pay.png",
+    width: 60,
+  },
+  {
+    alt: "Mastercard",
+    src: "https://assets.mailviews.com/images/components/logos/logo-mastercard.png",
+    width: 40,
+  },
+  {
+    alt: "Visa",
+    src: "https://assets.mailviews.com/images/components/logos/logo-visa.png",
+    width: 50,
+  },
+  {
+    alt: "Google Pay",
+    src: "https://assets.mailviews.com/images/components/logos/logo-google-pay.png",
+    width: 60,
+  },
+  {
+    alt: "Klarna",
+    src: "https://assets.mailviews.com/images/components/logos/logo-klarna.png",
+    width: 70,
+  },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  borderColor: "#d1d5db",
+  boxBackgroundColor: "#f3f4f6",
+  description:
+    "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
+  logos: defaultLogos,
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+  title: "Supported payment services",
+  titleColor: "#030712",
+};
+
+type SectionProps = Omit<LogosGridProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+type Logo = (typeof defaultLogos)[number];
+
+const GridItem = ({
+  bordered,
+  logo,
+  props,
+  tone,
+}: {
+  bordered: boolean;
+  logo: Logo;
+  props: ResolvedProps;
+  tone: LogosGridTone;
+}) => (
+  <td
+    className={bordered ? "logos-grid-bordered-item" : "logos-grid-item"}
+    style={{
+      backgroundColor: tone === "boxed" ? props.boxBackgroundColor : undefined,
+      border:
+        tone === "outlined" ? `1px solid ${props.borderColor}` : undefined,
+      borderRadius: tone === "outlined" ? "4px" : undefined,
+      lineHeight: "64px",
+      textAlign: "center",
+      width: "112px",
+    }}
+  >
+    <img
+      alt={logo.alt}
+      src={logo.src}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={logo.width}
+    />
+  </td>
+);
+
+const Divider = ({ color }: { color: string }) => (
+  <td
+    className="logos-grid-divider"
+    style={{ backgroundColor: color, width: "1px" }}
+  >
+    &zwj;
+  </td>
+);
+
+const CardRow = ({
+  logos,
+  props,
+  tone,
+}: {
+  logos: Logo[];
+  props: ResolvedProps;
+  tone: LogosGridTone;
+}) => (
+  <table
+    align="center"
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ margin: "0 auto" }}
+  >
+    <tbody>
+      <tr>
+        {logos.map((logo, index) => (
+          <Fragment key={logo.alt + logo.src}>
+            {index > 0 ? (
+              <td className="logos-grid-gap" style={{ width: "16px" }}>
+                &zwj;
+              </td>
+            ) : null}
+            <GridItem bordered={false} logo={logo} props={props} tone={tone} />
+          </Fragment>
+        ))}
+      </tr>
+    </tbody>
+  </table>
+);
+
+const BorderedRows = ({
+  logos,
+  props,
+}: {
+  logos: Logo[];
+  props: ResolvedProps;
+}) => (
+  <>
+    <table
+      align="center"
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ margin: "0 auto" }}
+    >
+      <tbody>
+        <tr>
+          {logos.slice(0, 3).map((logo, index) => (
+            <Fragment key={logo.alt + logo.src}>
+              {index > 0 ? <Divider color={props.borderColor} /> : null}
+              <GridItem bordered logo={logo} props={props} tone="bordered" />
+            </Fragment>
+          ))}
+        </tr>
+        <tr>
+          <td
+            className="logos-grid-divider"
+            colSpan={5}
+            style={{ backgroundColor: props.borderColor, lineHeight: "1px" }}
+          >
+            &zwj;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table
+      align="center"
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ margin: "0 auto" }}
+    >
+      <tbody>
+        <tr>
+          {logos.slice(3, 6).map((logo, index) => (
+            <Fragment key={logo.alt + logo.src}>
+              {index > 0 ? <Divider color={props.borderColor} /> : null}
+              <GridItem bordered logo={logo} props={props} tone="bordered" />
+            </Fragment>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  </>
+);
+
+export const LogosGridSection = (props: SectionProps) => {
+  const tone = props.tone ?? "boxed";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const logos = resolved.logos.slice(0, 6) as Logo[];
   return (
-    <Section className={`bg-background py-12 ${getVariantClass()}`}>
-      <Section
-        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}
-      >
-        {heading ? (
-          <Text className="m-0 mb-8 text-sm uppercase tracking-wider text-foreground-muted">
-            {heading}
-          </Text>
-        ) : null}
-        <Row className="mb-4">
-          <Column className="w-1/3 px-3 align-middle">
-            <Img
-              src={logoSrc1}
-              alt={logoAlt1}
-              width="120"
-              height="40"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/3 px-3 align-middle">
-            <Img
-              src={logoSrc2}
-              alt={logoAlt2}
-              width="120"
-              height="40"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/3 px-3 align-middle">
-            <Img
-              src={logoSrc3}
-              alt={logoAlt3}
-              width="120"
-              height="40"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-        </Row>
-        <Row>
-          <Column className="w-1/3 px-3 align-middle">
-            <Img
-              src={logoSrc4}
-              alt={logoAlt4}
-              width="120"
-              height="40"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/3 px-3 align-middle">
-            <Img
-              src={logoSrc5}
-              alt={logoAlt5}
-              width="120"
-              height="40"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/3 px-3 align-middle">
-            <Img
-              src={logoSrc6}
-              alt={logoAlt6}
-              width="120"
-              height="40"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "center" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <h3
+                      style={{
+                        color: resolved.titleColor,
+                        fontFamily,
+                        fontSize: "20px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {resolved.title}
+                    </h3>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    {tone === "bordered" ? (
+                      <BorderedRows logos={logos} props={resolved} />
+                    ) : (
+                      <>
+                        <CardRow
+                          logos={logos.slice(0, 3)}
+                          props={resolved}
+                          tone={tone}
+                        />
+                        <div
+                          className="logos-grid-gap"
+                          style={{ lineHeight: "16px" }}
+                        >
+                          &zwj;
+                        </div>
+                        <CardRow
+                          logos={logos.slice(3, 6)}
+                          props={resolved}
+                          tone={tone}
+                        />
+                      </>
+                    )}
+                    <div
+                      className="logos-grid-description-gap"
+                      style={{ lineHeight: "36px" }}
+                    >
+                      &zwj;
+                    </div>
+                    <p
+                      style={{
+                        color: resolved.textColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 300,
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {resolved.description}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const LogosGrid = ({
-  theme = defaultTheme,
-  heading = "Trusted by",
-  logoSrc1 = "https://static.photos/business/120x40/8",
-  logoAlt1 = "Logo 1",
-  logoSrc2 = "https://static.photos/business/120x40/9",
-  logoAlt2 = "Logo 2",
-  logoSrc3 = "https://static.photos/business/120x40/10",
-  logoAlt3 = "Logo 3",
-  logoSrc4 = "https://static.photos/business/120x40/11",
-  logoAlt4 = "Logo 4",
-  logoSrc5 = "https://static.photos/business/120x40/12",
-  logoAlt5 = "Logo 5",
-  logoSrc6 = "https://static.photos/business/120x40/13",
-  logoAlt6 = "Logo 6",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  tone = "boxed",
+  ...props
 }: LogosGridProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <LogosGridSection
-          heading={heading}
-          logoAlt1={logoAlt1}
-          logoAlt2={logoAlt2}
-          logoAlt3={logoAlt3}
-          logoAlt4={logoAlt4}
-          logoAlt5={logoAlt5}
-          logoAlt6={logoAlt6}
-          logoSrc1={logoSrc1}
-          logoSrc2={logoSrc2}
-          logoSrc3={logoSrc3}
-          logoSrc4={logoSrc4}
-          logoSrc5={logoSrc5}
-          logoSrc6={logoSrc6}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Supported payment services</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <LogosGridSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        tone={tone}
+      />
+    </Body>
   </Html>
 );
 
 LogosGrid.PreviewProps = {
-  heading: "Trusted by",
-  logoAlt1: "Company 1",
-  logoAlt2: "Company 2",
-  logoAlt3: "Company 3",
-  logoAlt4: "Company 4",
-  logoAlt5: "Company 5",
-  logoAlt6: "Company 6",
-  logoSrc1: "https://static.photos/business/120x40/14",
-  logoSrc2: "https://static.photos/business/120x40/15",
-  logoSrc3: "https://static.photos/business/120x40/16",
-  logoSrc4: "https://static.photos/business/120x40/17",
-  logoSrc5: "https://static.photos/business/120x40/18",
-  logoSrc6: "https://static.photos/business/120x40/19",
   theme: defaultTheme,
-  variant: "default",
+  tone: "boxed",
 } satisfies LogosGridProps;

@@ -1,184 +1,309 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable @next/next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlButton,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type HeroOverlayedSplitVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type HeroOverlayedSplitVariant = "overlay-left" | "overlay-right";
 
 export interface HeroOverlayedSplitProps {
   theme?: EmailThemeTokens;
+  eyebrow?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
   imageSrc?: string;
   imageAlt?: string;
-  overlayBackgroundColor?: string;
-  overlayTextColor?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
+  overlayColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroOverlayedSplitVariant;
 }
 
-const OverlayedSplitCta = ({
-  ctaHref,
-  ctaLabel,
-  theme,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  theme: EmailThemeTokens;
-}) => (
-  <MjmlButton
-    align="center"
-    backgroundColor={theme.colorPrimaryForeground}
-    borderRadius={theme.borderRadius}
-    color={theme.colorPrimary}
-    fontFamily={theme.fontFamily}
-    fontSize={theme.fontSizeSm}
-    fontWeight={theme.fontWeightMedium}
-    href={ctaHref}
-    innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
-  >
-    {ctaLabel}
-  </MjmlButton>
-);
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+const assetRoot = "https://assets.mailviews.com/images/components";
 
-const HeroOverlayedSplitSection = ({
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-overlayed-split-content {
+      display: table-footer-group !important;
+      width: 100% !important;
+    }
+
+    .hero-overlayed-split-spacer {
+      display: table-header-group !important;
+      height: 188px !important;
+      line-height: 188px !important;
+      width: 100% !important;
+    }
+  }
+`;
+
+type SectionProps = Required<
+  Omit<HeroOverlayedSplitProps, "theme" | "variant">
+> & {
+  variant: HeroOverlayedSplitVariant;
+};
+
+export const HeroOverlayedSplitSection = ({
+  buttonBackgroundColor,
+  buttonTextColor,
   ctaHref,
   ctaLabel,
+  description,
+  eyebrow,
   heading,
   imageAlt,
   imageSrc,
-  overlayBackgroundColor,
-  overlayTextColor,
+  logoAlt,
+  logoHref,
+  logoSrc,
+  overlayColor,
   subheading,
-  theme,
+  textColor,
   variant,
-}: {
-  ctaHref?: string;
-  ctaLabel?: string;
-  heading: string;
-  imageAlt: string;
-  imageSrc: string;
-  overlayBackgroundColor: string;
-  overlayTextColor: string;
-  subheading: string;
-  theme: EmailThemeTokens;
-  variant: HeroOverlayedSplitVariant;
-}) => (
-  <MjmlSection backgroundColor={overlayBackgroundColor} padding="0">
-    <MjmlColumn width="50%" padding="0" verticalAlign="middle">
-      <MjmlImage
-        align="center"
-        alt={imageAlt}
-        src={imageSrc}
+}: SectionProps) => {
+  const content = (
+    <td
+      className="hero-overlayed-split-content"
+      style={{ background: overlayColor, width: "388px" }}
+    >
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
         width="100%"
-        padding="0"
-      />
-    </MjmlColumn>
-    <MjmlColumn width="50%" padding="32px" verticalAlign="middle">
-      <MjmlText
-        align="center"
-        color={overlayTextColor}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeHeading}
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase}
       >
-        {heading}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={overlayTextColor}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg}
-        lineHeight={theme.lineHeightBase}
-        paddingBottom={theme.spacingLg}
-      >
-        {subheading}
-      </MjmlText>
-      {ctaLabel && ctaHref ? (
-        <OverlayedSplitCta
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          theme={theme}
-        />
-      ) : null}
-    </MjmlColumn>
-  </MjmlSection>
-);
+        <tbody>
+          <tr>
+            <td style={{ padding: "44px 24px", textAlign: "left" }}>
+              <a href={logoHref}>
+                <img
+                  alt={logoAlt}
+                  src={logoSrc}
+                  width="165"
+                  style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                />
+              </a>
+              <div style={{ height: "144px", lineHeight: "144px" }}>&zwj;</div>
+              <p
+                style={{
+                  color: textColor,
+                  fontFamily,
+                  fontSize: "16px",
+                  fontWeight: 200,
+                  lineHeight: "24px",
+                  margin: 0,
+                }}
+              >
+                {eyebrow}
+              </p>
+              <h1
+                style={{
+                  color: textColor,
+                  fontFamily,
+                  fontSize: "48px",
+                  fontWeight: 500,
+                  lineHeight: 1,
+                  margin: 0,
+                }}
+              >
+                {heading}
+              </h1>
+              <p
+                style={{
+                  color: textColor,
+                  fontFamily,
+                  fontSize: "18px",
+                  lineHeight: "28px",
+                  margin: 0,
+                }}
+              >
+                {subheading}
+              </p>
+              <div style={{ height: "44px", lineHeight: "44px" }}>&zwj;</div>
+              <p
+                style={{
+                  color: textColor,
+                  fontFamily,
+                  fontSize: "16px",
+                  fontWeight: 300,
+                  lineHeight: "24px",
+                  margin: 0,
+                }}
+              >
+                {description}
+              </p>
+              <div style={{ height: "28px", lineHeight: "28px" }}>&zwj;</div>
+              {ctaLabel && ctaHref ? (
+                <a
+                  href={ctaHref}
+                  style={{
+                    backgroundColor: buttonBackgroundColor,
+                    borderRadius: "8px",
+                    color: buttonTextColor,
+                    display: "inline-block",
+                    fontFamily,
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    lineHeight: 1,
+                    padding: "14px 20px",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+                  <img
+                    alt=""
+                    src={`${assetRoot}/icon-arrow-right.png`}
+                    width="12"
+                    style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+                  />
+                </a>
+              ) : null}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  );
+  const spacer = (
+    <td
+      aria-label={imageAlt || undefined}
+      className="hero-overlayed-split-spacer"
+      role={imageAlt ? "img" : undefined}
+      style={{ fontSize: 0, lineHeight: 0, width: "212px" }}
+    >
+      &zwj;
+    </td>
+  );
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{
+        backgroundImage: `url(${imageSrc})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        tableLayout: "fixed",
+      }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          {variant === "overlay-left" ? (
+            <>
+              {content}
+              {spacer}
+            </>
+          ) : (
+            <>
+              {spacer}
+              {content}
+            </>
+          )}
+        </tr>
+      </tbody>
+    </table>
+  );
+};
 
 export const HeroOverlayedSplit = ({
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Discover now",
+  description = "From the first pour to the final sip, coffee is more than a drink — it’s a pause, a rhythm, a story in every cup. Discover how moments of calm begin with Sarina.",
+  eyebrow = "Brew Stories",
+  heading = "The Art of the Morning Ritual",
+  imageAlt = "Coffee morning ritual",
+  imageSrc = `${assetRoot}/hero/overlayed-split-bg.jpg`,
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  overlayColor = "rgba(3, 7, 18, 0.8)",
+  pageBackgroundColor = "#f1f5f9",
+  subheading = "January 31, 2025",
+  textColor = "#f9fafb",
   theme = defaultTheme,
-  heading = "Overlayed Split",
-  subheading = "Text overlays a dark background beside the image.",
-  ctaLabel = "Explore",
-  ctaHref = "#",
-  imageSrc = "https://static.photos/city/600x400/2",
-  imageAlt = "overlayed split",
-  overlayBackgroundColor = "#111827",
-  overlayTextColor = "#ffffff",
-  variant = "default",
+  variant = "overlay-left",
 }: HeroOverlayedSplitProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>hero overlayed split</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>{`${eyebrow} — ${heading}`}</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <HeroOverlayedSplitSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          heading={heading}
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
-          overlayBackgroundColor={overlayBackgroundColor}
-          overlayTextColor={overlayTextColor}
-          subheading={subheading}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <HeroOverlayedSplitSection
+            buttonBackgroundColor={buttonBackgroundColor}
+            buttonTextColor={buttonTextColor}
+            ctaHref={ctaHref}
+            ctaLabel={ctaLabel}
+            description={description}
+            eyebrow={eyebrow}
+            heading={heading}
+            imageAlt={imageAlt}
+            imageSrc={imageSrc}
+            logoAlt={logoAlt}
+            logoHref={logoHref}
+            logoSrc={logoSrc}
+            overlayColor={overlayColor}
+            pageBackgroundColor={pageBackgroundColor}
+            subheading={subheading}
+            textColor={textColor}
+            variant={variant}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 HeroOverlayedSplit.PreviewProps = {
+  buttonBackgroundColor: "#4f46e5",
+  buttonTextColor: "#fffffe",
   ctaHref: "https://example.com",
-  ctaLabel: "Learn More",
-  heading: "Hero Overlayed Split",
-  imageAlt: "overlayed split",
-  imageSrc: "https://static.photos/city/600x400/3",
-  overlayBackgroundColor: "#111827",
-  overlayTextColor: "#ffffff",
-  subheading:
-    "A split layout where the text overlays a dark background panel beside the image.",
+  ctaLabel: "Discover now",
+  description:
+    "From the first pour to the final sip, coffee is more than a drink — it’s a pause, a rhythm, a story in every cup. Discover how moments of calm begin with Sarina.",
+  eyebrow: "Brew Stories",
+  heading: "The Art of the Morning Ritual",
+  imageAlt: "Coffee morning ritual",
+  imageSrc: `${assetRoot}/hero/overlayed-split-bg.jpg`,
+  logoAlt: "Mailviews",
+  logoHref: "https://example.com",
+  logoSrc: `${assetRoot}/mailviews-logo-light.png`,
+  overlayColor: "rgba(3, 7, 18, 0.8)",
+  pageBackgroundColor: "#f1f5f9",
+  subheading: "January 31, 2025",
+  textColor: "#f9fafb",
   theme: defaultTheme,
-  variant: "default",
+  variant: "overlay-left",
 } satisfies HeroOverlayedSplitProps;

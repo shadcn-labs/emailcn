@@ -1,6 +1,6 @@
 ---
 title: "Boxed with Background Image"
-description: "Marketing cta variant for email templates"
+description: "A boxed account-activation CTA with flush, padded, light, and dark variants"
 ---
 
 <ComponentPreview
@@ -39,15 +39,58 @@ npx shadcn@latest add @emailcn/boxed-cta-with-background-image
 ## Usage
 
 ```tsx
-import { BoxedCtaWithBackgroundImage } from "@/components/emails/marketing/cta/boxed-cta-with-background-image";
+import { BoxedCTAWithBackgroundImage } from "@/components/emails/marketing/cta/boxed-cta-with-background-image";
 ```
 
 ```tsx
-<BoxedCtaWithBackgroundImage {...BoxedCtaWithBackgroundImage.PreviewProps} />
+<BoxedCTAWithBackgroundImage {...BoxedCTAWithBackgroundImage.PreviewProps} />
 ```
+
+## Examples
+
+### Flush Light
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="flush-light"
+  hideCode
+/>
+
+### Padded Light
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="padded-light"
+  hideCode
+/>
+
+### Flush Dark
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="flush-dark"
+  hideCode
+/>
+
+### Padded Dark
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-cta-with-background-image-demo"
+  variant="padded-dark"
+  hideCode
+/>
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                   | Type                                 | Default          | Description                                  |
+| ---------------------- | ------------------------------------ | ---------------- | -------------------------------------------- |
+| `theme`                | `TailwindConfig`                     | `defaultTheme`   | React Email Tailwind configuration           |
+| `variant`              | `BoxedCTAWithBackgroundImageVariant` | `"flush-light"`  | Selects the exact Mailviews spacing and tone |
+| `heading` / `subtext`  | `string`                             | Mailviews copy   | CTA heading and supporting text              |
+| `ctaLabel` / `ctaHref` | `string`                             | Mailviews CTA    | Primary action label and destination         |
+| `backgroundImageSrc`   | `string`                             | Mailviews glow   | Background image behind the CTA card         |
+| Color props            | `string`                             | Mailviews colors | Canvas, card, text, and button colors        |

@@ -1,0 +1,76 @@
+---
+title: "3-Column Menu"
+description: "Mailviews three-column footer with mirrored logo placement"
+---
+
+The three menu groups and lower social row remain stable while the logo block mirrors.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-3-col-menu-demo"
+  variant="left-logo"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-3-col-menu-demo"
+  variant="right-logo"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-3-col-menu
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/footers/footer-with-3-col-menu.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/footers/footer-with-3-col-menu.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWith3ColMenu } from "@/components/emails/marketing/footers/footer-with-3-col-menu";
+```
+
+```tsx
+<FooterWith3ColMenu {...FooterWith3ColMenu.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

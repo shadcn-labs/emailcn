@@ -1,0 +1,94 @@
+---
+title: "Overlapped Image"
+description: "A product hero with exact flat and slanted Mailviews overlap variants"
+---
+
+<ComponentPreview base="mjml-react" name="hero-with-overlapped-image-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-with-overlapped-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/hero-with-overlapped-image.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/hero/hero-with-overlapped-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroWithOverlappedImage } from "@/components/emails/marketing/hero/hero-with-overlapped-image";
+```
+
+```tsx
+<HeroWithOverlappedImage {...HeroWithOverlappedImage.PreviewProps} />
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-overlapped-image-demo"
+  variant="default"
+  hideCode
+/>
+
+### Slanted Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-overlapped-image-demo"
+  variant="slanted-left"
+  hideCode
+/>
+
+### Slanted Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-overlapped-image-demo"
+  variant="slanted-right"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                                             | Type                                             | Default          | Description                                        |
+| ------------------------------------------------ | ------------------------------------------------ | ---------------- | -------------------------------------------------- |
+| `theme`                                          | `EmailThemeTokens`                               | `defaultTheme`   | MJML React theme tokens                            |
+| `variant`                                        | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`      | Selects the exact Mailviews layout and content set |
+| `eyebrow` / `heading` / `subheading`             | `string`                                         | Variant copy     | Product title copy                                 |
+| `description`                                    | `string`                                         | Variant copy     | Supporting product description                     |
+| `ctaLabel` / `ctaHref`                           | `string`                                         | Mailviews CTA    | Button label and destination                       |
+| `backgroundImageSrc` / `imageSrc` / `imageAlt`   | `string`                                         | Variant imagery  | Background and overlapping product imagery         |
+| `logoSrc` / `logoAlt` / `logoHref`               | `string`                                         | Light logo       | Brand logo and destination                         |
+| `pageBackgroundColor` / `contentBackgroundColor` | `string`                                         | Mailviews colors | Canvas and content surface colors                  |
+| `textColor` / `mutedTextColor`                   | `string`                                         | Variant colors   | Primary and supporting copy colors                 |
+| `buttonBackgroundColor` / `buttonTextColor`      | `string`                                         | Mailviews colors | CTA colors                                         |

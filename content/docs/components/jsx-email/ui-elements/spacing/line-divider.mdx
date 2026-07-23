@@ -1,0 +1,78 @@
+---
+title: "Line Divider"
+description: "A simple horizontal rule with consistent email-safe spacing."
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview base="jsx-email" name="line-divider-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/line-divider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependency:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component and shared sources into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/line-divider.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/line-divider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/fonts/default.tsx"
+  base="jsx-email"
+  title="components/emails/fonts/default.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LineDivider } from "@/components/emails/ui-elements/spacing/line-divider";
+```
+
+```tsx
+<LineDivider />
+```
+
+## API Reference
+
+| Prop    | Type               | Default        | Description         |
+| ------- | ------------------ | -------------- | ------------------- |
+| `theme` | `EmailThemeTokens` | `defaultTheme` | Email theme styling |

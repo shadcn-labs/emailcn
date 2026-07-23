@@ -5,6 +5,7 @@ import {
   renderPlainText as renderJsxEmailPlainText,
 } from "jsx-email";
 import mjml2html from "mjml-browser";
+import type { ComponentType } from "react";
 
 import { ComponentPreviewClient } from "@/components/component-preview-client";
 import { ComponentSource } from "@/components/component-source";
@@ -14,23 +15,25 @@ import type { BaseName } from "@/registry/bases";
 interface ComponentPreviewProps {
   base?: BaseName;
   name: string;
+  variant?: string;
   title?: string;
-  badge?: string;
   className?: string;
   hideNav?: boolean;
   hideCode?: boolean;
   height?: number;
+  [demoProp: string]: unknown;
 }
 
 export const ComponentPreview = async ({
   base = "react-email",
   name,
+  variant,
   title,
-  badge,
   className,
   hideNav = false,
   hideCode = false,
   height = 640,
+  ...demoProps
 }: ComponentPreviewProps) => {
   const Demo = demos[base][name];
 
@@ -41,15 +44,22 @@ export const ComponentPreview = async ({
     if (!Demo) {
       throw new Error(`No demo named "${name}" for base "${base}"`);
     }
+    const DemoWithProps = Demo as ComponentType<Record<string, unknown>>;
+    const preview = (
+      <DemoWithProps
+        {...demoProps}
+        {...(variant === undefined ? {} : { variant })}
+      />
+    );
     if (base === "react-email") {
-      const result = await renderReactEmail(<Demo />, { pretty: true });
+      const result = await renderReactEmail(preview, { pretty: true });
       html = result;
       plainText = toPlainText(html);
     } else if (base === "jsx-email") {
-      html = await renderJsxEmail(<Demo />, { pretty: true });
-      plainText = await renderJsxEmailPlainText(<Demo />);
+      html = await renderJsxEmail(preview, { pretty: true });
+      plainText = await renderJsxEmailPlainText(preview);
     } else {
-      const result = await mjml2html(renderToMjml(<Demo />), {
+      const result = await mjml2html(renderToMjml(preview), {
         keepComments: false,
         validationLevel: "soft",
       });
@@ -67,7 +77,6 @@ export const ComponentPreview = async ({
   return (
     <>
       <ComponentPreviewClient
-        badge={badge}
         className={className}
         height={height}
         hideNav={hideNav}

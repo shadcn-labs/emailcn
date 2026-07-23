@@ -1,106 +1,259 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
+import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type StatsHighlightVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type SimpleStatsVariant = "default" | "outlined" | "boxed" | "bordered";
 
-export interface StatsHighlightProps {
+export interface SimpleStatsProps {
   theme?: EmailThemeTokens;
-  value?: string;
-  label?: string;
-  variant?: StatsHighlightVariant;
+  variant?: SimpleStatsVariant;
+  stats?: { label: string; value: string }[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  borderColor?: string;
+  headingColor?: string;
+  textColor?: string;
 }
 
-const StatsHighlightSection = ({
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .simple-stat-stack { display: block !important; width: 100% !important; }
+    .simple-stat-gap { line-height: 24px !important; }
+  }
+`;
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  borderColor: "#d1d5db",
+  cardBackgroundColor: "#f9fafb",
+  headingColor: "#030712",
+  pageBackgroundColor: "#f1f5f9",
+  stats: [
+    { label: "Increase in conversion rate", value: "45%" },
+    { label: "Average page load time", value: "2.1s" },
+    { label: "Monthly churn reduction", value: "18%" },
+  ],
+  textColor: "#4b5563",
+};
+
+type SectionProps = Omit<SimpleStatsProps, "theme">;
+
+const StatCopy = ({
+  headingColor,
   label,
-  theme,
+  textColor,
   value,
-  variant,
 }: {
+  headingColor: string;
   label: string;
-  theme: EmailThemeTokens;
+  textColor: string;
   value: string;
-  variant: StatsHighlightVariant;
 }) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorPrimary}
-        fontFamily={theme.fontFamily}
-        fontSize="36px"
-        fontWeight={theme.fontWeightBold}
-        paddingBottom={theme.spacingBase ?? "8px"}
-      >
-        {value}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg ?? "16px"}
-      >
-        {label}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
+  <>
+    <p
+      style={{
+        color: headingColor,
+        fontFamily,
+        fontSize: "36px",
+        fontWeight: 300,
+        lineHeight: "40px",
+        margin: 0,
+        textAlign: "center",
+      }}
+    >
+      {value}
+    </p>
+    <p
+      style={{
+        color: textColor,
+        fontFamily,
+        fontSize: "16px",
+        lineHeight: "24px",
+        margin: "8px 0 0",
+        textAlign: "center",
+      }}
+    >
+      {label}
+    </p>
+  </>
 );
 
+export const SimpleStatsSection = (props: SectionProps) => {
+  const resolved = { ...defaults, ...props };
+  const variant = props.variant ?? "default";
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              textAlign: "left",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px" }}>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          {resolved.stats.slice(0, 3).map((stat, index) => (
+                            <Fragment key={stat.label + stat.value}>
+                              {index > 0 ? (
+                                <td
+                                  className="simple-stat-stack simple-stat-gap"
+                                  style={{ width: "24px" }}
+                                >
+                                  &zwj;
+                                </td>
+                              ) : null}
+                              <td
+                                className="simple-stat-stack"
+                                style={{ verticalAlign: "top", width: "168px" }}
+                              >
+                                {variant === "default" ? (
+                                  <StatCopy
+                                    headingColor={resolved.headingColor}
+                                    label={stat.label}
+                                    textColor={resolved.textColor}
+                                    value={stat.value}
+                                  />
+                                ) : (
+                                  <table
+                                    border={0}
+                                    cellPadding={0}
+                                    cellSpacing={0}
+                                    role="presentation"
+                                    style={{
+                                      backgroundColor:
+                                        variant === "boxed"
+                                          ? resolved.cardBackgroundColor
+                                          : undefined,
+                                      border:
+                                        variant === "outlined"
+                                          ? `1px solid ${resolved.borderColor}`
+                                          : undefined,
+                                      borderRadius:
+                                        variant === "outlined" ||
+                                        variant === "boxed"
+                                          ? "8px"
+                                          : undefined,
+                                      borderTop:
+                                        variant === "bordered"
+                                          ? `4px solid ${resolved.headingColor}`
+                                          : undefined,
+                                    }}
+                                    width="100%"
+                                  >
+                                    <tbody>
+                                      <tr>
+                                        <td
+                                          style={{
+                                            padding:
+                                              variant === "bordered"
+                                                ? "20px 16px"
+                                                : "24px 16px",
+                                          }}
+                                        >
+                                          <StatCopy
+                                            headingColor={resolved.headingColor}
+                                            label={stat.label}
+                                            textColor={resolved.textColor}
+                                            value={stat.value}
+                                          />
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                )}
+                              </td>
+                            </Fragment>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
 export const SimpleStats = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  value = "99.9%",
-  label = "Uptime",
   variant = "default",
-}: StatsHighlightProps) => (
+  ...props
+}: SimpleStatsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>stats highlight</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>45% increase in conversion rate</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <StatsHighlightSection
-          label={label}
-          theme={theme}
-          value={value}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <SimpleStatsSection
+            {...props}
+            variant={variant}
+            pageBackgroundColor={pageBackgroundColor}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 SimpleStats.PreviewProps = {
-  label: "Customer Satisfaction",
   theme: defaultTheme,
-  value: "99.9%",
   variant: "default",
-} satisfies StatsHighlightProps;
+} satisfies SimpleStatsProps;

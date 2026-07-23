@@ -1,173 +1,94 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type BentoGridWithEvenSplitAndTwoThirdsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  EvenSplitTwoThirdsSection,
+} from "./bento-grid-shared";
+import type { BentoPaddedVariant, ProductTileData } from "./bento-grid-shared";
+
+type Pair = readonly [ProductTileData, ProductTileData];
 
 export interface BentoGridWithEvenSplitAndTwoThirdsProps {
+  bottomItems?: Pair;
   theme?: TailwindConfig;
-  heading?: string;
-  largeImageSrc?: string;
-  largeImageAlt?: string;
-  largeTitle?: string;
-  largeDesc?: string;
-  smallImageSrc?: string;
-  smallImageAlt?: string;
-  smallTitle?: string;
-  smallDesc?: string;
-  variant?: BentoGridWithEvenSplitAndTwoThirdsVariant;
+  topItems?: Pair;
+  variant?: BentoPaddedVariant;
 }
 
+const topItems: Pair = [
+  {
+    description:
+      "Innovative design for ultimate\nperformance and battery life.",
+    imageAlt: "",
+    imageSrc: `${BENTO_ASSET_ROOT}/4-bento-lg-1.jpg`,
+    price: "/ from $1099",
+    title: "iPhone 17",
+  },
+  {
+    description:
+      "Strikingly thin and fast so you can\nwork, play, or create anywhere.",
+    imageAlt: "",
+    imageSrc: `${BENTO_ASSET_ROOT}/4-bento-lg-2.jpg`,
+    price: "/ from $999",
+    title: "MacBook Air",
+  },
+];
+
+const bottomItemsForVariant = (variant: BentoPaddedVariant): Pair => {
+  const insetOnBothSides =
+    variant.includes("sides") || variant.includes("full");
+  const reverse = variant.endsWith("reverse");
+  return [
+    {
+      imageAlt: "",
+      imageSrc: `${BENTO_ASSET_ROOT}/4-bento-sm-${insetOnBothSides ? "5" : "4"}.jpg`,
+      price: "/ from $799",
+      title: "Watch Ultra",
+    },
+    {
+      imageAlt: "",
+      imageSrc: `${BENTO_ASSET_ROOT}/4-bento-lg-${insetOnBothSides ? "4" : "3"}.jpg`,
+      price: reverse ? "/ from $599" : "/ from $799",
+      title: reverse ? "Mac Mini" : "Watch Ultra",
+    },
+  ];
+};
+
 export const BentoGridWithEvenSplitAndTwoThirdsSection = ({
-  heading = "Features",
-  largeImageSrc = "https://static.photos/nature/600x400/2",
-  largeImageAlt = "",
-  largeTitle = "Main Feature",
-  largeDesc = "Description of the main feature.",
-  smallImageSrc = "https://static.photos/nature/300x400/3",
-  smallImageAlt = "",
-  smallTitle = "Secondary",
-  smallDesc = "Description of the secondary feature.",
-  variant = "default",
+  bottomItems,
+  topItems: top = topItems,
+  variant = "padded-left",
 }: Omit<BentoGridWithEvenSplitAndTwoThirdsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
+  const bottom = bottomItems ?? bottomItemsForVariant(variant);
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center font-bold text-heading leading-snug text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-2/3 pr-4 align-top">
-            <Img
-              src={largeImageSrc}
-              alt={largeImageAlt}
-              width="600"
-              height="400"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-            <Text className="mt-4 mb-1 text-xl font-bold text-foreground">
-              {largeTitle}
-            </Text>
-            <Text className="m-0 text-base text-foreground-muted">
-              {largeDesc}
-            </Text>
-          </Column>
-          <Column className="w-1/3 pl-4 align-top">
-            <Img
-              src={smallImageSrc}
-              alt={smallImageAlt}
-              width="300"
-              height="400"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-            <Text className="mt-4 mb-1 text-lg font-medium text-foreground">
-              {smallTitle}
-            </Text>
-            <Text className="m-0 text-base text-foreground-muted">
-              {smallDesc}
-            </Text>
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <EvenSplitTwoThirdsSection bottom={bottom} top={top} variant={variant} />
   );
 };
 
 export const BentoGridWithEvenSplitAndTwoThirds = ({
+  bottomItems,
   theme = defaultTheme,
-  heading = "Features",
-  largeImageSrc = "https://static.photos/nature/600x400/4",
-  largeImageAlt = "",
-  largeTitle = "Main Feature",
-  largeDesc = "Description of the main feature.",
-  smallImageSrc = "https://static.photos/nature/300x400/5",
-  smallImageAlt = "",
-  smallTitle = "Secondary",
-  smallDesc = "Description of the secondary feature.",
-  variant = "default",
+  topItems: top = topItems,
+  variant = "padded-left",
 }: BentoGridWithEvenSplitAndTwoThirdsProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <BentoGridWithEvenSplitAndTwoThirdsSection
-          heading={heading}
-          largeDesc={largeDesc}
-          largeImageAlt={largeImageAlt}
-          largeImageSrc={largeImageSrc}
-          largeTitle={largeTitle}
-          smallDesc={smallDesc}
-          smallImageAlt={smallImageAlt}
-          smallImageSrc={smallImageSrc}
-          smallTitle={smallTitle}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <BentoEmailShell
+    preview="Bento grid with even split and two thirds"
+    theme={theme}
+  >
+    <BentoGridWithEvenSplitAndTwoThirdsSection
+      bottomItems={bottomItems}
+      topItems={top}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
 
 BentoGridWithEvenSplitAndTwoThirds.PreviewProps = {
-  heading: "Features",
-  largeDesc:
-    "Our powerful dashboard gives you complete control over your workflow.",
-  largeImageAlt: "Dashboard",
-  largeImageSrc: "https://static.photos/nature/600x400/6",
-  largeTitle: "Powerful Dashboard",
-  smallDesc: "Track key metrics at a glance.",
-  smallImageAlt: "Analytics",
-  smallImageSrc: "https://static.photos/nature/300x400/7",
-  smallTitle: "Analytics",
+  bottomItems: bottomItemsForVariant("padded-left"),
   theme: defaultTheme,
-  variant: "default",
+  topItems,
+  variant: "padded-left",
 } satisfies BentoGridWithEvenSplitAndTwoThirdsProps;

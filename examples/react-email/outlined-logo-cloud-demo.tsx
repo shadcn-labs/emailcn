@@ -1,5 +1,16 @@
-import { OutlinedLogoCloud } from "@/registry/bases/react-email/ui/marketing/logos/outlined-logo-cloud";
+import { LogoCloud } from "@/registry/bases/react-email/ui/marketing/logos/logo-cloud";
+import type { LogoCloudVariant } from "@/registry/bases/react-email/ui/marketing/logos/logo-cloud";
 
-export default function OutlinedLogoCloudDemo() {
-  return <OutlinedLogoCloud {...OutlinedLogoCloud.PreviewProps} />;
+export default function OutlinedLogoCloudDemo({
+  variant,
+}: {
+  variant?: LogoCloudVariant;
+}) {
+  return (
+    <LogoCloud
+      {...LogoCloud.PreviewProps}
+      tone="outlined"
+      variant={variant ?? LogoCloud.PreviewProps.variant}
+    />
+  );
 }

@@ -1,0 +1,136 @@
+---
+title: "Two Rows, 3 Column Second Row"
+description: "Marketing bento-grids variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grid-with-two-rows-and-3-column-second-row
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridWithTwoRowsAnd3ColumnSecondRow } from "@/components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row";
+```
+
+```tsx
+<BentoGridWithTwoRowsAnd3ColumnSecondRow
+  {...BentoGridWithTwoRowsAnd3ColumnSecondRow.PreviewProps}
+/>
+```
+
+## Examples
+
+### Padded Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-left"
+  hideCode
+/>
+
+### Padded Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-right"
+  hideCode
+/>
+
+### Padded Sides
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-sides"
+  hideCode
+/>
+
+### Padded Full
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-full"
+  hideCode
+/>
+
+### Padded Left Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-left-reverse"
+  hideCode
+/>
+
+### Padded Right Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-right-reverse"
+  hideCode
+/>
+
+### Padded Sides Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-sides-reverse"
+  hideCode
+/>
+
+### Padded Full Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-two-rows-and-3-column-second-row-demo"
+  variant="padded-full-reverse"
+  hideCode
+/>
+
+## API Reference
+
+| Prop      | Type                 | Default        | Description                       |
+| --------- | -------------------- | -------------- | --------------------------------- |
+| `theme`   | `EmailTheme`         | `defaultTheme` | Email theme styling               |
+| `variant` | `BentoPaddedVariant` | `padded-full`  | Selects one of the examples above |

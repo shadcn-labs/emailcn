@@ -1,0 +1,105 @@
+---
+title: "2 Columns Masonry Image Grid with 3 Images"
+description: "A three-image masonry grid with left, right, plain, and overlay arrangements"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-3-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-masonry-image-grid-with-3-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsMasonryImageGridWith3Images } from "@/components/emails/marketing/images/2-columns-masonry-image-grid-with-3-images";
+```
+
+```tsx
+<TwoColumnsMasonryImageGridWith3Images
+  {...TwoColumnsMasonryImageGridWith3Images.PreviewProps}
+/>
+```
+
+## Examples
+
+### Stacked Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-3-images-demo"
+  variant="stacked-left"
+  hideCode
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-3-images-demo"
+  variant="stacked-right"
+  hideCode
+/>
+
+### Stacked Left Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-3-images-demo"
+  variant="stacked-left-overlay"
+  hideCode
+/>
+
+### Stacked Right Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-masonry-image-grid-with-3-images-demo"
+  variant="stacked-right-overlay"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                        | Type                                           | Default          | Description                               |
+| --------------------------- | ---------------------------------------------- | ---------------- | ----------------------------------------- |
+| `theme`                     | `EmailThemeTokens`                             | `defaultTheme`   | MJML React theme tokens                   |
+| `variant`                   | `TwoColumnsMasonryImageGridWith3ImagesVariant` | `"stacked-left"` | Selects side and overlay treatment        |
+| `imageSrc1` … `imageSrc3`   | `string`                                       | Mailviews images | Landscape and portrait image URLs         |
+| `imageAlt1` … `imageAlt3`   | `string`                                       | `""`             | Alternative text for plain-image variants |
+| `imageHref1` … `imageHref3` | `string`                                       | Example URL      | Destinations for plain-image variants     |
+| `heading1` … `subtext3`     | `string`                                       | Mailviews copy   | Copy used by overlay variants             |
+| Color props                 | `string`                                       | Mailviews colors | Canvas, surface, and overlay text colors  |

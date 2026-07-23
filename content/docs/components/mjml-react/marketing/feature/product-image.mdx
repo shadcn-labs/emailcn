@@ -1,0 +1,73 @@
+---
+title: "Feature with Product Image"
+description: "A product feature with left and right image variants"
+---
+
+<ComponentPreview base="mjml-react" name="feature-with-product-image-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-product-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/feature/feature-with-product-image.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/feature/feature-with-product-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeatureWithProductImage } from "@/components/emails/marketing/feature/feature-with-product-image";
+```
+
+```tsx
+<FeatureWithProductImage {...FeatureWithProductImage.PreviewProps} />
+```
+
+## Examples
+
+### Image Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-product-image-demo"
+  variant="image-left"
+  hideCode
+/>
+
+### Image Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="feature-with-product-image-demo"
+  variant="image-right"
+  hideCode
+/>
+
+## API Reference
+
+| Prop          | Type                             | Default          | Description                                       |
+| ------------- | -------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`       | Renderer theme                   | `defaultTheme`   | Renderer theme configuration                      |
+| `variant`     | `FeatureWithProductImageVariant` | `"image-left"`   | Places the product image before or after the copy |
+| Content props | `string`                         | Mailviews data   | Heading, body, button, image, and arrow content   |
+| Color props   | `string`                         | Mailviews colors | Canvas, surface, copy, and link colors            |

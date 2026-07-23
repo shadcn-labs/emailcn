@@ -1,7 +1,11 @@
 ---
 title: "Simple Social Logos Row"
-description: "Marketing social variant for email templates"
+description: "Mailviews social logo row with centered title and supporting copy"
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="react-email" name="simple-social-logos-row-demo" />
 
@@ -37,14 +41,15 @@ npx shadcn@latest add @emailcn/simple-social-logos-row
 
 ```tsx
 import { SimpleSocialLogosRow } from "@/components/emails/marketing/social/simple-social-logos-row";
-```
 
-```tsx
-<SimpleSocialLogosRow {...SimpleSocialLogosRow.PreviewProps} />
+<SimpleSocialLogosRow />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                     | Default             | Description                  |
+| ------------- | ------------------------ | ------------------- | ---------------------------- |
+| `items`       | `SimpleSocialLogoItem[]` | Mailviews icons     | Social links and icon assets |
+| `title`       | `string`                 | `"Connect with us"` | Section title                |
+| `description` | `string`                 | Mailviews copy      | Supporting text              |
+| `theme`       | `TailwindConfig`         | `defaultTheme`      | Email theme configuration    |

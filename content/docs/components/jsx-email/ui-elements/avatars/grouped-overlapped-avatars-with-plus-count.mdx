@@ -1,0 +1,113 @@
+---
+title: "Grouped Overlapped Avatars with Plus Count"
+description: "Mailviews grouped avatars with a trailing count, available in every supported size."
+---
+
+## Examples
+
+### XS
+
+<ComponentPreview
+  base="jsx-email"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="xs"
+/>
+
+### S
+
+<ComponentPreview
+  base="jsx-email"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="sm"
+/>
+
+### M
+
+<ComponentPreview
+  base="jsx-email"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="md"
+/>
+
+### L
+
+<ComponentPreview
+  base="jsx-email"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="lg"
+/>
+
+### XL
+
+<ComponentPreview
+  base="jsx-email"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="xl"
+/>
+
+### 2XL
+
+<ComponentPreview
+  base="jsx-email"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="2xl"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grouped-overlapped-avatars-with-plus-count
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the shared avatar primitives into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/avatars/avatar-shared.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/avatars/avatar-shared.tsx"
+  />
+  <Step>Copy the canonical grouped avatar component into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+  />
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GroupedOverlappedAvatarsPlusCount } from "@/components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count";
+```
+
+```tsx
+<GroupedOverlappedAvatarsPlusCount size="md" plusCount={5} />
+```
+
+## API Reference
+
+| Prop        | Type                                            | Default        | Description                    |
+| ----------- | ----------------------------------------------- | -------------- | ------------------------------ |
+| `avatars`   | `AvatarItem[]`                                  | Four avatars   | Images displayed in the group  |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"`         | Avatar and overlap size        |
+| `plusCount` | `number`                                        | `5`            | Number shown after the avatars |
+| `theme`     | Email theme type                                | `defaultTheme` | Email framework theme          |

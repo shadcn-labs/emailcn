@@ -1,5 +1,5 @@
-import { CircleTilesSocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/circle-tiles-social-logos";
+import { SocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/social-logos";
 
 export default function CircleTilesSocialLogosDemo() {
-  return <CircleTilesSocialLogos {...CircleTilesSocialLogos.PreviewProps} />;
+  return <SocialLogos {...SocialLogos.PreviewProps} variant="circle-tiles" />;
 }

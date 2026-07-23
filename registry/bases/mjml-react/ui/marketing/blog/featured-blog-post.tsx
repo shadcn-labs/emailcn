@@ -1,149 +1,74 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlImage,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/blog/blog-shared";
 
-export type BlogGridVariant = "default" | "slanted-left" | "slanted-right";
-
-export interface BlogGridProps {
+export interface FeaturedBlogPostProps {
   theme?: EmailThemeTokens;
-  posts?: {
-    imageUrl?: string;
-    title: string;
-    description: string;
-    date?: string;
-  }[];
-  variant?: BlogGridVariant;
+  author?: string;
+  badge?: string;
+  excerpt?: string;
+  imageAlt?: string;
+  imageSrc?: string;
+  title?: string;
 }
 
-const BlogGridSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogGridProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogGridVariant;
-}) => {
-  const items = posts ?? [];
+export const FeaturedBlogPostSection = ({
+  author = "John Doe",
+  badge = "Featured",
+  excerpt = "A compelling excerpt from the featured article.",
+  imageAlt = "Editorial feature",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
+  title = "Featured article",
+}: Omit<FeaturedBlogPostProps, "theme">) => {
+  const posts = [
+    {
+      author,
+      badge,
+      excerpt,
+      imageAlt,
+      imageSrc,
+      title,
+    },
+  ];
 
   return (
-    <MjmlSection
-      backgroundColor={theme.colorBackground}
-      padding={`${theme.spacingXl ?? "48px"} 0`}
-    >
-      {items.slice(0, 3).map((post, i) => (
-        <MjmlColumn
-          key={post.title + i}
-          width="33.33%"
-          padding={theme.spacingBase ?? "24px"}
-          verticalAlign="top"
-        >
-          {post.imageUrl ? (
-            <MjmlImage
-              alt={post.title}
-              borderRadius={theme.borderRadius}
-              src={post.imageUrl}
-              width={180}
-              paddingBottom={theme.spacingBase ?? "24px"}
-            />
-          ) : null}
-          {post.date ? (
-            <MjmlText
-              color={theme.colorTextSubtle}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "12px"}
-              paddingBottom={theme.spacingBase ?? "8px"}
-            >
-              {post.date}
-            </MjmlText>
-          ) : null}
-          <MjmlText
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeLg ?? "16px"}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "8px"}
-          >
-            {post.title}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase ?? "14px"}
-            lineHeight={theme.lineHeightBase}
-          >
-            {post.description}
-          </MjmlText>
-        </MjmlColumn>
-      ))}
-    </MjmlSection>
+    <>
+      <BlogContent layout="featured" posts={posts} />
+    </>
   );
 };
 
 export const FeaturedBlogPost = ({
   theme = defaultTheme,
-  posts = [
-    { description: "Description of the blog post.", title: "Blog Post Title" },
-  ],
-  variant = "default",
-}: BlogGridProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>blog grid</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BlogGridSection posts={posts} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  author = "John Doe",
+  badge = "Featured",
+  excerpt = "A compelling excerpt from the featured article.",
+  imageAlt = "Editorial feature",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
+  title = "Featured article",
+}: FeaturedBlogPostProps) => (
+  <BlogEmailShell preview={title} theme={theme}>
+    <FeaturedBlogPostSection
+      author={author}
+      badge={badge}
+      excerpt={excerpt}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      title={title}
+    />
+  </BlogEmailShell>
 );
 
 FeaturedBlogPost.PreviewProps = {
-  posts: [
-    {
-      date: "May 2026",
-      description: "Building better emails with our component library.",
-      imageUrl: "https://static.photos/travel/300x200/2",
-      title: "Getting Started",
-    },
-    {
-      date: "Apr 2026",
-      description: "How to design responsive email templates.",
-      imageUrl: "https://static.photos/travel/300x200/3",
-      title: "Responsive Design",
-    },
-    {
-      date: "Mar 2026",
-      description: "Best practices for email marketing.",
-      imageUrl: "https://static.photos/travel/300x200/4",
-      title: "Email Marketing",
-    },
-  ],
+  author: "John Doe",
+  badge: "Featured",
+  excerpt: "A compelling excerpt from the featured article.",
+  imageAlt: "Editorial feature",
+  imageSrc:
+    "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogGridProps;
+  title: "Featured article",
+} satisfies FeaturedBlogPostProps;

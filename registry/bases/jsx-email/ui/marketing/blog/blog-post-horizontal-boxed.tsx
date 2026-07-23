@@ -1,118 +1,62 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+} from "@/registry/bases/jsx-email/ui/marketing/blog/blog-shared";
 
-export type BlogDarkVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogDarkProps {
+export interface BlogPostHorizontalBoxedProps {
   theme?: EmailThemeTokens;
-  posts?: { title: string; description: string }[];
-  variant?: BlogDarkVariant;
+  excerpt?: string;
+  imageAlt?: string;
+  imageSrc?: string;
+  title?: string;
 }
-const BlogDarkSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogDarkProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogDarkVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorText,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {(posts ?? []).slice(0, 2).map((post, i) => (
-          <Section
-            key={post.title + i}
-            style={{ padding: `${theme.spacingBase ?? "16px"} 0` }}
-          >
-            <Row>
-              <Text
-                style={{
-                  color: theme.colorBackground,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeLg,
-                  fontWeight: theme.fontWeightMedium,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "4px",
-                }}
-              >
-                {post.title}
-              </Text>
-              <Text
-                style={{
-                  color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeBase,
-                  lineHeight: theme.lineHeightBase,
-                  margin: 0,
-                }}
-              >
-                {post.description}
-              </Text>
-            </Row>
-          </Section>
-        ))}
-      </Column>
-    </Row>
-  </Section>
-);
+
+export const BlogPostHorizontalBoxedSection = ({
+  excerpt = "A concise summary of the ideas explored in this article.",
+  imageAlt = "Mountain landscape",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  title = "A practical guide to better email",
+}: Omit<BlogPostHorizontalBoxedProps, "theme">) => {
+  const posts = [
+    {
+      excerpt,
+      imageAlt,
+      imageSrc,
+      title,
+    },
+  ];
+
+  return (
+    <>
+      <BlogContent layout="horizontal-boxed" posts={posts} />
+    </>
+  );
+};
+
 export const BlogPostHorizontalBoxed = ({
   theme = defaultTheme,
-  posts = [
-    { description: "Description 1", title: "Post 1" },
-    { description: "Description 2", title: "Post 2" },
-  ],
-  variant = "default",
-}: BlogDarkProps) => (
-  <Html>
-    <Head />
-    <Preview>blog dark</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BlogDarkSection posts={posts} theme={theme} variant={variant} />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  excerpt = "A concise summary of the ideas explored in this article.",
+  imageAlt = "Mountain landscape",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  title = "A practical guide to better email",
+}: BlogPostHorizontalBoxedProps) => (
+  <BlogEmailShell preview={title} theme={theme}>
+    <BlogPostHorizontalBoxedSection
+      excerpt={excerpt}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      title={title}
+    />
+  </BlogEmailShell>
 );
+
 BlogPostHorizontalBoxed.PreviewProps = {
-  posts: [
-    {
-      description: "A comprehensive guide to building email components.",
-      title: "Getting Started Guide",
-    },
-    {
-      description: "Tips for designing emails that convert.",
-      title: "Design Best Practices",
-    },
-  ],
+  excerpt: "A concise summary of the ideas explored in this article.",
+  imageAlt: "Mountain landscape",
+  imageSrc:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogDarkProps;
+  title: "A practical guide to better email",
+} satisfies BlogPostHorizontalBoxedProps;

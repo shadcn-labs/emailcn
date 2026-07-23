@@ -1,7 +1,16 @@
-import { CtaWithTitleAndActionLead } from "@/registry/bases/mjml-react/ui/marketing/cta/cta-with-title-and-action-lead";
+import type { ComponentProps } from "react";
 
-export default function CtaWithTitleAndActionLeadDemo() {
+import { CTAWithTitleAndActionLead } from "@/registry/bases/mjml-react/ui/marketing/cta/cta-with-title-and-action-lead";
+
+export default function CTAWithTitleAndActionLeadDemo({
+  variant,
+}: {
+  variant?: ComponentProps<typeof CTAWithTitleAndActionLead>["variant"];
+}) {
   return (
-    <CtaWithTitleAndActionLead {...CtaWithTitleAndActionLead.PreviewProps} />
+    <CTAWithTitleAndActionLead
+      {...CTAWithTitleAndActionLead.PreviewProps}
+      variant={variant ?? CTAWithTitleAndActionLead.PreviewProps.variant}
+    />
   );
 }

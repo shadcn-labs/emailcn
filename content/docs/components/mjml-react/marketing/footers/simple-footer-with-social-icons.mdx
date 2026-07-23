@@ -1,17 +1,40 @@
 ---
 title: "Simple Footer with Social Icons"
-description: "Marketing footers variant for email templates"
+description: "Mailviews simple social footer in all three alignments"
 ---
+
+## Examples
+
+### Left Aligned
 
 <ComponentPreview
   base="mjml-react"
   name="simple-footer-with-social-icons-demo"
+  variant="left-aligned"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="simple-footer-with-social-icons-demo"
+  variant="centered"
+  hideCode
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="simple-footer-with-social-icons-demo"
+  variant="right-aligned"
+  hideCode
 />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -23,31 +46,24 @@ npx shadcn@latest add @emailcn/simple-footer-with-social-icons
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/footers/simple-footer-with-social-icons.tsx"
-  base="mjml-react"
-  title="components/emails/marketing/footers/simple-footer-with-social-icons.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/footers/simple-footer-with-social-icons.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/footers/simple-footer-with-social-icons.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage

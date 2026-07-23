@@ -1,0 +1,94 @@
+---
+title: "User Details"
+description: "Mailviews user headers with initials or photo avatars"
+---
+
+The two Mailviews user-detail families differ only by avatar treatment, so one `HeaderWithUserDetails` component covers both.
+
+## Examples
+
+### Initials — Left Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-demo"
+  variant="initials-left"
+  hideCode
+/>
+
+### Initials — Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-demo"
+  variant="initials-right"
+  hideCode
+/>
+
+### Photo — Left Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-demo"
+  variant="image-left"
+  hideCode
+/>
+
+### Photo — Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-demo"
+  variant="image-right"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-user-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/headers/header-with-user-details.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/headers/header-with-user-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithUserDetails } from "@/components/emails/marketing/headers/header-with-user-details";
+```
+
+```tsx
+<HeaderWithUserDetails
+  {...HeaderWithUserDetails.PreviewProps}
+  alignment="right"
+  avatar="image"
+/>
+```
+
+## API Reference
+
+| Prop        | Type                             | Default        | Description                      |
+| ----------- | -------------------------------- | -------------- | -------------------------------- |
+| `avatar`    | `HeaderWithUserDetailsAvatar`    | `"initials"`   | Selects initials or photo avatar |
+| `alignment` | `HeaderWithUserDetailsAlignment` | `"left"`       | Places the logo left or right    |
+| `theme`     | Renderer theme                   | `defaultTheme` | Renderer theme configuration     |

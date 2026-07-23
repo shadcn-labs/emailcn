@@ -3,7 +3,6 @@
   "pages": [
     "cards-timeline",
     "changelog-boxed",
-    "stacked-boxed-timeline",
     "changelog",
     "payment-timeline",
     "split-cards",

@@ -5,7 +5,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import { CopyButton } from "@/components/copy-button";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -77,7 +76,6 @@ interface ComponentPreviewClientProps {
   html: string;
   plainText: string | null;
   title?: string;
-  badge?: string;
   className?: string;
   hideNav?: boolean;
   height?: number;
@@ -87,7 +85,6 @@ export const ComponentPreviewClient = ({
   html,
   plainText,
   title,
-  badge,
   className,
   hideNav = false,
   height = 640,
@@ -96,18 +93,9 @@ export const ComponentPreviewClient = ({
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
-      {(title || badge) && (
-        <div className="mb-3 flex items-center gap-2">
-          {title && (
-            <h3 className="text-base font-semibold tracking-tight">{title}</h3>
-          )}
-          {badge && (
-            <Badge className="rounded-md" variant="secondary">
-              {badge}
-            </Badge>
-          )}
-        </div>
-      )}
+      {title ? (
+        <h3 className="mb-3 text-base font-semibold tracking-tight">{title}</h3>
+      ) : null}
 
       <Tabs className="mt-4" value={activeTab} onValueChange={setActiveTab}>
         {!hideNav && (

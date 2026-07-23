@@ -3,12 +3,59 @@ title: "Changelog"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="mjml-react" name="changelog-demo" />
+## Examples
+
+### Muted Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="changelog-demo"
+  variant="muted-left"
+/>
+
+### Muted Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="changelog-demo"
+  variant="muted-right"
+/>
+
+### Basic Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="changelog-demo"
+  variant="basic-left"
+/>
+
+### Basic Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="changelog-demo"
+  variant="basic-right"
+/>
+
+### Accent Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="changelog-demo"
+  variant="accent-left"
+/>
+
+### Accent Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="changelog-demo"
+  variant="accent-right"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +67,24 @@ npx shadcn@latest add @emailcn/changelog
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/timelines/changelog.tsx"
-  base="mjml-react"
-  title="components/emails/marketing/timelines/changelog.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/timelines/changelog.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/timelines/changelog.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -59,6 +99,7 @@ import { Changelog } from "@/components/emails/marketing/timelines/changelog";
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                | Default        | Description                  |
+| --------- | --------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
+| `variant` | `"muted-left" \| "muted-right" \| "basic-left" \| "basic-right" \| "accent-left" \| "accent-right"` | `"muted-left"` | Timeline state and alignment |
+| `theme`   | `EmailThemeTokens`                                                                                  | `defaultTheme` | Email theme styling          |

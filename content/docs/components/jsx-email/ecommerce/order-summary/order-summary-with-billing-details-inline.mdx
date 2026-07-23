@@ -1,0 +1,88 @@
+---
+title: "Order Summary with Billing Details and Payment Method Inline"
+description: "Order Summary with Billing Details and Payment Method Inline with every Mailviews layout variant."
+---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Basic
+
+<ComponentPreview
+  base="jsx-email"
+  name="order-summary-billing-inline-demo"
+  variant="basic"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="order-summary-billing-inline-demo"
+  variant="bordered"
+/>
+
+### Basic with Notes
+
+<ComponentPreview
+  base="jsx-email"
+  name="order-summary-billing-inline-demo"
+  variant="basic-with-notes"
+/>
+
+### Bordered with Notes
+
+<ComponentPreview
+  base="jsx-email"
+  name="order-summary-billing-inline-demo"
+  variant="bordered-with-notes"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/order-summary-with-billing-details-and-payment-method-inline
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OrderSummaryBillingInline } from "@/components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline";
+```
+
+```tsx
+<OrderSummaryBillingInline
+  {...OrderSummaryBillingInline.PreviewProps}
+  variant="basic"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                                                                   | Default        | Description              |
+| --------- | ---------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"basic" \| "bordered" \| "basic-with-notes" \| "bordered-with-notes"` | `"basic"`      | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                     | `defaultTheme` | Email theme styling      |

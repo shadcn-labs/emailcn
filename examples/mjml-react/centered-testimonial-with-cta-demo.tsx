@@ -1,7 +1,10 @@
-import { CenteredTestimonialWithCta } from "@/registry/bases/mjml-react/ui/marketing/testimonials/centered-testimonial-with-cta";
+import { TestimonialWithCta } from "@/registry/bases/mjml-react/ui/marketing/testimonials/testimonial-with-cta";
 
 export default function CenteredTestimonialWithCtaDemo() {
   return (
-    <CenteredTestimonialWithCta {...CenteredTestimonialWithCta.PreviewProps} />
+    <TestimonialWithCta
+      {...TestimonialWithCta.PreviewProps}
+      variant="centered"
+    />
   );
 }

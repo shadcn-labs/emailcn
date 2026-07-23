@@ -1,0 +1,96 @@
+---
+title: "Product Detail with Masonry Image Grid and Details"
+description: "Product Detail with Masonry Image Grid and Details with every Mailviews layout variant."
+---
+
+This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-masonry-demo"
+  variant="default"
+/>
+
+### Rating Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-masonry-demo"
+  variant="rating-top"
+/>
+
+### Header Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-masonry-demo"
+  variant="header-top"
+/>
+
+### Rating Aside
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-masonry-demo"
+  variant="rating-aside"
+/>
+
+### Rating Aside Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-detail-masonry-demo"
+  variant="rating-aside-top"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-detail-with-masonry-image-grid-and-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductDetailMasonry } from "@/components/emails/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details";
+```
+
+```tsx
+<ProductDetailMasonry
+  {...ProductDetailMasonry.PreviewProps}
+  variant="default"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                                                                                | Default        | Description              |
+| --------- | ----------------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                  | `defaultTheme` | Email theme styling      |

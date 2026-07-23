@@ -1,5 +1,15 @@
 import { LogosGrid } from "@/registry/bases/react-email/ui/marketing/logos/logos-grid";
+import type { LogosGridTone } from "@/registry/bases/react-email/ui/marketing/logos/logos-grid";
 
-export default function LogosGridDemo() {
-  return <LogosGrid {...LogosGrid.PreviewProps} />;
+export default function LogosGridDemo({
+  variant,
+}: {
+  variant?: LogosGridTone;
+}) {
+  return (
+    <LogosGrid
+      {...LogosGrid.PreviewProps}
+      tone={variant ?? LogosGrid.PreviewProps.tone}
+    />
+  );
 }

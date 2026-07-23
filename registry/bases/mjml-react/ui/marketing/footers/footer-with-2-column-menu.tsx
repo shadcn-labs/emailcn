@@ -1,159 +1,307 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type FooterColumnsVariant = "default" | "slanted-left" | "slanted-right";
+export type FooterWith2ColumnMenuVariant = "left-logo" | "right-logo";
 
-export interface FooterColumnsProps {
-  theme?: EmailThemeTokens;
-  companyName?: string;
-  columns?: { heading: string; links: { label: string; href: string }[] }[];
-  variant?: FooterColumnsVariant;
+export interface FooterWith2ColumnMenuLink {
+  href: string;
+  label: string;
 }
 
-const FooterColumnsSection = ({
-  columns,
-  companyName,
-  theme,
-  variant,
+export interface FooterWith2ColumnMenuProps {
+  theme?: EmailThemeTokens;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  quickLinks?: FooterWith2ColumnMenuLink[];
+  connectLinks?: FooterWith2ColumnMenuLink[];
+  copyright?: string;
+  unsubscribeHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  mutedTextColor?: string;
+  variant?: FooterWith2ColumnMenuVariant;
+}
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .footer-two-menu-cell { display: block !important; width: 100% !important; }",
+  "  .footer-two-menu-logo { padding-bottom: 24px !important; text-align: left !important; }",
+  "  .footer-two-menu-columns { float: none !important; margin: 0 !important; text-align: left !important; }",
+  "}",
+].join("\n");
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  connectLinks: [
+    { href: "https://facebook.com", label: "Facebook" },
+    { href: "https://github.com", label: "GitHub" },
+    { href: "https://linkedin.com", label: "LinkedIn" },
+    { href: "https://youtube.com", label: "YouTube" },
+    { href: "https://instagram.com", label: "Instagram" },
+  ],
+  copyright: "© 2026 Mailviews. No longer want to receive emails?",
+  headingColor: "#030712",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  mutedTextColor: "#9ca3af",
+  pageBackgroundColor: "#f1f5f9",
+  quickLinks: [
+    { href: "https://example.com/about", label: "About us" },
+    { href: "https://example.com/shop", label: "Shop" },
+    { href: "https://example.com/faq", label: "FAQs" },
+    { href: "https://example.com/contact", label: "Contact us" },
+  ],
+  textColor: "#6b7280",
+  unsubscribeHref: "https://example.com/unsub",
+};
+
+type SectionProps = Omit<FooterWith2ColumnMenuProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const MenuColumn = ({
+  links,
+  props,
+  title,
 }: {
-  columns: FooterColumnsProps["columns"];
-  companyName: string;
-  theme: EmailThemeTokens;
-  variant: FooterColumnsVariant;
+  links: FooterWith2ColumnMenuLink[];
+  props: ResolvedProps;
+  title: string;
 }) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0 ${theme.spacingBase ?? "24px"} 0`}
-  >
-    {(columns ?? []).slice(0, 3).map((col, i) => (
-      <MjmlColumn
-        key={col.heading + i}
-        width={`${100 / Math.min((columns ?? []).length, 3)}%`}
-        padding={theme.spacingBase ?? "24px"}
-        verticalAlign="top"
-      >
-        <MjmlText
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "12px"}
-          fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "8px"}
+  <td style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}>
+    <p
+      style={{
+        color: props.headingColor,
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 600,
+        lineHeight: "24px",
+        margin: "0 0 10px",
+      }}
+    >
+      {title}
+    </p>
+    {links.map((link) => (
+      <p key={link.href} style={{ margin: "0 0 8px" }}>
+        <a
+          href={link.href}
+          style={{
+            color: props.textColor,
+            fontFamily,
+            fontSize: "14px",
+            lineHeight: "20px",
+            textDecoration: "none",
+          }}
         >
-          {col.heading}
-        </MjmlText>
-        {col.links.map((link) => (
-          <MjmlText
-            key={link.label}
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm ?? "11px"}
-            paddingBottom={theme.spacingBase ?? "4px"}
-          >
-            {link.label}
-          </MjmlText>
-        ))}
-      </MjmlColumn>
+          {link.label}
+        </a>
+      </p>
     ))}
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm ?? "11px"}
-      >
-        &copy; {new Date().getFullYear()} {companyName}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
+  </td>
 );
 
+const LogoCell = ({ props }: { props: ResolvedProps }) => (
+  <td
+    className="footer-two-menu-cell footer-two-menu-logo"
+    style={{
+      textAlign: props.variant === "right-logo" ? "right" : "left",
+      verticalAlign: "top",
+      width: "41.666667%",
+    }}
+  >
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td style={{ padding: "0 24px 24px" }}>
+            <a href={props.logoHref}>
+              <img
+                alt={props.logoAlt}
+                src={props.logoSrc}
+                style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                width={55}
+              />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </td>
+);
+
+const MenusCell = ({ props }: { props: ResolvedProps }) => (
+  <td className="footer-two-menu-cell" style={{ verticalAlign: "top" }}>
+    <table
+      align={props.variant === "left-logo" ? "right" : "left"}
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      className="footer-two-menu-columns"
+      role="presentation"
+      style={
+        props.variant === "left-logo"
+          ? { marginLeft: "auto" }
+          : { marginRight: "auto" }
+      }
+    >
+      <tbody>
+        <tr>
+          <MenuColumn
+            links={props.quickLinks}
+            props={props}
+            title="Quick Links"
+          />
+          <MenuColumn
+            links={props.connectLinks}
+            props={props}
+            title="Connect"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </td>
+);
+
+export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
+  const resolved = {
+    ...defaults,
+    ...props,
+    variant: props.variant ?? "left-logo",
+  } as ResolvedProps;
+  const logo = <LogoCell props={resolved} />;
+  const menus = <MenusCell props={resolved} />;
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              padding: "44px 0 24px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  {resolved.variant === "left-logo" ? logo : menus}
+                  {resolved.variant === "left-logo" ? menus : logo}
+                </tr>
+              </tbody>
+            </table>
+            <div style={{ lineHeight: "96px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "left" }}>
+                    <p
+                      style={{
+                        color: resolved.mutedTextColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      {resolved.copyright}{" "}
+                      <a
+                        href={resolved.unsubscribeHref}
+                        style={{
+                          color: resolved.textColor,
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Unsubscribe
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
 export const FooterWith2ColumnMenu = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  companyName = "Acme Inc.",
-  columns = [
-    {
-      heading: "Product",
-      links: [
-        { href: "#", label: "Features" },
-        { href: "#", label: "Pricing" },
-      ],
-    },
-    {
-      heading: "Company",
-      links: [
-        { href: "#", label: "About" },
-        { href: "#", label: "Blog" },
-      ],
-    },
-    {
-      heading: "Support",
-      links: [
-        { href: "#", label: "Docs" },
-        { href: "#", label: "Contact" },
-      ],
-    },
-  ],
-  variant = "default",
-}: FooterColumnsProps) => (
+  variant = "left-logo",
+  ...props
+}: FooterWith2ColumnMenuProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>footer columns</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Footer with 2-column menu</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <FooterColumnsSection
-          columns={columns}
-          companyName={companyName}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <FooterWith2ColumnMenuSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
+
 FooterWith2ColumnMenu.PreviewProps = {
-  columns: [
-    {
-      heading: "Product",
-      links: [
-        { href: "#", label: "Features" },
-        { href: "#", label: "Pricing" },
-      ],
-    },
-    {
-      heading: "Company",
-      links: [
-        { href: "#", label: "About" },
-        { href: "#", label: "Blog" },
-      ],
-    },
-    { heading: "Support", links: [{ href: "#", label: "Contact" }] },
-  ],
-  companyName: "Acme Inc.",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FooterColumnsProps;
+  variant: "left-logo",
+} satisfies FooterWith2ColumnMenuProps;

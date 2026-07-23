@@ -1,174 +1,95 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type BentoGridWithEvenSplitAndImageStatsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  EvenSplitStatsSection,
+} from "./bento-grid-shared";
+import type {
+  BentoImagePlacementVariant,
+  FeatureCardData,
+  MetricCardData,
+  StatCardData,
+} from "./bento-grid-shared";
 
 export interface BentoGridWithEvenSplitAndImageStatsProps {
-  theme?: TailwindConfig;
-  heading?: string;
-  imageSrc?: string;
+  feature?: FeatureCardData;
   imageAlt?: string;
-  statImage1?: string;
-  statImageAlt1?: string;
-  statImage2?: string;
-  statImageAlt2?: string;
-  statImage3?: string;
-  statImageAlt3?: string;
-  variant?: BentoGridWithEvenSplitAndImageStatsVariant;
+  imageSrc?: string;
+  metric?: MetricCardData;
+  stat?: StatCardData;
+  theme?: TailwindConfig;
+  variant?: BentoImagePlacementVariant;
 }
 
-export const BentoGridWithEvenSplitAndImageStatsSection = ({
-  heading = "Stats",
-  imageSrc = "https://static.photos/city/500x400/2",
-  imageAlt = "",
-  statImage1 = "https://static.photos/city/200x100/3",
-  statImageAlt1 = "Stat 1",
-  statImage2 = "https://static.photos/city/200x100/4",
-  statImageAlt2 = "Stat 2",
-  statImage3 = "https://static.photos/city/200x100/5",
-  statImageAlt3 = "Stat 3",
-  variant = "default",
-}: Omit<BentoGridWithEvenSplitAndImageStatsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center font-bold text-heading leading-snug text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/2 pr-4 align-top">
-            <Img
-              src={imageSrc}
-              alt={imageAlt}
-              width="500"
-              height="400"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-          </Column>
-          <Column className="w-1/2 pl-4 align-top">
-            <Img
-              src={statImage1}
-              alt={statImageAlt1}
-              width="200"
-              height="100"
-              className="w-full h-auto rounded-lg object-cover mb-4"
-            />
-            <Img
-              src={statImage2}
-              alt={statImageAlt2}
-              width="200"
-              height="100"
-              className="w-full h-auto rounded-lg object-cover mb-4"
-            />
-            <Img
-              src={statImage3}
-              alt={statImageAlt3}
-              width="200"
-              height="100"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-          </Column>
-        </Row>
-      </Section>
-    </Section>
-  );
+const feature: FeatureCardData = {
+  description: "API response times under 100ms, 99.99% uptime guaranteed.",
+  title: "Low latency. High reliability.",
+};
+const metric: MetricCardData = {
+  change: "10% increase",
+  reportHref: "https://example.com",
+  reportLabel: "View report",
+  title: "API Calls",
+  value: "25,000",
+};
+const stat: StatCardData = {
+  label: "Engine v2",
+  suffix: "faster",
+  value: "75x",
 };
 
-export const BentoGridWithEvenSplitAndImageStats = ({
-  theme = defaultTheme,
-  heading = "Stats",
-  imageSrc = "https://static.photos/city/500x400/6",
+export const BentoGridWithEvenSplitAndImageStatsSection = ({
+  feature: featureData = feature,
   imageAlt = "",
-  statImage1 = "https://static.photos/city/200x100/7",
-  statImageAlt1 = "Stat 1",
-  statImage2 = "https://static.photos/city/200x100/8",
-  statImageAlt2 = "Stat 2",
-  statImage3 = "https://static.photos/city/200x100/9",
-  statImageAlt3 = "Stat 3",
-  variant = "default",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-3.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
+  variant = "image-top-right",
+}: Omit<BentoGridWithEvenSplitAndImageStatsProps, "theme">) => (
+  <EvenSplitStatsSection
+    feature={featureData}
+    imageAlt={imageAlt}
+    imageSrc={imageSrc}
+    metric={metricData}
+    mode="image"
+    stat={statData}
+    variant={variant}
+  />
+);
+
+export const BentoGridWithEvenSplitAndImageStats = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-3.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
+  theme = defaultTheme,
+  variant = "image-top-right",
 }: BentoGridWithEvenSplitAndImageStatsProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <BentoGridWithEvenSplitAndImageStatsSection
-          heading={heading}
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
-          statImage1={statImage1}
-          statImage2={statImage2}
-          statImage3={statImage3}
-          statImageAlt1={statImageAlt1}
-          statImageAlt2={statImageAlt2}
-          statImageAlt3={statImageAlt3}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <BentoEmailShell
+    preview="Bento grid with even split and image stats"
+    theme={theme}
+  >
+    <BentoGridWithEvenSplitAndImageStatsSection
+      feature={featureData}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      metric={metricData}
+      stat={statData}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
 
 BentoGridWithEvenSplitAndImageStats.PreviewProps = {
-  heading: "Stats",
-  imageAlt: "Feature",
-  imageSrc: "https://static.photos/city/500x400/10",
-  statImage1: "https://static.photos/city/200x100/11",
-  statImage2: "https://static.photos/city/200x100/12",
-  statImage3: "https://static.photos/city/200x100/13",
-  statImageAlt1: "Chart 1",
-  statImageAlt2: "Chart 2",
-  statImageAlt3: "Chart 3",
+  feature,
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/bento-3.jpg`,
+  metric,
+  stat,
   theme: defaultTheme,
-  variant: "default",
+  variant: "image-top-right",
 } satisfies BentoGridWithEvenSplitAndImageStatsProps;

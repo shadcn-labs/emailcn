@@ -1,24 +1,15 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Fragment } from "react";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type FooterWithContentAndCtaVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "centered"
+  | "left-aligned"
+  | "right-aligned";
 
 export interface FooterWithContentAndCtaProps {
   theme?: TailwindConfig;
@@ -26,100 +17,234 @@ export interface FooterWithContentAndCtaProps {
   subtext?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  updatePreferencesHref?: string;
+  unsubscribeHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  mutedTextColor?: string;
+  buttonColor?: string;
+  buttonTextColor?: string;
   variant?: FooterWithContentAndCtaVariant;
 }
 
-export const FooterWithContentAndCtaSection = ({
-  heading = "Stay in touch",
-  subtext = "Subscribe to our newsletter.",
-  ctaLabel = "Subscribe",
-  ctaHref = "#",
-  variant = "default",
-}: Omit<FooterWithContentAndCtaProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const defaults = {
+  backgroundColor: "#fffffe",
+  buttonColor: "#4f46e5",
+  buttonTextColor: "#fffffe",
+  ctaHref: "https://example.com",
+  ctaLabel: "Visit website",
+  heading: "Start sending professionally\ndesigned emails today",
+  headingColor: "#030712",
+  logoAlt: "Maizzle",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  mutedTextColor: "#d1d5db",
+  pageBackgroundColor: "#f1f5f9",
+  subtext:
+    "Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed.",
+  textColor: "#6b7280",
+  unsubscribeHref: "https://example.com/unsub",
+  updatePreferencesHref: "https://example.com/update",
+};
+
+type SectionProps = Omit<FooterWithContentAndCtaProps, "theme">;
+type ResolvedProps = typeof defaults &
+  SectionProps & { variant: FooterWithContentAndCtaVariant };
+
+const Multiline = ({ text }: { text: string }) =>
+  text.split("\n").map((line, index) => (
+    <Fragment key={line}>
+      {index > 0 ? <br /> : null}
+      {line}
+    </Fragment>
+  ));
+
+export const FooterWithContentAndCtaSection = (props: SectionProps) => {
+  const resolved = {
+    ...defaults,
+    ...props,
+    variant: props.variant ?? "centered",
+  } as ResolvedProps;
+  const textAlign = {
+    centered: "center",
+    "left-aligned": "left",
+    "right-aligned": "right",
+  }[resolved.variant] as "center" | "left" | "right";
 
   return (
-    <Section className={`bg-background py-8 ${getVariantClass()}`}>
-      <Container
-        className={`mx-auto max-w-container text-center ${getUnskewClass()}`}
-      >
-        <Text className="m-0 mb-2 text-lg font-medium text-foreground">
-          {heading}
-        </Text>
-        <Text className="m-0 mb-6 text-sm text-foreground-muted">
-          {subtext}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            className="inline-block rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-fg no-underline"
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              width: "600px",
+            }}
           >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Container>
-    </Section>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "44px 24px 24px", textAlign }}>
+                    <p
+                      style={{
+                        color: resolved.headingColor,
+                        fontFamily,
+                        fontSize: "20px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      <Multiline text={resolved.heading} />
+                    </p>
+                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
+                    <p
+                      style={{
+                        color: resolved.textColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      {resolved.subtext}
+                    </p>
+                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
+                    <div>
+                      <a
+                        href={resolved.ctaHref}
+                        style={{
+                          backgroundColor: resolved.buttonColor,
+                          borderRadius: "8px",
+                          color: resolved.buttonTextColor,
+                          display: "inline-block",
+                          fontFamily,
+                          fontSize: "16px",
+                          fontWeight: 500,
+                          lineHeight: 1,
+                          padding: "14px 48px",
+                          textDecoration: "none",
+                        }}
+                      >
+                        <span
+                          style={{ marginRight: "8px", msoTextRaise: "14px" }}
+                        >
+                          {resolved.ctaLabel}
+                        </span>
+                        <span style={{ msoTextRaise: "14px" }}>
+                          <img
+                            alt=""
+                            src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+                            style={{
+                              maxWidth: "100%",
+                              verticalAlign: "baseline",
+                            }}
+                            width={12}
+                          />
+                        </span>
+                      </a>
+                    </div>
+                    <div style={{ lineHeight: "96px" }}>&zwj;</div>
+                    <img
+                      alt={resolved.logoAlt}
+                      src={resolved.logoSrc}
+                      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                      width={55}
+                    />
+                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                    <p
+                      style={{
+                        color: resolved.mutedTextColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      © 2026 Mailviews. All rights reserved.
+                      <br />
+                      <br />
+                      Want to change how you receive these emails?
+                      <br />
+                      You can{" "}
+                      <a
+                        href={resolved.updatePreferencesHref}
+                        style={{
+                          color: resolved.mutedTextColor,
+                          textDecoration: "underline",
+                        }}
+                      >
+                        update your preferences
+                      </a>{" "}
+                      or{" "}
+                      <a
+                        href={resolved.unsubscribeHref}
+                        style={{
+                          color: resolved.mutedTextColor,
+                          textDecoration: "underline",
+                        }}
+                      >
+                        unsubscribe from this list.
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const FooterWithContentAndCta = ({
-  theme = defaultTheme,
-  heading = "Stay in touch",
-  subtext = "Subscribe to our newsletter.",
-  ctaLabel = "Subscribe",
-  ctaHref = "#",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "centered",
+  ...props
 }: FooterWithContentAndCtaProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <FooterWithContentAndCtaSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          heading={heading}
-          subtext={subtext}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>{props.heading ?? defaults.heading.replaceAll("\n", " ")}</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <FooterWithContentAndCtaSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
+    </Body>
   </Html>
 );
 
 FooterWithContentAndCta.PreviewProps = {
-  ctaHref: "https://example.com",
-  ctaLabel: "Subscribe",
-  heading: "Stay in touch",
-  subtext: "Subscribe to our newsletter.",
   theme: defaultTheme,
-  variant: "default",
+  variant: "centered",
 } satisfies FooterWithContentAndCtaProps;

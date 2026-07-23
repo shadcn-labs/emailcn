@@ -3,12 +3,51 @@ title: "Cards Timeline"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="jsx-email" name="cards-timeline-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="cards-timeline-demo"
+  variant="default"
+/>
+
+### With Badge
+
+<ComponentPreview
+  base="jsx-email"
+  name="cards-timeline-demo"
+  variant="with-badge"
+/>
+
+### With Accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="cards-timeline-demo"
+  variant="with-accent"
+/>
+
+### Image Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="cards-timeline-demo"
+  variant="image-top"
+/>
+
+### Image Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="cards-timeline-demo"
+  variant="image-bottom"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +59,24 @@ npx shadcn@latest add @emailcn/cards-timeline
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/marketing/timelines/cards-timeline.tsx"
-  base="jsx-email"
-  title="components/emails/marketing/timelines/cards-timeline.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/timelines/cards-timeline.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/timelines/cards-timeline.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -59,6 +91,7 @@ import { CardsTimeline } from "@/components/emails/marketing/timelines/cards-tim
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                          | Default        | Description              |
+| --------- | ----------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "with-badge" \| "with-accent" \| "image-top" \| "image-bottom"` | `"default"`    | Mailviews card treatment |
+| `theme`   | `EmailThemeTokens`                                                            | `defaultTheme` | Email theme styling      |

@@ -1,212 +1,294 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlButton,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type PricingSideBySideVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-
-export interface PricingSideBySideProps {
-  theme?: EmailThemeTokens;
-  plans?: {
-    name: string;
-    price: string;
-    period: string;
-    features: string[];
-    ctaLabel: string;
-    ctaHref: string;
-    highlighted?: boolean;
-  }[];
-  variant?: PricingSideBySideVariant;
+export interface PricingFeature {
+  label: string;
+  muted?: boolean;
 }
 
-const PricingSideBySideSection = ({
-  plans,
-  theme,
-  variant,
-}: {
-  plans: PricingSideBySideProps["plans"];
-  theme: EmailThemeTokens;
-  variant: PricingSideBySideVariant;
-}) => {
-  const items = (plans ?? []).slice(0, 2);
+export interface FullWidthSinglePricingProps {
+  theme?: EmailThemeTokens;
+  name?: string;
+  price?: string;
+  currency?: string;
+  period?: string;
+  description?: string;
+  features?: PricingFeature[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  brandColor?: string;
+}
 
-  return (
-    <MjmlSection
-      backgroundColor={theme.colorBackground}
-      padding={`${theme.spacingXl ?? "48px"} 0`}
-    >
-      {items.map((plan, i) => (
-        <MjmlColumn
-          key={plan.name + i}
-          width={`${100 / Math.max(items.length, 1)}%`}
-          padding={theme.spacingBase ?? "24px"}
-          verticalAlign="top"
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .single-pricing-break { display: none !important; }",
+  "}",
+].join("\n");
+
+const defaultFeatures: PricingFeature[] = [
+  { label: "Visual email editor" },
+  { label: "Transactional & marketing templates" },
+  { label: "Team collaboration (up to 3 users)", muted: true },
+  { label: "Version control & previews", muted: true },
+];
+
+export const FullWidthSinglePricingSection = ({
+  name = "Takeoff",
+  price = "$19",
+  currency = "USD",
+  period = "/Month",
+  description = "Everything you need to design, build, and ship emails faster.",
+  features = defaultFeatures,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  cardBackgroundColor = "#f9fafb",
+  brandColor = "#4f46e5",
+}: Omit<FullWidthSinglePricingProps, "theme">) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ backgroundColor: pageBackgroundColor }}
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td>&zwj;</td>
+        <td
+          style={{
+            backgroundColor,
+            maxWidth: "100%",
+            paddingBottom: "44px",
+            width: "600px",
+          }}
         >
-          <MjmlSection
-            backgroundColor={
-              plan.highlighted
-                ? theme.colorBackgroundMuted
-                : theme.colorBackground
-            }
-            border={
-              plan.highlighted
-                ? `2px solid ${theme.colorPrimary}`
-                : `1px solid ${theme.colorBorder ?? "#e5e7eb"}`
-            }
-            borderRadius={theme.borderRadius}
-            padding={theme.spacingXl ?? "24px"}
+          <table
+            border={0}
+            cellPadding={0}
+            cellSpacing={0}
+            role="presentation"
+            width="100%"
           >
-            <MjmlText
-              align="center"
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeLg ?? "16px"}
-              fontWeight={theme.fontWeightMedium}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {plan.name}
-            </MjmlText>
-            <MjmlText
-              align="center"
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeHeading}
-              fontWeight={theme.fontWeightBold}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {plan.price}
-              <span
-                style={{
-                  color: theme.colorTextMuted,
-                  fontSize: theme.fontSizeSm ?? "14px",
-                }}
-              >
-                {plan.period}
-              </span>
-            </MjmlText>
-            {plan.features.map((f, fi) => (
-              <MjmlText
-                key={plan.name + f + fi}
-                align="center"
-                color={theme.colorTextMuted}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeBase ?? "14px"}
-                lineHeight={theme.lineHeightBase}
-                paddingBottom={theme.spacingBase ?? "8px"}
-              >
-                &bull; {f}
-              </MjmlText>
-            ))}
-            <MjmlButton
-              align="center"
-              backgroundColor={theme.colorPrimary}
-              borderRadius={theme.borderRadius}
-              color={theme.colorPrimaryForeground}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "14px"}
-              fontWeight={theme.fontWeightMedium}
-              href={plan.ctaHref}
-              innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
-            >
-              {plan.ctaLabel}
-            </MjmlButton>
-          </MjmlSection>
-        </MjmlColumn>
-      ))}
-    </MjmlSection>
-  );
-};
+            <tbody>
+              <tr>
+                <td style={{ padding: "0 24px" }}>
+                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                  <table
+                    border={0}
+                    cellPadding={0}
+                    cellSpacing={0}
+                    role="presentation"
+                    width="100%"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          style={{
+                            backgroundColor: cardBackgroundColor,
+                            borderRadius: "8px",
+                            padding: "24px",
+                          }}
+                        >
+                          <p
+                            style={{
+                              color: brandColor,
+                              fontFamily,
+                              fontSize: "24px",
+                              fontWeight: 600,
+                              lineHeight: "32px",
+                              margin: 0,
+                            }}
+                          >
+                            {name}
+                          </p>
+                          <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                          <table
+                            border={0}
+                            cellPadding={0}
+                            cellSpacing={0}
+                            role="presentation"
+                          >
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <p
+                                    style={{
+                                      color: "#030712",
+                                      fontFamily,
+                                      fontSize: "60px",
+                                      fontWeight: 600,
+                                      lineHeight: 1,
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {price}
+                                  </p>
+                                </td>
+                                <td style={{ width: "8px" }}>&zwj;</td>
+                                <td>
+                                  <p
+                                    style={{
+                                      color: "#374151",
+                                      fontFamily,
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {currency}
+                                  </p>
+                                  <p
+                                    style={{
+                                      color: "#6b7280",
+                                      fontFamily,
+                                      fontSize: "14px",
+                                      lineHeight: "20px",
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {period}
+                                  </p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                          <p
+                            style={{
+                              color: "#030712",
+                              fontFamily,
+                              fontSize: "18px",
+                              fontWeight: 500,
+                              lineHeight: "28px",
+                              margin: 0,
+                            }}
+                          >
+                            {description ===
+                            "Everything you need to design, build, and ship emails faster." ? (
+                              <>
+                                Everything you need to design, build,{" "}
+                                <br className="single-pricing-break" /> and ship
+                                emails faster.
+                              </>
+                            ) : (
+                              description
+                            )}
+                          </p>
+                          <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                          <table
+                            border={0}
+                            cellPadding={0}
+                            cellSpacing={0}
+                            role="presentation"
+                          >
+                            <tbody>
+                              {features.map((feature, index) => (
+                                <tr key={feature.label}>
+                                  <td
+                                    style={{
+                                      lineHeight: "24px",
+                                      verticalAlign: "top",
+                                      width: "16px",
+                                    }}
+                                  >
+                                    <img
+                                      alt=""
+                                      src={`https://assets.mailviews.com/images/components/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                                      style={{
+                                        maxWidth: "100%",
+                                        verticalAlign: "middle",
+                                      }}
+                                      width={16}
+                                    />
+                                  </td>
+                                  <td style={{ width: "12px" }}>&zwj;</td>
+                                  <td
+                                    style={{
+                                      paddingBottom:
+                                        index < features.length - 1
+                                          ? "16px"
+                                          : 0,
+                                      verticalAlign: "top",
+                                    }}
+                                  >
+                                    <p
+                                      style={{
+                                        color: feature.muted
+                                          ? "#9ca3af"
+                                          : "#4b5563",
+                                        fontFamily,
+                                        fontSize: "16px",
+                                        lineHeight: "24px",
+                                        margin: 0,
+                                      }}
+                                    >
+                                      {feature.label}
+                                    </p>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>&zwj;</td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 export const FullWidthSinglePricing = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  plans = [
-    {
-      ctaHref: "#",
-      ctaLabel: "Get Started",
-      features: ["1 user", "5 projects"],
-      name: "Basic",
-      period: "/mo",
-      price: "$9",
-    },
-    {
-      ctaHref: "#",
-      ctaLabel: "Get Started",
-      features: ["5 users", "Unlimited projects", "Priority support"],
-      highlighted: true,
-      name: "Pro",
-      period: "/mo",
-      price: "$29",
-    },
-  ],
-  variant = "default",
-}: PricingSideBySideProps) => (
+  ...props
+}: FullWidthSinglePricingProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>pricing side-by-side</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
+    <MjmlPreview>Takeoff pricing</MjmlPreview>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <PricingSideBySideSection
-          plans={plans}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <FullWidthSinglePricingSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 FullWidthSinglePricing.PreviewProps = {
-  plans: [
-    {
-      ctaHref: "https://example.com/signup",
-      ctaLabel: "Get Started",
-      features: ["1 user", "5 projects", "Basic support"],
-      name: "Basic",
-      period: "/mo",
-      price: "$9",
-    },
-    {
-      ctaHref: "https://example.com/signup",
-      ctaLabel: "Get Started",
-      features: [
-        "5 users",
-        "Unlimited projects",
-        "Priority support",
-        "Custom branding",
-      ],
-      highlighted: true,
-      name: "Pro",
-      period: "/mo",
-      price: "$29",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies PricingSideBySideProps;
+} satisfies FullWidthSinglePricingProps;

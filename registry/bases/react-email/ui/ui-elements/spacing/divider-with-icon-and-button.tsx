@@ -1,89 +1,77 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Link, Text } from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
+import {
+  DividerFrame,
+  SpacingEmailShell,
+  dividerButtonStyle,
+  dividerTextStyle,
+} from "./divider-shared";
+import type { DividerVariant } from "./divider-shared";
+
 export interface DividerWithIconButtonProps {
-  theme?: TailwindConfig;
+  href?: string;
   icon?: string;
   label?: string;
-  href?: string;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  theme?: TailwindConfig;
+  variant?: DividerVariant;
 }
 
 export const DividerWithIconButtonSection = ({
-  icon = "\u279C",
-  label = "Learn More",
   href = "#",
-  variant = "default",
-}: Omit<DividerWithIconButtonProps, "theme">) => {
-  const textAlign =
-    variant === "slanted-left"
-      ? "text-left"
-      : variant === "slanted-right"
-        ? "text-right"
-        : "text-center";
-
-  return (
-    <Section className="py-6">
-      <div className="flex items-center">
-        <Hr className="flex-1 border-border" />
-        <div className={`mx-4 flex items-center gap-2 ${textAlign}`}>
-          <Text className="m-0 text-lg">{icon}</Text>
-          <Button
-            href={href}
-            className="inline-block rounded-md bg-primary px-4 py-2 text-xs font-medium text-primary-fg no-underline whitespace-nowrap"
-          >
-            {label}
-          </Button>
-        </div>
-        <Hr className="flex-1 border-border" />
-      </div>
-    </Section>
-  );
-};
+  icon = "➜",
+  label = "Learn More",
+  variant = "center",
+}: Omit<DividerWithIconButtonProps, "theme">) => (
+  <DividerFrame variant={variant}>
+    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
+      <tbody>
+        <tr>
+          <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
+            <Text
+              style={{
+                ...dividerTextStyle,
+                fontSize: "18px",
+                lineHeight: "28px",
+              }}
+            >
+              {icon}
+            </Text>
+          </td>
+          <td style={{ verticalAlign: "middle" }}>
+            <Link href={href} style={dividerButtonStyle}>
+              {label}
+            </Link>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </DividerFrame>
+);
 
 export const DividerWithIconButton = ({
-  theme = defaultTheme,
-  icon = "\u279C",
-  label = "Learn More",
   href = "#",
-  variant = "default",
+  icon = "➜",
+  label = "Learn More",
+  theme = defaultTheme,
+  variant = "center",
 }: DividerWithIconButtonProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{label}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <DividerWithIconButtonSection
-          icon={icon}
-          label={label}
-          href={href}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <SpacingEmailShell preview={label} theme={theme}>
+    <DividerWithIconButtonSection
+      href={href}
+      icon={icon}
+      label={label}
+      variant={variant}
+    />
+  </SpacingEmailShell>
 );
 
 DividerWithIconButton.PreviewProps = {
-  href: "https://example.com/discover",
-  icon: "\u279C",
-  label: "Discover",
+  href: "https://example.com",
+  icon: "➜",
+  label: "Learn More",
   theme: defaultTheme,
-  variant: "default",
+  variant: "center",
 } satisfies DividerWithIconButtonProps;

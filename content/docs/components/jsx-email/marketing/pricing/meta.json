@@ -1,8 +1,4 @@
 {
   "title": "Pricing Table",
-  "pages": [
-    "full-width-single-pricing",
-    "two-columns-pricing-table",
-    "two-columns-pricing-table-with-gaps"
-  ]
+  "pages": ["full-width-single", "2-columns", "2-columns-with-gaps"]
 }

@@ -1,14 +1,51 @@
 ---
 title: "Basic Logo Cloud"
-description: "Marketing logos variant for email templates"
+description: "Mailviews logo cloud with optional title and description"
 ---
 
-<ComponentPreview base="jsx-email" name="basic-logo-cloud-demo" />
+The four Mailviews arrangements share one component. Select the content treatment with `variant`.
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="basic-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="jsx-email"
+  name="basic-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="jsx-email"
+  name="basic-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="basic-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +57,18 @@ npx shadcn@latest add @emailcn/basic-logo-cloud
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/marketing/logos/basic-logo-cloud.tsx"
-  base="jsx-email"
-  title="components/emails/marketing/logos/basic-logo-cloud.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/logos/basic-logo-cloud.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/logos/basic-logo-cloud.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -54,11 +78,12 @@ import { BasicLogoCloud } from "@/components/emails/marketing/logos/basic-logo-c
 ```
 
 ```tsx
-<BasicLogoCloud {...BasicLogoCloud.PreviewProps} />
+<BasicLogoCloud {...BasicLogoCloud.PreviewProps} variant="with-title" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                    | Default        | Description                         |
+| --------- | ----------------------- | -------------- | ----------------------------------- |
+| `variant` | `BasicLogoCloudVariant` | `"full"`       | Selects the Mailviews content state |
+| `theme`   | Renderer theme          | `defaultTheme` | Renderer theme configuration        |

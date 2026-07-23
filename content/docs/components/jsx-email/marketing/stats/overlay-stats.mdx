@@ -1,0 +1,77 @@
+---
+title: "Overlay Stats"
+description: "Mailviews background-image stats family"
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlay-stats-demo"
+  variant="default"
+/>
+
+### 3 columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlay-stats-demo"
+  variant="three-columns"
+/>
+
+### Bento
+
+<ComponentPreview base="jsx-email" name="overlay-stats-demo" variant="bento" />
+
+### Bento reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlay-stats-demo"
+  variant="bento-reversed"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/overlay-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/stats/overlay-stats.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/stats/overlay-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OverlayStats } from "@/components/emails/marketing/stats/overlay-stats";
+
+<OverlayStats variant="three-columns" />;
+```
+
+## API Reference
+
+| Prop      | Type                                                          | Default        | Description              |
+| --------- | ------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "three-columns" \| "bento" \| "bento-reversed"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                            | `defaultTheme` | Email theme styling      |

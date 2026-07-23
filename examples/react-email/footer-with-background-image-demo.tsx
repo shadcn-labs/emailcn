@@ -1,0 +1,21 @@
+import { FooterWithBackgroundImage } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-background-image";
+import type { FooterWithBackgroundImageVariant } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-background-image";
+
+export default function FooterWithBackgroundImageDemo({
+  variant = "bottom-image-content",
+}: {
+  variant?: string;
+}) {
+  const logoPosition = variant.endsWith("-right-logo") ? "right" : "left";
+  const componentVariant = variant.replace(
+    /-(left|right)-logo$/,
+    ""
+  ) as FooterWithBackgroundImageVariant;
+  return (
+    <FooterWithBackgroundImage
+      {...FooterWithBackgroundImage.PreviewProps}
+      logoPosition={logoPosition}
+      variant={componentVariant}
+    />
+  );
+}

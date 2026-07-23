@@ -1,13 +1,10 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
-  Column,
+  Container,
   Head,
   Html,
   Img,
   Preview,
-  Row,
-  Section,
   Tailwind,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
@@ -16,150 +13,372 @@ import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type ThreeColumnsMasonryImageGridVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "stacked-left"
+  | "stacked-right"
+  | "stacked-left-overlay"
+  | "stacked-right-overlay";
 
 export interface ThreeColumnsMasonryImageGridProps {
   theme?: TailwindConfig;
-  imageSrc1?: string;
-  imageAlt1?: string;
-  imageSrc2?: string;
-  imageAlt2?: string;
-  imageSrc3?: string;
-  imageAlt3?: string;
-  imageSrc4?: string;
-  imageAlt4?: string;
+  stackImageSrc1?: string;
+  stackImageAlt1?: string;
+  stackImageHref1?: string;
+  stackHeading1?: string;
+  stackSubtext1?: string;
+  stackImageSrc2?: string;
+  stackImageAlt2?: string;
+  stackImageHref2?: string;
+  stackHeading2?: string;
+  stackSubtext2?: string;
+  wideImageSrc?: string;
+  wideImageAlt?: string;
+  wideImageHref?: string;
+  wideHeading?: string;
+  wideSubtext?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
   variant?: ThreeColumnsMasonryImageGridVariant;
 }
 
-export const ThreeColumnsMasonryImageGridSection = ({
-  imageSrc1 = "https://static.photos/travel/200x250/2",
-  imageAlt1 = "",
-  imageSrc2 = "https://static.photos/travel/200x400/3",
-  imageAlt2 = "",
-  imageSrc3 = "https://static.photos/travel/200x300/4",
-  imageAlt3 = "",
-  imageSrc4 = "https://static.photos/travel/200x200/5",
-  imageAlt4 = "",
-  variant = "default",
-}: Omit<ThreeColumnsMasonryImageGridProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .three-masonry-stack {
+      display: block !important;
+      width: 100% !important;
     }
-  };
+
+    .three-masonry-gap {
+      line-height: 24px !important;
+    }
+
+    .three-masonry-overlay-spacer {
+      line-height: 296px !important;
+    }
+
+    .three-masonry-heading {
+      font-size: 24px !important;
+      line-height: 32px !important;
+    }
+
+    .three-masonry-text {
+      font-size: 20px !important;
+      line-height: 28px !important;
+    }
+  }
+`;
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  headingColor: "#fffffe",
+  pageBackgroundColor: "#f1f5f9",
+  stackHeading1: "Gunkan Duo",
+  stackHeading2: "Hamachi",
+  stackImageAlt1: "",
+  stackImageAlt2: "",
+  stackImageHref1: "https://example.com",
+  stackImageHref2: "https://example.com",
+  stackImageSrc1:
+    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-stack.jpg",
+  stackImageSrc2:
+    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-stack-2.jpg",
+  stackSubtext1: "Ikura / Citrus Zest",
+  stackSubtext2: "Yellowtail / Herb Dressing",
+  textColor: "#fffffe",
+  wideHeading: "Nigiri Selection",
+  wideImageAlt: "",
+  wideImageHref: "https://example.com",
+  wideImageSrc:
+    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
+  wideSubtext: "Premium Cuts / Seasonal Fish",
+};
+
+type SectionProps = Omit<ThreeColumnsMasonryImageGridProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const PlainImage = ({
+  alt,
+  href,
+  src,
+  width,
+}: {
+  alt: string;
+  href: string;
+  src: string;
+  width: number;
+}) => (
+  <a href={href}>
+    <Img
+      alt={alt}
+      src={src}
+      style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
+      width={width}
+    />
+  </a>
+);
+
+const OverlayCard = ({
+  heading,
+  headingColor,
+  imageSrc,
+  spacer,
+  subtext,
+  textColor,
+}: {
+  heading: string;
+  headingColor: string;
+  imageSrc: string;
+  spacer: string;
+  subtext: string;
+  textColor: string;
+}) => (
+  <div
+    style={{
+      backgroundImage: `url('${imageSrc}')`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      borderRadius: "4px",
+      maxWidth: "100%",
+    }}
+  >
+    <div
+      className="three-masonry-overlay-spacer"
+      style={{ lineHeight: spacer }}
+    >
+      &zwj;
+    </div>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              background: "linear-gradient(to bottom, transparent, #000001)",
+              borderBottomLeftRadius: "4px",
+              borderBottomRightRadius: "4px",
+              padding: "16px",
+              textAlign: "left",
+            }}
+          >
+            <h4
+              className="three-masonry-heading"
+              style={{
+                color: headingColor,
+                fontFamily,
+                fontSize: "20px",
+                fontWeight: 700,
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              {heading}
+            </h4>
+            <p
+              className="three-masonry-text"
+              style={{
+                color: textColor,
+                fontFamily,
+                fontSize: "14px",
+                lineHeight: "20px",
+                margin: 0,
+              }}
+            >
+              {subtext}
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
+
+const StackedColumn = ({
+  overlay,
+  props,
+}: {
+  overlay: boolean;
+  props: ResolvedProps;
+}) => (
+  <>
+    {overlay ? (
+      <OverlayCard
+        heading={props.stackHeading1}
+        headingColor={props.headingColor}
+        imageSrc={props.stackImageSrc1}
+        spacer="106px"
+        subtext={props.stackSubtext1}
+        textColor={props.textColor}
+      />
+    ) : (
+      <PlainImage
+        alt={props.stackImageAlt1}
+        href={props.stackImageHref1}
+        src={props.stackImageSrc1}
+        width={168}
+      />
+    )}
+    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+    {overlay ? (
+      <OverlayCard
+        heading={props.stackHeading2}
+        headingColor={props.headingColor}
+        imageSrc={props.stackImageSrc2}
+        spacer="86px"
+        subtext={props.stackSubtext2}
+        textColor={props.textColor}
+      />
+    ) : (
+      <PlainImage
+        alt={props.stackImageAlt2}
+        href={props.stackImageHref2}
+        src={props.stackImageSrc2}
+        width={168}
+      />
+    )}
+  </>
+);
+
+const WideColumn = ({
+  overlay,
+  props,
+}: {
+  overlay: boolean;
+  props: ResolvedProps;
+}) =>
+  overlay ? (
+    <OverlayCard
+      heading={props.wideHeading}
+      headingColor={props.headingColor}
+      imageSrc={props.wideImageSrc}
+      spacer="316px"
+      subtext={props.wideSubtext}
+      textColor={props.textColor}
+    />
+  ) : (
+    <PlainImage
+      alt={props.wideImageAlt}
+      href={props.wideImageHref}
+      src={props.wideImageSrc}
+      width={360}
+    />
+  );
+
+export const ThreeColumnsMasonryImageGridSection = (props: SectionProps) => {
+  const variant = props.variant ?? "stacked-left";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const overlay = variant.endsWith("overlay");
+  const stackedLeft = variant.startsWith("stacked-left");
+  const stack = <StackedColumn overlay={overlay} props={resolved} />;
+  const wide = <WideColumn overlay={overlay} props={resolved} />;
 
   return (
-    <Section className={`bg-background py-8 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        <Row>
-          <Column className="w-1/3 pr-3 align-top">
-            <Img
-              src={imageSrc1}
-              alt={imageAlt1}
-              width="200"
-              height="250"
-              className="mb-3 w-full h-auto rounded-lg object-cover"
-            />
-            <Img
-              src={imageSrc4}
-              alt={imageAlt4}
-              width="200"
-              height="200"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-          </Column>
-          <Column className="w-1/3 px-3 align-top">
-            <Img
-              src={imageSrc2}
-              alt={imageAlt2}
-              width="200"
-              height="400"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-          </Column>
-          <Column className="w-1/3 pl-3 align-top">
-            <Img
-              src={imageSrc3}
-              alt={imageAlt3}
-              width="200"
-              height="300"
-              className="w-full h-auto rounded-lg object-cover"
-            />
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "24px",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  <td
+                    className="three-masonry-stack"
+                    style={{
+                      verticalAlign: "top",
+                      width: stackedLeft ? "168px" : "360px",
+                    }}
+                  >
+                    {stackedLeft ? stack : wide}
+                  </td>
+                  <td
+                    className="three-masonry-stack three-masonry-gap"
+                    style={{ width: "24px" }}
+                  >
+                    &zwj;
+                  </td>
+                  <td
+                    className="three-masonry-stack"
+                    style={{
+                      verticalAlign: "top",
+                      width: stackedLeft ? "360px" : "168px",
+                    }}
+                  >
+                    {stackedLeft ? wide : stack}
+                  </td>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const ThreeColumnsMasonryImageGrid = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  imageSrc1 = "https://static.photos/travel/200x250/6",
-  imageAlt1 = "",
-  imageSrc2 = "https://static.photos/travel/200x400/7",
-  imageAlt2 = "",
-  imageSrc3 = "https://static.photos/travel/200x300/8",
-  imageAlt3 = "",
-  imageSrc4 = "https://static.photos/travel/200x200/9",
-  imageAlt4 = "",
-  variant = "default",
+  variant = "stacked-left",
+  ...props
 }: ThreeColumnsMasonryImageGridProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>Masonry Grid</Preview>
+    <Preview>Three columns masonry image grid</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <ThreeColumnsMasonryImageGridSection
-          imageAlt1={imageAlt1}
-          imageAlt2={imageAlt2}
-          imageAlt3={imageAlt3}
-          imageAlt4={imageAlt4}
-          imageSrc1={imageSrc1}
-          imageSrc2={imageSrc2}
-          imageSrc3={imageSrc3}
-          imageSrc4={imageSrc4}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <ThreeColumnsMasonryImageGridSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 ThreeColumnsMasonryImageGrid.PreviewProps = {
-  imageAlt1: "Image 1",
-  imageAlt2: "Image 2",
-  imageAlt3: "Image 3",
-  imageAlt4: "Image 4",
-  imageSrc1: "https://static.photos/travel/200x250/10",
-  imageSrc2: "https://static.photos/travel/200x400/11",
-  imageSrc3: "https://static.photos/travel/200x300/12",
-  imageSrc4: "https://static.photos/travel/200x200/13",
   theme: defaultTheme,
-  variant: "default",
+  variant: "stacked-left",
 } satisfies ThreeColumnsMasonryImageGridProps;

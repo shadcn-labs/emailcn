@@ -1,0 +1,100 @@
+---
+title: "Image Strip"
+description: "A split CTA with boxed and full-height image-strip variants on either side"
+---
+
+<ComponentPreview base="jsx-email" name="cta-with-image-strip-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-image-strip
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/cta/cta-with-image-strip.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/cta/cta-with-image-strip.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CTAWithImageStrip } from "@/components/emails/marketing/cta/cta-with-image-strip";
+```
+
+```tsx
+<CTAWithImageStrip {...CTAWithImageStrip.PreviewProps} />
+```
+
+## Examples
+
+### Boxed Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-image-strip-demo"
+  variant="boxed-right"
+  hideCode
+/>
+
+### Boxed Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-image-strip-demo"
+  variant="boxed-left"
+  hideCode
+/>
+
+### Full Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-image-strip-demo"
+  variant="full-right"
+  hideCode
+/>
+
+### Full Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-image-strip-demo"
+  variant="full-left"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                      | Type                       | Default          | Description                                          |
+| ------------------------- | -------------------------- | ---------------- | ---------------------------------------------------- |
+| `theme`                   | `EmailThemeTokens`         | `defaultTheme`   | JSX Email theme tokens                               |
+| `variant`                 | `CTAWithImageStripVariant` | `"boxed-right"`  | Selects the exact Mailviews side and strip treatment |
+| `heading` / `subtext`     | `string`                   | Mailviews copy   | CTA heading and supporting text                      |
+| `ctaLabel` / `ctaHref`    | `string`                   | Mailviews CTA    | Primary action label and destination                 |
+| `imageSrc1` … `imageSrc5` | `string`                   | Variant images   | Image URLs used by the strip                         |
+| `imageAlt1` … `imageAlt5` | `string`                   | `""`             | Alternative text for each strip image                |
+| Color props               | `string`                   | Mailviews colors | Canvas, surface, strip, text, and button colors      |

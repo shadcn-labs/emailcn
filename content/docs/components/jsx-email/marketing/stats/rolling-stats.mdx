@@ -1,0 +1,89 @@
+---
+title: "Rolling Stats"
+description: "Mailviews positioned rolling-stats family"
+---
+
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="centered"
+/>
+
+### Top left
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="top-left"
+/>
+
+### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="bottom-left"
+/>
+
+### Top right
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="top-right"
+/>
+
+### Bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="bottom-right"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/rolling-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/stats/rolling-stats.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/stats/rolling-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { RollingStats } from "@/components/emails/marketing/stats/rolling-stats";
+
+<RollingStats variant="top-left" />;
+```
+
+## API Reference
+
+| Prop      | Type                                                                         | Default        | Description              |
+| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling      |

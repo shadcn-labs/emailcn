@@ -1,149 +1,61 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  reviewsResponsiveStyles,
+  ReviewsSection,
+} from "@/registry/bases/mjml-react/ui/ecommerce/reviews/reviews-shared";
+import type {
+  FullWidthReviewsVariant,
+  ReviewItem,
+} from "@/registry/bases/mjml-react/ui/ecommerce/reviews/reviews-shared";
 
 export interface FullWidthReviewsProps {
+  reviews?: ReviewItem[];
   theme?: EmailThemeTokens;
-  reviews?: {
-    avatarUrl?: string;
-    name: string;
-    rating: number;
-    text: string;
-    date?: string;
-  }[];
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: FullWidthReviewsVariant;
 }
 
-const StarRating = ({
-  rating,
-  theme,
-}: {
-  rating: number;
-  theme: EmailThemeTokens;
-}) => {
-  const stars = "\u2605".repeat(Math.min(rating, 5));
-  const empty = "\u2606".repeat(Math.max(0, 5 - Math.min(rating, 5)));
-  return (
-    <MjmlText
-      color={theme.colorPrimary}
-      fontFamily={theme.fontFamily}
-      fontSize={theme.fontSizeLg ?? "16px"}
-      paddingBottom={theme.spacingBase ?? "16px"}
-    >
-      {stars}
-      {empty ? (
-        <span style={{ color: theme.colorBorder ?? "#e5e7eb" }}>{empty}</span>
-      ) : null}
-    </MjmlText>
-  );
-};
-
-const FullWidthReviewsSection = ({
+export const FullWidthReviewsSection = ({
   reviews,
-  theme,
-  variant,
-}: {
-  reviews: NonNullable<FullWidthReviewsProps["reviews"]>;
-  theme: EmailThemeTokens;
-  variant: NonNullable<FullWidthReviewsProps["variant"]>;
-}) => {
-  const alignText =
-    variant === "slanted-left"
-      ? "left"
-      : variant === "slanted-right"
-        ? "right"
-        : "left";
-
-  return (
-    <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-      {reviews.map((review) => (
-        <MjmlColumn
-          key={review.name}
-          backgroundColor={theme.colorBackgroundMuted}
-          border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-          borderRadius={theme.borderRadius}
-          padding={theme.spacingLg ?? "24px"}
-        >
-          <StarRating rating={review.rating} theme={theme} />
-          <MjmlText
-            align={alignText}
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase ?? "14px"}
-            lineHeight={theme.lineHeightBase}
-          >
-            &ldquo;{review.text}&rdquo;
-          </MjmlText>
-        </MjmlColumn>
-      ))}
-    </MjmlSection>
-  );
-};
+  variant = "with-divider",
+}: Omit<FullWidthReviewsProps, "theme">) => (
+  <ReviewsSection layout="full-width" reviews={reviews} variant={variant} />
+);
 
 export const FullWidthReviews = ({
   theme = defaultTheme,
-  reviews = [{ name: "Alice", rating: 5, text: "Amazing!" }],
-  variant = "default",
+  ...props
 }: FullWidthReviewsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>full-reviews</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Customer review</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{reviewsResponsiveStyles}</MjmlStyle>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
+    <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <FullWidthReviewsSection
-          reviews={reviews}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <div style={{ textAlign: "left" }}>
+            <FullWidthReviewsSection {...props} />
+          </div>
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 FullWidthReviews.PreviewProps = {
-  reviews: [
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128",
-      date: "March 2026",
-      name: "Alex Johnson",
-      rating: 5,
-      text: "Absolutely love this product!",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128",
-      date: "Feb 2026",
-      name: "Maria Garcia",
-      rating: 4,
-      text: "Great value for the price.",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
+  variant: "with-divider",
 } satisfies FullWidthReviewsProps;

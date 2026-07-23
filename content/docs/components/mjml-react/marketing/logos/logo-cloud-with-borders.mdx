@@ -1,14 +1,60 @@
 ---
 title: "Logo Cloud with Borders"
-description: "Marketing logos variant for email templates"
+description: "Mailviews divided logo cloud in every content arrangement"
 ---
 
-<ComponentPreview base="mjml-react" name="logo-cloud-with-borders-demo" />
+All five Mailviews border arrangements are variants of one component.
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-with-borders-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-with-borders-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-with-borders-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-with-borders-demo"
+  variant="full"
+  hideCode
+/>
+
+### Flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-with-borders-demo"
+  variant="flush"
+  hideCode
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +66,18 @@ npx shadcn@latest add @emailcn/logo-cloud-with-borders
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/logos/logo-cloud-with-borders.tsx"
-  base="mjml-react"
-  title="components/emails/marketing/logos/logo-cloud-with-borders.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/logos/logo-cloud-with-borders.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/logos/logo-cloud-with-borders.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -54,11 +87,12 @@ import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-c
 ```
 
 ```tsx
-<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} />
+<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} variant="flush" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                          | Default        | Description                               |
+| --------- | ----------------------------- | -------------- | ----------------------------------------- |
+| `variant` | `LogoCloudWithBordersVariant` | `"full"`       | Selects the Mailviews content arrangement |
+| `theme`   | Renderer theme                | `defaultTheme` | Renderer theme configuration              |

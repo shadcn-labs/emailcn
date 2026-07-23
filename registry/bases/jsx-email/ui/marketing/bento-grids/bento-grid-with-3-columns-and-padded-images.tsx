@@ -1,232 +1,89 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 
-export type BentoGridAlternatingVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-export interface BentoGridAlternatingProps {
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  ThreeColumnsPaddedSection,
+} from "./bento-grid-shared";
+import type {
+  BentoThreeColumnVariant,
+  ThreeColumnPaddedData,
+} from "./bento-grid-shared";
+
+export interface BentoGridWith3ColumnsAndPaddedImagesProps {
+  data?: ThreeColumnPaddedData;
   theme?: EmailThemeTokens;
-  rows?: {
-    imageUrl: string;
-    imageAlt: string;
-    title: string;
-    description: string;
-    align: "left" | "right";
-  }[];
-  variant?: BentoGridAlternatingVariant;
+  variant?: BentoThreeColumnVariant;
 }
-const BentoGridAlternatingSection = ({
-  rows,
-  theme,
-  variant,
-}: {
-  rows: BentoGridAlternatingProps["rows"];
-  theme: EmailThemeTokens;
-  variant: BentoGridAlternatingVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      {(rows ?? []).slice(0, 3).map((row, i) => (
-        <Section
-          key={row.title + i}
-          style={{ padding: `${theme.spacingBase ?? "24px"} 0` }}
-        >
-          <Row>
-            {row.align === "left" ? (
-              <>
-                <Column
-                  style={{
-                    padding: "8px",
-                    verticalAlign: "middle",
-                    width: "40%",
-                  }}
-                >
-                  <Img
-                    alt={row.imageAlt}
-                    src={row.imageUrl}
-                    width={220}
-                    style={{
-                      borderRadius: theme.borderRadius,
-                      display: "block",
-                      margin: "0 auto",
-                      maxWidth: "100%",
-                    }}
-                  />
-                </Column>
-                <Column
-                  style={{
-                    padding: "8px",
-                    verticalAlign: "middle",
-                    width: "60%",
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: theme.colorText,
-                      fontFamily: theme.fontFamily,
-                      fontSize: theme.fontSizeXl,
-                      fontWeight: theme.fontWeightMedium,
-                      margin: 0,
-                      paddingBottom: theme.spacingBase ?? "8px",
-                    }}
-                  >
-                    {row.title}
-                  </Text>
-                  <Text
-                    style={{
-                      color: theme.colorTextMuted,
-                      fontFamily: theme.fontFamily,
-                      fontSize: theme.fontSizeBase,
-                      lineHeight: theme.lineHeightBase,
-                      margin: 0,
-                    }}
-                  >
-                    {row.description}
-                  </Text>
-                </Column>
-              </>
-            ) : (
-              <>
-                <Column
-                  style={{
-                    padding: "8px",
-                    verticalAlign: "middle",
-                    width: "60%",
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: theme.colorText,
-                      fontFamily: theme.fontFamily,
-                      fontSize: theme.fontSizeXl,
-                      fontWeight: theme.fontWeightMedium,
-                      margin: 0,
-                      paddingBottom: theme.spacingBase ?? "8px",
-                    }}
-                  >
-                    {row.title}
-                  </Text>
-                  <Text
-                    style={{
-                      color: theme.colorTextMuted,
-                      fontFamily: theme.fontFamily,
-                      fontSize: theme.fontSizeBase,
-                      lineHeight: theme.lineHeightBase,
-                      margin: 0,
-                    }}
-                  >
-                    {row.description}
-                  </Text>
-                </Column>
-                <Column
-                  style={{
-                    padding: "8px",
-                    verticalAlign: "middle",
-                    width: "40%",
-                  }}
-                >
-                  <Img
-                    alt={row.imageAlt}
-                    src={row.imageUrl}
-                    width={220}
-                    style={{
-                      borderRadius: theme.borderRadius,
-                      display: "block",
-                      margin: "0 auto",
-                      maxWidth: "100%",
-                    }}
-                  />
-                </Column>
-              </>
-            )}
-          </Row>
-        </Section>
-      ))}
-    </Row>
-  </Section>
-);
+
+const item = (
+  image: string,
+  title: string,
+  description = ""
+): ThreeColumnPaddedData["left"] => ({
+  description,
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/${image}.jpg`,
+  title,
+});
+
+const promo = {
+  description: "A striking solo statement that’s both minimal and bold.",
+  title: "The Kartell Collection",
+};
+
+const defaultData: Record<BentoThreeColumnVariant, ThreeColumnPaddedData> = {
+  "captions-bottom": {
+    left: item("3-bento-lg-2-pad", "Milo Bar Stool", "Walnut frame"),
+    middleImages: [item("3-bento-sm-3", ""), item("3-bento-sm-1", "")],
+    right: item("3-bento-lg-1-pad", "Arco Side Chair", "Ocean Shell"),
+  },
+  "captions-bottom-alt": {
+    left: item("3-bento-lg-2-pad", "Milo Bar Stool", "Walnut frame"),
+    middleImages: [item("3-bento-sm-1", "")],
+    promo,
+    right: item("3-bento-lg-4-pad", "Clyde Chairs", "Canadian wood"),
+  },
+  "captions-top": {
+    left: item("3-bento-lg-1-pad", "Arco Side Chair", "Ocean Shell"),
+    middleImages: [item("3-bento-sm-1", ""), item("3-bento-sm-2", "")],
+    right: item("3-bento-lg-2-pad", "Milo Bar Stool", "Walnut frame"),
+  },
+  "captions-top-alt": {
+    left: item("3-bento-lg-3-pad", "Walnut Seat", "Tall barstool"),
+    middleImages: [item("3-bento-sm-1", "")],
+    promo: { ...promo, dark: true },
+    right: item("3-bento-lg-2-pad", "Milo Bar Stool", "Walnut frame"),
+  },
+};
+
+export const BentoGridWith3ColumnsAndPaddedImagesSection = ({
+  data,
+  variant = "captions-bottom",
+}: Omit<BentoGridWith3ColumnsAndPaddedImagesProps, "theme">) => {
+  const resolvedData = data ?? defaultData[variant];
+  return <ThreeColumnsPaddedSection data={resolvedData} variant={variant} />;
+};
+
 export const BentoGridWith3ColumnsAndPaddedImages = ({
+  data,
   theme = defaultTheme,
-  rows = [
-    {
-      align: "left",
-      description: "Description for item 1.",
-      imageAlt: "img1",
-      imageUrl: "https://static.photos/technology/400x300/2",
-      title: "Left Aligned",
-    },
-    {
-      align: "right",
-      description: "Description for item 2.",
-      imageAlt: "img2",
-      imageUrl: "https://static.photos/technology/400x300/3",
-      title: "Right Aligned",
-    },
-  ],
-  variant = "default",
-}: BentoGridAlternatingProps) => (
-  <Html>
-    <Head />
-    <Preview>bento alternating</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BentoGridAlternatingSection
-            rows={rows}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  variant = "captions-bottom",
+}: BentoGridWith3ColumnsAndPaddedImagesProps) => (
+  <BentoEmailShell
+    preview="Bento grid with 3 columns and padded images"
+    theme={theme}
+  >
+    <BentoGridWith3ColumnsAndPaddedImagesSection
+      data={data}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
+
 BentoGridWith3ColumnsAndPaddedImages.PreviewProps = {
-  rows: [
-    {
-      align: "left",
-      description: "Text on the right side of the image.",
-      imageAlt: "feature 1",
-      imageUrl: "https://static.photos/technology/400x300/4",
-      title: "Feature One",
-    },
-    {
-      align: "right",
-      description: "Text on the left side of the image.",
-      imageAlt: "feature 2",
-      imageUrl: "https://static.photos/technology/400x300/5",
-      title: "Feature Two",
-    },
-  ],
+  data: defaultData["captions-bottom"],
   theme: defaultTheme,
-  variant: "default",
-} satisfies BentoGridAlternatingProps;
+  variant: "captions-bottom",
+} satisfies BentoGridWith3ColumnsAndPaddedImagesProps;

@@ -8,7 +8,6 @@ description: "Marketing coupons variant for email templates"
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +19,24 @@ npx shadcn@latest add @emailcn/card-coupons
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/coupons/card-coupons.tsx"
-  base="mjml-react"
-  title="components/emails/marketing/coupons/card-coupons.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/coupons/card-coupons.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/coupons/card-coupons.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -57,8 +49,58 @@ import { CardCoupons } from "@/components/emails/marketing/coupons/card-coupons"
 <CardCoupons {...CardCoupons.PreviewProps} />
 ```
 
+## Examples
+
+### With Name
+
+<ComponentPreview
+  base="mjml-react"
+  name="card-coupons-demo"
+  variant="with-name"
+  hideCode
+/>
+
+### With Pattern
+
+<ComponentPreview
+  base="mjml-react"
+  name="card-coupons-demo"
+  variant="with-pattern"
+  hideCode
+/>
+
+### With Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="card-coupons-demo"
+  variant="with-overlay"
+  hideCode
+/>
+
+### With Background Image
+
+<ComponentPreview
+  base="mjml-react"
+  name="card-coupons-demo"
+  variant="with-background-image"
+  hideCode
+/>
+
+### Background Image Header
+
+<ComponentPreview
+  base="mjml-react"
+  name="card-coupons-demo"
+  variant="background-image-header"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                 | Default          | Description                                       |
+| ------------- | -------------------- | ---------------- | ------------------------------------------------- |
+| `theme`       | Renderer theme       | `defaultTheme`   | Renderer theme configuration                      |
+| `variant`     | `CardCouponsVariant` | `"with-overlay"` | Selects the corresponding Mailviews coupon layout |
+| Content props | `string`             | Mailviews data   | Coupon copy, code, imagery, and action content    |
+| Color props   | `string`             | Mailviews colors | Canvas, card, copy, code, and action colors       |

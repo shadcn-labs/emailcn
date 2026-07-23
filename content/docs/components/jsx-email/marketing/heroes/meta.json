@@ -1,17 +1,17 @@
 {
   "title": "Hero",
   "pages": [
-    "hero-aligned-overlay",
-    "hero-block-overlay",
-    "hero-block-with-bleed",
-    "hero-overlayed-split",
-    "hero-split-contained",
-    "hero-split-full-bleed",
-    "hero-with-image-grid",
-    "hero-with-overlapped-content",
-    "hero-with-overlapped-image",
-    "hero-with-overlay-gradient",
-    "hero-with-overlayed-content",
-    "hero-with-slanted-split"
+    "aligned-overlay",
+    "block-overlay",
+    "block-with-bleed",
+    "overlayed-split",
+    "split-contained",
+    "split-full-bleed",
+    "image-grid",
+    "overlapped-content",
+    "overlapped-image",
+    "overlay-gradient",
+    "overlayed-content",
+    "slanted-split"
   ]
 }

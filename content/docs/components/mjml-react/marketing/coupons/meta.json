@@ -1,8 +1,4 @@
 {
   "title": "Coupons",
-  "pages": [
-    "card-coupons",
-    "coupons-with-centered-text",
-    "coupons-with-content-overlayed"
-  ]
+  "pages": ["card-coupons", "centered-text", "content-overlayed"]
 }

@@ -1,178 +1,310 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Fragment } from "react";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type FeaturedBrandsLogoGridVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type FeaturedBrandsLogoGridTone = "outlined" | "boxed";
+export type FeaturedBrandsLogoGridAlignment = "left" | "center" | "right";
 
 export interface FeaturedBrandsLogoGridProps {
   theme?: TailwindConfig;
-  heading?: string;
-  logoSrc1?: string;
-  logoAlt1?: string;
-  logoSrc2?: string;
-  logoAlt2?: string;
-  logoSrc3?: string;
-  logoAlt3?: string;
-  logoSrc4?: string;
-  logoAlt4?: string;
-  variant?: FeaturedBrandsLogoGridVariant;
+  title?: string;
+  description?: string;
+  featuredLogo?: { alt: string; src: string; width: number };
+  supportingLogos?: { alt: string; src: string; width: number }[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  boxBackgroundColor?: string;
+  borderColor?: string;
+  titleColor?: string;
+  textColor?: string;
+  tone?: FeaturedBrandsLogoGridTone;
+  alignment?: FeaturedBrandsLogoGridAlignment;
 }
 
-export const FeaturedBrandsLogoGridSection = ({
-  heading = "Featured Brands",
-  logoSrc1 = "https://static.photos/business/160x60/2",
-  logoAlt1 = "Brand 1",
-  logoSrc2 = "https://static.photos/business/160x60/3",
-  logoAlt2 = "Brand 2",
-  logoSrc3 = "https://static.photos/business/160x60/4",
-  logoAlt3 = "Brand 3",
-  logoSrc4 = "https://static.photos/business/160x60/5",
-  logoAlt4 = "Brand 4",
-  variant = "default",
-}: Omit<FeaturedBrandsLogoGridProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .featured-logo-stack { display: block !important; width: 100% !important; }
+    .featured-logo-small-column { display: flex !important; width: 100% !important; }
+    .featured-logo-small-card { width: 50% !important; }
+    .featured-logo-small-gap { width: 16px !important; }
+    .featured-logo-large { line-height: 128px !important; }
+    .featured-logo-description-gap { line-height: 20px !important; }
+  }
+`;
+
+const defaults = {
+  alignment: "left" as FeaturedBrandsLogoGridAlignment,
+  backgroundColor: "#fffffe",
+  borderColor: "#d1d5db",
+  boxBackgroundColor: "#f3f4f6",
+  description:
+    "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
+  featuredLogo: {
+    alt: "Monarch",
+    src: "https://assets.mailviews.com/images/components/logos/logo-mock-1.png",
+    width: 167,
+  },
+  pageBackgroundColor: "#f1f5f9",
+  supportingLogos: [
+    {
+      alt: "Accentic",
+      src: "https://assets.mailviews.com/images/components/logos/logo-mock-2.png",
+      width: 71,
+    },
+    {
+      alt: "Amada",
+      src: "https://assets.mailviews.com/images/components/logos/logo-mock-3.png",
+      width: 78,
+    },
+  ],
+  textColor: "#4b5563",
+  title: "Brands we support",
+  titleColor: "#030712",
+  tone: "outlined" as FeaturedBrandsLogoGridTone,
+};
+
+type SectionProps = Omit<FeaturedBrandsLogoGridProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+type ColumnKind = "large" | "first" | "second";
+
+const getCardStyle = (
+  props: ResolvedProps,
+  tone: FeaturedBrandsLogoGridTone
+) => ({
+  backgroundColor: tone === "boxed" ? props.boxBackgroundColor : undefined,
+  border: tone === "outlined" ? `1px solid ${props.borderColor}` : undefined,
+  borderRadius: "4px",
+  textAlign: "center" as const,
+});
+
+const LargeCard = ({
+  props,
+  tone,
+}: {
+  props: ResolvedProps;
+  tone: FeaturedBrandsLogoGridTone;
+}) => (
+  <td
+    className="featured-logo-stack featured-logo-large"
+    style={{
+      ...getCardStyle(props, tone),
+      lineHeight: "64px",
+      verticalAlign: "middle",
+      width: "240px",
+    }}
+  >
+    <img
+      alt={props.featuredLogo.alt}
+      src={props.featuredLogo.src}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={props.featuredLogo.width}
+    />
+  </td>
+);
+
+const SmallCard = ({
+  logo,
+  props,
+  tone,
+}: {
+  logo: (typeof defaults.supportingLogos)[number];
+  props: ResolvedProps;
+  tone: FeaturedBrandsLogoGridTone;
+}) => (
+  <div
+    className="featured-logo-small-card"
+    style={{
+      ...getCardStyle(props, tone),
+      lineHeight: "64px",
+    }}
+  >
+    <img
+      alt={logo.alt}
+      src={logo.src}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={logo.width}
+    />
+  </div>
+);
+
+const SmallColumn = ({
+  reversed,
+  props,
+  tone,
+}: {
+  reversed: boolean;
+  props: ResolvedProps;
+  tone: FeaturedBrandsLogoGridTone;
+}) => {
+  const first = reversed ? props.supportingLogos[1] : props.supportingLogos[0];
+  const second = reversed ? props.supportingLogos[0] : props.supportingLogos[1];
+  return (
+    <td className="featured-logo-small-column" style={{ width: "112px" }}>
+      <SmallCard logo={first} props={props} tone={tone} />
+      <div className="featured-logo-small-gap" style={{ lineHeight: "16px" }}>
+        &zwj;
+      </div>
+      <SmallCard logo={second} props={props} tone={tone} />
+    </td>
+  );
+};
+
+const columnOrders: Record<FeaturedBrandsLogoGridAlignment, ColumnKind[]> = {
+  center: ["first", "large", "second"],
+  left: ["large", "first", "second"],
+  right: ["first", "second", "large"],
+};
+
+export const FeaturedBrandsLogoGridSection = (props: SectionProps) => {
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const { tone } = resolved;
+  const order = columnOrders[resolved.alignment];
+
+  const renderColumn = (kind: ColumnKind) => {
+    if (kind === "large") {
+      return <LargeCard props={resolved} tone={tone} />;
     }
+    return (
+      <SmallColumn props={resolved} reversed={kind === "second"} tone={tone} />
+    );
   };
 
   return (
-    <Section className={`bg-background py-12 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-lg font-medium text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/4 rounded-lg bg-background-muted p-8 text-center align-middle">
-            <Img
-              src={logoSrc1}
-              alt={logoAlt1}
-              width="160"
-              height="60"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/4 rounded-lg bg-background-muted p-8 text-center align-middle">
-            <Img
-              src={logoSrc2}
-              alt={logoAlt2}
-              width="160"
-              height="60"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/4 rounded-lg bg-background-muted p-8 text-center align-middle">
-            <Img
-              src={logoSrc3}
-              alt={logoAlt3}
-              width="160"
-              height="60"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/4 rounded-lg bg-background-muted p-8 text-center align-middle">
-            <Img
-              src={logoSrc4}
-              alt={logoAlt4}
-              width="160"
-              height="60"
-              className="mx-auto h-auto object-contain"
-            />
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "center" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <h3
+                      style={{
+                        color: resolved.titleColor,
+                        fontFamily,
+                        fontSize: "20px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {resolved.title}
+                    </h3>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          {order.map((kind, index) => (
+                            <Fragment key={kind}>
+                              {index > 0 ? (
+                                <td
+                                  className="featured-logo-stack"
+                                  style={{ width: "16px" }}
+                                >
+                                  &zwj;
+                                </td>
+                              ) : null}
+                              {renderColumn(kind)}
+                            </Fragment>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div
+                      className="featured-logo-description-gap"
+                      style={{ lineHeight: "36px" }}
+                    >
+                      &zwj;
+                    </div>
+                    <p
+                      style={{
+                        color: resolved.textColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 300,
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {resolved.description}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const FeaturedBrandsLogoGrid = ({
-  theme = defaultTheme,
-  heading = "Featured Brands",
-  logoSrc1 = "https://static.photos/business/160x60/6",
-  logoAlt1 = "Brand 1",
-  logoSrc2 = "https://static.photos/business/160x60/7",
-  logoAlt2 = "Brand 2",
-  logoSrc3 = "https://static.photos/business/160x60/8",
-  logoAlt3 = "Brand 3",
-  logoSrc4 = "https://static.photos/business/160x60/9",
-  logoAlt4 = "Brand 4",
-  variant = "default",
+  alignment = "left",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  tone = "outlined",
+  ...props
 }: FeaturedBrandsLogoGridProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <FeaturedBrandsLogoGridSection
-          heading={heading}
-          logoAlt1={logoAlt1}
-          logoAlt2={logoAlt2}
-          logoAlt3={logoAlt3}
-          logoAlt4={logoAlt4}
-          logoSrc1={logoSrc1}
-          logoSrc2={logoSrc2}
-          logoSrc3={logoSrc3}
-          logoSrc4={logoSrc4}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Brands we support</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <FeaturedBrandsLogoGridSection
+        {...props}
+        alignment={alignment}
+        pageBackgroundColor={pageBackgroundColor}
+        tone={tone}
+      />
+    </Body>
   </Html>
 );
 
 FeaturedBrandsLogoGrid.PreviewProps = {
-  heading: "Featured Brands",
-  logoAlt1: "Brand 1",
-  logoAlt2: "Brand 2",
-  logoAlt3: "Brand 3",
-  logoAlt4: "Brand 4",
-  logoSrc1: "https://static.photos/business/160x60/10",
-  logoSrc2: "https://static.photos/business/160x60/11",
-  logoSrc3: "https://static.photos/business/160x60/12",
-  logoSrc4: "https://static.photos/business/160x60/13",
+  alignment: "left",
   theme: defaultTheme,
-  variant: "default",
+  tone: "outlined",
 } satisfies FeaturedBrandsLogoGridProps;

@@ -1,0 +1,100 @@
+---
+title: "Shifted Images"
+description: "An image-led CTA with flush-side, alternating-offset, and collage variants"
+---
+
+<ComponentPreview base="jsx-email" name="cta-with-shifted-images-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/cta-with-shifted-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/cta/cta-with-shifted-images.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/cta/cta-with-shifted-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CTAWithShiftedImages } from "@/components/emails/marketing/cta/cta-with-shifted-images";
+```
+
+```tsx
+<CTAWithShiftedImages {...CTAWithShiftedImages.PreviewProps} />
+```
+
+## Examples
+
+### Flush Side Images
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-shifted-images-demo"
+  variant="flush-side-images"
+  hideCode
+/>
+
+### Images Offset
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-shifted-images-demo"
+  variant="images-offset"
+  hideCode
+/>
+
+### Images Offset Alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-shifted-images-demo"
+  variant="images-offset-alt"
+  hideCode
+/>
+
+### Collage
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-shifted-images-demo"
+  variant="collage"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                      | Type                          | Default               | Description                                   |
+| ------------------------- | ----------------------------- | --------------------- | --------------------------------------------- |
+| `theme`                   | `EmailThemeTokens`            | `defaultTheme`        | JSX Email theme tokens                        |
+| `variant`                 | `CTAWithShiftedImagesVariant` | `"flush-side-images"` | Selects the exact Mailviews layout and assets |
+| `heading` / `subtext`     | `string`                      | Variant copy          | CTA heading and supporting text               |
+| `ctaLabel` / `ctaHref`    | `string`                      | Mailviews CTA         | Primary action label and destination          |
+| `imageSrc1` … `imageSrc4` | `string`                      | Variant images        | Image URLs used by the selected composition   |
+| `imageAlt1` … `imageAlt4` | `string`                      | `""`                  | Alternative text for each image               |
+| Color props               | `string`                      | Mailviews colors      | Canvas, surface, text, and button colors      |

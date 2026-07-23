@@ -1,5 +1,16 @@
+import type { ComponentProps } from "react";
+
 import { HeroSplitContained } from "@/registry/bases/react-email/ui/marketing/hero/hero-split-contained";
 
-export default function HeroSplitContainedDemo() {
-  return <HeroSplitContained {...HeroSplitContained.PreviewProps} />;
+export default function HeroSplitContainedDemo({
+  variant,
+}: {
+  variant?: ComponentProps<typeof HeroSplitContained>["variant"];
+}) {
+  return (
+    <HeroSplitContained
+      {...HeroSplitContained.PreviewProps}
+      variant={variant ?? HeroSplitContained.PreviewProps.variant}
+    />
+  );
 }

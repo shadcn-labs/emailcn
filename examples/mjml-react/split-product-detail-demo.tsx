@@ -1,5 +1,13 @@
 import { SplitProductDetail } from "@/registry/bases/mjml-react/ui/ecommerce/product-detail/split-product-detail";
+import type { SplitProductDetailProps } from "@/registry/bases/mjml-react/ui/ecommerce/product-detail/split-product-detail";
 
-export default function SplitProductDetailDemo() {
-  return <SplitProductDetail {...SplitProductDetail.PreviewProps} />;
+export default function SplitProductDetailDemo({
+  variant,
+}: Pick<SplitProductDetailProps, "variant">) {
+  return (
+    <SplitProductDetail
+      {...SplitProductDetail.PreviewProps}
+      variant={variant ?? SplitProductDetail.PreviewProps.variant}
+    />
+  );
 }

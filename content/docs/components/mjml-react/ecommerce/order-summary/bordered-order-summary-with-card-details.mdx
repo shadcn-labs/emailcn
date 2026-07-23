@@ -1,0 +1,120 @@
+---
+title: "Bordered Order Summary with Card Details"
+description: "Bordered Order Summary with Card Details with every Mailviews layout variant."
+---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Bottom Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="bottom-left"
+/>
+
+### Bottom Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="bottom-right"
+/>
+
+### Bottom Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="bottom-centered"
+/>
+
+### Bottom Justified
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="bottom-justified"
+/>
+
+### Top Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="top-left"
+/>
+
+### Top Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="top-right"
+/>
+
+### Top Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="top-centered"
+/>
+
+### Top Justified
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-card-details-demo"
+  variant="top-justified"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bordered-order-summary-with-card-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BorderedOrderSummaryCardDetails } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-card-details";
+```
+
+```tsx
+<BorderedOrderSummaryCardDetails
+  {...BorderedOrderSummaryCardDetails.PreviewProps}
+  variant="bottom-left"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                                                                                                                                           | Default         | Description              |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------ |
+| `variant` | `"bottom-left" \| "bottom-right" \| "bottom-centered" \| "bottom-justified" \| "top-left" \| "top-right" \| "top-centered" \| "top-justified"` | `"bottom-left"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                                                                             | `defaultTheme`  | Email theme styling      |

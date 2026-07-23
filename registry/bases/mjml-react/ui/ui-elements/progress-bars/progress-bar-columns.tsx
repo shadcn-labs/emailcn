@@ -1,124 +1,76 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
+import {
+  getContentVariant,
+  isPaddedVariant,
+  ProgressBarColumnsContent,
+  ProgressEmailShell,
+} from "./progress-bar-shared";
+import type {
+  ProgressBarColumnsVariant,
+  ProgressBarItem,
+} from "./progress-bar-shared";
+
 export interface ProgressBarColumnsProps {
+  items?: readonly [ProgressBarItem, ProgressBarItem];
   theme?: EmailThemeTokens;
-  values?: number[];
-  labels?: string[];
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: ProgressBarColumnsVariant;
 }
 
-const ProgressBarColumnsSection = ({
-  values,
-  labels,
-  theme,
-}: {
-  values: number[];
-  labels?: string[];
-  theme: EmailThemeTokens;
-}) => (
-  <MjmlSection padding={`${theme.spacingLg ?? "32px"} 0`}>
-    {values.slice(0, 4).map((val, i) => {
-      const clamped = Math.max(0, Math.min(100, val));
-      return (
-        <MjmlColumn
-          key={i}
-          width={`${100 / Math.min(values.length, 4)}%`}
-          padding={theme.spacingBase ?? "16px"}
-        >
-          {labels?.[i] ? (
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "12px"}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {labels[i]}
-            </MjmlText>
-          ) : null}
-          <MjmlSection
-            backgroundColor={theme.colorBackgroundSubtle ?? "#f3f4f6"}
-            borderRadius={theme.borderRadius}
-            padding="0"
-          >
-            {clamped > 0 ? (
-              <MjmlColumn
-                backgroundColor={theme.colorPrimary}
-                borderRadius={theme.borderRadius}
-                width={`${clamped}%`}
-                padding="6px 0"
-              >
-                <MjmlText
-                  align="center"
-                  color={theme.colorPrimaryForeground}
-                  fontFamily={theme.fontFamily}
-                  fontSize="10px"
-                  fontWeight={theme.fontWeightBold ?? "600"}
-                  padding="0"
-                >
-                  {clamped}%
-                </MjmlText>
-              </MjmlColumn>
-            ) : null}
-            {clamped < 100 ? (
-              <MjmlColumn width={`${100 - clamped}%`} padding="0" />
-            ) : null}
-          </MjmlSection>
-        </MjmlColumn>
-      );
-    })}
-  </MjmlSection>
+const flowSyncDescription =
+  "Automate your workflows across tools with no code required. From CRM syncs to AI-powered triggers, FlowSync keeps your operations moving seamlessly.";
+
+const insightDescription =
+  "Turn raw data into instant clarity. InsightIQ combines analytics, AI summaries, and interactive reporting to help teams make better decisions faster.";
+
+const getDefaultItems = (
+  variant: ProgressBarColumnsVariant
+): readonly [ProgressBarItem, ProgressBarItem] => {
+  const textTop = getContentVariant(variant) === "text-top";
+
+  return [
+    {
+      color: "#2dd4bf",
+      description: flowSyncDescription,
+      title: "FlowSync",
+      value: 33,
+    },
+    {
+      color: "#818cf8",
+      description: textTop ? flowSyncDescription : insightDescription,
+      title: "InsightIQ",
+      value: 50,
+    },
+  ];
+};
+
+export const ProgressBarColumnsSection = ({
+  items,
+  variant = "with-text",
+}: Omit<ProgressBarColumnsProps, "theme">) => (
+  <ProgressBarColumnsContent
+    items={items ?? getDefaultItems(variant)}
+    variant={variant}
+  />
 );
 
 export const ProgressBarColumns = ({
+  items,
   theme = defaultTheme,
-  values = [80, 60, 40],
-  labels = ["Design", "Dev", "QA"],
-  variant = "default",
+  variant = "with-text",
 }: ProgressBarColumnsProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>progress-cols</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <ProgressBarColumnsSection
-          values={values}
-          labels={labels}
-          theme={theme}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <ProgressEmailShell
+    horizontalPadding={isPaddedVariant(variant) ? 64 : 24}
+    preview="Progress bar columns"
+    theme={theme}
+    topSpacer={30}
+  >
+    <ProgressBarColumnsSection items={items} variant={variant} />
+  </ProgressEmailShell>
 );
 
 ProgressBarColumns.PreviewProps = {
-  labels: ["Design", "Dev", "Testing"],
   theme: defaultTheme,
-  values: [90, 65, 40],
-  variant: "default",
+  variant: "with-text",
 } satisfies ProgressBarColumnsProps;

@@ -1,0 +1,140 @@
+---
+title: "2 Columns Masonry Image Grid with 4 Images"
+description: "A featured image plus three-image masonry grid with side, order, and overlay variants"
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/2-columns-masonry-image-grid-with-4-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsMasonryImageGridWith4Images } from "@/components/emails/marketing/images/2-columns-masonry-image-grid-with-4-images";
+```
+
+```tsx
+<TwoColumnsMasonryImageGridWith4Images
+  {...TwoColumnsMasonryImageGridWith4Images.PreviewProps}
+/>
+```
+
+## Examples
+
+### Stacked Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-left"
+  hideCode
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-right"
+  hideCode
+/>
+
+### Stacked Left Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-left-reverse"
+  hideCode
+/>
+
+### Stacked Right Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-right-reverse"
+  hideCode
+/>
+
+### Stacked Left Overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-left-overlay"
+  hideCode
+/>
+
+### Stacked Right Overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-right-overlay"
+  hideCode
+/>
+
+### Stacked Left Overlay Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-left-overlay-reverse"
+  hideCode
+/>
+
+### Stacked Right Overlay Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-masonry-image-grid-with-4-images-demo"
+  variant="stacked-right-overlay-reverse"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                  | Type                                           | Default          | Description                                   |
+| --------------------- | ---------------------------------------------- | ---------------- | --------------------------------------------- |
+| `theme`               | `EmailThemeTokens`                             | `defaultTheme`   | JSX Email theme tokens                        |
+| `variant`             | `TwoColumnsMasonryImageGridWith4ImagesVariant` | `"stacked-left"` | Selects side, feature order, and overlay mode |
+| Feature image props   | `string`                                       | Mailviews data   | Full-width feature image, link, and copy      |
+| Landscape image props | `string`                                       | Mailviews data   | Two stacked landscape images, links, and copy |
+| Portrait image props  | `string`                                       | Mailviews data   | Portrait image, link, and copy                |
+| Color props           | `string`                                       | Mailviews colors | Canvas, surface, and overlay text colors      |

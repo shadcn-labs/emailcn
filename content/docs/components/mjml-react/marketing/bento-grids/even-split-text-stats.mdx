@@ -1,0 +1,100 @@
+---
+title: "Even Split Text Stats"
+description: "Marketing bento-grids variant for email templates"
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-even-split-and-text-stats-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-grid-with-even-split-and-text-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoGridWithEvenSplitAndTextStats } from "@/components/emails/marketing/bento-grids/bento-grid-with-even-split-and-text-stats";
+```
+
+```tsx
+<BentoGridWithEvenSplitAndTextStats
+  {...BentoGridWithEvenSplitAndTextStats.PreviewProps}
+/>
+```
+
+## Examples
+
+### Image Top Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-even-split-and-text-stats-demo"
+  variant="image-top-right"
+  hideCode
+/>
+
+### Image Top Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-even-split-and-text-stats-demo"
+  variant="image-top-left"
+  hideCode
+/>
+
+### Image Bottom Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-even-split-and-text-stats-demo"
+  variant="image-bottom-right"
+  hideCode
+/>
+
+### Image Bottom Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-grid-with-even-split-and-text-stats-demo"
+  variant="image-bottom-left"
+  hideCode
+/>
+
+## API Reference
+
+| Prop      | Type                         | Default           | Description                       |
+| --------- | ---------------------------- | ----------------- | --------------------------------- |
+| `theme`   | `EmailTheme`                 | `defaultTheme`    | Email theme styling               |
+| `variant` | `BentoImagePlacementVariant` | `image-top-right` | Selects one of the examples above |

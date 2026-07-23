@@ -3,12 +3,109 @@ title: "Stacked Timeline"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="jsx-email" name="stacked-timeline-demo" />
+One `StackedTimeline` component covers both Mailviews families. Use `layout="line"` or `layout="boxed"`, then select the visual state with `variant`.
+
+## Examples
+
+### Line — Muted Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-timeline-demo"
+  variant="muted-left"
+/>
+
+### Line — Muted Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-timeline-demo"
+  variant="muted-right"
+/>
+
+### Line — Basic Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-timeline-demo"
+  variant="basic-left"
+/>
+
+### Line — Basic Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-timeline-demo"
+  variant="basic-right"
+/>
+
+### Line — Completed Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-timeline-demo"
+  variant="completed-left"
+/>
+
+### Line — Completed Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-timeline-demo"
+  variant="completed-right"
+/>
+
+### Boxed — Muted Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-boxed-timeline-demo"
+  variant="muted-left"
+/>
+
+### Boxed — Muted Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-boxed-timeline-demo"
+  variant="muted-right"
+/>
+
+### Boxed — Basic Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-boxed-timeline-demo"
+  variant="basic-left"
+/>
+
+### Boxed — Basic Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-boxed-timeline-demo"
+  variant="basic-right"
+/>
+
+### Boxed — Accent Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-boxed-timeline-demo"
+  variant="accent-left"
+/>
+
+### Boxed — Accent Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-boxed-timeline-demo"
+  variant="accent-right"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +117,24 @@ npx shadcn@latest add @emailcn/stacked-timeline
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/marketing/timelines/stacked-timeline.tsx"
-  base="jsx-email"
-  title="components/emails/marketing/timelines/stacked-timeline.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/timelines/stacked-timeline.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/timelines/stacked-timeline.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -54,11 +144,13 @@ import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked
 ```
 
 ```tsx
-<StackedTimeline {...StackedTimeline.PreviewProps} />
+<StackedTimeline {...StackedTimeline.PreviewProps} layout="boxed" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                         | Default        | Description                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------- |
+| `layout`  | `"line" \| "boxed"`                                                                                                                          | `"line"`       | Mailviews timeline family  |
+| `variant` | `"muted-left" \| "muted-right" \| "basic-left" \| "basic-right" \| "completed-left" \| "completed-right" \| "accent-left" \| "accent-right"` | `"muted-left"` | Layout state and alignment |
+| `theme`   | `EmailThemeTokens`                                                                                                                           | `defaultTheme` | Email theme styling        |

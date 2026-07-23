@@ -1,0 +1,96 @@
+---
+title: "Single Image Product Detail with Details"
+description: "Single Image Product Detail with Details with every Mailviews layout variant."
+---
+
+This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+
+## Examples
+
+### Rating Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-bottom"
+/>
+
+### Rating Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-top"
+/>
+
+### Header Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="header-top"
+/>
+
+### Rating Aside
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-aside"
+/>
+
+### Rating Aside Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-aside-top"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/single-image-product-detail-with-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SingleImageProductDetail } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
+```
+
+```tsx
+<SingleImageProductDetail
+  {...SingleImageProductDetail.PreviewProps}
+  variant="rating-bottom"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                                                                                      | Default           | Description              |
+| --------- | ----------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
+| `variant` | `"rating-bottom" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"rating-bottom"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                        | `defaultTheme`    | Email theme styling      |

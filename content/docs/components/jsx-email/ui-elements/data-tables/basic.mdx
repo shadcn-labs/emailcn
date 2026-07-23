@@ -1,0 +1,69 @@
+---
+title: "Basic"
+description: "A simple, flexible data table for email."
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview base="jsx-email" name="data-table-basic-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table-basic
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-basic.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/data-tables/data-table-basic.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTableBasic } from "@/components/emails/ui-elements/data-tables/data-table-basic";
+```
+
+```tsx
+<DataTableBasic {...DataTableBasic.PreviewProps} />
+```
+
+## API Reference
+
+| Prop      | Type               | Default                        | Description                   |
+| --------- | ------------------ | ------------------------------ | ----------------------------- |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`                 | Renderer theme configuration. |
+| `headers` | `string[]`         | Component-specific labels      | Column labels.                |
+| `rows`    | `string[][]`       | [["Row 1 Data", "Row 1 Data"]] | Table row data.               |

@@ -1,7 +1,16 @@
-import { GridStatsWithAccentColumn } from "@/registry/bases/mjml-react/ui/marketing/stats/grid-stats-with-accent-column";
+import { GridStats } from "@/registry/bases/mjml-react/ui/marketing/stats/grid-stats";
+import type { GridStatsLayout } from "@/registry/bases/mjml-react/ui/marketing/stats/grid-stats";
 
-export default function GridStatsWithAccentColumnDemo() {
+export default function GridStatsWithAccentColumnDemo({
+  layout,
+}: {
+  layout?: GridStatsLayout;
+}) {
   return (
-    <GridStatsWithAccentColumn {...GridStatsWithAccentColumn.PreviewProps} />
+    <GridStats
+      {...GridStats.PreviewProps}
+      layout={layout ?? GridStats.PreviewProps.layout}
+      variant="accent-column"
+    />
   );
 }

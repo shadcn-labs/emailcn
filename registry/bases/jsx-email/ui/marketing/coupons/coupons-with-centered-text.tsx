@@ -1,171 +1,359 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type CouponCenteredVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type CouponsWithCenteredTextVariant =
+  | "impact"
+  | "inline"
+  | "impact-alt"
+  | "impact-background";
 
-export interface CouponCenteredProps {
+export interface CouponsWithCenteredTextProps {
   theme?: EmailThemeTokens;
-  code?: string;
+  overline?: string;
   discount?: string;
+  code?: string;
+  expiry?: string;
   description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: CouponCenteredVariant;
+  backgroundImageSrc?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+  arrowIconSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  codeBackgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonColor?: string;
+  variant?: CouponsWithCenteredTextVariant;
 }
 
-const CouponCenteredSection = ({
-  code,
-  ctaHref,
-  ctaLabel,
-  description,
-  discount,
-  theme,
-  variant,
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .coupon-centered-description { padding-left: 24px !important; padding-right: 24px !important; }
+    .coupon-centered-impact { font-size: 60px !important; }
+    .coupon-centered-inline { font-size: 36px !important; }
+    .coupon-centered-code { margin-top: 16px !important; }
+  }
+`;
+
+const defaults = {
+  arrowIconSrc:
+    "https://assets.mailviews.com/images/components/icon-arrow-right.png",
+  backgroundColor: "#fffffe",
+  backgroundImageSrc:
+    "https://assets.mailviews.com/images/components/coupons/pattern.png",
+  buttonBackgroundColor: "#4f46e5",
+  buttonColor: "#fffffe",
+  buttonHref: "https://example.com",
+  buttonLabel: "Shop now",
+  code: "WINTER20OFF",
+  codeBackgroundColor: "#f3f4f6",
+  description:
+    "Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order.",
+  discount: "20% OFF",
+  expiry: "until 31/10/2025",
+  headingColor: "#030712",
+  overline: "Our biggest sale of the year",
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+};
+
+type SectionProps = Omit<CouponsWithCenteredTextProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const Overline = ({
+  light,
+  props,
 }: {
-  code: string;
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  discount: string;
-  theme: EmailThemeTokens;
-  variant: CouponCenteredVariant;
+  light: boolean;
+  props: ResolvedProps;
 }) => (
-  <Section
+  <p
     style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
+      color: light ? "#fffffe" : props.headingColor,
+      fontFamily,
+      fontSize: "16px",
+      fontWeight: light ? 600 : undefined,
+      lineHeight: "24px",
+      margin: 0,
+      textAlign: "center",
+      textTransform: "uppercase",
     }}
   >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "12px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {discount}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamilyMono,
-            fontSize: "28px",
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-            textAlign: "center",
-          }}
-        >
-          {code}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase ?? "14px",
-            margin: 0,
-            paddingBottom: theme.spacingLg ?? "24px",
-            textAlign: "center",
-          }}
-        >
-          {description}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            align="center"
-            width={160}
-            height={40}
-            style={{
-              backgroundColor: theme.colorPrimary,
-              borderRadius: theme.borderRadius,
-              color: theme.colorPrimaryForeground,
-              display: "inline-block",
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm ?? "14px",
-              fontWeight: theme.fontWeightMedium,
-              height: "auto",
-              padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-              textDecoration: "none",
-              width: "auto",
-            }}
-          >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
+    {props.overline === defaults.overline && !light ? (
+      <>
+        Our <strong>biggest sale</strong> of the year
+      </>
+    ) : (
+      props.overline
+    )}
+  </p>
 );
 
-export const CouponsWithCenteredText = ({
-  theme = defaultTheme,
-  code = "SAVE20",
-  discount = "20% OFF",
-  description = "Use code at checkout to receive your discount.",
-  ctaLabel = "Shop Now",
-  ctaHref = "#",
-  variant = "default",
-}: CouponCenteredProps) => (
-  <Html>
-    <Head />
-    <Preview>coupon centered</Preview>
-    <Body
+const ImpactHeading = ({
+  alt,
+  light,
+  props,
+}: {
+  alt: boolean;
+  light: boolean;
+  props: ResolvedProps;
+}) => (
+  <h3
+    className="coupon-centered-impact"
+    style={{
+      color: light ? "#fffffe" : props.headingColor,
+      fontFamily,
+      fontSize: "96px",
+      fontWeight: 500,
+      lineHeight: "normal",
+      margin: 0,
+      textAlign: "center",
+    }}
+  >
+    {alt && props.discount === defaults.discount ? (
+      <>
+        20%<span style={{ fontWeight: 100 }}>OFF</span>
+      </>
+    ) : (
+      props.discount
+    )}
+  </h3>
+);
+
+const Description = ({
+  light,
+  props,
+}: {
+  light: boolean;
+  props: ResolvedProps;
+}) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="coupon-centered-description"
+          style={{ padding: "0 44px" }}
+        >
+          <p
+            style={{
+              color: light ? "#fffffe" : props.textColor,
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 300,
+              lineHeight: "24px",
+              margin: 0,
+              textAlign: "center",
+            }}
+          >
+            Use code: <strong>{props.code}</strong> at checkout, or click the
+            link below to automatically apply the discount to your order.
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const CodeBox = ({ props }: { props: ResolvedProps }) => (
+  <table
+    align="center"
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    className="coupon-centered-code"
+    role="presentation"
+    style={{ margin: "0 auto" }}
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            backgroundColor: props.codeBackgroundColor,
+            borderRadius: "8px",
+            color: props.headingColor,
+            fontFamily,
+            fontSize: "16px",
+            lineHeight: "24px",
+            padding: "8px 16px",
+          }}
+        >
+          {props.code}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const CouponButton = ({ props }: { props: ResolvedProps }) => (
+  <div style={{ textAlign: "center" }}>
+    <a
+      href={props.buttonHref}
       style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
+        backgroundColor: props.buttonBackgroundColor,
+        borderRadius: "8px",
+        color: props.buttonColor,
+        display: "inline-block",
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: 1,
+        padding: "14px 20px",
+        textDecoration: "none",
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <CouponCenteredSection
-            code={code}
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            description={description}
-            discount={discount}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
+      <span style={{ marginRight: "8px" }}>{props.buttonLabel}</span>
+      <span>
+        <Img
+          alt=""
+          src={props.arrowIconSrc}
+          style={{
+            display: "inline",
+            maxWidth: "100%",
+            verticalAlign: "baseline",
+          }}
+          width={12}
+        />
+      </span>
+    </a>
+  </div>
+);
+
+export const CouponsWithCenteredTextSection = (props: SectionProps) => {
+  const variant = props.variant ?? "impact";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const background = variant === "impact-background";
+  const inline = variant === "inline";
+  const alt = variant === "impact-alt";
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: background
+                ? "#030712"
+                : resolved.backgroundColor,
+              backgroundImage: background
+                ? `url('${resolved.backgroundImageSrc}')`
+                : undefined,
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              maxWidth: "100%",
+              paddingBottom: background ? undefined : "44px",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Overline light={background} props={resolved} />
+            {inline ? (
+              <h3
+                className="coupon-centered-inline"
+                style={{
+                  color: resolved.headingColor,
+                  fontFamily,
+                  fontSize: "48px",
+                  fontWeight: 500,
+                  lineHeight: "normal",
+                  margin: 0,
+                  textAlign: "center",
+                }}
+              >
+                {resolved.discount === defaults.discount
+                  ? "An extra 20% OFF"
+                  : resolved.discount}
+              </h3>
+            ) : (
+              <ImpactHeading
+                alt={alt || background}
+                light={background}
+                props={resolved}
+              />
+            )}
+            {alt ? (
+              <p
+                style={{
+                  color: resolved.headingColor,
+                  fontFamily,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                  margin: 0,
+                  textAlign: "center",
+                }}
+              >
+                {resolved.expiry}
+              </p>
+            ) : null}
+            {!inline && !alt && !background ? (
+              <CodeBox props={resolved} />
+            ) : null}
+            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Description light={background} props={resolved} />
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <CouponButton props={resolved} />
+            {background ? (
+              <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            ) : null}
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const CouponsWithCenteredText = ({
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "impact",
+  ...props
+}: CouponsWithCenteredTextProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Our biggest sale of the year</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <CouponsWithCenteredTextSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 CouponsWithCenteredText.PreviewProps = {
-  code: "FLASH50",
-  ctaHref: "https://example.com/shop",
-  ctaLabel: "Shop Sale",
-  description: "Flash sale! 50% off select items. Limited time only.",
-  discount: "50% OFF",
   theme: defaultTheme,
-  variant: "default",
-} satisfies CouponCenteredProps;
+  variant: "impact",
+} satisfies CouponsWithCenteredTextProps;

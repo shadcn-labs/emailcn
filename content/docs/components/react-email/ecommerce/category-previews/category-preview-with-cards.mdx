@@ -3,7 +3,71 @@ title: "Category Preview with Cards"
 description: "Ecommerce category-previews variant for email templates"
 ---
 
-<ComponentPreview base="react-email" name="category-preview-cards-demo" />
+## Examples
+
+### Basic
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="basic"
+/>
+
+### With Header
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="with-header"
+/>
+
+### With Description
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="with-description"
+/>
+
+### Header + Description
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="header-description"
+/>
+
+### With Details
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="with-details"
+/>
+
+### Header + Details
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="header-details"
+/>
+
+### Full Details
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="full-details"
+/>
+
+### Header + Full Details
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-demo"
+  variant="header-full-details"
+/>
 
 ## Installation
 
@@ -45,6 +109,7 @@ import { CategoryPreviewWithCards } from "@/components/emails/ecommerce/category
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                      | Default         | Description                       |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------- |
+| `variant` | `"basic" \| "with-header" \| "with-description" \| "header-description" \| "with-details" \| "header-details" \| "full-details" \| "header-full-details"` | `"with-header"` | Mailviews content-density variant |
+| `theme`   | `TailwindConfig`                                                                                                                                          | `defaultTheme`  | Email theme styling               |

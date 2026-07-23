@@ -46,8 +46,47 @@ import { TwoThirdsBentoGridWithStats } from "@/components/emails/marketing/bento
 <TwoThirdsBentoGridWithStats {...TwoThirdsBentoGridWithStats.PreviewProps} />
 ```
 
+## Examples
+
+### Image Top Right
+
+<ComponentPreview
+  base="react-email"
+  name="two-thirds-bento-grid-with-stats-demo"
+  variant="image-top-right"
+  hideCode
+/>
+
+### Image Top Left
+
+<ComponentPreview
+  base="react-email"
+  name="two-thirds-bento-grid-with-stats-demo"
+  variant="image-top-left"
+  hideCode
+/>
+
+### Image Bottom Right
+
+<ComponentPreview
+  base="react-email"
+  name="two-thirds-bento-grid-with-stats-demo"
+  variant="image-bottom-right"
+  hideCode
+/>
+
+### Image Bottom Left
+
+<ComponentPreview
+  base="react-email"
+  name="two-thirds-bento-grid-with-stats-demo"
+  variant="image-bottom-left"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                         | Default           | Description                       |
+| --------- | ---------------------------- | ----------------- | --------------------------------- |
+| `theme`   | `EmailTheme`                 | `defaultTheme`    | Email theme styling               |
+| `variant` | `BentoImagePlacementVariant` | `image-top-right` | Selects one of the examples above |

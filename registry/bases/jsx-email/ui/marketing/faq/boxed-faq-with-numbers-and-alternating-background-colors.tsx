@@ -1,152 +1,75 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  AlternatingBoxedContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/jsx-email/ui/marketing/faq/faq-shared";
 
-export type FAQWithSearchVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQWithSearchProps {
+export interface BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps {
   theme?: EmailThemeTokens;
   heading?: string;
-  items?: { question: string; answer: string }[];
-  variant?: FAQWithSearchVariant;
+  q1?: string;
+  a1?: string;
+  q2?: string;
+  a2?: string;
+  q3?: string;
+  a3?: string;
 }
-const FAQWithSearchSection = ({
-  heading,
-  items,
-  theme,
-  variant,
-}: {
-  heading: string;
-  items: FAQWithSearchProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQWithSearchVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {heading ? (
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeHeading,
-              fontWeight: theme.fontWeightBold,
-              margin: 0,
-              paddingBottom: theme.spacingXl ?? "48px",
-              textAlign: "center",
-            }}
-          >
-            {heading}
-          </Text>
-        ) : null}
-      </Column>
-      {(items ?? []).map((item, i) => (
-        <Column key={item.question + i}>
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "8px",
-            }}
-          >
-            {item.question}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase,
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "16px",
-            }}
-          >
-            {item.answer}
-          </Text>
-          {i < (items ?? []).length - 1 ? (
-            <Hr
-              style={{
-                borderBottomWidth: 0,
-                borderLeftWidth: 0,
-                borderRightWidth: 0,
-                borderTopColor: theme.colorBorder,
-                borderTopStyle: "solid",
-                borderTopWidth: "1px",
-                marginBottom: theme.spacingBase ?? "16px",
-                width: "100%",
-              }}
-            />
-          ) : null}
-        </Column>
-      ))}
-    </Row>
-  </Section>
-);
+
+export const BoxedFaqWithNumbersAndAlternatingBackgroundColorsSection = ({
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  a3 = "Yes, we offer customer support by email and live chat.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: Omit<BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps, "theme">) => {
+  const items = [
+    { answer: a1, question: q1 },
+    { answer: a2, question: q2 },
+    { answer: a3, question: q3 },
+  ];
+
+  return (
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <AlternatingBoxedContent items={items} />
+    </>
+  );
+};
+
 export const BoxedFaqWithNumbersAndAlternatingBackgroundColors = ({
   theme = defaultTheme,
-  heading = "Frequently Asked Questions",
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
-  variant = "default",
-}: FAQWithSearchProps) => (
-  <Html>
-    <Head />
-    <Preview>FAQ with search</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FAQWithSearchSection
-            heading={heading}
-            items={items}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  a3 = "Yes, we offer customer support by email and live chat.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <BoxedFaqWithNumbersAndAlternatingBackgroundColorsSection
+      a1={a1}
+      a2={a2}
+      a3={a3}
+      heading={heading}
+      q1={q1}
+      q2={q2}
+      q3={q3}
+    />
+  </FaqEmailShell>
 );
+
 BoxedFaqWithNumbersAndAlternatingBackgroundColors.PreviewProps = {
-  heading: "Frequently Asked Questions",
-  items: [
-    {
-      answer: "A collection of responsive email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, they work across all major clients.",
-      question: "Are they responsive?",
-    },
-    { answer: "MIT license.", question: "What license?" },
-  ],
+  a1: "This product helps you build beautiful emails quickly and easily.",
+  a2: "We offer flexible pricing plans to suit your needs.",
+  a3: "Yes, we offer customer support by email and live chat.",
+  heading: "Frequently asked questions",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQWithSearchProps;
+} satisfies BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps;

@@ -1,0 +1,93 @@
+---
+title: "Social Logos"
+description: "Social logo tiles with all eight Mailviews layout variants"
+---
+
+`SocialLogos` combines the eight Mailviews tile layouts because they share the
+same content and differ only in framing, fill, and border radius.
+
+## Examples
+
+### Square tiles
+
+<ComponentPreview base="jsx-email" name="square-tiles-social-logos-demo" />
+
+### Squared box
+
+<ComponentPreview base="jsx-email" name="squared-box-social-logos-demo" />
+
+### Circle tiles
+
+<ComponentPreview base="jsx-email" name="circle-tiles-social-logos-demo" />
+
+### Pill box
+
+<ComponentPreview base="jsx-email" name="pill-box-social-logos-demo" />
+
+### Outlined square tiles
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-square-tiles-social-logos-demo"
+/>
+
+### Outlined circle tiles
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-circle-tiles-social-logos-demo"
+/>
+
+### Outlined box
+
+<ComponentPreview base="jsx-email" name="outlined-box-social-logos-demo" />
+
+### Outlined pill box
+
+<ComponentPreview base="jsx-email" name="outlined-pill-box-social-logos-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/social-logos
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/social/social-logos.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/social/social-logos.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialLogos } from "@/components/emails/marketing/social/social-logos";
+
+<SocialLogos variant="outlined-circle-tiles" />;
+```
+
+## API Reference
+
+| Prop          | Type                                                                                                                                                             | Default             | Description                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------------- |
+| `variant`     | `"square-tiles" \| "squared-box" \| "circle-tiles" \| "pill-box" \| "outlined-square-tiles" \| "outlined-circle-tiles" \| "outlined-box" \| "outlined-pill-box"` | `"square-tiles"`    | Mailviews tile layout        |
+| `items`       | `SocialLogoItem[]`                                                                                                                                               | Mailviews icons     | Social links and icon assets |
+| `title`       | `string`                                                                                                                                                         | `"Connect with us"` | Section title                |
+| `description` | `string`                                                                                                                                                         | Mailviews copy      | Supporting text              |
+| `theme`       | `EmailThemeTokens`                                                                                                                                               | `defaultTheme`      | Email theme configuration    |

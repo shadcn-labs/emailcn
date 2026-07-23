@@ -1,0 +1,74 @@
+---
+title: "2-Column Menu and Divider"
+description: "Mailviews two-column menu footer with divider and mirrored logo variants"
+---
+
+The menu, social links, and legal rows are shared; the `variant` mirrors the logo placement.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-2-column-menu-and-divider-demo"
+  variant="left-logo"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-2-column-menu-and-divider-demo"
+  variant="right-logo"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-2-column-menu-and-divider
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/footers/footer-with-2-column-menu-and-divider.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/footers/footer-with-2-column-menu-and-divider.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWith2ColumnMenuAndDivider } from "@/components/emails/marketing/footers/footer-with-2-column-menu-and-divider";
+```
+
+```tsx
+<FooterWith2ColumnMenuAndDivider
+  {...FooterWith2ColumnMenuAndDivider.PreviewProps}
+  variant="left-logo"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                          | Default       | Description                         |
+| --------- | ----------------------------- | ------------- | ----------------------------------- |
+| `variant` | `"left-logo" \| "right-logo"` | `"left-logo"` | Selects the Mailviews logo position |
+| `theme`   | `EmailTheme`                  | default theme | Email theme styling                 |

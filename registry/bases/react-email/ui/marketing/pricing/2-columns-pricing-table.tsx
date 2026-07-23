@@ -1,259 +1,341 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type TwoColumnsPricingTableVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export interface PricingPlanFeature {
+  label: string;
+  muted?: boolean;
+}
+
+export interface PricingPlan {
+  ctaHref: string;
+  ctaLabel: string;
+  description: string;
+  features: PricingPlanFeature[];
+  name: string;
+  period: string;
+  price: string;
+}
 
 export interface TwoColumnsPricingTableProps {
   theme?: TailwindConfig;
-  heading?: string;
-  plan1?: string;
-  price1?: string;
-  period1?: string;
-  desc1?: string;
-  feature1_1?: string;
-  feature1_2?: string;
-  feature1_3?: string;
-  ctaLabel1?: string;
-  ctaHref1?: string;
-  plan2?: string;
-  price2?: string;
-  period2?: string;
-  desc2?: string;
-  feature2_1?: string;
-  feature2_2?: string;
-  feature2_3?: string;
-  ctaLabel2?: string;
-  ctaHref2?: string;
-  variant?: TwoColumnsPricingTableVariant;
+  plans?: PricingPlan[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  brandColor?: string;
 }
 
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .pricing-plan-column { display: block !important; width: 100% !important; }",
+  "  .pricing-plan-gap { display: block !important; line-height: 16px !important; }",
+  "}",
+].join("\n");
+
+const defaultPlans: PricingPlan[] = [
+  {
+    ctaHref: "https://example.com",
+    ctaLabel: "Get started",
+    description:
+      "Everything you need to design, build, and ship emails faster.",
+    features: [
+      { label: "Visual email editor" },
+      { label: "All email templates" },
+      { label: "Team collaboration (up to 3 users)", muted: true },
+      { label: "Version control & previews", muted: true },
+    ],
+    name: "Takeoff",
+    period: "/Month",
+    price: "$19",
+  },
+  {
+    ctaHref: "https://example.com",
+    ctaLabel: "Get started",
+    description:
+      "Everything your team needs to design, build, and ship emails faster.",
+    features: [
+      { label: "Everything in Takeoff" },
+      { label: "Unlimited team slots" },
+      { label: "Advanced workflow automations" },
+      { label: "Analytics and performance insights" },
+    ],
+    name: "Orbit",
+    period: "/Month",
+    price: "$29",
+  },
+];
+
+const PlanCard = ({
+  plan,
+  cardBackgroundColor,
+  brandColor,
+}: {
+  plan: PricingPlan;
+  cardBackgroundColor: string;
+  brandColor: string;
+}) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            backgroundColor: cardBackgroundColor,
+            borderRadius: "8px",
+            padding: "24px",
+          }}
+        >
+          <p
+            style={{
+              color: brandColor,
+              fontFamily,
+              fontSize: "24px",
+              fontWeight: 600,
+              lineHeight: "32px",
+              margin: 0,
+            }}
+          >
+            {plan.name}
+          </p>
+          <div style={{ lineHeight: "16px" }}>&zwj;</div>
+          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
+            <tbody>
+              <tr>
+                <td>
+                  <p
+                    style={{
+                      color: "#030712",
+                      fontFamily,
+                      fontSize: "60px",
+                      fontWeight: 600,
+                      lineHeight: 1,
+                      margin: 0,
+                    }}
+                  >
+                    {plan.price}
+                  </p>
+                </td>
+                <td style={{ width: "8px" }}>&zwj;</td>
+                <td>
+                  <p
+                    style={{
+                      color: "#374151",
+                      fontFamily,
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      margin: 0,
+                    }}
+                  >
+                    USD
+                  </p>
+                  <p
+                    style={{
+                      color: "#6b7280",
+                      fontFamily,
+                      fontSize: "14px",
+                      lineHeight: "20px",
+                      margin: 0,
+                    }}
+                  >
+                    {plan.period}
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style={{ lineHeight: "16px" }}>&zwj;</div>
+          <p
+            style={{
+              color: "#030712",
+              fontFamily,
+              fontSize: "18px",
+              fontWeight: 500,
+              lineHeight: "28px",
+              margin: 0,
+            }}
+          >
+            {plan.description}
+          </p>
+          <div style={{ lineHeight: "36px" }}>&zwj;</div>
+          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
+            <tbody>
+              {plan.features.map((feature, index) => (
+                <tr key={feature.label}>
+                  <td
+                    style={{
+                      lineHeight: "24px",
+                      verticalAlign: "top",
+                      width: "16px",
+                    }}
+                  >
+                    <img
+                      alt=""
+                      src={`https://assets.mailviews.com/images/components/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                      width={16}
+                    />
+                  </td>
+                  <td style={{ width: "12px" }}>&zwj;</td>
+                  <td
+                    style={{
+                      paddingBottom:
+                        index < plan.features.length - 1 ? "16px" : 0,
+                      verticalAlign: "top",
+                    }}
+                  >
+                    <p
+                      style={{
+                        color: feature.muted ? "#9ca3af" : "#4b5563",
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      {feature.label}
+                    </p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div style={{ lineHeight: "36px" }}>&zwj;</div>
+          <a
+            href={plan.ctaHref}
+            style={{
+              backgroundColor: brandColor,
+              borderRadius: "8px",
+              color: "#f8fafc",
+              display: "block",
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 500,
+              lineHeight: 1,
+              padding: "10px 18px",
+              textAlign: "center",
+              textDecoration: "none",
+            }}
+          >
+            {plan.ctaLabel}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
 export const TwoColumnsPricingTableSection = ({
-  heading = "Plans",
-  plan1 = "Starter",
-  price1 = "$9",
-  period1 = "/month",
-  desc1 = "For individuals.",
-  feature1_1 = "1,000 emails",
-  feature1_2 = "Basic templates",
-  feature1_3 = "Email support",
-  ctaLabel1 = "Get Started",
-  ctaHref1 = "#",
-  plan2 = "Pro",
-  price2 = "$29",
-  period2 = "/month",
-  desc2 = "For teams.",
-  feature2_1 = "Unlimited emails",
-  feature2_2 = "Custom templates",
-  feature2_3 = "Priority support",
-  ctaLabel2 = "Subscribe",
-  ctaHref2 = "#",
-  variant = "default",
-}: Omit<TwoColumnsPricingTableProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-2xl font-bold text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/2 pr-4 align-top">
-            <Section className="rounded-lg border border-border p-6 text-center">
-              <Text className="m-0 mb-3 text-lg font-bold text-foreground">
-                {plan1}
-              </Text>
-              <Text className="m-0 mb-2 text-3xl font-bold text-foreground">
-                {price1}
-                <span className="text-sm font-normal text-foreground-muted">
-                  {period1}
-                </span>
-              </Text>
-              <Text className="m-0 mb-4 text-sm text-foreground-muted">
-                {desc1}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature1_1}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature1_2}
-              </Text>
-              <Text className="m-0 mb-6 text-sm text-foreground">
-                &bull; {feature1_3}
-              </Text>
-              {ctaLabel1 && ctaHref1 ? (
-                <Button
-                  href={ctaHref1}
-                  className="inline-block rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-fg no-underline"
-                >
-                  {ctaLabel1}
-                </Button>
-              ) : null}
-            </Section>
-          </Column>
-          <Column className="w-1/2 pl-4 align-top">
-            <Section className="rounded-lg border-2 border-primary p-6 text-center">
-              <Text className="m-0 mb-3 text-lg font-bold text-foreground">
-                {plan2}
-              </Text>
-              <Text className="m-0 mb-2 text-3xl font-bold text-foreground">
-                {price2}
-                <span className="text-sm font-normal text-foreground-muted">
-                  {period2}
-                </span>
-              </Text>
-              <Text className="m-0 mb-4 text-sm text-foreground-muted">
-                {desc2}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature2_1}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature2_2}
-              </Text>
-              <Text className="m-0 mb-6 text-sm text-foreground">
-                &bull; {feature2_3}
-              </Text>
-              {ctaLabel2 && ctaHref2 ? (
-                <Button
-                  href={ctaHref2}
-                  className="inline-block rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-fg no-underline"
-                >
-                  {ctaLabel2}
-                </Button>
-              ) : null}
-            </Section>
-          </Column>
-        </Row>
-      </Container>
-    </Section>
-  );
-};
+  plans = defaultPlans,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  cardBackgroundColor = "#f9fafb",
+  brandColor = "#4f46e5",
+}: Omit<TwoColumnsPricingTableProps, "theme">) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ backgroundColor: pageBackgroundColor }}
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td>&zwj;</td>
+        <td
+          style={{
+            backgroundColor,
+            maxWidth: "100%",
+            paddingBottom: "44px",
+            width: "600px",
+          }}
+        >
+          <table
+            border={0}
+            cellPadding={0}
+            cellSpacing={0}
+            role="presentation"
+            width="100%"
+          >
+            <tbody>
+              <tr>
+                <td style={{ padding: "0 24px" }}>
+                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                  <table
+                    border={0}
+                    cellPadding={0}
+                    cellSpacing={0}
+                    role="presentation"
+                    width="100%"
+                  >
+                    <tbody>
+                      <tr>
+                        {plans.map((plan, index) => (
+                          <td
+                            className="pricing-plan-column"
+                            key={plan.name}
+                            style={{
+                              paddingLeft: index > 0 ? "16px" : undefined,
+                              verticalAlign: "top",
+                              width: "268px",
+                            }}
+                          >
+                            <PlanCard
+                              cardBackgroundColor={cardBackgroundColor}
+                              brandColor={brandColor}
+                              plan={plan}
+                            />
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>&zwj;</td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 export const TwoColumnsPricingTable = ({
-  theme = defaultTheme,
-  heading = "Plans",
-  plan1 = "Starter",
-  price1 = "$9",
-  period1 = "/month",
-  desc1 = "For individuals.",
-  feature1_1 = "1,000 emails",
-  feature1_2 = "Basic templates",
-  feature1_3 = "Email support",
-  ctaLabel1 = "Get Started",
-  ctaHref1 = "#",
-  plan2 = "Pro",
-  price2 = "$29",
-  period2 = "/month",
-  desc2 = "For teams.",
-  feature2_1 = "Unlimited emails",
-  feature2_2 = "Custom templates",
-  feature2_3 = "Priority support",
-  ctaLabel2 = "Subscribe",
-  ctaHref2 = "#",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  ...props
 }: TwoColumnsPricingTableProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <TwoColumnsPricingTableSection
-          ctaHref1={ctaHref1}
-          ctaHref2={ctaHref2}
-          ctaLabel1={ctaLabel1}
-          ctaLabel2={ctaLabel2}
-          desc1={desc1}
-          desc2={desc2}
-          feature1_1={feature1_1}
-          feature1_2={feature1_2}
-          feature1_3={feature1_3}
-          feature2_1={feature2_1}
-          feature2_2={feature2_2}
-          feature2_3={feature2_3}
-          heading={heading}
-          period1={period1}
-          period2={period2}
-          plan1={plan1}
-          plan2={plan2}
-          price1={price1}
-          price2={price2}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Pricing plans</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <TwoColumnsPricingTableSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+      />
+    </Body>
   </Html>
 );
 
 TwoColumnsPricingTable.PreviewProps = {
-  ctaHref1: "https://example.com",
-  ctaHref2: "https://example.com",
-  ctaLabel1: "Get Started",
-  ctaLabel2: "Subscribe",
-  desc1: "Perfect for individuals getting started.",
-  desc2: "Best for teams and growing businesses.",
-  feature1_1: "1,000 emails/month",
-  feature1_2: "Basic templates",
-  feature1_3: "Email support",
-  feature2_1: "Unlimited emails",
-  feature2_2: "Custom templates",
-  feature2_3: "Priority support",
-  heading: "Plans",
-  period1: "/month",
-  period2: "/month",
-  plan1: "Starter",
-  plan2: "Pro",
-  price1: "$9",
-  price2: "$29",
   theme: defaultTheme,
-  variant: "default",
 } satisfies TwoColumnsPricingTableProps;

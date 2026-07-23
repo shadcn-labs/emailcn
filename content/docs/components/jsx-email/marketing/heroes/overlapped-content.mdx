@@ -1,0 +1,103 @@
+---
+title: "Overlapped Content"
+description: "An editorial image hero with four exact content-order and gradient variants"
+---
+
+<ComponentPreview base="jsx-email" name="hero-with-overlapped-content-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-with-overlapped-content
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/hero/hero-with-overlapped-content.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/hero/hero-with-overlapped-content.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroWithOverlappedContent } from "@/components/emails/marketing/hero/hero-with-overlapped-content";
+```
+
+```tsx
+<HeroWithOverlappedContent {...HeroWithOverlappedContent.PreviewProps} />
+```
+
+## Examples
+
+### Basic
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlapped-content-demo"
+  variant="basic"
+  hideCode
+/>
+
+### Reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlapped-content-demo"
+  variant="reversed"
+  hideCode
+/>
+
+### Basic With Gradient
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlapped-content-demo"
+  variant="basic-with-gradient"
+  hideCode
+/>
+
+### Reversed With Gradient
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlapped-content-demo"
+  variant="reversed-with-gradient"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                                             | Type                               | Default          | Description                                       |
+| ------------------------------------------------ | ---------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`                                          | `EmailThemeTokens`                 | `defaultTheme`   | JSX Email theme tokens                            |
+| `variant`                                        | `HeroWithOverlappedContentVariant` | `"basic"`        | Selects content order, imagery, copy, and surface |
+| `eyebrow` / `heading` / `subheading`             | `string`                           | Variant copy     | Editorial title copy                              |
+| `description`                                    | `string`                           | Variant copy     | Supporting editorial paragraph                    |
+| `ctaLabel` / `ctaHref`                           | `string`                           | Mailviews CTA    | Button label and destination                      |
+| `backgroundImageSrc` / `imageAlt`                | `string`                           | Variant imagery  | Background image and accessible label             |
+| `logoSrc` / `logoAlt` / `logoHref`               | `string`                           | Light logo       | Brand logo and destination                        |
+| `pageBackgroundColor` / `contentBackgroundColor` | `string`                           | Variant colors   | Canvas and solid or gradient content surface      |
+| `textColor`                                      | `string`                           | Variant color    | Hero copy color                                   |
+| `buttonBackgroundColor` / `buttonTextColor`      | `string`                           | Mailviews colors | CTA colors                                        |

@@ -1,11 +1,50 @@
 ---
 title: "Product Detail with Three Images and Details"
-description: "Ecommerce product-detail variant for email templates"
+description: "Product Detail with Three Images and Details with every Mailviews layout variant."
 ---
+
+This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="react-email"
-  name="bento-grid-with-images-and-details-demo"
+  name="product-detail-three-images-demo"
+  variant="default"
+/>
+
+### Rating Top
+
+<ComponentPreview
+  base="react-email"
+  name="product-detail-three-images-demo"
+  variant="rating-top"
+/>
+
+### Header Top
+
+<ComponentPreview
+  base="react-email"
+  name="product-detail-three-images-demo"
+  variant="header-top"
+/>
+
+### Rating Aside
+
+<ComponentPreview
+  base="react-email"
+  name="product-detail-three-images-demo"
+  variant="rating-aside"
+/>
+
+### Rating Aside Top
+
+<ComponentPreview
+  base="react-email"
+  name="product-detail-three-images-demo"
+  variant="rating-aside-top"
 />
 
 ## Installation
@@ -39,17 +78,19 @@ npx shadcn@latest add @emailcn/product-detail-with-three-images-and-details
 ## Usage
 
 ```tsx
-import { ProductDetailWithThreeImagesAndDetails } from "@/components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details";
+import { ProductDetailThreeImages } from "@/components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details";
 ```
 
 ```tsx
-<ProductDetailWithThreeImagesAndDetails
-  {...ProductDetailWithThreeImagesAndDetails.PreviewProps}
+<ProductDetailThreeImages
+  {...ProductDetailThreeImages.PreviewProps}
+  variant="default"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                | Default        | Description              |
+| --------- | ----------------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `TailwindConfig`                                                                    | `defaultTheme` | Email theme styling      |

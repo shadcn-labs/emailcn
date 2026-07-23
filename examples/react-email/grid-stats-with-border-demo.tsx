@@ -1,5 +1,16 @@
-import { GridStatsWithBorder } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats-with-border";
+import { GridStats } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats";
+import type { GridStatsLayout } from "@/registry/bases/react-email/ui/marketing/stats/grid-stats";
 
-export default function GridStatsWithBorderDemo() {
-  return <GridStatsWithBorder {...GridStatsWithBorder.PreviewProps} />;
+export default function GridStatsWithBorderDemo({
+  layout,
+}: {
+  layout?: GridStatsLayout;
+}) {
+  return (
+    <GridStats
+      {...GridStats.PreviewProps}
+      layout={layout ?? GridStats.PreviewProps.layout}
+      variant="bordered"
+    />
+  );
 }

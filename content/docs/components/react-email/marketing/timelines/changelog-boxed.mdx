@@ -3,7 +3,57 @@ title: "Changelog Boxed"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="react-email" name="changelog-boxed-demo" />
+`ChangelogBoxed` is the compatibility entry point for `Changelog` with `layout="boxed"`.
+
+## Examples
+
+### Muted Left
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-boxed-demo"
+  variant="muted-left"
+/>
+
+### Muted Right
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-boxed-demo"
+  variant="muted-right"
+/>
+
+### Basic Left
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-boxed-demo"
+  variant="basic-left"
+/>
+
+### Basic Right
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-boxed-demo"
+  variant="basic-right"
+/>
+
+### Accent Left
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-boxed-demo"
+  variant="accent-left"
+/>
+
+### Accent Right
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-boxed-demo"
+  variant="accent-right"
+/>
 
 ## Installation
 
@@ -45,6 +95,7 @@ import { ChangelogBoxed } from "@/components/emails/marketing/timelines/changelo
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                | Default        | Description                  |
+| --------- | --------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
+| `variant` | `"muted-left" \| "muted-right" \| "basic-left" \| "basic-right" \| "accent-left" \| "accent-right"` | `"muted-left"` | Timeline state and alignment |
+| `theme`   | `TailwindConfig`                                                                                    | `defaultTheme` | Email theme styling          |

@@ -1,0 +1,133 @@
+---
+title: "3 Columns Masonry Image Grid with Full Width Feature"
+description: "A full-width feature plus three-image masonry grid with side, order, and overlay variants"
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/3-columns-masonry-image-grid-with-full-width-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ThreeColumnsMasonryImageGridWithFullWidthFeature } from "@/components/emails/marketing/images/3-columns-masonry-image-grid-with-full-width-feature";
+```
+
+```tsx
+<ThreeColumnsMasonryImageGridWithFullWidthFeature
+  {...ThreeColumnsMasonryImageGridWithFullWidthFeature.PreviewProps}
+/>
+```
+
+## Examples
+
+### Stacked Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-left"
+  hideCode
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-right"
+  hideCode
+/>
+
+### Stacked Left Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-left-reverse"
+  hideCode
+/>
+
+### Stacked Right Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-right-reverse"
+  hideCode
+/>
+
+### Stacked Left Overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-left-overlay"
+  hideCode
+/>
+
+### Stacked Right Overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-right-overlay"
+  hideCode
+/>
+
+### Stacked Left Overlay Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-left-overlay-reverse"
+  hideCode
+/>
+
+### Stacked Right Overlay Reverse
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-columns-masonry-image-grid-with-full-width-feature-demo"
+  variant="stacked-right-overlay-reverse"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                | Type                                                      | Default          | Description                                     |
+| ------------------- | --------------------------------------------------------- | ---------------- | ----------------------------------------------- |
+| `theme`             | Renderer theme                                            | `defaultTheme`   | Renderer theme configuration                    |
+| `variant`           | `ThreeColumnsMasonryImageGridWithFullWidthFeatureVariant` | `"stacked-left"` | Selects side, feature order, and overlay mode   |
+| Feature image props | `string`                                                  | Mailviews data   | Full-width feature image, link, and copy        |
+| Masonry image props | `string`                                                  | Mailviews data   | Two stacked images and one wide image with copy |
+| Color props         | `string`                                                  | Mailviews colors | Canvas, surface, and overlay text colors        |

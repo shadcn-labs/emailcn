@@ -1,0 +1,99 @@
+---
+title: "Full Width Progress Bar"
+description: "Mailviews-compatible progress bar component for email templates"
+---
+
+<ComponentPreview base="mjml-react" name="full-width-progress-bar-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-progress-bar
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>
+    Copy the component and shared progress rendering source into your project.
+  </Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/progress-bars/full-width-progress-bar.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/progress-bars/progress-bar-shared.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/progress-bars/progress-bar-shared.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthProgressBar } from "@/components/emails/ui-elements/progress-bars/full-width-progress-bar";
+```
+
+```tsx
+<FullWidthProgressBar {...FullWidthProgressBar.PreviewProps} />
+```
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-progress-bar-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-progress-bar-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Text
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-progress-bar-demo"
+  variant="with-text"
+  hideCode
+/>
+
+### Text Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-progress-bar-demo"
+  variant="text-top"
+  hideCode
+/>
+
+## API Reference
+
+| Prop          | Type                        | Default               | Description                           |
+| ------------- | --------------------------- | --------------------- | ------------------------------------- |
+| `description` | `string`                    | FlowSync description  | Supporting copy used by text variants |
+| `theme`       | `EmailTheme`                | `defaultTheme`        | Email theme configuration             |
+| `title`       | `string`                    | `FlowSync`            | Progress item title                   |
+| `value`       | `number`                    | Variant example value | Progress percentage from 0 to 100     |
+| `variant`     | `ProgressBarContentVariant` | `text-top`            | Selects one of the examples above     |

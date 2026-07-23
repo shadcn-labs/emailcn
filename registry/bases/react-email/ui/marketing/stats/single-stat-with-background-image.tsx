@@ -1,126 +1,247 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type SingleStatWithBackgroundImageVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "centered"
+  | "top-left"
+  | "bottom-left"
+  | "top-right"
+  | "bottom-right";
 
 export interface SingleStatWithBackgroundImageProps {
   theme?: TailwindConfig;
-  stat?: string;
-  statLabel?: string;
-  backgroundSrc?: string;
-  backgroundAlt?: string;
   variant?: SingleStatWithBackgroundImageVariant;
+  eyebrow?: string;
+  label?: string;
+  value?: string;
+  backgroundImageSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  overlayColor?: string;
+  eyebrowColor?: string;
+  labelColor?: string;
+  valueColor?: string;
 }
 
-export const SingleStatWithBackgroundImageSection = ({
-  stat = "10,000+",
-  statLabel = "Happy Customers",
-  backgroundSrc = "https://static.photos/city/600x300/2",
-  backgroundAlt = "",
-  variant = "default",
-}: Omit<SingleStatWithBackgroundImageProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const defaults = {
+  backgroundColor: "#fffffe",
+  backgroundImageSrc:
+    "https://assets.mailviews.com/images/components/stats/single-stat.jpg",
+  eyebrow: "Mapped trails",
+  eyebrowColor: "#d1d5db",
+  label: "Tracked by active users",
+  labelColor: "#fffffe",
+  overlayColor: "rgba(0,0,1,0.25)",
+  pageBackgroundColor: "#f1f5f9",
+  value: "3,120km",
+};
+
+const valueColors: Record<SingleStatWithBackgroundImageVariant, string> = {
+  "bottom-left": "#c7d2fe",
+  "bottom-right": "#a7f3d0",
+  centered: "#e9d5ff",
+  "top-left": "#fde68a",
+  "top-right": "#fecdd3",
+};
+
+type SectionProps = Omit<SingleStatWithBackgroundImageProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps & { valueColor: string };
+
+export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
+  const variant = props.variant ?? "centered";
+  const resolved = {
+    ...defaults,
+    valueColor: valueColors[variant],
+    ...props,
+  } as ResolvedProps;
+  const centered = variant === "centered";
+  const bottom = variant.startsWith("bottom-");
+  let align: "center" | "left" | "right" = "left";
+  let topSpace = "24px";
+  let bottomSpace = "185px";
+  if (centered) {
+    align = "center";
+    topSpace = "104px";
+    bottomSpace = "104px";
+  } else {
+    if (variant.endsWith("-right")) {
+      align = "right";
     }
-  };
+    if (bottom) {
+      topSpace = "185px";
+      bottomSpace = "24px";
+    }
+  }
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>
-        <Section className="relative overflow-hidden rounded-lg">
-          <Img
-            src={backgroundSrc}
-            alt={backgroundAlt}
-            width="600"
-            height="300"
-            className="w-full h-auto object-cover"
-          />
-          <Section className="absolute inset-0 flex flex-col items-center justify-center bg-black/50">
-            <Text className="m-0 text-4xl font-bold text-white">{stat}</Text>
-            {statLabel ? (
-              <Text className="mt-2 mb-0 text-lg text-white/80">
-                {statLabel}
-              </Text>
-            ) : null}
-          </Section>
-        </Section>
-      </Container>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              textAlign: "left",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  <td>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={{
+                        backgroundImage: `url('${resolved.backgroundImageSrc}')`,
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        borderRadius: "8px",
+                      }}
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div
+                              style={{
+                                backgroundColor: resolved.overlayColor,
+                                borderRadius: "8px",
+                              }}
+                            >
+                              <table
+                                border={0}
+                                cellPadding={0}
+                                cellSpacing={0}
+                                role="presentation"
+                                width="100%"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "24px" }}>&zwj;</td>
+                                    <td>
+                                      <div style={{ lineHeight: topSpace }}>
+                                        &zwj;
+                                      </div>
+                                      <p
+                                        style={{
+                                          color: resolved.eyebrowColor,
+                                          fontFamily,
+                                          fontSize: "16px",
+                                          lineHeight: "24px",
+                                          margin: 0,
+                                          textAlign: align,
+                                        }}
+                                      >
+                                        {resolved.eyebrow}
+                                      </p>
+                                      <p
+                                        style={{
+                                          color: resolved.labelColor,
+                                          fontFamily,
+                                          fontSize: "16px",
+                                          lineHeight: "24px",
+                                          margin: 0,
+                                          textAlign: align,
+                                        }}
+                                      >
+                                        {resolved.label}
+                                      </p>
+                                      <p
+                                        style={{
+                                          color: resolved.valueColor,
+                                          fontFamily,
+                                          fontSize: "72px",
+                                          fontWeight: 500,
+                                          lineHeight: "normal",
+                                          margin: 0,
+                                          textAlign: align,
+                                        }}
+                                      >
+                                        {resolved.value}
+                                      </p>
+                                      <div style={{ lineHeight: bottomSpace }}>
+                                        &zwj;
+                                      </div>
+                                    </td>
+                                    <td style={{ width: "24px" }}>&zwj;</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const SingleStatWithBackgroundImage = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  stat = "10,000+",
-  statLabel = "Happy Customers",
-  backgroundSrc = "https://static.photos/city/600x300/3",
-  backgroundAlt = "",
-  variant = "default",
+  variant = "centered",
+  ...props
 }: SingleStatWithBackgroundImageProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>{stat}</Preview>
+    <Preview>3,120km mapped trails</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <SingleStatWithBackgroundImageSection
-          backgroundAlt={backgroundAlt}
-          backgroundSrc={backgroundSrc}
-          stat={stat}
-          statLabel={statLabel}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <SingleStatWithBackgroundImageSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 SingleStatWithBackgroundImage.PreviewProps = {
-  backgroundAlt: "Background",
-  backgroundSrc: "https://static.photos/city/600x300/4",
-  stat: "10,000+",
-  statLabel: "Happy Customers",
   theme: defaultTheme,
-  variant: "default",
+  variant: "centered",
 } satisfies SingleStatWithBackgroundImageProps;

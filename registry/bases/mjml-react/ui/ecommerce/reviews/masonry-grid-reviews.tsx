@@ -1,220 +1,61 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  reviewsResponsiveStyles,
+  ReviewsSection,
+} from "@/registry/bases/mjml-react/ui/ecommerce/reviews/reviews-shared";
+import type {
+  ReviewItem,
+  ReviewsVariant,
+} from "@/registry/bases/mjml-react/ui/ecommerce/reviews/reviews-shared";
 
 export interface MasonryGridReviewsProps {
+  reviews?: ReviewItem[];
   theme?: EmailThemeTokens;
-  reviews?: {
-    avatarUrl?: string;
-    name: string;
-    rating: number;
-    text: string;
-    date?: string;
-  }[];
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: ReviewsVariant;
 }
 
-const StarRating = ({
-  rating,
-  theme,
-}: {
-  rating: number;
-  theme: EmailThemeTokens;
-}) => {
-  const stars = "\u2605".repeat(Math.min(rating, 5));
-  const empty = "\u2606".repeat(Math.max(0, 5 - Math.min(rating, 5)));
-  return (
-    <MjmlText
-      color={theme.colorPrimary}
-      fontFamily={theme.fontFamily}
-      fontSize={theme.fontSizeLg ?? "16px"}
-      paddingBottom={theme.spacingBase ?? "16px"}
-    >
-      {stars}
-      {empty ? (
-        <span style={{ color: theme.colorBorder ?? "#e5e7eb" }}>{empty}</span>
-      ) : null}
-    </MjmlText>
-  );
-};
-
-const MasonryGridReviewsSection = ({
+export const MasonryGridReviewsSection = ({
   reviews,
-  theme,
-}: {
-  reviews: NonNullable<MasonryGridReviewsProps["reviews"]>;
-  theme: EmailThemeTokens;
-}) => {
-  const mid = Math.ceil(reviews.length / 2);
-  const leftCol = reviews.slice(0, mid);
-  const rightCol = reviews.slice(mid);
-
-  return (
-    <MjmlSection padding="0">
-      <MjmlColumn
-        width="50%"
-        paddingRight={theme.spacingBase ?? "16px"}
-        verticalAlign="top"
-      >
-        {leftCol.map((review) => (
-          <MjmlColumn
-            key={review.name}
-            backgroundColor={theme.colorBackgroundMuted}
-            border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-            borderRadius={theme.borderRadius}
-            padding={theme.spacingBase ?? "16px"}
-          >
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "12px"}
-              fontWeight={theme.fontWeightMedium ?? "500"}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {review.name}
-            </MjmlText>
-            <StarRating rating={review.rating} theme={theme} />
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              lineHeight={theme.lineHeightBase}
-            >
-              &ldquo;{review.text}&rdquo;
-            </MjmlText>
-            {review.date ? (
-              <MjmlText
-                color={theme.colorTextMuted}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeSm ?? "12px"}
-                paddingTop={theme.spacingBase ?? "16px"}
-              >
-                {review.date}
-              </MjmlText>
-            ) : null}
-          </MjmlColumn>
-        ))}
-      </MjmlColumn>
-      <MjmlColumn
-        width="50%"
-        paddingLeft={theme.spacingBase ?? "16px"}
-        verticalAlign="top"
-      >
-        {rightCol.map((review) => (
-          <MjmlColumn
-            key={review.name}
-            backgroundColor={theme.colorBackgroundMuted}
-            border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-            borderRadius={theme.borderRadius}
-            padding={theme.spacingBase ?? "16px"}
-          >
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm ?? "12px"}
-              fontWeight={theme.fontWeightMedium ?? "500"}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {review.name}
-            </MjmlText>
-            <StarRating rating={review.rating} theme={theme} />
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              lineHeight={theme.lineHeightBase}
-            >
-              &ldquo;{review.text}&rdquo;
-            </MjmlText>
-            {review.date ? (
-              <MjmlText
-                color={theme.colorTextMuted}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeSm ?? "12px"}
-                paddingTop={theme.spacingBase ?? "16px"}
-              >
-                {review.date}
-              </MjmlText>
-            ) : null}
-          </MjmlColumn>
-        ))}
-      </MjmlColumn>
-    </MjmlSection>
-  );
-};
+  variant = "with-divider",
+}: Omit<MasonryGridReviewsProps, "theme">) => (
+  <ReviewsSection layout="masonry-grid" reviews={reviews} variant={variant} />
+);
 
 export const MasonryGridReviews = ({
   theme = defaultTheme,
-  reviews = [
-    { name: "A", rating: 5, text: "Great!" },
-    { name: "B", rating: 4, text: "Nice!" },
-    { name: "C", rating: 5, text: "Love it!" },
-  ],
-  variant = "default",
+  ...props
 }: MasonryGridReviewsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>masonry-reviews</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Customer reviews</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{reviewsResponsiveStyles}</MjmlStyle>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
+    <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MasonryGridReviewsSection reviews={reviews} theme={theme} />
+        <MjmlRaw>
+          <div style={{ textAlign: "left" }}>
+            <MasonryGridReviewsSection {...props} />
+          </div>
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 MasonryGridReviews.PreviewProps = {
-  reviews: [
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=mjml-review-1&size=128",
-      date: "March 2026",
-      name: "Alex",
-      rating: 5,
-      text: "Excellent!",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=mjml-review-2&size=128",
-      date: "Feb 2026",
-      name: "Jordan",
-      rating: 4,
-      text: "Really good product!",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=mjml-review-3&size=128",
-      date: "Jan 2026",
-      name: "Sam",
-      rating: 5,
-      text: "Love it!",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
+  variant: "with-divider",
 } satisfies MasonryGridReviewsProps;

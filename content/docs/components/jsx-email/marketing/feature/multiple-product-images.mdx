@@ -1,0 +1,96 @@
+---
+title: "Feature with Multiple Product Images"
+description: "A product feature with logo and multi-image arrangements"
+---
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-multiple-product-images-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/feature-with-multiple-product-images
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/feature/feature-with-multiple-product-images.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/feature/feature-with-multiple-product-images.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeatureWithMultipleProductImages } from "@/components/emails/marketing/feature/feature-with-multiple-product-images";
+```
+
+```tsx
+<FeatureWithMultipleProductImages
+  {...FeatureWithMultipleProductImages.PreviewProps}
+/>
+```
+
+## Examples
+
+### With Logo Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="logo-left"
+  hideCode
+/>
+
+### With Logo Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="logo-right"
+  hideCode
+/>
+
+### With Images Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="images-left"
+  hideCode
+/>
+
+### With Images Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-multiple-product-images-demo"
+  variant="images-right"
+  hideCode
+/>
+
+## API Reference
+
+| Prop          | Type                                      | Default          | Description                                               |
+| ------------- | ----------------------------------------- | ---------------- | --------------------------------------------------------- |
+| `theme`       | Renderer theme                            | `defaultTheme`   | Renderer theme configuration                              |
+| `variant`     | `FeatureWithMultipleProductImagesVariant` | `"logo-left"`    | Selects the Mailviews logo or image arrangement           |
+| Content props | `string`                                  | Mailviews data   | Heading, body, action, logo, and product image content    |
+| Color props   | `string`                                  | Mailviews colors | Canvas, surface, logo panel, copy, and action link colors |

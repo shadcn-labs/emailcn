@@ -1,9 +1,38 @@
 ---
 title: "Logos Grid"
-description: "Marketing logos variant for email templates"
+description: "Mailviews six-logo grid with boxed, outlined, and bordered treatments"
 ---
 
-<ComponentPreview base="react-email" name="logos-grid-demo" />
+One component covers all three Mailviews grid treatments through the `tone` prop.
+
+## Examples
+
+### Boxed
+
+<ComponentPreview
+  base="react-email"
+  name="logos-grid-demo"
+  variant="boxed"
+  hideCode
+/>
+
+### Outlined
+
+<ComponentPreview
+  base="react-email"
+  name="logos-grid-demo"
+  variant="outlined"
+  hideCode
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="react-email"
+  name="logos-grid-demo"
+  variant="bordered"
+  hideCode
+/>
 
 ## Installation
 
@@ -40,11 +69,12 @@ import { LogosGrid } from "@/components/emails/marketing/logos/logos-grid";
 ```
 
 ```tsx
-<LogosGrid {...LogosGrid.PreviewProps} />
+<LogosGrid {...LogosGrid.PreviewProps} tone="bordered" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop    | Type            | Default        | Description                          |
+| ------- | --------------- | -------------- | ------------------------------------ |
+| `tone`  | `LogosGridTone` | `"boxed"`      | Selects the Mailviews grid treatment |
+| `theme` | Renderer theme  | `defaultTheme` | Renderer theme configuration         |

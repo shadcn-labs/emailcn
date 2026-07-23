@@ -1,19 +1,7 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Link,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable @next/next/no-img-element, complexity */
+import { Body, Container, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
@@ -24,184 +12,291 @@ export type HeroWithOverlayedContentVariant =
 
 export interface HeroWithOverlayedContentProps {
   theme?: EmailThemeTokens;
+  eyebrow?: string;
+  headingAccent?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  backgroundImage?: string;
-  backgroundImageAlt?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
+  slantColor?: string;
+  textColor?: string;
+  accentColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroWithOverlayedContentVariant;
 }
 
-const OverlayedContentCta = ({
-  ctaHref,
-  ctaLabel,
-  theme,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  theme: EmailThemeTokens;
-}) => (
-  <Button
-    href={ctaHref}
-    align="center"
-    width={160}
-    height={40}
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+const assetRoot = "https://assets.mailviews.com/images/components";
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-overlayed-content-side {
+      width: 24px !important;
+    }
+
+    .hero-overlayed-content-slant {
+      border-left-width: 100vw !important;
+    }
+  }
+`;
+
+type SectionProps = Omit<HeroWithOverlayedContentProps, "theme">;
+
+export const HeroWithOverlayedContentSection = ({
+  accentColor = "#D34A36",
+  buttonBackgroundColor = "#D34A36",
+  buttonTextColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Make an offer now",
+  description = "Step back into the golden era of hoops style with the iconic Blazer Mid '77 Vintage. A timeless mix of crisp white leather, retro suede accents, and that bold Swoosh, this pair delivers heritage with a modern edge.",
+  eyebrow = "Fresh Drop",
+  heading = "Mid ‘77 Vintage",
+  headingAccent = "Blazer",
+  imageAlt = "Nike Blazer Mid ‘77 Vintage",
+  imageSrc = `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = `${assetRoot}/mailviews-insignia-mono.png`,
+  slantColor = "#fffffe",
+  subheading = "Only One Pair Left",
+  textColor = "#030712",
+  variant = "default",
+}: SectionProps) => (
+  <table
+    aria-label={imageAlt || undefined}
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role={imageAlt ? "img" : "presentation"}
     style={{
-      backgroundColor: theme.colorPrimary,
-      borderRadius: theme.borderRadius,
-      color: theme.colorPrimaryForeground,
-      display: "inline-block",
-      fontFamily: theme.fontFamily,
-      fontSize: theme.fontSizeSm,
-      fontWeight: theme.fontWeightMedium,
-      height: "auto",
-      padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-      textDecoration: "none",
-      width: "auto",
+      backgroundImage: `url(${imageSrc})`,
+      backgroundPosition: "top",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
     }}
+    width="100%"
   >
-    {ctaLabel}
-  </Button>
-);
-
-const HeroWithOverlayedContentSection = ({
-  backgroundImage,
-  backgroundImageAlt,
-  ctaHref,
-  ctaLabel,
-  heading,
-  subheading,
-  theme,
-  variant,
-}: {
-  backgroundImage: string;
-  backgroundImageAlt: string;
-  ctaHref?: string;
-  ctaLabel?: string;
-  heading: string;
-  subheading: string;
-  theme: EmailThemeTokens;
-  variant: HeroWithOverlayedContentVariant;
-}) => {
-  const sectionPadding =
-    variant === "slanted-left"
-      ? "80px 0 60px"
-      : variant === "slanted-right"
-        ? "60px 0 80px"
-        : "60px 0";
-
-  return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackgroundMuted,
-        padding: sectionPadding,
-      }}
-    >
-      <Row>
-        <Column>
-          <Link href="#">
-            <Img
-              alt={backgroundImageAlt}
-              height="200px"
-              src={backgroundImage}
-              width="100%"
-              style={{
-                display: "block",
-                margin: "0 auto",
-                maxWidth: "100%",
-                paddingBottom: theme.spacingBase,
-              }}
+    <tbody>
+      <tr>
+        <td colSpan={3} style={{ height: "44px", lineHeight: "44px" }}>
+          &zwj;
+        </td>
+      </tr>
+      <tr>
+        <td className="hero-overlayed-content-side" style={{ width: "48px" }}>
+          &zwj;
+        </td>
+        <td style={{ textAlign: "center" }}>
+          <a href={logoHref}>
+            <img
+              alt={logoAlt}
+              src={logoSrc}
+              width="65"
+              style={{ maxWidth: "100%", verticalAlign: "middle" }}
             />
-          </Link>
-          <Text
+          </a>
+          <div style={{ height: "332px", lineHeight: "332px" }}>&zwj;</div>
+          <p
             style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeHeading,
-              fontWeight: theme.fontWeightBold,
+              color: accentColor,
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 500,
+              lineHeight: "24px",
               margin: 0,
-              paddingBottom: theme.spacingBase,
-              textAlign: "center",
             }}
           >
-            {heading}
-          </Text>
-          <Text
+            {eyebrow}
+          </p>
+          <h1
             style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg,
-              lineHeight: theme.lineHeightBase,
+              color: textColor,
+              fontFamily,
+              fontSize: "48px",
+              fontWeight: 300,
+              lineHeight: "58px",
               margin: 0,
-              paddingBottom: theme.spacingXl,
-              textAlign: "center",
+            }}
+          >
+            <span style={{ fontWeight: 500 }}>{headingAccent}</span> {heading}
+          </h1>
+          <p
+            style={{
+              color: textColor,
+              fontFamily,
+              fontSize: "18px",
+              lineHeight: "28px",
+              margin: 0,
             }}
           >
             {subheading}
-          </Text>
+          </p>
+          <div style={{ height: "44px", lineHeight: "44px" }}>&zwj;</div>
+          <p
+            style={{
+              color: textColor,
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 300,
+              lineHeight: "24px",
+              margin: 0,
+            }}
+          >
+            {description}
+          </p>
+          <div style={{ height: "24px", lineHeight: "24px" }}>&zwj;</div>
           {ctaLabel && ctaHref ? (
-            <OverlayedContentCta
-              ctaHref={ctaHref}
-              ctaLabel={ctaLabel}
-              theme={theme}
-            />
+            <a
+              href={ctaHref}
+              style={{
+                backgroundColor: buttonBackgroundColor,
+                borderRadius: "8px",
+                color: buttonTextColor,
+                display: "inline-block",
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 500,
+                lineHeight: 1,
+                padding: "14px 20px",
+                textDecoration: "none",
+              }}
+            >
+              <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+              <img
+                alt=""
+                src={`${assetRoot}/icon-arrow-right.png`}
+                width="12"
+                style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+              />
+            </a>
           ) : null}
-        </Column>
-      </Row>
-    </Section>
-  );
-};
+        </td>
+        <td className="hero-overlayed-content-side" style={{ width: "48px" }}>
+          &zwj;
+        </td>
+      </tr>
+      <tr>
+        <td colSpan={3}>
+          {variant === "default" ? (
+            <div style={{ height: "64px", lineHeight: "64px" }}>&zwj;</div>
+          ) : (
+            <>
+              <div style={{ height: "28px", lineHeight: "28px" }}>&zwj;</div>
+              <div
+                className="hero-overlayed-content-slant"
+                style={{
+                  borderColor: `transparent transparent ${slantColor}`,
+                  borderStyle: "solid",
+                  borderWidth:
+                    variant === "slanted-left"
+                      ? "0 0 100px 600px"
+                      : "0 600px 100px 0",
+                  height: 0,
+                  width: 0,
+                }}
+              />
+            </>
+          )}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 export const HeroWithOverlayedContent = ({
+  accentColor = "#D34A36",
+  buttonBackgroundColor = "#D34A36",
+  buttonTextColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Make an offer now",
+  description = "Step back into the golden era of hoops style with the iconic Blazer Mid '77 Vintage. A timeless mix of crisp white leather, retro suede accents, and that bold Swoosh, this pair delivers heritage with a modern edge.",
+  eyebrow = "Fresh Drop",
+  heading = "Mid ‘77 Vintage",
+  headingAccent = "Blazer",
+  imageAlt = "Nike Blazer Mid ‘77 Vintage",
+  imageSrc = `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = `${assetRoot}/mailviews-insignia-mono.png`,
+  pageBackgroundColor = "#f1f5f9",
+  slantColor = "#fffffe",
+  subheading = "Only One Pair Left",
+  textColor = "#030712",
   theme = defaultTheme,
-  heading = "Large Heading Over Background",
-  subheading = "Content layered on top of a background image or color block.",
-  ctaLabel = "Learn More",
-  ctaHref = "#",
-  backgroundImage = "https://static.photos/business/600x200/2",
-  backgroundImageAlt = "background",
   variant = "default",
 }: HeroWithOverlayedContentProps) => (
   <Html>
-    <Head />
-    <Preview>hero overlayed content</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>{`${eyebrow} — ${headingAccent} ${heading}`}</Preview>
     <Body
       style={{
-        backgroundColor: theme.colorBackground,
+        backgroundColor: pageBackgroundColor,
         color: theme.colorText,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
+        fontFamily,
         margin: 0,
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeroWithOverlayedContentSection
-            backgroundImage={backgroundImage}
-            backgroundImageAlt={backgroundImageAlt}
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            heading={heading}
-            subheading={subheading}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <HeroWithOverlayedContentSection
+          accentColor={accentColor}
+          buttonBackgroundColor={buttonBackgroundColor}
+          buttonTextColor={buttonTextColor}
+          ctaHref={ctaHref}
+          ctaLabel={ctaLabel}
+          description={description}
+          eyebrow={eyebrow}
+          heading={heading}
+          headingAccent={headingAccent}
+          imageAlt={imageAlt}
+          imageSrc={imageSrc}
+          logoAlt={logoAlt}
+          logoHref={logoHref}
+          logoSrc={logoSrc}
+          pageBackgroundColor={pageBackgroundColor}
+          slantColor={slantColor}
+          subheading={subheading}
+          textColor={textColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 HeroWithOverlayedContent.PreviewProps = {
-  backgroundImage: "https://static.photos/business/600x200/3",
-  backgroundImageAlt: "background",
+  accentColor: "#D34A36",
+  buttonBackgroundColor: "#D34A36",
+  buttonTextColor: "#fffffe",
   ctaHref: "https://example.com",
-  ctaLabel: "Get Started",
-  heading: "Hero with Overlayed Content",
-  subheading:
-    "A large heading overlapping a background image with a call to action.",
+  ctaLabel: "Make an offer now",
+  description:
+    "Step back into the golden era of hoops style with the iconic Blazer Mid '77 Vintage. A timeless mix of crisp white leather, retro suede accents, and that bold Swoosh, this pair delivers heritage with a modern edge.",
+  eyebrow: "Fresh Drop",
+  heading: "Mid ‘77 Vintage",
+  headingAccent: "Blazer",
+  imageAlt: "Nike Blazer Mid ‘77 Vintage",
+  imageSrc: `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
+  logoAlt: "Mailviews",
+  logoHref: "https://example.com",
+  logoSrc: `${assetRoot}/mailviews-insignia-mono.png`,
+  pageBackgroundColor: "#f1f5f9",
+  slantColor: "#fffffe",
+  subheading: "Only One Pair Left",
+  textColor: "#030712",
   theme: defaultTheme,
   variant: "default",
 } satisfies HeroWithOverlayedContentProps;

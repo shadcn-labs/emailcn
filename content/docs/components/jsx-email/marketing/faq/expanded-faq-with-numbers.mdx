@@ -1,0 +1,73 @@
+---
+title: "Expanded FAQ With Numbers"
+description: "A numbered FAQ list with every answer visible."
+---
+
+This layout keeps its own public component because its content contract differs
+from the other FAQ treatments. Common email-safe rendering is shared internally.
+
+## Examples
+
+### Default
+
+<ComponentPreview base="jsx-email" name="expanded-faq-with-numbers-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/expanded-faq-with-numbers
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the shared FAQ primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/faq/faq-shared.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/faq/faq-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/faq/expanded-faq-with-numbers.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/faq/expanded-faq-with-numbers.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ExpandedFaqWithNumbers } from "@/components/emails/marketing/faq/expanded-faq-with-numbers";
+```
+
+```tsx
+<ExpandedFaqWithNumbers {...ExpandedFaqWithNumbers.PreviewProps} />
+```
+
+## API Reference
+
+| Prop            | Type               | Default                        | Description                            |
+| --------------- | ------------------ | ------------------------------ | -------------------------------------- |
+| `theme`         | `EmailThemeTokens` | `defaultTheme`                 | Renderer theme configuration.          |
+| `heading`       | `string`           | `"Frequently asked questions"` | Section heading.                       |
+| `q1`, `q2`, ... | `string`           | Mailviews example copy         | Question labels.                       |
+| `a1`, `a2`, ... | `string`           | Mailviews example copy         | Answers when the layout displays them. |

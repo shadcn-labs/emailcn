@@ -1,0 +1,139 @@
+---
+title: "Block Overlay"
+description: "A full-bleed image hero with eight exact Mailviews overlay placements"
+---
+
+<ComponentPreview base="jsx-email" name="hero-block-overlay-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-block-overlay
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/hero/hero-block-overlay.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/hero/hero-block-overlay.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroBlockOverlay } from "@/components/emails/marketing/hero/hero-block-overlay";
+```
+
+```tsx
+<HeroBlockOverlay {...HeroBlockOverlay.PreviewProps} />
+```
+
+## Examples
+
+### Left Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="left-centered"
+  hideCode
+/>
+
+### Left Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="left-top"
+  hideCode
+/>
+
+### Left Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="left-bottom"
+  hideCode
+/>
+
+### Left Flush Vertical
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="left-flush-vertical"
+  hideCode
+/>
+
+### Right Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="right-centered"
+  hideCode
+/>
+
+### Right Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="right-top"
+  hideCode
+/>
+
+### Right Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="right-bottom"
+  hideCode
+/>
+
+### Right Flush Vertical
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-block-overlay-demo"
+  variant="right-flush-vertical"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                                                       | Type                      | Default           | Description                                      |
+| ---------------------------------------------------------- | ------------------------- | ----------------- | ------------------------------------------------ |
+| `theme`                                                    | `EmailThemeTokens`        | `defaultTheme`    | JSX Email theme tokens                           |
+| `variant`                                                  | `HeroBlockOverlayVariant` | `"left-centered"` | Selects overlay side and vertical placement      |
+| `eyebrow` / `heading` / `subheading`                       | `string`                  | Mailviews copy    | Main SumUp copy                                  |
+| `description`                                              | `string`                  | Mailviews copy    | Supporting paragraph                             |
+| `ctaLabel` / `ctaHref`                                     | `string`                  | Mailviews CTA     | Button label and destination                     |
+| `backgroundImageSrc` / `imageAlt`                          | `string`                  | SumUp imagery     | Full-bleed background and accessible label       |
+| `logoSrc` / `logoAlt` / `logoHref`                         | `string`                  | Light logo        | Logo used by centered and bottom placements      |
+| `pageBackgroundColor` / `backgroundColor` / `overlayColor` | `string`                  | Mailviews colors  | Canvas, fallback, and translucent overlay colors |
+| `textColor`                                                | `string`                  | `"#f9fafb"`       | Hero copy color                                  |
+| `buttonBackgroundColor` / `buttonTextColor`                | `string`                  | Mailviews colors  | CTA colors                                       |

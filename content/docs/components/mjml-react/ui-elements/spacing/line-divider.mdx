@@ -1,0 +1,72 @@
+---
+title: "Line Divider"
+description: "A simple horizontal rule with consistent email-safe spacing."
+---
+
+## Examples
+
+### Default
+
+<ComponentPreview base="mjml-react" name="line-divider-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/line-divider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependency:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component and shared sources into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/line-divider.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/line-divider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LineDivider } from "@/components/emails/ui-elements/spacing/line-divider";
+```
+
+```tsx
+<LineDivider />
+```
+
+## API Reference
+
+| Prop    | Type               | Default        | Description         |
+| ------- | ------------------ | -------------- | ------------------- |
+| `theme` | `EmailThemeTokens` | `defaultTheme` | Email theme styling |

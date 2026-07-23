@@ -1,6 +1,6 @@
 ---
 title: "Overlapped Content"
-description: "Marketing hero variant for email templates"
+description: "An editorial image hero with four exact content-order and gradient variants"
 ---
 
 <ComponentPreview base="react-email" name="hero-with-overlapped-content-demo" />
@@ -43,8 +43,55 @@ import { HeroWithOverlappedContent } from "@/components/emails/marketing/hero/he
 <HeroWithOverlappedContent {...HeroWithOverlappedContent.PreviewProps} />
 ```
 
+## Examples
+
+### Basic
+
+<ComponentPreview
+  base="react-email"
+  name="hero-with-overlapped-content-demo"
+  variant="basic"
+  hideCode
+/>
+
+### Reversed
+
+<ComponentPreview
+  base="react-email"
+  name="hero-with-overlapped-content-demo"
+  variant="reversed"
+  hideCode
+/>
+
+### Basic With Gradient
+
+<ComponentPreview
+  base="react-email"
+  name="hero-with-overlapped-content-demo"
+  variant="basic-with-gradient"
+  hideCode
+/>
+
+### Reversed With Gradient
+
+<ComponentPreview
+  base="react-email"
+  name="hero-with-overlapped-content-demo"
+  variant="reversed-with-gradient"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                             | Type                               | Default          | Description                                       |
+| ------------------------------------------------ | ---------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`                                          | `TailwindConfig`                   | `defaultTheme`   | React Email Tailwind configuration                |
+| `variant`                                        | `HeroWithOverlappedContentVariant` | `"basic"`        | Selects content order, imagery, copy, and surface |
+| `eyebrow` / `heading` / `subheading`             | `string`                           | Variant copy     | Editorial title copy                              |
+| `description`                                    | `string`                           | Variant copy     | Supporting editorial paragraph                    |
+| `ctaLabel` / `ctaHref`                           | `string`                           | Mailviews CTA    | Button label and destination                      |
+| `backgroundImageSrc` / `imageAlt`                | `string`                           | Variant imagery  | Background image and accessible label             |
+| `logoSrc` / `logoAlt` / `logoHref`               | `string`                           | Light logo       | Brand logo and destination                        |
+| `pageBackgroundColor` / `contentBackgroundColor` | `string`                           | Variant colors   | Canvas and solid or gradient content surface      |
+| `textColor`                                      | `string`                           | Variant color    | Hero copy color                                   |
+| `buttonBackgroundColor` / `buttonTextColor`      | `string`                           | Mailviews colors | CTA colors                                        |

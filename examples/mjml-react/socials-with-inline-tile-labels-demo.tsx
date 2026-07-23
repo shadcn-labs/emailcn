@@ -1,9 +1,10 @@
-import { SocialsWithInlineTileLabels } from "@/registry/bases/mjml-react/ui/marketing/social/socials-with-inline-tile-labels";
+import { SocialsWithTileLabels } from "@/registry/bases/mjml-react/ui/marketing/social/socials-with-tile-labels";
 
 export default function SocialsWithInlineTileLabelsDemo() {
   return (
-    <SocialsWithInlineTileLabels
-      {...SocialsWithInlineTileLabels.PreviewProps}
+    <SocialsWithTileLabels
+      {...SocialsWithTileLabels.PreviewProps}
+      variant="inline"
     />
   );
 }

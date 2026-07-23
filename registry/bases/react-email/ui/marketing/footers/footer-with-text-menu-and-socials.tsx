@@ -1,225 +1,370 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type FooterWithTextMenuAndSocialsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type FooterWithTextMenuAndSocialsVariant = "left-logo" | "right-logo";
+
+export interface FooterLink {
+  href: string;
+  label: string;
+}
+
+export interface FooterSocialLink extends FooterLink {
+  iconSrc: string;
+}
 
 export interface FooterWithTextMenuAndSocialsProps {
   theme?: TailwindConfig;
   logoSrc?: string;
   logoAlt?: string;
+  description?: string;
+  /** @deprecated Use `copyright` instead. */
   text?: string;
-  link1?: string;
-  link1Href?: string;
-  link2?: string;
-  link2Href?: string;
-  link3?: string;
-  link3Href?: string;
-  socialSrc1?: string;
-  socialAlt1?: string;
-  socialSrc2?: string;
-  socialAlt2?: string;
-  socialSrc3?: string;
-  socialAlt3?: string;
+  quickLinks?: FooterLink[];
+  socials?: FooterSocialLink[];
+  copyright?: string;
+  unsubscribeHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  mutedTextColor?: string;
   variant?: FooterWithTextMenuAndSocialsVariant;
 }
 
-export const FooterWithTextMenuAndSocialsSection = ({
-  logoSrc = "https://static.photos/business/100x25/2",
-  logoAlt = "Logo",
-  text = "© 2024 Acme Inc. All rights reserved.",
-  link1 = "Privacy",
-  link1Href = "#",
-  link2 = "Terms",
-  link2Href = "#",
-  link3 = "Contact",
-  link3Href = "#",
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-2&size=20",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-3&size=20",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-4&size=20",
-  socialAlt3 = "LinkedIn",
-  variant = "default",
-}: Omit<FooterWithTextMenuAndSocialsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .footer-text-menu-cell { display: block !important; width: 100% !important; }",
+  "  .footer-text-menu-copy { padding-bottom: 24px !important; text-align: left !important; }",
+  "  .footer-text-menu-links { float: none !important; margin: 0 !important; text-align: left !important; }",
+  "}",
+].join("\n");
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  copyright: "© 2026 Mailviews. No longer want to receive emails?",
+  description:
+    "Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed.",
+  headingColor: "#030712",
+  logoAlt: "Maizzle",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  mutedTextColor: "#9ca3af",
+  pageBackgroundColor: "#f1f5f9",
+  quickLinks: [
+    { href: "https://example.com/about", label: "About us" },
+    { href: "https://example.com/shop", label: "Shop" },
+    { href: "https://example.com/faq", label: "FAQs" },
+    { href: "https://example.com/contact", label: "Contact us" },
+  ],
+  socials: [
+    {
+      href: "https://facebook.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-facebook.png",
+      label: "Facebook",
+    },
+    {
+      href: "https://github.com",
+      iconSrc: "https://assets.mailviews.com/images/components/icon-github.png",
+      label: "GitHub",
+    },
+    {
+      href: "https://linkedin.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-linkedin.png",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://youtube.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-youtube.png",
+      label: "YouTube",
+    },
+    {
+      href: "https://x.com",
+      iconSrc: "https://assets.mailviews.com/images/components/icon-x.png",
+      label: "X",
+    },
+  ],
+  textColor: "#6b7280",
+  unsubscribeHref: "https://example.com/unsub",
+};
+
+type SectionProps = Omit<FooterWithTextMenuAndSocialsProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const BrandCopy = ({ props }: { props: ResolvedProps }) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="footer-text-menu-copy"
+          style={{
+            padding: "0 24px 24px",
+            textAlign: props.variant === "right-logo" ? "right" : "left",
+          }}
+        >
+          <img
+            alt={props.logoAlt}
+            src={props.logoSrc}
+            style={{ maxWidth: "100%", verticalAlign: "middle" }}
+            width={55}
+          />
+          <div style={{ lineHeight: "24px" }}>&zwj;</div>
+          <p
+            style={{
+              color: props.textColor,
+              fontFamily,
+              fontSize: "16px",
+              lineHeight: "24px",
+              margin: 0,
+            }}
+          >
+            {props.description}
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const QuickLinks = ({ props }: { props: ResolvedProps }) => (
+  <table
+    align={props.variant === "left-logo" ? "right" : "left"}
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    className="footer-text-menu-links"
+    role="presentation"
+    style={
+      props.variant === "left-logo"
+        ? { marginLeft: "auto" }
+        : { marginRight: "auto" }
     }
-  };
+  >
+    <tbody>
+      <tr>
+        <td style={{ padding: "0 24px", textAlign: "left" }}>
+          <p
+            style={{
+              color: props.headingColor,
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 600,
+              lineHeight: "24px",
+              margin: "0 0 10px",
+            }}
+          >
+            Quick Links
+          </p>
+          {props.quickLinks.map((link) => (
+            <p key={link.href} style={{ margin: "0 0 8px" }}>
+              <a
+                href={link.href}
+                style={{
+                  color: props.textColor,
+                  display: "block",
+                  fontFamily,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  textDecoration: "none",
+                }}
+              >
+                {link.label}
+              </a>
+            </p>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
+  const resolved = {
+    ...defaults,
+    ...props,
+    copyright: props.copyright ?? props.text ?? defaults.copyright,
+    variant: props.variant ?? "left-logo",
+  } as ResolvedProps;
+  const brandCell = (
+    <td
+      className="footer-text-menu-cell"
+      style={{ verticalAlign: "top", width: "66.666667%" }}
+    >
+      <BrandCopy props={resolved} />
+    </td>
+  );
+  const linksCell = (
+    <td
+      className="footer-text-menu-cell"
+      style={{ verticalAlign: "top", width: "33.333333%" }}
+    >
+      <QuickLinks props={resolved} />
+    </td>
+  );
 
   return (
-    <Section className={`bg-background py-8 ${getVariantClass()}`}>
-      <Section
-        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}
-      >
-        <Img
-          src={logoSrc}
-          alt={logoAlt}
-          width="100"
-          height="25"
-          className="mx-auto mb-4 h-auto object-contain"
-        />
-        <Row className="mb-4">
-          <Column className="text-center">
-            <a
-              href={link1Href}
-              className="mx-2 text-xs text-foreground-muted no-underline"
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              padding: "44px 0 24px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
             >
-              {link1}
-            </a>
-            <a
-              href={link2Href}
-              className="mx-2 text-xs text-foreground-muted no-underline"
+              <tbody>
+                <tr>
+                  {resolved.variant === "left-logo" ? brandCell : linksCell}
+                  {resolved.variant === "left-logo" ? linksCell : brandCell}
+                </tr>
+              </tbody>
+            </table>
+            <div style={{ lineHeight: "96px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
             >
-              {link2}
-            </a>
-            <a
-              href={link3Href}
-              className="mx-2 text-xs text-foreground-muted no-underline"
-            >
-              {link3}
-            </a>
-          </Column>
-        </Row>
-        <Row className="mb-4">
-          <Column className="text-center">
-            <Img
-              src={socialSrc1}
-              alt={socialAlt1}
-              width="20"
-              height="20"
-              className="inline-block mx-2 h-auto object-contain"
-            />
-            <Img
-              src={socialSrc2}
-              alt={socialAlt2}
-              width="20"
-              height="20"
-              className="inline-block mx-2 h-auto object-contain"
-            />
-            <Img
-              src={socialSrc3}
-              alt={socialAlt3}
-              width="20"
-              height="20"
-              className="inline-block mx-2 h-auto object-contain"
-            />
-          </Column>
-        </Row>
-        <Text className="m-0 text-xs text-foreground-subtle">{text}</Text>
-      </Section>
-    </Section>
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "left" }}>
+                    <p
+                      style={{
+                        color: resolved.headingColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        lineHeight: "24px",
+                        margin: "0 0 12px",
+                      }}
+                    >
+                      Follow us
+                    </p>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                    >
+                      <tbody>
+                        <tr>
+                          {resolved.socials.map((social, index) => (
+                            <td
+                              key={social.href}
+                              style={
+                                index === resolved.socials.length - 1
+                                  ? undefined
+                                  : { paddingRight: "24px" }
+                              }
+                            >
+                              <a href={social.href}>
+                                <img
+                                  alt={social.label}
+                                  src={social.iconSrc}
+                                  style={{
+                                    maxWidth: "100%",
+                                    verticalAlign: "middle",
+                                  }}
+                                  width={20}
+                                />
+                              </a>
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <p
+                      style={{
+                        color: resolved.mutedTextColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      {resolved.copyright}{" "}
+                      <a
+                        href={resolved.unsubscribeHref}
+                        style={{
+                          color: resolved.textColor,
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Unsubscribe
+                      </a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const FooterWithTextMenuAndSocials = ({
-  theme = defaultTheme,
-  logoSrc = "https://static.photos/business/100x25/6",
-  logoAlt = "Logo",
-  text = "© 2024 Acme Inc. All rights reserved.",
-  link1 = "Privacy",
-  link1Href = "#",
-  link2 = "Terms",
-  link2Href = "#",
-  link3 = "Contact",
-  link3Href = "#",
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-6&size=20",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-7&size=20",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-8&size=20",
-  socialAlt3 = "LinkedIn",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "left-logo",
+  ...props
 }: FooterWithTextMenuAndSocialsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>Footer</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <FooterWithTextMenuAndSocialsSection
-          link1={link1}
-          link1Href={link1Href}
-          link2={link2}
-          link2Href={link2Href}
-          link3={link3}
-          link3Href={link3Href}
-          logoAlt={logoAlt}
-          logoSrc={logoSrc}
-          socialAlt1={socialAlt1}
-          socialAlt2={socialAlt2}
-          socialAlt3={socialAlt3}
-          socialSrc1={socialSrc1}
-          socialSrc2={socialSrc2}
-          socialSrc3={socialSrc3}
-          text={text}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Footer with text, menu and socials</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <FooterWithTextMenuAndSocialsSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
+    </Body>
   </Html>
 );
 
 FooterWithTextMenuAndSocials.PreviewProps = {
-  link1: "Privacy",
-  link1Href: "#",
-  link2: "Terms",
-  link2Href: "#",
-  link3: "Contact",
-  link3Href: "#",
-  logoAlt: "Logo",
-  logoSrc: "https://static.photos/business/100x25/10",
-  socialAlt1: "Twitter",
-  socialAlt2: "Facebook",
-  socialAlt3: "LinkedIn",
-  socialSrc1:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-10&size=20",
-  socialSrc2:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-11&size=20",
-  socialSrc3:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-footers-footer-with-text-menu-and-socials-tsx-12&size=20",
-  text: "© 2024 Acme Inc. All rights reserved.",
   theme: defaultTheme,
-  variant: "default",
+  variant: "left-logo",
 } satisfies FooterWithTextMenuAndSocialsProps;

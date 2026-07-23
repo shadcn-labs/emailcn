@@ -1,10 +1,11 @@
 {
   "title": "Logo Header",
   "pages": [
-    "header-logo-with-links",
-    "header-with-logo-and-menu",
-    "header-with-logo-and-badge",
-    "header-with-logo-and-text",
-    "header-with-logo-and-finance-stats"
+    "simple-logo",
+    "logo-with-badge",
+    "logo-with-finance-stats",
+    "logo-with-menu",
+    "logo-with-social-icons",
+    "user-details"
   ]
 }

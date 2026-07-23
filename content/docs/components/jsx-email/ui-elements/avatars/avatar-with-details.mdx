@@ -1,0 +1,84 @@
+---
+title: "Avatar with Details"
+description: "A compact avatar and identity block with Mailviews-aligned positioning variants."
+---
+
+## Examples
+
+### Left Aligned
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-with-details-demo"
+  variant="left"
+/>
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-with-details-demo"
+  variant="center"
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-with-details-demo"
+  variant="right"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/avatar-with-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the shared avatar primitives into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/avatars/avatar-shared.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/avatars/avatar-shared.tsx"
+  />
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/avatars/avatar-with-details.tsx"
+    base="jsx-email"
+    title="components/emails/ui-elements/avatars/avatar-with-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AvatarWithDetails } from "@/components/emails/ui-elements/avatars/avatar-with-details";
+```
+
+```tsx
+<AvatarWithDetails align="center" />
+```
+
+## API Reference
+
+| Prop        | Type                            | Default                   | Description                  |
+| ----------- | ------------------------------- | ------------------------- | ---------------------------- |
+| `align`     | `"left" \| "center" \| "right"` | `"center"`                | Positions the identity block |
+| `avatarUrl` | `string`                        | Mailviews avatar URL      | Avatar image source          |
+| `name`      | `string`                        | `"John Adams"`            | Display name                 |
+| `email`     | `string`                        | `"johnadams@example.com"` | Email address                |
+| `theme`     | Email theme type                | `defaultTheme`            | Email framework theme        |

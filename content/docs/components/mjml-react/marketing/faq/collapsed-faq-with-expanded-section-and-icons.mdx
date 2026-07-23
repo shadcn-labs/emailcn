@@ -1,7 +1,14 @@
 ---
-title: "Collapsed FAQ with Expanded Section and Icons"
-description: "Marketing faq variant for email templates"
+title: "Collapsed FAQ With Expanded Section And Icons"
+description: "An icon-led FAQ list with the first answer expanded."
 ---
+
+This layout keeps its own public component because its content contract differs
+from the other FAQ treatments. Common email-safe rendering is shared internally.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="mjml-react"
@@ -11,7 +18,6 @@ description: "Marketing faq variant for email templates"
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -23,31 +29,31 @@ npx shadcn@latest add @emailcn/collapsed-faq-with-expanded-section-and-icons
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
-
+<Step>Copy the shared FAQ primitives into your project.</Step>
 <ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx"
+  src="registry/bases/mjml-react/ui/marketing/faq/faq-shared.tsx"
   base="mjml-react"
-  title="components/emails/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx"
+  title="components/emails/marketing/faq/faq-shared.tsx"
 />
 
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -64,6 +70,9 @@ import { CollapsedFaqWithExpandedSectionAndIcons } from "@/components/emails/mar
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop            | Type               | Default                        | Description                            |
+| --------------- | ------------------ | ------------------------------ | -------------------------------------- |
+| `theme`         | `EmailThemeTokens` | `defaultTheme`                 | Renderer theme configuration.          |
+| `heading`       | `string`           | `"Frequently asked questions"` | Section heading.                       |
+| `q1`, `q2`, ... | `string`           | Mailviews example copy         | Question labels.                       |
+| `a1`, `a2`, ... | `string`           | Mailviews example copy         | Answers when the layout displays them. |

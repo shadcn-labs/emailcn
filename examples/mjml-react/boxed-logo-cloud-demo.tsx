@@ -1,5 +1,16 @@
-import { BoxedLogoCloud } from "@/registry/bases/mjml-react/ui/marketing/logos/boxed-logo-cloud";
+import { LogoCloud } from "@/registry/bases/mjml-react/ui/marketing/logos/logo-cloud";
+import type { LogoCloudVariant } from "@/registry/bases/mjml-react/ui/marketing/logos/logo-cloud";
 
-export default function BoxedLogoCloudDemo() {
-  return <BoxedLogoCloud {...BoxedLogoCloud.PreviewProps} />;
+export default function BoxedLogoCloudDemo({
+  variant,
+}: {
+  variant?: LogoCloudVariant;
+}) {
+  return (
+    <LogoCloud
+      {...LogoCloud.PreviewProps}
+      tone="boxed"
+      variant={variant ?? LogoCloud.PreviewProps.variant}
+    />
+  );
 }

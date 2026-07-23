@@ -1,18 +1,5 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable @next/next/no-img-element */
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -20,8 +7,8 @@ import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type CTAWithTeamAvatarsVariant =
   | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "avatars-top"
+  | "single-avatar";
 
 export interface CTAWithTeamAvatarsProps {
   theme?: TailwindConfig;
@@ -29,6 +16,8 @@ export interface CTAWithTeamAvatarsProps {
   subtext?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   avatarSrc1?: string;
   avatarAlt1?: string;
   avatarSrc2?: string;
@@ -37,174 +26,410 @@ export interface CTAWithTeamAvatarsProps {
   avatarAlt3?: string;
   avatarSrc4?: string;
   avatarAlt4?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  primaryButtonBackgroundColor?: string;
+  primaryButtonTextColor?: string;
+  secondaryButtonBackgroundColor?: string;
+  secondaryButtonTextColor?: string;
+  secondaryButtonBorderColor?: string;
+  avatarBorderColor?: string;
   variant?: CTAWithTeamAvatarsVariant;
 }
 
-export const CTAWithTeamAvatarsSection = ({
-  heading = "Join Our Team",
-  subtext = "Work with amazing people.",
-  ctaLabel = "View Openings",
-  ctaHref = "#",
-  avatarSrc1 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-1&size=60",
-  avatarAlt1 = "",
-  avatarSrc2 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-2&size=60",
-  avatarAlt2 = "",
-  avatarSrc3 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-3&size=60",
-  avatarAlt3 = "",
-  avatarSrc4 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-4&size=60",
-  avatarAlt4 = "",
-  variant = "default",
-}: Omit<CTAWithTeamAvatarsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  .cta-team-primary:hover {
+    background-color: #4338ca !important;
+  }
+
+  .cta-team-secondary:hover {
+    background-color: #f9fafb !important;
+  }
+
+  @media only screen and (max-width: 599px) {
+    .cta-team-single-copy {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
     }
-  };
+  }
+
+  @media only screen and (max-width: 430px) {
+    .cta-team-action-cell {
+      display: block !important;
+    }
+
+    .cta-team-action-gap {
+      line-height: 24px !important;
+    }
+  }
+`;
+
+const avatarSources = [
+  "https://assets.mailviews.com/images/components/reviews/avatar-2.jpg",
+  "https://assets.mailviews.com/images/components/reviews/avatar.jpg",
+  "https://assets.mailviews.com/images/components/reviews/avatar-4.jpg",
+  "https://assets.mailviews.com/images/components/reviews/avatar-5.jpg",
+] as const;
+
+const variantContent = {
+  "avatars-top": {
+    ctaLabel: "Confirm your email",
+    heading: "The team welcomes you!",
+    secondaryCtaLabel: "",
+    subtext:
+      "Your workspace is ready — confirm your email to join your team, collaborate seamlessly, and get started today.",
+  },
+  default: {
+    ctaLabel: "Confirm your email",
+    heading: "The team welcomes you!",
+    secondaryCtaLabel: "",
+    subtext:
+      "Your workspace is ready — confirm your email to join your team, collaborate seamlessly, and get started today.",
+  },
+  "single-avatar": {
+    ctaLabel: "Register now",
+    heading: "Join the event",
+    secondaryCtaLabel: "Learn more",
+    subtext:
+      "Join Jenna Hendricks, our founder and visionary, for an open discussion about what’s next for our community and how you can be part of it.",
+  },
+} satisfies Record<
+  CTAWithTeamAvatarsVariant,
+  {
+    ctaLabel: string;
+    heading: string;
+    secondaryCtaLabel: string;
+    subtext: string;
+  }
+>;
+
+const defaultSectionStyles = {
+  avatarAlt1: "",
+  avatarAlt2: "",
+  avatarAlt3: "",
+  avatarAlt4: "",
+  avatarBorderColor: "#fffffe",
+  avatarSrc1: avatarSources[0],
+  avatarSrc2: avatarSources[1],
+  avatarSrc3: avatarSources[2],
+  avatarSrc4: avatarSources[3],
+  backgroundColor: "#fffffe",
+  ctaHref: "https://example.com/",
+  headingColor: "#030712",
+  pageBackgroundColor: "#f1f5f9",
+  primaryButtonBackgroundColor: "#4f46e5",
+  primaryButtonTextColor: "#f8fafc",
+  secondaryButtonBackgroundColor: "#fffffe",
+  secondaryButtonBorderColor: "#d1d5db",
+  secondaryButtonTextColor: "#4b5563",
+  secondaryCtaHref: "https://example.com/",
+  textColor: "#4b5563",
+};
+
+type SectionProps = Omit<CTAWithTeamAvatarsProps, "theme">;
+type ResolvedProps = typeof defaultSectionStyles &
+  (typeof variantContent)[CTAWithTeamAvatarsVariant];
+
+const Avatar = ({
+  alt,
+  borderColor,
+  src,
+  width,
+}: {
+  alt: string;
+  borderColor: string;
+  src: string;
+  width: number;
+}) => (
+  <img
+    alt={alt}
+    src={src}
+    style={{
+      border: `2px solid ${borderColor}`,
+      borderRadius: "9999px",
+      display: "inline-block",
+      maxWidth: `${width}px`,
+      verticalAlign: "middle",
+    }}
+    width={width}
+  />
+);
+
+const AvatarGroup = (props: ResolvedProps) => (
+  <div style={{ fontSize: 0, textAlign: "center" }}>
+    {[
+      [props.avatarSrc1, props.avatarAlt1],
+      [props.avatarSrc2, props.avatarAlt2],
+      [props.avatarSrc3, props.avatarAlt3],
+      [props.avatarSrc4, props.avatarAlt4],
+    ].map(([src, alt]) => (
+      <div key={src} style={{ display: "inline-block", maxWidth: "30px" }}>
+        <Avatar
+          alt={alt}
+          borderColor={props.avatarBorderColor}
+          src={src}
+          width={40}
+        />
+      </div>
+    ))}
+  </div>
+);
+
+const SingleAvatar = (props: ResolvedProps) => (
+  <div style={{ fontSize: 0, textAlign: "center" }}>
+    <div style={{ display: "inline-block", maxWidth: "72px" }}>
+      <Avatar
+        alt={props.avatarAlt2}
+        borderColor={props.avatarBorderColor}
+        src={props.avatarSrc2}
+        width={96}
+      />
+    </div>
+  </div>
+);
+
+const Heading = ({ color, children }: { color: string; children: string }) => (
+  <h2
+    style={{
+      color,
+      fontFamily,
+      fontSize: "30px",
+      fontWeight: 500,
+      lineHeight: "36px",
+      margin: 0,
+      textAlign: "center",
+    }}
+  >
+    {children}
+  </h2>
+);
+
+const Copy = ({
+  className,
+  color,
+  text,
+}: {
+  className?: string;
+  color: string;
+  text: string;
+}) => (
+  <p
+    className={className}
+    style={{
+      color,
+      fontFamily,
+      fontSize: "16px",
+      fontWeight: 300,
+      lineHeight: "24px",
+      margin: 0,
+      textAlign: "center",
+    }}
+  >
+    {text}
+  </p>
+);
+
+const PrimaryButton = (props: ResolvedProps) => (
+  <a
+    className="cta-team-primary"
+    href={props.ctaHref}
+    style={{
+      backgroundColor: props.primaryButtonBackgroundColor,
+      borderRadius: "8px",
+      color: props.primaryButtonTextColor,
+      display: "inline-block",
+      fontFamily,
+      fontSize: "16px",
+      fontWeight: 500,
+      lineHeight: "24px",
+      padding: "10px 22px",
+      textAlign: "center",
+      textDecoration: "none",
+    }}
+  >
+    {props.ctaLabel}
+  </a>
+);
+
+const SingleAvatarActions = (props: ResolvedProps) => (
+  <table
+    align="center"
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ margin: "auto" }}
+  >
+    <tbody>
+      <tr>
+        <td className="cta-team-action-cell">
+          <PrimaryButton {...props} />
+        </td>
+        <td
+          className="cta-team-action-cell cta-team-action-gap"
+          style={{ width: "24px" }}
+        >
+          &zwj;
+        </td>
+        <td className="cta-team-action-cell">
+          <a
+            className="cta-team-secondary"
+            href={props.secondaryCtaHref}
+            style={{
+              backgroundColor: props.secondaryButtonBackgroundColor,
+              border: `1px solid ${props.secondaryButtonBorderColor}`,
+              borderRadius: "8px",
+              color: props.secondaryButtonTextColor,
+              display: "inline-block",
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 600,
+              lineHeight: "24px",
+              padding: "10px 22px",
+              textAlign: "center",
+              textDecoration: "none",
+            }}
+          >
+            {props.secondaryCtaLabel}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const VariantContent = ({
+  props,
+  variant,
+}: {
+  props: ResolvedProps;
+  variant: CTAWithTeamAvatarsVariant;
+}) => {
+  if (variant === "single-avatar") {
+    return (
+      <>
+        <SingleAvatar {...props} />
+        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+        <Heading color={props.headingColor}>{props.heading}</Heading>
+        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+        <div className="cta-team-single-copy" style={{ padding: "0 44px" }}>
+          <Copy color={props.textColor} text={props.subtext} />
+        </div>
+        <div style={{ lineHeight: "36px" }}>&zwj;</div>
+        <SingleAvatarActions {...props} />
+      </>
+    );
+  }
+
+  const avatars = <AvatarGroup {...props} />;
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container
-        className={`mx-auto max-w-container text-center ${getUnskewClass()}`}
-      >
-        <Row className="mb-6 inline-block">
-          <Column className="pr-1 align-middle">
-            <Img
-              src={avatarSrc1}
-              alt={avatarAlt1}
-              width="60"
-              height="60"
-              className="inline-block rounded-full border-2 border-background object-cover -mr-4"
-            />
-          </Column>
-          <Column className="px-1 align-middle">
-            <Img
-              src={avatarSrc2}
-              alt={avatarAlt2}
-              width="60"
-              height="60"
-              className="inline-block rounded-full border-2 border-background object-cover -mr-4"
-            />
-          </Column>
-          <Column className="px-1 align-middle">
-            <Img
-              src={avatarSrc3}
-              alt={avatarAlt3}
-              width="60"
-              height="60"
-              className="inline-block rounded-full border-2 border-background object-cover -mr-4"
-            />
-          </Column>
-          <Column className="pl-1 align-middle">
-            <Img
-              src={avatarSrc4}
-              alt={avatarAlt4}
-              width="60"
-              height="60"
-              className="inline-block rounded-full border-2 border-background object-cover"
-            />
-          </Column>
-        </Row>
-        <Text className="m-0 text-2xl font-bold text-heading leading-snug text-foreground">
-          {heading}
-        </Text>
-        <Text className="mt-2 mb-6 text-base text-foreground-muted">
-          {subtext}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            className="inline-block rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-fg no-underline"
+    <>
+      {variant === "avatars-top" ? avatars : null}
+      {variant === "avatars-top" ? (
+        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      ) : null}
+      <Heading color={props.headingColor}>{props.heading}</Heading>
+      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      {variant === "default" ? avatars : null}
+      {variant === "default" ? (
+        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      ) : null}
+      <Copy color={props.textColor} text={props.subtext} />
+      <div style={{ lineHeight: "36px" }}>&zwj;</div>
+      <PrimaryButton {...props} />
+    </>
+  );
+};
+
+export const CTAWithTeamAvatarsSection = (props: SectionProps) => {
+  const variant = props.variant ?? "default";
+  const resolved = {
+    ...defaultSectionStyles,
+    ...variantContent[variant],
+    ...props,
+  } as ResolvedProps;
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
           >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Container>
-    </Section>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "center" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <VariantContent props={resolved} variant={variant} />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const CTAWithTeamAvatars = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  heading = "Join Our Team",
-  subtext = "Work with amazing people.",
-  ctaLabel = "View Openings",
-  ctaHref = "#",
-  avatarSrc1 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-5&size=60",
-  avatarAlt1 = "",
-  avatarSrc2 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-6&size=60",
-  avatarAlt2 = "",
-  avatarSrc3 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-7&size=60",
-  avatarAlt3 = "",
-  avatarSrc4 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-8&size=60",
-  avatarAlt4 = "",
   variant = "default",
+  ...props
 }: CTAWithTeamAvatarsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
+    <Preview>{props.heading ?? variantContent[variant].heading}</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <CTAWithTeamAvatarsSection
-          avatarAlt1={avatarAlt1}
-          avatarAlt2={avatarAlt2}
-          avatarAlt3={avatarAlt3}
-          avatarAlt4={avatarAlt4}
-          avatarSrc1={avatarSrc1}
-          avatarSrc2={avatarSrc2}
-          avatarSrc3={avatarSrc3}
-          avatarSrc4={avatarSrc4}
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          heading={heading}
-          subtext={subtext}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <CTAWithTeamAvatarsSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 CTAWithTeamAvatars.PreviewProps = {
-  avatarAlt1: "Team 1",
-  avatarAlt2: "Team 2",
-  avatarAlt3: "Team 3",
-  avatarAlt4: "Team 4",
-  avatarSrc1:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-9&size=60",
-  avatarSrc2:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-10&size=60",
-  avatarSrc3:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-11&size=60",
-  avatarSrc4:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-cta-cta-with-team-avatars-tsx-12&size=60",
-  ctaHref: "https://example.com",
-  ctaLabel: "View Openings",
-  heading: "Join Our Team",
-  subtext: "Work with amazing people.",
   theme: defaultTheme,
   variant: "default",
 } satisfies CTAWithTeamAvatarsProps;

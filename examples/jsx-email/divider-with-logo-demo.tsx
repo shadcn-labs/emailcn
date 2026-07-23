@@ -1,5 +1,12 @@
+import type { DividerVariant } from "@/registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared";
 import { DividerWithLogo } from "@/registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-logo";
 
-export default function DividerWithLogoDemo() {
-  return <DividerWithLogo {...DividerWithLogo.PreviewProps} />;
+export default function DividerWithLogoDemo({
+  variant = "center",
+}: {
+  variant?: DividerVariant;
+}) {
+  return (
+    <DividerWithLogo {...DividerWithLogo.PreviewProps} variant={variant} />
+  );
 }

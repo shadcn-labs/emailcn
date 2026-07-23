@@ -1,149 +1,92 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  CollapsedIconsContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/jsx-email/ui/marketing/faq/faq-shared";
 
-export type FAQExpandedVariant = "default" | "slanted-left" | "slanted-right";
-
-export interface FAQExpandedProps {
+export interface CollapsedFaqWithExpandedSectionAndIconsProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQExpandedVariant;
+  heading?: string;
+  q1?: string;
+  a1?: string;
+  iconSrc1?: string;
+  iconAlt1?: string;
+  q2?: string;
+  iconSrc2?: string;
+  iconAlt2?: string;
+  q3?: string;
+  iconSrc3?: string;
+  iconAlt3?: string;
 }
 
-const FAQExpandedSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQExpandedProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQExpandedVariant;
-}) => {
-  const list = items ?? [];
+export const CollapsedFaqWithExpandedSectionAndIconsSection = ({
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  heading = "Frequently asked questions",
+  iconAlt1 = "",
+  iconAlt2 = "",
+  iconAlt3 = "",
+  iconSrc1,
+  iconSrc2,
+  iconSrc3,
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: Omit<CollapsedFaqWithExpandedSectionAndIconsProps, "theme">) => {
+  const items = [
+    { answer: a1, iconAlt: iconAlt1, iconSrc: iconSrc1, question: q1 },
+    { iconAlt: iconAlt2, iconSrc: iconSrc2, question: q2 },
+    { iconAlt: iconAlt3, iconSrc: iconSrc3, question: q3 },
+  ];
 
   return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
-      }}
-    >
-      <Row>
-        <Column>
-          {list.map((item, i) => (
-            <Section
-              key={item.question + i}
-              style={{ padding: `${theme.spacingBase ?? "24px"} 0` }}
-            >
-              <Row>
-                <Text
-                  style={{
-                    color: theme.colorText,
-                    fontFamily: theme.fontFamily,
-                    fontSize: theme.fontSizeLg ?? "16px",
-                    fontWeight: theme.fontWeightMedium,
-                    margin: 0,
-                    paddingBottom: theme.spacingBase ?? "16px",
-                  }}
-                >
-                  {item.question}
-                </Text>
-                <Text
-                  style={{
-                    color: theme.colorTextMuted,
-                    fontFamily: theme.fontFamily,
-                    fontSize: theme.fontSizeBase ?? "14px",
-                    lineHeight: theme.lineHeightBase,
-                    margin: 0,
-                  }}
-                >
-                  {item.answer}
-                </Text>
-                {i < list.length - 1 ? (
-                  <Hr
-                    style={{
-                      borderBottomWidth: 0,
-                      borderLeftWidth: 0,
-                      borderRightWidth: 0,
-                      borderTopColor: theme.colorBorder ?? "#e5e7eb",
-                      borderTopStyle: "solid",
-                      borderTopWidth: "1px",
-                      marginTop: theme.spacingXl ?? "48px",
-                      width: "100%",
-                    }}
-                  />
-                ) : null}
-              </Row>
-            </Section>
-          ))}
-        </Column>
-      </Row>
-    </Section>
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <CollapsedIconsContent items={items} />
+    </>
   );
 };
 
 export const CollapsedFaqWithExpandedSectionAndIcons = ({
   theme = defaultTheme,
-  items = [
-    {
-      answer: "This is the answer to the question.",
-      question: "What is this?",
-    },
-  ],
-  variant = "default",
-}: FAQExpandedProps) => (
-  <Html>
-    <Head />
-    <Preview>FAQ expanded</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FAQExpandedSection items={items} theme={theme} variant={variant} />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  heading = "Frequently asked questions",
+  iconAlt1 = "",
+  iconAlt2 = "",
+  iconAlt3 = "",
+  iconSrc1,
+  iconSrc2,
+  iconSrc3,
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: CollapsedFaqWithExpandedSectionAndIconsProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <CollapsedFaqWithExpandedSectionAndIconsSection
+      a1={a1}
+      heading={heading}
+      iconAlt1={iconAlt1}
+      iconAlt2={iconAlt2}
+      iconAlt3={iconAlt3}
+      iconSrc1={iconSrc1}
+      iconSrc2={iconSrc2}
+      iconSrc3={iconSrc3}
+      q1={q1}
+      q2={q2}
+      q3={q3}
+    />
+  </FaqEmailShell>
 );
 
 CollapsedFaqWithExpandedSectionAndIcons.PreviewProps = {
-  items: [
-    {
-      answer:
-        "EmailCN is a collection of beautifully designed, responsive email components built with React Email.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer:
-        "Yes, all components are fully responsive and work across major email clients including Gmail, Outlook, and Apple Mail.",
-      question: "Are the components responsive?",
-    },
-    {
-      answer: "Components are free to use under the MIT license.",
-      question: "What is the license?",
-    },
-  ],
+  a1: "This product helps you build beautiful emails quickly and easily.",
+  heading: "Frequently asked questions",
+  iconAlt1: "",
+  iconAlt2: "",
+  iconAlt3: "",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQExpandedProps;
+} satisfies CollapsedFaqWithExpandedSectionAndIconsProps;

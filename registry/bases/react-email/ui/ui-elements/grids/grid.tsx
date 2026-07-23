@@ -1,7 +1,8 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+import type { CSSProperties } from "react";
 import {
   Body,
   Column,
+  Container,
   Head,
   Html,
   Preview,
@@ -15,68 +16,91 @@ import type { TailwindConfig } from "react-email";
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-const LAYOUT_WIDTHS = {
-  "1": ["100%"],
-  "1-3": ["25%", "75%"],
-  "2": ["50%", "50%"],
-  "3": ["33.33%", "33.33%", "33.33%"],
-  "3-1": ["75%", "25%"],
-  "4": ["25%", "25%", "25%", "25%"],
-} as const;
+export type GridVariant =
+  | "one-column"
+  | "two-columns"
+  | "three-columns"
+  | "four-columns"
+  | "one-three-split"
+  | "three-one-split";
+
+export type GridAlign = "center" | "left" | "right";
+
+const GRID_WIDTHS: Record<GridVariant, readonly string[]> = {
+  "four-columns": ["25%", "25%", "25%", "25%"],
+  "one-column": ["100%"],
+  "one-three-split": ["25%", "75%"],
+  "three-columns": ["33.33%", "33.33%", "33.33%"],
+  "three-one-split": ["75%", "25%"],
+  "two-columns": ["50%", "50%"],
+};
+
+const textStyle: CSSProperties = {
+  color: "#111827",
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontSize: "16px",
+  fontWeight: 400,
+  letterSpacing: "-0.048px",
+  lineHeight: "24px",
+  margin: 0,
+};
 
 export interface GridProps {
-  theme?: TailwindConfig;
+  align?: GridAlign;
   cells?: string[];
-  layout?: keyof typeof LAYOUT_WIDTHS;
-  align?: "left" | "center" | "right";
+  theme?: TailwindConfig;
+  variant?: GridVariant;
 }
 
 export const GridSection = ({
-  cells = [],
-  layout = "2",
   align = "center",
-}: Omit<GridProps, "theme">) => {
-  const widths = LAYOUT_WIDTHS[layout];
-  const alignClass =
-    align === "left"
-      ? "text-left"
-      : align === "right"
-        ? "text-right"
-        : "text-center";
-
-  return (
-    <Section className="py-12">
-      <Row>
-        {widths.map((width, index) => (
-          <Column
-            key={`${width}-${index}`}
-            style={{ width }}
-            className="align-top p-3"
-          >
-            <Text className={`m-0 text-base text-foreground ${alignClass}`}>
-              {cells[index] ?? ""}
-            </Text>
-          </Column>
-        ))}
-      </Row>
-    </Section>
-  );
-};
+  cells = [],
+  variant = "two-columns",
+}: Omit<GridProps, "theme">) => (
+  <Section style={{ padding: "48px 0" }}>
+    <Row>
+      {GRID_WIDTHS[variant].map((width, index) => (
+        <Column
+          className="grid-column"
+          key={`${width}-${index}`}
+          style={{ padding: "12px", verticalAlign: "top", width }}
+          width={width}
+        >
+          <Text style={{ ...textStyle, textAlign: align }}>
+            {cells[index] ?? ""}
+          </Text>
+        </Column>
+      ))}
+    </Row>
+  </Section>
+);
 
 export const Grid = ({
-  theme = defaultTheme,
-  cells,
-  layout = "2",
   align = "center",
+  cells = [],
+  theme = defaultTheme,
+  variant = "two-columns",
 }: GridProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @media only screen and (max-width: 599px) {
+              .grid-column { display: block !important; width: 100% !important; }
+            }
+          `,
+        }}
+      />
     </Head>
     <Preview>Grid</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <GridSection cells={cells} layout={layout} align={align} />
+      <Body style={{ backgroundColor: "#ffffff", margin: 0 }}>
+        <Container style={{ margin: "0 auto", maxWidth: "600px" }}>
+          <GridSection align={align} cells={cells} variant={variant} />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
@@ -88,6 +112,6 @@ Grid.PreviewProps = {
     "Feature one description with key benefits.",
     "Feature two description with key benefits.",
   ],
-  layout: "2",
   theme: defaultTheme,
+  variant: "two-columns",
 } satisfies GridProps;

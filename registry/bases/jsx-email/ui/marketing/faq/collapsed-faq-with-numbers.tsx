@@ -1,112 +1,66 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  CollapsedNumbersContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/jsx-email/ui/marketing/faq/faq-shared";
 
-export type FAQDarkVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQDarkProps {
+export interface CollapsedFaqWithNumbersProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQDarkVariant;
+  heading?: string;
+  q1?: string;
+  q2?: string;
+  q3?: string;
+  q4?: string;
 }
-const FAQDarkSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQDarkProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQDarkVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorText,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {(items ?? []).map((item, i) => (
-          <Section
-            key={item.question + i}
-            style={{ padding: `${theme.spacingBase ?? "16px"} 0` }}
-          >
-            <Row>
-              <Text
-                style={{
-                  color: theme.colorBackground,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeBase,
-                  fontWeight: theme.fontWeightMedium,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "8px",
-                }}
-              >
-                {item.question}
-              </Text>
-              <Text
-                style={{
-                  color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeBase,
-                  lineHeight: theme.lineHeightBase,
-                  margin: 0,
-                }}
-              >
-                {item.answer}
-              </Text>
-            </Row>
-          </Section>
-        ))}
-      </Column>
-    </Row>
-  </Section>
-);
+
+export const CollapsedFaqWithNumbersSection = ({
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+  q4 = "Can I cancel anytime?",
+}: Omit<CollapsedFaqWithNumbersProps, "theme">) => {
+  const items = [
+    { question: q1 },
+    { question: q2 },
+    { question: q3 },
+    { question: q4 },
+  ];
+
+  return (
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <CollapsedNumbersContent items={items} />
+    </>
+  );
+};
+
 export const CollapsedFaqWithNumbers = ({
   theme = defaultTheme,
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
-  variant = "default",
-}: FAQDarkProps) => (
-  <Html>
-    <Head />
-    <Preview>FAQ dark</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FAQDarkSection items={items} theme={theme} variant={variant} />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+  q4 = "Can I cancel anytime?",
+}: CollapsedFaqWithNumbersProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <CollapsedFaqWithNumbersSection
+      heading={heading}
+      q1={q1}
+      q2={q2}
+      q3={q3}
+      q4={q4}
+    />
+  </FaqEmailShell>
 );
+
 CollapsedFaqWithNumbers.PreviewProps = {
-  items: [
-    {
-      answer: "A collection of responsive email components.",
-      question: "What is EmailCN?",
-    },
-    { answer: "MIT license.", question: "What license?" },
-  ],
+  heading: "Frequently asked questions",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
+  q4: "Can I cancel anytime?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQDarkProps;
+} satisfies CollapsedFaqWithNumbersProps;

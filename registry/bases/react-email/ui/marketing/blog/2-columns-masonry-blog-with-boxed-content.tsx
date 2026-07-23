@@ -1,217 +1,124 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
-export type TwoColumnsMasonryBlogWithBoxedContentVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+import {
+  BlogContent,
+  BlogEmailShell,
+  BlogHeading,
+} from "@/registry/bases/react-email/ui/marketing/blog/blog-shared";
 
 export interface TwoColumnsMasonryBlogWithBoxedContentProps {
   theme?: TailwindConfig;
   heading?: string;
-  imageSrc1?: string;
   imageAlt1?: string;
-  title1?: string;
-  excerpt1?: string;
-  imageSrc2?: string;
   imageAlt2?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  title1?: string;
   title2?: string;
+  excerpt1?: string;
   excerpt2?: string;
-  imageSrc3?: string;
   imageAlt3?: string;
+  imageSrc3?: string;
   title3?: string;
   excerpt3?: string;
-  variant?: TwoColumnsMasonryBlogWithBoxedContentVariant;
 }
 
 export const TwoColumnsMasonryBlogWithBoxedContentSection = ({
-  heading = "Blog",
-  imageSrc1 = "https://static.photos/travel/300x200/2",
-  imageAlt1 = "",
-  title1 = "Post One",
-  excerpt1 = "Short excerpt for post one.",
-  imageSrc2 = "https://static.photos/travel/300x300/3",
-  imageAlt2 = "",
-  title2 = "Post Two",
-  excerpt2 = "Short excerpt for post two.",
-  imageSrc3 = "https://static.photos/travel/300x250/4",
-  imageAlt3 = "",
-  title3 = "Post Three",
-  excerpt3 = "Short excerpt for post three.",
-  variant = "default",
+  heading = "From the blog",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+  imageAlt3 = "Modern city",
+  imageSrc3 = "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
+  title3 = "What we learned this month",
+  excerpt3 = "Notes, experiments, and lessons from our latest work.",
 }: Omit<TwoColumnsMasonryBlogWithBoxedContentProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+  const posts = [
+    {
+      excerpt: excerpt1,
+      imageAlt: imageAlt1,
+      imageSrc: imageSrc1,
+      title: title1,
+    },
+    {
+      excerpt: excerpt2,
+      imageAlt: imageAlt2,
+      imageSrc: imageSrc2,
+      title: title2,
+    },
+    {
+      excerpt: excerpt3,
+      imageAlt: imageAlt3,
+      imageSrc: imageSrc3,
+      title: title3,
+    },
+  ];
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-2xl font-bold text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/2 pr-4 align-top">
-            <Section className="mb-6 rounded-lg border border-border">
-              <Img
-                src={imageSrc1}
-                alt={imageAlt1}
-                width="300"
-                height="200"
-                className="w-full h-auto rounded-t-lg object-cover"
-              />
-              <Section className="p-4">
-                <Text className="m-0 mb-1 text-base font-medium text-foreground">
-                  {title1}
-                </Text>
-                <Text className="m-0 text-sm text-foreground-muted">
-                  {excerpt1}
-                </Text>
-              </Section>
-            </Section>
-            <Section className="rounded-lg border border-border">
-              <Img
-                src={imageSrc3}
-                alt={imageAlt3}
-                width="300"
-                height="250"
-                className="w-full h-auto rounded-t-lg object-cover"
-              />
-              <Section className="p-4">
-                <Text className="m-0 mb-1 text-base font-medium text-foreground">
-                  {title3}
-                </Text>
-                <Text className="m-0 text-sm text-foreground-muted">
-                  {excerpt3}
-                </Text>
-              </Section>
-            </Section>
-          </Column>
-          <Column className="w-1/2 pl-4 align-top">
-            <Section className="rounded-lg border border-border">
-              <Img
-                src={imageSrc2}
-                alt={imageAlt2}
-                width="300"
-                height="300"
-                className="w-full h-auto rounded-t-lg object-cover"
-              />
-              <Section className="p-4">
-                <Text className="m-0 mb-1 text-base font-medium text-foreground">
-                  {title2}
-                </Text>
-                <Text className="m-0 text-sm text-foreground-muted">
-                  {excerpt2}
-                </Text>
-              </Section>
-            </Section>
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <>
+      {heading ? <BlogHeading>{heading}</BlogHeading> : null}
+      <BlogContent layout="masonry-boxed" posts={posts} />
+    </>
   );
 };
 
 export const TwoColumnsMasonryBlogWithBoxedContent = ({
   theme = defaultTheme,
-  heading = "Blog",
-  imageSrc1 = "https://static.photos/travel/300x200/5",
-  imageAlt1 = "",
-  title1 = "Post One",
-  excerpt1 = "Short excerpt for post one.",
-  imageSrc2 = "https://static.photos/travel/300x300/6",
-  imageAlt2 = "",
-  title2 = "Post Two",
-  excerpt2 = "Short excerpt for post two.",
-  imageSrc3 = "https://static.photos/travel/300x250/7",
-  imageAlt3 = "",
-  title3 = "Post Three",
-  excerpt3 = "Short excerpt for post three.",
-  variant = "default",
+  heading = "From the blog",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+  imageAlt3 = "Modern city",
+  imageSrc3 = "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
+  title3 = "What we learned this month",
+  excerpt3 = "Notes, experiments, and lessons from our latest work.",
 }: TwoColumnsMasonryBlogWithBoxedContentProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <TwoColumnsMasonryBlogWithBoxedContentSection
-          excerpt1={excerpt1}
-          excerpt2={excerpt2}
-          excerpt3={excerpt3}
-          heading={heading}
-          imageAlt1={imageAlt1}
-          imageAlt2={imageAlt2}
-          imageAlt3={imageAlt3}
-          imageSrc1={imageSrc1}
-          imageSrc2={imageSrc2}
-          imageSrc3={imageSrc3}
-          title1={title1}
-          title2={title2}
-          title3={title3}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <BlogEmailShell preview={heading} theme={theme}>
+    <TwoColumnsMasonryBlogWithBoxedContentSection
+      heading={heading}
+      imageAlt1={imageAlt1}
+      imageAlt2={imageAlt2}
+      imageSrc1={imageSrc1}
+      imageSrc2={imageSrc2}
+      title1={title1}
+      title2={title2}
+      excerpt1={excerpt1}
+      excerpt2={excerpt2}
+      imageAlt3={imageAlt3}
+      imageSrc3={imageSrc3}
+      title3={title3}
+      excerpt3={excerpt3}
+    />
+  </BlogEmailShell>
 );
 
 TwoColumnsMasonryBlogWithBoxedContent.PreviewProps = {
-  excerpt1: "A comprehensive guide to getting started.",
-  excerpt2: "Tips and tricks for power users.",
-  excerpt3: "What's new in our latest release.",
-  heading: "Blog",
-  imageAlt1: "Post 1",
-  imageAlt2: "Post 2",
-  imageAlt3: "Post 3",
-  imageSrc1: "https://static.photos/travel/300x200/8",
-  imageSrc2: "https://static.photos/travel/300x300/9",
-  imageSrc3: "https://static.photos/travel/300x250/10",
+  excerpt1: "Practical ideas for clearer, more useful email experiences.",
+  excerpt2: "How small systems help teams publish consistently.",
+  excerpt3: "Notes, experiments, and lessons from our latest work.",
+  heading: "From the blog",
+  imageAlt1: "Mountain landscape",
+  imageAlt2: "Coastal landscape",
+  imageAlt3: "Modern city",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  imageSrc3:
+    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
   theme: defaultTheme,
-  title1: "Getting Started Guide",
-  title2: "Pro Tips",
-  title3: "Release Notes",
-  variant: "default",
+  title1: "Designing emails people enjoy",
+  title2: "A better content workflow",
+  title3: "What we learned this month",
 } satisfies TwoColumnsMasonryBlogWithBoxedContentProps;

@@ -1,0 +1,76 @@
+---
+title: "2-Column Menu"
+description: "Mailviews two-column footer with mirrored logo placement"
+---
+
+The two menu groups stay together while the logo placement mirrors.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-2-column-menu-demo"
+  variant="left-logo"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-2-column-menu-demo"
+  variant="right-logo"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-2-column-menu
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/footers/footer-with-2-column-menu.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/footers/footer-with-2-column-menu.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWith2ColumnMenu } from "@/components/emails/marketing/footers/footer-with-2-column-menu";
+```
+
+```tsx
+<FooterWith2ColumnMenu {...FooterWith2ColumnMenu.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

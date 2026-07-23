@@ -1,17 +1,9 @@
 {
   "title": "Social Links",
   "pages": [
+    "social-logos",
     "simple-social-logos-row",
-    "circle-tiles",
-    "outlined-box",
-    "outlined-pill-box",
-    "outlined-square-tiles",
-    "pill-box",
-    "socials-with-inline-labels",
-    "socials-with-inline-tile-labels",
-    "socials-with-labels-stacked",
-    "socials-with-stacked-tile-labels",
-    "square-tiles",
-    "squared-box"
+    "socials-with-labels",
+    "socials-with-tile-labels"
   ]
 }

@@ -1,117 +1,250 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FooterUnsubscribeVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type SimpleFooterWithSocialIconsVariant =
+  | "left-aligned"
+  | "centered"
+  | "right-aligned";
 
-export interface FooterUnsubscribeProps {
-  theme?: EmailThemeTokens;
-  companyName?: string;
-  unsubscribeHref?: string;
-  variant?: FooterUnsubscribeVariant;
+export interface SimpleFooterSocial {
+  href: string;
+  iconSrc: string;
+  label: string;
 }
 
-const FooterUnsubscribeSection = ({
-  companyName,
-  theme,
-  unsubscribeHref,
-  variant,
-}: {
-  companyName: string;
-  theme: EmailThemeTokens;
-  unsubscribeHref: string;
-  variant: FooterUnsubscribeVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingBase ?? "24px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "11px",
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "8px",
-            textAlign: "center",
-          }}
-        >
-          If you no longer wish to receive these emails, you can{" "}
-          <a href={unsubscribeHref} style={{ color: theme.colorTextMuted }}>
-            unsubscribe
-          </a>
-          .
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm ?? "11px",
-            margin: 0,
-            textAlign: "center",
-          }}
-        >
-          &copy; {new Date().getFullYear()} {companyName}
-        </Text>
-      </Column>
-    </Row>
-  </Section>
-);
+export interface SimpleFooterWithSocialIconsProps {
+  theme?: EmailThemeTokens;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  socials?: SimpleFooterSocial[];
+  unsubscribeHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  mutedTextColor?: string;
+  variant?: SimpleFooterWithSocialIconsVariant;
+}
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  mutedTextColor: "#d1d5db",
+  pageBackgroundColor: "#f1f5f9",
+  socials: [
+    {
+      href: "https://facebook.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-facebook.png",
+      label: "Facebook",
+    },
+    {
+      href: "https://github.com",
+      iconSrc: "https://assets.mailviews.com/images/components/icon-github.png",
+      label: "GitHub",
+    },
+    {
+      href: "https://linkedin.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-linkedin.png",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://youtube.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-youtube.png",
+      label: "YouTube",
+    },
+    {
+      href: "https://x.com",
+      iconSrc: "https://assets.mailviews.com/images/components/icon-x.png",
+      label: "X",
+    },
+  ],
+  unsubscribeHref: "https://example.com/unsub",
+};
+
+type SectionProps = Omit<SimpleFooterWithSocialIconsProps, "theme">;
+type ResolvedProps = typeof defaults &
+  SectionProps & { variant: SimpleFooterWithSocialIconsVariant };
+
+export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
+  const resolved = {
+    ...defaults,
+    ...props,
+    variant: props.variant ?? "left-aligned",
+  } as ResolvedProps;
+  const textAlign = {
+    centered: "center",
+    "left-aligned": "left",
+    "right-aligned": "right",
+  }[resolved.variant] as "center" | "left" | "right";
+  const tableAlign = {
+    centered: "center",
+    "left-aligned": undefined,
+    "right-aligned": "right",
+  }[resolved.variant] as "center" | "right" | undefined;
+  const tableStyle = {
+    centered: { marginLeft: "auto", marginRight: "auto" },
+    "left-aligned": undefined,
+    "right-aligned": { marginLeft: "auto" },
+  }[resolved.variant];
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              padding: "44px 0 24px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign }}>
+                    <div>
+                      <a href={resolved.logoHref}>
+                        <img
+                          alt={resolved.logoAlt}
+                          src={resolved.logoSrc}
+                          style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                          width={64}
+                        />
+                      </a>
+                    </div>
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <table
+                      align={tableAlign}
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={tableStyle}
+                    >
+                      <tbody>
+                        <tr>
+                          {resolved.socials.map((social, index) => (
+                            <td
+                              key={social.href}
+                              style={
+                                index === resolved.socials.length - 1
+                                  ? undefined
+                                  : { paddingRight: "24px" }
+                              }
+                            >
+                              <a href={social.href}>
+                                <img
+                                  alt={social.label}
+                                  src={social.iconSrc}
+                                  style={{
+                                    maxWidth: "100%",
+                                    verticalAlign: "middle",
+                                  }}
+                                  width={20}
+                                />
+                              </a>
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <div>
+                      <p
+                        style={{
+                          color: resolved.mutedTextColor,
+                          fontFamily,
+                          fontSize: "16px",
+                          lineHeight: "24px",
+                          margin: "0 0 8px",
+                        }}
+                      >
+                        © 2026 Mailviews. All rights reserved.
+                      </p>
+                      <p
+                        style={{
+                          color: resolved.mutedTextColor,
+                          fontFamily,
+                          fontSize: "16px",
+                          lineHeight: "24px",
+                          margin: 0,
+                        }}
+                      >
+                        No longer want to receive emails?{" "}
+                        <a
+                          href={resolved.unsubscribeHref}
+                          style={{
+                            color: resolved.mutedTextColor,
+                            textDecoration: "underline",
+                          }}
+                        >
+                          Unsubscribe
+                        </a>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
 
 export const SimpleFooterWithSocialIcons = ({
-  theme = defaultTheme,
-  companyName = "Acme Inc.",
-  unsubscribeHref = "#",
-  variant = "default",
-}: FooterUnsubscribeProps) => (
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "left-aligned",
+  ...props
+}: SimpleFooterWithSocialIconsProps) => (
   <Html>
-    <Head />
-    <Preview>footer unsubscribe</Preview>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>Simple footer with social icons</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FooterUnsubscribeSection
-            companyName={companyName}
-            theme={theme}
-            unsubscribeHref={unsubscribeHref}
-            variant={variant}
-          />
-        </Section>
-      </Container>
+      <SimpleFooterWithSocialIconsSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
     </Body>
   </Html>
 );
+
 SimpleFooterWithSocialIcons.PreviewProps = {
-  companyName: "Acme Inc.",
   theme: defaultTheme,
-  unsubscribeHref: "#unsubscribe",
-  variant: "default",
-} satisfies FooterUnsubscribeProps;
+  variant: "left-aligned",
+} satisfies SimpleFooterWithSocialIconsProps;

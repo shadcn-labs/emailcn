@@ -1,9 +1,41 @@
 ---
 title: "2 Columns Compact"
-description: "2 Columns Compact — Team email component."
+description: "Mailviews compact two-column team family"
 ---
 
-<ComponentPreview base="react-email" name="two-columns-compact-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="two-columns-compact-demo"
+  variant="default"
+/>
+
+### Border Top
+
+<ComponentPreview
+  base="react-email"
+  name="two-columns-compact-demo"
+  variant="border-top"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="react-email"
+  name="two-columns-compact-demo"
+  variant="bordered"
+/>
+
+### Accent
+
+<ComponentPreview
+  base="react-email"
+  name="two-columns-compact-demo"
+  variant="accent"
+/>
 
 ## Installation
 
@@ -37,14 +69,13 @@ npx shadcn@latest add @emailcn/2-columns-compact
 
 ```tsx
 import { TwoColumnsCompact } from "@/components/emails/marketing/team/2-columns-compact";
-```
 
-```tsx
-<TwoColumnsCompact {...TwoColumnsCompact.PreviewProps} />
+<TwoColumnsCompact variant="default" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                  | Default        | Description              |
+| --------- | ----------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "border-top" \| "bordered" \| "accent"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `TailwindConfig`                                      | `defaultTheme` | Email theme styling      |

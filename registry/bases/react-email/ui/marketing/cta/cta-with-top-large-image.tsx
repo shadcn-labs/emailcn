@@ -1,25 +1,9 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable @next/next/no-img-element */
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
-export type CTAWithTopLargeImageVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
 
 export interface CTAWithTopLargeImageProps {
   theme?: TailwindConfig;
@@ -29,115 +13,184 @@ export interface CTAWithTopLargeImageProps {
   ctaHref?: string;
   imageSrc?: string;
   imageAlt?: string;
-  variant?: CTAWithTopLargeImageVariant;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
 }
 
-export const CTAWithTopLargeImageSection = ({
-  heading = "New Collection",
-  subtext = "Explore our latest arrivals.",
-  ctaLabel = "Shop Now",
-  ctaHref = "#",
-  imageSrc = "https://static.photos/city/600x300/2",
-  imageAlt = "",
-  variant = "default",
-}: Omit<CTAWithTopLargeImageProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .cta-top-image-content {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
     }
-  };
+  }
+
+  .cta-top-image-button:hover {
+    background-color: #4338ca !important;
+  }
+`;
+
+type SectionProps = Omit<CTAWithTopLargeImageProps, "theme">;
+
+const defaultSectionProps = {
+  backgroundColor: "#fffffe",
+  buttonBackgroundColor: "#4f46e5",
+  buttonTextColor: "#f8fafc",
+  ctaHref: "https://example.com/",
+  ctaLabel: "Activate & Save",
+  heading: "Built for the journey ahead.",
+  headingColor: "#030712",
+  imageAlt: "",
+  imageSrc:
+    "https://assets.mailviews.com/images/components/cta/cta-with-image-1.jpg",
+  pageBackgroundColor: "#f1f5f9",
+  subtext:
+    "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",
+  textColor: "#4b5563",
+} satisfies SectionProps;
+
+export const CTAWithTopLargeImageSection = (props: SectionProps) => {
+  const resolved = { ...defaultSectionProps, ...props };
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container
-        className={`mx-auto max-w-container text-center ${getUnskewClass()}`}
-      >
-        <Img
-          src={imageSrc}
-          alt={imageAlt}
-          width="600"
-          height="300"
-          className="mb-8 w-full h-auto rounded-lg object-cover"
-        />
-        <Text className="m-0 text-3xl font-bold text-heading leading-snug text-foreground">
-          {heading}
-        </Text>
-        <Text className="mt-4 mb-8 text-lg text-foreground-muted">
-          {subtext}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            className="inline-block rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-fg no-underline"
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
           >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Container>
-    </Section>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    className="cta-top-image-content"
+                    style={{ padding: "0 64px", textAlign: "center" }}
+                  >
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <img
+                      alt={resolved.imageAlt}
+                      src={resolved.imageSrc}
+                      style={{
+                        borderRadius: "4px",
+                        maxWidth: "100%",
+                        verticalAlign: "middle",
+                      }}
+                      width="472"
+                    />
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <h2
+                      style={{
+                        color: resolved.headingColor,
+                        fontFamily,
+                        fontSize: "30px",
+                        fontWeight: 500,
+                        lineHeight: "36px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {resolved.heading}
+                    </h2>
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <p
+                      style={{
+                        color: resolved.textColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 300,
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {resolved.subtext}
+                    </p>
+                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                    <a
+                      className="cta-top-image-button"
+                      href={resolved.ctaHref}
+                      style={{
+                        backgroundColor: resolved.buttonBackgroundColor,
+                        borderRadius: "8px",
+                        color: resolved.buttonTextColor,
+                        display: "inline-block",
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 500,
+                        lineHeight: "24px",
+                        padding: "10px 22px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {resolved.ctaLabel}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const CTAWithTopLargeImage = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  heading = "New Collection",
-  subtext = "Explore our latest arrivals.",
-  ctaLabel = "Shop Now",
-  ctaHref = "#",
-  imageSrc = "https://static.photos/city/600x300/3",
-  imageAlt = "",
-  variant = "default",
+  ...props
 }: CTAWithTopLargeImageProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
+    <Preview>{props.heading ?? defaultSectionProps.heading}</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <CTAWithTopLargeImageSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          heading={heading}
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
-          subtext={subtext}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <CTAWithTopLargeImageSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 CTAWithTopLargeImage.PreviewProps = {
-  ctaHref: "https://example.com",
-  ctaLabel: "Shop Now",
-  heading: "New Collection",
-  imageAlt: "Collection",
-  imageSrc: "https://static.photos/city/600x300/4",
-  subtext: "Explore our latest arrivals.",
   theme: defaultTheme,
-  variant: "default",
 } satisfies CTAWithTopLargeImageProps;

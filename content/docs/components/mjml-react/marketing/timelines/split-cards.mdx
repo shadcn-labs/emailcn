@@ -3,12 +3,79 @@ title: "Split Cards"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="mjml-react" name="split-cards-demo" />
+## Examples
+
+### Muted
+
+<ComponentPreview base="mjml-react" name="split-cards-demo" variant="muted" />
+
+### Muted Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="muted-reverse"
+/>
+
+### Boxed
+
+<ComponentPreview base="mjml-react" name="split-cards-demo" variant="boxed" />
+
+### Boxed Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="boxed-reverse"
+/>
+
+### Accent
+
+<ComponentPreview base="mjml-react" name="split-cards-demo" variant="accent" />
+
+### Accent Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="accent-reverse"
+/>
+
+### Image Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="image-top"
+/>
+
+### Image Top Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="image-top-reverse"
+/>
+
+### Image Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="image-bottom"
+/>
+
+### Image Bottom Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-cards-demo"
+  variant="image-bottom-reverse"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +87,24 @@ npx shadcn@latest add @emailcn/split-cards
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/timelines/split-cards.tsx"
-  base="mjml-react"
-  title="components/emails/marketing/timelines/split-cards.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/timelines/split-cards.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/timelines/split-cards.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -59,6 +119,7 @@ import { SplitCards } from "@/components/emails/marketing/timelines/split-cards"
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                                         | Default        | Description                    |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------ |
+| `variant` | `"muted" \| "muted-reverse" \| "boxed" \| "boxed-reverse" \| "accent" \| "accent-reverse" \| "image-top" \| "image-top-reverse" \| "image-bottom" \| "image-bottom-reverse"` | `"muted"`      | Mailviews split-card treatment |
+| `theme`   | `EmailThemeTokens`                                                                                                                                                           | `defaultTheme` | Email theme styling            |

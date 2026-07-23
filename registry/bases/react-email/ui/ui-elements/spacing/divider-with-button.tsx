@@ -1,78 +1,48 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-} from "react-email";
+import { Link } from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
+import {
+  DividerFrame,
+  SpacingEmailShell,
+  dividerButtonStyle,
+} from "./divider-shared";
+import type { DividerVariant } from "./divider-shared";
+
 export interface DividerWithButtonProps {
-  theme?: TailwindConfig;
-  label?: string;
   href?: string;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  label?: string;
+  theme?: TailwindConfig;
+  variant?: DividerVariant;
 }
 
 export const DividerWithButtonSection = ({
-  label = "View All",
   href = "#",
-  variant = "default",
-}: Omit<DividerWithButtonProps, "theme">) => {
-  const alignClass =
-    variant === "slanted-left"
-      ? "text-left"
-      : variant === "slanted-right"
-        ? "text-right"
-        : "text-center";
-
-  return (
-    <Section className="py-6">
-      <div className="flex items-center">
-        <Hr className="flex-1 border-border" />
-        <div className="mx-4">
-          <Button
-            href={href}
-            className="inline-block rounded-md bg-primary px-4 py-2 text-xs font-medium text-primary-fg no-underline whitespace-nowrap"
-          >
-            {label}
-          </Button>
-        </div>
-        <Hr className="flex-1 border-border" />
-      </div>
-    </Section>
-  );
-};
+  label = "View All",
+  variant = "center",
+}: Omit<DividerWithButtonProps, "theme">) => (
+  <DividerFrame variant={variant}>
+    <Link href={href} style={dividerButtonStyle}>
+      {label}
+    </Link>
+  </DividerFrame>
+);
 
 export const DividerWithButton = ({
-  theme = defaultTheme,
-  label = "View All",
   href = "#",
-  variant = "default",
+  label = "View All",
+  theme = defaultTheme,
+  variant = "center",
 }: DividerWithButtonProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{label}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <DividerWithButtonSection label={label} href={href} variant={variant} />
-      </Body>
-    </Tailwind>
-  </Html>
+  <SpacingEmailShell preview={label} theme={theme}>
+    <DividerWithButtonSection href={href} label={label} variant={variant} />
+  </SpacingEmailShell>
 );
 
 DividerWithButton.PreviewProps = {
   href: "https://example.com/shop",
   label: "Shop Now",
   theme: defaultTheme,
-  variant: "default",
+  variant: "center",
 } satisfies DividerWithButtonProps;

@@ -1,132 +1,195 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Head,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type StackedStatsVariant = "default" | "slanted-left" | "slanted-right";
+export type StackedStatsVariant = "left" | "center" | "right";
 
 export interface StackedStatsProps {
   theme?: TailwindConfig;
-  stat1?: string;
-  stat1Label?: string;
-  stat2?: string;
-  stat2Label?: string;
-  stat3?: string;
-  stat3Label?: string;
   variant?: StackedStatsVariant;
+  stats?: { heading: string; value: string; description: string }[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  accentColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  dividerColor?: string;
 }
 
-export const StackedStatsSection = ({
-  stat1 = "99.9%",
-  stat1Label = "Uptime",
-  stat2 = "10M+",
-  stat2Label = "Users",
-  stat3 = "150+",
-  stat3Label = "Countries",
-  variant = "default",
-}: Omit<StackedStatsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const defaults = {
+  accentColor: "#f97316",
+  backgroundColor: "#fffffe",
+  dividerColor: "#cbd5e1",
+  headingColor: "#030712",
+  pageBackgroundColor: "#f1f5f9",
+  stats: [
+    {
+      description: "For the month of January",
+      heading: "Active days",
+      value: "10 days",
+    },
+    {
+      description: "Total distance recorded",
+      heading: "Distance covered",
+      value: "28km",
+    },
+    {
+      description: "Time spent across all activities",
+      heading: "Total time of activity",
+      value: "5h 34min",
+    },
+  ],
+  textColor: "#4b5563",
+};
 
+type SectionProps = Omit<StackedStatsProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+export const StackedStatsSection = (props: SectionProps) => {
+  const variant = props.variant ?? "left";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  let textAlign: "center" | "left" | "right" = "left";
+  if (variant === "center") {
+    textAlign = "center";
+  } else if (variant === "right") {
+    textAlign = "right";
+  }
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section
-        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}
-      >
-        <Text className="m-0 mb-6 text-3xl font-bold text-foreground">
-          {stat1}
-        </Text>
-        <Text className="mt-0 mb-8 text-sm uppercase tracking-wider text-foreground-muted">
-          {stat1Label}
-        </Text>
-        <Text className="m-0 mb-6 text-3xl font-bold text-foreground">
-          {stat2}
-        </Text>
-        <Text className="mt-0 mb-8 text-sm uppercase tracking-wider text-foreground-muted">
-          {stat2Label}
-        </Text>
-        <Text className="m-0 text-3xl font-bold text-foreground">{stat3}</Text>
-        <Text className="mt-2 mb-0 text-sm uppercase tracking-wider text-foreground-muted">
-          {stat3Label}
-        </Text>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              textAlign: "left",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px" }}>
+                    {resolved.stats.slice(0, 3).map((stat, index) => (
+                      <div
+                        key={stat.heading}
+                        style={{
+                          marginTop: index === 0 ? undefined : "24px",
+                          textAlign,
+                        }}
+                      >
+                        <p
+                          style={{
+                            color: resolved.accentColor,
+                            fontFamily,
+                            fontSize: "18px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                            margin: 0,
+                          }}
+                        >
+                          {stat.heading}
+                        </p>
+                        <p
+                          style={{
+                            color: resolved.headingColor,
+                            fontFamily,
+                            fontSize: "60px",
+                            fontWeight: 600,
+                            lineHeight: "normal",
+                            margin: 0,
+                          }}
+                        >
+                          {stat.value}
+                        </p>
+                        <p
+                          style={{
+                            color: resolved.textColor,
+                            fontFamily,
+                            fontSize: "14px",
+                            lineHeight: "20px",
+                            margin: 0,
+                          }}
+                        >
+                          {stat.description}
+                        </p>
+                        {index < 2 ? (
+                          <div
+                            style={{
+                              backgroundColor: resolved.dividerColor,
+                              height: "1px",
+                              lineHeight: "1px",
+                              marginTop: "24px",
+                            }}
+                          >
+                            &zwj;
+                          </div>
+                        ) : null}
+                      </div>
+                    ))}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const StackedStats = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  stat1 = "99.9%",
-  stat1Label = "Uptime",
-  stat2 = "10M+",
-  stat2Label = "Users",
-  stat3 = "150+",
-  stat3Label = "Countries",
-  variant = "default",
+  variant = "left",
+  ...props
 }: StackedStatsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>Stats</Preview>
+    <Preview>10 active days</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <StackedStatsSection
-          stat1={stat1}
-          stat1Label={stat1Label}
-          stat2={stat2}
-          stat2Label={stat2Label}
-          stat3={stat3}
-          stat3Label={stat3Label}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <StackedStatsSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 StackedStats.PreviewProps = {
-  stat1: "99.9%",
-  stat1Label: "Uptime",
-  stat2: "10M+",
-  stat2Label: "Users",
-  stat3: "150+",
-  stat3Label: "Countries",
   theme: defaultTheme,
-  variant: "default",
+  variant: "left",
 } satisfies StackedStatsProps;

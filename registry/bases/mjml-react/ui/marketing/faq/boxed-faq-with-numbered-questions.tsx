@@ -1,131 +1,64 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BoxedNumberedContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/mjml-react/ui/marketing/faq/faq-shared";
 
-export type FAQBoxedVariant = "default" | "slanted-left" | "slanted-right";
-
-export interface FAQBoxedProps {
+export interface BoxedFaqWithNumberedQuestionsProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQBoxedVariant;
+  heading?: string;
+  q1?: string;
+  a1?: string;
+  q2?: string;
+  a2?: string;
 }
 
-const FAQBoxedSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQBoxedProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQBoxedVariant;
-}) => {
-  const list = items ?? [];
+export const BoxedFaqWithNumberedQuestionsSection = ({
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+}: Omit<BoxedFaqWithNumberedQuestionsProps, "theme">) => {
+  const items = [
+    { answer: a1, question: q1 },
+    { answer: a2, question: q2 },
+  ];
 
   return (
-    <MjmlSection
-      backgroundColor={theme.colorBackground}
-      padding={`${theme.spacingXl ?? "48px"} 0`}
-    >
-      <MjmlColumn>
-        {list.map((item, i) => (
-          <MjmlSection
-            key={item.question + i}
-            backgroundColor={
-              i % 2 === 0 ? theme.colorBackgroundMuted : theme.colorBackground
-            }
-            border={
-              i % 2 === 1
-                ? `1px solid ${theme.colorBorder ?? "#e5e7eb"}`
-                : "none"
-            }
-            borderRadius={theme.borderRadius}
-            padding={theme.spacingBase ?? "24px"}
-          >
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeLg ?? "16px"}
-              fontWeight={theme.fontWeightMedium}
-              paddingBottom={theme.spacingBase ?? "16px"}
-            >
-              {item.question}
-            </MjmlText>
-            <MjmlText
-              color={theme.colorTextMuted}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              lineHeight={theme.lineHeightBase}
-            >
-              {item.answer}
-            </MjmlText>
-          </MjmlSection>
-        ))}
-      </MjmlColumn>
-    </MjmlSection>
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <BoxedNumberedContent items={items} />
+    </>
   );
 };
 
 export const BoxedFaqWithNumberedQuestions = ({
   theme = defaultTheme,
-  items = [
-    {
-      answer: "This is the answer to the question.",
-      question: "What is this?",
-    },
-  ],
-  variant = "default",
-}: FAQBoxedProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>FAQ boxed</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <FAQBoxedSection items={items} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  a1 = "This product helps you build beautiful emails quickly and easily.",
+  a2 = "We offer flexible pricing plans to suit your needs.",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+}: BoxedFaqWithNumberedQuestionsProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <BoxedFaqWithNumberedQuestionsSection
+      a1={a1}
+      a2={a2}
+      heading={heading}
+      q1={q1}
+      q2={q2}
+    />
+  </FaqEmailShell>
 );
 
 BoxedFaqWithNumberedQuestions.PreviewProps = {
-  items: [
-    {
-      answer:
-        "EmailCN is a collection of beautifully designed email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, they work across all major email clients.",
-      question: "Are the components responsive?",
-    },
-    {
-      answer: "MIT license — free to use.",
-      question: "What is the license?",
-    },
-  ],
+  a1: "This product helps you build beautiful emails quickly and easily.",
+  a2: "We offer flexible pricing plans to suit your needs.",
+  heading: "Frequently asked questions",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQBoxedProps;
+} satisfies BoxedFaqWithNumberedQuestionsProps;

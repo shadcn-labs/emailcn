@@ -1,17 +1,47 @@
 ---
 title: "Bordered Order Summary with Total Bottom"
-description: "Bordered Order Summary with Total Bottom — Order Summary email component."
+description: "Bordered Order Summary with Total Bottom with every Mailviews layout variant."
 ---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Left Aligned
 
 <ComponentPreview
   base="mjml-react"
   name="bordered-order-summary-total-bottom-demo"
+  variant="left-aligned"
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-total-bottom-demo"
+  variant="right-aligned"
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-total-bottom-demo"
+  variant="centered"
+/>
+
+### Justified
+
+<ComponentPreview
+  base="mjml-react"
+  name="bordered-order-summary-total-bottom-demo"
+  variant="justified"
 />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -23,31 +53,18 @@ npx shadcn@latest add @emailcn/bordered-order-summary-with-total-bottom
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx"
-  base="mjml-react"
-  title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -59,11 +76,13 @@ import { BorderedOrderSummaryTotalBottom } from "@/components/emails/ecommerce/o
 ```tsx
 <BorderedOrderSummaryTotalBottom
   {...BorderedOrderSummaryTotalBottom.PreviewProps}
+  variant="left-aligned"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                             | Default          | Description              |
+| --------- | ---------------------------------------------------------------- | ---------------- | ------------------------ |
+| `variant` | `"left-aligned" \| "right-aligned" \| "centered" \| "justified"` | `"left-aligned"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                               | `defaultTheme`   | Email theme styling      |

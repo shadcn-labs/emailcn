@@ -1,5 +1,16 @@
+import type { ComponentProps } from "react";
+
 import { HeroWithOverlappedImage } from "@/registry/bases/jsx-email/ui/marketing/hero/hero-with-overlapped-image";
 
-export default function HeroWithOverlappedImageDemo() {
-  return <HeroWithOverlappedImage {...HeroWithOverlappedImage.PreviewProps} />;
+export default function HeroWithOverlappedImageDemo({
+  variant,
+}: {
+  variant?: ComponentProps<typeof HeroWithOverlappedImage>["variant"];
+}) {
+  return (
+    <HeroWithOverlappedImage
+      {...HeroWithOverlappedImage.PreviewProps}
+      variant={variant ?? HeroWithOverlappedImage.PreviewProps.variant}
+    />
+  );
 }

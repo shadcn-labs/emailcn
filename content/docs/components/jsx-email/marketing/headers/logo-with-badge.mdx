@@ -1,0 +1,83 @@
+---
+title: "Logo with Shipping Message"
+description: "Mailviews logo and shipping-message header placements"
+---
+
+All three Mailviews placements share one component through the `alignment` prop.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-badge-demo"
+  variant="left"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-badge-demo"
+  variant="center"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-badge-demo"
+  variant="right"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo-and-badge
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-badge.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/headers/header-with-logo-and-badge.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndBadge } from "@/components/emails/marketing/headers/header-with-logo-and-badge";
+```
+
+```tsx
+<HeaderWithLogoAndBadge
+  {...HeaderWithLogoAndBadge.PreviewProps}
+  alignment="center"
+/>
+```
+
+## API Reference
+
+| Prop        | Type                              | Default        | Description                                  |
+| ----------- | --------------------------------- | -------------- | -------------------------------------------- |
+| `alignment` | `HeaderWithLogoAndBadgeAlignment` | `"left"`       | Places the logo and shipping message content |
+| `theme`     | Renderer theme                    | `defaultTheme` | Renderer theme configuration                 |

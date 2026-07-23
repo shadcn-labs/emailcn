@@ -1,9 +1,10 @@
-import { OutlinedSquareTilesSocialLogos } from "@/registry/bases/react-email/ui/marketing/social/outlined-square-tiles-social-logos";
+import { SocialLogos } from "@/registry/bases/react-email/ui/marketing/social/social-logos";
 
 export default function OutlinedSquareTilesSocialLogosDemo() {
   return (
-    <OutlinedSquareTilesSocialLogos
-      {...OutlinedSquareTilesSocialLogos.PreviewProps}
+    <SocialLogos
+      {...SocialLogos.PreviewProps}
+      variant="outlined-square-tiles"
     />
   );
 }

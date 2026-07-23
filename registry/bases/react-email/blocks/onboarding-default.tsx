@@ -59,7 +59,6 @@ export const OnboardingDefault = ({
               subheading={`We're excited to have you on board at ${_productName}. Let's get you set up for success.`}
               ctaLabel="Get Started"
               ctaHref={ctaHref}
-              align="left"
             />
 
             <ContentGridSection type="title" title="Quick Setup" />

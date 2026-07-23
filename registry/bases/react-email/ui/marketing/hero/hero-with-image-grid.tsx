@@ -1,17 +1,14 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
   Button,
   Container,
   Head,
   Html,
+  Img,
   Preview,
   Section,
   Tailwind,
   Text,
-  Img,
-  Row,
-  Column,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -19,171 +16,343 @@ import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type HeroWithImageGridVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "images-bottom"
+  | "images-top"
+  | "offset-images-bottom"
+  | "offset-images-top";
+
+export interface HeroWithImageGridImage {
+  alt: string;
+  src: string;
+}
 
 export interface HeroWithImageGridProps {
   theme?: TailwindConfig;
+  eyebrow?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  imageSrc1?: string;
-  imageAlt1?: string;
-  imageSrc2?: string;
-  imageAlt2?: string;
-  imageSrc3?: string;
-  imageAlt3?: string;
+  images?: HeroWithImageGridImage[];
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroWithImageGridVariant;
 }
 
-export const HeroWithImageGridSection = ({
-  ctaHref = "#",
-  ctaLabel = "Get Started",
-  heading = "Welcome",
-  subheading = "Get started with your account",
-  imageSrc1 = "https://static.photos/city/300x200/2",
-  imageAlt1 = "",
-  imageSrc2 = "https://static.photos/city/300x200/3",
-  imageAlt2 = "",
-  imageSrc3 = "https://static.photos/city/300x200/4",
-  imageAlt3 = "",
-  variant = "default",
-}: Omit<HeroWithImageGridProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-image-grid-container {
+      width: 100% !important;
     }
-  };
+
+    .hero-image-grid-heading {
+      font-size: 36px !important;
+      line-height: 40px !important;
+    }
+
+    .hero-image-grid-image {
+      margin: 0 12px 24px !important;
+      max-width: 96px !important;
+    }
+
+    .hero-image-grid-gap {
+      display: none !important;
+    }
+  }
+`;
+
+const regularImages: HeroWithImageGridImage[] = Array.from(
+  { length: 7 },
+  (_, index) => ({
+    alt: `Image ${index + 1}`,
+    src: `https://assets.mailviews.com/images/components/hero/mosaic-${index + 1}.jpg`,
+  })
+);
+
+const offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
+
+const offsetImages: HeroWithImageGridImage[] = offsetImageNumbers.map(
+  (imageNumber, index) => ({
+    alt: `Image ${index + 1}`,
+    src: `https://assets.mailviews.com/images/components/hero/mosaic-${imageNumber}.jpg`,
+  })
+);
+
+const Spacer = ({ height }: { height: number }) => (
+  <div style={{ fontSize: 0, height, lineHeight: `${height}px` }}>&zwj;</div>
+);
+
+const ImageGallery = ({
+  images,
+  offset,
+}: {
+  images: HeroWithImageGridImage[];
+  offset: boolean;
+}) => {
+  const defaults = offset ? offsetImages : regularImages;
+  const resolvedImages = defaults.map((fallback, index) =>
+    images[index] ? { ...fallback, ...images[index] } : fallback
+  );
+  const imageWidth = offset ? 91 : 120;
+  const wrapAfter = offset ? 4 : 3;
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>
-        <Row>
-          <Column className="w-1/2 pr-8 align-middle">
-            <Text className="m-0 font-bold text-heading leading-snug text-foreground">
-              {heading}
-            </Text>
-            <Text className="mt-4 mb-8 text-lg leading-snug text-foreground-muted">
-              {subheading}
-            </Text>
-            {ctaLabel && ctaHref ? (
-              <Button
-                href={ctaHref}
-                className="inline-block rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-fg no-underline"
-              >
-                {ctaLabel}
-              </Button>
-            ) : null}
-          </Column>
-          <Column className="w-1/2 align-middle">
-            <Row>
-              <Column className="w-1/2 pr-2 align-top">
-                <Img
-                  src={imageSrc1}
-                  alt={imageAlt1}
-                  width="300"
-                  height="200"
-                  className="w-full h-auto rounded-lg object-cover mb-2"
-                />
-                <Img
-                  src={imageSrc3}
-                  alt={imageAlt3}
-                  width="300"
-                  height="200"
-                  className="w-full h-auto rounded-lg object-cover"
-                />
-              </Column>
-              <Column className="w-1/2 pl-2 align-top">
-                <Img
-                  src={imageSrc2}
-                  alt={imageAlt2}
-                  width="300"
-                  height="200"
-                  className="w-full h-auto rounded-lg object-cover"
-                />
-              </Column>
-            </Row>
-          </Column>
-        </Row>
-      </Container>
+    <div style={{ fontSize: 0, textAlign: "center" }}>
+      {resolvedImages.map((image, index) => (
+        <span key={`${image.src}-${index}`}>
+          <Img
+            alt={image.alt}
+            className="hero-image-grid-image"
+            src={image.src}
+            width={imageWidth}
+            style={{
+              borderRadius: "4px",
+              display: "inline-block",
+              marginBottom: "48px",
+              marginTop: offset && index % 2 === 0 ? "24px" : 0,
+              maxWidth: "100%",
+              verticalAlign: "middle",
+            }}
+          />
+          {index < resolvedImages.length - 1 && index !== wrapAfter ? (
+            <span
+              className="hero-image-grid-gap"
+              style={{ display: "inline-block", width: "24px" }}
+            >
+              &nbsp;
+            </span>
+          ) : null}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+type SectionProps = Required<
+  Omit<HeroWithImageGridProps, "theme" | "variant">
+> & {
+  variant: HeroWithImageGridVariant;
+};
+
+export const HeroWithImageGridSection = ({
+  backgroundColor,
+  buttonBackgroundColor,
+  buttonTextColor,
+  ctaHref,
+  ctaLabel,
+  description,
+  eyebrow,
+  heading,
+  images,
+  logoAlt,
+  logoHref,
+  logoSrc,
+  subheading,
+  variant,
+}: SectionProps) => {
+  const imagesFirst = variant.endsWith("-top");
+  const offset = variant.startsWith("offset-");
+  const gallery = <ImageGallery images={images} offset={offset} />;
+  const content = (
+    <div style={{ padding: "0 24px", textAlign: "center" }}>
+      <Spacer height={imagesFirst ? 20 : 44} />
+      <Text
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 200,
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {eyebrow}
+      </Text>
+      <h1
+        className="hero-image-grid-heading"
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "48px",
+          fontWeight: 500,
+          lineHeight: "58px",
+          margin: 0,
+        }}
+      >
+        {heading}
+      </h1>
+      <Text
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "18px",
+          lineHeight: "28px",
+          margin: 0,
+        }}
+      >
+        {subheading}
+      </Text>
+      <Text
+        style={{
+          color: "#4b5563",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 300,
+          lineHeight: "24px",
+          margin: "44px 0 0",
+        }}
+      >
+        {description}
+      </Text>
+    </div>
+  );
+
+  return (
+    <Section style={{ backgroundColor, padding: "44px 0" }}>
+      <div style={{ textAlign: "center" }}>
+        <a href={logoHref}>
+          <Img
+            alt={logoAlt}
+            src={logoSrc}
+            width="165"
+            style={{ display: "inline-block", maxWidth: "100%" }}
+          />
+        </a>
+      </div>
+      {imagesFirst ? (
+        <>
+          <Spacer height={44} />
+          {gallery}
+          {content}
+        </>
+      ) : (
+        <>
+          {content}
+          <Spacer height={44} />
+          {gallery}
+        </>
+      )}
+      <Spacer height={44} />
+      <div style={{ textAlign: "center" }}>
+        {ctaLabel && ctaHref ? (
+          <Button
+            href={ctaHref}
+            style={{
+              backgroundColor: buttonBackgroundColor,
+              borderRadius: "8px",
+              color: buttonTextColor,
+              display: "inline-block",
+              fontFamily,
+              fontSize: "16px",
+              fontWeight: 500,
+              lineHeight: 1,
+              padding: "14px 20px",
+              textDecoration: "none",
+            }}
+          >
+            <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+            <Img
+              alt=""
+              src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+              width="12"
+              style={{
+                display: "inline-block",
+                maxWidth: "100%",
+                verticalAlign: "baseline",
+              }}
+            />
+          </Button>
+        ) : null}
+      </div>
     </Section>
   );
 };
 
 export const HeroWithImageGrid = ({
+  backgroundColor = "#fffffe",
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Discover now",
+  description = "A curated look at design, culture, and creativity in motion. From classics reborn to boundary-pushing silhouettes — see what's shaping the streets today.",
+  eyebrow = "NEW ARRIVALS",
+  heading = "Step into the hype",
+  images = [],
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  pageBackgroundColor = "#f1f5f9",
+  subheading = "The evolution of the sneaker",
   theme = defaultTheme,
-  heading = "Welcome",
-  subheading = "Get started with your account",
-  ctaLabel = "Get Started",
-  ctaHref = "#",
-  imageSrc1 = "https://static.photos/city/300x200/5",
-  imageAlt1 = "",
-  imageSrc2 = "https://static.photos/city/300x200/6",
-  imageAlt2 = "",
-  imageSrc3 = "https://static.photos/city/300x200/7",
-  imageAlt3 = "",
-  variant = "default",
+  variant = "images-bottom",
 }: HeroWithImageGridProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
+    <Preview>{`${heading} — ${subheading}`}</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <HeroWithImageGridSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          heading={heading}
-          imageAlt1={imageAlt1}
-          imageAlt2={imageAlt2}
-          imageAlt3={imageAlt3}
-          imageSrc1={imageSrc1}
-          imageSrc2={imageSrc2}
-          imageSrc3={imageSrc3}
-          subheading={subheading}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          className="hero-image-grid-container"
+          style={{
+            backgroundColor,
+            margin: "0 auto",
+            maxWidth: "600px",
+            width: "600px",
+          }}
+        >
+          <HeroWithImageGridSection
+            backgroundColor={backgroundColor}
+            buttonBackgroundColor={buttonBackgroundColor}
+            buttonTextColor={buttonTextColor}
+            ctaHref={ctaHref}
+            ctaLabel={ctaLabel}
+            description={description}
+            eyebrow={eyebrow}
+            heading={heading}
+            images={images}
+            logoAlt={logoAlt}
+            logoHref={logoHref}
+            logoSrc={logoSrc}
+            pageBackgroundColor={pageBackgroundColor}
+            subheading={subheading}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 HeroWithImageGrid.PreviewProps = {
+  backgroundColor: "#fffffe",
+  buttonBackgroundColor: "#4f46e5",
+  buttonTextColor: "#fffffe",
   ctaHref: "https://example.com",
-  ctaLabel: "Get Started",
-  heading: "Welcome to Acme",
-  imageAlt1: "Gallery image 1",
-  imageAlt2: "Gallery image 2",
-  imageAlt3: "Gallery image 3",
-  imageSrc1: "https://static.photos/city/300x200/8",
-  imageSrc2: "https://static.photos/city/300x200/9",
-  imageSrc3: "https://static.photos/city/300x200/10",
-  subheading: "Build faster with the tools you love.",
+  ctaLabel: "Discover now",
+  description:
+    "A curated look at design, culture, and creativity in motion. From classics reborn to boundary-pushing silhouettes — see what's shaping the streets today.",
+  eyebrow: "NEW ARRIVALS",
+  heading: "Step into the hype",
+  images: [],
+  logoAlt: "Mailviews",
+  logoHref: "https://example.com",
+  logoSrc: "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  pageBackgroundColor: "#f1f5f9",
+  subheading: "The evolution of the sneaker",
   theme: defaultTheme,
-  variant: "default",
+  variant: "images-bottom",
 } satisfies HeroWithImageGridProps;

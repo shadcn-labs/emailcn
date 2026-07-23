@@ -1,7 +1,11 @@
 ---
 title: "With 4 Columns"
-description: "With 4 Columns — Data Tables email component."
+description: "A balanced four-column data table for email."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="react-email" name="data-table-4-columns-demo" />
 
@@ -22,6 +26,19 @@ npx shadcn@latest add @emailcn/data-table-with-4-columns
 <TabsContent value="manual">
 
 <Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx"
@@ -36,15 +53,17 @@ npx shadcn@latest add @emailcn/data-table-with-4-columns
 ## Usage
 
 ```tsx
-import { DataTableWith4Columns } from "@/components/emails/ui-elements/data-tables/data-table-with-4-columns";
+import { DataTable4Columns } from "@/components/emails/ui-elements/data-tables/data-table-with-4-columns";
 ```
 
 ```tsx
-<DataTableWith4Columns {...DataTableWith4Columns.PreviewProps} />
+<DataTable4Columns {...DataTable4Columns.PreviewProps} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type             | Default                                    | Description                   |
+| --------- | ---------------- | ------------------------------------------ | ----------------------------- |
+| `theme`   | `TailwindConfig` | `defaultTheme`                             | Renderer theme configuration. |
+| `headers` | `string[]`       | Component-specific labels                  | Column labels.                |
+| `rows`    | `string[][]`     | [["Item A", "Standard", "Active", "$100"]] | Table row data.               |

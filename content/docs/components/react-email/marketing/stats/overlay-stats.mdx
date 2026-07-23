@@ -1,9 +1,41 @@
 ---
 title: "Overlay Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews background-image stats family"
 ---
 
-<ComponentPreview base="react-email" name="overlay-stats-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="default"
+/>
+
+### 3 columns
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="three-columns"
+/>
+
+### Bento
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="bento"
+/>
+
+### Bento reversed
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="bento-reversed"
+/>
 
 ## Installation
 
@@ -37,14 +69,13 @@ npx shadcn@latest add @emailcn/overlay-stats
 
 ```tsx
 import { OverlayStats } from "@/components/emails/marketing/stats/overlay-stats";
-```
 
-```tsx
-<OverlayStats {...OverlayStats.PreviewProps} />
+<OverlayStats variant="three-columns" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                          | Default        | Description              |
+| --------- | ------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "three-columns" \| "bento" \| "bento-reversed"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `TailwindConfig`                                              | `defaultTheme` | Email theme styling      |

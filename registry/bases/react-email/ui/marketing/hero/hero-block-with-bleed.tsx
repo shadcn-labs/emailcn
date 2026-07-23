@@ -1,161 +1,343 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-  Img,
-  Row,
-  Column,
-} from "react-email";
+/* eslint-disable @next/next/no-img-element, complexity */
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type HeroBlockWithBleedVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "left-centered"
+  | "left-top"
+  | "left-bottom"
+  | "left-flush-vertical"
+  | "right-centered"
+  | "right-top"
+  | "right-bottom"
+  | "right-flush-vertical";
 
 export interface HeroBlockWithBleedProps {
   theme?: TailwindConfig;
+  eyebrow?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  imageSrc?: string;
+  backgroundImageSrc?: string;
   imageAlt?: string;
-  bgColor?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  overlayColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroBlockWithBleedVariant;
 }
 
-export const HeroBlockWithBleedSection = ({
-  bgColor = "#111827",
-  ctaHref = "#",
-  ctaLabel = "Get Started",
-  heading = "Welcome",
-  subheading = "Get started with your account",
-  imageSrc = "https://static.photos/city/400x300/2",
-  imageAlt = "",
-  variant = "default",
-}: Omit<HeroBlockWithBleedProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+const assetRoot = "https://assets.mailviews.com/images/components";
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-block-bleed-spacer {
+      width: 40px !important;
     }
-  };
+
+    .hero-block-bleed-copy {
+      width: 430px !important;
+    }
+
+    .hero-block-bleed-overlay {
+      max-width: 100% !important;
+    }
+
+    .hero-block-bleed-heading {
+      font-size: 48px !important;
+    }
+  }
+
+  @media only screen and (max-width: 430px) {
+    .hero-block-bleed-copy {
+      width: 360px !important;
+    }
+  }
+
+  .hero-block-bleed-cta:hover {
+    background-color: #4338ca !important;
+  }
+`;
+
+type SectionProps = Omit<HeroBlockWithBleedProps, "theme">;
+
+export const HeroBlockWithBleedSection = ({
+  backgroundColor = "#030712",
+  backgroundImageSrc = `${assetRoot}/hero/block-with-bleed-bg.jpg`,
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Discover how",
+  description = "Where golden dunes meet the distant peaks, nature speaks in silence. These fragile landscapes remind us how balance sustains beauty — and how every action we take can help protect it.",
+  eyebrow = "Lush oasis, Our Wonderworld.",
+  heading = "Preserve the planet we share",
+  imageAlt = "Golden dunes beneath distant mountains",
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  overlayColor = "rgba(3, 7, 18, 0.8)",
+  pageBackgroundColor = "#f1f5f9",
+  subheading = "Take action today.",
+  textColor = "#f9fafb",
+  variant = "left-centered",
+}: SectionProps) => {
+  const isLeft = variant.startsWith("left-");
+  const placement = variant.replace(/^(left|right)-/, "");
+  const showsLogo = placement === "centered" || placement === "bottom";
+  const hasBottomSpacer = placement === "centered" || placement === "top";
+
+  const copy = (
+    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
+      <tbody>
+        <tr>
+          <td>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              className="hero-block-bleed-copy"
+              role="presentation"
+              style={{ width: "520px" }}
+            >
+              <tbody>
+                <tr>
+                  <td
+                    className="hero-block-bleed-spacer"
+                    style={{ width: "80px" }}
+                  >
+                    &zwj;
+                  </td>
+                  <td
+                    style={{
+                      color: textColor,
+                      textAlign: isLeft ? "left" : "right",
+                    }}
+                  >
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <p
+                      style={{
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 200,
+                        lineHeight: "24px",
+                        margin: 0,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {eyebrow}
+                    </p>
+                    <h1
+                      className="hero-block-bleed-heading"
+                      style={{
+                        fontFamily,
+                        fontSize: "72px",
+                        fontWeight: 500,
+                        lineHeight: 1,
+                        margin: 0,
+                      }}
+                    >
+                      {heading}
+                    </h1>
+                    <p
+                      style={{
+                        fontFamily,
+                        fontSize: "18px",
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      {subheading}
+                    </p>
+                    <div style={{ lineHeight: "144px" }}>&zwj;</div>
+                    <p
+                      style={{
+                        fontFamily,
+                        fontSize: "18px",
+                        fontWeight: 300,
+                        lineHeight: "32px",
+                        margin: 0,
+                      }}
+                    >
+                      {description}
+                    </p>
+                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
+                    {ctaLabel && ctaHref ? (
+                      <div style={{ textAlign: isLeft ? "left" : "right" }}>
+                        <a
+                          className="hero-block-bleed-cta"
+                          href={ctaHref}
+                          style={{
+                            backgroundColor: buttonBackgroundColor,
+                            borderRadius: "8px",
+                            color: buttonTextColor,
+                            display: "inline-block",
+                            fontFamily,
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            lineHeight: 1,
+                            padding: "14px 20px",
+                            textDecoration: "none",
+                          }}
+                        >
+                          <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+                          <img
+                            alt=""
+                            src={`${assetRoot}/icon-arrow-right.png`}
+                            style={{
+                              maxWidth: "100%",
+                              verticalAlign: "baseline",
+                            }}
+                            width="12"
+                          />
+                        </a>
+                      </div>
+                    ) : null}
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
 
   return (
-    <Section
-      className={`${getVariantClass()}`}
-      style={{ backgroundColor: bgColor }}
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: pageBackgroundColor }}
+      width="100%"
     >
-      <Container
-        className={`mx-auto max-w-container py-16 ${getUnskewClass()}`}
-      >
-        <Row>
-          <Column className="w-1/2 pr-10 align-middle">
-            <Text className="m-0 font-bold text-heading leading-snug text-white">
-              {heading}
-            </Text>
-            <Text className="mt-4 mb-8 text-lg leading-snug text-white/80">
-              {subheading}
-            </Text>
-            {ctaLabel && ctaHref ? (
-              <Button
-                href={ctaHref}
-                className="inline-block rounded-md bg-white px-6 py-3 text-sm font-medium text-gray-900 no-underline"
-              >
-                {ctaLabel}
-              </Button>
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            aria-label={imageAlt || undefined}
+            role={imageAlt ? "img" : undefined}
+            style={{
+              backgroundColor,
+              backgroundImage: `url(${backgroundImageSrc})`,
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              maxWidth: "100%",
+              width: "600px",
+            }}
+          >
+            {showsLogo ? (
+              <>
+                <div style={{ lineHeight: "40px" }}>&zwj;</div>
+                <div style={{ textAlign: "center" }}>
+                  <a href={logoHref}>
+                    <img
+                      alt={logoAlt}
+                      src={logoSrc}
+                      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                      width="165"
+                    />
+                  </a>
+                </div>
+                <div style={{ lineHeight: "80px" }}>&zwj;</div>
+              </>
             ) : null}
-          </Column>
-          <Column className="w-1/2 align-middle">
-            <div className="-mr-4 sm:-mr-8 lg:-mr-16">
-              <Img
-                src={imageSrc}
-                alt={imageAlt}
-                width="400"
-                height="300"
-                className="w-full h-auto rounded-lg object-cover"
-              />
-            </div>
-          </Column>
-        </Row>
-      </Container>
-    </Section>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              style={{ tableLayout: "fixed" }}
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  {isLeft ? (
+                    <>
+                      <td
+                        className="hero-block-bleed-overlay"
+                        style={{
+                          backgroundColor: overlayColor,
+                          width: "300px",
+                        }}
+                      >
+                        {copy}
+                      </td>
+                      <td>&zwj;</td>
+                    </>
+                  ) : (
+                    <>
+                      <td>{copy}</td>
+                      <td
+                        className="hero-block-bleed-overlay"
+                        style={{
+                          backgroundColor: overlayColor,
+                          width: "300px",
+                        }}
+                      >
+                        &zwj;
+                      </td>
+                    </>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+            {hasBottomSpacer ? (
+              <div style={{ lineHeight: "144px" }}>&zwj;</div>
+            ) : null}
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const HeroBlockWithBleed = ({
-  bgColor = "#111827",
-  ctaHref = "https://example.com",
-  ctaLabel = "Get Started",
-  heading = "Welcome",
-  imageAlt = "",
-  imageSrc = "https://static.photos/city/400x300/3",
-  subheading = "Get started with your account",
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "default",
+  variant = "left-centered",
+  ...props
 }: HeroBlockWithBleedProps) => (
   <Html>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>{props.heading ?? "Preserve the planet we share"}</Preview>
     <Tailwind config={theme}>
-      <Head>
-        <DefaultFonts />
-      </Head>
-      <Preview>{heading}</Preview>
-      <Body className="m-0 bg-background font-sans">
-        <HeroBlockWithBleedSection
-          bgColor={bgColor}
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          heading={heading}
-          imageAlt={imageAlt}
-          imageSrc={imageSrc}
-          subheading={subheading}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <HeroBlockWithBleedSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 HeroBlockWithBleed.PreviewProps = {
-  bgColor: "#111827",
-  ctaHref: "https://example.com",
-  ctaLabel: "Get Started",
-  heading: "Welcome to Acme",
-  imageAlt: "Bleed image",
-  imageSrc: "https://static.photos/city/400x300/4",
-  subheading: "Build faster with the tools you love.",
   theme: defaultTheme,
-  variant: "default",
+  variant: "left-centered",
 } satisfies HeroBlockWithBleedProps;

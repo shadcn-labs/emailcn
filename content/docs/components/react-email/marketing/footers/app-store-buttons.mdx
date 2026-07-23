@@ -1,0 +1,80 @@
+---
+title: "App Store Buttons Footer"
+description: "Mailviews app-store footer with centered, two-column, and title variants"
+---
+
+All three Mailviews app-store layouts share the same store badges and legal content.
+
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-app-store-buttons-demo"
+  variant="centered"
+  hideCode
+/>
+
+### Two Columns
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-app-store-buttons-demo"
+  variant="two-columns"
+  hideCode
+/>
+
+### Footer With Title
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-app-store-buttons-demo"
+  variant="with-title"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-app-store-buttons
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/footers/footer-with-app-store-buttons.tsx"
+    base="react-email"
+    title="components/emails/marketing/footers/footer-with-app-store-buttons.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithAppStoreButtons } from "@/components/emails/marketing/footers/footer-with-app-store-buttons";
+```
+
+```tsx
+<FooterWithAppStoreButtons
+  {...FooterWithAppStoreButtons.PreviewProps}
+  variant="centered"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                                          | Default       | Description                  |
+| --------- | --------------------------------------------- | ------------- | ---------------------------- |
+| `variant` | `"centered" \| "two-columns" \| "with-title"` | `"centered"`  | Selects the Mailviews layout |
+| `theme`   | `EmailTheme`                                  | default theme | Email theme styling          |

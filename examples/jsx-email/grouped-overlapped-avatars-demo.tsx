@@ -1,7 +1,19 @@
 import { GroupedOverlappedAvatars } from "@/registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars";
+import type { AvatarSize } from "@/registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars";
 
-export default function GroupedOverlappedAvatarsDemo() {
+const sizes: AvatarSize[] = ["xs", "sm", "md", "lg", "xl", "2xl"];
+
+export default function GroupedOverlappedAvatarsDemo({
+  variant,
+}: {
+  variant?: string;
+}) {
+  const size = sizes.find((item) => item === variant) ?? "md";
+
   return (
-    <GroupedOverlappedAvatars {...GroupedOverlappedAvatars.PreviewProps} />
+    <GroupedOverlappedAvatars
+      {...GroupedOverlappedAvatars.PreviewProps}
+      size={size}
+    />
   );
 }

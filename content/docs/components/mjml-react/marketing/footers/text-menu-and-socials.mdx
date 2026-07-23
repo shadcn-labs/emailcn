@@ -1,0 +1,76 @@
+---
+title: "Text, Menu and Socials"
+description: "Mailviews footer with mirrored logo and menu layouts"
+---
+
+The logo and quick-links placements are variants of the same footer content.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-text-menu-and-socials-demo"
+  variant="left-logo"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-text-menu-and-socials-demo"
+  variant="right-logo"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-text-menu-and-socials
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/footers/footer-with-text-menu-and-socials.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/footers/footer-with-text-menu-and-socials.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithTextMenuAndSocials } from "@/components/emails/marketing/footers/footer-with-text-menu-and-socials";
+```
+
+```tsx
+<FooterWithTextMenuAndSocials {...FooterWithTextMenuAndSocials.PreviewProps} />
+```
+
+## API Reference
+
+| Prop    | Type         | Default        | Description         |
+| ------- | ------------ | -------------- | ------------------- |
+| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |

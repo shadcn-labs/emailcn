@@ -1,106 +1,76 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  CollapsedCtaContent,
+  FaqEmailShell,
+  FaqHeading,
+} from "@/registry/bases/mjml-react/ui/marketing/faq/faq-shared";
 
-export type FAQAccordionVariant = "default" | "slanted-left" | "slanted-right";
-export interface FAQAccordionProps {
+export interface CollapsedFaqWithInlineCtaProps {
   theme?: EmailThemeTokens;
-  items?: { question: string; answer: string }[];
-  variant?: FAQAccordionVariant;
+  heading?: string;
+  q1?: string;
+  q2?: string;
+  q3?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  ctaText?: string;
 }
-const FAQAccordionSection = ({
-  items,
-  theme,
-  variant,
-}: {
-  items: FAQAccordionProps["items"];
-  theme: EmailThemeTokens;
-  variant: FAQAccordionVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {(items ?? []).map((item, i) => (
-        <MjmlSection
-          key={item.question + i}
-          backgroundColor={theme.colorBackgroundMuted}
-          borderRadius={theme.borderRadius}
-          padding={theme.spacingBase ?? "16px"}
-        >
-          <MjmlText
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "8px"}
-          >
-            {item.question}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          >
-            {item.answer}
-          </MjmlText>
-        </MjmlSection>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
-);
+
+export const CollapsedFaqWithInlineCtaSection = ({
+  ctaHref = "#contact",
+  ctaLabel = "Contact us",
+  ctaText = "Still have questions?",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: Omit<CollapsedFaqWithInlineCtaProps, "theme">) => {
+  const items = [{ question: q1 }, { question: q2 }, { question: q3 }];
+
+  return (
+    <>
+      {heading ? <FaqHeading>{heading}</FaqHeading> : null}
+      <CollapsedCtaContent
+        ctaHref={ctaHref}
+        ctaLabel={ctaLabel}
+        ctaText={ctaText}
+        items={items}
+      />
+    </>
+  );
+};
+
 export const CollapsedFaqWithInlineCta = ({
   theme = defaultTheme,
-  items = [{ answer: "This is the answer.", question: "What is this?" }],
-  variant = "default",
-}: FAQAccordionProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>FAQ accordion</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <FAQAccordionSection items={items} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  ctaHref = "#contact",
+  ctaLabel = "Contact us",
+  ctaText = "Still have questions?",
+  heading = "Frequently asked questions",
+  q1 = "What is this product?",
+  q2 = "How does pricing work?",
+  q3 = "Is there customer support?",
+}: CollapsedFaqWithInlineCtaProps) => (
+  <FaqEmailShell preview={heading} theme={theme}>
+    <CollapsedFaqWithInlineCtaSection
+      ctaHref={ctaHref}
+      ctaLabel={ctaLabel}
+      ctaText={ctaText}
+      heading={heading}
+      q1={q1}
+      q2={q2}
+      q3={q3}
+    />
+  </FaqEmailShell>
 );
+
 CollapsedFaqWithInlineCta.PreviewProps = {
-  items: [
-    {
-      answer: "EmailCN is a collection of email components.",
-      question: "What is EmailCN?",
-    },
-    {
-      answer: "Yes, all components are fully responsive.",
-      question: "Are they responsive?",
-    },
-  ],
+  ctaHref: "#contact",
+  ctaLabel: "Contact us",
+  ctaText: "Still have questions?",
+  heading: "Frequently asked questions",
+  q1: "What is this product?",
+  q2: "How does pricing work?",
+  q3: "Is there customer support?",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FAQAccordionProps;
+} satisfies CollapsedFaqWithInlineCtaProps;

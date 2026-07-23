@@ -1,9 +1,56 @@
 ---
 title: "Logo Cloud with Borders"
-description: "Marketing logos variant for email templates"
+description: "Mailviews divided logo cloud in every content arrangement"
 ---
 
-<ComponentPreview base="react-email" name="logo-cloud-with-borders-demo" />
+All five Mailviews border arrangements are variants of one component.
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-with-borders-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-with-borders-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-with-borders-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-with-borders-demo"
+  variant="full"
+  hideCode
+/>
+
+### Flush
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-with-borders-demo"
+  variant="flush"
+  hideCode
+/>
 
 ## Installation
 
@@ -40,11 +87,12 @@ import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-c
 ```
 
 ```tsx
-<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} />
+<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} variant="flush" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                          | Default        | Description                               |
+| --------- | ----------------------------- | -------------- | ----------------------------------------- |
+| `variant` | `LogoCloudWithBordersVariant` | `"full"`       | Selects the Mailviews content arrangement |
+| `theme`   | Renderer theme                | `defaultTheme` | Renderer theme configuration              |

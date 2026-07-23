@@ -1,0 +1,81 @@
+---
+title: "Vertical Spacer"
+description: "An email-safe vertical spacer with a configurable pixel height."
+---
+
+## Examples
+
+### 24 pixels
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" variant="24" />
+
+### 48 pixels
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" variant="48" />
+
+### 64 pixels
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" variant="64" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/vertical-spacer
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependency:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component and shared sources into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/vertical-spacer.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/vertical-spacer.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { VerticalSpacer } from "@/components/emails/ui-elements/spacing/vertical-spacer";
+```
+
+```tsx
+<VerticalSpacer height={48} />
+```
+
+## API Reference
+
+| Prop     | Type               | Default        | Description             |
+| -------- | ------------------ | -------------- | ----------------------- |
+| `height` | `number`           | `24`           | Spacer height in pixels |
+| `theme`  | `EmailThemeTokens` | `defaultTheme` | Email theme styling     |

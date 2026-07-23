@@ -1,7 +1,7 @@
-import { OutlinedPillBoxSocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/outlined-pill-box-social-logos";
+import { SocialLogos } from "@/registry/bases/jsx-email/ui/marketing/social/social-logos";
 
 export default function OutlinedPillBoxSocialLogosDemo() {
   return (
-    <OutlinedPillBoxSocialLogos {...OutlinedPillBoxSocialLogos.PreviewProps} />
+    <SocialLogos {...SocialLogos.PreviewProps} variant="outlined-pill-box" />
   );
 }

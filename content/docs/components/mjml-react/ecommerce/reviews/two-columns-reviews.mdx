@@ -3,12 +3,133 @@ title: "Two Columns Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-<ComponentPreview base="mjml-react" name="two-columns-reviews-demo" />
+Two-column reviews keep the same responsive column grid while exposing Mailviews' content-order treatments as typed variants.
+
+## Examples
+
+### With Divider
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="with-divider"
+/>
+
+### Simple
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="simple"
+/>
+
+### Divider Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="divider-top"
+/>
+
+### With Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="with-logo"
+/>
+
+### Logo Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="logo-split"
+/>
+
+### Logo Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="logo-bottom"
+/>
+
+### Avatar Inline
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="avatar-inline"
+/>
+
+### Avatar Inline Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="avatar-inline-split"
+/>
+
+### Avatar Inline Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="avatar-inline-bottom"
+/>
+
+### Centered With Avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="centered-with-avatar"
+/>
+
+### Centered Avatar Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="centered-avatar-split"
+/>
+
+### Centered Avatar Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="centered-avatar-bottom"
+/>
+
+### Avatar + Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="avatar-logo"
+/>
+
+### Avatar + Logo Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="avatar-logo-split"
+/>
+
+### Avatar + Logo Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-reviews-demo"
+  variant="avatar-logo-bottom"
+/>
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,31 +141,24 @@ npx shadcn@latest add @emailcn/two-columns-reviews
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>Install the following dependencies:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
 <Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/ecommerce/reviews/two-columns-reviews.tsx"
-  base="mjml-react"
-  title="components/emails/ecommerce/reviews/two-columns-reviews.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/reviews/two-columns-reviews.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/reviews/two-columns-reviews.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -54,11 +168,12 @@ import { TwoColumnsReviews } from "@/components/emails/ecommerce/reviews/two-col
 ```
 
 ```tsx
-<TwoColumnsReviews {...TwoColumnsReviews.PreviewProps} />
+<TwoColumnsReviews {...TwoColumnsReviews.PreviewProps} variant="with-divider" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type               | Default          | Description              |
+| --------- | ------------------ | ---------------- | ------------------------ |
+| `variant` | `ReviewsVariant`   | `"with-divider"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`   | Email theme styling      |

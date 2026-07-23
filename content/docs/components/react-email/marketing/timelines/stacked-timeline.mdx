@@ -3,7 +3,105 @@ title: "Stacked Timeline"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="react-email" name="stacked-timeline-demo" />
+One `StackedTimeline` component covers both Mailviews families. Use `layout="line"` or `layout="boxed"`, then select the visual state with `variant`.
+
+## Examples
+
+### Line — Muted Left
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-timeline-demo"
+  variant="muted-left"
+/>
+
+### Line — Muted Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-timeline-demo"
+  variant="muted-right"
+/>
+
+### Line — Basic Left
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-timeline-demo"
+  variant="basic-left"
+/>
+
+### Line — Basic Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-timeline-demo"
+  variant="basic-right"
+/>
+
+### Line — Completed Left
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-timeline-demo"
+  variant="completed-left"
+/>
+
+### Line — Completed Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-timeline-demo"
+  variant="completed-right"
+/>
+
+### Boxed — Muted Left
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-boxed-timeline-demo"
+  variant="muted-left"
+/>
+
+### Boxed — Muted Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-boxed-timeline-demo"
+  variant="muted-right"
+/>
+
+### Boxed — Basic Left
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-boxed-timeline-demo"
+  variant="basic-left"
+/>
+
+### Boxed — Basic Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-boxed-timeline-demo"
+  variant="basic-right"
+/>
+
+### Boxed — Accent Left
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-boxed-timeline-demo"
+  variant="accent-left"
+/>
+
+### Boxed — Accent Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-boxed-timeline-demo"
+  variant="accent-right"
+/>
 
 ## Installation
 
@@ -40,11 +138,13 @@ import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked
 ```
 
 ```tsx
-<StackedTimeline {...StackedTimeline.PreviewProps} />
+<StackedTimeline {...StackedTimeline.PreviewProps} layout="boxed" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                         | Default        | Description                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------- |
+| `layout`  | `"line" \| "boxed"`                                                                                                                          | `"line"`       | Mailviews timeline family  |
+| `variant` | `"muted-left" \| "muted-right" \| "basic-left" \| "basic-right" \| "completed-left" \| "completed-right" \| "accent-left" \| "accent-right"` | `"muted-left"` | Layout state and alignment |
+| `theme`   | `TailwindConfig`                                                                                                                             | `defaultTheme` | Email theme styling        |

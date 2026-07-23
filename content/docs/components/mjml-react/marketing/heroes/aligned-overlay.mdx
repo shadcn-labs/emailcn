@@ -1,0 +1,98 @@
+---
+title: "Aligned Overlay"
+description: "A dark travel hero with edge-aligned imagery and reversible content"
+---
+
+<ComponentPreview base="mjml-react" name="hero-aligned-overlay-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/hero-aligned-overlay
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/hero-aligned-overlay.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/hero/hero-aligned-overlay.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeroAlignedOverlay } from "@/components/emails/marketing/hero/hero-aligned-overlay";
+```
+
+```tsx
+<HeroAlignedOverlay {...HeroAlignedOverlay.PreviewProps} />
+```
+
+## Examples
+
+### Content Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-aligned-overlay-demo"
+  variant="content-left"
+  hideCode
+/>
+
+### Content Left Reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-aligned-overlay-demo"
+  variant="content-left-reversed"
+  hideCode
+/>
+
+### Content Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-aligned-overlay-demo"
+  variant="content-right"
+  hideCode
+/>
+
+### Content Right Reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-aligned-overlay-demo"
+  variant="content-right-reversed"
+  hideCode
+/>
+
+## API Reference
+
+| Prop                                              | Type                                                                                       | Default          | Description                                            |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------- | ------------------------------------------------------ |
+| `theme`                                           | `EmailThemeTokens`                                                                         | `defaultTheme`   | MJML React theme tokens                                |
+| `variant`                                         | `"content-left" \| "content-left-reversed" \| "content-right" \| "content-right-reversed"` | `"content-left"` | Selects image edge, copy alignment, and vertical order |
+| `eyebrow`                                         | `string`                                                                                   | Mailviews copy   | Small line above the heading                           |
+| `headingStart` / `headingEmphasis` / `headingEnd` | `string`                                                                                   | Mailviews copy   | Three heading segments with a lighter middle segment   |
+| `description`                                     | `string`                                                                                   | Mailviews copy   | Supporting travel copy                                 |
+| `ctaLabel` / `ctaHref`                            | `string`                                                                                   | Mailviews CTA    | Button label and destination                           |
+| `imageSrc` / `imageAlt`                           | `string`                                                                                   | Variant imagery  | Edge-aligned background image and label                |
+| `logoSrc` / `logoAlt` / `logoHref`                | `string`                                                                                   | Light logo       | Brand logo and destination                             |
+| `pageBackgroundColor` / `backgroundColor`         | `string`                                                                                   | Mailviews colors | Email canvas and dark hero surface                     |
+| `textColor`                                       | `string`                                                                                   | `"#f9fafb"`      | Hero copy color                                        |
+| `buttonBackgroundColor` / `buttonTextColor`       | `string`                                                                                   | Mailviews colors | CTA colors                                             |
