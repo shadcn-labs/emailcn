@@ -75,37 +75,37 @@ const responsiveStyles = `
 `;
 
 const sharedStripAssets = {
-  imageSrc2: "https://assets.mailviews.com/images/components/cta/strip-2.jpg",
-  imageSrc4: "https://assets.mailviews.com/images/components/cta/strip-4.jpg",
-  imageSrc5: "https://assets.mailviews.com/images/components/cta/strip-5.jpg",
+  imageSrc2: "https://emailcn.vercel.app/api/email-assets/cta/strip-2.jpg",
+  imageSrc4: "https://emailcn.vercel.app/api/email-assets/cta/strip-4.jpg",
+  imageSrc5: "https://emailcn.vercel.app/api/email-assets/cta/strip-5.jpg",
 };
 
 const variantContent = {
   "boxed-left": {
     imageSrc1:
-      "https://assets.mailviews.com/images/components/cta/strip-cut-1.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-1.jpg",
     imageSrc3:
-      "https://assets.mailviews.com/images/components/cta/strip-cut-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-2.jpg",
     stripBackgroundColor: "#030712",
     ...sharedStripAssets,
   },
   "boxed-right": {
     imageSrc1:
-      "https://assets.mailviews.com/images/components/cta/strip-cut-1.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-1.jpg",
     imageSrc3:
-      "https://assets.mailviews.com/images/components/cta/strip-cut-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-2.jpg",
     stripBackgroundColor: "#e5e7eb",
     ...sharedStripAssets,
   },
   "full-left": {
-    imageSrc1: "https://assets.mailviews.com/images/components/cta/strip-1.jpg",
-    imageSrc3: "https://assets.mailviews.com/images/components/cta/strip-3.jpg",
+    imageSrc1: "https://emailcn.vercel.app/api/email-assets/cta/strip-1.jpg",
+    imageSrc3: "https://emailcn.vercel.app/api/email-assets/cta/strip-3.jpg",
     stripBackgroundColor: "#fffffe",
     ...sharedStripAssets,
   },
   "full-right": {
-    imageSrc1: "https://assets.mailviews.com/images/components/cta/strip-1.jpg",
-    imageSrc3: "https://assets.mailviews.com/images/components/cta/strip-3.jpg",
+    imageSrc1: "https://emailcn.vercel.app/api/email-assets/cta/strip-1.jpg",
+    imageSrc3: "https://emailcn.vercel.app/api/email-assets/cta/strip-3.jpg",
     stripBackgroundColor: "#fffffe",
     ...sharedStripAssets,
   },

@@ -53,7 +53,7 @@ const responsiveStyles = `
 
 const defaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
   backgroundColor: "#fffffe",
   body: "Discover tools that make accepting payments faster, easier, and more reliable, wherever you serve customers.",
   buttonHref: "https://example.com",
@@ -61,8 +61,7 @@ const defaults = {
   heading: "Powering every payment.",
   headingColor: "#030712",
   imageAlt: "Product Image",
-  imageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-1.jpg",
+  imageSrc: "https://emailcn.vercel.app/api/email-assets/feature/feature-1.jpg",
   linkColor: "#4f46e5",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",

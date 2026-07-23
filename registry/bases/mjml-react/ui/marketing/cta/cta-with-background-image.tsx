@@ -76,7 +76,7 @@ const responsiveStyles = `
 const variantContent = {
   boxed: {
     backgroundSrc:
-      "https://assets.mailviews.com/images/components/cta/cta-bg-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-2.jpg",
     ctaLabel: "Sign up now",
     emphasis: "",
     heading: "Your upgrade starts here!",
@@ -86,7 +86,7 @@ const variantContent = {
   },
   flush: {
     backgroundSrc:
-      "https://assets.mailviews.com/images/components/cta/cta-bg-1.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-1.jpg",
     ctaLabel: "Shop gear now",
     emphasis: "",
     heading: "Ready for your next summit?",
@@ -96,7 +96,7 @@ const variantContent = {
   },
   padded: {
     backgroundSrc:
-      "https://assets.mailviews.com/images/components/cta/cta-bg-3.jpg",
+      "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-3.jpg",
     ctaLabel: "Plan your trip",
     emphasis: "Book your next getaway and enjoy 20% off with code.",
     heading: "Your island escape awaits!",

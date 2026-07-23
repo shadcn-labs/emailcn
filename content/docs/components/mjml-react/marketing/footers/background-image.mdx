@@ -1,9 +1,48 @@
 ---
 title: "Background Image Footer"
-description: "Nine Mailviews background-image footer families consolidated into layout and logo-position variants"
+description: "Nine background-image footer families consolidated into layout and logo-position variants"
 ---
 
-These Mailviews footers share the same image CTA shell, menu primitives, social links, and legal content. Use `variant` for the content structure and `logoPosition` when that layout has mirrored logo placement.
+<ComponentPreview base="mjml-react" name="footer-with-background-image-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-background-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/footers/footer-with-background-image.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/footers/footer-with-background-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithBackgroundImage } from "@/components/emails/marketing/footers/footer-with-background-image";
+```
+
+```tsx
+<FooterWithBackgroundImage
+  {...FooterWithBackgroundImage.PreviewProps}
+  variant="top-image-content"
+  logoPosition="left"
+/>
+```
 
 ## Examples
 
@@ -157,49 +196,10 @@ These Mailviews footers share the same image CTA shell, menu primitives, social 
   height={900}
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/footer-with-background-image
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/marketing/footers/footer-with-background-image.tsx"
-    base="mjml-react"
-    title="components/emails/marketing/footers/footer-with-background-image.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { FooterWithBackgroundImage } from "@/components/emails/marketing/footers/footer-with-background-image";
-```
-
-```tsx
-<FooterWithBackgroundImage
-  {...FooterWithBackgroundImage.PreviewProps}
-  variant="top-image-content"
-  logoPosition="left"
-/>
-```
-
 ## API Reference
 
-| Prop           | Type                               | Default                  | Description                         |
-| -------------- | ---------------------------------- | ------------------------ | ----------------------------------- |
-| `variant`      | `FooterWithBackgroundImageVariant` | `"bottom-image-content"` | Selects the Mailviews content shell |
-| `logoPosition` | `"left" \| "right"`                | `"left"`                 | Mirrors supported layouts           |
-| `theme`        | `EmailTheme`                       | default theme            | Email theme styling                 |
+| Prop           | Type                               | Default                  | Description               |
+| -------------- | ---------------------------------- | ------------------------ | ------------------------- |
+| `variant`      | `FooterWithBackgroundImageVariant` | `"bottom-image-content"` | Selects the content shell |
+| `logoPosition` | `"left" \| "right"`                | `"left"`                 | Mirrors supported layouts |
+| `theme`        | `EmailTheme`                       | default theme            | Email theme styling       |

@@ -1,9 +1,47 @@
 ---
 title: "Product Lists"
-description: "Product List with Rows with every Mailviews layout variant."
+description: "Product List with Rows with every layout variant."
 ---
 
-The Mailviews Product Lists catalog contains one public family. Its content and review-placement changes are typed variants backed by one shared row layout.
+<ComponentPreview base="jsx-email" name="product-list-with-rows-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-list-with-rows
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/product-lists/product-list-with-rows.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/product-lists/product-list-with-rows.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists/product-list-with-rows";
+```
+
+```tsx
+<ProductListWithRows {...ProductListWithRows.PreviewProps} variant="basic" />
+```
 
 ## Examples
 
@@ -71,47 +109,9 @@ The Mailviews Product Lists catalog contains one public family. Its content and 
   variant="full-reviews-top"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/product-list-with-rows
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/ecommerce/product-lists/product-list-with-rows.tsx"
-    base="jsx-email"
-    title="components/emails/ecommerce/product-lists/product-list-with-rows.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists/product-list-with-rows";
-```
-
-```tsx
-<ProductListWithRows {...ProductListWithRows.PreviewProps} variant="basic" />
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                                                                                | Default        | Description              |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------ |
-| `variant` | `"basic" \| "reviews-top" \| "with-description" \| "with-intro" \| "with-details" \| "details-reviews-top" \| "full-details" \| "full-reviews-top"` | `"basic"`      | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                                                                                                  | `defaultTheme` | Email theme styling      |
+| Prop      | Type                                                                                                                                                | Default        | Description         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------- |
+| `variant` | `"basic" \| "reviews-top" \| "with-description" \| "with-intro" \| "with-details" \| "details-reviews-top" \| "full-details" \| "full-reviews-top"` | `"basic"`      | layout variant      |
+| `theme`   | `EmailThemeTokens`                                                                                                                                  | `defaultTheme` | Email theme styling |

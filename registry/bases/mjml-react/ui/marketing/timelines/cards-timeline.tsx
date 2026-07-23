@@ -43,7 +43,7 @@ export const CardsTimelineSection = ({
   date = "Monday",
   description = "Description of event",
   imageAlt = "One workspace. Every team.",
-  imageSrc = "https://assets.mailviews.com/images/components/timelines/cards.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
   title = "Miles traveled",
   variant = "default",
 }: Omit<CardsTimelineProps, "theme">) => {
@@ -162,7 +162,7 @@ export const CardsTimelineSection = ({
                                               {withCheck ? (
                                                 <img
                                                   alt=""
-                                                  src="https://assets.mailviews.com/images/components/timelines/icon-check.png"
+                                                  src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
                                                   style={{
                                                     marginBottom: "1px",
                                                   }}

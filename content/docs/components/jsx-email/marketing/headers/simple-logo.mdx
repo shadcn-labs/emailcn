@@ -1,9 +1,51 @@
 ---
 title: "Logo Header"
-description: "Mailviews simple-logo and logo-with-text headers in one component"
+description: "simple-logo and logo-with-text headers in one component"
 ---
 
-The Mailviews simple-logo and logo-with-text families share one `HeaderWithLogo` API. Use `variant` for content and `alignment` for placement.
+<ComponentPreview base="jsx-email" name="header-with-logo-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/headers/header-with-logo.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/headers/header-with-logo.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogo } from "@/components/emails/marketing/headers/header-with-logo";
+```
+
+```tsx
+<HeaderWithLogo
+  {...HeaderWithLogo.PreviewProps}
+  alignment="right"
+  variant="with-text"
+/>
+```
 
 ## Examples
 
@@ -60,48 +102,6 @@ The Mailviews simple-logo and logo-with-text families share one `HeaderWithLogo`
   variant="with-text-right"
   hideCode
 />
-
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/header-with-logo
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/headers/header-with-logo.tsx"
-    base="jsx-email"
-    title="components/emails/marketing/headers/header-with-logo.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { HeaderWithLogo } from "@/components/emails/marketing/headers/header-with-logo";
-```
-
-```tsx
-<HeaderWithLogo
-  {...HeaderWithLogo.PreviewProps}
-  alignment="right"
-  variant="with-text"
-/>
-```
 
 ## API Reference
 

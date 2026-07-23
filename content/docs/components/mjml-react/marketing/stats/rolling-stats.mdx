@@ -1,7 +1,45 @@
 ---
 title: "Rolling Stats"
-description: "Mailviews positioned rolling-stats family"
+description: "positioned rolling-stats family"
 ---
+
+<ComponentPreview base="mjml-react" name="rolling-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/rolling-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/stats/rolling-stats.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/stats/rolling-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { RollingStats } from "@/components/emails/marketing/stats/rolling-stats";
+
+<RollingStats variant="top-left" />;
+```
 
 ## Examples
 
@@ -45,45 +83,9 @@ description: "Mailviews positioned rolling-stats family"
   variant="bottom-right"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/rolling-stats
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/marketing/stats/rolling-stats.tsx"
-    base="mjml-react"
-    title="components/emails/marketing/stats/rolling-stats.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { RollingStats } from "@/components/emails/marketing/stats/rolling-stats";
-
-<RollingStats variant="top-left" />;
-```
-
 ## API Reference
 
-| Prop      | Type                                                                         | Default        | Description              |
-| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------------ |
-| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling      |
+| Prop      | Type                                                                         | Default        | Description         |
+| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------- |
+| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | layout variant      |
+| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling |

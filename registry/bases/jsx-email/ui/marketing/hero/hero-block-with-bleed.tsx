@@ -39,7 +39,7 @@ export interface HeroBlockWithBleedProps {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-const assetRoot = "https://assets.mailviews.com/images/components";
+const assetRoot = "https://emailcn.vercel.app/api/email-assets";
 
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
@@ -84,9 +84,9 @@ export const HeroBlockWithBleedSection = ({
   eyebrow = "Lush oasis, Our Wonderworld.",
   heading = "Preserve the planet we share",
   imageAlt = "Golden dunes beneath distant mountains",
-  logoAlt = "Mailviews",
+  logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
   overlayColor = "rgba(3, 7, 18, 0.8)",
   pageBackgroundColor = "#f1f5f9",
   subheading = "Take action today.",

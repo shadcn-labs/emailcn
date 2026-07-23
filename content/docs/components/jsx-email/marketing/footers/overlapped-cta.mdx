@@ -1,9 +1,48 @@
 ---
 title: "Overlapped CTA Footer"
-description: "Seven Mailviews overlapped-CTA footer families consolidated into content-layout variants"
+description: "Seven overlapped-CTA footer families consolidated into content-layout variants"
 ---
 
-These Mailviews footers share the same rounded, overlapped image CTA. The lower content layout is a `variant`; mirrored families use `logoPosition`.
+<ComponentPreview base="jsx-email" name="footer-with-overlapped-cta-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-overlapped-cta
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/footers/footer-with-overlapped-cta.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/footers/footer-with-overlapped-cta.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithOverlappedCta } from "@/components/emails/marketing/footers/footer-with-overlapped-cta";
+```
+
+```tsx
+<FooterWithOverlappedCta
+  {...FooterWithOverlappedCta.PreviewProps}
+  variant="content"
+  logoPosition="left"
+/>
+```
 
 ## Examples
 
@@ -117,49 +156,10 @@ These Mailviews footers share the same rounded, overlapped image CTA. The lower 
   height={980}
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/footer-with-overlapped-cta
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/footers/footer-with-overlapped-cta.tsx"
-    base="jsx-email"
-    title="components/emails/marketing/footers/footer-with-overlapped-cta.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { FooterWithOverlappedCta } from "@/components/emails/marketing/footers/footer-with-overlapped-cta";
-```
-
-```tsx
-<FooterWithOverlappedCta
-  {...FooterWithOverlappedCta.PreviewProps}
-  variant="content"
-  logoPosition="left"
-/>
-```
-
 ## API Reference
 
-| Prop           | Type                             | Default       | Description                        |
-| -------------- | -------------------------------- | ------------- | ---------------------------------- |
-| `variant`      | `FooterWithOverlappedCtaVariant` | `"content"`   | Selects the lower Mailviews layout |
-| `logoPosition` | `"left" \| "right"`              | `"left"`      | Mirrors supported layouts          |
-| `theme`        | `EmailTheme`                     | default theme | Email theme styling                |
+| Prop           | Type                             | Default       | Description               |
+| -------------- | -------------------------------- | ------------- | ------------------------- |
+| `variant`      | `FooterWithOverlappedCtaVariant` | `"content"`   | Selects the lower layout  |
+| `logoPosition` | `"left" \| "right"`              | `"left"`      | Mirrors supported layouts |
+| `theme`        | `EmailTheme`                     | default theme | Email theme styling       |

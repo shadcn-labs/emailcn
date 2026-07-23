@@ -1,29 +1,9 @@
 ---
 title: "Full Menu Footer"
-description: "Mailviews full-menu footer with oversized-logo and bordered variants"
+description: "full-menu footer with oversized-logo and bordered variants"
 ---
 
-Both layouts share the same seven-link menu, social links, address, and legal content. The `variant` changes the exact Mailviews logo treatment and content order.
-
-## Examples
-
-### Oversized Logo
-
-<ComponentPreview
-  base="jsx-email"
-  name="footer-with-full-menu-demo"
-  variant="oversized-logo"
-  hideCode
-/>
-
-### Bordered
-
-<ComponentPreview
-  base="jsx-email"
-  name="footer-with-full-menu-demo"
-  variant="bordered"
-  hideCode
-/>
+<ComponentPreview base="jsx-email" name="footer-with-full-menu-demo" />
 
 ## Installation
 
@@ -66,9 +46,29 @@ import { FooterWithFullMenu } from "@/components/emails/marketing/footers/footer
 />
 ```
 
+## Examples
+
+### Oversized Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-full-menu-demo"
+  variant="oversized-logo"
+  hideCode
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-full-menu-demo"
+  variant="bordered"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop      | Type                             | Default            | Description                        |
-| --------- | -------------------------------- | ------------------ | ---------------------------------- |
-| `variant` | `"oversized-logo" \| "bordered"` | `"oversized-logo"` | Selects the exact Mailviews layout |
-| `theme`   | `EmailTheme`                     | `defaultTheme`     | Email theme styling                |
+| Prop      | Type                             | Default            | Description              |
+| --------- | -------------------------------- | ------------------ | ------------------------ |
+| `variant` | `"oversized-logo" \| "bordered"` | `"oversized-logo"` | Selects the exact layout |
+| `theme`   | `EmailTheme`                     | `defaultTheme`     | Email theme styling      |

@@ -13,7 +13,7 @@ import type { CSSProperties, ReactNode } from "react";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export const BENTO_ASSET_ROOT =
-  "https://assets.mailviews.com/images/components/bento-grids";
+  "https://emailcn.vercel.app/api/email-assets/bento-grids";
 
 export type BentoCaptionsVariant =
   | "captions-top"

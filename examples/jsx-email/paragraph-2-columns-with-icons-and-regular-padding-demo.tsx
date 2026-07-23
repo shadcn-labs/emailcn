@@ -10,9 +10,9 @@ export default function Paragraph2ColumnsWithIconsAndRegularPaddingDemo() {
       padding="regular"
       column1="Fast and reliable delivery for all your email campaigns."
       column2="Beautiful templates that work across every email client."
-      iconSrc1="https://assets.mailviews.com/images/components/icon-check-brand.png"
+      iconSrc1="https://emailcn.vercel.app/api/email-assets/icon-check-brand.png"
       iconAlt1="Fast"
-      iconSrc2="https://assets.mailviews.com/images/components/icon-check-muted.png"
+      iconSrc2="https://emailcn.vercel.app/api/email-assets/icon-check-muted.png"
       iconAlt2="Reliable"
     />
   );

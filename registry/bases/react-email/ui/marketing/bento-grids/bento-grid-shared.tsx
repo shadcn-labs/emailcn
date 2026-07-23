@@ -18,7 +18,7 @@ import type { TailwindConfig } from "react-email";
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 
 export const BENTO_ASSET_ROOT =
-  "https://assets.mailviews.com/images/components/bento-grids";
+  "https://emailcn.vercel.app/api/email-assets/bento-grids";
 
 export type BentoCaptionsVariant =
   | "captions-top"

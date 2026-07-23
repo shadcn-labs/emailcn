@@ -21,7 +21,7 @@ export interface ShoppingCartItem {
   size?: string;
 }
 
-const ASSET_ROOT = "https://assets.mailviews.com/images/components";
+const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 

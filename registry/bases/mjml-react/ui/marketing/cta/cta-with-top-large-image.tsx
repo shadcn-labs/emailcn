@@ -57,7 +57,7 @@ const defaultSectionProps = {
   headingColor: "#030712",
   imageAlt: "",
   imageSrc:
-    "https://assets.mailviews.com/images/components/cta/cta-with-image-1.jpg",
+    "https://emailcn.vercel.app/api/email-assets/cta/cta-with-image-1.jpg",
   pageBackgroundColor: "#f1f5f9",
   subtext:
     "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",

@@ -52,30 +52,27 @@ const defaults = {
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-facebook.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://assets.mailviews.com/images/components/icon-github.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-linkedin.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-youtube.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
       label: "YouTube",
     },
     {
       href: "https://x.com",
-      iconSrc: "https://assets.mailviews.com/images/components/icon-x.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
       label: "X",
     },
   ],
@@ -234,7 +231,7 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                         margin: 0,
                       }}
                     >
-                      © 2026 Mailviews. All rights reserved.
+                      © 2026 emailcn. All rights reserved.
                     </p>
                     <div style={{ lineHeight: "24px" }}>&zwj;</div>
                     <p

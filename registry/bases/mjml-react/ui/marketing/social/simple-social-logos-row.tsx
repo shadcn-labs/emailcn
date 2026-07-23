@@ -41,27 +41,27 @@ const defaultItems: SimpleSocialLogoItem[] = [
   {
     alt: "LinkedIn",
     href: "https://example.com",
-    src: "https://assets.mailviews.com/images/components/social/icon-linkedin.png",
+    src: "https://emailcn.vercel.app/api/email-assets/social/icon-linkedin.png",
   },
   {
     alt: "X",
     href: "https://example.com",
-    src: "https://assets.mailviews.com/images/components/social/icon-x.png",
+    src: "https://emailcn.vercel.app/api/email-assets/social/icon-x.png",
   },
   {
     alt: "YouTube",
     href: "https://example.com",
-    src: "https://assets.mailviews.com/images/components/social/icon-youtube.png",
+    src: "https://emailcn.vercel.app/api/email-assets/social/icon-youtube.png",
   },
   {
     alt: "Instagram",
     href: "https://example.com",
-    src: "https://assets.mailviews.com/images/components/social/icon-instagram.png",
+    src: "https://emailcn.vercel.app/api/email-assets/social/icon-instagram.png",
   },
   {
     alt: "Discord",
     href: "https://example.com",
-    src: "https://assets.mailviews.com/images/components/social/icon-discord.png",
+    src: "https://emailcn.vercel.app/api/email-assets/social/icon-discord.png",
   },
 ];
 

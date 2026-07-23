@@ -1,9 +1,53 @@
 ---
 title: "Boxed Order Summary with Total Top"
-description: "Boxed Order Summary with Total Top with every Mailviews layout variant."
+description: "Boxed Order Summary with Total Top with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+<ComponentPreview
+  base="react-email"
+  name="boxed-order-summary-total-top-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/boxed-order-summary-with-total-top
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BoxedOrderSummaryTotalTop } from "@/components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top";
+```
+
+```tsx
+<BoxedOrderSummaryTotalTop
+  {...BoxedOrderSummaryTotalTop.PreviewProps}
+  variant="left-aligned"
+/>
+```
 
 ## Examples
 
@@ -71,50 +115,9 @@ This public component matches the corresponding Mailviews family. Its alignment,
   variant="justified-filled"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/boxed-order-summary-with-total-top
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx"
-    base="react-email"
-    title="components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { BoxedOrderSummaryTotalTop } from "@/components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top";
-```
-
-```tsx
-<BoxedOrderSummaryTotalTop
-  {...BoxedOrderSummaryTotalTop.PreviewProps}
-  variant="left-aligned"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                                                                           | Default          | Description              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ |
-| `variant` | `"left-aligned" \| "left-filled" \| "right-aligned" \| "right-filled" \| "centered" \| "centered-filled" \| "justified" \| "justified-filled"` | `"left-aligned"` | Mailviews layout variant |
-| `theme`   | `TailwindConfig`                                                                                                                               | `defaultTheme`   | Email theme styling      |
+| Prop      | Type                                                                                                                                           | Default          | Description         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
+| `variant` | `"left-aligned" \| "left-filled" \| "right-aligned" \| "right-filled" \| "centered" \| "centered-filled" \| "justified" \| "justified-filled"` | `"left-aligned"` | layout variant      |
+| `theme`   | `TailwindConfig`                                                                                                                               | `defaultTheme`   | Email theme styling |

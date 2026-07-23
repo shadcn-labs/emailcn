@@ -203,7 +203,7 @@ export const FullWidthSinglePricingSection = ({
                                   >
                                     <img
                                       alt=""
-                                      src={`https://assets.mailviews.com/images/components/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                                      src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
                                       style={{
                                         maxWidth: "100%",
                                         verticalAlign: "middle",

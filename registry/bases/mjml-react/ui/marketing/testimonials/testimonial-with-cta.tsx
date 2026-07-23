@@ -48,8 +48,8 @@ export const TestimonialWithCtaSection = ({
   author = "Jason Adam",
   role = "Director of Operations at Monarch",
   company = "Monarch",
-  avatarSrc = "https://assets.mailviews.com/images/components/testimonials/user-1.jpg",
-  quoteIconSrc = "https://assets.mailviews.com/images/components/testimonials/quote.png",
+  avatarSrc = "https://emailcn.vercel.app/api/email-assets/testimonials/user-1.jpg",
+  quoteIconSrc = "https://emailcn.vercel.app/api/email-assets/testimonials/quote.png",
   ctaLabel = "Read Monarch's case study",
   ctaHref = "https://example.com",
   pageBackgroundColor = "#f1f5f9",
@@ -59,8 +59,8 @@ export const TestimonialWithCtaSection = ({
   const resolvedQuote =
     quote ??
     (centered
-      ? "After redesigning our emails with Mailviews, we saw an increase in engagement by 40%."
-      : "After migrating to Mailviews, we increased efficiency by 40% across our transactional and marketing email development pipeline.");
+      ? "After redesigning our emails with emailcn, we saw an increase in engagement by 40%."
+      : "After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.");
 
   return (
     <table

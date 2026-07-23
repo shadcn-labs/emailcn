@@ -54,10 +54,10 @@ const responsiveStyles = `
 
 const defaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
   backgroundColor: "#fffffe",
   backgroundImageSrc:
-    "https://assets.mailviews.com/images/components/coupons/pattern.png",
+    "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
   buttonBackgroundColor: "#4f46e5",
   buttonColor: "#fffffe",
   buttonHref: "https://example.com",

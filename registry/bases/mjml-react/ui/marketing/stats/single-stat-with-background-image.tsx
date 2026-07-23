@@ -39,7 +39,7 @@ const fontFamily =
 const defaults = {
   backgroundColor: "#fffffe",
   backgroundImageSrc:
-    "https://assets.mailviews.com/images/components/stats/single-stat.jpg",
+    "https://emailcn.vercel.app/api/email-assets/stats/single-stat.jpg",
   eyebrow: "Mapped trails",
   eyebrowColor: "#d1d5db",
   label: "Tracked by active users",

@@ -32,17 +32,17 @@ const defaultSocials: HeaderSocialLink[] = [
   {
     alt: "GitHub",
     href: "https://github.com",
-    src: "https://assets.mailviews.com/images/components/icon-github.png",
+    src: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
   },
   {
     alt: "LinkedIn",
     href: "https://linkedin.com",
-    src: "https://assets.mailviews.com/images/components/icon-linkedin.png",
+    src: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
   },
   {
     alt: "X",
     href: "https://x.com",
-    src: "https://assets.mailviews.com/images/components/icon-x.png",
+    src: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
   },
 ];
 
@@ -50,8 +50,7 @@ const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   pageBackgroundColor: "#f1f5f9",
   socials: defaultSocials,
 };

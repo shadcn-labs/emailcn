@@ -78,7 +78,7 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                   <a href="https://example.com">
                     <img
                       alt="Maizzle"
-                      src="https://assets.mailviews.com/images/components/maizzle-insignia.png"
+                      src="https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={64}
                     />
@@ -208,7 +208,7 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                       textAlign: "center",
                     }}
                   >
-                    © 2026 Mailviews. All rights reserved.
+                    © 2026 emailcn. All rights reserved.
                   </p>
                   <div style={{ lineHeight: "24px" }}>&zwj;</div>
                   <p

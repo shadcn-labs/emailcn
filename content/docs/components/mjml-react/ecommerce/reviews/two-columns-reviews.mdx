@@ -3,7 +3,51 @@ title: "Two Columns Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-Two-column reviews keep the same responsive column grid while exposing Mailviews' content-order treatments as typed variants.
+<ComponentPreview base="mjml-react" name="two-columns-reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-columns-reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/reviews/two-columns-reviews.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/reviews/two-columns-reviews.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoColumnsReviews } from "@/components/emails/ecommerce/reviews/two-columns-reviews";
+```
+
+```tsx
+<TwoColumnsReviews {...TwoColumnsReviews.PreviewProps} variant="with-divider" />
+```
 
 ## Examples
 
@@ -127,53 +171,9 @@ Two-column reviews keep the same responsive column grid while exposing Mailviews
   variant="avatar-logo-bottom"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/two-columns-reviews
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/ecommerce/reviews/two-columns-reviews.tsx"
-    base="mjml-react"
-    title="components/emails/ecommerce/reviews/two-columns-reviews.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { TwoColumnsReviews } from "@/components/emails/ecommerce/reviews/two-columns-reviews";
-```
-
-```tsx
-<TwoColumnsReviews {...TwoColumnsReviews.PreviewProps} variant="with-divider" />
-```
-
 ## API Reference
 
-| Prop      | Type               | Default          | Description              |
-| --------- | ------------------ | ---------------- | ------------------------ |
-| `variant` | `ReviewsVariant`   | `"with-divider"` | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens` | `defaultTheme`   | Email theme styling      |
+| Prop      | Type               | Default          | Description         |
+| --------- | ------------------ | ---------------- | ------------------- |
+| `variant` | `ReviewsVariant`   | `"with-divider"` | layout variant      |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`   | Email theme styling |

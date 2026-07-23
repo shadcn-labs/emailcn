@@ -20,8 +20,8 @@ export const BlogPostHorizontalBoxedWithSplitImagesSection = ({
   excerpt = "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1 = "Mountain landscape",
   imageAlt2 = "Coastal landscape",
-  imageSrc1 = "https://assets.mailviews.com/images/components/bento-grids/bento-1.jpg",
-  imageSrc2 = "https://assets.mailviews.com/images/components/bento-grids/bento-2.jpg",
+  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-1.jpg",
+  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-2.jpg",
   title = "Two perspectives, one story",
 }: Omit<BlogPostHorizontalBoxedWithSplitImagesProps, "theme">) => {
   const posts = [
@@ -47,8 +47,8 @@ export const BlogPostHorizontalBoxedWithSplitImages = ({
   excerpt = "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1 = "Mountain landscape",
   imageAlt2 = "Coastal landscape",
-  imageSrc1 = "https://assets.mailviews.com/images/components/bento-grids/bento-1.jpg",
-  imageSrc2 = "https://assets.mailviews.com/images/components/bento-grids/bento-2.jpg",
+  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-1.jpg",
+  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-2.jpg",
   title = "Two perspectives, one story",
 }: BlogPostHorizontalBoxedWithSplitImagesProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -68,9 +68,9 @@ BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
   imageAlt1: "Mountain landscape",
   imageAlt2: "Coastal landscape",
   imageSrc1:
-    "https://assets.mailviews.com/images/components/bento-grids/bento-1.jpg",
+    "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-1.jpg",
   imageSrc2:
-    "https://assets.mailviews.com/images/components/bento-grids/bento-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-2.jpg",
   theme: defaultTheme,
   title: "Two perspectives, one story",
 } satisfies BlogPostHorizontalBoxedWithSplitImagesProps;

@@ -1,25 +1,9 @@
 ---
 title: "Stacked Stats"
-description: "Mailviews aligned stacked-stats family"
+description: "aligned stacked-stats family"
 ---
 
-## Examples
-
-### Left
-
-<ComponentPreview base="mjml-react" name="stacked-stats-demo" variant="left" />
-
-### Center
-
-<ComponentPreview
-  base="mjml-react"
-  name="stacked-stats-demo"
-  variant="center"
-/>
-
-### Right
-
-<ComponentPreview base="mjml-react" name="stacked-stats-demo" variant="right" />
+<ComponentPreview base="mjml-react" name="stacked-stats-demo" />
 
 ## Installation
 
@@ -57,9 +41,27 @@ import { StackedStats } from "@/components/emails/marketing/stats/stacked-stats"
 <StackedStats variant="center" />;
 ```
 
+## Examples
+
+### Left
+
+<ComponentPreview base="mjml-react" name="stacked-stats-demo" variant="left" />
+
+### Center
+
+<ComponentPreview
+  base="mjml-react"
+  name="stacked-stats-demo"
+  variant="center"
+/>
+
+### Right
+
+<ComponentPreview base="mjml-react" name="stacked-stats-demo" variant="right" />
+
 ## API Reference
 
-| Prop      | Type                            | Default        | Description              |
-| --------- | ------------------------------- | -------------- | ------------------------ |
-| `variant` | `"left" \| "center" \| "right"` | `"left"`       | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling      |
+| Prop      | Type                            | Default        | Description         |
+| --------- | ------------------------------- | -------------- | ------------------- |
+| `variant` | `"left" \| "center" \| "right"` | `"left"`       | layout variant      |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling |

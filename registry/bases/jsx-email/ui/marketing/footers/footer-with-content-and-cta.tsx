@@ -43,8 +43,7 @@ const defaults = {
   heading: "Start sending professionally\ndesigned emails today",
   headingColor: "#030712",
   logoAlt: "Maizzle",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   subtext:
@@ -156,7 +155,7 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                         <span style={{ msoTextRaise: "14px" }}>
                           <img
                             alt=""
-                            src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+                            src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
                             style={{
                               maxWidth: "100%",
                               verticalAlign: "baseline",
@@ -183,7 +182,7 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                         margin: 0,
                       }}
                     >
-                      © 2026 Mailviews. All rights reserved.
+                      © 2026 emailcn. All rights reserved.
                       <br />
                       <br />
                       Want to change how you receive these emails?

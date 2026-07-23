@@ -39,8 +39,7 @@ const sharedDefaults = {
   initials: "JD",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   mutedTextColor: "#6b7280",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
@@ -173,8 +172,8 @@ export const HeaderWithUserDetailsSection = (props: SectionProps) => {
   const resolved = {
     ...sharedDefaults,
     avatarSrc: imageOnRight
-      ? "https://assets.mailviews.com/images/components/reviews/avatar.jpg"
-      : "https://assets.mailviews.com/images/components/reviews/avatar-2.jpg",
+      ? "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg"
+      : "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
     userEmail,
     userName: imageOnRight ? "Joanne Smith" : "John Adams",
     ...props,

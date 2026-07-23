@@ -3,6 +3,46 @@ title: "Split Cards"
 description: "Marketing timelines variant for email templates"
 ---
 
+<ComponentPreview base="react-email" name="split-cards-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/split-cards
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/timelines/split-cards.tsx"
+    base="react-email"
+    title="components/emails/marketing/timelines/split-cards.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SplitCards } from "@/components/emails/marketing/timelines/split-cards";
+```
+
+```tsx
+<SplitCards {...SplitCards.PreviewProps} />
+```
+
 ## Examples
 
 ### Muted
@@ -73,47 +113,9 @@ description: "Marketing timelines variant for email templates"
   variant="image-bottom-reverse"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/split-cards
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/timelines/split-cards.tsx"
-    base="react-email"
-    title="components/emails/marketing/timelines/split-cards.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { SplitCards } from "@/components/emails/marketing/timelines/split-cards";
-```
-
-```tsx
-<SplitCards {...SplitCards.PreviewProps} />
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                                                                                                         | Default        | Description                    |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------ |
-| `variant` | `"muted" \| "muted-reverse" \| "boxed" \| "boxed-reverse" \| "accent" \| "accent-reverse" \| "image-top" \| "image-top-reverse" \| "image-bottom" \| "image-bottom-reverse"` | `"muted"`      | Mailviews split-card treatment |
-| `theme`   | `TailwindConfig`                                                                                                                                                             | `defaultTheme` | Email theme styling            |
+| Prop      | Type                                                                                                                                                                         | Default        | Description          |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------- |
+| `variant` | `"muted" \| "muted-reverse" \| "boxed" \| "boxed-reverse" \| "accent" \| "accent-reverse" \| "image-top" \| "image-top-reverse" \| "image-bottom" \| "image-bottom-reverse"` | `"muted"`      | split-card treatment |
+| `theme`   | `TailwindConfig`                                                                                                                                                             | `defaultTheme` | Email theme styling  |

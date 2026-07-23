@@ -1,23 +1,12 @@
 ---
 title: "Testimonial With CTA"
-description: "Mailviews testimonial with centered and split layout variants"
+description: "testimonial with centered and split layout variants"
 ---
-
-The centered and split examples use the same testimonial, author, and CTA
-content model, so they are variants of one component.
-
-## Examples
-
-### Centered
 
 <ComponentPreview
   base="react-email"
   name="centered-testimonial-with-cta-demo"
 />
-
-### Split
-
-<ComponentPreview base="react-email" name="split-testimonial-with-cta-demo" />
 
 ## Installation
 
@@ -55,10 +44,23 @@ import { TestimonialWithCta } from "@/components/emails/marketing/testimonials/t
 <TestimonialWithCta variant="split" />;
 ```
 
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="react-email"
+  name="centered-testimonial-with-cta-demo"
+/>
+
+### Split
+
+<ComponentPreview base="react-email" name="split-testimonial-with-cta-demo" />
+
 ## API Reference
 
 | Prop      | Type                    | Default        | Description         |
 | --------- | ----------------------- | -------------- | ------------------- |
 | `variant` | `"centered" \| "split"` | `"centered"`   | Testimonial layout  |
-| `quote`   | `string`                | Mailviews copy | Testimonial copy    |
+| `quote`   | `string`                | copy           | Testimonial copy    |
 | `theme`   | `TailwindConfig`        | `defaultTheme` | Email theme styling |

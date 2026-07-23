@@ -3,13 +3,6 @@ title: "Expanded FAQ With Offset Answers"
 description: "An expanded FAQ with questions and answers in offset columns."
 ---
 
-This layout keeps its own public component because its content contract differs
-from the other FAQ treatments. Common email-safe rendering is shared internally.
-
-## Examples
-
-### Default
-
 <ComponentPreview
   base="react-email"
   name="expanded-faq-with-offset-answers-demo"
@@ -66,11 +59,20 @@ import { ExpandedFaqWithOffsetAnswers } from "@/components/emails/marketing/faq/
 <ExpandedFaqWithOffsetAnswers {...ExpandedFaqWithOffsetAnswers.PreviewProps} />
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="expanded-faq-with-offset-answers-demo"
+/>
+
 ## API Reference
 
 | Prop            | Type             | Default                        | Description                            |
 | --------------- | ---------------- | ------------------------------ | -------------------------------------- |
 | `theme`         | `TailwindConfig` | `defaultTheme`                 | Renderer theme configuration.          |
 | `heading`       | `string`         | `"Frequently asked questions"` | Section heading.                       |
-| `q1`, `q2`, ... | `string`         | Mailviews example copy         | Question labels.                       |
-| `a1`, `a2`, ... | `string`         | Mailviews example copy         | Answers when the layout displays them. |
+| `q1`, `q2`, ... | `string`         | example copy                   | Question labels.                       |
+| `a1`, `a2`, ... | `string`         | example copy                   | Answers when the layout displays them. |

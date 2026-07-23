@@ -1,9 +1,51 @@
 ---
 title: "Featured Brands Logo Grid"
-description: "Mailviews featured-brand grid with tile and placement variants"
+description: "featured-brand grid with tile and placement variants"
 ---
 
-The Mailviews outlined and boxed families share the same geometry. Use `tone` for the tile treatment and `alignment` to place the featured brand.
+<ComponentPreview base="jsx-email" name="featured-brands-logo-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/featured-brands-logo-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/logos/featured-brands-logo-grid.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/logos/featured-brands-logo-grid.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeaturedBrandsLogoGrid } from "@/components/emails/marketing/logos/featured-brands-logo-grid";
+```
+
+```tsx
+<FeaturedBrandsLogoGrid
+  {...FeaturedBrandsLogoGrid.PreviewProps}
+  alignment="center"
+  tone="boxed"
+/>
+```
 
 ## Examples
 
@@ -60,48 +102,6 @@ The Mailviews outlined and boxed families share the same geometry. Use `tone` fo
   variant="boxed-right"
   hideCode
 />
-
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/featured-brands-logo-grid
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/logos/featured-brands-logo-grid.tsx"
-    base="jsx-email"
-    title="components/emails/marketing/logos/featured-brands-logo-grid.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { FeaturedBrandsLogoGrid } from "@/components/emails/marketing/logos/featured-brands-logo-grid";
-```
-
-```tsx
-<FeaturedBrandsLogoGrid
-  {...FeaturedBrandsLogoGrid.PreviewProps}
-  alignment="center"
-  tone="boxed"
-/>
-```
 
 ## API Reference
 

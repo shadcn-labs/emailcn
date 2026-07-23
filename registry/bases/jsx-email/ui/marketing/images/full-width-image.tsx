@@ -196,7 +196,7 @@ const SideSpacer = ({
 );
 
 export const FullWidthImageSection = ({
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
   imageAlt = "",
   pageBackgroundColor = "#f1f5f9",
   spacerBackgroundColor = "#fffffe",

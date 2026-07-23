@@ -63,7 +63,7 @@ const responsiveStyles = `
 
 const sharedDefaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
   backgroundColor: "#fffffe",
   buttonBackgroundColor: "#4f46e5",
   buttonColor: "#fffffe",
@@ -85,39 +85,38 @@ const sharedDefaults = {
 const variantDefaults: Record<CardCouponsVariant, Partial<CardCouponsProps>> = {
   "background-image-header": {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/coupons/bg-image-3.jpg",
+      "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-3.jpg",
     code: "JFY20OFF",
     heading: "Just for you - 20% OFF",
     logoSrc:
-      "https://assets.mailviews.com/images/components/maizzle-insignia-light-lg.png",
+      "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-light-lg.png",
   },
   "with-background-image": {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/coupons/bg-image-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-2.jpg",
     heading: "An extra 20% OFF",
     logoSrc:
-      "https://assets.mailviews.com/images/components/maizzle-insignia-light-lg.png",
+      "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-light-lg.png",
   },
   "with-name": {
     cardBackgroundColor: "#030712",
     heading: "Just for you - 20% OFF",
-    logoSrc:
-      "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+    logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   },
   "with-overlay": {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/coupons/bg-image-1.jpg",
+      "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-1.jpg",
     cardBackgroundColor: "#030712",
     heading: "An extra 20% OFF",
     logoSrc:
-      "https://assets.mailviews.com/images/components/maizzle-insignia-light-lg.png",
+      "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-light-lg.png",
   },
   "with-pattern": {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/coupons/pattern.png",
+      "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
     heading: "An extra 20% OFF",
     logoSrc:
-      "https://assets.mailviews.com/images/components/maizzle-insignia-light-lg.png",
+      "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-light-lg.png",
   },
 };
 

@@ -18,7 +18,7 @@ export const SinglePostHorizontalSection = ({
   author = "John Doe",
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   title = "A practical guide to better email",
 }: Omit<SinglePostHorizontalProps, "theme">) => {
   const posts = [
@@ -43,7 +43,7 @@ export const SinglePostHorizontal = ({
   author = "John Doe",
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   title = "A practical guide to better email",
 }: SinglePostHorizontalProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -62,7 +62,7 @@ SinglePostHorizontal.PreviewProps = {
   excerpt: "A concise summary of the ideas explored in this article.",
   imageAlt: "Mountain landscape",
   imageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   theme: defaultTheme,
   title: "A practical guide to better email",
 } satisfies SinglePostHorizontalProps;

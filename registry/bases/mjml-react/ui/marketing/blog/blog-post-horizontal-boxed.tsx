@@ -16,7 +16,7 @@ export interface BlogPostHorizontalBoxedProps {
 export const BlogPostHorizontalBoxedSection = ({
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   title = "A practical guide to better email",
 }: Omit<BlogPostHorizontalBoxedProps, "theme">) => {
   const posts = [
@@ -39,7 +39,7 @@ export const BlogPostHorizontalBoxed = ({
   theme = defaultTheme,
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   title = "A practical guide to better email",
 }: BlogPostHorizontalBoxedProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -56,7 +56,7 @@ BlogPostHorizontalBoxed.PreviewProps = {
   excerpt: "A concise summary of the ideas explored in this article.",
   imageAlt: "Mountain landscape",
   imageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   theme: defaultTheme,
   title: "A practical guide to better email",
 } satisfies BlogPostHorizontalBoxedProps;

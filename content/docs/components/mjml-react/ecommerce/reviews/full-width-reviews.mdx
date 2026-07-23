@@ -3,7 +3,51 @@ title: "Full Width Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-Full-width reviews keep a single review across the email width while changing the arrangement of its rating, divider, logo, avatar, and author details.
+<ComponentPreview base="mjml-react" name="full-width-reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/reviews/full-width-reviews.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/reviews/full-width-reviews.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-width-reviews";
+```
+
+```tsx
+<FullWidthReviews {...FullWidthReviews.PreviewProps} variant="with-divider" />
+```
 
 ## Examples
 
@@ -151,53 +195,9 @@ Full-width reviews keep a single review across the email width while changing th
   variant="avatar-logo-bottom"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/full-width-reviews
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/ecommerce/reviews/full-width-reviews.tsx"
-    base="mjml-react"
-    title="components/emails/ecommerce/reviews/full-width-reviews.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-width-reviews";
-```
-
-```tsx
-<FullWidthReviews {...FullWidthReviews.PreviewProps} variant="with-divider" />
-```
-
 ## API Reference
 
-| Prop      | Type                      | Default          | Description              |
-| --------- | ------------------------- | ---------------- | ------------------------ |
-| `variant` | `FullWidthReviewsVariant` | `"with-divider"` | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`        | `defaultTheme`   | Email theme styling      |
+| Prop      | Type                      | Default          | Description         |
+| --------- | ------------------------- | ---------------- | ------------------- |
+| `variant` | `FullWidthReviewsVariant` | `"with-divider"` | layout variant      |
+| `theme`   | `EmailThemeTokens`        | `defaultTheme`   | Email theme styling |

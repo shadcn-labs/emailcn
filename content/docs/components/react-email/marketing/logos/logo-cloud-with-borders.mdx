@@ -1,9 +1,47 @@
 ---
 title: "Logo Cloud with Borders"
-description: "Mailviews divided logo cloud in every content arrangement"
+description: "divided logo cloud in every content arrangement"
 ---
 
-All five Mailviews border arrangements are variants of one component.
+<ComponentPreview base="react-email" name="logo-cloud-with-borders-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud-with-borders
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/logo-cloud-with-borders.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/logo-cloud-with-borders.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-cloud-with-borders";
+```
+
+```tsx
+<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} variant="flush" />
+```
 
 ## Examples
 
@@ -52,47 +90,9 @@ All five Mailviews border arrangements are variants of one component.
   hideCode
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/logo-cloud-with-borders
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/logos/logo-cloud-with-borders.tsx"
-    base="react-email"
-    title="components/emails/marketing/logos/logo-cloud-with-borders.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-cloud-with-borders";
-```
-
-```tsx
-<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} variant="flush" />
-```
-
 ## API Reference
 
-| Prop      | Type                          | Default        | Description                               |
-| --------- | ----------------------------- | -------------- | ----------------------------------------- |
-| `variant` | `LogoCloudWithBordersVariant` | `"full"`       | Selects the Mailviews content arrangement |
-| `theme`   | Renderer theme                | `defaultTheme` | Renderer theme configuration              |
+| Prop      | Type                          | Default        | Description                     |
+| --------- | ----------------------------- | -------------- | ------------------------------- |
+| `variant` | `LogoCloudWithBordersVariant` | `"full"`       | Selects the content arrangement |
+| `theme`   | Renderer theme                | `defaultTheme` | Renderer theme configuration    |

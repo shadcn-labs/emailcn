@@ -20,7 +20,7 @@ export const PodcastBlogSplitSection = ({
   excerpt = "A conversation about emerging email trends and technologies.",
   host = "Jane Smith",
   imageAlt = "Podcast studio",
-  imageSrc = "https://assets.mailviews.com/images/components/hero/mosaic-1.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/hero/mosaic-1.jpg",
   title = "The future of email",
 }: Omit<PodcastBlogSplitProps, "theme">) => {
   const posts = [
@@ -47,7 +47,7 @@ export const PodcastBlogSplit = ({
   excerpt = "A conversation about emerging email trends and technologies.",
   host = "Jane Smith",
   imageAlt = "Podcast studio",
-  imageSrc = "https://assets.mailviews.com/images/components/hero/mosaic-1.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/hero/mosaic-1.jpg",
   title = "The future of email",
 }: PodcastBlogSplitProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -67,7 +67,7 @@ PodcastBlogSplit.PreviewProps = {
   excerpt: "A conversation about emerging email trends and technologies.",
   host: "Jane Smith",
   imageAlt: "Podcast studio",
-  imageSrc: "https://assets.mailviews.com/images/components/hero/mosaic-1.jpg",
+  imageSrc: "https://emailcn.vercel.app/api/email-assets/hero/mosaic-1.jpg",
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastBlogSplitProps;

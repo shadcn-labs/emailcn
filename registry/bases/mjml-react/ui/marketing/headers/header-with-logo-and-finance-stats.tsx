@@ -61,14 +61,14 @@ const defaultStats: HeaderFinanceStat[] = [
     change: "+23.5%",
     label: "BTC",
     positive: true,
-    src: "https://assets.mailviews.com/images/components/btc-logo.png",
+    src: "https://emailcn.vercel.app/api/email-assets/btc-logo.png",
   },
   {
     alt: "ETH",
     change: "-13.2%",
     label: "ETH",
     positive: false,
-    src: "https://assets.mailviews.com/images/components/eth-logo.png",
+    src: "https://emailcn.vercel.app/api/email-assets/eth-logo.png",
   },
 ];
 
@@ -76,8 +76,7 @@ const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   pageBackgroundColor: "#f1f5f9",
   stats: defaultStats,
 };

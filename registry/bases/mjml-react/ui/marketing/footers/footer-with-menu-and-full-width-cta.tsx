@@ -151,7 +151,7 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                       <span>{ctaText}</span>
                       <img
                         alt="→"
-                        src="https://assets.mailviews.com/images/components/icon-chevron-right.png"
+                        src="https://emailcn.vercel.app/api/email-assets/icon-chevron-right.png"
                         style={{
                           float: "right",
                           maxWidth: "100%",
@@ -182,7 +182,7 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                             <a href={href}>
                               <img
                                 alt={label}
-                                src={`https://assets.mailviews.com/images/components/${icon}`}
+                                src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
                                 style={{
                                   maxWidth: "100%",
                                   verticalAlign: "middle",
@@ -205,7 +205,7 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                       margin: 0,
                     }}
                   >
-                    © 2026 Mailviews. All rights reserved.
+                    © 2026 emailcn. All rights reserved.
                   </p>
                   <div style={{ lineHeight: "24px" }}>&zwj;</div>
                   <p

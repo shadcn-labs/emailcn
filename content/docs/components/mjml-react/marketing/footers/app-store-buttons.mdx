@@ -1,38 +1,9 @@
 ---
 title: "App Store Buttons Footer"
-description: "Mailviews app-store footer with centered, two-column, and title variants"
+description: "app-store footer with centered, two-column, and title variants"
 ---
 
-All three Mailviews app-store layouts share the same store badges and legal content.
-
-## Examples
-
-### Centered
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-with-app-store-buttons-demo"
-  variant="centered"
-  hideCode
-/>
-
-### Two Columns
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-with-app-store-buttons-demo"
-  variant="two-columns"
-  hideCode
-/>
-
-### Footer With Title
-
-<ComponentPreview
-  base="mjml-react"
-  name="footer-with-app-store-buttons-demo"
-  variant="with-title"
-  hideCode
-/>
+<ComponentPreview base="mjml-react" name="footer-with-app-store-buttons-demo" />
 
 ## Installation
 
@@ -72,9 +43,38 @@ import { FooterWithAppStoreButtons } from "@/components/emails/marketing/footers
 />
 ```
 
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-app-store-buttons-demo"
+  variant="centered"
+  hideCode
+/>
+
+### Two Columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-app-store-buttons-demo"
+  variant="two-columns"
+  hideCode
+/>
+
+### Footer With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-app-store-buttons-demo"
+  variant="with-title"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop      | Type                                          | Default       | Description                  |
-| --------- | --------------------------------------------- | ------------- | ---------------------------- |
-| `variant` | `"centered" \| "two-columns" \| "with-title"` | `"centered"`  | Selects the Mailviews layout |
-| `theme`   | `EmailTheme`                                  | default theme | Email theme styling          |
+| Prop      | Type                                          | Default       | Description         |
+| --------- | --------------------------------------------- | ------------- | ------------------- |
+| `variant` | `"centered" \| "two-columns" \| "with-title"` | `"centered"`  | Selects the layout  |
+| `theme`   | `EmailTheme`                                  | default theme | Email theme styling |

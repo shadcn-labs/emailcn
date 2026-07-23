@@ -68,7 +68,7 @@ const responsiveStyles = `
 
 const defaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
   backgroundColor: "#fffffe",
   body: "Premium footwear, outerwear, and lifestyle pieces chosen for quality, comfort, and everyday performance.",
   buttonHref: "https://example.com",
@@ -77,14 +77,14 @@ const defaults = {
   headingColor: "#030712",
   imageBackgroundColor: "#f3f4f6",
   imageSrc1:
-    "https://assets.mailviews.com/images/components/feature/stripes-bg-1.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-1.jpg",
   imageSrc2:
-    "https://assets.mailviews.com/images/components/feature/stripes-bg-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-2.jpg",
   linkColor: "#4f46e5",
   logoAlt: "Monarch",
   logoBackgroundColor: "#030712",
   logoSrc:
-    "https://assets.mailviews.com/images/components/feature/logo-stripes-1.png",
+    "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-1.png",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
@@ -262,7 +262,7 @@ export const FeatureWithDoubleTallBackgroundImagesSection = (
     ...(contentRight
       ? {
           imageSrc2:
-            "https://assets.mailviews.com/images/components/feature/stripes-bg-3.jpg",
+            "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-3.jpg",
         }
       : {}),
     ...props,

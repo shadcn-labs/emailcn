@@ -1,47 +1,9 @@
 ---
 title: "Basic Logo Cloud"
-description: "Mailviews logo cloud with optional title and description"
+description: "logo cloud with optional title and description"
 ---
 
-The four Mailviews arrangements share one component. Select the content treatment with `variant`.
-
-## Examples
-
-### Minimal
-
-<ComponentPreview
-  base="mjml-react"
-  name="basic-logo-cloud-demo"
-  variant="minimal"
-  hideCode
-/>
-
-### With Title
-
-<ComponentPreview
-  base="mjml-react"
-  name="basic-logo-cloud-demo"
-  variant="with-title"
-  hideCode
-/>
-
-### With Description
-
-<ComponentPreview
-  base="mjml-react"
-  name="basic-logo-cloud-demo"
-  variant="with-description"
-  hideCode
-/>
-
-### Full
-
-<ComponentPreview
-  base="mjml-react"
-  name="basic-logo-cloud-demo"
-  variant="full"
-  hideCode
-/>
+<ComponentPreview base="mjml-react" name="basic-logo-cloud-demo" />
 
 ## Installation
 
@@ -81,9 +43,47 @@ import { BasicLogoCloud } from "@/components/emails/marketing/logos/basic-logo-c
 <BasicLogoCloud {...BasicLogoCloud.PreviewProps} variant="with-title" />
 ```
 
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop      | Type                    | Default        | Description                         |
-| --------- | ----------------------- | -------------- | ----------------------------------- |
-| `variant` | `BasicLogoCloudVariant` | `"full"`       | Selects the Mailviews content state |
-| `theme`   | Renderer theme          | `defaultTheme` | Renderer theme configuration        |
+| Prop      | Type                    | Default        | Description                  |
+| --------- | ----------------------- | -------------- | ---------------------------- |
+| `variant` | `BasicLogoCloudVariant` | `"full"`       | Selects the content state    |
+| `theme`   | Renderer theme          | `defaultTheme` | Renderer theme configuration |

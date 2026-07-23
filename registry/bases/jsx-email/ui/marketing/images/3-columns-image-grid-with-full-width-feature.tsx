@@ -94,7 +94,7 @@ const defaults = {
   featureImageAlt: "",
   featureImageHref: "https://example.com",
   featureImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/full-width-6.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-6.jpg",
   featureSubtext: "Private Paradise",
   heading1: "Aqua Retreat",
   heading2: "Ocean Spa",
@@ -107,11 +107,11 @@ const defaults = {
   imageHref2: "https://example.com",
   imageHref3: "https://example.com",
   imageSrc1:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-square-4.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-4.jpg",
   imageSrc2:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-square-5.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-5.jpg",
   imageSrc3:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-square-6.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-6.jpg",
   pageBackgroundColor: "#f1f5f9",
   subtext1: "Private pools",
   subtext2: "Relax & restore",

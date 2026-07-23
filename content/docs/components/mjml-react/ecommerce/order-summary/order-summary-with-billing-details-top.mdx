@@ -1,9 +1,50 @@
 ---
 title: "Order Summary with Billing Details and Payment Method Top"
-description: "Order Summary with Billing Details and Payment Method Top with every Mailviews layout variant."
+description: "Order Summary with Billing Details and Payment Method Top with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+<ComponentPreview base="mjml-react" name="order-summary-billing-top-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/order-summary-with-billing-details-and-payment-method-top
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OrderSummaryBillingTop } from "@/components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top";
+```
+
+```tsx
+<OrderSummaryBillingTop
+  {...OrderSummaryBillingTop.PreviewProps}
+  variant="basic-with-payment"
+/>
+```
 
 ## Examples
 
@@ -71,50 +112,9 @@ This public component matches the corresponding Mailviews family. Its alignment,
   variant="bordered-full-details"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/order-summary-with-billing-details-and-payment-method-top
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx"
-    base="mjml-react"
-    title="components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { OrderSummaryBillingTop } from "@/components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top";
-```
-
-```tsx
-<OrderSummaryBillingTop
-  {...OrderSummaryBillingTop.PreviewProps}
-  variant="basic-with-payment"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                                                                                                         | Default                | Description              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------ |
-| `variant` | `"basic" \| "bordered" \| "basic-with-payment" \| "bordered-with-payment" \| "basic-with-notes" \| "bordered-with-notes" \| "basic-full-details" \| "bordered-full-details"` | `"basic-with-payment"` | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                                                                                                                           | `defaultTheme`         | Email theme styling      |
+| Prop      | Type                                                                                                                                                                         | Default                | Description         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------- |
+| `variant` | `"basic" \| "bordered" \| "basic-with-payment" \| "bordered-with-payment" \| "basic-with-notes" \| "bordered-with-notes" \| "basic-full-details" \| "bordered-full-details"` | `"basic-with-payment"` | layout variant      |
+| `theme`   | `EmailThemeTokens`                                                                                                                                                           | `defaultTheme`         | Email theme styling |

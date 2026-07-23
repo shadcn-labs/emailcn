@@ -1,10 +1,45 @@
 ---
 title: "Social Logos"
-description: "Social logo tiles with all eight Mailviews layout variants"
+description: "Social logo tiles with all eight layout variants"
 ---
 
-`SocialLogos` combines the eight Mailviews tile layouts because they share the
-same content and differ only in framing, fill, and border radius.
+<ComponentPreview base="jsx-email" name="square-tiles-social-logos-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/social-logos
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/social/social-logos.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/social/social-logos.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialLogos } from "@/components/emails/marketing/social/social-logos";
+
+<SocialLogos variant="outlined-circle-tiles" />;
+```
 
 ## Examples
 
@@ -46,48 +81,12 @@ same content and differ only in framing, fill, and border radius.
 
 <ComponentPreview base="jsx-email" name="outlined-pill-box-social-logos-demo" />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/social-logos
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/social/social-logos.tsx"
-    base="jsx-email"
-    title="components/emails/marketing/social/social-logos.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { SocialLogos } from "@/components/emails/marketing/social/social-logos";
-
-<SocialLogos variant="outlined-circle-tiles" />;
-```
-
 ## API Reference
 
 | Prop          | Type                                                                                                                                                             | Default             | Description                  |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------------- |
-| `variant`     | `"square-tiles" \| "squared-box" \| "circle-tiles" \| "pill-box" \| "outlined-square-tiles" \| "outlined-circle-tiles" \| "outlined-box" \| "outlined-pill-box"` | `"square-tiles"`    | Mailviews tile layout        |
-| `items`       | `SocialLogoItem[]`                                                                                                                                               | Mailviews icons     | Social links and icon assets |
+| `variant`     | `"square-tiles" \| "squared-box" \| "circle-tiles" \| "pill-box" \| "outlined-square-tiles" \| "outlined-circle-tiles" \| "outlined-box" \| "outlined-pill-box"` | `"square-tiles"`    | tile layout                  |
+| `items`       | `SocialLogoItem[]`                                                                                                                                               | icons               | Social links and icon assets |
 | `title`       | `string`                                                                                                                                                         | `"Connect with us"` | Section title                |
-| `description` | `string`                                                                                                                                                         | Mailviews copy      | Supporting text              |
+| `description` | `string`                                                                                                                                                         | copy                | Supporting text              |
 | `theme`       | `EmailThemeTokens`                                                                                                                                               | `defaultTheme`      | Email theme configuration    |

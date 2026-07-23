@@ -21,7 +21,7 @@ export const FeaturedBlogPostSection = ({
   badge = "Featured",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
   title = "Featured article",
 }: Omit<FeaturedBlogPostProps, "theme">) => {
   const posts = [
@@ -48,7 +48,7 @@ export const FeaturedBlogPost = ({
   badge = "Featured",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
   title = "Featured article",
 }: FeaturedBlogPostProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -69,7 +69,7 @@ FeaturedBlogPost.PreviewProps = {
   excerpt: "A compelling excerpt from the featured article.",
   imageAlt: "Editorial feature",
   imageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/full-width.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
   theme: defaultTheme,
   title: "Featured article",
 } satisfies FeaturedBlogPostProps;

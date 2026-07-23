@@ -1,20 +1,9 @@
 ---
 title: "Full Width Testimonial"
-description: "Mailviews full-width testimonial with optional overlapping avatar"
+description: "full-width testimonial with optional overlapping avatar"
 ---
 
-## Examples
-
-### Default
-
 <ComponentPreview base="mjml-react" name="full-width-testimonial-demo" />
-
-### Overlapping avatar
-
-<ComponentPreview
-  base="mjml-react"
-  name="full-width-testimonial-with-overlapping-avatar-demo"
-/>
 
 ## Installation
 
@@ -52,10 +41,23 @@ import { FullWidthTestimonial } from "@/components/emails/marketing/testimonials
 <FullWidthTestimonial variant="overlapping-avatar" />;
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview base="mjml-react" name="full-width-testimonial-demo" />
+
+### Overlapping avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-testimonial-with-overlapping-avatar-demo"
+/>
+
 ## API Reference
 
 | Prop      | Type                                | Default        | Description         |
 | --------- | ----------------------------------- | -------------- | ------------------- |
 | `variant` | `"default" \| "overlapping-avatar"` | `"default"`    | Avatar arrangement  |
-| `quote`   | `string`                            | Mailviews copy | Testimonial copy    |
+| `quote`   | `string`                            | copy           | Testimonial copy    |
 | `theme`   | `EmailThemeTokens`                  | `defaultTheme` | Email theme styling |

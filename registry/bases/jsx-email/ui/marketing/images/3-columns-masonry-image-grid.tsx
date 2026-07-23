@@ -75,9 +75,9 @@ const defaults = {
   stackImageHref1: "https://example.com",
   stackImageHref2: "https://example.com",
   stackImageSrc1:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-stack.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack.jpg",
   stackImageSrc2:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-stack-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack-2.jpg",
   stackSubtext1: "Ikura / Citrus Zest",
   stackSubtext2: "Yellowtail / Herb Dressing",
   textColor: "#fffffe",
@@ -85,7 +85,7 @@ const defaults = {
   wideImageAlt: "",
   wideImageHref: "https://example.com",
   wideImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry.jpg",
   wideSubtext: "Premium Cuts / Seasonal Fish",
 };
 

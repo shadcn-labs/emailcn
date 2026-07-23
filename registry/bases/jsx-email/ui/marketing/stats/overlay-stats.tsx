@@ -52,7 +52,7 @@ interface OverlayVariantDefaults {
 const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
   bento: {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/stats/overlay-3.jpg",
+      "https://emailcn.vercel.app/api/email-assets/stats/overlay-3.jpg",
     featuredLabel: "Active explorers worldwide",
     featuredStat: "98k+",
     overlayColor: "rgba(0,0,1,0.4)",
@@ -64,7 +64,7 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
   },
   "bento-reversed": {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/stats/overlay-4.jpg",
+      "https://emailcn.vercel.app/api/email-assets/stats/overlay-4.jpg",
     featuredLabel: "Average fulfillment time",
     featuredStat: "48hr",
     overlayColor: "rgba(0,0,1,0.4)",
@@ -76,7 +76,7 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
   },
   default: {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/stats/overlay-1.jpg",
+      "https://emailcn.vercel.app/api/email-assets/stats/overlay-1.jpg",
     featuredLabel: "Active users globally",
     featuredStat: "120k+",
     overlayColor: "rgba(0,0,1,0.25)",
@@ -102,7 +102,7 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
   },
   "three-columns": {
     backgroundImageSrc:
-      "https://assets.mailviews.com/images/components/stats/overlay-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/stats/overlay-2.jpg",
     featuredLabel: "Monthly builds",
     featuredStat: "1m+",
     overlayColor: "rgba(0,0,1,0.4)",

@@ -215,7 +215,7 @@ const EventCard = ({
                                 {accent ? (
                                   <img
                                     alt=""
-                                    src="https://assets.mailviews.com/images/components/timelines/icon-check.png"
+                                    src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
                                     style={{ marginBottom: "1px" }}
                                     width="8"
                                   />
@@ -304,7 +304,7 @@ export const SplitCardsSection = ({
   date = "Monday",
   description = "Description of event",
   imageAlt = "Placeholder image",
-  imageSrc = "https://assets.mailviews.com/images/components/timelines/cards.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
   index = "01",
   label = "Miles traveled",
   title = "Miles traveled",

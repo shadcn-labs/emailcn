@@ -56,19 +56,19 @@ const defaults = {
     "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
   featuredLogo: {
     alt: "Monarch",
-    src: "https://assets.mailviews.com/images/components/logos/logo-mock-1.png",
+    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-1.png",
     width: 167,
   },
   pageBackgroundColor: "#f1f5f9",
   supportingLogos: [
     {
       alt: "Accentic",
-      src: "https://assets.mailviews.com/images/components/logos/logo-mock-2.png",
+      src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-2.png",
       width: 71,
     },
     {
       alt: "Amada",
-      src: "https://assets.mailviews.com/images/components/logos/logo-mock-3.png",
+      src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-3.png",
       width: 78,
     },
   ],

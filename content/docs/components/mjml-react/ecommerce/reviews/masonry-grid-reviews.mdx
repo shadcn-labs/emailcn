@@ -3,7 +3,54 @@ title: "Masonry Grid Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-Masonry reviews pair one featured review with two supporting review columns. All Mailviews treatments remain variants of that same responsive structure.
+<ComponentPreview base="mjml-react" name="masonry-grid-reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/masonry-grid-reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/reviews/masonry-grid-reviews.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/reviews/masonry-grid-reviews.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MasonryGridReviews } from "@/components/emails/ecommerce/reviews/masonry-grid-reviews";
+```
+
+```tsx
+<MasonryGridReviews
+  {...MasonryGridReviews.PreviewProps}
+  variant="with-divider"
+/>
+```
 
 ## Examples
 
@@ -127,56 +174,9 @@ Masonry reviews pair one featured review with two supporting review columns. All
   variant="avatar-logo-bottom"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/masonry-grid-reviews
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/ecommerce/reviews/masonry-grid-reviews.tsx"
-    base="mjml-react"
-    title="components/emails/ecommerce/reviews/masonry-grid-reviews.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { MasonryGridReviews } from "@/components/emails/ecommerce/reviews/masonry-grid-reviews";
-```
-
-```tsx
-<MasonryGridReviews
-  {...MasonryGridReviews.PreviewProps}
-  variant="with-divider"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type               | Default          | Description              |
-| --------- | ------------------ | ---------------- | ------------------------ |
-| `variant` | `ReviewsVariant`   | `"with-divider"` | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens` | `defaultTheme`   | Email theme styling      |
+| Prop      | Type               | Default          | Description         |
+| --------- | ------------------ | ---------------- | ------------------- |
+| `variant` | `ReviewsVariant`   | `"with-divider"` | layout variant      |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`   | Email theme styling |

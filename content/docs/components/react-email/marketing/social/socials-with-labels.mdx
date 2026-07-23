@@ -1,20 +1,9 @@
 ---
 title: "Socials With Labels"
-description: "Mailviews social links with stacked or inline labels"
+description: "social links with stacked or inline labels"
 ---
 
-The stacked and inline layouts use one content model, so they are variants of
-`SocialsWithLabels`.
-
-## Examples
-
-### Stacked
-
 <ComponentPreview base="react-email" name="socials-with-labels-stacked-demo" />
-
-### Inline
-
-<ComponentPreview base="react-email" name="socials-with-inline-labels-demo" />
 
 ## Installation
 
@@ -52,12 +41,22 @@ import { SocialsWithLabels } from "@/components/emails/marketing/social/socials-
 <SocialsWithLabels variant="inline" />;
 ```
 
+## Examples
+
+### Stacked
+
+<ComponentPreview base="react-email" name="socials-with-labels-stacked-demo" />
+
+### Inline
+
+<ComponentPreview base="react-email" name="socials-with-inline-labels-demo" />
+
 ## API Reference
 
 | Prop          | Type                    | Default             | Description                 |
 | ------------- | ----------------------- | ------------------- | --------------------------- |
 | `variant`     | `"stacked" \| "inline"` | `"stacked"`         | Label arrangement           |
-| `items`       | `LabeledSocialItem[]`   | Mailviews icons     | Social links, labels, icons |
+| `items`       | `LabeledSocialItem[]`   | icons               | Social links, labels, icons |
 | `title`       | `string`                | `"Connect with us"` | Section title               |
-| `description` | `string`                | Mailviews copy      | Supporting text             |
+| `description` | `string`                | copy                | Supporting text             |
 | `theme`       | `TailwindConfig`        | `defaultTheme`      | Email theme configuration   |

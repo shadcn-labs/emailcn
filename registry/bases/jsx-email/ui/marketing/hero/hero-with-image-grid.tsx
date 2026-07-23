@@ -73,7 +73,7 @@ const regularImages: HeroWithImageGridImage[] = Array.from(
   { length: 7 },
   (_, index) => ({
     alt: `Image ${index + 1}`,
-    src: `https://assets.mailviews.com/images/components/hero/mosaic-${index + 1}.jpg`,
+    src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${index + 1}.jpg`,
   })
 );
 
@@ -82,7 +82,7 @@ const offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
 const offsetImages: HeroWithImageGridImage[] = offsetImageNumbers.map(
   (imageNumber, index) => ({
     alt: `Image ${index + 1}`,
-    src: `https://assets.mailviews.com/images/components/hero/mosaic-${imageNumber}.jpg`,
+    src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${imageNumber}.jpg`,
   })
 );
 
@@ -266,7 +266,7 @@ export const HeroWithImageGridSection = ({
             <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
             <Img
               alt=""
-              src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+              src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
               width="12"
               style={{
                 display: "inline-block",
@@ -291,9 +291,9 @@ export const HeroWithImageGrid = ({
   eyebrow = "NEW ARRIVALS",
   heading = "Step into the hype",
   images = [],
-  logoAlt = "Mailviews",
+  logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  logoSrc = "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
   pageBackgroundColor = "#f1f5f9",
   subheading = "The evolution of the sneaker",
   theme = defaultTheme,
@@ -355,9 +355,9 @@ HeroWithImageGrid.PreviewProps = {
   eyebrow: "NEW ARRIVALS",
   heading: "Step into the hype",
   images: [],
-  logoAlt: "Mailviews",
+  logoAlt: "emailcn",
   logoHref: "https://example.com",
-  logoSrc: "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
   pageBackgroundColor: "#f1f5f9",
   subheading: "The evolution of the sneaker",
   theme: defaultTheme,

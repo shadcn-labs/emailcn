@@ -73,7 +73,7 @@ const responsiveStyles = `
 
 const sharedDefaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
   backgroundColor: "#fffffe",
   buttonHref: "https://example.com",
   buttonLabel: "Discover more",
@@ -81,7 +81,7 @@ const sharedDefaults = {
   linkColor: "#4f46e5",
   logoAlt: "Visa",
   logoBackgroundColor: "#f3f4f6",
-  logoSrc: "https://assets.mailviews.com/images/components/logos/logo-visa.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
@@ -91,13 +91,13 @@ const logoDefaults = {
   heading: "Built for the journey ahead.",
   largeImageAlt: "Product Image 1",
   largeImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-2-lg.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-lg.jpg",
   middleImageAlt: "Product Image 2",
   middleImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-2-sm.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
   smallImageAlt: "Product Image 2",
   smallImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-2-sm.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
 };
 
 const imagesDefaults = {
@@ -105,13 +105,13 @@ const imagesDefaults = {
   heading: "Outdoor essentials redefined.",
   largeImageAlt: "Product Image 1",
   largeImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-2-lg-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-lg-2.jpg",
   middleImageAlt: "Product Image 2",
   middleImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-2-md.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-md.jpg",
   smallImageAlt: "Product Image 3",
   smallImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-2-sm-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm-2.jpg",
 };
 
 type SectionProps = Omit<FeatureWithMultipleProductImagesProps, "theme">;

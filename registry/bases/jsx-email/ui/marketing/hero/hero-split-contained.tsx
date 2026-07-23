@@ -41,7 +41,7 @@ export interface HeroSplitContainedProps {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-const assetRoot = "https://assets.mailviews.com/images/components";
+const assetRoot = "https://emailcn.vercel.app/api/email-assets";
 
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
@@ -125,7 +125,7 @@ const presets = {
       "Fluffy steamed buns filled with rich, savory flavors and made fresh daily. A taste of authentic street food, crafted with passion and served with warmth, right in the heart of London.",
     eyebrow: "Taiwanese Steamed Shop",
     heading: "Gua Bao",
-    logoSrc: `${assetRoot}/mailviews-logo-light.png`,
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
     mutedTextColor: "#d1d5db",
     price: "",
     primaryImageAlt: "Top image",
@@ -142,7 +142,7 @@ const presets = {
       "Handcrafted blends made with care, bottled to preserve freshness and flavor. A perfect balance of tradition and quality, designed to bring a touch of refinement to your everyday rituals.",
     eyebrow: "Es Kopi Susu",
     heading: "Sarina",
-    logoSrc: `${assetRoot}/mailviews-logo.png`,
+    logoSrc: `${assetRoot}/emailcn-logo.png`,
     mutedTextColor: "#4b5563",
     price: "",
     primaryImageAlt: "Top image",
@@ -159,7 +159,7 @@ const presets = {
       "A refreshing blend of cooling salt and soothing vanilla, this toothpaste brings a clean, calming experience to your everyday ritual. Gentle yet effective, it's designed to leave your smile brighter.",
     eyebrow: "Toothpaste",
     heading: "Salt.",
-    logoSrc: `${assetRoot}/mailviews-logo.png`,
+    logoSrc: `${assetRoot}/emailcn-logo.png`,
     mutedTextColor: "#4b5563",
     price: "",
     primaryImageAlt: "Salt toothpaste",
@@ -176,7 +176,7 @@ const presets = {
       "A targeted solution that works deep to unclog pores, reduce excess oil, and calm irritation. Lightweight and powerful, this formula supports clearer, healthier-looking skin",
     eyebrow: "THE",
     heading: "Ordinary.",
-    logoSrc: `${assetRoot}/mailviews-logo-light.png`,
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
     mutedTextColor: "#d1d5db",
     price: "From $8.99",
     primaryImageAlt: "Top image",
@@ -236,7 +236,7 @@ const resolveProps = ({
     description: description ?? preset.description,
     eyebrow: eyebrow ?? preset.eyebrow,
     heading: heading ?? preset.heading,
-    logoAlt: logoAlt ?? "Mailviews",
+    logoAlt: logoAlt ?? "emailcn",
     logoSrc: logoSrc ?? preset.logoSrc,
     mutedTextColor: mutedTextColor ?? preset.mutedTextColor,
     pageBackgroundColor: pageBackgroundColor ?? "#f1f5f9",

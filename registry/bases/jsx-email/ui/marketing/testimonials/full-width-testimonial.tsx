@@ -31,10 +31,10 @@ const responsiveStyles = [
 
 export const FullWidthTestimonialSection = ({
   variant = "default",
-  quote = "“After migrating to Mailviews, we increased efficiency by 40% across our transactional and marketing email development pipeline.”",
+  quote = "“After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.”",
   author = "Ella Roustek",
   role = "Operations Manager",
-  avatarSrc = "https://assets.mailviews.com/images/components/testimonials/user-2.jpg",
+  avatarSrc = "https://emailcn.vercel.app/api/email-assets/testimonials/user-2.jpg",
   logoSrc,
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
@@ -44,8 +44,8 @@ export const FullWidthTestimonialSection = ({
   const resolvedLogoSrc =
     logoSrc ??
     (overlapping
-      ? "https://assets.mailviews.com/images/components/testimonials/logo-accentic.png"
-      : "https://assets.mailviews.com/images/components/testimonials/logo-monarch.png");
+      ? "https://emailcn.vercel.app/api/email-assets/testimonials/logo-accentic.png"
+      : "https://emailcn.vercel.app/api/email-assets/testimonials/logo-monarch.png");
 
   return (
     <table

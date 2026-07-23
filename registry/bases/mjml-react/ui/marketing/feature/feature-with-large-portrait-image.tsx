@@ -59,7 +59,7 @@ const responsiveStyles = `
 
 const sharedDefaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
   backgroundColor: "#fffffe",
   buttonHref: "https://example.com",
   buttonLabel: "Discover more",
@@ -68,7 +68,7 @@ const sharedDefaults = {
   logoAlt: "Visa",
   logoBackgroundColor: "#f3f4f6",
   logoSrc:
-    "https://assets.mailviews.com/images/components/feature/logo-north-face.png",
+    "https://emailcn.vercel.app/api/email-assets/feature/logo-north-face.png",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
@@ -78,10 +78,10 @@ const logoDefaults = {
   heading: "Explore without limits.",
   portraitImageAlt: "Product Image",
   portraitImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-3-lg-1.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-1.jpg",
   secondaryImageAlt: "Product Image 2",
   secondaryImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-3-sm-1.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
 };
 
 const contentDefaults = {
@@ -89,17 +89,17 @@ const contentDefaults = {
   heading: "Innovation on your wrist.",
   portraitImageAlt: "Product Image 1",
   portraitImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-3-lg-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-2.jpg",
   secondaryImageAlt: "Product Image 2",
   secondaryImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-3-sm-1.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
 };
 
 const contentTopRightDefaults = {
   portraitImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-3-lg-3.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-3.jpg",
   secondaryImageSrc:
-    "https://assets.mailviews.com/images/components/feature/feature-3-sm-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-2.jpg",
 };
 
 type SectionProps = Omit<FeatureWithLargePortraitImageProps, "theme">;

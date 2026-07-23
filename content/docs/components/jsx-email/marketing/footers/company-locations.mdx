@@ -1,29 +1,9 @@
 ---
 title: "Company Locations Footer"
-description: "Mailviews company-locations footer with stacked and grid variants"
+description: "company-locations footer with stacked and grid variants"
 ---
 
-The navigation, social links, and legal content are shared. Use the `variant` prop to select the exact Mailviews stacked or grid location layout.
-
-## Examples
-
-### Stacked
-
-<ComponentPreview
-  base="jsx-email"
-  name="footer-with-company-locations-demo"
-  variant="stacked"
-  hideCode
-/>
-
-### Grid
-
-<ComponentPreview
-  base="jsx-email"
-  name="footer-with-company-locations-demo"
-  variant="grid"
-  hideCode
-/>
+<ComponentPreview base="jsx-email" name="footer-with-company-locations-demo" />
 
 ## Installation
 
@@ -66,10 +46,30 @@ import { FooterWithCompanyLocations } from "@/components/emails/marketing/footer
 />
 ```
 
+## Examples
+
+### Stacked
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-company-locations-demo"
+  variant="stacked"
+  hideCode
+/>
+
+### Grid
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-company-locations-demo"
+  variant="grid"
+  hideCode
+/>
+
 ## API Reference
 
 | Prop        | Type                  | Default       | Description                    |
 | ----------- | --------------------- | ------------- | ------------------------------ |
-| `variant`   | `"stacked" \| "grid"` | `"stacked"`   | Selects the Mailviews layout   |
+| `variant`   | `"stacked" \| "grid"` | `"stacked"`   | Selects the layout             |
 | `locations` | `CompanyLocation[]`   | variant data  | Overrides the location content |
 | `theme`     | `EmailTheme`          | default theme | Email theme styling            |

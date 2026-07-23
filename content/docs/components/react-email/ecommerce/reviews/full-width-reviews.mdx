@@ -3,7 +3,45 @@ title: "Full Width Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-Full-width reviews keep a single review across the email width while changing the arrangement of its rating, divider, logo, avatar, and author details.
+<ComponentPreview base="react-email" name="full-width-reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/full-width-reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/reviews/full-width-reviews.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/reviews/full-width-reviews.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-width-reviews";
+```
+
+```tsx
+<FullWidthReviews {...FullWidthReviews.PreviewProps} variant="with-divider" />
+```
 
 ## Examples
 
@@ -151,47 +189,9 @@ Full-width reviews keep a single review across the email width while changing th
   variant="avatar-logo-bottom"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/full-width-reviews
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/ecommerce/reviews/full-width-reviews.tsx"
-    base="react-email"
-    title="components/emails/ecommerce/reviews/full-width-reviews.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-width-reviews";
-```
-
-```tsx
-<FullWidthReviews {...FullWidthReviews.PreviewProps} variant="with-divider" />
-```
-
 ## API Reference
 
-| Prop      | Type                      | Default          | Description              |
-| --------- | ------------------------- | ---------------- | ------------------------ |
-| `variant` | `FullWidthReviewsVariant` | `"with-divider"` | Mailviews layout variant |
-| `theme`   | `TailwindConfig`          | `defaultTheme`   | Email theme styling      |
+| Prop      | Type                      | Default          | Description         |
+| --------- | ------------------------- | ---------------- | ------------------- |
+| `variant` | `FullWidthReviewsVariant` | `"with-divider"` | layout variant      |
+| `theme`   | `TailwindConfig`          | `defaultTheme`   | Email theme styling |

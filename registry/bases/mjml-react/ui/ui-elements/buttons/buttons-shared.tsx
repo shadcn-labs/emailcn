@@ -16,7 +16,7 @@ export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 type EmailCssProperties = CSSProperties & { msoTextRaise?: string };
 
-const ASSET_ROOT = "https://assets.mailviews.com/images/components";
+const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 const msoRaise14: EmailCssProperties = { msoTextRaise: "14px" };
@@ -69,8 +69,8 @@ type ButtonAppearance = "primary" | "secondary" | "text";
 type IconPosition = "leading" | "trailing";
 
 export const buttonsResponsiveStyles = `
-  .mailviews-button-primary:hover { background-color: #4338ca !important; }
-  .mailviews-button-secondary:hover { background-color: #f3f4f6 !important; }
+  .emailcn-button-primary:hover { background-color: #4338ca !important; }
+  .emailcn-button-secondary:hover { background-color: #f3f4f6 !important; }
 `;
 
 const getIconWidth = ({
@@ -102,7 +102,7 @@ const getAppearanceStyles = (
   if (appearance === "primary") {
     return {
       backgroundColor: "#4f46e5",
-      buttonClass: "mailviews-button-primary",
+      buttonClass: "emailcn-button-primary",
       color: withIcon ? "#fffffe" : "#f8fafc",
     };
   }
@@ -110,7 +110,7 @@ const getAppearanceStyles = (
   if (appearance === "secondary") {
     return {
       backgroundColor: withIcon ? "transparent" : "#fffffe",
-      buttonClass: "mailviews-button-secondary",
+      buttonClass: "emailcn-button-secondary",
       color: "#4b5563",
     };
   }

@@ -48,7 +48,7 @@ const SocialLinks = ({ lastIcon }: { lastIcon: "instagram" | "linkedin" }) => {
                 <a href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <img
                     alt=""
-                    src={`https://assets.mailviews.com/images/components/icon-${icon}-dark.png`}
+                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-dark.png`}
                     width="16"
                   />
                 </a>
@@ -190,8 +190,8 @@ const CompactCard = ({
 export const TwoColumnsCompactSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://assets.mailviews.com/images/components/teams/member-1-md.jpg",
-  avatarSrc2 = "https://assets.mailviews.com/images/components/teams/member-2-md.jpg",
+  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-md.jpg",
+  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-md.jpg",
   name1 = "Jason Adam",
   name2 = "Henrik Petersson",
   role1 = "Senior Developer",

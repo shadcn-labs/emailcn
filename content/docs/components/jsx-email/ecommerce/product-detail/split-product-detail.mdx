@@ -1,9 +1,50 @@
 ---
 title: "Split Product Detail"
-description: "Split Product Detail with every Mailviews layout variant."
+description: "Split Product Detail with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+<ComponentPreview base="jsx-email" name="split-product-detail-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/split-product-detail
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/product-detail/split-product-detail.tsx"
+    base="jsx-email"
+    title="components/emails/ecommerce/product-detail/split-product-detail.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SplitProductDetail } from "@/components/emails/ecommerce/product-detail/split-product-detail";
+```
+
+```tsx
+<SplitProductDetail
+  {...SplitProductDetail.PreviewProps}
+  variant="stacked-left"
+/>
+```
 
 ## Examples
 
@@ -71,50 +112,9 @@ This public component matches the corresponding Mailviews family. Its placement 
   variant="bleed-right"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/split-product-detail
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/ecommerce/product-detail/split-product-detail.tsx"
-    base="jsx-email"
-    title="components/emails/ecommerce/product-detail/split-product-detail.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { SplitProductDetail } from "@/components/emails/ecommerce/product-detail/split-product-detail";
-```
-
-```tsx
-<SplitProductDetail
-  {...SplitProductDetail.PreviewProps}
-  variant="stacked-left"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                                                                     | Default          | Description              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ |
-| `variant` | `"stacked-left" \| "stacked-right" \| "image-left" \| "image-right" \| "rating-left" \| "rating-right" \| "bleed-left" \| "bleed-right"` | `"stacked-left"` | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                                                                                       | `defaultTheme`   | Email theme styling      |
+| Prop      | Type                                                                                                                                     | Default          | Description         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
+| `variant` | `"stacked-left" \| "stacked-right" \| "image-left" \| "image-right" \| "rating-left" \| "rating-right" \| "bleed-left" \| "bleed-right"` | `"stacked-left"` | layout variant      |
+| `theme`   | `EmailThemeTokens`                                                                                                                       | `defaultTheme`   | Email theme styling |

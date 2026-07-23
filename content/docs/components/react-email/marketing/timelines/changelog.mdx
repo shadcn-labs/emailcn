@@ -3,6 +3,46 @@ title: "Changelog"
 description: "Marketing timelines variant for email templates"
 ---
 
+<ComponentPreview base="react-email" name="changelog-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/changelog
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/timelines/changelog.tsx"
+    base="react-email"
+    title="components/emails/marketing/timelines/changelog.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Changelog } from "@/components/emails/marketing/timelines/changelog";
+```
+
+```tsx
+<Changelog {...Changelog.PreviewProps} />
+```
+
 ## Examples
 
 ### Muted Left
@@ -52,44 +92,6 @@ description: "Marketing timelines variant for email templates"
   name="changelog-demo"
   variant="accent-right"
 />
-
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/changelog
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/timelines/changelog.tsx"
-    base="react-email"
-    title="components/emails/marketing/timelines/changelog.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { Changelog } from "@/components/emails/marketing/timelines/changelog";
-```
-
-```tsx
-<Changelog {...Changelog.PreviewProps} />
-```
 
 ## API Reference
 

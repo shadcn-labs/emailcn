@@ -49,12 +49,11 @@ const defaults = {
     { href: "https://youtube.com", label: "YouTube" },
     { href: "https://instagram.com", label: "Instagram" },
   ],
-  copyright: "© 2026 Mailviews. No longer want to receive emails?",
+  copyright: "© 2026 emailcn. No longer want to receive emails?",
   headingColor: "#030712",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   mutedTextColor: "#9ca3af",
   pageBackgroundColor: "#f1f5f9",
   quickLinks: [

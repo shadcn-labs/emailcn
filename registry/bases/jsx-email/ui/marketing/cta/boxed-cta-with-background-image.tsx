@@ -84,7 +84,7 @@ const variantStyles = {
 
 const defaultSectionStyles = {
   backgroundImageSrc:
-    "https://assets.mailviews.com/images/components/cta/cta-bg-glow.png",
+    "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-glow.png",
   buttonBackgroundColor: "#4f46e5",
   buttonTextColor: "#f8fafc",
   ctaHref: "https://example.com/",

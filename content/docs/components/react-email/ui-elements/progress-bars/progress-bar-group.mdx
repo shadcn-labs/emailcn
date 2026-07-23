@@ -1,6 +1,6 @@
 ---
 title: "Progress Bar Group"
-description: "Mailviews-compatible progress bar component for email templates"
+description: "email-compatible progress bar component for email templates"
 ---
 
 <ComponentPreview base="react-email" name="progress-bar-group-demo" />
@@ -126,10 +126,10 @@ import { ProgressBarGroup } from "@/components/emails/ui-elements/progress-bars/
 
 ## API Reference
 
-| Prop          | Type                         | Default                 | Description                                  |
-| ------------- | ---------------------------- | ----------------------- | -------------------------------------------- |
-| `description` | `string`                     | FlowSync description    | Supporting copy used by text variants        |
-| `items`       | `readonly ProgressBarItem[]` | Mailviews example items | Vertical progress items                      |
-| `theme`       | `EmailTheme`                 | `defaultTheme`          | Email theme configuration                    |
-| `title`       | `string`                     | `FlowSync`              | Group heading                                |
-| `variant`     | `ProgressBarPaddedVariant`   | `text-top`              | Selects content order and horizontal padding |
+| Prop          | Type                         | Default              | Description                                  |
+| ------------- | ---------------------------- | -------------------- | -------------------------------------------- |
+| `description` | `string`                     | FlowSync description | Supporting copy used by text variants        |
+| `items`       | `readonly ProgressBarItem[]` | example items        | Vertical progress items                      |
+| `theme`       | `EmailTheme`                 | `defaultTheme`       | Email theme configuration                    |
+| `title`       | `string`                     | `FlowSync`           | Group heading                                |
+| `variant`     | `ProgressBarPaddedVariant`   | `text-top`           | Selects content order and horizontal padding |

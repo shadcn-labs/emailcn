@@ -58,7 +58,7 @@ const SocialLinks = ({
                 <a href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <img
                     alt=""
-                    src={`https://assets.mailviews.com/images/components/icon-${icon}-${suffix}.png`}
+                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
                     width="16"
                   />
                 </a>
@@ -221,8 +221,8 @@ const DetailsCard = ({
 export const TwoColumnTeamCardsWithDetailsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://assets.mailviews.com/images/components/teams/member-1-lg.jpg",
-  avatarSrc2 = "https://assets.mailviews.com/images/components/teams/member-2-lg.jpg",
+  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-lg.jpg",
+  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-lg.jpg",
   bio1 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
   bio2 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
   email1 = "jadam@example.com",

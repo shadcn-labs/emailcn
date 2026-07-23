@@ -72,33 +72,33 @@ const responsiveStyles = `
 const variantContent = {
   "portrait-images": {
     imageSrc1:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait.jpg",
     imageSrc2:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-2.jpg",
     overlay: false,
     portrait: true,
   },
   "portrait-overlay": {
     imageSrc1:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait.jpg",
     imageSrc2:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-2.jpg",
     overlay: true,
     portrait: true,
   },
   "square-images": {
     imageSrc1:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-square.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square.jpg",
     imageSrc2:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-square-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square-2.jpg",
     overlay: false,
     portrait: false,
   },
   "square-overlay": {
     imageSrc1:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-square.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square.jpg",
     imageSrc2:
-      "https://assets.mailviews.com/images/components/image-grids/2-col-square-2.jpg",
+      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square-2.jpg",
     overlay: true,
     portrait: false,
   },

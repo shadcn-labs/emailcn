@@ -51,7 +51,7 @@ const responsiveStyles = `
 
 const sharedDefaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
   buttonBackgroundColor: "#030712",
   buttonColor: "#fffffe",
   buttonHref: "https://example.com",
@@ -68,11 +68,10 @@ const sharedDefaults = {
 
 const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
   centered:
-    "https://assets.mailviews.com/images/components/coupons/bg-image-6.jpg",
+    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-6.jpg",
   "code-bottom":
-    "https://assets.mailviews.com/images/components/coupons/bg-image-4.jpg",
-  split:
-    "https://assets.mailviews.com/images/components/coupons/bg-image-5.jpg",
+    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-4.jpg",
+  split: "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-5.jpg",
 };
 
 type SectionProps = Omit<CouponsWithContentOverlayedProps, "theme">;

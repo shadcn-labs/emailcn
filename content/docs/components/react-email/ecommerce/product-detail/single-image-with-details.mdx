@@ -1,9 +1,50 @@
 ---
 title: "Single Image Product Detail with Details"
-description: "Single Image Product Detail with Details with every Mailviews layout variant."
+description: "Single Image Product Detail with Details with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+<ComponentPreview base="react-email" name="single-image-product-detail-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/single-image-product-detail-with-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SingleImageProductDetail } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
+```
+
+```tsx
+<SingleImageProductDetail
+  {...SingleImageProductDetail.PreviewProps}
+  variant="rating-bottom"
+/>
+```
 
 ## Examples
 
@@ -47,50 +88,9 @@ This public component matches the corresponding Mailviews family. Its placement 
   variant="rating-aside-top"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/single-image-product-detail-with-details
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
-    base="react-email"
-    title="components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { SingleImageProductDetail } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
-```
-
-```tsx
-<SingleImageProductDetail
-  {...SingleImageProductDetail.PreviewProps}
-  variant="rating-bottom"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                      | Default           | Description              |
-| --------- | ----------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
-| `variant` | `"rating-bottom" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"rating-bottom"` | Mailviews layout variant |
-| `theme`   | `TailwindConfig`                                                                          | `defaultTheme`    | Email theme styling      |
+| Prop      | Type                                                                                      | Default           | Description         |
+| --------- | ----------------------------------------------------------------------------------------- | ----------------- | ------------------- |
+| `variant` | `"rating-bottom" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"rating-bottom"` | layout variant      |
+| `theme`   | `TailwindConfig`                                                                          | `defaultTheme`    | Email theme styling |

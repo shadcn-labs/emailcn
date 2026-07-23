@@ -3,6 +3,52 @@ title: "Changelog"
 description: "Marketing timelines variant for email templates"
 ---
 
+<ComponentPreview base="mjml-react" name="changelog-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/changelog
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/timelines/changelog.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/timelines/changelog.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Changelog } from "@/components/emails/marketing/timelines/changelog";
+```
+
+```tsx
+<Changelog {...Changelog.PreviewProps} />
+```
+
 ## Examples
 
 ### Muted Left
@@ -52,50 +98,6 @@ description: "Marketing timelines variant for email templates"
   name="changelog-demo"
   variant="accent-right"
 />
-
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/changelog
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/marketing/timelines/changelog.tsx"
-    base="mjml-react"
-    title="components/emails/marketing/timelines/changelog.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { Changelog } from "@/components/emails/marketing/timelines/changelog";
-```
-
-```tsx
-<Changelog {...Changelog.PreviewProps} />
-```
 
 ## API Reference
 

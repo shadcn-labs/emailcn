@@ -45,7 +45,7 @@ const stackedItems: LabeledSocialItem[] = [
   alt: label,
   href: "https://example.com",
   label,
-  src: `https://assets.mailviews.com/images/components/social/${file}`,
+  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
 }));
 
 const inlineItems: LabeledSocialItem[] = [
@@ -57,7 +57,7 @@ const inlineItems: LabeledSocialItem[] = [
   alt: label,
   href: "https://example.com",
   label,
-  src: `https://assets.mailviews.com/images/components/social/${file}`,
+  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
 }));
 
 export const SocialsWithLabelsSection = ({

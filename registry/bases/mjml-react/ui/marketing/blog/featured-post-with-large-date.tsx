@@ -19,7 +19,7 @@ export const FeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   month = "MAR",
   title = "Featured article",
 }: Omit<FeaturedPostWithLargeDateProps, "theme">) => {
@@ -46,7 +46,7 @@ export const FeaturedPostWithLargeDate = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   month = "MAR",
   title = "Featured article",
 }: FeaturedPostWithLargeDateProps) => (
@@ -67,7 +67,7 @@ FeaturedPostWithLargeDate.PreviewProps = {
   excerpt: "A compelling excerpt from the featured article.",
   imageAlt: "Editorial feature",
   imageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   month: "MAR",
   theme: defaultTheme,
   title: "Featured article",

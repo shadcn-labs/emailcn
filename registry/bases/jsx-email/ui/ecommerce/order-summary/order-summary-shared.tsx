@@ -136,7 +136,7 @@ const CardMethod = () => (
         <td>
           <img
             alt=""
-            src="https://assets.mailviews.com/images/components/icon-card-visa.png"
+            src="https://emailcn.vercel.app/api/email-assets/icon-card-visa.png"
             style={{ maxWidth: "100%", verticalAlign: "middle" }}
             width="40"
           />
@@ -689,7 +689,7 @@ const FedExShipping = () => (
     <div>
       <img
         alt="FedEx"
-        src="https://assets.mailviews.com/images/components/order-summary/logo-fedex.png"
+        src="https://emailcn.vercel.app/api/email-assets/order-summary/logo-fedex.png"
         width="78"
       />
     </div>

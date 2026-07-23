@@ -64,21 +64,21 @@ DataTableLogosActions.PreviewProps = {
       actionHref: "#slack",
       actionLabel: "Configure",
       logoUrl:
-        "https://assets.mailviews.com/images/components/logos/logo-stripe.png",
+        "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
       name: "Stripe",
     },
     {
       actionHref: "#notion",
       actionLabel: "Connect",
       logoUrl:
-        "https://assets.mailviews.com/images/components/logos/logo-apple-pay.png",
+        "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
       name: "Apple Pay",
     },
     {
       actionHref: "#figma",
       actionLabel: "Sync",
       logoUrl:
-        "https://assets.mailviews.com/images/components/logos/logo-mastercard.png",
+        "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
       name: "Mastercard",
     },
   ],

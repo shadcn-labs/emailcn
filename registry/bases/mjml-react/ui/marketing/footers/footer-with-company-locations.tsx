@@ -135,7 +135,7 @@ const SocialLinks = () => (
             <a href={href}>
               <img
                 alt={label}
-                src={`https://assets.mailviews.com/images/components/${icon}`}
+                src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
@@ -150,7 +150,7 @@ const SocialLinks = () => (
 export const FooterWithCompanyLocationsSection = ({
   variant = "stacked",
   locations,
-  logoSrc = "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   logoAlt = "Maizzle",
   logoHref = "https://example.com",
   pageBackgroundColor = "#f1f5f9",
@@ -385,7 +385,7 @@ export const FooterWithCompanyLocationsSection = ({
                         textAlign: variant === "stacked" ? "center" : "left",
                       }}
                     >
-                      © 2026 Mailviews. All rights reserved.
+                      © 2026 emailcn. All rights reserved.
                     </p>
                     <div style={{ lineHeight: "24px" }}>&zwj;</div>
                     <p

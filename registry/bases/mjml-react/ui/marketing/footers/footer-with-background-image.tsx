@@ -155,7 +155,7 @@ const Socials = ({ dark = false }: { dark?: boolean }) => (
             <a href={href}>
               <img
                 alt={label}
-                src={`https://assets.mailviews.com/images/components/icon-${icon}${dark ? "-dark" : ""}.png`}
+                src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}${dark ? "-dark" : ""}.png`}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
@@ -186,7 +186,7 @@ const ShortLegal = ({
       textAlign: centered ? "center" : "left",
     }}
   >
-    © 2026 Mailviews. No longer want to receive emails?{" "}
+    © 2026 emailcn. No longer want to receive emails?{" "}
     <a
       href={unsubscribeHref}
       style={{ color: textColor, textDecoration: "underline" }}
@@ -217,9 +217,9 @@ const AddressLegal = ({
         margin: 0,
       }}
     >
-      © 2026 Mailviews
+      © 2026 emailcn
       <br />
-      Mailviews&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505 Paris
+      emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505 Paris
     </p>
     <div style={{ lineHeight: "36px" }}>&zwj;</div>
     <p
@@ -371,7 +371,7 @@ const ImageCta = ({
                     Visit website&nbsp;&nbsp;
                     <img
                       alt=""
-                      src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+                      src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
                       style={{ maxWidth: "100%", verticalAlign: "baseline" }}
                       width={12}
                     />
@@ -674,9 +674,9 @@ const TopImageFooterContent = ({
 export const FooterWithBackgroundImageSection = ({
   variant = "bottom-image-content",
   logoPosition = "left",
-  bottomImageSrc = "https://assets.mailviews.com/images/components/footers/bg-image-1.jpg",
-  topImageSrc = "https://assets.mailviews.com/images/components/footers/bg-image-2.jpg",
-  logoSrc = "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  bottomImageSrc = "https://emailcn.vercel.app/api/email-assets/footers/bg-image-1.jpg",
+  topImageSrc = "https://emailcn.vercel.app/api/email-assets/footers/bg-image-2.jpg",
+  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
   primaryColor = "#4f46e5",

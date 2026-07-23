@@ -35,8 +35,7 @@ export const AvatarWithDetails = ({
 
 AvatarWithDetails.PreviewProps = {
   align: "center",
-  avatarUrl:
-    "https://assets.mailviews.com/images/components/reviews/avatar-2.jpg",
+  avatarUrl: "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
   email: "johnadams@example.com",
   name: "John Adams",
   theme: defaultTheme,

@@ -58,27 +58,27 @@ const responsiveStyles = `
 const defaultLogos = [
   {
     alt: "Stripe",
-    src: "https://assets.mailviews.com/images/components/logos/logo-stripe.png",
+    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
     width: 57,
   },
   {
     alt: "Apple Pay",
-    src: "https://assets.mailviews.com/images/components/logos/logo-apple-pay.png",
+    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
     width: 60,
   },
   {
     alt: "Mastercard",
-    src: "https://assets.mailviews.com/images/components/logos/logo-mastercard.png",
+    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
     width: 40,
   },
   {
     alt: "Visa",
-    src: "https://assets.mailviews.com/images/components/logos/logo-visa.png",
+    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
     width: 50,
   },
   {
     alt: "Klarna",
-    src: "https://assets.mailviews.com/images/components/logos/logo-klarna.png",
+    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-klarna.png",
     width: 70,
   },
 ];

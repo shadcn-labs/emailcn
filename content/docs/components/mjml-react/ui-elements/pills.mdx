@@ -1,14 +1,7 @@
 ---
 title: "Pills"
-description: "Exact Mailviews status pills for labels, categories, and state indicators."
+description: "Status pills for labels, categories, and state indicators."
 ---
-
-The `BasicPillsStatusColors` component renders the complete Mailviews status
-set while allowing custom pill labels and colors through the `pills` prop.
-
-## Examples
-
-### Basic Pills with Status Colors
 
 <ComponentPreview base="mjml-react" name="basic-pills-status-colors-demo" />
 
@@ -59,9 +52,15 @@ import { BasicPillsStatusColors } from "@/components/emails/ui-elements/pills/ba
 <BasicPillsStatusColors {...BasicPillsStatusColors.PreviewProps} />
 ```
 
+## Examples
+
+### Basic Pills with Status Colors
+
+<ComponentPreview base="mjml-react" name="basic-pills-status-colors-demo" />
+
 ## API Reference
 
 | Prop    | Type                                                                                                | Default        | Description                         |
 | ------- | --------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
-| `pills` | `{ label: string; variant: "default" \| "success" \| "error" \| "warning" \| "info" \| "brand" }[]` | Mailviews set  | Pill labels and status color styles |
+| `pills` | `{ label: string; variant: "default" \| "success" \| "error" \| "warning" \| "info" \| "brand" }[]` | set            | Pill labels and status color styles |
 | `theme` | `EmailThemeTokens`                                                                                  | `defaultTheme` | Email theme and container width     |

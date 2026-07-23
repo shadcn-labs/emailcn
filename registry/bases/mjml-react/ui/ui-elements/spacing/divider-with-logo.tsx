@@ -50,8 +50,8 @@ export const DividerWithLogo = ({
 );
 
 DividerWithLogo.PreviewProps = {
-  logoAlt: "Mailviews",
-  logoSrc: "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  logoAlt: "emailcn",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerWithLogoProps;

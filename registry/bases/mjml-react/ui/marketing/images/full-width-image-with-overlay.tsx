@@ -287,7 +287,7 @@ const OverlayImage = ({
 );
 
 export const FullWidthImageWithOverlaySection = ({
-  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width-2.jpg",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-2.jpg",
   heading = "Nike",
   subtext = "Shoes and accessories",
   headingColor = "#fffffe",

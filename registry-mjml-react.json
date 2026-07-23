@@ -2054,7 +2054,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Mailviews full-menu footers with oversized-logo and bordered variants",
+      "description": "full-menu footers with oversized-logo and bordered variants",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-full-menu.tsx",
@@ -2077,7 +2077,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Mailviews company-locations footer with stacked and grid variants",
+      "description": "company-locations footer with stacked and grid variants",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-company-locations.tsx",
@@ -2100,7 +2100,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Mailviews two-column menu footer with divider and mirrored logo variants",
+      "description": "two-column menu footer with divider and mirrored logo variants",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-2-column-menu-and-divider.tsx",
@@ -2123,7 +2123,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Mailviews footer with menu, full-width CTA, socials, and legal content",
+      "description": "footer with menu, full-width CTA, socials, and legal content",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-menu-and-full-width-cta.tsx",
@@ -2146,7 +2146,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Mailviews app-store footer with centered, two-column, and title variants",
+      "description": "app-store footer with centered, two-column, and title variants",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-app-store-buttons.tsx",
@@ -2169,7 +2169,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Mailviews footer with large title, paired buttons, assistance, and legal content",
+      "description": "footer with large title, paired buttons, assistance, and legal content",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-large-title-and-buttons.tsx",
@@ -2192,7 +2192,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Nine Mailviews background-image footer families consolidated into layout variants",
+      "description": "Nine background-image footer families consolidated into layout variants",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-background-image.tsx",
@@ -2215,7 +2215,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Seven Mailviews overlapped-CTA footer families consolidated into layout variants",
+      "description": "Seven overlapped-CTA footer families consolidated into layout variants",
       "files": [
         {
           "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-overlapped-cta.tsx",

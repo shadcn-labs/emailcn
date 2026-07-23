@@ -104,7 +104,7 @@ const ShopButton = ({ label, href }: { href: string; label: string }) => (
     <span style={{ marginRight: "8px" }}>{label}</span>
     <img
       alt=""
-      src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+      src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
       style={{ maxWidth: "100%", verticalAlign: "baseline" }}
       width="12"
     />
@@ -218,8 +218,8 @@ export const CategoryPreviewCardsSection = ({
   description1 = "Soft, breathable, and effortlessly stylish. Made for comfort and everyday wear with a clean, minimal edge.",
   description2 = "Designed for comfort and movement with a refined fit and modern silhouette — your go-to for everyday versatility.",
   heading = "Our products",
-  imageSrc1 = "https://assets.mailviews.com/images/components/category-previews/landscape-1.jpg",
-  imageSrc2 = "https://assets.mailviews.com/images/components/category-previews/landscape-2.jpg",
+  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/category-previews/landscape-1.jpg",
+  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/category-previews/landscape-2.jpg",
   intro = "Style meets purpose in every piece. Designed with attention to detail and built for everyday comfort, our collection brings together modern design, timeless quality, and effortlessness.",
   name1 = "Sweatshirts",
   name2 = "Pants",

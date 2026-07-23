@@ -48,7 +48,7 @@ const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
     {checked ? (
       <img
         alt=""
-        src="https://assets.mailviews.com/images/components/timelines/icon-check-white.png"
+        src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check-white.png"
         style={{ marginBottom: "1px" }}
         width="8"
       />

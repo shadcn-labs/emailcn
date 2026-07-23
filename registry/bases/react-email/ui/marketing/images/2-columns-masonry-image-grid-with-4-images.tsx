@@ -91,7 +91,7 @@ const defaults = {
   featureImageAlt: "",
   featureImageHref: "https://example.com",
   featureImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/full-width-3.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-3.jpg",
   featureSubtext: "Pants and shirts",
   headingColor: "#fffffe",
   landscapeHeading1: "Reckless",
@@ -101,9 +101,9 @@ const defaults = {
   landscapeImageHref1: "https://example.com",
   landscapeImageHref2: "https://example.com",
   landscapeImageSrc1:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
   landscapeImageSrc2:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-2.jpg",
   landscapeSubtext1: "Accessories",
   landscapeSubtext2: "Shoes and accessories",
   pageBackgroundColor: "#f1f5f9",
@@ -111,7 +111,7 @@ const defaults = {
   portraitImageAlt: "",
   portraitImageHref: "https://example.com",
   portraitImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-portrait-3.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-3.jpg",
   portraitSubtext: "T-shirts and sweats",
   textColor: "#fffffe",
 };

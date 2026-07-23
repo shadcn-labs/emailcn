@@ -71,11 +71,11 @@ const defaultSectionStyles = {
   imageHref2: "https://example.com",
   imageHref3: "https://example.com",
   imageSrc1:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-5.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-5.jpg",
   imageSrc2:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-6.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-6.jpg",
   imageSrc3:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-portrait-4.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-4.jpg",
   pageBackgroundColor: "#f1f5f9",
   subtext1: "Eco-Friendly",
   subtext2: "Sport & Travel",

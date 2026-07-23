@@ -1,7 +1,45 @@
 ---
 title: "Grid Stats"
-description: "Mailviews grid stats treatments with their real layout variants"
+description: "grid stats treatments with their real layout variants"
 ---
+
+<ComponentPreview base="jsx-email" name="simple-grid-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/stats/grid-stats.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/stats/grid-stats.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridStats } from "@/components/emails/marketing/stats/grid-stats";
+
+<GridStats variant="accent-column" layout="bento" />;
+```
 
 ## Examples
 
@@ -105,46 +143,10 @@ description: "Mailviews grid stats treatments with their real layout variants"
   layout="bento-reversed"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/grid-stats
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/stats/grid-stats.tsx"
-    base="jsx-email"
-    title="components/emails/marketing/stats/grid-stats.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { GridStats } from "@/components/emails/marketing/stats/grid-stats";
-
-<GridStats variant="accent-column" layout="bento" />;
-```
-
 ## API Reference
 
 | Prop      | Type                                                                 | Default           | Description                      |
 | --------- | -------------------------------------------------------------------- | ----------------- | -------------------------------- |
-| `variant` | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent-column"` | `"boxed"`         | Mailviews visual treatment       |
+| `variant` | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent-column"` | `"boxed"`         | visual treatment                 |
 | `layout`  | `"three-columns" \| "bento" \| "bento-reversed"`                     | `"three-columns"` | Layout used by styled treatments |
 | `theme`   | `EmailThemeTokens`                                                   | `defaultTheme`    | Email theme styling              |

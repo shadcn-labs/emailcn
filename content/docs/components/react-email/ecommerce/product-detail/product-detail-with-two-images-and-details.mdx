@@ -1,9 +1,50 @@
 ---
 title: "Product Detail with Two Images and Details"
-description: "Product Detail with Two Images and Details with every Mailviews layout variant."
+description: "Product Detail with Two Images and Details with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+<ComponentPreview base="react-email" name="product-detail-two-images-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-detail-with-two-images-and-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductDetailTwoImages } from "@/components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details";
+```
+
+```tsx
+<ProductDetailTwoImages
+  {...ProductDetailTwoImages.PreviewProps}
+  variant="rating-bottom"
+/>
+```
 
 ## Examples
 
@@ -47,50 +88,9 @@ This public component matches the corresponding Mailviews family. Its placement 
   variant="rating-aside-top"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/product-detail-with-two-images-and-details
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx"
-    base="react-email"
-    title="components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { ProductDetailTwoImages } from "@/components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details";
-```
-
-```tsx
-<ProductDetailTwoImages
-  {...ProductDetailTwoImages.PreviewProps}
-  variant="rating-bottom"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                      | Default           | Description              |
-| --------- | ----------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
-| `variant` | `"rating-bottom" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"rating-bottom"` | Mailviews layout variant |
-| `theme`   | `TailwindConfig`                                                                          | `defaultTheme`    | Email theme styling      |
+| Prop      | Type                                                                                      | Default           | Description         |
+| --------- | ----------------------------------------------------------------------------------------- | ----------------- | ------------------- |
+| `variant` | `"rating-bottom" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"rating-bottom"` | layout variant      |
+| `theme`   | `TailwindConfig`                                                                          | `defaultTheme`    | Email theme styling |

@@ -57,7 +57,7 @@ const responsiveStyles = `
 
 const defaults = {
   arrowIconSrc:
-    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
   backgroundColor: "#fffffe",
   body: "Discover clinically proven formulas designed to target concerns with precision and clarity.",
   buttonHref: "https://example.com",
@@ -66,14 +66,14 @@ const defaults = {
   headingColor: "#030712",
   imageBackgroundColor: "#f3f4f6",
   imageSrc1:
-    "https://assets.mailviews.com/images/components/feature/stripes-bg-4.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-4.jpg",
   imageSrc2:
-    "https://assets.mailviews.com/images/components/feature/stripes-bg-5.jpg",
+    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-5.jpg",
   linkColor: "#4f46e5",
   logoAlt: "Monarch",
   logoBackgroundColor: "#f3f4f6",
   logoSrc:
-    "https://assets.mailviews.com/images/components/feature/logo-stripes-2.png",
+    "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-2.png",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };

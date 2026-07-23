@@ -3,7 +3,45 @@ title: "Changelog Boxed"
 description: "Marketing timelines variant for email templates"
 ---
 
-`ChangelogBoxed` is the compatibility entry point for `Changelog` with `layout="boxed"`.
+<ComponentPreview base="react-email" name="changelog-boxed-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/changelog-boxed
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/timelines/changelog-boxed.tsx"
+    base="react-email"
+    title="components/emails/marketing/timelines/changelog-boxed.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ChangelogBoxed } from "@/components/emails/marketing/timelines/changelog-boxed";
+```
+
+```tsx
+<ChangelogBoxed {...ChangelogBoxed.PreviewProps} />
+```
 
 ## Examples
 
@@ -54,44 +92,6 @@ description: "Marketing timelines variant for email templates"
   name="changelog-boxed-demo"
   variant="accent-right"
 />
-
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/changelog-boxed
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/timelines/changelog-boxed.tsx"
-    base="react-email"
-    title="components/emails/marketing/timelines/changelog-boxed.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { ChangelogBoxed } from "@/components/emails/marketing/timelines/changelog-boxed";
-```
-
-```tsx
-<ChangelogBoxed {...ChangelogBoxed.PreviewProps} />
-```
 
 ## API Reference
 

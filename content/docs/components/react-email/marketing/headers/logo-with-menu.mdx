@@ -1,9 +1,50 @@
 ---
 title: "Logo with Menu"
-description: "All six Mailviews logo-and-menu header layouts"
+description: "All six logo-and-menu header layouts"
 ---
 
-All Mailviews menu placements are variants of one component.
+<ComponentPreview base="react-email" name="header-with-logo-and-menu-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo-and-menu
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu.tsx"
+    base="react-email"
+    title="components/emails/marketing/headers/header-with-logo-and-menu.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndMenu } from "@/components/emails/marketing/headers/header-with-logo-and-menu";
+```
+
+```tsx
+<HeaderWithLogoAndMenu
+  {...HeaderWithLogoAndMenu.PreviewProps}
+  variant="menu-around"
+/>
+```
 
 ## Examples
 
@@ -61,50 +102,9 @@ All Mailviews menu placements are variants of one component.
   hideCode
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/header-with-logo-and-menu
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu.tsx"
-    base="react-email"
-    title="components/emails/marketing/headers/header-with-logo-and-menu.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { HeaderWithLogoAndMenu } from "@/components/emails/marketing/headers/header-with-logo-and-menu";
-```
-
-```tsx
-<HeaderWithLogoAndMenu
-  {...HeaderWithLogoAndMenu.PreviewProps}
-  variant="menu-around"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                           | Default        | Description                       |
-| --------- | ------------------------------ | -------------- | --------------------------------- |
-| `variant` | `HeaderWithLogoAndMenuVariant` | `"menu-right"` | Selects the Mailviews menu layout |
-| `theme`   | Renderer theme                 | `defaultTheme` | Renderer theme configuration      |
+| Prop      | Type                           | Default        | Description                  |
+| --------- | ------------------------------ | -------------- | ---------------------------- |
+| `variant` | `HeaderWithLogoAndMenuVariant` | `"menu-right"` | Selects the menu layout      |
+| `theme`   | Renderer theme                 | `defaultTheme` | Renderer theme configuration |

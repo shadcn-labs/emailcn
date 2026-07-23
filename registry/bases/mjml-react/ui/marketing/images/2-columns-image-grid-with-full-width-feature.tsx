@@ -79,7 +79,7 @@ const defaults = {
   featureImageAlt: "",
   featureImageHref: "https://example.com",
   featureImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/full-width-4.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-4.jpg",
   featureSubtext: "Wood / Upholstered Seat",
   headingColor: "#fffffe",
   imageAlt1: "",
@@ -89,9 +89,9 @@ const defaults = {
   imageHref1: "https://example.com",
   imageHref2: "https://example.com",
   imageSrc1:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-3.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-3.jpg",
   imageSrc2:
-    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-4.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-4.jpg",
   imageSubtext1: "Velvet / Solid Wood Frame",
   imageSubtext2: "Curved Wood / Fabric Seat",
   pageBackgroundColor: "#f1f5f9",

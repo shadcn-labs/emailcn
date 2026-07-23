@@ -48,13 +48,12 @@ const responsiveStyles = [
 
 const defaults = {
   backgroundColor: "#fffffe",
-  copyright: "© 2026 Mailviews. No longer want to receive emails?",
+  copyright: "© 2026 emailcn. No longer want to receive emails?",
   description:
     "Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed.",
   headingColor: "#030712",
   logoAlt: "Maizzle",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   mutedTextColor: "#9ca3af",
   pageBackgroundColor: "#f1f5f9",
   quickLinks: [
@@ -66,30 +65,27 @@ const defaults = {
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-facebook.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://assets.mailviews.com/images/components/icon-github.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-linkedin.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-youtube.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
       label: "YouTube",
     },
     {
       href: "https://x.com",
-      iconSrc: "https://assets.mailviews.com/images/components/icon-x.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
       label: "X",
     },
   ],

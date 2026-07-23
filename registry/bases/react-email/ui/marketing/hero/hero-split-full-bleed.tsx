@@ -238,7 +238,7 @@ const HeroTextColumn = ({
         <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
         <Img
           alt=""
-          src="https://assets.mailviews.com/images/components/icon-arrow-right.png"
+          src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
           width="12"
           style={{
             display: "inline-block",
@@ -290,9 +290,9 @@ export const HeroSplitFullBleed = ({
   eyebrow = "Coffee",
   heading = "Sarina",
   imageAlt = "Sarina coffee bottle",
-  imageSrc = "https://assets.mailviews.com/images/components/hero/split-full-bleed-bg.jpg",
-  logoAlt = "Mailviews",
-  logoSrc = "https://assets.mailviews.com/images/components/mailviews-logo.png",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/hero/split-full-bleed-bg.jpg",
+  logoAlt = "emailcn",
+  logoSrc = "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
   pageBackgroundColor = "#f1f5f9",
   price = "From $14.99",
   subheading = "Americano Grape Fruit",
@@ -357,9 +357,9 @@ HeroSplitFullBleed.PreviewProps = {
   heading: "Sarina",
   imageAlt: "Sarina coffee bottle",
   imageSrc:
-    "https://assets.mailviews.com/images/components/hero/split-full-bleed-bg.jpg",
-  logoAlt: "Mailviews",
-  logoSrc: "https://assets.mailviews.com/images/components/mailviews-logo.png",
+    "https://emailcn.vercel.app/api/email-assets/hero/split-full-bleed-bg.jpg",
+  logoAlt: "emailcn",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
   pageBackgroundColor: "#f1f5f9",
   price: "From $14.99",
   subheading: "Americano Grape Fruit",

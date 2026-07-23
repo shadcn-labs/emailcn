@@ -43,7 +43,7 @@ export interface HeroWithSlantedSplitProps {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-const assetRoot = "https://assets.mailviews.com/images/components";
+const assetRoot = "https://emailcn.vercel.app/api/email-assets";
 
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
@@ -101,9 +101,9 @@ export const HeroWithSlantedSplitSection = ({
   imageAlt = "Independent publishing photography",
   imageBackgroundColor = "#030712",
   imageSrc = `${assetRoot}/hero/split-slanted-bg.jpg`,
-  logoAlt = "Mailviews",
+  logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
   pageBackgroundColor = "#f1f5f9",
   subheading = "January Edition",
   textColor = "#030712",

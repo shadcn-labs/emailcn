@@ -3,7 +3,45 @@ title: "Stacked Timeline"
 description: "Marketing timelines variant for email templates"
 ---
 
-One `StackedTimeline` component covers both Mailviews families. Use `layout="line"` or `layout="boxed"`, then select the visual state with `variant`.
+<ComponentPreview base="react-email" name="stacked-timeline-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/stacked-timeline
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/timelines/stacked-timeline.tsx"
+    base="react-email"
+    title="components/emails/marketing/timelines/stacked-timeline.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked-timeline";
+```
+
+```tsx
+<StackedTimeline {...StackedTimeline.PreviewProps} layout="boxed" />
+```
 
 ## Examples
 
@@ -103,48 +141,10 @@ One `StackedTimeline` component covers both Mailviews families. Use `layout="lin
   variant="accent-right"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/stacked-timeline
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/timelines/stacked-timeline.tsx"
-    base="react-email"
-    title="components/emails/marketing/timelines/stacked-timeline.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { StackedTimeline } from "@/components/emails/marketing/timelines/stacked-timeline";
-```
-
-```tsx
-<StackedTimeline {...StackedTimeline.PreviewProps} layout="boxed" />
-```
-
 ## API Reference
 
 | Prop      | Type                                                                                                                                         | Default        | Description                |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------- |
-| `layout`  | `"line" \| "boxed"`                                                                                                                          | `"line"`       | Mailviews timeline family  |
+| `layout`  | `"line" \| "boxed"`                                                                                                                          | `"line"`       | timeline family            |
 | `variant` | `"muted-left" \| "muted-right" \| "basic-left" \| "basic-right" \| "completed-left" \| "completed-right" \| "accent-left" \| "accent-right"` | `"muted-left"` | Layout state and alignment |
 | `theme`   | `TailwindConfig`                                                                                                                             | `defaultTheme` | Email theme styling        |

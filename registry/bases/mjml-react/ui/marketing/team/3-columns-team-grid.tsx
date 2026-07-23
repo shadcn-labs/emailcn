@@ -96,7 +96,7 @@ const SocialLinks = ({
                 <a href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <img
                     alt=""
-                    src={`https://assets.mailviews.com/images/components/icon-${icon}-${suffix}.png`}
+                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
                     width="16"
                   />
                 </a>
@@ -257,13 +257,13 @@ export const ThreeColumnsTeamGridSection = ({
   avatarAlt4 = "",
   avatarAlt5 = "",
   avatarAlt6 = "",
-  avatarSrc1 = "https://assets.mailviews.com/images/components/teams/member-1.jpg",
-  avatarSrc2 = "https://assets.mailviews.com/images/components/teams/member-2.jpg",
-  avatarSrc3 = "https://assets.mailviews.com/images/components/teams/member-3.jpg",
-  avatarSrc4 = "https://assets.mailviews.com/images/components/teams/member-4.jpg",
-  avatarSrc5 = "https://assets.mailviews.com/images/components/teams/member-5.jpg",
-  avatarSrc6 = "https://assets.mailviews.com/images/components/teams/member-6.jpg",
-  heroImageSrc = "https://assets.mailviews.com/images/components/teams/hero.jpg",
+  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1.jpg",
+  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2.jpg",
+  avatarSrc3 = "https://emailcn.vercel.app/api/email-assets/teams/member-3.jpg",
+  avatarSrc4 = "https://emailcn.vercel.app/api/email-assets/teams/member-4.jpg",
+  avatarSrc5 = "https://emailcn.vercel.app/api/email-assets/teams/member-5.jpg",
+  avatarSrc6 = "https://emailcn.vercel.app/api/email-assets/teams/member-6.jpg",
+  heroImageSrc = "https://emailcn.vercel.app/api/email-assets/teams/hero.jpg",
   name1 = "Jason Adam",
   name2 = "Henrik Petersson",
   name3 = "Ella Roustek",

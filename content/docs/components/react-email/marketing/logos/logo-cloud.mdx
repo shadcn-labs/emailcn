@@ -1,9 +1,47 @@
 ---
 title: "Logo Cloud"
-description: "Mailviews boxed and outlined logo clouds in every content arrangement"
+description: "boxed and outlined logo clouds in every content arrangement"
 ---
 
-One `LogoCloud` component covers the boxed and outlined Mailviews families. Use `tone` for the tile treatment and `variant` for the content arrangement.
+<ComponentPreview base="react-email" name="boxed-logo-cloud-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/logo-cloud.tsx"
+    base="react-email"
+    title="components/emails/marketing/logos/logo-cloud.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloud } from "@/components/emails/marketing/logos/logo-cloud";
+```
+
+```tsx
+<LogoCloud {...LogoCloud.PreviewProps} tone="outlined" variant="flush" />
+```
 
 ## Examples
 
@@ -97,48 +135,10 @@ One `LogoCloud` component covers the boxed and outlined Mailviews families. Use 
   hideCode
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/logo-cloud
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/marketing/logos/logo-cloud.tsx"
-    base="react-email"
-    title="components/emails/marketing/logos/logo-cloud.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { LogoCloud } from "@/components/emails/marketing/logos/logo-cloud";
-```
-
-```tsx
-<LogoCloud {...LogoCloud.PreviewProps} tone="outlined" variant="flush" />
-```
-
 ## API Reference
 
-| Prop      | Type               | Default        | Description                               |
-| --------- | ------------------ | -------------- | ----------------------------------------- |
-| `tone`    | `LogoCloudTone`    | `"boxed"`      | Selects boxed or outlined tiles           |
-| `variant` | `LogoCloudVariant` | `"full"`       | Selects the Mailviews content arrangement |
-| `theme`   | Renderer theme     | `defaultTheme` | Renderer theme configuration              |
+| Prop      | Type               | Default        | Description                     |
+| --------- | ------------------ | -------------- | ------------------------------- |
+| `tone`    | `LogoCloudTone`    | `"boxed"`      | Selects boxed or outlined tiles |
+| `variant` | `LogoCloudVariant` | `"full"`       | Selects the content arrangement |
+| `theme`   | Renderer theme     | `defaultTheme` | Renderer theme configuration    |

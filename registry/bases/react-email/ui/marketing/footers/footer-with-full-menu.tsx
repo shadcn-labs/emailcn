@@ -65,30 +65,27 @@ const defaults = {
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-facebook.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://assets.mailviews.com/images/components/icon-github.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-linkedin.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc:
-        "https://assets.mailviews.com/images/components/icon-youtube.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
       label: "YouTube",
     },
     {
       href: "https://x.com",
-      iconSrc: "https://assets.mailviews.com/images/components/icon-x.png",
+      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
       label: "X",
     },
   ],
@@ -199,8 +196,8 @@ const Address = ({ props }: { props: ResolvedProps }) => (
         margin: 0,
       }}
     >
-      © 2026 Mailviews
-      <br /> Mailviews&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
+      © 2026 emailcn
+      <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
       Paris
     </p>
     <div style={{ lineHeight: "36px" }}>&zwj;</div>
@@ -234,8 +231,8 @@ export const FooterWithFullMenuSection = (props: SectionProps) => {
     logoSrc:
       props.logoSrc ??
       (variant === "bordered"
-        ? "https://assets.mailviews.com/images/components/maizzle-insignia.png"
-        : "https://assets.mailviews.com/images/components/maizzle-insignia-lg.png"),
+        ? "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
+        : "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-lg.png"),
     variant,
   } as ResolvedProps;
   const bordered = variant === "bordered";

@@ -1,43 +1,9 @@
 ---
 title: "Order Summary with Billing Details and Payment Method Inline"
-description: "Order Summary with Billing Details and Payment Method Inline with every Mailviews layout variant."
+description: "Order Summary with Billing Details and Payment Method Inline with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
-
-## Examples
-
-### Basic
-
-<ComponentPreview
-  base="react-email"
-  name="order-summary-billing-inline-demo"
-  variant="basic"
-/>
-
-### Bordered
-
-<ComponentPreview
-  base="react-email"
-  name="order-summary-billing-inline-demo"
-  variant="bordered"
-/>
-
-### Basic with Notes
-
-<ComponentPreview
-  base="react-email"
-  name="order-summary-billing-inline-demo"
-  variant="basic-with-notes"
-/>
-
-### Bordered with Notes
-
-<ComponentPreview
-  base="react-email"
-  name="order-summary-billing-inline-demo"
-  variant="bordered-with-notes"
-/>
+<ComponentPreview base="react-email" name="order-summary-billing-inline-demo" />
 
 ## Installation
 
@@ -80,9 +46,43 @@ import { OrderSummaryBillingInline } from "@/components/emails/ecommerce/order-s
 />
 ```
 
+## Examples
+
+### Basic
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-inline-demo"
+  variant="basic"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-inline-demo"
+  variant="bordered"
+/>
+
+### Basic with Notes
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-inline-demo"
+  variant="basic-with-notes"
+/>
+
+### Bordered with Notes
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-inline-demo"
+  variant="bordered-with-notes"
+/>
+
 ## API Reference
 
-| Prop      | Type                                                                   | Default        | Description              |
-| --------- | ---------------------------------------------------------------------- | -------------- | ------------------------ |
-| `variant` | `"basic" \| "bordered" \| "basic-with-notes" \| "bordered-with-notes"` | `"basic"`      | Mailviews layout variant |
-| `theme`   | `TailwindConfig`                                                       | `defaultTheme` | Email theme styling      |
+| Prop      | Type                                                                   | Default        | Description         |
+| --------- | ---------------------------------------------------------------------- | -------------- | ------------------- |
+| `variant` | `"basic" \| "bordered" \| "basic-with-notes" \| "bordered-with-notes"` | `"basic"`      | layout variant      |
+| `theme`   | `TailwindConfig`                                                       | `defaultTheme` | Email theme styling |

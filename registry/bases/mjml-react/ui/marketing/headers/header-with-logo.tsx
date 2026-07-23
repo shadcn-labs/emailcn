@@ -48,8 +48,7 @@ const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   pageBackgroundColor: "#f1f5f9",
   text: "Medium, rare, but mostly well-done\nHTML email components.",
   textColor: "#030712",

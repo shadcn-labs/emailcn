@@ -1,7 +1,48 @@
 ---
 title: "Single Stat with Background Image"
-description: "Mailviews positioned single-stat family"
+description: "positioned single-stat family"
 ---
+
+<ComponentPreview
+  base="mjml-react"
+  name="single-stat-with-background-image-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/single-stat-with-background-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/stats/single-stat-with-background-image.tsx"
+    base="mjml-react"
+    title="components/emails/marketing/stats/single-stat-with-background-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SingleStatWithBackgroundImage } from "@/components/emails/marketing/stats/single-stat-with-background-image";
+
+<SingleStatWithBackgroundImage variant="top-left" />;
+```
 
 ## Examples
 
@@ -45,45 +86,9 @@ description: "Mailviews positioned single-stat family"
   variant="bottom-right"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/single-stat-with-background-image
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/marketing/stats/single-stat-with-background-image.tsx"
-    base="mjml-react"
-    title="components/emails/marketing/stats/single-stat-with-background-image.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { SingleStatWithBackgroundImage } from "@/components/emails/marketing/stats/single-stat-with-background-image";
-
-<SingleStatWithBackgroundImage variant="top-left" />;
-```
-
 ## API Reference
 
-| Prop      | Type                                                                         | Default        | Description              |
-| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------------ |
-| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling      |
+| Prop      | Type                                                                         | Default        | Description         |
+| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------- |
+| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | layout variant      |
+| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling |

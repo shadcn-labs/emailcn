@@ -45,7 +45,7 @@ export interface ProductDetailContentOverrides {
   ctaHref?: string;
 }
 
-const ASSET_ROOT = "https://assets.mailviews.com/images/components";
+const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
 const PRODUCT_ASSET_ROOT = `${ASSET_ROOT}/product-detail`;
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';

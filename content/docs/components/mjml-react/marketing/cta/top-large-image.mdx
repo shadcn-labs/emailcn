@@ -3,10 +3,6 @@ title: "Top Large Image"
 description: "A centered CTA with a large leading image, supporting copy, and primary action"
 ---
 
-## Examples
-
-### Default
-
 <ComponentPreview base="mjml-react" name="cta-with-top-large-image-demo" />
 
 ## Installation
@@ -53,12 +49,18 @@ import { CTAWithTopLargeImage } from "@/components/emails/marketing/cta/cta-with
 <CTAWithTopLargeImage {...CTAWithTopLargeImage.PreviewProps} />
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview base="mjml-react" name="cta-with-top-large-image-demo" />
+
 ## API Reference
 
-| Prop                    | Type               | Default          | Description                              |
-| ----------------------- | ------------------ | ---------------- | ---------------------------------------- |
-| `theme`                 | `EmailThemeTokens` | `defaultTheme`   | MJML React theme tokens                  |
-| `heading` / `subtext`   | `string`           | Mailviews copy   | CTA heading and supporting text          |
-| `ctaLabel` / `ctaHref`  | `string`           | Mailviews CTA    | Primary action label and destination     |
-| `imageSrc` / `imageAlt` | `string`           | Mailviews image  | Leading image URL and alternative text   |
-| Color props             | `string`           | Mailviews colors | Canvas, surface, text, and button colors |
+| Prop                    | Type               | Default        | Description                              |
+| ----------------------- | ------------------ | -------------- | ---------------------------------------- |
+| `theme`                 | `EmailThemeTokens` | `defaultTheme` | MJML React theme tokens                  |
+| `heading` / `subtext`   | `string`           | copy           | CTA heading and supporting text          |
+| `ctaLabel` / `ctaHref`  | `string`           | CTA            | Primary action label and destination     |
+| `imageSrc` / `imageAlt` | `string`           | image          | Leading image URL and alternative text   |
+| Color props             | `string`           | colors         | Canvas, surface, text, and button colors |

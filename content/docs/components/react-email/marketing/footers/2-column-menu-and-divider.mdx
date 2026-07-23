@@ -1,28 +1,11 @@
 ---
 title: "2-Column Menu and Divider"
-description: "Mailviews two-column menu footer with divider and mirrored logo variants"
+description: "two-column menu footer with divider and mirrored logo variants"
 ---
 
-The menu, social links, and legal rows are shared; the `variant` mirrors the logo placement.
-
-## Examples
-
-### Left Logo
-
 <ComponentPreview
   base="react-email"
   name="footer-with-2-column-menu-and-divider-demo"
-  variant="left-logo"
-  hideCode
-/>
-
-### Right Logo
-
-<ComponentPreview
-  base="react-email"
-  name="footer-with-2-column-menu-and-divider-demo"
-  variant="right-logo"
-  hideCode
 />
 
 ## Installation
@@ -66,9 +49,29 @@ import { FooterWith2ColumnMenuAndDivider } from "@/components/emails/marketing/f
 />
 ```
 
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-2-column-menu-and-divider-demo"
+  variant="left-logo"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-2-column-menu-and-divider-demo"
+  variant="right-logo"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop      | Type                          | Default       | Description                         |
-| --------- | ----------------------------- | ------------- | ----------------------------------- |
-| `variant` | `"left-logo" \| "right-logo"` | `"left-logo"` | Selects the Mailviews logo position |
-| `theme`   | `EmailTheme`                  | default theme | Email theme styling                 |
+| Prop      | Type                          | Default       | Description               |
+| --------- | ----------------------------- | ------------- | ------------------------- |
+| `variant` | `"left-logo" \| "right-logo"` | `"left-logo"` | Selects the logo position |
+| `theme`   | `EmailTheme`                  | default theme | Email theme styling       |

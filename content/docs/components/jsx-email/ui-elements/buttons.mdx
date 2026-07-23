@@ -1,10 +1,61 @@
 ---
 title: "Buttons"
-description: "One exact Mailviews button component with primary, secondary, and text styles in every icon placement and size."
+description: "One configurable button component with primary, secondary, and text styles in every icon placement and size."
 ---
 
-One `Buttons` component covers the complete Mailviews set. Choose one of the
-nine visual variants below; each example includes the original five-size stack.
+<ComponentPreview base="jsx-email" name="buttons-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/buttons
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy both component source files into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/buttons/buttons.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/buttons/buttons-shared.tsx"
+/>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
+```
+
+```tsx
+<Buttons variant="primary" />
+<Buttons variant="secondary-leading-icon" />
+<Buttons variant="text-trailing-icon" />
+```
 
 ## Examples
 
@@ -89,58 +140,6 @@ nine visual variants below; each example includes the original five-size stack.
   hideCode
 />
 
-## Installation
-
-<CodeTabs>
-
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/buttons
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy both component source files into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons.tsx"
-  base="jsx-email"
-  title="components/emails/ui-elements/buttons/buttons.tsx"
-/>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons-shared.tsx"
-  base="jsx-email"
-  title="components/emails/ui-elements/buttons/buttons-shared.tsx"
-/>
-
-</Steps>
-
-</TabsContent>
-
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
-```
-
-```tsx
-<Buttons variant="primary" />
-<Buttons variant="secondary-leading-icon" />
-<Buttons variant="text-trailing-icon" />
-```
-
 ## API Reference
 
 | Prop           | Type                                                                                                                                                                                              | Default                 | Description                             |
@@ -149,7 +148,7 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
 | `size`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "all"`                                                                                                                                                   | `"all"`                 | Renders one size or the five-size stack |
 | `label`        | `string`                                                                                                                                                                                          | Variant-specific        | Overrides the button label              |
 | `href`         | `string`                                                                                                                                                                                          | `"https://example.com"` | Button link URL                         |
-| `icon`         | `ReactNode`                                                                                                                                                                                       | Mailviews icon asset    | Overrides the variant's built-in icon   |
+| `icon`         | `ReactNode`                                                                                                                                                                                       | icon asset              | Overrides the variant's built-in icon   |
 | `iconPosition` | `"leading" \| "trailing"`                                                                                                                                                                         | `"leading"`             | Position for a custom icon              |
 | `align`        | `"left" \| "center" \| "right"`                                                                                                                                                                   | `"center"`              | Horizontal alignment                    |
 | `theme`        | `EmailThemeTokens`                                                                                                                                                                                | `defaultTheme`          | Email theme and container configuration |

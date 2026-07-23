@@ -50,21 +50,21 @@ const responsiveStyles = `
 const socialIcons = {
   dark: {
     facebook:
-      "https://assets.mailviews.com/images/components/icon-facebook-dark.png",
+      "https://emailcn.vercel.app/api/email-assets/icon-facebook-dark.png",
     instagram:
-      "https://assets.mailviews.com/images/components/icon-instagram-dark.png",
+      "https://emailcn.vercel.app/api/email-assets/icon-instagram-dark.png",
     linkedin:
-      "https://assets.mailviews.com/images/components/icon-linkedin-dark.png",
-    x: "https://assets.mailviews.com/images/components/icon-x-dark.png",
+      "https://emailcn.vercel.app/api/email-assets/icon-linkedin-dark.png",
+    x: "https://emailcn.vercel.app/api/email-assets/icon-x-dark.png",
   },
   light: {
     facebook:
-      "https://assets.mailviews.com/images/components/icon-facebook-light.png",
+      "https://emailcn.vercel.app/api/email-assets/icon-facebook-light.png",
     instagram:
-      "https://assets.mailviews.com/images/components/icon-instagram-light.png",
+      "https://emailcn.vercel.app/api/email-assets/icon-instagram-light.png",
     linkedin:
-      "https://assets.mailviews.com/images/components/icon-linkedin-light.png",
-    x: "https://assets.mailviews.com/images/components/icon-x-light.png",
+      "https://emailcn.vercel.app/api/email-assets/icon-linkedin-light.png",
+    x: "https://emailcn.vercel.app/api/email-assets/icon-x-light.png",
   },
 };
 
@@ -330,7 +330,7 @@ export const TwoColumnTeamCardsSection = ({
                         avatarAlt={avatarAlt1}
                         avatarSrc={
                           avatarSrc1 ??
-                          `https://assets.mailviews.com/images/components/teams/member-1-${rounded ? "md" : "lg"}.jpg`
+                          `https://emailcn.vercel.app/api/email-assets/teams/member-1-${rounded ? "md" : "lg"}.jpg`
                         }
                         lastIcon="linkedin"
                         name={name1}
@@ -353,7 +353,7 @@ export const TwoColumnTeamCardsSection = ({
                         avatarAlt={avatarAlt2}
                         avatarSrc={
                           avatarSrc2 ??
-                          `https://assets.mailviews.com/images/components/teams/member-2-${rounded ? "md" : "lg"}.jpg`
+                          `https://emailcn.vercel.app/api/email-assets/teams/member-2-${rounded ? "md" : "lg"}.jpg`
                         }
                         lastIcon="instagram"
                         name={name2}

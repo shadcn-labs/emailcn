@@ -8,7 +8,7 @@ export interface AvatarItem {
   url?: string;
 }
 
-const ASSET_ROOT = "https://assets.mailviews.com/images/components/reviews";
+const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 

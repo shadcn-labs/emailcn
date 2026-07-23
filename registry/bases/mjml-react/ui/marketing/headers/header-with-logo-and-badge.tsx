@@ -53,8 +53,7 @@ const defaults = {
   badgeTextColor: "#4b5563",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   message: "On orders over $65",
   pageBackgroundColor: "#f1f5f9",
 };

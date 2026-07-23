@@ -1,41 +1,9 @@
 ---
 title: "Overlay Stats"
-description: "Mailviews background-image stats family"
+description: "background-image stats family"
 ---
 
-## Examples
-
-### Default
-
-<ComponentPreview
-  base="react-email"
-  name="overlay-stats-demo"
-  variant="default"
-/>
-
-### 3 columns
-
-<ComponentPreview
-  base="react-email"
-  name="overlay-stats-demo"
-  variant="three-columns"
-/>
-
-### Bento
-
-<ComponentPreview
-  base="react-email"
-  name="overlay-stats-demo"
-  variant="bento"
-/>
-
-### Bento reversed
-
-<ComponentPreview
-  base="react-email"
-  name="overlay-stats-demo"
-  variant="bento-reversed"
-/>
+<ComponentPreview base="react-email" name="overlay-stats-demo" />
 
 ## Installation
 
@@ -73,9 +41,43 @@ import { OverlayStats } from "@/components/emails/marketing/stats/overlay-stats"
 <OverlayStats variant="three-columns" />;
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="default"
+/>
+
+### 3 columns
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="three-columns"
+/>
+
+### Bento
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="bento"
+/>
+
+### Bento reversed
+
+<ComponentPreview
+  base="react-email"
+  name="overlay-stats-demo"
+  variant="bento-reversed"
+/>
+
 ## API Reference
 
-| Prop      | Type                                                          | Default        | Description              |
-| --------- | ------------------------------------------------------------- | -------------- | ------------------------ |
-| `variant` | `"default" \| "three-columns" \| "bento" \| "bento-reversed"` | `"default"`    | Mailviews layout variant |
-| `theme`   | `TailwindConfig`                                              | `defaultTheme` | Email theme styling      |
+| Prop      | Type                                                          | Default        | Description         |
+| --------- | ------------------------------------------------------------- | -------------- | ------------------- |
+| `variant` | `"default" \| "three-columns" \| "bento" \| "bento-reversed"` | `"default"`    | layout variant      |
+| `theme`   | `TailwindConfig`                                              | `defaultTheme` | Email theme styling |

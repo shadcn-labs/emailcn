@@ -34,7 +34,7 @@ export interface CTAWithTitleAndActionLeadProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 const arrowSrc =
-  "https://assets.mailviews.com/images/components/icon-arrow-right.png";
+  "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png";
 
 const responsiveStyles = `
   @media only screen and (max-width: 430px) {
@@ -71,7 +71,7 @@ const defaultSectionProps = {
   secondaryButtonTextColor: "#4b5563",
   secondaryCtaHref: "https://example.com/",
   secondaryCtaLabel: "Learn more",
-  signoff: "Thank you, the Mailviews Team",
+  signoff: "Thank you, the emailcn Team",
   subtext:
     "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
   textColor: "#4b5563",

@@ -71,8 +71,7 @@ const defaults = {
   links: defaultLinks,
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc:
-    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#6b7280",
 };

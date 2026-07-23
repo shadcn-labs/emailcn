@@ -89,15 +89,15 @@ const responsiveStyles = `
 `;
 
 const squareImages = [
-  "https://assets.mailviews.com/images/components/image-grids/3-col-square.jpg",
-  "https://assets.mailviews.com/images/components/image-grids/3-col-square-2.jpg",
-  "https://assets.mailviews.com/images/components/image-grids/3-col-square-3.jpg",
+  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square.jpg",
+  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-2.jpg",
+  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-3.jpg",
 ] as const;
 
 const portraitImages = [
-  "https://assets.mailviews.com/images/components/image-grids/3-col-portrait.jpg",
-  "https://assets.mailviews.com/images/components/image-grids/3-col-portrait-2.jpg",
-  "https://assets.mailviews.com/images/components/image-grids/3-col-portrait-3.jpg",
+  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait.jpg",
+  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-2.jpg",
+  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-3.jpg",
 ] as const;
 
 const variantContent = {

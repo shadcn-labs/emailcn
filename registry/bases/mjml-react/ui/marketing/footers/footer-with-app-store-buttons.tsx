@@ -56,7 +56,7 @@ const AppButtons = ({ centered = true }: { centered?: boolean }) => (
           <a href="https://www.apple.com/app-store/">
             <img
               alt="Download on the App Store"
-              src="https://assets.mailviews.com/images/components/badge-app-store.png"
+              src="https://emailcn.vercel.app/api/email-assets/badge-app-store.png"
               style={{ maxWidth: "100%", verticalAlign: "middle" }}
               width={120}
             />
@@ -67,7 +67,7 @@ const AppButtons = ({ centered = true }: { centered?: boolean }) => (
           <a href="https://play.google.com/store/apps">
             <img
               alt="Get it on Google Play"
-              src="https://assets.mailviews.com/images/components/badge-google-play.png"
+              src="https://emailcn.vercel.app/api/email-assets/badge-google-play.png"
               style={{ maxWidth: "100%", verticalAlign: "middle" }}
               width={135}
             />
@@ -99,8 +99,8 @@ const AddressAndLegal = ({
         margin: 0,
       }}
     >
-      © 2026 Mailviews
-      <br /> Mailviews&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
+      © 2026 emailcn
+      <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
       Paris
     </p>
     <div style={{ lineHeight: "44px" }}>&zwj;</div>

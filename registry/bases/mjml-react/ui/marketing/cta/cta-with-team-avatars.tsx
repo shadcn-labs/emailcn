@@ -78,10 +78,10 @@ const responsiveStyles = `
 `;
 
 const avatarSources = [
-  "https://assets.mailviews.com/images/components/reviews/avatar-2.jpg",
-  "https://assets.mailviews.com/images/components/reviews/avatar.jpg",
-  "https://assets.mailviews.com/images/components/reviews/avatar-4.jpg",
-  "https://assets.mailviews.com/images/components/reviews/avatar-5.jpg",
+  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
+  "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg",
+  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-4.jpg",
+  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-5.jpg",
 ] as const;
 
 const variantContent = {

@@ -35,7 +35,7 @@ export interface HeroWithOverlayedContentProps {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-const assetRoot = "https://assets.mailviews.com/images/components";
+const assetRoot = "https://emailcn.vercel.app/api/email-assets";
 
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
@@ -63,9 +63,9 @@ export const HeroWithOverlayedContentSection = ({
   headingAccent = "Blazer",
   imageAlt = "Nike Blazer Mid ‘77 Vintage",
   imageSrc = `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
-  logoAlt = "Mailviews",
+  logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/mailviews-insignia-mono.png`,
+  logoSrc = `${assetRoot}/emailcn-insignia-mono.png`,
   slantColor = "#fffffe",
   subheading = "Only One Pair Left",
   textColor = "#030712",
@@ -224,9 +224,9 @@ export const HeroWithOverlayedContent = ({
   headingAccent = "Blazer",
   imageAlt = "Nike Blazer Mid ‘77 Vintage",
   imageSrc = `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
-  logoAlt = "Mailviews",
+  logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/mailviews-insignia-mono.png`,
+  logoSrc = `${assetRoot}/emailcn-insignia-mono.png`,
   pageBackgroundColor = "#f1f5f9",
   slantColor = "#fffffe",
   subheading = "Only One Pair Left",
@@ -290,9 +290,9 @@ HeroWithOverlayedContent.PreviewProps = {
   headingAccent: "Blazer",
   imageAlt: "Nike Blazer Mid ‘77 Vintage",
   imageSrc: `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
-  logoAlt: "Mailviews",
+  logoAlt: "emailcn",
   logoHref: "https://example.com",
-  logoSrc: `${assetRoot}/mailviews-insignia-mono.png`,
+  logoSrc: `${assetRoot}/emailcn-insignia-mono.png`,
   pageBackgroundColor: "#f1f5f9",
   slantColor: "#fffffe",
   subheading: "Only One Pair Left",

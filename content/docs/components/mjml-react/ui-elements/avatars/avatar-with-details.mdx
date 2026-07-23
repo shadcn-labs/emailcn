@@ -1,33 +1,9 @@
 ---
 title: "Avatar with Details"
-description: "A compact avatar and identity block with Mailviews-aligned positioning variants."
+description: "A compact avatar and identity block with email-ready positioning variants."
 ---
 
-## Examples
-
-### Left Aligned
-
-<ComponentPreview
-  base="mjml-react"
-  name="avatar-with-details-demo"
-  variant="left"
-/>
-
-### Centered
-
-<ComponentPreview
-  base="mjml-react"
-  name="avatar-with-details-demo"
-  variant="center"
-/>
-
-### Right Aligned
-
-<ComponentPreview
-  base="mjml-react"
-  name="avatar-with-details-demo"
-  variant="right"
-/>
+<ComponentPreview base="mjml-react" name="avatar-with-details-demo" />
 
 ## Installation
 
@@ -73,12 +49,38 @@ import { AvatarWithDetails } from "@/components/emails/ui-elements/avatars/avata
 <AvatarWithDetails align="center" />
 ```
 
+## Examples
+
+### Left Aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="avatar-with-details-demo"
+  variant="left"
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="avatar-with-details-demo"
+  variant="center"
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="avatar-with-details-demo"
+  variant="right"
+/>
+
 ## API Reference
 
 | Prop        | Type                            | Default                   | Description                  |
 | ----------- | ------------------------------- | ------------------------- | ---------------------------- |
 | `align`     | `"left" \| "center" \| "right"` | `"center"`                | Positions the identity block |
-| `avatarUrl` | `string`                        | Mailviews avatar URL      | Avatar image source          |
+| `avatarUrl` | `string`                        | avatar URL                | Avatar image source          |
 | `name`      | `string`                        | `"John Adams"`            | Display name                 |
 | `email`     | `string`                        | `"johnadams@example.com"` | Email address                |
 | `theme`     | Email theme type                | `defaultTheme`            | Email framework theme        |

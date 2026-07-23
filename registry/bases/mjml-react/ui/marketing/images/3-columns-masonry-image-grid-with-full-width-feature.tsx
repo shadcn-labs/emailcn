@@ -92,7 +92,7 @@ const defaults = {
   featureImageAlt: "",
   featureImageHref: "https://example.com",
   featureImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/full-width-5.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-5.jpg",
   featureSubtext: "Optical Ski Illustration",
   headingColor: "#fffffe",
   pageBackgroundColor: "#f1f5f9",
@@ -103,9 +103,9 @@ const defaults = {
   stackImageHref1: "https://example.com",
   stackImageHref2: "https://example.com",
   stackImageSrc1:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-stack-3.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack-3.jpg",
   stackImageSrc2:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-stack-4.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack-4.jpg",
   stackSubtext1: "Typography",
   stackSubtext2: "Fluid form",
   textColor: "#fffffe",
@@ -113,7 +113,7 @@ const defaults = {
   wideImageAlt: "",
   wideImageHref: "https://example.com",
   wideImageSrc:
-    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry-2.jpg",
+    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-2.jpg",
   wideSubtext: "Monochrome Geometric Pattern",
 };
 

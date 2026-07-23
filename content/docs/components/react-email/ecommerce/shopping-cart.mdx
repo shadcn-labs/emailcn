@@ -3,7 +3,45 @@ title: "Shopping Cart"
 description: "Shopping cart layouts for order review emails."
 ---
 
-The row-items shopping cart keeps one public component and exposes the seven Mailviews layouts as variants.
+<ComponentPreview base="react-email" name="shopping-cart-row-items-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/shopping-cart-with-row-items
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
+    base="react-email"
+    title="components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ShoppingCartRowItems } from "@/components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items";
+```
+
+```tsx
+<ShoppingCartRowItems {...ShoppingCartRowItems.PreviewProps} variant="basic" />
+```
 
 ## Examples
 
@@ -63,48 +101,10 @@ The row-items shopping cart keeps one public component and exposes the seven Mai
   variant="example-with-cta"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/shopping-cart-with-row-items
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
-    base="react-email"
-    title="components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { ShoppingCartRowItems } from "@/components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items";
-```
-
-```tsx
-<ShoppingCartRowItems {...ShoppingCartRowItems.PreviewProps} variant="basic" />
-```
-
 ## API Reference
 
-| Prop      | Type                  | Default        | Description              |
-| --------- | --------------------- | -------------- | ------------------------ |
-| `variant` | `ShoppingCartVariant` | `"basic"`      | Mailviews layout variant |
-| `items`   | `ShoppingCartItem[]`  | Mailviews data | Cart item overrides      |
-| `theme`   | `TailwindConfig`      | `defaultTheme` | Email theme styling      |
+| Prop      | Type                  | Default        | Description         |
+| --------- | --------------------- | -------------- | ------------------- |
+| `variant` | `ShoppingCartVariant` | `"basic"`      | layout variant      |
+| `items`   | `ShoppingCartItem[]`  | data           | Cart item overrides |
+| `theme`   | `TailwindConfig`      | `defaultTheme` | Email theme styling |

@@ -1,9 +1,50 @@
 ---
 title: "Product Detail with Three Images and Details"
-description: "Product Detail with Three Images and Details with every Mailviews layout variant."
+description: "Product Detail with Three Images and Details with every layout variant."
 ---
 
-This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+<ComponentPreview base="mjml-react" name="product-detail-three-images-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-detail-with-three-images-and-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx"
+    base="mjml-react"
+    title="components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductDetailThreeImages } from "@/components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details";
+```
+
+```tsx
+<ProductDetailThreeImages
+  {...ProductDetailThreeImages.PreviewProps}
+  variant="default"
+/>
+```
 
 ## Examples
 
@@ -47,50 +88,9 @@ This public component matches the corresponding Mailviews family. Its placement 
   variant="rating-aside-top"
 />
 
-## Installation
-
-<CodeTabs>
-<TabsList>
-  <TabsTrigger value="cli">Command</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx shadcn@latest add @emailcn/product-detail-with-three-images-and-details
-```
-
-</TabsContent>
-<TabsContent value="manual">
-
-<Steps>
-  <Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx"
-    base="mjml-react"
-    title="components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx"
-  />
-</Steps>
-
-</TabsContent>
-</CodeTabs>
-
-## Usage
-
-```tsx
-import { ProductDetailThreeImages } from "@/components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details";
-```
-
-```tsx
-<ProductDetailThreeImages
-  {...ProductDetailThreeImages.PreviewProps}
-  variant="default"
-/>
-```
-
 ## API Reference
 
-| Prop      | Type                                                                                | Default        | Description              |
-| --------- | ----------------------------------------------------------------------------------- | -------------- | ------------------------ |
-| `variant` | `"default" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"default"`    | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                                  | `defaultTheme` | Email theme styling      |
+| Prop      | Type                                                                                | Default        | Description         |
+| --------- | ----------------------------------------------------------------------------------- | -------------- | ------------------- |
+| `variant` | `"default" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"default"`    | layout variant      |
+| `theme`   | `EmailThemeTokens`                                                                  | `defaultTheme` | Email theme styling |

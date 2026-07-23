@@ -60,7 +60,7 @@ interface VariantPreset {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-const assetRoot = "https://assets.mailviews.com/images/components";
+const assetRoot = "https://emailcn.vercel.app/api/email-assets";
 
 const variantPresets: Record<HeroWithOverlappedImageVariant, VariantPreset> = {
   default: {
@@ -156,9 +156,9 @@ export const HeroWithOverlappedImageSection = ({
   heading,
   imageAlt = "Hero image",
   imageSrc,
-  logoAlt = "Mailviews",
+  logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
   mutedTextColor,
   pageBackgroundColor = "#f1f5f9",
   subheading,
