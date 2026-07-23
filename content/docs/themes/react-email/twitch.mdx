@@ -33,7 +33,7 @@ npm install react-email
 
 <ComponentSource
   src="registry/themes/twitch.ts"
-  title="components/emails/themes/twitch.ts"
+  title="components/email/theme-twitch.ts"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -48,7 +48,7 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { twitchTheme } from "@/components/emails/themes/twitch";
+import { twitchTheme } from "@/components/email/theme-twitch";
 
 <Tailwind config={twitchTheme}>{/* Your email content */}</Tailwind>;
 ```

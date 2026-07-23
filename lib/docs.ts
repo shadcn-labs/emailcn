@@ -10,7 +10,18 @@ export const EXCLUDED_SECTIONS = new Set([
   "(root)",
   "blocks",
   "fonts",
+  "themes",
 ]);
+
+const HIDDEN_DOC_SECTIONS = new Set(["themes", "theming"]);
+
+export const isHiddenDocPath = (segments?: readonly string[]): boolean =>
+  Boolean(segments?.[0] && HIDDEN_DOC_SECTIONS.has(segments[0]));
+
+export const isHiddenDocUrl = (url: string): boolean => {
+  const path = url.split("/").filter(Boolean);
+  return path[0] === "docs" && isHiddenDocPath(path.slice(1));
+};
 
 export const isComponentsFolder = (folder: PageTreeFolder) =>
   folder.$id === "components" || folder.name === "Components";

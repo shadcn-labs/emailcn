@@ -32,14 +32,14 @@ npm install jsx-email
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-shared.tsx"
   base="jsx-email"
-  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+  title="components/email/data-table-shared.tsx"
 />
 
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx"
     base="jsx-email"
-    title="components/emails/ui-elements/data-tables/data-table-with-progress-bar.tsx"
+    title="components/email/data-table-with-progress-bar.tsx"
   />
 </Steps>
 
@@ -49,18 +49,12 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { DataTableWithProgress } from "@/components/emails/ui-elements/data-tables/data-table-with-progress-bar";
+import { DataTableWithProgress } from "@/components/email/data-table-with-progress-bar";
 ```
 
 ```tsx
 <DataTableWithProgress {...DataTableWithProgress.PreviewProps} />
 ```
-
-## Examples
-
-### Default
-
-<ComponentPreview base="jsx-email" name="data-table-with-progress-demo" />
 
 ## API Reference
 

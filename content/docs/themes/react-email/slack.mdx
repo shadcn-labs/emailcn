@@ -33,7 +33,7 @@ npm install react-email
 
 <ComponentSource
   src="registry/themes/slack.ts"
-  title="components/emails/themes/slack.ts"
+  title="components/email/theme-slack.ts"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -48,7 +48,7 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { slackTheme } from "@/components/emails/themes/slack";
+import { slackTheme } from "@/components/email/theme-slack";
 
 <Tailwind config={slackTheme}>{/* Your email content */}</Tailwind>;
 ```

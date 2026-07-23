@@ -10,7 +10,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/airbnb.ts",
-          "target": "components/emails/themes/theme-airbnb.ts",
+          "target": "components/email/theme-airbnb.ts",
           "type": "registry:file"
         }
       ],
@@ -29,7 +29,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/apple.ts",
-          "target": "components/emails/themes/theme-apple.ts",
+          "target": "components/email/theme-apple.ts",
           "type": "registry:file"
         }
       ],
@@ -48,7 +48,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/default.ts",
-          "target": "components/emails/themes/theme-default.ts",
+          "target": "components/email/theme-default.ts",
           "type": "registry:file"
         }
       ],
@@ -67,7 +67,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/dropbox.ts",
-          "target": "components/emails/themes/theme-dropbox.ts",
+          "target": "components/email/theme-dropbox.ts",
           "type": "registry:file"
         }
       ],
@@ -86,7 +86,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/github.ts",
-          "target": "components/emails/themes/theme-github.ts",
+          "target": "components/email/theme-github.ts",
           "type": "registry:file"
         }
       ],
@@ -105,7 +105,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/linear.ts",
-          "target": "components/emails/themes/theme-linear.ts",
+          "target": "components/email/theme-linear.ts",
           "type": "registry:file"
         }
       ],
@@ -124,7 +124,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/nike.ts",
-          "target": "components/emails/themes/theme-nike.ts",
+          "target": "components/email/theme-nike.ts",
           "type": "registry:file"
         }
       ],
@@ -143,7 +143,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/notion.ts",
-          "target": "components/emails/themes/theme-notion.ts",
+          "target": "components/email/theme-notion.ts",
           "type": "registry:file"
         }
       ],
@@ -162,7 +162,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/raycast.ts",
-          "target": "components/emails/themes/theme-raycast.ts",
+          "target": "components/email/theme-raycast.ts",
           "type": "registry:file"
         }
       ],
@@ -181,7 +181,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/slack.ts",
-          "target": "components/emails/themes/theme-slack.ts",
+          "target": "components/email/theme-slack.ts",
           "type": "registry:file"
         }
       ],
@@ -200,7 +200,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/stack-overflow.ts",
-          "target": "components/emails/themes/theme-stack-overflow.ts",
+          "target": "components/email/theme-stack-overflow.ts",
           "type": "registry:file"
         }
       ],
@@ -219,7 +219,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/stripe.ts",
-          "target": "components/emails/themes/theme-stripe.ts",
+          "target": "components/email/theme-stripe.ts",
           "type": "registry:file"
         }
       ],
@@ -238,7 +238,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/twitch.ts",
-          "target": "components/emails/themes/theme-twitch.ts",
+          "target": "components/email/theme-twitch.ts",
           "type": "registry:file"
         }
       ],
@@ -257,7 +257,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/themes/vercel.ts",
-          "target": "components/emails/themes/theme-vercel.ts",
+          "target": "components/email/theme-vercel.ts",
           "type": "registry:file"
         }
       ],
@@ -276,7 +276,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/fonts/collage-fonts.tsx",
-          "target": "components/emails/fonts/collage-fonts.tsx",
+          "target": "components/email/collage-fonts.tsx",
           "type": "registry:file"
         }
       ],
@@ -295,7 +295,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/fonts/default.tsx",
-          "target": "components/emails/fonts/default.tsx",
+          "target": "components/email/default.tsx",
           "type": "registry:file"
         }
       ],
@@ -314,7 +314,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/fonts/dither-fonts.tsx",
-          "target": "components/emails/fonts/dither-fonts.tsx",
+          "target": "components/email/dither-fonts.tsx",
           "type": "registry:file"
         }
       ],
@@ -333,7 +333,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/fonts/skin-fonts.tsx",
-          "target": "components/emails/fonts/skin-fonts.tsx",
+          "target": "components/email/skin-fonts.tsx",
           "type": "registry:file"
         }
       ],
@@ -352,7 +352,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/fonts/tech-fonts.tsx",
-          "target": "components/emails/fonts/tech-fonts.tsx",
+          "target": "components/email/tech-fonts.tsx",
           "type": "registry:file"
         }
       ],
@@ -371,7 +371,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/category-previews/category-preview-with-cards.tsx",
-          "target": "components/emails/ecommerce/category-previews/category-preview-with-cards.tsx",
+          "target": "components/email/category-preview-with-cards.tsx",
           "type": "registry:component"
         }
       ],
@@ -394,7 +394,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/category-previews/category-preview-with-rows.tsx",
-          "target": "components/emails/ecommerce/category-previews/category-preview-with-rows.tsx",
+          "target": "components/email/category-preview-with-rows.tsx",
           "type": "registry:component"
         }
       ],
@@ -417,7 +417,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx",
-          "target": "components/emails/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx",
+          "target": "components/email/bordered-order-summary-with-card-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -440,7 +440,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx",
-          "target": "components/emails/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx",
+          "target": "components/email/bordered-order-summary-with-total-bottom.tsx",
           "type": "registry:component"
         }
       ],
@@ -463,7 +463,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx",
-          "target": "components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx",
+          "target": "components/email/bordered-order-summary-with-total-top.tsx",
           "type": "registry:component"
         }
       ],
@@ -486,7 +486,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx",
-          "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx",
+          "target": "components/email/boxed-order-summary-with-card-details-and-total-bottom.tsx",
           "type": "registry:component"
         }
       ],
@@ -509,7 +509,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx",
-          "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx",
+          "target": "components/email/boxed-order-summary-with-card-details-and-total-top.tsx",
           "type": "registry:component"
         }
       ],
@@ -532,7 +532,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-bottom.tsx",
-          "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-total-bottom.tsx",
+          "target": "components/email/boxed-order-summary-with-total-bottom.tsx",
           "type": "registry:component"
         }
       ],
@@ -555,7 +555,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx",
-          "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx",
+          "target": "components/email/boxed-order-summary-with-total-top.tsx",
           "type": "registry:component"
         }
       ],
@@ -578,7 +578,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx",
-          "target": "components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx",
+          "target": "components/email/order-summary-with-billing-details-and-payment-method-inline.tsx",
           "type": "registry:component"
         }
       ],
@@ -601,7 +601,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx",
-          "target": "components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx",
+          "target": "components/email/order-summary-with-billing-details-and-payment-method-top.tsx",
           "type": "registry:component"
         }
       ],
@@ -624,7 +624,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx",
-          "target": "components/emails/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx",
+          "target": "components/email/product-detail-with-masonry-image-grid-and-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -647,7 +647,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx",
-          "target": "components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx",
+          "target": "components/email/product-detail-with-three-images-and-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -670,7 +670,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx",
-          "target": "components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx",
+          "target": "components/email/product-detail-with-two-images-and-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -693,7 +693,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx",
-          "target": "components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx",
+          "target": "components/email/single-image-product-detail-with-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -716,7 +716,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/split-product-detail.tsx",
-          "target": "components/emails/ecommerce/product-detail/split-product-detail.tsx",
+          "target": "components/email/split-product-detail.tsx",
           "type": "registry:component"
         }
       ],
@@ -739,7 +739,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows.tsx",
-          "target": "components/emails/ecommerce/product-lists/product-list-with-rows.tsx",
+          "target": "components/email/product-list-with-rows.tsx",
           "type": "registry:component"
         }
       ],
@@ -762,7 +762,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/reviews/full-width-reviews.tsx",
-          "target": "components/emails/ecommerce/reviews/full-width-reviews.tsx",
+          "target": "components/email/full-width-reviews.tsx",
           "type": "registry:component"
         }
       ],
@@ -785,7 +785,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/reviews/masonry-grid-reviews.tsx",
-          "target": "components/emails/ecommerce/reviews/masonry-grid-reviews.tsx",
+          "target": "components/email/masonry-grid-reviews.tsx",
           "type": "registry:component"
         }
       ],
@@ -808,7 +808,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/reviews/two-columns-reviews.tsx",
-          "target": "components/emails/ecommerce/reviews/two-columns-reviews.tsx",
+          "target": "components/email/two-columns-reviews.tsx",
           "type": "registry:component"
         }
       ],
@@ -831,7 +831,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx",
-          "target": "components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx",
+          "target": "components/email/shopping-cart-with-row-items.tsx",
           "type": "registry:component"
         }
       ],
@@ -854,12 +854,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
+          "target": "components/email/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -882,12 +882,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
+          "target": "components/email/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -910,12 +910,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
+          "target": "components/email/bento-grid-with-3-columns-and-flush-images.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -938,12 +938,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
+          "target": "components/email/bento-grid-with-3-columns-and-padded-images.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -966,12 +966,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
+          "target": "components/email/bento-grid-with-even-split-and-image-stats.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -994,12 +994,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
+          "target": "components/email/bento-grid-with-even-split-and-text-stats.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1022,12 +1022,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
+          "target": "components/email/bento-grid-with-even-split-and-two-thirds.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1050,12 +1050,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
+          "target": "components/email/bento-grid-with-images-and-captions.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1078,12 +1078,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
+          "target": "components/email/bento-grid-with-images-and-details.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1106,12 +1106,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
+          "target": "components/email/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1134,12 +1134,12 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
-          "target": "components/emails/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
+          "target": "components/email/two-thirds-bento-grid-with-stats.tsx",
           "type": "registry:component"
         },
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1162,7 +1162,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx",
-          "target": "components/emails/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx",
+          "target": "components/email/2-columns-blog-with-images-and-boxed-content.tsx",
           "type": "registry:component"
         }
       ],
@@ -1185,7 +1185,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images-and-text.tsx",
-          "target": "components/emails/marketing/blog/2-columns-blog-with-images-and-text.tsx",
+          "target": "components/email/2-columns-blog-with-images-and-text.tsx",
           "type": "registry:component"
         }
       ],
@@ -1208,7 +1208,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images.tsx",
-          "target": "components/emails/marketing/blog/2-columns-blog-with-images.tsx",
+          "target": "components/email/2-columns-blog-with-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -1231,7 +1231,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx",
-          "target": "components/emails/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx",
+          "target": "components/email/2-columns-masonry-blog-with-boxed-content.tsx",
           "type": "registry:component"
         }
       ],
@@ -1254,7 +1254,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/blog-post-horizontal-boxed-with-split-images.tsx",
-          "target": "components/emails/marketing/blog/blog-post-horizontal-boxed-with-split-images.tsx",
+          "target": "components/email/blog-post-horizontal-boxed-with-split-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -1277,7 +1277,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/blog-post-horizontal-boxed.tsx",
-          "target": "components/emails/marketing/blog/blog-post-horizontal-boxed.tsx",
+          "target": "components/email/blog-post-horizontal-boxed.tsx",
           "type": "registry:component"
         }
       ],
@@ -1300,7 +1300,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/blog-with-images-and-2-columns-masonry.tsx",
-          "target": "components/emails/marketing/blog/blog-with-images-and-2-columns-masonry.tsx",
+          "target": "components/email/blog-with-images-and-2-columns-masonry.tsx",
           "type": "registry:component"
         }
       ],
@@ -1323,7 +1323,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/featured-blog-post.tsx",
-          "target": "components/emails/marketing/blog/featured-blog-post.tsx",
+          "target": "components/email/featured-blog-post.tsx",
           "type": "registry:component"
         }
       ],
@@ -1346,7 +1346,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/featured-post-with-large-date.tsx",
-          "target": "components/emails/marketing/blog/featured-post-with-large-date.tsx",
+          "target": "components/email/featured-post-with-large-date.tsx",
           "type": "registry:component"
         }
       ],
@@ -1369,7 +1369,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/full-width-featured-post-with-large-date.tsx",
-          "target": "components/emails/marketing/blog/full-width-featured-post-with-large-date.tsx",
+          "target": "components/email/full-width-featured-post-with-large-date.tsx",
           "type": "registry:component"
         }
       ],
@@ -1392,7 +1392,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/podcast-blog-split.tsx",
-          "target": "components/emails/marketing/blog/podcast-blog-split.tsx",
+          "target": "components/email/podcast-blog-split.tsx",
           "type": "registry:component"
         }
       ],
@@ -1415,7 +1415,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/podcast-full-width.tsx",
-          "target": "components/emails/marketing/blog/podcast-full-width.tsx",
+          "target": "components/email/podcast-full-width.tsx",
           "type": "registry:component"
         }
       ],
@@ -1438,7 +1438,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/blog/single-post-horizontal.tsx",
-          "target": "components/emails/marketing/blog/single-post-horizontal.tsx",
+          "target": "components/email/single-post-horizontal.tsx",
           "type": "registry:component"
         }
       ],
@@ -1461,7 +1461,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/content/content.tsx",
-          "target": "components/emails/marketing/content/content.tsx",
+          "target": "components/email/content.tsx",
           "type": "registry:component"
         }
       ],
@@ -1484,7 +1484,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/coupons/card-coupons.tsx",
-          "target": "components/emails/marketing/coupons/card-coupons.tsx",
+          "target": "components/email/card-coupons.tsx",
           "type": "registry:component"
         }
       ],
@@ -1507,7 +1507,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/coupons/coupons-with-centered-text.tsx",
-          "target": "components/emails/marketing/coupons/coupons-with-centered-text.tsx",
+          "target": "components/email/coupons-with-centered-text.tsx",
           "type": "registry:component"
         }
       ],
@@ -1530,7 +1530,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/coupons/coupons-with-content-overlayed.tsx",
-          "target": "components/emails/marketing/coupons/coupons-with-content-overlayed.tsx",
+          "target": "components/email/coupons-with-content-overlayed.tsx",
           "type": "registry:component"
         }
       ],
@@ -1553,7 +1553,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/boxed-cta-with-background-image.tsx",
-          "target": "components/emails/marketing/cta/boxed-cta-with-background-image.tsx",
+          "target": "components/email/boxed-cta-with-background-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -1576,7 +1576,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/cta-with-background-image.tsx",
-          "target": "components/emails/marketing/cta/cta-with-background-image.tsx",
+          "target": "components/email/cta-with-background-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -1599,7 +1599,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/cta-with-image-strip.tsx",
-          "target": "components/emails/marketing/cta/cta-with-image-strip.tsx",
+          "target": "components/email/cta-with-image-strip.tsx",
           "type": "registry:component"
         }
       ],
@@ -1622,7 +1622,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/cta-with-shifted-images.tsx",
-          "target": "components/emails/marketing/cta/cta-with-shifted-images.tsx",
+          "target": "components/email/cta-with-shifted-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -1645,7 +1645,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/cta-with-team-avatars.tsx",
-          "target": "components/emails/marketing/cta/cta-with-team-avatars.tsx",
+          "target": "components/email/cta-with-team-avatars.tsx",
           "type": "registry:component"
         }
       ],
@@ -1668,7 +1668,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead.tsx",
-          "target": "components/emails/marketing/cta/cta-with-title-and-action-lead.tsx",
+          "target": "components/email/cta-with-title-and-action-lead.tsx",
           "type": "registry:component"
         }
       ],
@@ -1691,7 +1691,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/cta/cta-with-top-large-image.tsx",
-          "target": "components/emails/marketing/cta/cta-with-top-large-image.tsx",
+          "target": "components/email/cta-with-top-large-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -1714,7 +1714,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/boxed-faq-with-numbered-questions.tsx",
-          "target": "components/emails/marketing/faq/boxed-faq-with-numbered-questions.tsx",
+          "target": "components/email/boxed-faq-with-numbered-questions.tsx",
           "type": "registry:component"
         }
       ],
@@ -1737,7 +1737,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
-          "target": "components/emails/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
+          "target": "components/email/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
           "type": "registry:component"
         }
       ],
@@ -1760,7 +1760,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx",
-          "target": "components/emails/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx",
+          "target": "components/email/collapsed-faq-with-expanded-section-and-icons.tsx",
           "type": "registry:component"
         }
       ],
@@ -1783,7 +1783,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-inline-cta.tsx",
-          "target": "components/emails/marketing/faq/collapsed-faq-with-inline-cta.tsx",
+          "target": "components/email/collapsed-faq-with-inline-cta.tsx",
           "type": "registry:component"
         }
       ],
@@ -1806,7 +1806,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-numbers.tsx",
-          "target": "components/emails/marketing/faq/collapsed-faq-with-numbers.tsx",
+          "target": "components/email/collapsed-faq-with-numbers.tsx",
           "type": "registry:component"
         }
       ],
@@ -1829,7 +1829,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/expanded-faq-with-numbers.tsx",
-          "target": "components/emails/marketing/faq/expanded-faq-with-numbers.tsx",
+          "target": "components/email/expanded-faq-with-numbers.tsx",
           "type": "registry:component"
         }
       ],
@@ -1852,7 +1852,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/faq/expanded-faq-with-offset-answers.tsx",
-          "target": "components/emails/marketing/faq/expanded-faq-with-offset-answers.tsx",
+          "target": "components/email/expanded-faq-with-offset-answers.tsx",
           "type": "registry:component"
         }
       ],
@@ -1875,7 +1875,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/feature/feature-with-double-tall-background-images.tsx",
-          "target": "components/emails/marketing/feature/feature-with-double-tall-background-images.tsx",
+          "target": "components/email/feature-with-double-tall-background-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -1898,7 +1898,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/feature/feature-with-full-title-and-tall-background-images.tsx",
-          "target": "components/emails/marketing/feature/feature-with-full-title-and-tall-background-images.tsx",
+          "target": "components/email/feature-with-full-title-and-tall-background-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -1921,7 +1921,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/feature/feature-with-large-portrait-image.tsx",
-          "target": "components/emails/marketing/feature/feature-with-large-portrait-image.tsx",
+          "target": "components/email/feature-with-large-portrait-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -1944,7 +1944,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/feature/feature-with-multiple-product-images.tsx",
-          "target": "components/emails/marketing/feature/feature-with-multiple-product-images.tsx",
+          "target": "components/email/feature-with-multiple-product-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -1967,7 +1967,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/feature/feature-with-product-image.tsx",
-          "target": "components/emails/marketing/feature/feature-with-product-image.tsx",
+          "target": "components/email/feature-with-product-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -1990,7 +1990,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-centered-with-bordered-full-menu.tsx",
-          "target": "components/emails/marketing/footers/footer-centered-with-bordered-full-menu.tsx",
+          "target": "components/email/footer-centered-with-bordered-full-menu.tsx",
           "type": "registry:component"
         }
       ],
@@ -2013,7 +2013,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-centered-with-menu-and-socials.tsx",
-          "target": "components/emails/marketing/footers/footer-centered-with-menu-and-socials.tsx",
+          "target": "components/email/footer-centered-with-menu-and-socials.tsx",
           "type": "registry:component"
         }
       ],
@@ -2036,7 +2036,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-2-column-menu.tsx",
-          "target": "components/emails/marketing/footers/footer-with-2-column-menu.tsx",
+          "target": "components/email/footer-with-2-column-menu.tsx",
           "type": "registry:component"
         }
       ],
@@ -2059,7 +2059,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-3-col-menu.tsx",
-          "target": "components/emails/marketing/footers/footer-with-3-col-menu.tsx",
+          "target": "components/email/footer-with-3-col-menu.tsx",
           "type": "registry:component"
         }
       ],
@@ -2082,7 +2082,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-content-and-cta.tsx",
-          "target": "components/emails/marketing/footers/footer-with-content-and-cta.tsx",
+          "target": "components/email/footer-with-content-and-cta.tsx",
           "type": "registry:component"
         }
       ],
@@ -2105,7 +2105,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-legal-text.tsx",
-          "target": "components/emails/marketing/footers/footer-with-legal-text.tsx",
+          "target": "components/email/footer-with-legal-text.tsx",
           "type": "registry:component"
         }
       ],
@@ -2128,7 +2128,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
-          "target": "components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
+          "target": "components/email/footer-with-oversized-logo-and-full-menu.tsx",
           "type": "registry:component"
         }
       ],
@@ -2151,7 +2151,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-social-icons-and-address.tsx",
-          "target": "components/emails/marketing/footers/footer-with-social-icons-and-address.tsx",
+          "target": "components/email/footer-with-social-icons-and-address.tsx",
           "type": "registry:component"
         }
       ],
@@ -2174,7 +2174,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials.tsx",
-          "target": "components/emails/marketing/footers/footer-with-text-menu-and-socials.tsx",
+          "target": "components/email/footer-with-text-menu-and-socials.tsx",
           "type": "registry:component"
         }
       ],
@@ -2197,7 +2197,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/footers/simple-footer-with-social-icons.tsx",
-          "target": "components/emails/marketing/footers/simple-footer-with-social-icons.tsx",
+          "target": "components/email/simple-footer-with-social-icons.tsx",
           "type": "registry:component"
         }
       ],
@@ -2220,7 +2220,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-badge.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo-and-badge.tsx",
+          "target": "components/email/header-with-logo-and-badge.tsx",
           "type": "registry:component"
         }
       ],
@@ -2243,7 +2243,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-finance-stats.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo-and-finance-stats.tsx",
+          "target": "components/email/header-with-logo-and-finance-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -2266,7 +2266,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo-and-menu.tsx",
+          "target": "components/email/header-with-logo-and-menu.tsx",
           "type": "registry:component"
         }
       ],
@@ -2289,7 +2289,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-social-icons.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo-and-social-icons.tsx",
+          "target": "components/email/header-with-logo-and-social-icons.tsx",
           "type": "registry:component"
         }
       ],
@@ -2312,7 +2312,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-text.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo-and-text.tsx",
+          "target": "components/email/header-with-logo-and-text.tsx",
           "type": "registry:component"
         }
       ],
@@ -2335,7 +2335,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo.tsx",
+          "target": "components/email/header-with-logo.tsx",
           "type": "registry:component"
         }
       ],
@@ -2358,7 +2358,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-user-details-and-avatar.tsx",
-          "target": "components/emails/marketing/headers/header-with-user-details-and-avatar.tsx",
+          "target": "components/email/header-with-user-details-and-avatar.tsx",
           "type": "registry:component"
         }
       ],
@@ -2381,7 +2381,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-user-details.tsx",
-          "target": "components/emails/marketing/headers/header-with-user-details.tsx",
+          "target": "components/email/header-with-user-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -2404,7 +2404,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-aligned-overlay.tsx",
-          "target": "components/emails/marketing/hero/hero-aligned-overlay.tsx",
+          "target": "components/email/hero-aligned-overlay.tsx",
           "type": "registry:component"
         }
       ],
@@ -2427,7 +2427,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-block-overlay.tsx",
-          "target": "components/emails/marketing/hero/hero-block-overlay.tsx",
+          "target": "components/email/hero-block-overlay.tsx",
           "type": "registry:component"
         }
       ],
@@ -2450,7 +2450,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-block-with-bleed.tsx",
-          "target": "components/emails/marketing/hero/hero-block-with-bleed.tsx",
+          "target": "components/email/hero-block-with-bleed.tsx",
           "type": "registry:component"
         }
       ],
@@ -2473,7 +2473,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-overlayed-split.tsx",
-          "target": "components/emails/marketing/hero/hero-overlayed-split.tsx",
+          "target": "components/email/hero-overlayed-split.tsx",
           "type": "registry:component"
         }
       ],
@@ -2496,7 +2496,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-split-contained.tsx",
-          "target": "components/emails/marketing/hero/hero-split-contained.tsx",
+          "target": "components/email/hero-split-contained.tsx",
           "type": "registry:component"
         }
       ],
@@ -2519,7 +2519,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-split-full-bleed.tsx",
-          "target": "components/emails/marketing/hero/hero-split-full-bleed.tsx",
+          "target": "components/email/hero-split-full-bleed.tsx",
           "type": "registry:component"
         }
       ],
@@ -2542,7 +2542,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-with-image-grid.tsx",
-          "target": "components/emails/marketing/hero/hero-with-image-grid.tsx",
+          "target": "components/email/hero-with-image-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -2565,7 +2565,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-with-overlapped-content.tsx",
-          "target": "components/emails/marketing/hero/hero-with-overlapped-content.tsx",
+          "target": "components/email/hero-with-overlapped-content.tsx",
           "type": "registry:component"
         }
       ],
@@ -2588,7 +2588,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-with-overlapped-image.tsx",
-          "target": "components/emails/marketing/hero/hero-with-overlapped-image.tsx",
+          "target": "components/email/hero-with-overlapped-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -2611,7 +2611,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-with-overlay-gradient.tsx",
-          "target": "components/emails/marketing/hero/hero-with-overlay-gradient.tsx",
+          "target": "components/email/hero-with-overlay-gradient.tsx",
           "type": "registry:component"
         }
       ],
@@ -2634,7 +2634,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content.tsx",
-          "target": "components/emails/marketing/hero/hero-with-overlayed-content.tsx",
+          "target": "components/email/hero-with-overlayed-content.tsx",
           "type": "registry:component"
         }
       ],
@@ -2657,7 +2657,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/hero/hero-with-slanted-split.tsx",
-          "target": "components/emails/marketing/hero/hero-with-slanted-split.tsx",
+          "target": "components/email/hero-with-slanted-split.tsx",
           "type": "registry:component"
         }
       ],
@@ -2680,7 +2680,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/2-columns-image-grid-with-full-width-feature.tsx",
-          "target": "components/emails/marketing/images/2-columns-image-grid-with-full-width-feature.tsx",
+          "target": "components/email/2-columns-image-grid-with-full-width-feature.tsx",
           "type": "registry:component"
         }
       ],
@@ -2703,7 +2703,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/2-columns-image-grid.tsx",
-          "target": "components/emails/marketing/images/2-columns-image-grid.tsx",
+          "target": "components/email/2-columns-image-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -2726,7 +2726,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx",
-          "target": "components/emails/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx",
+          "target": "components/email/2-columns-masonry-image-grid-with-3-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -2749,7 +2749,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx",
-          "target": "components/emails/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx",
+          "target": "components/email/2-columns-masonry-image-grid-with-4-images.tsx",
           "type": "registry:component"
         }
       ],
@@ -2772,7 +2772,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/3-columns-image-grid-with-full-width-feature.tsx",
-          "target": "components/emails/marketing/images/3-columns-image-grid-with-full-width-feature.tsx",
+          "target": "components/email/3-columns-image-grid-with-full-width-feature.tsx",
           "type": "registry:component"
         }
       ],
@@ -2795,7 +2795,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/3-columns-image-grid.tsx",
-          "target": "components/emails/marketing/images/3-columns-image-grid.tsx",
+          "target": "components/email/3-columns-image-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -2818,7 +2818,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx",
-          "target": "components/emails/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx",
+          "target": "components/email/3-columns-masonry-image-grid-with-full-width-feature.tsx",
           "type": "registry:component"
         }
       ],
@@ -2841,7 +2841,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/3-columns-masonry-image-grid.tsx",
-          "target": "components/emails/marketing/images/3-columns-masonry-image-grid.tsx",
+          "target": "components/email/3-columns-masonry-image-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -2864,7 +2864,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/full-width-image-with-overlay.tsx",
-          "target": "components/emails/marketing/images/full-width-image-with-overlay.tsx",
+          "target": "components/email/full-width-image-with-overlay.tsx",
           "type": "registry:component"
         }
       ],
@@ -2887,7 +2887,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/images/full-width-image.tsx",
-          "target": "components/emails/marketing/images/full-width-image.tsx",
+          "target": "components/email/full-width-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -2910,7 +2910,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/logos/basic-logo-cloud.tsx",
-          "target": "components/emails/marketing/logos/basic-logo-cloud.tsx",
+          "target": "components/email/basic-logo-cloud.tsx",
           "type": "registry:component"
         }
       ],
@@ -2933,7 +2933,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/logos/boxed-logo-cloud.tsx",
-          "target": "components/emails/marketing/logos/boxed-logo-cloud.tsx",
+          "target": "components/email/boxed-logo-cloud.tsx",
           "type": "registry:component"
         }
       ],
@@ -2956,7 +2956,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/logos/featured-brands-logo-grid.tsx",
-          "target": "components/emails/marketing/logos/featured-brands-logo-grid.tsx",
+          "target": "components/email/featured-brands-logo-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -2979,7 +2979,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/logos/logo-cloud-with-borders.tsx",
-          "target": "components/emails/marketing/logos/logo-cloud-with-borders.tsx",
+          "target": "components/email/logo-cloud-with-borders.tsx",
           "type": "registry:component"
         }
       ],
@@ -3002,7 +3002,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/logos/logos-grid.tsx",
-          "target": "components/emails/marketing/logos/logos-grid.tsx",
+          "target": "components/email/logos-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -3025,7 +3025,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/logos/outlined-logo-cloud.tsx",
-          "target": "components/emails/marketing/logos/outlined-logo-cloud.tsx",
+          "target": "components/email/outlined-logo-cloud.tsx",
           "type": "registry:component"
         }
       ],
@@ -3048,7 +3048,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/pricing/2-columns-pricing-table-with-gaps.tsx",
-          "target": "components/emails/marketing/pricing/2-columns-pricing-table-with-gaps.tsx",
+          "target": "components/email/2-columns-pricing-table-with-gaps.tsx",
           "type": "registry:component"
         }
       ],
@@ -3071,7 +3071,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/pricing/2-columns-pricing-table.tsx",
-          "target": "components/emails/marketing/pricing/2-columns-pricing-table.tsx",
+          "target": "components/email/2-columns-pricing-table.tsx",
           "type": "registry:component"
         }
       ],
@@ -3094,7 +3094,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/pricing/full-width-single-pricing.tsx",
-          "target": "components/emails/marketing/pricing/full-width-single-pricing.tsx",
+          "target": "components/email/full-width-single-pricing.tsx",
           "type": "registry:component"
         }
       ],
@@ -3117,7 +3117,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/circle-tiles-social-logos.tsx",
-          "target": "components/emails/marketing/social/circle-tiles-social-logos.tsx",
+          "target": "components/email/circle-tiles-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3140,7 +3140,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/outlined-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/outlined-box-social-logos.tsx",
+          "target": "components/email/outlined-box-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3163,7 +3163,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/outlined-pill-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/outlined-pill-box-social-logos.tsx",
+          "target": "components/email/outlined-pill-box-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3186,7 +3186,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/outlined-square-tiles-social-logos.tsx",
-          "target": "components/emails/marketing/social/outlined-square-tiles-social-logos.tsx",
+          "target": "components/email/outlined-square-tiles-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3209,7 +3209,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/pill-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/pill-box-social-logos.tsx",
+          "target": "components/email/pill-box-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3232,7 +3232,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/simple-social-logos-row.tsx",
-          "target": "components/emails/marketing/social/simple-social-logos-row.tsx",
+          "target": "components/email/simple-social-logos-row.tsx",
           "type": "registry:component"
         }
       ],
@@ -3255,7 +3255,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/socials-with-inline-labels.tsx",
-          "target": "components/emails/marketing/social/socials-with-inline-labels.tsx",
+          "target": "components/email/socials-with-inline-labels.tsx",
           "type": "registry:component"
         }
       ],
@@ -3278,7 +3278,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/socials-with-inline-tile-labels.tsx",
-          "target": "components/emails/marketing/social/socials-with-inline-tile-labels.tsx",
+          "target": "components/email/socials-with-inline-tile-labels.tsx",
           "type": "registry:component"
         }
       ],
@@ -3301,7 +3301,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/socials-with-labels-stacked.tsx",
-          "target": "components/emails/marketing/social/socials-with-labels-stacked.tsx",
+          "target": "components/email/socials-with-labels-stacked.tsx",
           "type": "registry:component"
         }
       ],
@@ -3324,7 +3324,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/socials-with-stacked-tile-labels.tsx",
-          "target": "components/emails/marketing/social/socials-with-stacked-tile-labels.tsx",
+          "target": "components/email/socials-with-stacked-tile-labels.tsx",
           "type": "registry:component"
         }
       ],
@@ -3347,7 +3347,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/square-tiles-social-logos.tsx",
-          "target": "components/emails/marketing/social/square-tiles-social-logos.tsx",
+          "target": "components/email/square-tiles-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3370,7 +3370,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/squared-box-social-logos.tsx",
-          "target": "components/emails/marketing/social/squared-box-social-logos.tsx",
+          "target": "components/email/squared-box-social-logos.tsx",
           "type": "registry:component"
         }
       ],
@@ -3393,7 +3393,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/boxed-grid-stats.tsx",
-          "target": "components/emails/marketing/stats/boxed-grid-stats.tsx",
+          "target": "components/email/boxed-grid-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3416,7 +3416,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/grid-stats-with-accent-column.tsx",
-          "target": "components/emails/marketing/stats/grid-stats-with-accent-column.tsx",
+          "target": "components/email/grid-stats-with-accent-column.tsx",
           "type": "registry:component"
         }
       ],
@@ -3439,7 +3439,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/grid-stats-with-border.tsx",
-          "target": "components/emails/marketing/stats/grid-stats-with-border.tsx",
+          "target": "components/email/grid-stats-with-border.tsx",
           "type": "registry:component"
         }
       ],
@@ -3462,7 +3462,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/milestone-stats.tsx",
-          "target": "components/emails/marketing/stats/milestone-stats.tsx",
+          "target": "components/email/milestone-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3485,7 +3485,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/outlined-grid-stats.tsx",
-          "target": "components/emails/marketing/stats/outlined-grid-stats.tsx",
+          "target": "components/email/outlined-grid-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3508,7 +3508,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/overlay-stats.tsx",
-          "target": "components/emails/marketing/stats/overlay-stats.tsx",
+          "target": "components/email/overlay-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3531,7 +3531,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/rolling-stats.tsx",
-          "target": "components/emails/marketing/stats/rolling-stats.tsx",
+          "target": "components/email/rolling-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3554,7 +3554,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/simple-grid-stats.tsx",
-          "target": "components/emails/marketing/stats/simple-grid-stats.tsx",
+          "target": "components/email/simple-grid-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3577,7 +3577,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/simple-stats.tsx",
-          "target": "components/emails/marketing/stats/simple-stats.tsx",
+          "target": "components/email/simple-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3600,7 +3600,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/single-stat-with-background-image.tsx",
-          "target": "components/emails/marketing/stats/single-stat-with-background-image.tsx",
+          "target": "components/email/single-stat-with-background-image.tsx",
           "type": "registry:component"
         }
       ],
@@ -3623,7 +3623,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/stats/stacked-stats.tsx",
-          "target": "components/emails/marketing/stats/stacked-stats.tsx",
+          "target": "components/email/stacked-stats.tsx",
           "type": "registry:component"
         }
       ],
@@ -3646,7 +3646,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/team/2-column-team-cards-with-details.tsx",
-          "target": "components/emails/marketing/team/2-column-team-cards-with-details.tsx",
+          "target": "components/email/2-column-team-cards-with-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -3669,7 +3669,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/team/2-column-team-cards.tsx",
-          "target": "components/emails/marketing/team/2-column-team-cards.tsx",
+          "target": "components/email/2-column-team-cards.tsx",
           "type": "registry:component"
         }
       ],
@@ -3692,7 +3692,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/team/2-columns-compact.tsx",
-          "target": "components/emails/marketing/team/2-columns-compact.tsx",
+          "target": "components/email/2-columns-compact.tsx",
           "type": "registry:component"
         }
       ],
@@ -3715,7 +3715,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/team/3-columns-team-grid.tsx",
-          "target": "components/emails/marketing/team/3-columns-team-grid.tsx",
+          "target": "components/email/3-columns-team-grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -3738,7 +3738,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/team/horizontal-team-member-bios.tsx",
-          "target": "components/emails/marketing/team/horizontal-team-member-bios.tsx",
+          "target": "components/email/horizontal-team-member-bios.tsx",
           "type": "registry:component"
         }
       ],
@@ -3761,7 +3761,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/testimonials/centered-testimonial-with-cta.tsx",
-          "target": "components/emails/marketing/testimonials/centered-testimonial-with-cta.tsx",
+          "target": "components/email/centered-testimonial-with-cta.tsx",
           "type": "registry:component"
         }
       ],
@@ -3784,7 +3784,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx",
-          "target": "components/emails/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx",
+          "target": "components/email/full-width-testimonial-with-overlapping-avatar.tsx",
           "type": "registry:component"
         }
       ],
@@ -3807,7 +3807,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial.tsx",
-          "target": "components/emails/marketing/testimonials/full-width-testimonial.tsx",
+          "target": "components/email/full-width-testimonial.tsx",
           "type": "registry:component"
         }
       ],
@@ -3830,7 +3830,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/testimonials/split-testimonial-with-cta.tsx",
-          "target": "components/emails/marketing/testimonials/split-testimonial-with-cta.tsx",
+          "target": "components/email/split-testimonial-with-cta.tsx",
           "type": "registry:component"
         }
       ],
@@ -3853,7 +3853,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/cards-timeline.tsx",
-          "target": "components/emails/marketing/timelines/cards-timeline.tsx",
+          "target": "components/email/cards-timeline.tsx",
           "type": "registry:component"
         }
       ],
@@ -3876,7 +3876,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/changelog-boxed.tsx",
-          "target": "components/emails/marketing/timelines/changelog-boxed.tsx",
+          "target": "components/email/changelog-boxed.tsx",
           "type": "registry:component"
         }
       ],
@@ -3899,7 +3899,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/changelog.tsx",
-          "target": "components/emails/marketing/timelines/changelog.tsx",
+          "target": "components/email/changelog.tsx",
           "type": "registry:component"
         }
       ],
@@ -3922,7 +3922,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/payment-timeline.tsx",
-          "target": "components/emails/marketing/timelines/payment-timeline.tsx",
+          "target": "components/email/payment-timeline.tsx",
           "type": "registry:component"
         }
       ],
@@ -3945,7 +3945,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/split-cards.tsx",
-          "target": "components/emails/marketing/timelines/split-cards.tsx",
+          "target": "components/email/split-cards.tsx",
           "type": "registry:component"
         }
       ],
@@ -3968,7 +3968,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/stacked-boxed-timeline.tsx",
-          "target": "components/emails/marketing/timelines/stacked-boxed-timeline.tsx",
+          "target": "components/email/stacked-boxed-timeline.tsx",
           "type": "registry:component"
         }
       ],
@@ -3991,7 +3991,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/stacked-timeline.tsx",
-          "target": "components/emails/marketing/timelines/stacked-timeline.tsx",
+          "target": "components/email/stacked-timeline.tsx",
           "type": "registry:component"
         }
       ],
@@ -4014,7 +4014,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-with-details.tsx",
-          "target": "components/emails/ui-elements/avatars/avatar-with-details.tsx",
+          "target": "components/email/avatar-with-details.tsx",
           "type": "registry:component"
         }
       ],
@@ -4037,7 +4037,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx",
-          "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx",
+          "target": "components/email/grouped-overlapped-avatars-with-plus-count.tsx",
           "type": "registry:component"
         }
       ],
@@ -4060,7 +4060,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx",
-          "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx",
+          "target": "components/email/grouped-overlapped-avatars.tsx",
           "type": "registry:component"
         }
       ],
@@ -4083,7 +4083,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/buttons/buttons.tsx",
-          "target": "components/emails/ui-elements/buttons/buttons.tsx",
+          "target": "components/email/buttons.tsx",
           "type": "registry:component"
         }
       ],
@@ -4106,7 +4106,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/containers/container.tsx",
-          "target": "components/emails/ui-elements/containers/container.tsx",
+          "target": "components/email/container.tsx",
           "type": "registry:component"
         }
       ],
@@ -4129,7 +4129,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-basic.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-basic.tsx",
+          "target": "components/email/data-table-basic.tsx",
           "type": "registry:component"
         }
       ],
@@ -4152,7 +4152,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-with-4-columns.tsx",
+          "target": "components/email/data-table-with-4-columns.tsx",
           "type": "registry:component"
         }
       ],
@@ -4175,7 +4175,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx",
+          "target": "components/email/data-table-with-change-indicator-pills.tsx",
           "type": "registry:component"
         }
       ],
@@ -4198,7 +4198,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-edit-button.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-with-edit-button.tsx",
+          "target": "components/email/data-table-with-edit-button.tsx",
           "type": "registry:component"
         }
       ],
@@ -4221,7 +4221,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx",
+          "target": "components/email/data-table-with-logos-and-action-links.tsx",
           "type": "registry:component"
         }
       ],
@@ -4244,7 +4244,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-pills.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-with-pills.tsx",
+          "target": "components/email/data-table-with-pills.tsx",
           "type": "registry:component"
         }
       ],
@@ -4267,7 +4267,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx",
-          "target": "components/emails/ui-elements/data-tables/data-table-with-progress-bar.tsx",
+          "target": "components/email/data-table-with-progress-bar.tsx",
           "type": "registry:component"
         }
       ],
@@ -4290,7 +4290,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/grids/grid.tsx",
-          "target": "components/emails/ui-elements/grids/grid.tsx",
+          "target": "components/email/grid.tsx",
           "type": "registry:component"
         }
       ],
@@ -4313,7 +4313,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/pills/basic-pills-with-status-colors.tsx",
-          "target": "components/emails/ui-elements/pills/basic-pills-with-status-colors.tsx",
+          "target": "components/email/basic-pills-with-status-colors.tsx",
           "type": "registry:component"
         }
       ],
@@ -4336,7 +4336,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/progress-bars/full-width-progress-bar.tsx",
-          "target": "components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx",
+          "target": "components/email/full-width-progress-bar.tsx",
           "type": "registry:component"
         }
       ],
@@ -4359,7 +4359,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-columns.tsx",
-          "target": "components/emails/ui-elements/progress-bars/progress-bar-columns.tsx",
+          "target": "components/email/progress-bar-columns.tsx",
           "type": "registry:component"
         }
       ],
@@ -4382,7 +4382,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-group.tsx",
-          "target": "components/emails/ui-elements/progress-bars/progress-bar-group.tsx",
+          "target": "components/email/progress-bar-group.tsx",
           "type": "registry:component"
         }
       ],
@@ -4405,7 +4405,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-button.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-button.tsx",
+          "target": "components/email/divider-with-button.tsx",
           "type": "registry:component"
         }
       ],
@@ -4428,7 +4428,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-file-type.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-file-type.tsx",
+          "target": "components/email/divider-with-file-type.tsx",
           "type": "registry:component"
         }
       ],
@@ -4451,7 +4451,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon-and-button.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-icon-and-button.tsx",
+          "target": "components/email/divider-with-icon-and-button.tsx",
           "type": "registry:component"
         }
       ],
@@ -4474,7 +4474,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-icon.tsx",
+          "target": "components/email/divider-with-icon.tsx",
           "type": "registry:component"
         }
       ],
@@ -4497,7 +4497,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-logo.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-logo.tsx",
+          "target": "components/email/divider-with-logo.tsx",
           "type": "registry:component"
         }
       ],
@@ -4520,7 +4520,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-social-icons.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-social-icons.tsx",
+          "target": "components/email/divider-with-social-icons.tsx",
           "type": "registry:component"
         }
       ],
@@ -4543,7 +4543,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-title.tsx",
-          "target": "components/emails/ui-elements/spacing/divider-with-title.tsx",
+          "target": "components/email/divider-with-title.tsx",
           "type": "registry:component"
         }
       ],
@@ -4566,7 +4566,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/line-divider.tsx",
-          "target": "components/emails/ui-elements/spacing/line-divider.tsx",
+          "target": "components/email/line-divider.tsx",
           "type": "registry:component"
         }
       ],
@@ -4589,7 +4589,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/vertical-spacer.tsx",
-          "target": "components/emails/ui-elements/spacing/vertical-spacer.tsx",
+          "target": "components/email/vertical-spacer.tsx",
           "type": "registry:component"
         }
       ],
@@ -4612,7 +4612,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-magic-link-default.tsx",
-          "target": "components/emails/auth-magic-link-default.tsx",
+          "target": "components/email/auth-magic-link-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4634,7 +4634,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-magic-link-raycast.tsx",
-          "target": "components/emails/auth-magic-link-raycast.tsx",
+          "target": "components/email/auth-magic-link-raycast.tsx",
           "type": "registry:component"
         }
       ],
@@ -4656,7 +4656,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-magic-link-stripe.tsx",
-          "target": "components/emails/auth-magic-link-stripe.tsx",
+          "target": "components/email/auth-magic-link-stripe.tsx",
           "type": "registry:component"
         }
       ],
@@ -4678,7 +4678,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-otp-default.tsx",
-          "target": "components/emails/auth-otp-default.tsx",
+          "target": "components/email/auth-otp-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4700,7 +4700,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-otp-twitch.tsx",
-          "target": "components/emails/auth-otp-twitch.tsx",
+          "target": "components/email/auth-otp-twitch.tsx",
           "type": "registry:component"
         }
       ],
@@ -4722,7 +4722,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-password-reset-default.tsx",
-          "target": "components/emails/auth-password-reset-default.tsx",
+          "target": "components/email/auth-password-reset-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4744,7 +4744,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-password-reset-dropbox.tsx",
-          "target": "components/emails/auth-password-reset-dropbox.tsx",
+          "target": "components/email/auth-password-reset-dropbox.tsx",
           "type": "registry:component"
         }
       ],
@@ -4766,7 +4766,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/auth-password-reset-notion.tsx",
-          "target": "components/emails/auth-password-reset-notion.tsx",
+          "target": "components/email/auth-password-reset-notion.tsx",
           "type": "registry:component"
         }
       ],
@@ -4788,7 +4788,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/invite-default.tsx",
-          "target": "components/emails/invite-default.tsx",
+          "target": "components/email/invite-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4810,7 +4810,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/invite-vercel.tsx",
-          "target": "components/emails/invite-vercel.tsx",
+          "target": "components/email/invite-vercel.tsx",
           "type": "registry:component"
         }
       ],
@@ -4832,7 +4832,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/newsletter-default.tsx",
-          "target": "components/emails/newsletter-default.tsx",
+          "target": "components/email/newsletter-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4855,7 +4855,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/newsletter-stack-overflow.tsx",
-          "target": "components/emails/newsletter-stack-overflow.tsx",
+          "target": "components/email/newsletter-stack-overflow.tsx",
           "type": "registry:component"
         }
       ],
@@ -4878,7 +4878,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-airbnb.tsx",
-          "target": "components/emails/notification-airbnb.tsx",
+          "target": "components/email/notification-airbnb.tsx",
           "type": "registry:component"
         }
       ],
@@ -4900,7 +4900,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-default.tsx",
-          "target": "components/emails/notification-default.tsx",
+          "target": "components/email/notification-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4922,7 +4922,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-linear.tsx",
-          "target": "components/emails/notification-linear.tsx",
+          "target": "components/email/notification-linear.tsx",
           "type": "registry:component"
         }
       ],
@@ -4944,7 +4944,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/notification-slack.tsx",
-          "target": "components/emails/notification-slack.tsx",
+          "target": "components/email/notification-slack.tsx",
           "type": "registry:component"
         }
       ],
@@ -4966,7 +4966,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/onboarding-default.tsx",
-          "target": "components/emails/onboarding-default.tsx",
+          "target": "components/email/onboarding-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -4992,7 +4992,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/onboarding-linear.tsx",
-          "target": "components/emails/onboarding-linear.tsx",
+          "target": "components/email/onboarding-linear.tsx",
           "type": "registry:component"
         }
       ],
@@ -5019,7 +5019,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/onboarding-vercel.tsx",
-          "target": "components/emails/onboarding-vercel.tsx",
+          "target": "components/email/onboarding-vercel.tsx",
           "type": "registry:component"
         }
       ],
@@ -5046,7 +5046,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-apple.tsx",
-          "target": "components/emails/receipt-apple.tsx",
+          "target": "components/email/receipt-apple.tsx",
           "type": "registry:component"
         }
       ],
@@ -5069,7 +5069,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-default.tsx",
-          "target": "components/emails/receipt-default.tsx",
+          "target": "components/email/receipt-default.tsx",
           "type": "registry:component"
         }
       ],
@@ -5092,7 +5092,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-nike.tsx",
-          "target": "components/emails/receipt-nike.tsx",
+          "target": "components/email/receipt-nike.tsx",
           "type": "registry:component"
         }
       ],
@@ -5115,7 +5115,7 @@
       "files": [
         {
           "path": "registry/bases/react-email/blocks/receipt-stripe.tsx",
-          "target": "components/emails/receipt-stripe.tsx",
+          "target": "components/email/receipt-stripe.tsx",
           "type": "registry:component"
         }
       ],

@@ -32,14 +32,14 @@ npm install jsx-email
 <ComponentSource
   src="registry/bases/jsx-email/ui/marketing/blog/blog-shared.tsx"
   base="jsx-email"
-  title="components/emails/marketing/blog/blog-shared.tsx"
+  title="components/email/blog-shared.tsx"
 />
 
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/blog/blog-post-horizontal-boxed.tsx"
     base="jsx-email"
-    title="components/emails/marketing/blog/blog-post-horizontal-boxed.tsx"
+    title="components/email/blog-post-horizontal-boxed.tsx"
   />
 </Steps>
 
@@ -49,18 +49,12 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { BlogPostHorizontalBoxed } from "@/components/emails/marketing/blog/blog-post-horizontal-boxed";
+import { BlogPostHorizontalBoxed } from "@/components/email/blog-post-horizontal-boxed";
 ```
 
 ```tsx
 <BlogPostHorizontalBoxed {...BlogPostHorizontalBoxed.PreviewProps} />
 ```
-
-## Examples
-
-### Default
-
-<ComponentPreview base="jsx-email" name="blog-post-horizontal-boxed-demo" />
 
 ## API Reference
 

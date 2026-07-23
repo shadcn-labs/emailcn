@@ -32,14 +32,14 @@ npm install jsx-email
 <ComponentSource
   src="registry/bases/jsx-email/ui/marketing/faq/faq-shared.tsx"
   base="jsx-email"
-  title="components/emails/marketing/faq/faq-shared.tsx"
+  title="components/email/faq-shared.tsx"
 />
 
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/faq/expanded-faq-with-numbers.tsx"
     base="jsx-email"
-    title="components/emails/marketing/faq/expanded-faq-with-numbers.tsx"
+    title="components/email/expanded-faq-with-numbers.tsx"
   />
 </Steps>
 
@@ -49,18 +49,12 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { ExpandedFaqWithNumbers } from "@/components/emails/marketing/faq/expanded-faq-with-numbers";
+import { ExpandedFaqWithNumbers } from "@/components/email/expanded-faq-with-numbers";
 ```
 
 ```tsx
 <ExpandedFaqWithNumbers {...ExpandedFaqWithNumbers.PreviewProps} />
 ```
-
-## Examples
-
-### Default
-
-<ComponentPreview base="jsx-email" name="expanded-faq-with-numbers-demo" />
 
 ## API Reference
 

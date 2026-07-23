@@ -23,7 +23,7 @@ npx shadcn@latest add https://emailcn.vercel.app/r/react-email/theme-linear.json
 
 ```tsx
 import { Tailwind } from "react-email";
-import { defaultTheme } from "@/components/emails/themes/theme-default";
+import { defaultTheme } from "@/components/email/theme-default";
 ```
 
 ```tsx
@@ -35,16 +35,12 @@ import { defaultTheme } from "@/components/emails/themes/theme-default";
 These styles use theme tokens directly:
 
 ```tsx
-import { defaultTheme } from "@/components/emails/themes/theme-default";
+import { defaultTheme } from "@/components/email/theme-default";
 ```
 
 ```tsx
 <MjmlText color={defaultTheme.colorText}>Hello</MjmlText>
 ```
-
-## Available themes
-
-<ComponentsList className="mt-6" folderName="Themes" />
 
 ## Available Fonts (React Email and JSX Email)
 

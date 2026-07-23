@@ -33,7 +33,7 @@ npm install react-email
 
 <ComponentSource
   src="registry/themes/notion.ts"
-  title="components/emails/themes/notion.ts"
+  title="components/email/theme-notion.ts"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -48,7 +48,7 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { notionTheme } from "@/components/emails/themes/notion";
+import { notionTheme } from "@/components/email/theme-notion";
 
 <Tailwind config={notionTheme}>{/* Your email content */}</Tailwind>;
 ```

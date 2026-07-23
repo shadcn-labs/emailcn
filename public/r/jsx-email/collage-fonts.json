@@ -11,7 +11,7 @@
       "path": "registry/bases/jsx-email/fonts/collage-fonts.tsx",
       "content": "import { Font } from \"jsx-email\";\n\n/** From [Resend Matte demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/02-Matte/collage-fonts.tsx). */\nexport const CollageFonts = () => (\n  <>\n    <Font\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      fontFamily=\"Inter\"\n      fontStyle=\"normal\"\n      fontWeight={300}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf\",\n      }}\n    />\n    <Font\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      fontFamily=\"Inter\"\n      fontStyle=\"normal\"\n      fontWeight={400}\n      webFont={{\n        format: \"woff2\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2\",\n      }}\n    />\n    <Font\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      fontFamily=\"Inter\"\n      fontStyle=\"normal\"\n      fontWeight={500}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf\",\n      }}\n    />\n  </>\n);\n",
       "type": "registry:file",
-      "target": "components/emails/fonts/collage-fonts.tsx"
+      "target": "components/email/collage-fonts.tsx"
     }
   ],
   "categories": [

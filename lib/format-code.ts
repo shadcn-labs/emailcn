@@ -47,8 +47,14 @@ export const formatCode = async (code: string) => {
   let formattedCode = code;
   for (const base of BASES) {
     formattedCode = formattedCode.replaceAll(
-      `@/registry/bases/${base.name}/`,
-      "@/components/emails/"
+      new RegExp(
+        `@/registry/bases/${base.name}/(themes|fonts|ui|blocks)/([^"']+)`,
+        "g"
+      ),
+      (_match, kind: string, importPath: string) => {
+        const fileName = importPath.slice(importPath.lastIndexOf("/") + 1);
+        return `@/components/email/${kind === "themes" ? `theme-${fileName}` : fileName}`;
+      }
     );
   }
 

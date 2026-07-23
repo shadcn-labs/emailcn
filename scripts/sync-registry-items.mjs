@@ -93,15 +93,9 @@ const itemNameFor = (relPath) => {
 const targetFor = (relPath) => {
   const stem = path.basename(relPath).replace(/\.(tsx|ts)$/, "");
   if (relPath.startsWith("themes/")) {
-    return `components/emails/themes/theme-${stem}.ts`;
+    return `components/email/theme-${stem}.ts`;
   }
-  if (relPath.startsWith("fonts/")) {
-    return `components/emails/fonts/${path.basename(relPath)}`;
-  }
-  if (relPath.startsWith("blocks/")) {
-    return `components/emails/${path.basename(relPath)}`;
-  }
-  return `components/emails/${relPath.replace(/^ui\//, "")}`;
+  return `components/email/${path.basename(relPath)}`;
 };
 
 const registryDepsFor = (base, absPath) => {
@@ -202,11 +196,22 @@ for (const base of BASES) {
 
   // sanity: unique names within the style
   const names = new Set();
+  const targets = new Map();
   for (const item of items) {
     if (names.has(item.name)) {
       throw new Error(`duplicate item name in ${base.name}: ${item.name}`);
     }
     names.add(item.name);
+
+    for (const file of item.files) {
+      const existingPath = targets.get(file.target);
+      if (existingPath && existingPath !== file.path) {
+        throw new Error(
+          `duplicate target in ${base.name}: ${file.target} (${existingPath}, ${file.path})`
+        );
+      }
+      targets.set(file.target, file.path);
+    }
   }
 
   const registry = {

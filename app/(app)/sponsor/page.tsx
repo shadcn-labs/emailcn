@@ -30,8 +30,8 @@ const SponsorPage = async () => {
           </h1>
           <p className="text-base text-muted-foreground text-balance">
             emailcn is a collection of beautifully designed, accessible, and
-            customizable email components for React. Every component is free and
-            that&apos;s not changing.
+            customizable components for React Email, MJML React, and JSX Email.
+            Every component is free and that&apos;s not changing.
           </p>
           <p className="text-sm text-muted-foreground text-balance">
             I&apos;m not going to paywall features or gate components behind a

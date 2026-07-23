@@ -30,13 +30,13 @@ npx shadcn@latest add @emailcn/buttons
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons.tsx"
   base="jsx-email"
-  title="components/emails/ui-elements/buttons/buttons.tsx"
+  title="components/email/buttons.tsx"
 />
 
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/buttons/buttons-shared.tsx"
   base="jsx-email"
-  title="components/emails/ui-elements/buttons/buttons-shared.tsx"
+  title="components/email/buttons-shared.tsx"
 />
 
 </Steps>
@@ -48,7 +48,7 @@ npx shadcn@latest add @emailcn/buttons
 ## Usage
 
 ```tsx
-import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
+import { Buttons } from "@/components/email/buttons";
 ```
 
 ```tsx
@@ -59,22 +59,12 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
 
 ## Examples
 
-### Primary
-
-<ComponentPreview
-  base="jsx-email"
-  name="buttons-demo"
-  variant="primary"
-  hideCode
-/>
-
 ### Primary with Leading Icon
 
 <ComponentPreview
   base="jsx-email"
   name="buttons-demo"
   variant="primary-leading-icon"
-  hideCode
 />
 
 ### Primary with Trailing Icon
@@ -83,17 +73,11 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
   base="jsx-email"
   name="buttons-demo"
   variant="primary-trailing-icon"
-  hideCode
 />
 
 ### Secondary
 
-<ComponentPreview
-  base="jsx-email"
-  name="buttons-demo"
-  variant="secondary"
-  hideCode
-/>
+<ComponentPreview base="jsx-email" name="buttons-demo" variant="secondary" />
 
 ### Secondary with Leading Icon
 
@@ -101,7 +85,6 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
   base="jsx-email"
   name="buttons-demo"
   variant="secondary-leading-icon"
-  hideCode
 />
 
 ### Secondary with Trailing Icon
@@ -110,17 +93,11 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
   base="jsx-email"
   name="buttons-demo"
   variant="secondary-trailing-icon"
-  hideCode
 />
 
 ### Text Link
 
-<ComponentPreview
-  base="jsx-email"
-  name="buttons-demo"
-  variant="text"
-  hideCode
-/>
+<ComponentPreview base="jsx-email" name="buttons-demo" variant="text" />
 
 ### Text Link with Leading Icon
 
@@ -128,7 +105,6 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
   base="jsx-email"
   name="buttons-demo"
   variant="text-leading-icon"
-  hideCode
 />
 
 ### Text Link with Trailing Icon
@@ -137,7 +113,6 @@ import { Buttons } from "@/components/emails/ui-elements/buttons/buttons";
   base="jsx-email"
   name="buttons-demo"
   variant="text-trailing-icon"
-  hideCode
 />
 
 ## API Reference

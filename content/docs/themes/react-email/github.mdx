@@ -33,7 +33,7 @@ npm install react-email
 
 <ComponentSource
   src="registry/themes/github.ts"
-  title="components/emails/themes/github.ts"
+  title="components/email/theme-github.ts"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -48,7 +48,7 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { githubTheme } from "@/components/emails/themes/github";
+import { githubTheme } from "@/components/email/theme-github";
 
 <Tailwind config={githubTheme}>{/* Your email content */}</Tailwind>;
 ```

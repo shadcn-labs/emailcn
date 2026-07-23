@@ -4,6 +4,7 @@ import {
   ArrowRightIcon,
   CircleDashedIcon,
   CornerDownLeftIcon,
+  FolderIcon,
   LayoutGrid,
   SquareDashedIcon,
 } from "lucide-react";
@@ -50,10 +51,13 @@ import type { RegistryThemeName } from "@/registry/themes";
 
 type DocUrlKind =
   | { kind: "theme"; slug: string }
+  | { kind: "subcategory"; slug: string }
   | { kind: "component"; slug: string }
   | { kind: "block"; slug: string }
   | { kind: "template"; slug: string }
   | { kind: "page" };
+
+type SubcategoryKind = Extract<DocUrlKind, { kind: "subcategory" }>["kind"];
 
 const GROUP_HEADING_CLS =
   "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
@@ -82,13 +86,22 @@ const parseDocPageUrl = (url: string): DocUrlKind => {
 const asText = (name: React.ReactNode) =>
   typeof name === "string" ? name : String(name);
 
+const getSlugFromUrl = (url: string) => url.match(/\/([^/]+)\/?$/)?.[1] ?? "";
+
 /**
  * Flatten a folder one nesting level deep, prefixing pages inside component
  * family folders with the family name (e.g. "Bento Grids: Images with
  * Captions") so search results stay unambiguous.
  */
-const getSearchablePages = (folder: PageTreeFolder) => {
-  const pages: { name: string; url: string }[] = [];
+const getSearchablePages = (
+  folder: PageTreeFolder,
+  markSubcategories = false
+) => {
+  const pages: {
+    kind?: SubcategoryKind;
+    name: string;
+    url: string;
+  }[] = [];
   for (const item of getFolderItems(folder)) {
     if (item.type === "page") {
       pages.push({ name: asText(item.page.name), url: item.page.url });
@@ -96,7 +109,11 @@ const getSearchablePages = (folder: PageTreeFolder) => {
     }
     const family = asText(item.name);
     if (item.index) {
-      pages.push({ name: family, url: item.index.url });
+      pages.push({
+        kind: markSubcategories ? "subcategory" : undefined,
+        name: family,
+        url: item.index.url,
+      });
     }
     for (const page of item.pages) {
       pages.push({ name: `${family}: ${asText(page.name)}`, url: page.url });
@@ -135,6 +152,9 @@ const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
   }
   if (parsed.kind === "component") {
     return <CircleDashedIcon />;
+  }
+  if (parsed.kind === "subcategory") {
+    return <FolderIcon className="size-4 shrink-0 opacity-70" />;
   }
   if (parsed.kind === "block") {
     return <LayoutGrid className="size-4 shrink-0 opacity-70" />;
@@ -215,8 +235,14 @@ export const CommandMenu = ({
   });
 
   const treeGroups = useMemo(() => {
-    const groups: { label: string; pages: { url: string; name: string }[] }[] =
-      [];
+    const groups: {
+      label: string;
+      pages: {
+        kind?: SubcategoryKind;
+        url: string;
+        name: string;
+      }[];
+    }[] = [];
     for (const item of tree.children) {
       if (item.type !== "folder") {
         continue;
@@ -227,7 +253,7 @@ export const CommandMenu = ({
 
       if (isComponentsFolder(item)) {
         for (const category of getCategoryFolders(item, currentBase)) {
-          const pages = getSearchablePages(category);
+          const pages = getSearchablePages(category, true);
           if (pages.length > 0) {
             groups.push({ label: asText(category.name), pages });
           }
@@ -243,9 +269,14 @@ export const CommandMenu = ({
   }, [tree, currentBase]);
 
   const handleDocPageHighlight = useCallback(
-    (item: { url: string; name?: string }) => {
+    (item: { kind?: SubcategoryKind; url: string; name?: string }) => {
       setShowGoToPage(true);
-      const parsed = parseDocPageUrl(item.url);
+      const parsed: DocUrlKind = item.kind
+        ? {
+            kind: item.kind,
+            slug: getSlugFromUrl(item.url),
+          }
+        : parseDocPageUrl(item.url);
       if (parsed.kind === "theme") {
         setCopyPayload(
           `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/theme-${parsed.slug}`
@@ -253,6 +284,10 @@ export const CommandMenu = ({
         return;
       }
       if (parsed.kind === "block") {
+        setCopyPayload("");
+        return;
+      }
+      if (parsed.kind === "subcategory") {
         setCopyPayload("");
         return;
       }
@@ -296,15 +331,18 @@ export const CommandMenu = ({
   const renderDocPageItem = (
     title: string,
     url: string,
-    breadcrumb: string[]
+    breadcrumb: string[],
+    kind?: SubcategoryKind
   ) => {
-    const parsed = parseDocPageUrl(url);
+    const parsed: DocUrlKind = kind
+      ? { kind, slug: getSlugFromUrl(url) }
+      : parseDocPageUrl(url);
     return (
       <CommandMenuItem
         key={url}
         keywords={buildDocPageKeywords(parsed, url, breadcrumb)}
         value={[...breadcrumb, title].filter(Boolean).join(" ")}
-        onHighlight={() => handleDocPageHighlight({ name: title, url })}
+        onHighlight={() => handleDocPageHighlight({ kind, name: title, url })}
         onSelect={() => runCommand(() => router.push(url))}
       >
         <DocPageLeadingIcon parsed={parsed} />
@@ -407,7 +445,12 @@ export const CommandMenu = ({
                 heading={group.label}
               >
                 {group.pages.map((page) =>
-                  renderDocPageItem(page.name, page.url, [group.label])
+                  renderDocPageItem(
+                    page.name,
+                    page.url,
+                    [group.label],
+                    page.kind
+                  )
                 )}
               </CommandGroup>
             ))}

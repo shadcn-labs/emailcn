@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
+import { isHiddenDocUrl } from "@/lib/docs";
 import { source } from "@/lib/source";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,12 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic documentation pages from fumadocs
-  const docPages: MetadataRoute.Sitemap = source.getPages().map((page) => ({
-    changeFrequency: "weekly" as const,
-    lastModified: new Date(),
-    priority: page.url === "/docs" ? 0.9 : 0.8,
-    url: `${SITE.URL}${page.url}`,
-  }));
+  const docPages: MetadataRoute.Sitemap = source
+    .getPages()
+    .filter((page) => !isHiddenDocUrl(page.url))
+    .map((page) => ({
+      changeFrequency: "weekly" as const,
+      lastModified: new Date(),
+      priority: page.url === "/docs" ? 0.9 : 0.8,
+      url: `${SITE.URL}${page.url}`,
+    }));
 
   return [...staticPages, ...docPages];
 }

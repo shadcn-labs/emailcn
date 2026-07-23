@@ -32,14 +32,14 @@ npm install jsx-email
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-shared.tsx"
   base="jsx-email"
-  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+  title="components/email/data-table-shared.tsx"
 />
 
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-edit-button.tsx"
     base="jsx-email"
-    title="components/emails/ui-elements/data-tables/data-table-with-edit-button.tsx"
+    title="components/email/data-table-with-edit-button.tsx"
   />
 </Steps>
 
@@ -49,18 +49,12 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { DataTableEditButton } from "@/components/emails/ui-elements/data-tables/data-table-with-edit-button";
+import { DataTableEditButton } from "@/components/email/data-table-with-edit-button";
 ```
 
 ```tsx
 <DataTableEditButton {...DataTableEditButton.PreviewProps} />
 ```
-
-## Examples
-
-### Default
-
-<ComponentPreview base="jsx-email" name="data-table-edit-button-demo" />
 
 ## API Reference
 

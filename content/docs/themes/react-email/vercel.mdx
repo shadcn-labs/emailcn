@@ -33,7 +33,7 @@ npm install react-email
 
 <ComponentSource
   src="registry/themes/vercel.ts"
-  title="components/emails/themes/vercel.ts"
+  title="components/email/theme-vercel.ts"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -48,7 +48,7 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { vercelTheme } from "@/components/emails/themes/vercel";
+import { vercelTheme } from "@/components/email/theme-vercel";
 
 <Tailwind config={vercelTheme}>{/* Your email content */}</Tailwind>;
 ```

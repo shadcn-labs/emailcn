@@ -32,14 +32,14 @@ npm install @faire/mjml-react
 <ComponentSource
   src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-shared.tsx"
   base="mjml-react"
-  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+  title="components/email/data-table-shared.tsx"
 />
 
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-basic.tsx"
     base="mjml-react"
-    title="components/emails/ui-elements/data-tables/data-table-basic.tsx"
+    title="components/email/data-table-basic.tsx"
   />
 </Steps>
 
@@ -49,18 +49,12 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { DataTableBasic } from "@/components/emails/ui-elements/data-tables/data-table-basic";
+import { DataTableBasic } from "@/components/email/data-table-basic";
 ```
 
 ```tsx
 <DataTableBasic {...DataTableBasic.PreviewProps} />
 ```
-
-## Examples
-
-### Default
-
-<ComponentPreview base="mjml-react" name="data-table-basic-demo" />
 
 ## API Reference
 

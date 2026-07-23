@@ -33,7 +33,7 @@ npm install react-email
 
 <ComponentSource
   src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
+  title="components/email/theme-default.ts"
 />
 
 <Step>Update the import paths to match your project setup.</Step>
@@ -48,7 +48,7 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { defaultTheme } from "@/components/emails/themes/default";
+import { defaultTheme } from "@/components/email/theme-default";
 
 <Tailwind config={defaultTheme}>{/* Your email content */}</Tailwind>;
 ```

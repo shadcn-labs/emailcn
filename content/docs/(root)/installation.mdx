@@ -6,7 +6,7 @@ description: "Install email components, blocks, themes, and font helpers from th
 ## Prerequisites
 
 - **React Email** templates: a project with **`react-email`** installed.
-- **MJML** templates: a project with **`@faire/mjml-react`** installed.
+- **MJML React** templates: a project with **`@faire/mjml-react`** installed.
 - **JSX Email** templates: a project with **`jsx-email`** installed.
 
 Configure the `@emailcn` namespace for your preferred style first — see [Registry](/docs/registry).
@@ -24,7 +24,7 @@ npx shadcn@latest add @emailcn/block-onboarding-default
 Import and use the component:
 
 ```tsx
-import { OnboardingDefault } from "@/components/emails/onboarding-default";
+import { OnboardingDefault } from "@/components/email/onboarding-default";
 
 export function WelcomeEmail() {
   return <OnboardingDefault _firstName="Ada" _productName="Acme" />;
@@ -35,9 +35,9 @@ Components install with a `*Section` export you can compose inside your own docu
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
-import { DefaultFonts } from "@/components/emails/fonts/default";
-import { defaultTheme } from "@/components/emails/themes/theme-default";
-import { ButtonsSection } from "@/components/emails/ui-elements/buttons/buttons";
+import { DefaultFonts } from "@/components/email/default";
+import { defaultTheme } from "@/components/email/theme-default";
+import { ButtonsSection } from "@/components/email/buttons";
 
 export function WelcomeEmail() {
   return (
@@ -58,4 +58,4 @@ export function WelcomeEmail() {
 }
 ```
 
-For **theming** and **font presets**, see [Theming](/docs/theming) and for **registry URLs**, see [Registry](/docs/registry).
+For registry URLs and namespace configuration, see [Registry](/docs/registry).

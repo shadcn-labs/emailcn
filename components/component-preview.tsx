@@ -72,8 +72,6 @@ export const ComponentPreview = async ({
     </div>`;
   }
 
-  const sourceName = name.replace(/-demo$/, "");
-
   return (
     <>
       <ComponentPreviewClient
@@ -85,12 +83,7 @@ export const ComponentPreview = async ({
         title={title}
       />
       {!hideCode && (
-        <ComponentSource
-          className="mt-6"
-          base={base}
-          name={sourceName}
-          title={`${sourceName}.tsx`}
-        />
+        <ComponentSource className="mt-6" base={base} name={name} />
       )}
     </>
   );

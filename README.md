@@ -5,8 +5,8 @@
 <h1 align="center">emailcn</h1>
 
 <p align="center">
-  Free & open-source, ready-to-use, customizable email components for React.<br/>
-  Zero config. One command setup. Built on <a href="https://react.email">React Email</a>, works seamlessly with <a href="https://ui.shadcn.com/">shadcn/ui</a>.
+  Free & open-source, ready-to-use components for React Email, MJML React, and JSX Email.<br/>
+  Zero config. One command setup. Works seamlessly with <a href="https://ui.shadcn.com/">shadcn/ui</a>.
   <br />
   <br />
   <a href="https://github.com/shadcn-labs/emailcn"><img src="https://www.shieldcn.dev/github/stars/shadcn-labs/emailcn.svg?variant=secondary&size=xs&theme=zinc" alt="GitHub Stars" /></a>
@@ -26,7 +26,7 @@
 - 🎨 **Theme-aware** — Multiple built-in themes (Vercel, Linear, Stripe, GitHub, Notion, Raycast, Twitch, Airbnb, Slack)
 - 🎯 **Zero config** — Works out of the box with sensible defaults
 - 📦 **shadcn/ui compatible** — Uses the same registry format and CLI
-- 📧 **React Email v6** — Built on the latest React Email
+- 📧 **Three renderers** — React Email, MJML React, and JSX Email
 - 🧩 **Composable** — Build complex emails with simple, declarative components
 - 📱 **Responsive** — Works across all email clients
 

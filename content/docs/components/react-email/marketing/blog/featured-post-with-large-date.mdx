@@ -35,14 +35,14 @@ npm install react-email
 <ComponentSource
   src="registry/bases/react-email/ui/marketing/blog/blog-shared.tsx"
   base="react-email"
-  title="components/emails/marketing/blog/blog-shared.tsx"
+  title="components/email/blog-shared.tsx"
 />
 
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/react-email/ui/marketing/blog/featured-post-with-large-date.tsx"
     base="react-email"
-    title="components/emails/marketing/blog/featured-post-with-large-date.tsx"
+    title="components/email/featured-post-with-large-date.tsx"
   />
 </Steps>
 
@@ -52,21 +52,12 @@ npm install react-email
 ## Usage
 
 ```tsx
-import { FeaturedPostWithLargeDate } from "@/components/emails/marketing/blog/featured-post-with-large-date";
+import { FeaturedPostWithLargeDate } from "@/components/email/featured-post-with-large-date";
 ```
 
 ```tsx
 <FeaturedPostWithLargeDate {...FeaturedPostWithLargeDate.PreviewProps} />
 ```
-
-## Examples
-
-### Default
-
-<ComponentPreview
-  base="react-email"
-  name="featured-post-with-large-date-demo"
-/>
 
 ## API Reference
 

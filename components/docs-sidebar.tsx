@@ -38,7 +38,6 @@ const TOP_LEVEL_SECTIONS = [
   { href: ROUTES.DOCS_INSTALLATION, name: "Installation" },
   { href: ROUTES.DOCS_COMPONENTS, name: "Components" },
   // { href: ROUTES.DOCS_BLOCKS, name: "Blocks" },
-  { href: ROUTES.DOCS_THEMING, name: "Theming" },
   { href: ROUTES.DOCS_MCP, name: "MCP" },
   { href: ROUTES.DOCS_REGISTRY, name: "Registry" },
   { href: ROUTES.LLMS, name: "llms.txt" },
@@ -105,18 +104,6 @@ const SidebarFamilyGroup = ({
         </CollapsibleTrigger>
         <CollapsibleContent>
           <SidebarMenuSub className="mr-0 pr-0">
-            {group.index ? (
-              <SidebarMenuSubItem>
-                <SidebarMenuSubButton
-                  asChild
-                  className="text-[0.8rem]"
-                  isActive={group.index.url === pathname}
-                  size="sm"
-                >
-                  <Link href={group.index.url}>Overview</Link>
-                </SidebarMenuSubButton>
-              </SidebarMenuSubItem>
-            ) : null}
             {group.pages.map((page) => (
               <SidebarMenuSubItem key={page.url}>
                 <SidebarMenuSubButton

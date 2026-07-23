@@ -37,9 +37,10 @@ export default function IndexPage() {
             </h1>
 
             <p className="max-w-2xl text-lg text-muted-foreground sm:text-xl">
-              Ready to use, customizable email components for React.
+              Ready-to-use, customizable email components.
               <br className="hidden sm:block" />
-              Built on React Email. Distributed via shadcn.
+              Built for React Email, MJML React, and JSX Email. Distributed via
+              shadcn.
             </p>
 
             <CommandBox className="mt-4 w-full max-w-xl" />
