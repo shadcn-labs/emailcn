@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-product-grid",
+  "title": "Bento Product Grid",
+  "description": "Bento Product Grid email component",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/react-email/bento-grid-layouts.json",
+    "https://emailcn.vercel.app/r/react-email/bento-grid-shared.json",
+    "https://emailcn.vercel.app/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-product-grid.tsx",
+      "content": "import type { TailwindConfig } from \"react-email\";\n\nimport { defaultTheme } from \"@/components/email/theme-default\";\n\nimport { BentoProductGridSection } from \"./bento-grid-layouts\";\nimport type { BentoProductGridProps as BentoProductGridSectionProps } from \"./bento-grid-layouts\";\nimport { BentoEmailShell } from \"./bento-grid-shared\";\n\nexport type BentoProductGridProps = BentoProductGridSectionProps & {\n  theme?: TailwindConfig;\n};\n\nexport const BentoProductGrid = (props: BentoProductGridProps) => (\n  <BentoEmailShell\n    preview=\"Flexible bento product grid\"\n    theme={props.theme ?? defaultTheme}\n  >\n    <BentoProductGridSection {...props} />\n  </BentoEmailShell>\n);\n\nBentoProductGrid.PreviewProps = {\n  placement: \"normal\",\n  style: \"full\",\n  theme: defaultTheme,\n  variant: \"two-row-three-column\",\n} satisfies BentoProductGridProps;\n",
+      "type": "registry:component",
+      "target": "components/email/bento-product-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

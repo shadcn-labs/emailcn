@@ -1,0 +1,11 @@
+import { BentoProductGrid } from "@/registry/bases/react-email/ui/marketing/bento-grids/bento-product-grid";
+
+export default function BentoProductGridVariantTwoRowThreeColumnStyleSidesPlacementNormalExampleDemo() {
+  return (
+    <BentoProductGrid
+      variant="two-row-three-column"
+      style="sides"
+      placement="normal"
+    />
+  );
+}

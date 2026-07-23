@@ -1,0 +1,175 @@
+---
+title: "Product Grid"
+description: "Flexible product bento grids with typed compositions, image treatments, and ordering."
+---
+
+<ComponentPreview base="react-email" name="bento-product-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-product-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-product-grid.tsx"
+    base="react-email"
+    title="components/email/bento-product-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-grid-layouts.tsx"
+    base="react-email"
+    title="components/email/bento-grid-layouts.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx"
+    base="react-email"
+    title="components/email/bento-grid-shared.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoProductGrid } from "@/components/email/bento-product-grid";
+```
+
+```tsx
+<BentoProductGrid
+  variant="two-row-three-column"
+  style="full"
+  placement="normal"
+/>
+```
+
+## Examples
+
+### Two Row Three Column Full Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo"
+/>
+
+### Two Row Three Column Left
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo"
+/>
+
+### Two Row Three Column Left Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo"
+/>
+
+### Two Row Three Column Right
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo"
+/>
+
+### Two Row Three Column Right Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo"
+/>
+
+### Two Row Three Column Sides
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo"
+/>
+
+### Two Row Three Column Sides Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo"
+/>
+
+### Even Split Two Thirds Full
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo"
+/>
+
+### Even Split Two Thirds Full Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo"
+/>
+
+### Even Split Two Thirds Left
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo"
+/>
+
+### Even Split Two Thirds Left Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo"
+/>
+
+### Even Split Two Thirds Right
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo"
+/>
+
+### Even Split Two Thirds Right Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo"
+/>
+
+### Even Split Two Thirds Sides
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo"
+/>
+
+### Even Split Two Thirds Sides Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                | Default                  | Description                     |
+| ----------- | --------------------------------------------------- | ------------------------ | ------------------------------- |
+| `variant`   | `"two-row-three-column" \| "even-split-two-thirds"` | `"two-row-three-column"` | Selects the product composition |
+| `style`     | `"left" \| "right" \| "sides" \| "full"`            | `"full"`                 | Controls image padding          |
+| `placement` | `"normal" \| "reverse"`                             | `"normal"`               | Controls row ordering           |
+| `data`      | Variant-specific product tuples                     | Preset content           | Replaces product content        |
+| `theme`     | `TailwindConfig`                                    | `defaultTheme`           | Controls the email theme        |

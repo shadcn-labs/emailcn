@@ -8,16 +8,62 @@ import DemoJsxEmail4 from "./jsx-email/basic-logo-cloud-variant-minimal-example-
 import DemoJsxEmail5 from "./jsx-email/basic-logo-cloud-variant-with-description-example-demo";
 import DemoJsxEmail6 from "./jsx-email/basic-logo-cloud-variant-with-title-example-demo";
 import DemoJsxEmail7 from "./jsx-email/basic-pills-status-colors-demo";
-import JxBentoGridWith3ColumnsAndEvenSplitImageStatsDemo from "./jsx-email/bento-grid-with-3-columns-and-even-split-image-stats-demo";
-import JxBentoGridWith3ColumnsAndEvenSplitTextStatsDemo from "./jsx-email/bento-grid-with-3-columns-and-even-split-text-stats-demo";
-import JxBentoGridWith3ColumnsAndFlushImagesDemo from "./jsx-email/bento-grid-with-3-columns-and-flush-images-demo";
-import JxBentoGridWith3ColumnsAndPaddedImagesDemo from "./jsx-email/bento-grid-with-3-columns-and-padded-images-demo";
-import JxBentoGridWithEvenSplitAndImageStatsDemo from "./jsx-email/bento-grid-with-even-split-and-image-stats-demo";
-import JxBentoGridWithEvenSplitAndTextStatsDemo from "./jsx-email/bento-grid-with-even-split-and-text-stats-demo";
-import JxBentoGridWithEvenSplitAndTwoThirdsDemo from "./jsx-email/bento-grid-with-even-split-and-two-thirds-demo";
-import JxBentoGridWithImagesAndCaptionsDemo from "./jsx-email/bento-grid-with-images-and-captions-demo";
-import JxBentoGridWithImagesAndDetailsDemo from "./jsx-email/bento-grid-with-images-and-details-demo";
-import JxBentoGridWithTwoRowsAnd3ColumnSecondRowDemo from "./jsx-email/bento-grid-with-two-rows-and-3-column-second-row-demo";
+import DemoJsxEmail8 from "./jsx-email/bento-image-grid-demo";
+import DemoJsxEmail9 from "./jsx-email/bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo";
+import DemoJsxEmail10 from "./jsx-email/bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo";
+import DemoJsxEmail11 from "./jsx-email/bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo";
+import DemoJsxEmail12 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo";
+import DemoJsxEmail13 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo";
+import DemoJsxEmail14 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo";
+import DemoJsxEmail15 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo";
+import DemoJsxEmail16 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo";
+import DemoJsxEmail17 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo";
+import DemoJsxEmail18 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo";
+import DemoJsxEmail19 from "./jsx-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo";
+import DemoJsxEmail20 from "./jsx-email/bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo";
+import DemoJsxEmail21 from "./jsx-email/bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo";
+import DemoJsxEmail22 from "./jsx-email/bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo";
+import DemoJsxEmail23 from "./jsx-email/bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo";
+import DemoJsxEmail24 from "./jsx-email/bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo";
+import DemoJsxEmail25 from "./jsx-email/bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo";
+import DemoJsxEmail26 from "./jsx-email/bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo";
+import DemoJsxEmail27 from "./jsx-email/bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo";
+import DemoJsxEmail28 from "./jsx-email/bento-product-grid-demo";
+import DemoJsxEmail29 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo";
+import DemoJsxEmail30 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo";
+import DemoJsxEmail31 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo";
+import DemoJsxEmail32 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo";
+import DemoJsxEmail33 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo";
+import DemoJsxEmail34 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo";
+import DemoJsxEmail35 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo";
+import DemoJsxEmail36 from "./jsx-email/bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo";
+import DemoJsxEmail37 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo";
+import DemoJsxEmail38 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo";
+import DemoJsxEmail39 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo";
+import DemoJsxEmail40 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo";
+import DemoJsxEmail41 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo";
+import DemoJsxEmail42 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo";
+import DemoJsxEmail43 from "./jsx-email/bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo";
+import DemoJsxEmail44 from "./jsx-email/bento-stats-grid-demo";
+import DemoJsxEmail45 from "./jsx-email/bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo";
+import DemoJsxEmail46 from "./jsx-email/bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo";
+import DemoJsxEmail47 from "./jsx-email/bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo";
+import DemoJsxEmail48 from "./jsx-email/bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo";
+import DemoJsxEmail49 from "./jsx-email/bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo";
+import DemoJsxEmail50 from "./jsx-email/bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo";
+import DemoJsxEmail51 from "./jsx-email/bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo";
+import DemoJsxEmail52 from "./jsx-email/bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo";
+import DemoJsxEmail53 from "./jsx-email/bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo";
+import DemoJsxEmail54 from "./jsx-email/bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo";
+import DemoJsxEmail55 from "./jsx-email/bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo";
+import DemoJsxEmail56 from "./jsx-email/bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo";
+import DemoJsxEmail57 from "./jsx-email/bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo";
+import DemoJsxEmail58 from "./jsx-email/bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo";
+import DemoJsxEmail59 from "./jsx-email/bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo";
+import DemoJsxEmail60 from "./jsx-email/bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo";
+import DemoJsxEmail61 from "./jsx-email/bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo";
+import DemoJsxEmail62 from "./jsx-email/bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo";
+import DemoJsxEmail63 from "./jsx-email/bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo";
 import DemoJsxEmail64 from "./jsx-email/blog-post-horizontal-boxed-demo";
 import DemoJsxEmail65 from "./jsx-email/blog-post-horizontal-boxed-with-split-images-demo";
 import DemoJsxEmail66 from "./jsx-email/blog-with-images-and-2-columns-masonry-demo";
@@ -707,7 +753,6 @@ import DemoJsxEmail749 from "./jsx-email/two-columns-reviews-variant-logo-bottom
 import DemoJsxEmail750 from "./jsx-email/two-columns-reviews-variant-logo-split-example-demo";
 import DemoJsxEmail751 from "./jsx-email/two-columns-reviews-variant-simple-example-demo";
 import DemoJsxEmail752 from "./jsx-email/two-columns-reviews-variant-with-logo-example-demo";
-import JxTwoThirdsBentoGridWithStatsDemo from "./jsx-email/two-thirds-bento-grid-with-stats-demo";
 import DemoJsxEmail753 from "./jsx-email/vertical-spacer-demo";
 import DemoJsxEmail754 from "./jsx-email/vertical-spacer-variant-24-example-demo";
 import DemoJsxEmail755 from "./jsx-email/vertical-spacer-variant-64-example-demo";
@@ -719,16 +764,62 @@ import DemoMjmlReact4 from "./mjml-react/basic-logo-cloud-variant-minimal-exampl
 import DemoMjmlReact5 from "./mjml-react/basic-logo-cloud-variant-with-description-example-demo";
 import DemoMjmlReact6 from "./mjml-react/basic-logo-cloud-variant-with-title-example-demo";
 import DemoMjmlReact7 from "./mjml-react/basic-pills-status-colors-demo";
-import MjBentoGridWith3ColumnsAndEvenSplitImageStatsDemo from "./mjml-react/bento-grid-with-3-columns-and-even-split-image-stats-demo";
-import MjBentoGridWith3ColumnsAndEvenSplitTextStatsDemo from "./mjml-react/bento-grid-with-3-columns-and-even-split-text-stats-demo";
-import MjBentoGridWith3ColumnsAndFlushImagesDemo from "./mjml-react/bento-grid-with-3-columns-and-flush-images-demo";
-import MjBentoGridWith3ColumnsAndPaddedImagesDemo from "./mjml-react/bento-grid-with-3-columns-and-padded-images-demo";
-import MjBentoGridWithEvenSplitAndImageStatsDemo from "./mjml-react/bento-grid-with-even-split-and-image-stats-demo";
-import MjBentoGridWithEvenSplitAndTextStatsDemo from "./mjml-react/bento-grid-with-even-split-and-text-stats-demo";
-import MjBentoGridWithEvenSplitAndTwoThirdsDemo from "./mjml-react/bento-grid-with-even-split-and-two-thirds-demo";
-import MjBentoGridWithImagesAndCaptionsDemo from "./mjml-react/bento-grid-with-images-and-captions-demo";
-import MjBentoGridWithImagesAndDetailsDemo from "./mjml-react/bento-grid-with-images-and-details-demo";
-import MjBentoGridWithTwoRowsAnd3ColumnSecondRowDemo from "./mjml-react/bento-grid-with-two-rows-and-3-column-second-row-demo";
+import DemoMjmlReact8 from "./mjml-react/bento-image-grid-demo";
+import DemoMjmlReact9 from "./mjml-react/bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo";
+import DemoMjmlReact10 from "./mjml-react/bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo";
+import DemoMjmlReact11 from "./mjml-react/bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo";
+import DemoMjmlReact12 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo";
+import DemoMjmlReact13 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo";
+import DemoMjmlReact14 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo";
+import DemoMjmlReact15 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo";
+import DemoMjmlReact16 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo";
+import DemoMjmlReact17 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo";
+import DemoMjmlReact18 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo";
+import DemoMjmlReact19 from "./mjml-react/bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo";
+import DemoMjmlReact20 from "./mjml-react/bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo";
+import DemoMjmlReact21 from "./mjml-react/bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo";
+import DemoMjmlReact22 from "./mjml-react/bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo";
+import DemoMjmlReact23 from "./mjml-react/bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo";
+import DemoMjmlReact24 from "./mjml-react/bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo";
+import DemoMjmlReact25 from "./mjml-react/bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo";
+import DemoMjmlReact26 from "./mjml-react/bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo";
+import DemoMjmlReact27 from "./mjml-react/bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo";
+import DemoMjmlReact28 from "./mjml-react/bento-product-grid-demo";
+import DemoMjmlReact29 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo";
+import DemoMjmlReact30 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo";
+import DemoMjmlReact31 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo";
+import DemoMjmlReact32 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo";
+import DemoMjmlReact33 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo";
+import DemoMjmlReact34 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo";
+import DemoMjmlReact35 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo";
+import DemoMjmlReact36 from "./mjml-react/bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo";
+import DemoMjmlReact37 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo";
+import DemoMjmlReact38 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo";
+import DemoMjmlReact39 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo";
+import DemoMjmlReact40 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo";
+import DemoMjmlReact41 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo";
+import DemoMjmlReact42 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo";
+import DemoMjmlReact43 from "./mjml-react/bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo";
+import DemoMjmlReact44 from "./mjml-react/bento-stats-grid-demo";
+import DemoMjmlReact45 from "./mjml-react/bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo";
+import DemoMjmlReact46 from "./mjml-react/bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo";
+import DemoMjmlReact47 from "./mjml-react/bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo";
+import DemoMjmlReact48 from "./mjml-react/bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo";
+import DemoMjmlReact49 from "./mjml-react/bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo";
+import DemoMjmlReact50 from "./mjml-react/bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo";
+import DemoMjmlReact51 from "./mjml-react/bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo";
+import DemoMjmlReact52 from "./mjml-react/bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo";
+import DemoMjmlReact53 from "./mjml-react/bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo";
+import DemoMjmlReact54 from "./mjml-react/bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo";
+import DemoMjmlReact55 from "./mjml-react/bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo";
+import DemoMjmlReact56 from "./mjml-react/bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo";
+import DemoMjmlReact57 from "./mjml-react/bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo";
+import DemoMjmlReact58 from "./mjml-react/bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo";
+import DemoMjmlReact59 from "./mjml-react/bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo";
+import DemoMjmlReact60 from "./mjml-react/bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo";
+import DemoMjmlReact61 from "./mjml-react/bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo";
+import DemoMjmlReact62 from "./mjml-react/bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo";
+import DemoMjmlReact63 from "./mjml-react/bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo";
 import DemoMjmlReact64 from "./mjml-react/blog-post-horizontal-boxed-demo";
 import DemoMjmlReact65 from "./mjml-react/blog-post-horizontal-boxed-with-split-images-demo";
 import DemoMjmlReact66 from "./mjml-react/blog-with-images-and-2-columns-masonry-demo";
@@ -1418,7 +1509,6 @@ import DemoMjmlReact749 from "./mjml-react/two-columns-reviews-variant-logo-bott
 import DemoMjmlReact750 from "./mjml-react/two-columns-reviews-variant-logo-split-example-demo";
 import DemoMjmlReact751 from "./mjml-react/two-columns-reviews-variant-simple-example-demo";
 import DemoMjmlReact752 from "./mjml-react/two-columns-reviews-variant-with-logo-example-demo";
-import MjTwoThirdsBentoGridWithStatsDemo from "./mjml-react/two-thirds-bento-grid-with-stats-demo";
 import DemoMjmlReact753 from "./mjml-react/vertical-spacer-demo";
 import DemoMjmlReact754 from "./mjml-react/vertical-spacer-variant-24-example-demo";
 import DemoMjmlReact755 from "./mjml-react/vertical-spacer-variant-64-example-demo";
@@ -1430,16 +1520,62 @@ import DemoReactEmail4 from "./react-email/basic-logo-cloud-variant-minimal-exam
 import DemoReactEmail5 from "./react-email/basic-logo-cloud-variant-with-description-example-demo";
 import DemoReactEmail6 from "./react-email/basic-logo-cloud-variant-with-title-example-demo";
 import DemoReactEmail7 from "./react-email/basic-pills-status-colors-demo";
-import ReBentoGridWith3ColumnsAndEvenSplitImageStatsDemo from "./react-email/bento-grid-with-3-columns-and-even-split-image-stats-demo";
-import ReBentoGridWith3ColumnsAndEvenSplitTextStatsDemo from "./react-email/bento-grid-with-3-columns-and-even-split-text-stats-demo";
-import ReBentoGridWith3ColumnsAndFlushImagesDemo from "./react-email/bento-grid-with-3-columns-and-flush-images-demo";
-import ReBentoGridWith3ColumnsAndPaddedImagesDemo from "./react-email/bento-grid-with-3-columns-and-padded-images-demo";
-import ReBentoGridWithEvenSplitAndImageStatsDemo from "./react-email/bento-grid-with-even-split-and-image-stats-demo";
-import ReBentoGridWithEvenSplitAndTextStatsDemo from "./react-email/bento-grid-with-even-split-and-text-stats-demo";
-import ReBentoGridWithEvenSplitAndTwoThirdsDemo from "./react-email/bento-grid-with-even-split-and-two-thirds-demo";
-import ReBentoGridWithImagesAndCaptionsDemo from "./react-email/bento-grid-with-images-and-captions-demo";
-import ReBentoGridWithImagesAndDetailsDemo from "./react-email/bento-grid-with-images-and-details-demo";
-import ReBentoGridWithTwoRowsAnd3ColumnSecondRowDemo from "./react-email/bento-grid-with-two-rows-and-3-column-second-row-demo";
+import DemoReactEmail8 from "./react-email/bento-image-grid-demo";
+import DemoReactEmail9 from "./react-email/bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo";
+import DemoReactEmail10 from "./react-email/bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo";
+import DemoReactEmail11 from "./react-email/bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo";
+import DemoReactEmail12 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo";
+import DemoReactEmail13 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo";
+import DemoReactEmail14 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo";
+import DemoReactEmail15 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo";
+import DemoReactEmail16 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo";
+import DemoReactEmail17 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo";
+import DemoReactEmail18 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo";
+import DemoReactEmail19 from "./react-email/bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo";
+import DemoReactEmail20 from "./react-email/bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo";
+import DemoReactEmail21 from "./react-email/bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo";
+import DemoReactEmail22 from "./react-email/bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo";
+import DemoReactEmail23 from "./react-email/bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo";
+import DemoReactEmail24 from "./react-email/bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo";
+import DemoReactEmail25 from "./react-email/bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo";
+import DemoReactEmail26 from "./react-email/bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo";
+import DemoReactEmail27 from "./react-email/bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo";
+import DemoReactEmail28 from "./react-email/bento-product-grid-demo";
+import DemoReactEmail29 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo";
+import DemoReactEmail30 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo";
+import DemoReactEmail31 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo";
+import DemoReactEmail32 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo";
+import DemoReactEmail33 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo";
+import DemoReactEmail34 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo";
+import DemoReactEmail35 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo";
+import DemoReactEmail36 from "./react-email/bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo";
+import DemoReactEmail37 from "./react-email/bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo";
+import DemoReactEmail38 from "./react-email/bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo";
+import DemoReactEmail39 from "./react-email/bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo";
+import DemoReactEmail40 from "./react-email/bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo";
+import DemoReactEmail41 from "./react-email/bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo";
+import DemoReactEmail42 from "./react-email/bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo";
+import DemoReactEmail43 from "./react-email/bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo";
+import DemoReactEmail44 from "./react-email/bento-stats-grid-demo";
+import DemoReactEmail45 from "./react-email/bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo";
+import DemoReactEmail46 from "./react-email/bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo";
+import DemoReactEmail47 from "./react-email/bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo";
+import DemoReactEmail48 from "./react-email/bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo";
+import DemoReactEmail49 from "./react-email/bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo";
+import DemoReactEmail50 from "./react-email/bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo";
+import DemoReactEmail51 from "./react-email/bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo";
+import DemoReactEmail52 from "./react-email/bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo";
+import DemoReactEmail53 from "./react-email/bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo";
+import DemoReactEmail54 from "./react-email/bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo";
+import DemoReactEmail55 from "./react-email/bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo";
+import DemoReactEmail56 from "./react-email/bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo";
+import DemoReactEmail57 from "./react-email/bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo";
+import DemoReactEmail58 from "./react-email/bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo";
+import DemoReactEmail59 from "./react-email/bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo";
+import DemoReactEmail60 from "./react-email/bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo";
+import DemoReactEmail61 from "./react-email/bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo";
+import DemoReactEmail62 from "./react-email/bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo";
+import DemoReactEmail63 from "./react-email/bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo";
 import DemoReactEmail64 from "./react-email/blog-post-horizontal-boxed-demo";
 import DemoReactEmail65 from "./react-email/blog-post-horizontal-boxed-with-split-images-demo";
 import DemoReactEmail66 from "./react-email/blog-with-images-and-2-columns-masonry-demo";
@@ -2134,7 +2270,6 @@ import DemoReactEmail754 from "./react-email/two-columns-reviews-variant-logo-bo
 import DemoReactEmail755 from "./react-email/two-columns-reviews-variant-logo-split-example-demo";
 import DemoReactEmail756 from "./react-email/two-columns-reviews-variant-simple-example-demo";
 import DemoReactEmail757 from "./react-email/two-columns-reviews-variant-with-logo-example-demo";
-import ReTwoThirdsBentoGridWithStatsDemo from "./react-email/two-thirds-bento-grid-with-stats-demo";
 import DemoReactEmail758 from "./react-email/vertical-spacer-demo";
 import DemoReactEmail759 from "./react-email/vertical-spacer-variant-24-example-demo";
 import DemoReactEmail760 from "./react-email/vertical-spacer-variant-64-example-demo";
@@ -2152,26 +2287,115 @@ export const demos: Record<
     "basic-logo-cloud-variant-with-description-example-demo": DemoJsxEmail5,
     "basic-logo-cloud-variant-with-title-example-demo": DemoJsxEmail6,
     "basic-pills-status-colors-demo": DemoJsxEmail7,
-    "bento-grid-with-3-columns-and-even-split-image-stats-demo":
-      JxBentoGridWith3ColumnsAndEvenSplitImageStatsDemo,
-    "bento-grid-with-3-columns-and-even-split-text-stats-demo":
-      JxBentoGridWith3ColumnsAndEvenSplitTextStatsDemo,
-    "bento-grid-with-3-columns-and-flush-images-demo":
-      JxBentoGridWith3ColumnsAndFlushImagesDemo,
-    "bento-grid-with-3-columns-and-padded-images-demo":
-      JxBentoGridWith3ColumnsAndPaddedImagesDemo,
-    "bento-grid-with-even-split-and-image-stats-demo":
-      JxBentoGridWithEvenSplitAndImageStatsDemo,
-    "bento-grid-with-even-split-and-text-stats-demo":
-      JxBentoGridWithEvenSplitAndTextStatsDemo,
-    "bento-grid-with-even-split-and-two-thirds-demo":
-      JxBentoGridWithEvenSplitAndTwoThirdsDemo,
-    "bento-grid-with-images-and-captions-demo":
-      JxBentoGridWithImagesAndCaptionsDemo,
-    "bento-grid-with-images-and-details-demo":
-      JxBentoGridWithImagesAndDetailsDemo,
-    "bento-grid-with-two-rows-and-3-column-second-row-demo":
-      JxBentoGridWithTwoRowsAnd3ColumnSecondRowDemo,
+    "bento-image-grid-demo": DemoJsxEmail8,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo":
+      DemoJsxEmail9,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo":
+      DemoJsxEmail10,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo":
+      DemoJsxEmail11,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo":
+      DemoJsxEmail12,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo":
+      DemoJsxEmail13,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo":
+      DemoJsxEmail14,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo":
+      DemoJsxEmail15,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo":
+      DemoJsxEmail16,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo":
+      DemoJsxEmail17,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo":
+      DemoJsxEmail18,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo":
+      DemoJsxEmail19,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo":
+      DemoJsxEmail20,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo":
+      DemoJsxEmail21,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo":
+      DemoJsxEmail22,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo":
+      DemoJsxEmail23,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo":
+      DemoJsxEmail24,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo":
+      DemoJsxEmail25,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo":
+      DemoJsxEmail26,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo":
+      DemoJsxEmail27,
+    "bento-product-grid-demo": DemoJsxEmail28,
+    "bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo":
+      DemoJsxEmail29,
+    "bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo":
+      DemoJsxEmail30,
+    "bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo":
+      DemoJsxEmail31,
+    "bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo":
+      DemoJsxEmail32,
+    "bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo":
+      DemoJsxEmail33,
+    "bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo":
+      DemoJsxEmail34,
+    "bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo":
+      DemoJsxEmail35,
+    "bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo":
+      DemoJsxEmail36,
+    "bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo":
+      DemoJsxEmail37,
+    "bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo":
+      DemoJsxEmail38,
+    "bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo":
+      DemoJsxEmail39,
+    "bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo":
+      DemoJsxEmail40,
+    "bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo":
+      DemoJsxEmail41,
+    "bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo":
+      DemoJsxEmail42,
+    "bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo":
+      DemoJsxEmail43,
+    "bento-stats-grid-demo": DemoJsxEmail44,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo":
+      DemoJsxEmail45,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo":
+      DemoJsxEmail46,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo":
+      DemoJsxEmail47,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo":
+      DemoJsxEmail48,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo":
+      DemoJsxEmail49,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo":
+      DemoJsxEmail50,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo":
+      DemoJsxEmail51,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo":
+      DemoJsxEmail52,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo":
+      DemoJsxEmail53,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo":
+      DemoJsxEmail54,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo":
+      DemoJsxEmail55,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo":
+      DemoJsxEmail56,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo":
+      DemoJsxEmail57,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo":
+      DemoJsxEmail58,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo":
+      DemoJsxEmail59,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo":
+      DemoJsxEmail60,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo":
+      DemoJsxEmail61,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo":
+      DemoJsxEmail62,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo":
+      DemoJsxEmail63,
     "blog-post-horizontal-boxed-demo": DemoJsxEmail64,
     "blog-post-horizontal-boxed-with-split-images-demo": DemoJsxEmail65,
     "blog-with-images-and-2-columns-masonry-demo": DemoJsxEmail66,
@@ -3141,7 +3365,6 @@ export const demos: Record<
     "two-columns-reviews-variant-logo-split-example-demo": DemoJsxEmail750,
     "two-columns-reviews-variant-simple-example-demo": DemoJsxEmail751,
     "two-columns-reviews-variant-with-logo-example-demo": DemoJsxEmail752,
-    "two-thirds-bento-grid-with-stats-demo": JxTwoThirdsBentoGridWithStatsDemo,
     "vertical-spacer-demo": DemoJsxEmail753,
     "vertical-spacer-variant-24-example-demo": DemoJsxEmail754,
     "vertical-spacer-variant-64-example-demo": DemoJsxEmail755,
@@ -3155,26 +3378,115 @@ export const demos: Record<
     "basic-logo-cloud-variant-with-description-example-demo": DemoMjmlReact5,
     "basic-logo-cloud-variant-with-title-example-demo": DemoMjmlReact6,
     "basic-pills-status-colors-demo": DemoMjmlReact7,
-    "bento-grid-with-3-columns-and-even-split-image-stats-demo":
-      MjBentoGridWith3ColumnsAndEvenSplitImageStatsDemo,
-    "bento-grid-with-3-columns-and-even-split-text-stats-demo":
-      MjBentoGridWith3ColumnsAndEvenSplitTextStatsDemo,
-    "bento-grid-with-3-columns-and-flush-images-demo":
-      MjBentoGridWith3ColumnsAndFlushImagesDemo,
-    "bento-grid-with-3-columns-and-padded-images-demo":
-      MjBentoGridWith3ColumnsAndPaddedImagesDemo,
-    "bento-grid-with-even-split-and-image-stats-demo":
-      MjBentoGridWithEvenSplitAndImageStatsDemo,
-    "bento-grid-with-even-split-and-text-stats-demo":
-      MjBentoGridWithEvenSplitAndTextStatsDemo,
-    "bento-grid-with-even-split-and-two-thirds-demo":
-      MjBentoGridWithEvenSplitAndTwoThirdsDemo,
-    "bento-grid-with-images-and-captions-demo":
-      MjBentoGridWithImagesAndCaptionsDemo,
-    "bento-grid-with-images-and-details-demo":
-      MjBentoGridWithImagesAndDetailsDemo,
-    "bento-grid-with-two-rows-and-3-column-second-row-demo":
-      MjBentoGridWithTwoRowsAnd3ColumnSecondRowDemo,
+    "bento-image-grid-demo": DemoMjmlReact8,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo":
+      DemoMjmlReact9,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo":
+      DemoMjmlReact10,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo":
+      DemoMjmlReact11,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo":
+      DemoMjmlReact12,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo":
+      DemoMjmlReact13,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo":
+      DemoMjmlReact14,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo":
+      DemoMjmlReact15,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo":
+      DemoMjmlReact16,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo":
+      DemoMjmlReact17,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo":
+      DemoMjmlReact18,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo":
+      DemoMjmlReact19,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo":
+      DemoMjmlReact20,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo":
+      DemoMjmlReact21,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo":
+      DemoMjmlReact22,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo":
+      DemoMjmlReact23,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo":
+      DemoMjmlReact24,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo":
+      DemoMjmlReact25,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo":
+      DemoMjmlReact26,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo":
+      DemoMjmlReact27,
+    "bento-product-grid-demo": DemoMjmlReact28,
+    "bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo":
+      DemoMjmlReact29,
+    "bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo":
+      DemoMjmlReact30,
+    "bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo":
+      DemoMjmlReact31,
+    "bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo":
+      DemoMjmlReact32,
+    "bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo":
+      DemoMjmlReact33,
+    "bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo":
+      DemoMjmlReact34,
+    "bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo":
+      DemoMjmlReact35,
+    "bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo":
+      DemoMjmlReact36,
+    "bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo":
+      DemoMjmlReact37,
+    "bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo":
+      DemoMjmlReact38,
+    "bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo":
+      DemoMjmlReact39,
+    "bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo":
+      DemoMjmlReact40,
+    "bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo":
+      DemoMjmlReact41,
+    "bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo":
+      DemoMjmlReact42,
+    "bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo":
+      DemoMjmlReact43,
+    "bento-stats-grid-demo": DemoMjmlReact44,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo":
+      DemoMjmlReact45,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo":
+      DemoMjmlReact46,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo":
+      DemoMjmlReact47,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo":
+      DemoMjmlReact48,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo":
+      DemoMjmlReact49,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo":
+      DemoMjmlReact50,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo":
+      DemoMjmlReact51,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo":
+      DemoMjmlReact52,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo":
+      DemoMjmlReact53,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo":
+      DemoMjmlReact54,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo":
+      DemoMjmlReact55,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo":
+      DemoMjmlReact56,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo":
+      DemoMjmlReact57,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo":
+      DemoMjmlReact58,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo":
+      DemoMjmlReact59,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo":
+      DemoMjmlReact60,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo":
+      DemoMjmlReact61,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo":
+      DemoMjmlReact62,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo":
+      DemoMjmlReact63,
     "blog-post-horizontal-boxed-demo": DemoMjmlReact64,
     "blog-post-horizontal-boxed-with-split-images-demo": DemoMjmlReact65,
     "blog-with-images-and-2-columns-masonry-demo": DemoMjmlReact66,
@@ -4157,7 +4469,6 @@ export const demos: Record<
     "two-columns-reviews-variant-logo-split-example-demo": DemoMjmlReact750,
     "two-columns-reviews-variant-simple-example-demo": DemoMjmlReact751,
     "two-columns-reviews-variant-with-logo-example-demo": DemoMjmlReact752,
-    "two-thirds-bento-grid-with-stats-demo": MjTwoThirdsBentoGridWithStatsDemo,
     "vertical-spacer-demo": DemoMjmlReact753,
     "vertical-spacer-variant-24-example-demo": DemoMjmlReact754,
     "vertical-spacer-variant-64-example-demo": DemoMjmlReact755,
@@ -4171,26 +4482,115 @@ export const demos: Record<
     "basic-logo-cloud-variant-with-description-example-demo": DemoReactEmail5,
     "basic-logo-cloud-variant-with-title-example-demo": DemoReactEmail6,
     "basic-pills-status-colors-demo": DemoReactEmail7,
-    "bento-grid-with-3-columns-and-even-split-image-stats-demo":
-      ReBentoGridWith3ColumnsAndEvenSplitImageStatsDemo,
-    "bento-grid-with-3-columns-and-even-split-text-stats-demo":
-      ReBentoGridWith3ColumnsAndEvenSplitTextStatsDemo,
-    "bento-grid-with-3-columns-and-flush-images-demo":
-      ReBentoGridWith3ColumnsAndFlushImagesDemo,
-    "bento-grid-with-3-columns-and-padded-images-demo":
-      ReBentoGridWith3ColumnsAndPaddedImagesDemo,
-    "bento-grid-with-even-split-and-image-stats-demo":
-      ReBentoGridWithEvenSplitAndImageStatsDemo,
-    "bento-grid-with-even-split-and-text-stats-demo":
-      ReBentoGridWithEvenSplitAndTextStatsDemo,
-    "bento-grid-with-even-split-and-two-thirds-demo":
-      ReBentoGridWithEvenSplitAndTwoThirdsDemo,
-    "bento-grid-with-images-and-captions-demo":
-      ReBentoGridWithImagesAndCaptionsDemo,
-    "bento-grid-with-images-and-details-demo":
-      ReBentoGridWithImagesAndDetailsDemo,
-    "bento-grid-with-two-rows-and-3-column-second-row-demo":
-      ReBentoGridWithTwoRowsAnd3ColumnSecondRowDemo,
+    "bento-image-grid-demo": DemoReactEmail8,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo":
+      DemoReactEmail9,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo":
+      DemoReactEmail10,
+    "bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo":
+      DemoReactEmail11,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo":
+      DemoReactEmail12,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo":
+      DemoReactEmail13,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo":
+      DemoReactEmail14,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo":
+      DemoReactEmail15,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo":
+      DemoReactEmail16,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo":
+      DemoReactEmail17,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo":
+      DemoReactEmail18,
+    "bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo":
+      DemoReactEmail19,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo":
+      DemoReactEmail20,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo":
+      DemoReactEmail21,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo":
+      DemoReactEmail22,
+    "bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo":
+      DemoReactEmail23,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo":
+      DemoReactEmail24,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo":
+      DemoReactEmail25,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo":
+      DemoReactEmail26,
+    "bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo":
+      DemoReactEmail27,
+    "bento-product-grid-demo": DemoReactEmail28,
+    "bento-product-grid-variant-even-split-two-thirds-style-full-placement-normal-example-demo":
+      DemoReactEmail29,
+    "bento-product-grid-variant-even-split-two-thirds-style-full-placement-reverse-example-demo":
+      DemoReactEmail30,
+    "bento-product-grid-variant-even-split-two-thirds-style-left-placement-normal-example-demo":
+      DemoReactEmail31,
+    "bento-product-grid-variant-even-split-two-thirds-style-left-placement-reverse-example-demo":
+      DemoReactEmail32,
+    "bento-product-grid-variant-even-split-two-thirds-style-right-placement-normal-example-demo":
+      DemoReactEmail33,
+    "bento-product-grid-variant-even-split-two-thirds-style-right-placement-reverse-example-demo":
+      DemoReactEmail34,
+    "bento-product-grid-variant-even-split-two-thirds-style-sides-placement-normal-example-demo":
+      DemoReactEmail35,
+    "bento-product-grid-variant-even-split-two-thirds-style-sides-placement-reverse-example-demo":
+      DemoReactEmail36,
+    "bento-product-grid-variant-two-row-three-column-style-full-placement-reverse-example-demo":
+      DemoReactEmail37,
+    "bento-product-grid-variant-two-row-three-column-style-left-placement-normal-example-demo":
+      DemoReactEmail38,
+    "bento-product-grid-variant-two-row-three-column-style-left-placement-reverse-example-demo":
+      DemoReactEmail39,
+    "bento-product-grid-variant-two-row-three-column-style-right-placement-normal-example-demo":
+      DemoReactEmail40,
+    "bento-product-grid-variant-two-row-three-column-style-right-placement-reverse-example-demo":
+      DemoReactEmail41,
+    "bento-product-grid-variant-two-row-three-column-style-sides-placement-normal-example-demo":
+      DemoReactEmail42,
+    "bento-product-grid-variant-two-row-three-column-style-sides-placement-reverse-example-demo":
+      DemoReactEmail43,
+    "bento-stats-grid-demo": DemoReactEmail44,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo":
+      DemoReactEmail45,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo":
+      DemoReactEmail46,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo":
+      DemoReactEmail47,
+    "bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo":
+      DemoReactEmail48,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo":
+      DemoReactEmail49,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo":
+      DemoReactEmail50,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo":
+      DemoReactEmail51,
+    "bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo":
+      DemoReactEmail52,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo":
+      DemoReactEmail53,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo":
+      DemoReactEmail54,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo":
+      DemoReactEmail55,
+    "bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo":
+      DemoReactEmail56,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo":
+      DemoReactEmail57,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo":
+      DemoReactEmail58,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo":
+      DemoReactEmail59,
+    "bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo":
+      DemoReactEmail60,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo":
+      DemoReactEmail61,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo":
+      DemoReactEmail62,
+    "bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo":
+      DemoReactEmail63,
     "blog-post-horizontal-boxed-demo": DemoReactEmail64,
     "blog-post-horizontal-boxed-with-split-images-demo": DemoReactEmail65,
     "blog-with-images-and-2-columns-masonry-demo": DemoReactEmail66,
@@ -5198,7 +5598,6 @@ export const demos: Record<
     "two-columns-reviews-variant-logo-split-example-demo": DemoReactEmail755,
     "two-columns-reviews-variant-simple-example-demo": DemoReactEmail756,
     "two-columns-reviews-variant-with-logo-example-demo": DemoReactEmail757,
-    "two-thirds-bento-grid-with-stats-demo": ReTwoThirdsBentoGridWithStatsDemo,
     "vertical-spacer-demo": DemoReactEmail758,
     "vertical-spacer-variant-24-example-demo": DemoReactEmail759,
     "vertical-spacer-variant-64-example-demo": DemoReactEmail760,

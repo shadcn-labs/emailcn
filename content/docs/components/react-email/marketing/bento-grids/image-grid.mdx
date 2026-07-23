@@ -1,0 +1,203 @@
+---
+title: "Image Grid"
+description: "Flexible alternating and three-column image bento layouts."
+---
+
+<ComponentPreview base="react-email" name="bento-image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-image-grid.tsx"
+    base="react-email"
+    title="components/email/bento-image-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-grid-layouts.tsx"
+    base="react-email"
+    title="components/email/bento-grid-layouts.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx"
+    base="react-email"
+    title="components/email/bento-grid-shared.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoImageGrid } from "@/components/email/bento-image-grid";
+```
+
+```tsx
+<BentoImageGrid
+  variant="alternating"
+  style="captions"
+  placement="captions-top"
+/>
+```
+
+## Examples
+
+### Alternating Captions Top Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-captions-placement-captions-top-reverse-example-demo"
+/>
+
+### Alternating Captions Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-example-demo"
+/>
+
+### Alternating Captions Bottom Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-captions-placement-captions-bottom-reverse-example-demo"
+/>
+
+### Alternating Details Top
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-top-example-demo"
+/>
+
+### Alternating Details Top Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-top-reverse-example-demo"
+/>
+
+### Alternating Details Top Alt
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-example-demo"
+/>
+
+### Alternating Details Top Alt Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-top-alt-reverse-example-demo"
+/>
+
+### Alternating Details Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-bottom-example-demo"
+/>
+
+### Alternating Details Bottom Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-bottom-reverse-example-demo"
+/>
+
+### Alternating Details Bottom Alt
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-example-demo"
+/>
+
+### Alternating Details Bottom Alt Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-alternating-style-details-placement-captions-bottom-alt-reverse-example-demo"
+/>
+
+### Three Columns Flush Captions Top
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-flush-placement-captions-top-example-demo"
+/>
+
+### Three Columns Flush Captions Top Alt
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-flush-placement-captions-top-alt-example-demo"
+/>
+
+### Three Columns Flush Captions Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-example-demo"
+/>
+
+### Three Columns Flush Captions Bottom Alt
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-flush-placement-captions-bottom-alt-example-demo"
+/>
+
+### Three Columns Padded Captions Top
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-padded-placement-captions-top-example-demo"
+/>
+
+### Three Columns Padded Captions Top Alt
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-padded-placement-captions-top-alt-example-demo"
+/>
+
+### Three Columns Padded Captions Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-example-demo"
+/>
+
+### Three Columns Padded Captions Bottom Alt
+
+<ComponentPreview
+  base="react-email"
+  name="bento-image-grid-variant-three-column-style-padded-placement-captions-bottom-alt-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                                     | Default          | Description                             |
+| ----------- | ------------------------------------------------------------------------ | ---------------- | --------------------------------------- |
+| `variant`   | `"alternating" \| "three-column"`                                        | `"alternating"`  | Selects the image-grid composition      |
+| `style`     | `"captions" \| "details" \| "flush" \| "padded"`                         | `"captions"`     | Selects the treatment valid for variant |
+| `placement` | `BentoCaptionsVariant \| BentoDetailsVariant \| BentoThreeColumnVariant` | `"captions-top"` | Controls caption placement and ordering |
+| `data`      | `AlternatingImageData \| ThreeColumnData`                                | Preset content   | Replaces the typed content for the grid |
+| `theme`     | `TailwindConfig`                                                         | `defaultTheme`   | Controls the email theme                |

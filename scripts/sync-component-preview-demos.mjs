@@ -1,32 +1,34 @@
-// Moves ComponentPreview configuration out of component MDX and into dedicated
-// demo files. This keeps every component-doc preview declarative:
-//   <ComponentPreview base="..." name="..." />
-// while ensuring the code panel shows the exact props used by that preview.
+// Keeps component preview demos in sync without a separate manifest:
+//   - react-email demo files are the canonical source
+//   - mjml-react and jsx-email demos are derived by changing the registry base
+//   - examples/__index__.tsx is generated from the files that actually exist
+//   - every ComponentPreview reference must resolve to a demo file
 import fs from "node:fs";
 import path from "node:path";
 
-import { Project, SyntaxKind } from "ts-morph";
-
 const ROOT = path.resolve(import.meta.dirname, "..");
-const BASES = ["jsx-email", "mjml-react", "react-email"];
-const REACT_DOCS = path.join(ROOT, "content/docs/components/react-email");
 const EXAMPLES = path.join(ROOT, "examples");
-const MANIFEST_PATH = path.join(EXAMPLES, "component-preview-demos.json");
-const TAG_PATTERN = /<ComponentPreview\b[\s\S]*?\/>/g;
-const ATTRIBUTE_PATTERN = /\b([\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|\{(\d+)\})/g;
+const PREVIEW_DOCS = [
+  path.join(ROOT, "content/docs/components"),
+  path.join(ROOT, "content/docs/fonts"),
+];
+const SOURCE_BASE = "react-email";
+const DERIVED_BASES = ["jsx-email", "mjml-react"];
+const BASES = [...DERIVED_BASES, SOURCE_BASE];
+const REACT_ONLY_DEMOS = new Set([
+  "collage-fonts-demo.tsx",
+  "default-fonts-demo.tsx",
+  "dither-fonts-demo.tsx",
+  "skin-fonts-demo.tsx",
+  "tech-fonts-demo.tsx",
+]);
+const COMPONENT_PREVIEW_PATTERN = /<ComponentPreview\b[\s\S]*?\/>/g;
 
 const walk = (directory) =>
   fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.join(directory, entry.name);
     return entry.isDirectory() ? walk(entryPath) : [entryPath];
   });
-
-const slug = (value) =>
-  value
-    .replaceAll(/([a-z\d])([A-Z])/g, "$1-$2")
-    .replaceAll(/[^a-zA-Z\d]+/g, "-")
-    .replaceAll(/^-+|-+$/g, "")
-    .toLowerCase();
 
 const componentName = (name) => {
   const pascal = name
@@ -37,382 +39,85 @@ const componentName = (name) => {
   return /^\d/.test(pascal) ? `Email${pascal}` : pascal;
 };
 
-const parseAttributes = (tag) =>
-  Object.fromEntries(
-    [...tag.matchAll(ATTRIBUTE_PATTERN)].map((match) => [
-      match[1],
-      match[2] ?? match[3] ?? match[4],
-    ])
+const demoFiles = (base) =>
+  fs
+    .readdirSync(path.join(EXAMPLES, base))
+    .filter((file) => file.endsWith(".tsx"))
+    .toSorted();
+
+const transformDemo = (source, base) =>
+  source.replaceAll(
+    `/registry/bases/${SOURCE_BASE}/`,
+    `/registry/bases/${base}/`
   );
 
-const configuredName = (source, props) => {
-  const stem = source.endsWith("-demo") ? source.slice(0, -5) : source;
-  const configuration = Object.entries(props)
-    .map(([name, value]) => `${slug(name)}-${slug(value)}`)
-    .join("-");
-  return `${stem}-${configuration}-example-demo`;
-};
-
-const rewriteDocPreviews = (input, file, entries) => {
-  let configuredPreviews = 0;
-  const output = input.replace(TAG_PATTERN, (tag) => {
-    const attributes = parseAttributes(tag);
-    const { base, height, name, ...props } = attributes;
-    if (!base || !name) {
-      throw new Error(`ComponentPreview is missing base or name in ${file}`);
-    }
-    if (base !== "react-email") {
-      throw new Error(`Unexpected base "${base}" in ${file}`);
-    }
-    if (Object.keys(props).length === 0 && height === undefined) {
-      return tag;
-    }
-    if (Object.keys(props).length === 0) {
-      throw new Error(`Height-only ComponentPreview is unsupported in ${file}`);
-    }
-
-    configuredPreviews += 1;
-    const generatedName = configuredName(name, props);
-    const entry = {
-      height: height === undefined ? undefined : Number(height),
-      name: generatedName,
-      props,
-      source: name,
-    };
-    const existing = entries.get(generatedName);
-    if (existing && JSON.stringify(existing) !== JSON.stringify(entry)) {
-      throw new Error(`Generated demo name collision: ${generatedName}`);
-    }
-    entries.set(generatedName, entry);
-    return `<ComponentPreview base="react-email" name="${generatedName}" />`;
-  });
-  return { configuredPreviews, output };
-};
-
-const collectManifest = () => {
-  const previous = fs.existsSync(MANIFEST_PATH)
-    ? JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"))
-    : [];
-  const entries = new Map(previous.map((entry) => [entry.name, entry]));
-  let configuredPreviews = 0;
-
-  for (const file of walk(REACT_DOCS).filter((entry) =>
-    entry.endsWith(".mdx")
-  )) {
-    const input = fs.readFileSync(file, "utf-8");
-    const rewritten = rewriteDocPreviews(input, file, entries);
-    configuredPreviews += rewritten.configuredPreviews;
-    const { output } = rewritten;
-    if (output !== input) {
-      fs.writeFileSync(file, output);
-    }
-  }
-
-  const manifest = [...entries.values()].toSorted((left, right) =>
-    left.name.localeCompare(right.name)
+const syncDerivedDemos = (base) => {
+  const destination = path.join(EXAMPLES, base);
+  const canonicalFiles = demoFiles(SOURCE_BASE).filter(
+    (file) => !REACT_ONLY_DEMOS.has(file)
   );
-  if (manifest.length > 0) {
-    fs.writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`);
-  }
-  return { configuredPreviews, manifest };
-};
+  const canonicalNames = new Set(canonicalFiles);
 
-const readManifest = () => JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf-8"));
-
-const project = new Project({
-  compilerOptions: {
-    jsx: 4,
-  },
-  skipAddingFilesFromTsConfig: true,
-});
-
-const valueForBinding = (binding, props) => {
-  const propName =
-    binding.getPropertyNameNode()?.getText() ?? binding.getName();
-  if (Object.hasOwn(props, propName)) {
-    return {
-      configured: true,
-      text: JSON.stringify(props[propName]),
-    };
-  }
-  return {
-    configured: false,
-    text: binding.getInitializer()?.getText() ?? "undefined",
-  };
-};
-
-const typeForBinding = (parameter, binding) => {
-  const parameterType = parameter.getTypeNode();
-  if (!parameterType) {
-    return;
-  }
-  const propertyName =
-    binding.getPropertyNameNode()?.getText() ?? binding.getName();
-  if (parameterType.getKind() === SyntaxKind.TypeLiteral) {
-    const property = parameterType
-      .asKindOrThrow(SyntaxKind.TypeLiteral)
-      .getProperties()
-      .find((candidate) => candidate.getName() === propertyName);
-    return property?.getTypeNode()?.getText();
-  }
-  return `${parameterType.getText()}[${JSON.stringify(propertyName)}]`;
-};
-
-const escapeRegExp = (value) => value.replaceAll(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-const removeUnusedTypeDeclarations = (sourceFile) => {
-  let removed = true;
-  while (removed) {
-    removed = false;
-    const declarations = [
-      ...sourceFile.getInterfaces(),
-      ...sourceFile.getTypeAliases(),
-    ];
-    for (const declaration of declarations) {
-      if (declaration.isExported()) {
-        continue;
-      }
-      const name = declaration.getName();
-      const otherText = sourceFile
-        .getStatements()
-        .filter((statement) => statement !== declaration)
-        .map((statement) => statement.getText())
-        .join("\n");
-      if (!new RegExp(`\\b${escapeRegExp(name)}\\b`).test(otherText)) {
-        declaration.remove();
-        removed = true;
-      }
+  for (const file of demoFiles(base)) {
+    if (!canonicalNames.has(file)) {
+      fs.rmSync(path.join(destination, file));
     }
   }
-};
 
-const removeUnusedImports = (sourceFile) => {
-  const nonImportText = sourceFile
-    .getStatements()
-    .filter((statement) => statement.getKind() !== SyntaxKind.ImportDeclaration)
-    .map((statement) => statement.getText())
-    .join("\n");
-  const isUsed = (name) =>
-    new RegExp(`\\b${escapeRegExp(name)}\\b`).test(nonImportText);
-
-  for (const declaration of sourceFile.getImportDeclarations()) {
-    const defaultImport = declaration.getDefaultImport();
-    if (defaultImport && !isUsed(defaultImport.getText())) {
-      defaultImport.remove();
-    }
-    const namespaceImport = declaration.getNamespaceImport();
-    if (namespaceImport && !isUsed(namespaceImport.getText())) {
-      namespaceImport.remove();
-    }
-    for (const specifier of declaration.getNamedImports()) {
-      const localName =
-        specifier.getAliasNode()?.getText() ?? specifier.getName();
-      if (!isUsed(localName)) {
-        specifier.remove();
-      }
-    }
-    if (
-      declaration.getImportClause() &&
-      !declaration.getDefaultImport() &&
-      !declaration.getNamespaceImport() &&
-      declaration.getNamedImports().length === 0
-    ) {
-      declaration.remove();
-    }
-  }
-};
-
-const isPropertyName = (identifier) => {
-  const parent = identifier.getParent();
-  if (parent?.getKind() === SyntaxKind.PropertyAccessExpression) {
-    return (
-      parent
-        .asKindOrThrow(SyntaxKind.PropertyAccessExpression)
-        .getNameNode() === identifier
+  for (const file of canonicalFiles) {
+    const source = fs.readFileSync(
+      path.join(EXAMPLES, SOURCE_BASE, file),
+      "utf-8"
     );
+    fs.writeFileSync(path.join(destination, file), transformDemo(source, base));
   }
-  if (parent?.getKind() === SyntaxKind.PropertyAssignment) {
-    return (
-      parent.asKindOrThrow(SyntaxKind.PropertyAssignment).getNameNode() ===
-      identifier
-    );
-  }
-  if (parent?.getKind() === SyntaxKind.JsxAttribute) {
-    return (
-      parent.asKindOrThrow(SyntaxKind.JsxAttribute).getNameNode() === identifier
-    );
-  }
-  return false;
+
+  console.log(
+    `${base}: ${canonicalFiles.length} demos synced from ${SOURCE_BASE}`
+  );
 };
 
-const assertedValue = (parameter, binding, value) => {
-  if (value.text === "undefined") {
-    return value.text;
-  }
-  const type = typeForBinding(parameter, binding);
-  return type ? `(${value.text} as ${type})` : value.text;
+const attributeValue = (tag, name) => {
+  const match = new RegExp(`\\b${name}=(?:"([^"]+)"|'([^']+)')`).exec(tag);
+  return match?.[1] ?? match?.[2];
 };
 
-const replaceConfiguredBinding = (body, parameter, binding, props) => {
-  const localName = binding.getName();
-  const value = valueForBinding(binding, props);
-  const fallbacks = body
-    .getDescendantsOfKind(SyntaxKind.BinaryExpression)
-    .filter(
-      (expression) =>
-        expression.getOperatorToken().getKind() ===
-          SyntaxKind.QuestionQuestionToken &&
-        expression.getLeft().getKind() === SyntaxKind.Identifier &&
-        expression.getLeft().getText() === localName
-    )
-    .toReversed();
-  for (const fallback of fallbacks) {
-    fallback.replaceWithText(
-      value.text === "undefined" ? fallback.getRight().getText() : value.text
-    );
-  }
+const validatePreviewReferences = () => {
+  const missing = [];
 
-  const replacement = assertedValue(parameter, binding, value);
-  const identifiers = body
-    .getDescendantsOfKind(SyntaxKind.Identifier)
-    .filter(
-      (identifier) =>
-        identifier.getText() === localName && !isPropertyName(identifier)
-    )
-    .toReversed();
-  for (const identifier of identifiers) {
-    const parent = identifier.getParent();
-    if (parent?.getKind() === SyntaxKind.ShorthandPropertyAssignment) {
-      parent.replaceWithText(`${localName}: ${replacement}`);
-    } else {
-      identifier.replaceWithText(replacement);
-    }
-  }
-};
-
-const inlinePropsObject = (body, parameterName, props) => {
-  const attributes = Object.entries(props)
-    .map(([name, value]) => `${name}=${JSON.stringify(value)}`)
-    .join(" ");
-  for (const spread of body
-    .getDescendantsOfKind(SyntaxKind.JsxSpreadAttribute)
-    .filter(
-      (candidate) => candidate.getExpression().getText() === parameterName
-    )
-    .toReversed()) {
-    spread.replaceWithText(attributes);
-  }
-
-  const objectLiteral = `({ ${Object.entries(props)
-    .map(([name, value]) => `${name}: ${JSON.stringify(value)}`)
-    .join(", ")} } as const)`;
-  for (const identifier of body
-    .getDescendantsOfKind(SyntaxKind.Identifier)
-    .filter(
-      (candidate) =>
-        candidate.getText() === parameterName && !isPropertyName(candidate)
-    )
-    .toReversed()) {
-    identifier.replaceWithText(objectLiteral);
-  }
-};
-
-const unwrapStringLiteral = (expression) => {
-  let current = expression;
-  while (
-    current?.getKind() === SyntaxKind.AsExpression ||
-    current?.getKind() === SyntaxKind.ParenthesizedExpression
-  ) {
-    current = current.getExpression();
-  }
-  return current?.getKind() === SyntaxKind.StringLiteral ? current : undefined;
-};
-
-const simplifyJsxStringAttributes = (body) => {
-  for (const attribute of body.getDescendantsOfKind(SyntaxKind.JsxAttribute)) {
-    const initializer = attribute.getInitializer();
-    if (initializer?.getKind() !== SyntaxKind.JsxExpression) {
-      continue;
-    }
-    const expression = initializer
-      .asKindOrThrow(SyntaxKind.JsxExpression)
-      .getExpression();
-    const literal = unwrapStringLiteral(expression);
-    if (literal) {
-      initializer.replaceWithText(JSON.stringify(literal.getLiteralValue()));
-    }
-  }
-};
-
-const generateDemo = (base, entry) => {
-  const sourcePath = path.join(EXAMPLES, base, `${entry.source}.tsx`);
-  const outputPath = path.join(EXAMPLES, base, `${entry.name}.tsx`);
-  if (!fs.existsSync(sourcePath)) {
-    throw new Error(`Missing source demo: ${sourcePath}`);
-  }
-
-  const sourceText = fs.readFileSync(sourcePath, "utf-8");
-  const generated = project.createSourceFile(outputPath, sourceText, {
-    overwrite: true,
-  });
-  const declaration = generated
-    .getDescendantsOfKind(SyntaxKind.FunctionDeclaration)
-    .find((candidate) => candidate.isDefaultExport());
-  if (!declaration) {
-    throw new Error(`Expected a default function declaration in ${sourcePath}`);
-  }
-
-  const name = componentName(entry.name);
-  const originalName = declaration.getName();
-  declaration.getNameNodeOrThrow().replaceWithText(name);
-  if (originalName) {
-    for (const identifier of generated.getDescendantsOfKind(
-      SyntaxKind.Identifier
+  for (const docsRoot of PREVIEW_DOCS) {
+    for (const file of walk(docsRoot).filter((entry) =>
+      entry.endsWith(".mdx")
     )) {
-      if (identifier.getText() === originalName) {
-        identifier.replaceWithText(name);
+      const source = fs.readFileSync(file, "utf-8");
+      for (const match of source.matchAll(COMPONENT_PREVIEW_PATTERN)) {
+        const [tag] = match;
+        const name = attributeValue(tag, "name");
+        if (!name) {
+          missing.push(`${path.relative(ROOT, file)}: missing preview name`);
+          continue;
+        }
+        const base = attributeValue(tag, "base") ?? SOURCE_BASE;
+        if (!BASES.includes(base)) {
+          missing.push(
+            `${path.relative(ROOT, file)}: unsupported preview base "${base}"`
+          );
+          continue;
+        }
+        const demo = path.join(EXAMPLES, base, `${name}.tsx`);
+        if (!fs.existsSync(demo)) {
+          missing.push(
+            `${path.relative(ROOT, file)}: missing ${path.relative(ROOT, demo)}`
+          );
+        }
       }
     }
   }
-  const parameters = declaration.getParameters();
-  if (parameters.length !== 1) {
-    throw new Error(`Expected one demo parameter in ${sourcePath}`);
-  }
 
-  const [parameter] = parameters;
-  const parameterName = parameter.getNameNode();
-  const body = declaration.getBodyOrThrow();
-  if (parameterName.getKind() === SyntaxKind.ObjectBindingPattern) {
-    const bindings = parameterName
-      .asKindOrThrow(SyntaxKind.ObjectBindingPattern)
-      .getElements();
-    for (const binding of bindings) {
-      replaceConfiguredBinding(body, parameter, binding, entry.props);
-    }
-  } else if (parameterName.getKind() === SyntaxKind.Identifier) {
-    inlinePropsObject(body, parameterName.getText(), entry.props);
-  } else {
-    throw new Error(`Unsupported demo parameter in ${sourcePath}`);
-  }
-  parameter.remove();
-  simplifyJsxStringAttributes(body);
-
-  if (entry.height !== undefined) {
-    generated.addStatements(`\n${name}.PreviewHeight = ${entry.height};`);
-  }
-  removeUnusedTypeDeclarations(generated);
-  removeUnusedImports(generated);
-  fs.writeFileSync(outputPath, generated.getFullText());
-  project.removeSourceFile(generated);
-};
-
-const cleanGeneratedDemos = () => {
-  for (const base of BASES) {
-    for (const file of fs.readdirSync(path.join(EXAMPLES, base))) {
-      if (file.endsWith("-example-demo.tsx")) {
-        fs.rmSync(path.join(EXAMPLES, base, file));
-      }
-    }
+  if (missing.length > 0) {
+    throw new Error(
+      `Invalid ComponentPreview references:\n${missing.join("\n")}`
+    );
   }
 };
 
@@ -421,11 +126,7 @@ const generateIndex = () => {
   const maps = [];
 
   for (const base of BASES) {
-    const files = fs
-      .readdirSync(path.join(EXAMPLES, base))
-      .filter((file) => file.endsWith(".tsx"))
-      .toSorted();
-    const entries = files.map((file, index) => {
+    const entries = demoFiles(base).map((file, index) => {
       const name = file.slice(0, -4);
       const identifier = `Demo${componentName(base)}${index}`;
       imports.push(`import ${identifier} from "./${base}/${name}";`);
@@ -446,17 +147,8 @@ ${maps.join("\n")}
   fs.writeFileSync(path.join(EXAMPLES, "__index__.tsx"), output);
 };
 
-const collected = collectManifest();
-const manifest =
-  collected.manifest.length > 0 ? collected.manifest : readManifest();
-cleanGeneratedDemos();
-for (const base of BASES) {
-  for (const entry of manifest) {
-    generateDemo(base, entry);
-  }
+for (const base of DERIVED_BASES) {
+  syncDerivedDemos(base);
 }
+validatePreviewReferences();
 generateIndex();
-
-console.log(
-  `${manifest.length} configured demos generated per base (${collected.configuredPreviews} React Email previews rewritten)`
-);

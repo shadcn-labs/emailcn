@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-stats-grid",
+  "title": "Bento Stats Grid",
+  "description": "Bento Stats Grid email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/bento-grid-layouts.json",
+    "https://emailcn.vercel.app/r/mjml-react/bento-grid-shared.json",
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/bento-grids/bento-stats-grid.tsx",
+      "content": "import { defaultTheme } from \"@/components/email/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nimport { BentoStatsGridSection } from \"./bento-grid-layouts\";\nimport type { BentoStatsGridProps as BentoStatsGridSectionProps } from \"./bento-grid-layouts\";\nimport { BentoEmailShell } from \"./bento-grid-shared\";\n\nexport type BentoStatsGridProps = BentoStatsGridSectionProps & {\n  theme?: EmailThemeTokens;\n};\n\nexport const BentoStatsGrid = (props: BentoStatsGridProps) => (\n  <BentoEmailShell\n    preview=\"Flexible bento stats grid\"\n    theme={props.theme ?? defaultTheme}\n  >\n    <BentoStatsGridSection {...props} />\n  </BentoEmailShell>\n);\n\nBentoStatsGrid.PreviewProps = {\n  placement: \"image-top-right\",\n  style: \"compact\",\n  theme: defaultTheme,\n  variant: \"two-thirds\",\n} satisfies BentoStatsGridProps;\n",
+      "type": "registry:component",
+      "target": "components/email/bento-stats-grid.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

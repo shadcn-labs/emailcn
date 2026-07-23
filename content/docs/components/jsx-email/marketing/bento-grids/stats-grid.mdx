@@ -1,0 +1,209 @@
+---
+title: "Stats Grid"
+description: "Flexible bento statistics grids with compact, chart, and text metric treatments."
+---
+
+<ComponentPreview base="jsx-email" name="bento-stats-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-stats-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/bento-grids/bento-stats-grid.tsx"
+    base="jsx-email"
+    title="components/email/bento-stats-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-layouts.tsx"
+    base="jsx-email"
+    title="components/email/bento-grid-layouts.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-shared.tsx"
+    base="jsx-email"
+    title="components/email/bento-grid-shared.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoStatsGrid } from "@/components/email/bento-stats-grid";
+```
+
+```tsx
+<BentoStatsGrid
+  variant="two-thirds"
+  style="compact"
+  placement="image-top-right"
+/>
+```
+
+## Examples
+
+### Two Thirds Image Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-two-thirds-style-compact-placement-image-top-left-example-demo"
+/>
+
+### Two Thirds Image Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-right-example-demo"
+/>
+
+### Two Thirds Image Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-two-thirds-style-compact-placement-image-bottom-left-example-demo"
+/>
+
+### Even Split Chart Image Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-chart-placement-image-top-right-example-demo"
+/>
+
+### Even Split Chart Image Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-chart-placement-image-top-left-example-demo"
+/>
+
+### Even Split Chart Image Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-right-example-demo"
+/>
+
+### Even Split Chart Image Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-chart-placement-image-bottom-left-example-demo"
+/>
+
+### Even Split Text Image Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-text-placement-image-top-right-example-demo"
+/>
+
+### Even Split Text Image Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-text-placement-image-top-left-example-demo"
+/>
+
+### Even Split Text Image Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-text-placement-image-bottom-right-example-demo"
+/>
+
+### Even Split Text Image Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-even-split-style-text-placement-image-bottom-left-example-demo"
+/>
+
+### Three Column Chart Image Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-chart-placement-image-top-right-example-demo"
+/>
+
+### Three Column Chart Image Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-chart-placement-image-top-left-example-demo"
+/>
+
+### Three Column Chart Image Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-right-example-demo"
+/>
+
+### Three Column Chart Image Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-chart-placement-image-bottom-left-example-demo"
+/>
+
+### Three Column Text Image Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-text-placement-image-top-right-example-demo"
+/>
+
+### Three Column Text Image Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-text-placement-image-top-left-example-demo"
+/>
+
+### Three Column Text Image Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-text-placement-image-bottom-right-example-demo"
+/>
+
+### Three Column Text Image Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-variant-three-column-style-text-placement-image-bottom-left-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                             | Default             | Description                                |
+| ----------- | ------------------------------------------------ | ------------------- | ------------------------------------------ |
+| `variant`   | `"two-thirds" \| "even-split" \| "three-column"` | `"two-thirds"`      | Selects the stats composition              |
+| `style`     | `"compact" \| "chart" \| "text"`                 | `"compact"`         | Selects a treatment valid for the variant  |
+| `placement` | `BentoImagePlacementVariant`                     | `"image-top-right"` | Controls image position and row ordering   |
+| `data`      | Variant-specific typed stats data                | Preset content      | Replaces image, metric, feature, and stats |
+| `theme`     | `EmailThemeTokens`                               | `defaultTheme`      | Controls the email theme                   |
