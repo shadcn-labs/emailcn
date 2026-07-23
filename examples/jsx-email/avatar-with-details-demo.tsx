@@ -3,7 +3,7 @@ import { AvatarWithDetails } from "@/registry/bases/jsx-email/ui/ui-elements/ava
 export default function AvatarWithDetailsDemo({
   variant,
 }: {
-  variant?: string;
+  variant?: "left" | "right";
 }) {
   const align = variant === "left" || variant === "right" ? variant : "center";
 

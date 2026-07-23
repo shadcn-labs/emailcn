@@ -15,27 +15,27 @@ import type { BaseName } from "@/registry/bases";
 interface ComponentPreviewProps {
   base?: BaseName;
   name: string;
-  variant?: string;
   title?: string;
   className?: string;
   hideNav?: boolean;
   hideCode?: boolean;
   height?: number;
-  [demoProp: string]: unknown;
 }
+
+type PreviewDemo = ComponentType & {
+  PreviewHeight?: number;
+};
 
 export const ComponentPreview = async ({
   base = "react-email",
   name,
-  variant,
   title,
   className,
   hideNav = false,
   hideCode = false,
-  height = 640,
-  ...demoProps
+  height,
 }: ComponentPreviewProps) => {
-  const Demo = demos[base][name];
+  const Demo = demos[base][name] as PreviewDemo | undefined;
 
   let html = "";
   let plainText: string | null = null;
@@ -44,13 +44,7 @@ export const ComponentPreview = async ({
     if (!Demo) {
       throw new Error(`No demo named "${name}" for base "${base}"`);
     }
-    const DemoWithProps = Demo as ComponentType<Record<string, unknown>>;
-    const preview = (
-      <DemoWithProps
-        {...demoProps}
-        {...(variant === undefined ? {} : { variant })}
-      />
-    );
+    const preview = <Demo />;
     if (base === "react-email") {
       const result = await renderReactEmail(preview, { pretty: true });
       html = result;
@@ -76,7 +70,7 @@ export const ComponentPreview = async ({
     <>
       <ComponentPreviewClient
         className={className}
-        height={height}
+        height={height ?? Demo?.PreviewHeight ?? 640}
         hideNav={hideNav}
         html={html}
         plainText={plainText}

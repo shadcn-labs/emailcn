@@ -1,0 +1,3561 @@
+[
+  {
+    "name": "avatar-with-details-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "avatar-with-details-demo"
+  },
+  {
+    "name": "avatar-with-details-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "avatar-with-details-demo"
+  },
+  {
+    "name": "basic-logo-cloud-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "basic-logo-cloud-demo"
+  },
+  {
+    "name": "basic-logo-cloud-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "basic-logo-cloud-demo"
+  },
+  {
+    "name": "basic-logo-cloud-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "basic-logo-cloud-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-bottom-centered-example-demo",
+    "props": {
+      "variant": "bottom-centered"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-bottom-justified-example-demo",
+    "props": {
+      "variant": "bottom-justified"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-bottom-right-example-demo",
+    "props": {
+      "variant": "bottom-right"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-top-centered-example-demo",
+    "props": {
+      "variant": "top-centered"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-top-justified-example-demo",
+    "props": {
+      "variant": "top-justified"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-top-left-example-demo",
+    "props": {
+      "variant": "top-left"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-card-details-variant-top-right-example-demo",
+    "props": {
+      "variant": "top-right"
+    },
+    "source": "bordered-order-summary-card-details-demo"
+  },
+  {
+    "name": "bordered-order-summary-total-bottom-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "bordered-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "bordered-order-summary-total-bottom-variant-justified-example-demo",
+    "props": {
+      "variant": "justified"
+    },
+    "source": "bordered-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "bordered-order-summary-total-bottom-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "bordered-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "bordered-order-summary-total-top-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "bordered-order-summary-total-top-demo"
+  },
+  {
+    "name": "bordered-order-summary-total-top-variant-justified-example-demo",
+    "props": {
+      "variant": "justified"
+    },
+    "source": "bordered-order-summary-total-top-demo"
+  },
+  {
+    "name": "bordered-order-summary-total-top-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "bordered-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-cta-with-background-image-variant-flush-dark-example-demo",
+    "props": {
+      "variant": "flush-dark"
+    },
+    "source": "boxed-cta-with-background-image-demo"
+  },
+  {
+    "name": "boxed-cta-with-background-image-variant-padded-dark-example-demo",
+    "props": {
+      "variant": "padded-dark"
+    },
+    "source": "boxed-cta-with-background-image-demo"
+  },
+  {
+    "name": "boxed-cta-with-background-image-variant-padded-light-example-demo",
+    "props": {
+      "variant": "padded-light"
+    },
+    "source": "boxed-cta-with-background-image-demo"
+  },
+  {
+    "name": "boxed-grid-stats-layout-bento-example-demo",
+    "props": {
+      "layout": "bento"
+    },
+    "source": "boxed-grid-stats-demo"
+  },
+  {
+    "name": "boxed-grid-stats-layout-bento-reversed-example-demo",
+    "props": {
+      "layout": "bento-reversed"
+    },
+    "source": "boxed-grid-stats-demo"
+  },
+  {
+    "name": "boxed-grid-stats-layout-three-columns-example-demo",
+    "props": {
+      "layout": "three-columns"
+    },
+    "source": "boxed-grid-stats-demo"
+  },
+  {
+    "name": "boxed-logo-cloud-variant-flush-example-demo",
+    "props": {
+      "variant": "flush"
+    },
+    "source": "boxed-logo-cloud-demo"
+  },
+  {
+    "name": "boxed-logo-cloud-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "boxed-logo-cloud-demo"
+  },
+  {
+    "name": "boxed-logo-cloud-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "boxed-logo-cloud-demo"
+  },
+  {
+    "name": "boxed-logo-cloud-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "boxed-logo-cloud-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-centered-filled-example-demo",
+    "props": {
+      "variant": "centered-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-justified-example-demo",
+    "props": {
+      "variant": "justified"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-justified-filled-example-demo",
+    "props": {
+      "variant": "justified-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-left-filled-example-demo",
+    "props": {
+      "variant": "left-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-bottom-variant-right-filled-example-demo",
+    "props": {
+      "variant": "right-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-centered-filled-example-demo",
+    "props": {
+      "variant": "centered-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-justified-example-demo",
+    "props": {
+      "variant": "justified"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-justified-filled-example-demo",
+    "props": {
+      "variant": "justified-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-left-filled-example-demo",
+    "props": {
+      "variant": "left-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-card-details-total-top-variant-right-filled-example-demo",
+    "props": {
+      "variant": "right-filled"
+    },
+    "source": "boxed-order-summary-card-details-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-centered-filled-example-demo",
+    "props": {
+      "variant": "centered-filled"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-justified-example-demo",
+    "props": {
+      "variant": "justified"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-justified-filled-example-demo",
+    "props": {
+      "variant": "justified-filled"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-left-filled-example-demo",
+    "props": {
+      "variant": "left-filled"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-bottom-variant-right-filled-example-demo",
+    "props": {
+      "variant": "right-filled"
+    },
+    "source": "boxed-order-summary-total-bottom-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-centered-filled-example-demo",
+    "props": {
+      "variant": "centered-filled"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-justified-example-demo",
+    "props": {
+      "variant": "justified"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-justified-filled-example-demo",
+    "props": {
+      "variant": "justified-filled"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-left-filled-example-demo",
+    "props": {
+      "variant": "left-filled"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "boxed-order-summary-total-top-variant-right-filled-example-demo",
+    "props": {
+      "variant": "right-filled"
+    },
+    "source": "boxed-order-summary-total-top-demo"
+  },
+  {
+    "name": "buttons-variant-primary-leading-icon-example-demo",
+    "props": {
+      "variant": "primary-leading-icon"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-primary-trailing-icon-example-demo",
+    "props": {
+      "variant": "primary-trailing-icon"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-secondary-example-demo",
+    "props": {
+      "variant": "secondary"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-secondary-leading-icon-example-demo",
+    "props": {
+      "variant": "secondary-leading-icon"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-secondary-trailing-icon-example-demo",
+    "props": {
+      "variant": "secondary-trailing-icon"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-text-example-demo",
+    "props": {
+      "variant": "text"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-text-leading-icon-example-demo",
+    "props": {
+      "variant": "text-leading-icon"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "buttons-variant-text-trailing-icon-example-demo",
+    "props": {
+      "variant": "text-trailing-icon"
+    },
+    "source": "buttons-demo"
+  },
+  {
+    "name": "card-coupons-variant-background-image-header-example-demo",
+    "props": {
+      "variant": "background-image-header"
+    },
+    "source": "card-coupons-demo"
+  },
+  {
+    "name": "card-coupons-variant-with-background-image-example-demo",
+    "props": {
+      "variant": "with-background-image"
+    },
+    "source": "card-coupons-demo"
+  },
+  {
+    "name": "card-coupons-variant-with-name-example-demo",
+    "props": {
+      "variant": "with-name"
+    },
+    "source": "card-coupons-demo"
+  },
+  {
+    "name": "card-coupons-variant-with-pattern-example-demo",
+    "props": {
+      "variant": "with-pattern"
+    },
+    "source": "card-coupons-demo"
+  },
+  {
+    "name": "cards-timeline-variant-image-bottom-example-demo",
+    "props": {
+      "variant": "image-bottom"
+    },
+    "source": "cards-timeline-demo"
+  },
+  {
+    "name": "cards-timeline-variant-image-top-example-demo",
+    "props": {
+      "variant": "image-top"
+    },
+    "source": "cards-timeline-demo"
+  },
+  {
+    "name": "cards-timeline-variant-with-accent-example-demo",
+    "props": {
+      "variant": "with-accent"
+    },
+    "source": "cards-timeline-demo"
+  },
+  {
+    "name": "cards-timeline-variant-with-badge-example-demo",
+    "props": {
+      "variant": "with-badge"
+    },
+    "source": "cards-timeline-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-basic-example-demo",
+    "props": {
+      "variant": "basic"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-full-details-example-demo",
+    "props": {
+      "variant": "full-details"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-header-description-example-demo",
+    "props": {
+      "variant": "header-description"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-header-details-example-demo",
+    "props": {
+      "variant": "header-details"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-header-full-details-example-demo",
+    "props": {
+      "variant": "header-full-details"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-cards-variant-with-details-example-demo",
+    "props": {
+      "variant": "with-details"
+    },
+    "source": "category-preview-cards-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-basic-example-demo",
+    "props": {
+      "variant": "basic"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-full-details-example-demo",
+    "props": {
+      "variant": "full-details"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-header-description-example-demo",
+    "props": {
+      "variant": "header-description"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-header-details-example-demo",
+    "props": {
+      "variant": "header-details"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-header-full-details-example-demo",
+    "props": {
+      "variant": "header-full-details"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "category-preview-rows-variant-with-details-example-demo",
+    "props": {
+      "variant": "with-details"
+    },
+    "source": "category-preview-rows-demo"
+  },
+  {
+    "name": "changelog-boxed-variant-accent-left-example-demo",
+    "props": {
+      "variant": "accent-left"
+    },
+    "source": "changelog-boxed-demo"
+  },
+  {
+    "name": "changelog-boxed-variant-accent-right-example-demo",
+    "props": {
+      "variant": "accent-right"
+    },
+    "source": "changelog-boxed-demo"
+  },
+  {
+    "name": "changelog-boxed-variant-basic-left-example-demo",
+    "props": {
+      "variant": "basic-left"
+    },
+    "source": "changelog-boxed-demo"
+  },
+  {
+    "name": "changelog-boxed-variant-basic-right-example-demo",
+    "props": {
+      "variant": "basic-right"
+    },
+    "source": "changelog-boxed-demo"
+  },
+  {
+    "name": "changelog-boxed-variant-muted-right-example-demo",
+    "props": {
+      "variant": "muted-right"
+    },
+    "source": "changelog-boxed-demo"
+  },
+  {
+    "name": "changelog-variant-accent-left-example-demo",
+    "props": {
+      "variant": "accent-left"
+    },
+    "source": "changelog-demo"
+  },
+  {
+    "name": "changelog-variant-accent-right-example-demo",
+    "props": {
+      "variant": "accent-right"
+    },
+    "source": "changelog-demo"
+  },
+  {
+    "name": "changelog-variant-basic-left-example-demo",
+    "props": {
+      "variant": "basic-left"
+    },
+    "source": "changelog-demo"
+  },
+  {
+    "name": "changelog-variant-basic-right-example-demo",
+    "props": {
+      "variant": "basic-right"
+    },
+    "source": "changelog-demo"
+  },
+  {
+    "name": "changelog-variant-muted-right-example-demo",
+    "props": {
+      "variant": "muted-right"
+    },
+    "source": "changelog-demo"
+  },
+  {
+    "name": "coupons-with-centered-text-variant-impact-alt-example-demo",
+    "props": {
+      "variant": "impact-alt"
+    },
+    "source": "coupons-with-centered-text-demo"
+  },
+  {
+    "name": "coupons-with-centered-text-variant-impact-background-example-demo",
+    "props": {
+      "variant": "impact-background"
+    },
+    "source": "coupons-with-centered-text-demo"
+  },
+  {
+    "name": "coupons-with-centered-text-variant-inline-example-demo",
+    "props": {
+      "variant": "inline"
+    },
+    "source": "coupons-with-centered-text-demo"
+  },
+  {
+    "name": "coupons-with-content-overlayed-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "coupons-with-content-overlayed-demo"
+  },
+  {
+    "name": "coupons-with-content-overlayed-variant-split-example-demo",
+    "props": {
+      "variant": "split"
+    },
+    "source": "coupons-with-content-overlayed-demo"
+  },
+  {
+    "name": "cta-with-background-image-variant-boxed-example-demo",
+    "props": {
+      "variant": "boxed"
+    },
+    "source": "cta-with-background-image-demo"
+  },
+  {
+    "name": "cta-with-background-image-variant-padded-example-demo",
+    "props": {
+      "variant": "padded"
+    },
+    "source": "cta-with-background-image-demo"
+  },
+  {
+    "name": "cta-with-image-strip-variant-boxed-left-example-demo",
+    "props": {
+      "variant": "boxed-left"
+    },
+    "source": "cta-with-image-strip-demo"
+  },
+  {
+    "name": "cta-with-image-strip-variant-full-left-example-demo",
+    "props": {
+      "variant": "full-left"
+    },
+    "source": "cta-with-image-strip-demo"
+  },
+  {
+    "name": "cta-with-image-strip-variant-full-right-example-demo",
+    "props": {
+      "variant": "full-right"
+    },
+    "source": "cta-with-image-strip-demo"
+  },
+  {
+    "name": "cta-with-shifted-images-variant-collage-example-demo",
+    "props": {
+      "variant": "collage"
+    },
+    "source": "cta-with-shifted-images-demo"
+  },
+  {
+    "name": "cta-with-shifted-images-variant-images-offset-alt-example-demo",
+    "props": {
+      "variant": "images-offset-alt"
+    },
+    "source": "cta-with-shifted-images-demo"
+  },
+  {
+    "name": "cta-with-shifted-images-variant-images-offset-example-demo",
+    "props": {
+      "variant": "images-offset"
+    },
+    "source": "cta-with-shifted-images-demo"
+  },
+  {
+    "name": "cta-with-team-avatars-variant-avatars-top-example-demo",
+    "props": {
+      "variant": "avatars-top"
+    },
+    "source": "cta-with-team-avatars-demo"
+  },
+  {
+    "name": "cta-with-team-avatars-variant-single-avatar-example-demo",
+    "props": {
+      "variant": "single-avatar"
+    },
+    "source": "cta-with-team-avatars-demo"
+  },
+  {
+    "name": "cta-with-title-and-action-lead-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "cta-with-title-and-action-lead-demo"
+  },
+  {
+    "name": "cta-with-title-and-action-lead-variant-secondary-button-example-demo",
+    "props": {
+      "variant": "secondary-button"
+    },
+    "source": "cta-with-title-and-action-lead-demo"
+  },
+  {
+    "name": "divider-with-button-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-button-demo"
+  },
+  {
+    "name": "divider-with-button-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-button-demo"
+  },
+  {
+    "name": "divider-with-file-type-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-file-type-demo"
+  },
+  {
+    "name": "divider-with-file-type-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-file-type-demo"
+  },
+  {
+    "name": "divider-with-icon-button-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-icon-button-demo"
+  },
+  {
+    "name": "divider-with-icon-button-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-icon-button-demo"
+  },
+  {
+    "name": "divider-with-icon-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-icon-demo"
+  },
+  {
+    "name": "divider-with-icon-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-icon-demo"
+  },
+  {
+    "name": "divider-with-logo-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-logo-demo"
+  },
+  {
+    "name": "divider-with-logo-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-logo-demo"
+  },
+  {
+    "name": "divider-with-social-icons-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-social-icons-demo"
+  },
+  {
+    "name": "divider-with-social-icons-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-social-icons-demo"
+  },
+  {
+    "name": "divider-with-title-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "divider-with-title-demo"
+  },
+  {
+    "name": "divider-with-title-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "divider-with-title-demo"
+  },
+  {
+    "name": "feature-with-double-tall-background-images-variant-logo-bottom-left-example-demo",
+    "props": {
+      "variant": "logo-bottom-left"
+    },
+    "source": "feature-with-double-tall-background-images-demo"
+  },
+  {
+    "name": "feature-with-double-tall-background-images-variant-logo-bottom-right-example-demo",
+    "props": {
+      "variant": "logo-bottom-right"
+    },
+    "source": "feature-with-double-tall-background-images-demo"
+  },
+  {
+    "name": "feature-with-double-tall-background-images-variant-logo-top-right-example-demo",
+    "props": {
+      "variant": "logo-top-right"
+    },
+    "source": "feature-with-double-tall-background-images-demo"
+  },
+  {
+    "name": "feature-with-full-title-and-tall-background-images-variant-logo-bottom-right-example-demo",
+    "props": {
+      "variant": "logo-bottom-right"
+    },
+    "source": "feature-with-full-title-and-tall-background-images-demo"
+  },
+  {
+    "name": "feature-with-full-title-and-tall-background-images-variant-logo-top-left-example-demo",
+    "props": {
+      "variant": "logo-top-left"
+    },
+    "source": "feature-with-full-title-and-tall-background-images-demo"
+  },
+  {
+    "name": "feature-with-full-title-and-tall-background-images-variant-logo-top-right-example-demo",
+    "props": {
+      "variant": "logo-top-right"
+    },
+    "source": "feature-with-full-title-and-tall-background-images-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-content-bottom-left-example-demo",
+    "props": {
+      "variant": "content-bottom-left"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-content-bottom-right-example-demo",
+    "props": {
+      "variant": "content-bottom-right"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-content-top-left-example-demo",
+    "props": {
+      "variant": "content-top-left"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-content-top-right-example-demo",
+    "props": {
+      "variant": "content-top-right"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-logo-bottom-left-example-demo",
+    "props": {
+      "variant": "logo-bottom-left"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-logo-bottom-right-example-demo",
+    "props": {
+      "variant": "logo-bottom-right"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-large-portrait-image-variant-logo-top-right-example-demo",
+    "props": {
+      "variant": "logo-top-right"
+    },
+    "source": "feature-with-large-portrait-image-demo"
+  },
+  {
+    "name": "feature-with-multiple-product-images-variant-images-left-example-demo",
+    "props": {
+      "variant": "images-left"
+    },
+    "source": "feature-with-multiple-product-images-demo"
+  },
+  {
+    "name": "feature-with-multiple-product-images-variant-images-right-example-demo",
+    "props": {
+      "variant": "images-right"
+    },
+    "source": "feature-with-multiple-product-images-demo"
+  },
+  {
+    "name": "feature-with-multiple-product-images-variant-logo-right-example-demo",
+    "props": {
+      "variant": "logo-right"
+    },
+    "source": "feature-with-multiple-product-images-demo"
+  },
+  {
+    "name": "feature-with-product-image-variant-image-right-example-demo",
+    "props": {
+      "variant": "image-right"
+    },
+    "source": "feature-with-product-image-demo"
+  },
+  {
+    "name": "featured-brands-logo-grid-variant-boxed-center-example-demo",
+    "props": {
+      "variant": "boxed-center"
+    },
+    "source": "featured-brands-logo-grid-demo"
+  },
+  {
+    "name": "featured-brands-logo-grid-variant-boxed-left-example-demo",
+    "props": {
+      "variant": "boxed-left"
+    },
+    "source": "featured-brands-logo-grid-demo"
+  },
+  {
+    "name": "featured-brands-logo-grid-variant-boxed-right-example-demo",
+    "props": {
+      "variant": "boxed-right"
+    },
+    "source": "featured-brands-logo-grid-demo"
+  },
+  {
+    "name": "featured-brands-logo-grid-variant-outlined-center-example-demo",
+    "props": {
+      "variant": "outlined-center"
+    },
+    "source": "featured-brands-logo-grid-demo"
+  },
+  {
+    "name": "featured-brands-logo-grid-variant-outlined-right-example-demo",
+    "props": {
+      "variant": "outlined-right"
+    },
+    "source": "featured-brands-logo-grid-demo"
+  },
+  {
+    "name": "footer-with-2-column-menu-and-divider-variant-right-logo-example-demo",
+    "props": {
+      "variant": "right-logo"
+    },
+    "source": "footer-with-2-column-menu-and-divider-demo"
+  },
+  {
+    "name": "footer-with-2-column-menu-variant-right-logo-example-demo",
+    "props": {
+      "variant": "right-logo"
+    },
+    "source": "footer-with-2-column-menu-demo"
+  },
+  {
+    "name": "footer-with-3-col-menu-variant-right-logo-example-demo",
+    "props": {
+      "variant": "right-logo"
+    },
+    "source": "footer-with-3-col-menu-demo"
+  },
+  {
+    "name": "footer-with-app-store-buttons-variant-two-columns-example-demo",
+    "props": {
+      "variant": "two-columns"
+    },
+    "source": "footer-with-app-store-buttons-demo"
+  },
+  {
+    "name": "footer-with-app-store-buttons-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "footer-with-app-store-buttons-demo"
+  },
+  {
+    "height": 760,
+    "name": "footer-with-background-image-variant-bottom-image-2-column-menu-left-logo-example-demo",
+    "props": {
+      "variant": "bottom-image-2-column-menu-left-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 760,
+    "name": "footer-with-background-image-variant-bottom-image-2-column-menu-right-logo-example-demo",
+    "props": {
+      "variant": "bottom-image-2-column-menu-right-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 760,
+    "name": "footer-with-background-image-variant-bottom-image-3-column-menu-left-logo-example-demo",
+    "props": {
+      "variant": "bottom-image-3-column-menu-left-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 760,
+    "name": "footer-with-background-image-variant-bottom-image-3-column-menu-right-logo-example-demo",
+    "props": {
+      "variant": "bottom-image-3-column-menu-right-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 760,
+    "name": "footer-with-background-image-variant-bottom-image-centered-example-demo",
+    "props": {
+      "variant": "bottom-image-centered"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 760,
+    "name": "footer-with-background-image-variant-bottom-image-content-right-logo-example-demo",
+    "props": {
+      "variant": "bottom-image-content-right-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-3-column-menu-left-logo-example-demo",
+    "props": {
+      "variant": "top-image-3-column-menu-left-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-3-column-menu-right-logo-example-demo",
+    "props": {
+      "variant": "top-image-3-column-menu-right-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-address-left-logo-example-demo",
+    "props": {
+      "variant": "top-image-address-left-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-address-right-logo-example-demo",
+    "props": {
+      "variant": "top-image-address-right-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-centered-example-demo",
+    "props": {
+      "variant": "top-image-centered"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-content-left-logo-example-demo",
+    "props": {
+      "variant": "top-image-content-left-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-content-right-logo-example-demo",
+    "props": {
+      "variant": "top-image-content-right-logo"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "height": 900,
+    "name": "footer-with-background-image-variant-top-image-logo-bottom-example-demo",
+    "props": {
+      "variant": "top-image-logo-bottom"
+    },
+    "source": "footer-with-background-image-demo"
+  },
+  {
+    "name": "footer-with-company-locations-variant-grid-example-demo",
+    "props": {
+      "variant": "grid"
+    },
+    "source": "footer-with-company-locations-demo"
+  },
+  {
+    "name": "footer-with-content-and-cta-variant-left-aligned-example-demo",
+    "props": {
+      "variant": "left-aligned"
+    },
+    "source": "footer-with-content-and-cta-demo"
+  },
+  {
+    "name": "footer-with-content-and-cta-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "footer-with-content-and-cta-demo"
+  },
+  {
+    "name": "footer-with-full-menu-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "footer-with-full-menu-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-2-column-menu-left-logo-example-demo",
+    "props": {
+      "variant": "2-column-menu-left-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-2-column-menu-right-logo-example-demo",
+    "props": {
+      "variant": "2-column-menu-right-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-3-column-menu-left-logo-example-demo",
+    "props": {
+      "variant": "3-column-menu-left-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-3-column-menu-right-logo-example-demo",
+    "props": {
+      "variant": "3-column-menu-right-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-address-left-logo-example-demo",
+    "props": {
+      "variant": "address-left-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-address-right-logo-example-demo",
+    "props": {
+      "variant": "address-right-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-centered-content-example-demo",
+    "props": {
+      "variant": "centered-content"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-centered-menu-example-demo",
+    "props": {
+      "variant": "centered-menu"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-centered-socials-example-demo",
+    "props": {
+      "variant": "centered-socials"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "height": 980,
+    "name": "footer-with-overlapped-cta-variant-content-right-logo-example-demo",
+    "props": {
+      "variant": "content-right-logo"
+    },
+    "source": "footer-with-overlapped-cta-demo"
+  },
+  {
+    "name": "footer-with-social-icons-and-address-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "footer-with-social-icons-and-address-demo"
+  },
+  {
+    "name": "footer-with-social-icons-and-address-variant-right-logo-example-demo",
+    "props": {
+      "variant": "right-logo"
+    },
+    "source": "footer-with-social-icons-and-address-demo"
+  },
+  {
+    "name": "footer-with-text-menu-and-socials-variant-right-logo-example-demo",
+    "props": {
+      "variant": "right-logo"
+    },
+    "source": "footer-with-text-menu-and-socials-demo"
+  },
+  {
+    "name": "full-width-image-variant-bottom-left-example-demo",
+    "props": {
+      "variant": "bottom-left"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-bottom-padding-example-demo",
+    "props": {
+      "variant": "bottom-padding"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-bottom-right-example-demo",
+    "props": {
+      "variant": "bottom-right"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-bottom-sides-example-demo",
+    "props": {
+      "variant": "bottom-sides"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-left-alt-example-demo",
+    "props": {
+      "variant": "left-alt"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-left-padding-example-demo",
+    "props": {
+      "variant": "left-padding"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-right-alt-example-demo",
+    "props": {
+      "variant": "right-alt"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-right-padding-example-demo",
+    "props": {
+      "variant": "right-padding"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-sides-alt-example-demo",
+    "props": {
+      "variant": "sides-alt"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-sides-padding-example-demo",
+    "props": {
+      "variant": "sides-padding"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-top-left-example-demo",
+    "props": {
+      "variant": "top-left"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-top-padding-example-demo",
+    "props": {
+      "variant": "top-padding"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-top-right-example-demo",
+    "props": {
+      "variant": "top-right"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-variant-top-sides-example-demo",
+    "props": {
+      "variant": "top-sides"
+    },
+    "source": "full-width-image-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-bottom-left-example-demo",
+    "props": {
+      "variant": "bottom-left"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-bottom-padding-example-demo",
+    "props": {
+      "variant": "bottom-padding"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-bottom-right-example-demo",
+    "props": {
+      "variant": "bottom-right"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-bottom-sides-example-demo",
+    "props": {
+      "variant": "bottom-sides"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-left-alt-example-demo",
+    "props": {
+      "variant": "left-alt"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-left-padding-example-demo",
+    "props": {
+      "variant": "left-padding"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-right-alt-example-demo",
+    "props": {
+      "variant": "right-alt"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-right-padding-example-demo",
+    "props": {
+      "variant": "right-padding"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-sides-alt-example-demo",
+    "props": {
+      "variant": "sides-alt"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-sides-padding-example-demo",
+    "props": {
+      "variant": "sides-padding"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-top-left-example-demo",
+    "props": {
+      "variant": "top-left"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-top-padding-example-demo",
+    "props": {
+      "variant": "top-padding"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-top-right-example-demo",
+    "props": {
+      "variant": "top-right"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-image-with-overlay-variant-top-sides-example-demo",
+    "props": {
+      "variant": "top-sides"
+    },
+    "source": "full-width-image-with-overlay-demo"
+  },
+  {
+    "name": "full-width-progress-bar-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "full-width-progress-bar-demo"
+  },
+  {
+    "name": "full-width-progress-bar-variant-with-text-example-demo",
+    "props": {
+      "variant": "with-text"
+    },
+    "source": "full-width-progress-bar-demo"
+  },
+  {
+    "name": "full-width-progress-bar-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "full-width-progress-bar-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-aside-example-demo",
+    "props": {
+      "variant": "avatar-aside"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-aside-reverse-example-demo",
+    "props": {
+      "variant": "avatar-aside-reverse"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-aside-split-example-demo",
+    "props": {
+      "variant": "avatar-aside-split"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-inline-bottom-example-demo",
+    "props": {
+      "variant": "avatar-inline-bottom"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-inline-example-demo",
+    "props": {
+      "variant": "avatar-inline"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-inline-split-example-demo",
+    "props": {
+      "variant": "avatar-inline-split"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-logo-bottom-example-demo",
+    "props": {
+      "variant": "avatar-logo-bottom"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-logo-example-demo",
+    "props": {
+      "variant": "avatar-logo"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-avatar-logo-split-example-demo",
+    "props": {
+      "variant": "avatar-logo-split"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-centered-avatar-bottom-example-demo",
+    "props": {
+      "variant": "centered-avatar-bottom"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-centered-avatar-split-example-demo",
+    "props": {
+      "variant": "centered-avatar-split"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-centered-with-avatar-example-demo",
+    "props": {
+      "variant": "centered-with-avatar"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-divider-top-example-demo",
+    "props": {
+      "variant": "divider-top"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-logo-bottom-example-demo",
+    "props": {
+      "variant": "logo-bottom"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-logo-split-example-demo",
+    "props": {
+      "variant": "logo-split"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-simple-example-demo",
+    "props": {
+      "variant": "simple"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "full-width-reviews-variant-with-logo-example-demo",
+    "props": {
+      "variant": "with-logo"
+    },
+    "source": "full-width-reviews-demo"
+  },
+  {
+    "name": "grid-stats-with-accent-column-layout-bento-example-demo",
+    "props": {
+      "layout": "bento"
+    },
+    "source": "grid-stats-with-accent-column-demo"
+  },
+  {
+    "name": "grid-stats-with-accent-column-layout-bento-reversed-example-demo",
+    "props": {
+      "layout": "bento-reversed"
+    },
+    "source": "grid-stats-with-accent-column-demo"
+  },
+  {
+    "name": "grid-stats-with-accent-column-layout-three-columns-example-demo",
+    "props": {
+      "layout": "three-columns"
+    },
+    "source": "grid-stats-with-accent-column-demo"
+  },
+  {
+    "name": "grid-stats-with-border-layout-bento-example-demo",
+    "props": {
+      "layout": "bento"
+    },
+    "source": "grid-stats-with-border-demo"
+  },
+  {
+    "name": "grid-stats-with-border-layout-bento-reversed-example-demo",
+    "props": {
+      "layout": "bento-reversed"
+    },
+    "source": "grid-stats-with-border-demo"
+  },
+  {
+    "name": "grid-stats-with-border-layout-three-columns-example-demo",
+    "props": {
+      "layout": "three-columns"
+    },
+    "source": "grid-stats-with-border-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-plus-count-variant-2xl-example-demo",
+    "props": {
+      "variant": "2xl"
+    },
+    "source": "grouped-overlapped-avatars-plus-count-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-plus-count-variant-lg-example-demo",
+    "props": {
+      "variant": "lg"
+    },
+    "source": "grouped-overlapped-avatars-plus-count-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-plus-count-variant-sm-example-demo",
+    "props": {
+      "variant": "sm"
+    },
+    "source": "grouped-overlapped-avatars-plus-count-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-plus-count-variant-xl-example-demo",
+    "props": {
+      "variant": "xl"
+    },
+    "source": "grouped-overlapped-avatars-plus-count-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-plus-count-variant-xs-example-demo",
+    "props": {
+      "variant": "xs"
+    },
+    "source": "grouped-overlapped-avatars-plus-count-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-variant-2xl-example-demo",
+    "props": {
+      "variant": "2xl"
+    },
+    "source": "grouped-overlapped-avatars-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-variant-lg-example-demo",
+    "props": {
+      "variant": "lg"
+    },
+    "source": "grouped-overlapped-avatars-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-variant-sm-example-demo",
+    "props": {
+      "variant": "sm"
+    },
+    "source": "grouped-overlapped-avatars-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-variant-xl-example-demo",
+    "props": {
+      "variant": "xl"
+    },
+    "source": "grouped-overlapped-avatars-demo"
+  },
+  {
+    "name": "grouped-overlapped-avatars-variant-xs-example-demo",
+    "props": {
+      "variant": "xs"
+    },
+    "source": "grouped-overlapped-avatars-demo"
+  },
+  {
+    "name": "header-with-logo-and-badge-variant-center-example-demo",
+    "props": {
+      "variant": "center"
+    },
+    "source": "header-with-logo-and-badge-demo"
+  },
+  {
+    "name": "header-with-logo-and-badge-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "header-with-logo-and-badge-demo"
+  },
+  {
+    "name": "header-with-logo-and-finance-stats-variant-center-example-demo",
+    "props": {
+      "variant": "center"
+    },
+    "source": "header-with-logo-and-finance-stats-demo"
+  },
+  {
+    "name": "header-with-logo-and-finance-stats-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "header-with-logo-and-finance-stats-demo"
+  },
+  {
+    "name": "header-with-logo-and-menu-variant-menu-around-example-demo",
+    "props": {
+      "variant": "menu-around"
+    },
+    "source": "header-with-logo-and-menu-demo"
+  },
+  {
+    "name": "header-with-logo-and-menu-variant-menu-left-example-demo",
+    "props": {
+      "variant": "menu-left"
+    },
+    "source": "header-with-logo-and-menu-demo"
+  },
+  {
+    "name": "header-with-logo-and-menu-variant-stacked-center-example-demo",
+    "props": {
+      "variant": "stacked-center"
+    },
+    "source": "header-with-logo-and-menu-demo"
+  },
+  {
+    "name": "header-with-logo-and-menu-variant-stacked-left-example-demo",
+    "props": {
+      "variant": "stacked-left"
+    },
+    "source": "header-with-logo-and-menu-demo"
+  },
+  {
+    "name": "header-with-logo-and-menu-variant-stacked-right-example-demo",
+    "props": {
+      "variant": "stacked-right"
+    },
+    "source": "header-with-logo-and-menu-demo"
+  },
+  {
+    "name": "header-with-logo-and-social-icons-variant-center-example-demo",
+    "props": {
+      "variant": "center"
+    },
+    "source": "header-with-logo-and-social-icons-demo"
+  },
+  {
+    "name": "header-with-logo-and-social-icons-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "header-with-logo-and-social-icons-demo"
+  },
+  {
+    "name": "header-with-logo-variant-minimal-left-example-demo",
+    "props": {
+      "variant": "minimal-left"
+    },
+    "source": "header-with-logo-demo"
+  },
+  {
+    "name": "header-with-logo-variant-minimal-right-example-demo",
+    "props": {
+      "variant": "minimal-right"
+    },
+    "source": "header-with-logo-demo"
+  },
+  {
+    "name": "header-with-logo-variant-with-text-center-example-demo",
+    "props": {
+      "variant": "with-text-center"
+    },
+    "source": "header-with-logo-demo"
+  },
+  {
+    "name": "header-with-logo-variant-with-text-left-example-demo",
+    "props": {
+      "variant": "with-text-left"
+    },
+    "source": "header-with-logo-demo"
+  },
+  {
+    "name": "header-with-logo-variant-with-text-right-example-demo",
+    "props": {
+      "variant": "with-text-right"
+    },
+    "source": "header-with-logo-demo"
+  },
+  {
+    "name": "header-with-user-details-variant-image-left-example-demo",
+    "props": {
+      "variant": "image-left"
+    },
+    "source": "header-with-user-details-demo"
+  },
+  {
+    "name": "header-with-user-details-variant-image-right-example-demo",
+    "props": {
+      "variant": "image-right"
+    },
+    "source": "header-with-user-details-demo"
+  },
+  {
+    "name": "header-with-user-details-variant-initials-right-example-demo",
+    "props": {
+      "variant": "initials-right"
+    },
+    "source": "header-with-user-details-demo"
+  },
+  {
+    "name": "hero-aligned-overlay-variant-content-left-reversed-example-demo",
+    "props": {
+      "variant": "content-left-reversed"
+    },
+    "source": "hero-aligned-overlay-demo"
+  },
+  {
+    "name": "hero-aligned-overlay-variant-content-right-example-demo",
+    "props": {
+      "variant": "content-right"
+    },
+    "source": "hero-aligned-overlay-demo"
+  },
+  {
+    "name": "hero-aligned-overlay-variant-content-right-reversed-example-demo",
+    "props": {
+      "variant": "content-right-reversed"
+    },
+    "source": "hero-aligned-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-left-bottom-example-demo",
+    "props": {
+      "variant": "left-bottom"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-left-flush-vertical-example-demo",
+    "props": {
+      "variant": "left-flush-vertical"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-left-top-example-demo",
+    "props": {
+      "variant": "left-top"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-right-bottom-example-demo",
+    "props": {
+      "variant": "right-bottom"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-right-centered-example-demo",
+    "props": {
+      "variant": "right-centered"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-right-flush-vertical-example-demo",
+    "props": {
+      "variant": "right-flush-vertical"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-overlay-variant-right-top-example-demo",
+    "props": {
+      "variant": "right-top"
+    },
+    "source": "hero-block-overlay-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-left-bottom-example-demo",
+    "props": {
+      "variant": "left-bottom"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-left-flush-vertical-example-demo",
+    "props": {
+      "variant": "left-flush-vertical"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-left-top-example-demo",
+    "props": {
+      "variant": "left-top"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-right-bottom-example-demo",
+    "props": {
+      "variant": "right-bottom"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-right-centered-example-demo",
+    "props": {
+      "variant": "right-centered"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-right-flush-vertical-example-demo",
+    "props": {
+      "variant": "right-flush-vertical"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-block-with-bleed-variant-right-top-example-demo",
+    "props": {
+      "variant": "right-top"
+    },
+    "source": "hero-block-with-bleed-demo"
+  },
+  {
+    "name": "hero-overlayed-split-variant-overlay-right-example-demo",
+    "props": {
+      "variant": "overlay-right"
+    },
+    "source": "hero-overlayed-split-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-portrait-bottom-left-example-demo",
+    "props": {
+      "variant": "portrait-bottom-left"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-portrait-bottom-right-example-demo",
+    "props": {
+      "variant": "portrait-bottom-right"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-portrait-top-left-example-demo",
+    "props": {
+      "variant": "portrait-top-left"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-portrait-top-right-example-demo",
+    "props": {
+      "variant": "portrait-top-right"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-single-image-right-example-demo",
+    "props": {
+      "variant": "single-image-right"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-square-images-left-example-demo",
+    "props": {
+      "variant": "square-images-left"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-contained-variant-square-images-right-example-demo",
+    "props": {
+      "variant": "square-images-right"
+    },
+    "source": "hero-split-contained-demo"
+  },
+  {
+    "name": "hero-split-full-bleed-variant-image-right-example-demo",
+    "props": {
+      "variant": "image-right"
+    },
+    "source": "hero-split-full-bleed-demo"
+  },
+  {
+    "name": "hero-with-image-grid-variant-images-top-example-demo",
+    "props": {
+      "variant": "images-top"
+    },
+    "source": "hero-with-image-grid-demo"
+  },
+  {
+    "name": "hero-with-image-grid-variant-offset-images-bottom-example-demo",
+    "props": {
+      "variant": "offset-images-bottom"
+    },
+    "source": "hero-with-image-grid-demo"
+  },
+  {
+    "name": "hero-with-image-grid-variant-offset-images-top-example-demo",
+    "props": {
+      "variant": "offset-images-top"
+    },
+    "source": "hero-with-image-grid-demo"
+  },
+  {
+    "name": "hero-with-overlapped-content-variant-basic-with-gradient-example-demo",
+    "props": {
+      "variant": "basic-with-gradient"
+    },
+    "source": "hero-with-overlapped-content-demo"
+  },
+  {
+    "name": "hero-with-overlapped-content-variant-reversed-example-demo",
+    "props": {
+      "variant": "reversed"
+    },
+    "source": "hero-with-overlapped-content-demo"
+  },
+  {
+    "name": "hero-with-overlapped-content-variant-reversed-with-gradient-example-demo",
+    "props": {
+      "variant": "reversed-with-gradient"
+    },
+    "source": "hero-with-overlapped-content-demo"
+  },
+  {
+    "name": "hero-with-overlapped-image-variant-slanted-left-example-demo",
+    "props": {
+      "variant": "slanted-left"
+    },
+    "source": "hero-with-overlapped-image-demo"
+  },
+  {
+    "name": "hero-with-overlapped-image-variant-slanted-right-example-demo",
+    "props": {
+      "variant": "slanted-right"
+    },
+    "source": "hero-with-overlapped-image-demo"
+  },
+  {
+    "name": "hero-with-overlay-gradient-variant-split-no-logo-example-demo",
+    "props": {
+      "variant": "split-no-logo"
+    },
+    "source": "hero-with-overlay-gradient-demo"
+  },
+  {
+    "name": "hero-with-overlay-gradient-variant-unified-no-logo-example-demo",
+    "props": {
+      "variant": "unified-no-logo"
+    },
+    "source": "hero-with-overlay-gradient-demo"
+  },
+  {
+    "name": "hero-with-overlay-gradient-variant-unified-with-logo-example-demo",
+    "props": {
+      "variant": "unified-with-logo"
+    },
+    "source": "hero-with-overlay-gradient-demo"
+  },
+  {
+    "name": "hero-with-overlayed-content-variant-slanted-left-example-demo",
+    "props": {
+      "variant": "slanted-left"
+    },
+    "source": "hero-with-overlayed-content-demo"
+  },
+  {
+    "name": "hero-with-overlayed-content-variant-slanted-right-example-demo",
+    "props": {
+      "variant": "slanted-right"
+    },
+    "source": "hero-with-overlayed-content-demo"
+  },
+  {
+    "name": "hero-with-slanted-split-variant-left-slanted-up-example-demo",
+    "props": {
+      "variant": "left-slanted-up"
+    },
+    "source": "hero-with-slanted-split-demo"
+  },
+  {
+    "name": "hero-with-slanted-split-variant-right-slanted-down-example-demo",
+    "props": {
+      "variant": "right-slanted-down"
+    },
+    "source": "hero-with-slanted-split-demo"
+  },
+  {
+    "name": "hero-with-slanted-split-variant-right-slanted-up-example-demo",
+    "props": {
+      "variant": "right-slanted-up"
+    },
+    "source": "hero-with-slanted-split-demo"
+  },
+  {
+    "name": "horizontal-team-member-bios-variant-image-left-accent-example-demo",
+    "props": {
+      "variant": "image-left-accent"
+    },
+    "source": "horizontal-team-member-bios-demo"
+  },
+  {
+    "name": "horizontal-team-member-bios-variant-image-right-accent-example-demo",
+    "props": {
+      "variant": "image-right-accent"
+    },
+    "source": "horizontal-team-member-bios-demo"
+  },
+  {
+    "name": "horizontal-team-member-bios-variant-image-right-example-demo",
+    "props": {
+      "variant": "image-right"
+    },
+    "source": "horizontal-team-member-bios-demo"
+  },
+  {
+    "name": "logo-cloud-with-borders-variant-flush-example-demo",
+    "props": {
+      "variant": "flush"
+    },
+    "source": "logo-cloud-with-borders-demo"
+  },
+  {
+    "name": "logo-cloud-with-borders-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "logo-cloud-with-borders-demo"
+  },
+  {
+    "name": "logo-cloud-with-borders-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "logo-cloud-with-borders-demo"
+  },
+  {
+    "name": "logo-cloud-with-borders-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "logo-cloud-with-borders-demo"
+  },
+  {
+    "name": "logos-grid-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "logos-grid-demo"
+  },
+  {
+    "name": "logos-grid-variant-outlined-example-demo",
+    "props": {
+      "variant": "outlined"
+    },
+    "source": "logos-grid-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-avatar-inline-bottom-example-demo",
+    "props": {
+      "variant": "avatar-inline-bottom"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-avatar-inline-example-demo",
+    "props": {
+      "variant": "avatar-inline"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-avatar-inline-split-example-demo",
+    "props": {
+      "variant": "avatar-inline-split"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-avatar-logo-bottom-example-demo",
+    "props": {
+      "variant": "avatar-logo-bottom"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-avatar-logo-example-demo",
+    "props": {
+      "variant": "avatar-logo"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-avatar-logo-split-example-demo",
+    "props": {
+      "variant": "avatar-logo-split"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-centered-avatar-bottom-example-demo",
+    "props": {
+      "variant": "centered-avatar-bottom"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-centered-avatar-split-example-demo",
+    "props": {
+      "variant": "centered-avatar-split"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-centered-with-avatar-example-demo",
+    "props": {
+      "variant": "centered-with-avatar"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-divider-top-example-demo",
+    "props": {
+      "variant": "divider-top"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-logo-bottom-example-demo",
+    "props": {
+      "variant": "logo-bottom"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-logo-split-example-demo",
+    "props": {
+      "variant": "logo-split"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-simple-example-demo",
+    "props": {
+      "variant": "simple"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "masonry-grid-reviews-variant-with-logo-example-demo",
+    "props": {
+      "variant": "with-logo"
+    },
+    "source": "masonry-grid-reviews-demo"
+  },
+  {
+    "name": "milestone-stats-variant-accent-example-demo",
+    "props": {
+      "variant": "accent"
+    },
+    "source": "milestone-stats-demo"
+  },
+  {
+    "name": "milestone-stats-variant-boxed-example-demo",
+    "props": {
+      "variant": "boxed"
+    },
+    "source": "milestone-stats-demo"
+  },
+  {
+    "name": "order-summary-billing-inline-variant-basic-with-notes-example-demo",
+    "props": {
+      "variant": "basic-with-notes"
+    },
+    "source": "order-summary-billing-inline-demo"
+  },
+  {
+    "name": "order-summary-billing-inline-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "order-summary-billing-inline-demo"
+  },
+  {
+    "name": "order-summary-billing-inline-variant-bordered-with-notes-example-demo",
+    "props": {
+      "variant": "bordered-with-notes"
+    },
+    "source": "order-summary-billing-inline-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-basic-example-demo",
+    "props": {
+      "variant": "basic"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-basic-full-details-example-demo",
+    "props": {
+      "variant": "basic-full-details"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-basic-with-notes-example-demo",
+    "props": {
+      "variant": "basic-with-notes"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-bordered-full-details-example-demo",
+    "props": {
+      "variant": "bordered-full-details"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-bordered-with-notes-example-demo",
+    "props": {
+      "variant": "bordered-with-notes"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "order-summary-billing-top-variant-bordered-with-payment-example-demo",
+    "props": {
+      "variant": "bordered-with-payment"
+    },
+    "source": "order-summary-billing-top-demo"
+  },
+  {
+    "name": "outlined-grid-stats-layout-bento-example-demo",
+    "props": {
+      "layout": "bento"
+    },
+    "source": "outlined-grid-stats-demo"
+  },
+  {
+    "name": "outlined-grid-stats-layout-bento-reversed-example-demo",
+    "props": {
+      "layout": "bento-reversed"
+    },
+    "source": "outlined-grid-stats-demo"
+  },
+  {
+    "name": "outlined-grid-stats-layout-three-columns-example-demo",
+    "props": {
+      "layout": "three-columns"
+    },
+    "source": "outlined-grid-stats-demo"
+  },
+  {
+    "name": "outlined-logo-cloud-variant-flush-example-demo",
+    "props": {
+      "variant": "flush"
+    },
+    "source": "outlined-logo-cloud-demo"
+  },
+  {
+    "name": "outlined-logo-cloud-variant-full-example-demo",
+    "props": {
+      "variant": "full"
+    },
+    "source": "outlined-logo-cloud-demo"
+  },
+  {
+    "name": "outlined-logo-cloud-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "outlined-logo-cloud-demo"
+  },
+  {
+    "name": "outlined-logo-cloud-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "outlined-logo-cloud-demo"
+  },
+  {
+    "name": "outlined-logo-cloud-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "outlined-logo-cloud-demo"
+  },
+  {
+    "name": "overlay-stats-variant-bento-example-demo",
+    "props": {
+      "variant": "bento"
+    },
+    "source": "overlay-stats-demo"
+  },
+  {
+    "name": "overlay-stats-variant-bento-reversed-example-demo",
+    "props": {
+      "variant": "bento-reversed"
+    },
+    "source": "overlay-stats-demo"
+  },
+  {
+    "name": "overlay-stats-variant-three-columns-example-demo",
+    "props": {
+      "variant": "three-columns"
+    },
+    "source": "overlay-stats-demo"
+  },
+  {
+    "name": "payment-timeline-variant-4-steps-example-demo",
+    "props": {
+      "variant": "4-steps"
+    },
+    "source": "payment-timeline-demo"
+  },
+  {
+    "name": "product-detail-masonry-variant-header-top-example-demo",
+    "props": {
+      "variant": "header-top"
+    },
+    "source": "product-detail-masonry-demo"
+  },
+  {
+    "name": "product-detail-masonry-variant-rating-aside-example-demo",
+    "props": {
+      "variant": "rating-aside"
+    },
+    "source": "product-detail-masonry-demo"
+  },
+  {
+    "name": "product-detail-masonry-variant-rating-aside-top-example-demo",
+    "props": {
+      "variant": "rating-aside-top"
+    },
+    "source": "product-detail-masonry-demo"
+  },
+  {
+    "name": "product-detail-masonry-variant-rating-top-example-demo",
+    "props": {
+      "variant": "rating-top"
+    },
+    "source": "product-detail-masonry-demo"
+  },
+  {
+    "name": "product-detail-three-images-variant-header-top-example-demo",
+    "props": {
+      "variant": "header-top"
+    },
+    "source": "product-detail-three-images-demo"
+  },
+  {
+    "name": "product-detail-three-images-variant-rating-aside-example-demo",
+    "props": {
+      "variant": "rating-aside"
+    },
+    "source": "product-detail-three-images-demo"
+  },
+  {
+    "name": "product-detail-three-images-variant-rating-aside-top-example-demo",
+    "props": {
+      "variant": "rating-aside-top"
+    },
+    "source": "product-detail-three-images-demo"
+  },
+  {
+    "name": "product-detail-three-images-variant-rating-top-example-demo",
+    "props": {
+      "variant": "rating-top"
+    },
+    "source": "product-detail-three-images-demo"
+  },
+  {
+    "name": "product-detail-two-images-variant-header-top-example-demo",
+    "props": {
+      "variant": "header-top"
+    },
+    "source": "product-detail-two-images-demo"
+  },
+  {
+    "name": "product-detail-two-images-variant-rating-aside-example-demo",
+    "props": {
+      "variant": "rating-aside"
+    },
+    "source": "product-detail-two-images-demo"
+  },
+  {
+    "name": "product-detail-two-images-variant-rating-aside-top-example-demo",
+    "props": {
+      "variant": "rating-aside-top"
+    },
+    "source": "product-detail-two-images-demo"
+  },
+  {
+    "name": "product-detail-two-images-variant-rating-top-example-demo",
+    "props": {
+      "variant": "rating-top"
+    },
+    "source": "product-detail-two-images-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-details-reviews-top-example-demo",
+    "props": {
+      "variant": "details-reviews-top"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-full-details-example-demo",
+    "props": {
+      "variant": "full-details"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-full-reviews-top-example-demo",
+    "props": {
+      "variant": "full-reviews-top"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-reviews-top-example-demo",
+    "props": {
+      "variant": "reviews-top"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-with-description-example-demo",
+    "props": {
+      "variant": "with-description"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-with-details-example-demo",
+    "props": {
+      "variant": "with-details"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "product-list-with-rows-variant-with-intro-example-demo",
+    "props": {
+      "variant": "with-intro"
+    },
+    "source": "product-list-with-rows-demo"
+  },
+  {
+    "name": "progress-bar-columns-variant-text-top-example-demo",
+    "props": {
+      "variant": "text-top"
+    },
+    "source": "progress-bar-columns-demo"
+  },
+  {
+    "name": "progress-bar-columns-variant-text-top-padded-example-demo",
+    "props": {
+      "variant": "text-top-padded"
+    },
+    "source": "progress-bar-columns-demo"
+  },
+  {
+    "name": "progress-bar-columns-variant-with-text-padded-example-demo",
+    "props": {
+      "variant": "with-text-padded"
+    },
+    "source": "progress-bar-columns-demo"
+  },
+  {
+    "name": "progress-bar-columns-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "progress-bar-columns-demo"
+  },
+  {
+    "name": "progress-bar-columns-variant-with-title-padded-example-demo",
+    "props": {
+      "variant": "with-title-padded"
+    },
+    "source": "progress-bar-columns-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-minimal-example-demo",
+    "props": {
+      "variant": "minimal"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-minimal-padded-example-demo",
+    "props": {
+      "variant": "minimal-padded"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-text-top-padded-example-demo",
+    "props": {
+      "variant": "text-top-padded"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-with-text-example-demo",
+    "props": {
+      "variant": "with-text"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-with-text-padded-example-demo",
+    "props": {
+      "variant": "with-text-padded"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-with-title-example-demo",
+    "props": {
+      "variant": "with-title"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "progress-bar-group-variant-with-title-padded-example-demo",
+    "props": {
+      "variant": "with-title-padded"
+    },
+    "source": "progress-bar-group-demo"
+  },
+  {
+    "name": "rolling-stats-variant-bottom-left-example-demo",
+    "props": {
+      "variant": "bottom-left"
+    },
+    "source": "rolling-stats-demo"
+  },
+  {
+    "name": "rolling-stats-variant-bottom-right-example-demo",
+    "props": {
+      "variant": "bottom-right"
+    },
+    "source": "rolling-stats-demo"
+  },
+  {
+    "name": "rolling-stats-variant-top-left-example-demo",
+    "props": {
+      "variant": "top-left"
+    },
+    "source": "rolling-stats-demo"
+  },
+  {
+    "name": "rolling-stats-variant-top-right-example-demo",
+    "props": {
+      "variant": "top-right"
+    },
+    "source": "rolling-stats-demo"
+  },
+  {
+    "name": "shopping-cart-row-items-variant-basic-alt-example-demo",
+    "props": {
+      "variant": "basic-alt"
+    },
+    "source": "shopping-cart-row-items-demo"
+  },
+  {
+    "name": "shopping-cart-row-items-variant-details-alt-example-demo",
+    "props": {
+      "variant": "details-alt"
+    },
+    "source": "shopping-cart-row-items-demo"
+  },
+  {
+    "name": "shopping-cart-row-items-variant-example-with-cta-example-demo",
+    "props": {
+      "variant": "example-with-cta"
+    },
+    "source": "shopping-cart-row-items-demo"
+  },
+  {
+    "name": "shopping-cart-row-items-variant-full-details-alt-example-demo",
+    "props": {
+      "variant": "full-details-alt"
+    },
+    "source": "shopping-cart-row-items-demo"
+  },
+  {
+    "name": "shopping-cart-row-items-variant-full-details-example-demo",
+    "props": {
+      "variant": "full-details"
+    },
+    "source": "shopping-cart-row-items-demo"
+  },
+  {
+    "name": "shopping-cart-row-items-variant-with-details-example-demo",
+    "props": {
+      "variant": "with-details"
+    },
+    "source": "shopping-cart-row-items-demo"
+  },
+  {
+    "name": "simple-footer-with-social-icons-variant-centered-example-demo",
+    "props": {
+      "variant": "centered"
+    },
+    "source": "simple-footer-with-social-icons-demo"
+  },
+  {
+    "name": "simple-footer-with-social-icons-variant-right-aligned-example-demo",
+    "props": {
+      "variant": "right-aligned"
+    },
+    "source": "simple-footer-with-social-icons-demo"
+  },
+  {
+    "name": "simple-stats-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "simple-stats-demo"
+  },
+  {
+    "name": "simple-stats-variant-boxed-example-demo",
+    "props": {
+      "variant": "boxed"
+    },
+    "source": "simple-stats-demo"
+  },
+  {
+    "name": "simple-stats-variant-outlined-example-demo",
+    "props": {
+      "variant": "outlined"
+    },
+    "source": "simple-stats-demo"
+  },
+  {
+    "name": "single-image-product-detail-variant-header-top-example-demo",
+    "props": {
+      "variant": "header-top"
+    },
+    "source": "single-image-product-detail-demo"
+  },
+  {
+    "name": "single-image-product-detail-variant-rating-aside-example-demo",
+    "props": {
+      "variant": "rating-aside"
+    },
+    "source": "single-image-product-detail-demo"
+  },
+  {
+    "name": "single-image-product-detail-variant-rating-aside-top-example-demo",
+    "props": {
+      "variant": "rating-aside-top"
+    },
+    "source": "single-image-product-detail-demo"
+  },
+  {
+    "name": "single-image-product-detail-variant-rating-top-example-demo",
+    "props": {
+      "variant": "rating-top"
+    },
+    "source": "single-image-product-detail-demo"
+  },
+  {
+    "name": "single-stat-with-background-image-variant-bottom-left-example-demo",
+    "props": {
+      "variant": "bottom-left"
+    },
+    "source": "single-stat-with-background-image-demo"
+  },
+  {
+    "name": "single-stat-with-background-image-variant-bottom-right-example-demo",
+    "props": {
+      "variant": "bottom-right"
+    },
+    "source": "single-stat-with-background-image-demo"
+  },
+  {
+    "name": "single-stat-with-background-image-variant-top-left-example-demo",
+    "props": {
+      "variant": "top-left"
+    },
+    "source": "single-stat-with-background-image-demo"
+  },
+  {
+    "name": "single-stat-with-background-image-variant-top-right-example-demo",
+    "props": {
+      "variant": "top-right"
+    },
+    "source": "single-stat-with-background-image-demo"
+  },
+  {
+    "name": "split-cards-variant-accent-example-demo",
+    "props": {
+      "variant": "accent"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-accent-reverse-example-demo",
+    "props": {
+      "variant": "accent-reverse"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-boxed-example-demo",
+    "props": {
+      "variant": "boxed"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-boxed-reverse-example-demo",
+    "props": {
+      "variant": "boxed-reverse"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-image-bottom-example-demo",
+    "props": {
+      "variant": "image-bottom"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-image-bottom-reverse-example-demo",
+    "props": {
+      "variant": "image-bottom-reverse"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-image-top-example-demo",
+    "props": {
+      "variant": "image-top"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-image-top-reverse-example-demo",
+    "props": {
+      "variant": "image-top-reverse"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-cards-variant-muted-reverse-example-demo",
+    "props": {
+      "variant": "muted-reverse"
+    },
+    "source": "split-cards-demo"
+  },
+  {
+    "name": "split-product-detail-variant-bleed-left-example-demo",
+    "props": {
+      "variant": "bleed-left"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "split-product-detail-variant-bleed-right-example-demo",
+    "props": {
+      "variant": "bleed-right"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "split-product-detail-variant-image-left-example-demo",
+    "props": {
+      "variant": "image-left"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "split-product-detail-variant-image-right-example-demo",
+    "props": {
+      "variant": "image-right"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "split-product-detail-variant-rating-left-example-demo",
+    "props": {
+      "variant": "rating-left"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "split-product-detail-variant-rating-right-example-demo",
+    "props": {
+      "variant": "rating-right"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "split-product-detail-variant-stacked-right-example-demo",
+    "props": {
+      "variant": "stacked-right"
+    },
+    "source": "split-product-detail-demo"
+  },
+  {
+    "name": "stacked-boxed-timeline-variant-accent-left-example-demo",
+    "props": {
+      "variant": "accent-left"
+    },
+    "source": "stacked-boxed-timeline-demo"
+  },
+  {
+    "name": "stacked-boxed-timeline-variant-accent-right-example-demo",
+    "props": {
+      "variant": "accent-right"
+    },
+    "source": "stacked-boxed-timeline-demo"
+  },
+  {
+    "name": "stacked-boxed-timeline-variant-basic-left-example-demo",
+    "props": {
+      "variant": "basic-left"
+    },
+    "source": "stacked-boxed-timeline-demo"
+  },
+  {
+    "name": "stacked-boxed-timeline-variant-basic-right-example-demo",
+    "props": {
+      "variant": "basic-right"
+    },
+    "source": "stacked-boxed-timeline-demo"
+  },
+  {
+    "name": "stacked-boxed-timeline-variant-muted-left-example-demo",
+    "props": {
+      "variant": "muted-left"
+    },
+    "source": "stacked-boxed-timeline-demo"
+  },
+  {
+    "name": "stacked-boxed-timeline-variant-muted-right-example-demo",
+    "props": {
+      "variant": "muted-right"
+    },
+    "source": "stacked-boxed-timeline-demo"
+  },
+  {
+    "name": "stacked-stats-variant-center-example-demo",
+    "props": {
+      "variant": "center"
+    },
+    "source": "stacked-stats-demo"
+  },
+  {
+    "name": "stacked-stats-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "stacked-stats-demo"
+  },
+  {
+    "name": "stacked-timeline-variant-basic-left-example-demo",
+    "props": {
+      "variant": "basic-left"
+    },
+    "source": "stacked-timeline-demo"
+  },
+  {
+    "name": "stacked-timeline-variant-basic-right-example-demo",
+    "props": {
+      "variant": "basic-right"
+    },
+    "source": "stacked-timeline-demo"
+  },
+  {
+    "name": "stacked-timeline-variant-completed-left-example-demo",
+    "props": {
+      "variant": "completed-left"
+    },
+    "source": "stacked-timeline-demo"
+  },
+  {
+    "name": "stacked-timeline-variant-completed-right-example-demo",
+    "props": {
+      "variant": "completed-right"
+    },
+    "source": "stacked-timeline-demo"
+  },
+  {
+    "name": "stacked-timeline-variant-muted-right-example-demo",
+    "props": {
+      "variant": "muted-right"
+    },
+    "source": "stacked-timeline-demo"
+  },
+  {
+    "name": "three-columns-image-grid-variant-portrait-images-example-demo",
+    "props": {
+      "variant": "portrait-images"
+    },
+    "source": "three-columns-image-grid-demo"
+  },
+  {
+    "name": "three-columns-image-grid-variant-portrait-overlay-example-demo",
+    "props": {
+      "variant": "portrait-overlay"
+    },
+    "source": "three-columns-image-grid-demo"
+  },
+  {
+    "name": "three-columns-image-grid-variant-square-overlay-example-demo",
+    "props": {
+      "variant": "square-overlay"
+    },
+    "source": "three-columns-image-grid-demo"
+  },
+  {
+    "name": "three-columns-image-grid-with-full-width-feature-variant-full-width-bottom-example-demo",
+    "props": {
+      "variant": "full-width-bottom"
+    },
+    "source": "three-columns-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-image-grid-with-full-width-feature-variant-full-width-bottom-overlay-example-demo",
+    "props": {
+      "variant": "full-width-bottom-overlay"
+    },
+    "source": "three-columns-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-image-grid-with-full-width-feature-variant-full-width-top-overlay-example-demo",
+    "props": {
+      "variant": "full-width-top-overlay"
+    },
+    "source": "three-columns-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-variant-stacked-left-overlay-example-demo",
+    "props": {
+      "variant": "stacked-left-overlay"
+    },
+    "source": "three-columns-masonry-image-grid-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-variant-stacked-right-example-demo",
+    "props": {
+      "variant": "stacked-right"
+    },
+    "source": "three-columns-masonry-image-grid-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-variant-stacked-right-overlay-example-demo",
+    "props": {
+      "variant": "stacked-right-overlay"
+    },
+    "source": "three-columns-masonry-image-grid-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-left-overlay-example-demo",
+    "props": {
+      "variant": "stacked-left-overlay"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-left-overlay-reverse-example-demo",
+    "props": {
+      "variant": "stacked-left-overlay-reverse"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-left-reverse-example-demo",
+    "props": {
+      "variant": "stacked-left-reverse"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-right-example-demo",
+    "props": {
+      "variant": "stacked-right"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-right-overlay-example-demo",
+    "props": {
+      "variant": "stacked-right-overlay"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-right-overlay-reverse-example-demo",
+    "props": {
+      "variant": "stacked-right-overlay-reverse"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-masonry-image-grid-with-full-width-feature-variant-stacked-right-reverse-example-demo",
+    "props": {
+      "variant": "stacked-right-reverse"
+    },
+    "source": "three-columns-masonry-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "three-columns-team-grid-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "three-columns-team-grid-demo"
+  },
+  {
+    "name": "three-columns-team-grid-variant-with-accent-example-demo",
+    "props": {
+      "variant": "with-accent"
+    },
+    "source": "three-columns-team-grid-demo"
+  },
+  {
+    "name": "three-columns-team-grid-variant-with-hero-example-demo",
+    "props": {
+      "variant": "with-hero"
+    },
+    "source": "three-columns-team-grid-demo"
+  },
+  {
+    "name": "two-column-team-cards-variant-accent-alt-example-demo",
+    "props": {
+      "variant": "accent-alt"
+    },
+    "source": "two-column-team-cards-demo"
+  },
+  {
+    "name": "two-column-team-cards-variant-accent-example-demo",
+    "props": {
+      "variant": "accent"
+    },
+    "source": "two-column-team-cards-demo"
+  },
+  {
+    "name": "two-column-team-cards-variant-boxed-alt-example-demo",
+    "props": {
+      "variant": "boxed-alt"
+    },
+    "source": "two-column-team-cards-demo"
+  },
+  {
+    "name": "two-column-team-cards-variant-boxed-example-demo",
+    "props": {
+      "variant": "boxed"
+    },
+    "source": "two-column-team-cards-demo"
+  },
+  {
+    "name": "two-column-team-cards-variant-rounded-accent-example-demo",
+    "props": {
+      "variant": "rounded-accent"
+    },
+    "source": "two-column-team-cards-demo"
+  },
+  {
+    "name": "two-column-team-cards-variant-rounded-example-demo",
+    "props": {
+      "variant": "rounded"
+    },
+    "source": "two-column-team-cards-demo"
+  },
+  {
+    "name": "two-column-team-cards-with-details-variant-accent-example-demo",
+    "props": {
+      "variant": "accent"
+    },
+    "source": "two-column-team-cards-with-details-demo"
+  },
+  {
+    "name": "two-column-team-cards-with-details-variant-boxed-example-demo",
+    "props": {
+      "variant": "boxed"
+    },
+    "source": "two-column-team-cards-with-details-demo"
+  },
+  {
+    "name": "two-columns-compact-variant-accent-example-demo",
+    "props": {
+      "variant": "accent"
+    },
+    "source": "two-columns-compact-demo"
+  },
+  {
+    "name": "two-columns-compact-variant-border-top-example-demo",
+    "props": {
+      "variant": "border-top"
+    },
+    "source": "two-columns-compact-demo"
+  },
+  {
+    "name": "two-columns-compact-variant-bordered-example-demo",
+    "props": {
+      "variant": "bordered"
+    },
+    "source": "two-columns-compact-demo"
+  },
+  {
+    "name": "two-columns-grid-variant-center-example-demo",
+    "props": {
+      "variant": "center"
+    },
+    "source": "two-columns-grid-demo"
+  },
+  {
+    "name": "two-columns-grid-variant-left-example-demo",
+    "props": {
+      "variant": "left"
+    },
+    "source": "two-columns-grid-demo"
+  },
+  {
+    "name": "two-columns-grid-variant-right-example-demo",
+    "props": {
+      "variant": "right"
+    },
+    "source": "two-columns-grid-demo"
+  },
+  {
+    "name": "two-columns-image-grid-variant-portrait-images-example-demo",
+    "props": {
+      "variant": "portrait-images"
+    },
+    "source": "two-columns-image-grid-demo"
+  },
+  {
+    "name": "two-columns-image-grid-variant-portrait-overlay-example-demo",
+    "props": {
+      "variant": "portrait-overlay"
+    },
+    "source": "two-columns-image-grid-demo"
+  },
+  {
+    "name": "two-columns-image-grid-variant-square-overlay-example-demo",
+    "props": {
+      "variant": "square-overlay"
+    },
+    "source": "two-columns-image-grid-demo"
+  },
+  {
+    "name": "two-columns-image-grid-with-full-width-feature-variant-full-width-bottom-example-demo",
+    "props": {
+      "variant": "full-width-bottom"
+    },
+    "source": "two-columns-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "two-columns-image-grid-with-full-width-feature-variant-full-width-bottom-overlay-example-demo",
+    "props": {
+      "variant": "full-width-bottom-overlay"
+    },
+    "source": "two-columns-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "two-columns-image-grid-with-full-width-feature-variant-full-width-top-overlay-example-demo",
+    "props": {
+      "variant": "full-width-top-overlay"
+    },
+    "source": "two-columns-image-grid-with-full-width-feature-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-3-images-variant-stacked-left-overlay-example-demo",
+    "props": {
+      "variant": "stacked-left-overlay"
+    },
+    "source": "two-columns-masonry-image-grid-with-3-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-3-images-variant-stacked-right-example-demo",
+    "props": {
+      "variant": "stacked-right"
+    },
+    "source": "two-columns-masonry-image-grid-with-3-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-3-images-variant-stacked-right-overlay-example-demo",
+    "props": {
+      "variant": "stacked-right-overlay"
+    },
+    "source": "two-columns-masonry-image-grid-with-3-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-left-overlay-example-demo",
+    "props": {
+      "variant": "stacked-left-overlay"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-left-overlay-reverse-example-demo",
+    "props": {
+      "variant": "stacked-left-overlay-reverse"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-left-reverse-example-demo",
+    "props": {
+      "variant": "stacked-left-reverse"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-right-example-demo",
+    "props": {
+      "variant": "stacked-right"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-right-overlay-example-demo",
+    "props": {
+      "variant": "stacked-right-overlay"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-right-overlay-reverse-example-demo",
+    "props": {
+      "variant": "stacked-right-overlay-reverse"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-masonry-image-grid-with-4-images-variant-stacked-right-reverse-example-demo",
+    "props": {
+      "variant": "stacked-right-reverse"
+    },
+    "source": "two-columns-masonry-image-grid-with-4-images-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-avatar-inline-bottom-example-demo",
+    "props": {
+      "variant": "avatar-inline-bottom"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-avatar-inline-example-demo",
+    "props": {
+      "variant": "avatar-inline"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-avatar-inline-split-example-demo",
+    "props": {
+      "variant": "avatar-inline-split"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-avatar-logo-bottom-example-demo",
+    "props": {
+      "variant": "avatar-logo-bottom"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-avatar-logo-example-demo",
+    "props": {
+      "variant": "avatar-logo"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-avatar-logo-split-example-demo",
+    "props": {
+      "variant": "avatar-logo-split"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-centered-avatar-bottom-example-demo",
+    "props": {
+      "variant": "centered-avatar-bottom"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-centered-avatar-split-example-demo",
+    "props": {
+      "variant": "centered-avatar-split"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-centered-with-avatar-example-demo",
+    "props": {
+      "variant": "centered-with-avatar"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-divider-top-example-demo",
+    "props": {
+      "variant": "divider-top"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-logo-bottom-example-demo",
+    "props": {
+      "variant": "logo-bottom"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-logo-split-example-demo",
+    "props": {
+      "variant": "logo-split"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-simple-example-demo",
+    "props": {
+      "variant": "simple"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "two-columns-reviews-variant-with-logo-example-demo",
+    "props": {
+      "variant": "with-logo"
+    },
+    "source": "two-columns-reviews-demo"
+  },
+  {
+    "name": "vertical-spacer-variant-24-example-demo",
+    "props": {
+      "variant": "24"
+    },
+    "source": "vertical-spacer-demo"
+  },
+  {
+    "name": "vertical-spacer-variant-64-example-demo",
+    "props": {
+      "variant": "64"
+    },
+    "source": "vertical-spacer-demo"
+  }
+]

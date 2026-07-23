@@ -3,7 +3,7 @@ import { AvatarWithDetails } from "@/registry/bases/mjml-react/ui/ui-elements/av
 export default function AvatarWithDetailsDemo({
   variant,
 }: {
-  variant?: string;
+  variant?: "left" | "right";
 }) {
   const align = variant === "left" || variant === "right" ? variant : "center";
 

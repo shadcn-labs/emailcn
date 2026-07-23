@@ -27,14 +27,11 @@ const walk = (d) =>
 const TARGETS = [
   {
     base: "mjml-react",
-    // The mjml/jsx demo for header-with-logo is registered under a legacy key.
-    demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
     dependency: "npm install @faire/mjml-react mjml",
     title: "MJML React",
   },
   {
     base: "jsx-email",
-    demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
     dependency: "npm install jsx-email",
     title: "JSX Email",
   },
@@ -68,9 +65,6 @@ const transformMdx = (text, target) => {
     .join(`/docs/components/${target.base}/`)
     .split("TailwindConfig")
     .join("EmailThemeTokens");
-  for (const [from, to] of Object.entries(target.demoRenames)) {
-    out = out.split(`name="${from}"`).join(`name="${to}"`);
-  }
   out = injectDependencyStep(out, target.dependency);
   return out;
 };
