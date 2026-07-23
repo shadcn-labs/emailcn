@@ -22,7 +22,13 @@ npx shadcn@latest add @emailcn/hero-split-contained
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/hero/hero-split-contained.tsx"
     base="jsx-email"
@@ -105,7 +111,7 @@ import { HeroSplitContained } from "@/components/email/hero-split-contained";
 
 | Prop                                        | Type                                                                                                                                                                                               | Default               | Description                                           |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------------------------------------------- |
-| `theme`                                     | `EmailThemeTokens`                                                                                                                                                                                 | `defaultTheme`        | JSX Email theme tokens                                |
+| `theme`                                     | `EmailThemeTokens`                                                                                                                                                                                 | `defaultTheme`        | React Email Tailwind configuration                    |
 | `variant`                                   | `"single-image-left" \| "single-image-right" \| "square-images-left" \| "square-images-right" \| "portrait-top-left" \| "portrait-top-right" \| "portrait-bottom-left" \| "portrait-bottom-right"` | `"single-image-left"` | Selects one of the eight layouts and its preset       |
 | `eyebrow` / `heading` / `subheading`        | `string`                                                                                                                                                                                           | Variant preset        | Hero title content                                    |
 | `description` / `price`                     | `string`                                                                                                                                                                                           | Variant preset        | Supporting copy and optional bold price               |

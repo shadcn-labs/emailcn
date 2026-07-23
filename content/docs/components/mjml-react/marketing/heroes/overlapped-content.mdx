@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/hero-with-overlapped-content
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -79,7 +79,7 @@ import { HeroWithOverlappedContent } from "@/components/email/hero-with-overlapp
 
 | Prop                                             | Type                               | Default         | Description                                       |
 | ------------------------------------------------ | ---------------------------------- | --------------- | ------------------------------------------------- |
-| `theme`                                          | `EmailThemeTokens`                 | `defaultTheme`  | MJML React theme tokens                           |
+| `theme`                                          | `EmailThemeTokens`                 | `defaultTheme`  | React Email Tailwind configuration                |
 | `variant`                                        | `HeroWithOverlappedContentVariant` | `"basic"`       | Selects content order, imagery, copy, and surface |
 | `eyebrow` / `heading` / `subheading`             | `string`                           | Variant copy    | Editorial title copy                              |
 | `description`                                    | `string`                           | Variant copy    | Supporting editorial paragraph                    |

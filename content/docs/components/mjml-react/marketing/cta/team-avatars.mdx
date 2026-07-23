@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/cta-with-team-avatars
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -71,7 +71,7 @@ import { CTAWithTeamAvatars } from "@/components/email/cta-with-team-avatars";
 
 | Prop                                     | Type                                            | Default           | Description                                             |
 | ---------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------------------- |
-| `theme`                                  | `EmailThemeTokens`                              | `defaultTheme`    | MJML React theme tokens                                 |
+| `theme`                                  | `EmailThemeTokens`                              | `defaultTheme`    | React Email Tailwind configuration                      |
 | `variant`                                | `"default" \| "avatars-top" \| "single-avatar"` | `"default"`       | Selects the exact layout and copy                       |
 | `heading` / `subtext`                    | `string`                                        | Variant copy      | CTA heading and supporting text                         |
 | `ctaLabel` / `ctaHref`                   | `string`                                        | Variant CTA       | Primary action label and destination                    |

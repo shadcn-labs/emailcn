@@ -28,7 +28,7 @@ npx shadcn@latest add @emailcn/cta-with-title-and-action-lead
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -74,7 +74,7 @@ import { CTAWithTitleAndActionLead } from "@/components/email/cta-with-title-and
 
 | Prop                                                                                         | Type                               | Default            | Description                          |
 | -------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------ | ------------------------------------ |
-| `theme`                                                                                      | `EmailThemeTokens`                 | `defaultTheme`     | MJML React theme tokens              |
+| `theme`                                                                                      | `EmailThemeTokens`                 | `defaultTheme`     | React Email Tailwind configuration   |
 | `variant`                                                                                    | `CTAWithTitleAndActionLeadVariant` | `"title-and-lead"` | Selects the exact CTA layout         |
 | `heading` / `subtext`                                                                        | `string`                           | copy               | Lead heading and supporting text     |
 | `ctaLabel` / `ctaHref`                                                                       | `string`                           | Variant CTA        | Primary button label and destination |

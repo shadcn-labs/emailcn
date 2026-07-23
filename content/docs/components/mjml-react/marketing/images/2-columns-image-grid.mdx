@@ -25,10 +25,10 @@ npx shadcn@latest add @emailcn/2-columns-image-grid
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
-  <Step>Copy the component source into your project.</Step>
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/images/2-columns-image-grid.tsx"
     base="mjml-react"
@@ -79,7 +79,7 @@ import { TwoColumnsImageGrid } from "@/components/email/2-columns-image-grid";
 
 | Prop                        | Type                         | Default           | Description                               |
 | --------------------------- | ---------------------------- | ----------------- | ----------------------------------------- |
-| `theme`                     | `EmailThemeTokens`           | `defaultTheme`    | MJML React theme tokens                   |
+| `theme`                     | `EmailThemeTokens`           | `defaultTheme`    | React Email Tailwind configuration        |
 | `variant`                   | `TwoColumnsImageGridVariant` | `"square-images"` | Selects image ratio and overlay treatment |
 | `imageSrc1` / `imageSrc2`   | `string`                     | images            | Grid image URLs                           |
 | `imageAlt1` / `imageAlt2`   | `string`                     | `""`              | Alternative text for plain-image variants |

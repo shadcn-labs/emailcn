@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/cta-with-background-image
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -71,7 +71,7 @@ import { CTAWithBackgroundImage } from "@/components/email/cta-with-background-i
 
 | Prop                                     | Type                             | Default         | Description                                       |
 | ---------------------------------------- | -------------------------------- | --------------- | ------------------------------------------------- |
-| `theme`                                  | `EmailThemeTokens`               | `defaultTheme`  | MJML React theme tokens                           |
+| `theme`                                  | `EmailThemeTokens`               | `defaultTheme`  | React Email Tailwind configuration                |
 | `variant`                                | `"flush" \| "boxed" \| "padded"` | `"flush"`       | Selects the exact layout and copy                 |
 | `heading` / `subtext` / `emphasis`       | `string`                         | Variant content | CTA copy; `emphasis` renders bold inline text     |
 | `ctaLabel` / `ctaHref`                   | `string`                         | Variant CTA     | Primary action label and destination              |

@@ -28,10 +28,10 @@ npx shadcn@latest add @emailcn/boxed-cta-with-background-image
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
-  <Step>Copy the component source into your project.</Step>
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image.tsx"
     base="mjml-react"
@@ -82,7 +82,7 @@ import { BoxedCTAWithBackgroundImage } from "@/components/email/boxed-cta-with-b
 
 | Prop                   | Type                                 | Default         | Description                           |
 | ---------------------- | ------------------------------------ | --------------- | ------------------------------------- |
-| `theme`                | `EmailThemeTokens`                   | `defaultTheme`  | MJML React theme tokens               |
+| `theme`                | `EmailThemeTokens`                   | `defaultTheme`  | React Email Tailwind configuration    |
 | `variant`              | `BoxedCTAWithBackgroundImageVariant` | `"flush-light"` | Selects the exact spacing and tone    |
 | `heading` / `subtext`  | `string`                             | copy            | CTA heading and supporting text       |
 | `ctaLabel` / `ctaHref` | `string`                             | CTA             | Primary action label and destination  |

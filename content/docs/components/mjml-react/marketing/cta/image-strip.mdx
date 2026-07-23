@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/cta-with-image-strip
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -79,7 +79,7 @@ import { CTAWithImageStrip } from "@/components/email/cta-with-image-strip";
 
 | Prop                      | Type                       | Default         | Description                                     |
 | ------------------------- | -------------------------- | --------------- | ----------------------------------------------- |
-| `theme`                   | `EmailThemeTokens`         | `defaultTheme`  | MJML React theme tokens                         |
+| `theme`                   | `EmailThemeTokens`         | `defaultTheme`  | React Email Tailwind configuration              |
 | `variant`                 | `CTAWithImageStripVariant` | `"boxed-right"` | Selects the exact side and strip treatment      |
 | `heading` / `subtext`     | `string`                   | copy            | CTA heading and supporting text                 |
 | `ctaLabel` / `ctaHref`    | `string`                   | CTA             | Primary action label and destination            |

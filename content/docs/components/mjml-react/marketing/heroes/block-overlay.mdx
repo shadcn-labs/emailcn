@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/hero-block-overlay
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -111,7 +111,7 @@ import { HeroBlockOverlay } from "@/components/email/hero-block-overlay";
 
 | Prop                                                       | Type                      | Default           | Description                                      |
 | ---------------------------------------------------------- | ------------------------- | ----------------- | ------------------------------------------------ |
-| `theme`                                                    | `EmailThemeTokens`        | `defaultTheme`    | MJML React theme tokens                          |
+| `theme`                                                    | `EmailThemeTokens`        | `defaultTheme`    | React Email Tailwind configuration               |
 | `variant`                                                  | `HeroBlockOverlayVariant` | `"left-centered"` | Selects overlay side and vertical placement      |
 | `eyebrow` / `heading` / `subheading`                       | `string`                  | copy              | Main SumUp copy                                  |
 | `description`                                              | `string`                  | copy              | Supporting paragraph                             |

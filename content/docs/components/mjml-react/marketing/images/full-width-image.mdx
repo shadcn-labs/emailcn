@@ -25,10 +25,10 @@ npx shadcn@latest add @emailcn/full-width-image
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
-  <Step>Copy the component source into your project.</Step>
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/images/full-width-image.tsx"
     base="mjml-react"
@@ -167,7 +167,7 @@ import { FullWidthImage } from "@/components/email/full-width-image";
 
 | Prop                    | Type                    | Default        | Description                                     |
 | ----------------------- | ----------------------- | -------------- | ----------------------------------------------- |
-| `theme`                 | `EmailThemeTokens`      | `defaultTheme` | MJML React theme tokens                         |
+| `theme`                 | `EmailThemeTokens`      | `defaultTheme` | React Email Tailwind configuration              |
 | `variant`               | `FullWidthImageVariant` | `"default"`    | Selects the exact edge treatment                |
 | `imageSrc` / `imageAlt` | `string`                | image          | Image URL and alternative text                  |
 | `pageBackgroundColor`   | `string`                | `"#f1f5f9"`    | Canvas and cutout color                         |

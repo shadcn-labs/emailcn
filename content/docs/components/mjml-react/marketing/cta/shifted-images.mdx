@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/cta-with-shifted-images
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -79,7 +79,7 @@ import { CTAWithShiftedImages } from "@/components/email/cta-with-shifted-images
 
 | Prop                      | Type                          | Default               | Description                                 |
 | ------------------------- | ----------------------------- | --------------------- | ------------------------------------------- |
-| `theme`                   | `EmailThemeTokens`            | `defaultTheme`        | MJML React theme tokens                     |
+| `theme`                   | `EmailThemeTokens`            | `defaultTheme`        | React Email Tailwind configuration          |
 | `variant`                 | `CTAWithShiftedImagesVariant` | `"flush-side-images"` | Selects the exact layout and assets         |
 | `heading` / `subtext`     | `string`                      | Variant copy          | CTA heading and supporting text             |
 | `ctaLabel` / `ctaHref`    | `string`                      | CTA                   | Primary action label and destination        |

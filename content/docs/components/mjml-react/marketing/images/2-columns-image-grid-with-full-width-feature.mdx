@@ -25,7 +25,13 @@ npx shadcn@latest add @emailcn/2-columns-image-grid-with-full-width-feature
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/images/2-columns-image-grid-with-full-width-feature.tsx"
     base="mjml-react"
@@ -78,7 +84,7 @@ import { TwoColumnsImageGridWithFullWidthFeature } from "@/components/email/2-co
 
 | Prop                | Type                                             | Default            | Description                                     |
 | ------------------- | ------------------------------------------------ | ------------------ | ----------------------------------------------- |
-| `theme`             | `TailwindConfig` / `EmailThemeTokens`            | `defaultTheme`     | Renderer theme configuration                    |
+| `theme`             | `EmailThemeTokens` / `EmailThemeTokens`          | `defaultTheme`     | Renderer theme configuration                    |
 | `variant`           | `TwoColumnsImageGridWithFullWidthFeatureVariant` | `"full-width-top"` | Selects feature order and overlay mode          |
 | Feature image props | `string`                                         | data               | Feature image, link, alternative text, and copy |
 | Column image props  | `string`                                         | data               | Two image links, alternative text, and copy     |

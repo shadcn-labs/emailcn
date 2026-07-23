@@ -22,7 +22,13 @@ npx shadcn@latest add @emailcn/hero-overlayed-split
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install jsx-email
+```
+
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/hero/hero-overlayed-split.tsx"
     base="jsx-email"
@@ -57,7 +63,7 @@ import { HeroOverlayedSplit } from "@/components/email/hero-overlayed-split";
 
 | Prop                    | Type                                | Default          | Description                                      |
 | ----------------------- | ----------------------------------- | ---------------- | ------------------------------------------------ |
-| `theme`                 | `EmailThemeTokens`                  | `defaultTheme`   | JSX Email theme tokens                           |
+| `theme`                 | `EmailThemeTokens`                  | `defaultTheme`   | React Email Tailwind configuration               |
 | `variant`               | `"overlay-left" \| "overlay-right"` | `"overlay-left"` | Places the translucent content panel on one side |
 | `eyebrow`               | `string`                            | `"Brew Stories"` | Small label above the heading                    |
 | `heading`               | `string`                            | copy             | Main article heading                             |

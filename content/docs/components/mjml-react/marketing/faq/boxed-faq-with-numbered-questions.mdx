@@ -28,7 +28,7 @@ npx shadcn@latest add @emailcn/boxed-faq-with-numbered-questions
   <Step>Install the renderer dependency:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install react-email
 ```
 
 <Step>Copy the shared FAQ primitives into your project.</Step>
@@ -38,7 +38,13 @@ npm install @faire/mjml-react
   title="components/email/faq-shared.tsx"
 />
 
-  <Step>Copy the component source into your project.</Step>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/faq/boxed-faq-with-numbered-questions.tsx"
     base="mjml-react"

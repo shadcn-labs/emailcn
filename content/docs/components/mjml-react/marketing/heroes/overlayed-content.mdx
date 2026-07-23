@@ -22,7 +22,13 @@ npx shadcn@latest add @emailcn/hero-with-overlayed-content
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/hero/hero-with-overlayed-content.tsx"
     base="mjml-react"
@@ -65,7 +71,7 @@ import { HeroWithOverlayedContent } from "@/components/email/hero-with-overlayed
 
 | Prop                                        | Type                                             | Default        | Description                                       |
 | ------------------------------------------- | ------------------------------------------------ | -------------- | ------------------------------------------------- |
-| `theme`                                     | `EmailThemeTokens`                               | `defaultTheme` | MJML React theme tokens                           |
+| `theme`                                     | `EmailThemeTokens`                               | `defaultTheme` | React Email Tailwind configuration                |
 | `variant`                                   | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Selects the flat or slanted ending                |
 | `eyebrow`                                   | `string`                                         | `"Fresh Drop"` | Accent label above the heading                    |
 | `headingAccent` / `heading`                 | `string`                                         | copy           | Bold first word and light remaining product title |

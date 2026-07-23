@@ -22,7 +22,13 @@ npx shadcn@latest add @emailcn/hero-aligned-overlay
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/hero/hero-aligned-overlay.tsx"
     base="mjml-react"
@@ -73,7 +79,7 @@ import { HeroAlignedOverlay } from "@/components/email/hero-aligned-overlay";
 
 | Prop                                              | Type                                                                                       | Default          | Description                                            |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------- | ------------------------------------------------------ |
-| `theme`                                           | `EmailThemeTokens`                                                                         | `defaultTheme`   | MJML React theme tokens                                |
+| `theme`                                           | `EmailThemeTokens`                                                                         | `defaultTheme`   | React Email Tailwind configuration                     |
 | `variant`                                         | `"content-left" \| "content-left-reversed" \| "content-right" \| "content-right-reversed"` | `"content-left"` | Selects image edge, copy alignment, and vertical order |
 | `eyebrow`                                         | `string`                                                                                   | copy             | Small line above the heading                           |
 | `headingStart` / `headingEmphasis` / `headingEnd` | `string`                                                                                   | copy             | Three heading segments with a lighter middle segment   |

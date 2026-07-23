@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/hero-with-overlay-gradient
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -79,7 +79,7 @@ import { HeroWithOverlayGradient } from "@/components/email/hero-with-overlay-gr
 
 | Prop                                                       | Type                             | Default             | Description                                   |
 | ---------------------------------------------------------- | -------------------------------- | ------------------- | --------------------------------------------- |
-| `theme`                                                    | `EmailThemeTokens`               | `defaultTheme`      | MJML React theme tokens                       |
+| `theme`                                                    | `EmailThemeTokens`               | `defaultTheme`      | React Email Tailwind configuration            |
 | `variant`                                                  | `HeroWithOverlayGradientVariant` | `"split-with-logo"` | Selects copy grouping and logo visibility     |
 | `eyebrow` / `heading` / `subheading`                       | `string`                         | copy                | Product title copy                            |
 | `price` / `description`                                    | `string`                         | copy                | Price and supporting product description      |

@@ -28,10 +28,10 @@ npx shadcn@latest add @emailcn/2-columns-masonry-image-grid-with-3-images
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
-  <Step>Copy the component source into your project.</Step>
+<Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx"
     base="mjml-react"
@@ -84,7 +84,7 @@ import { TwoColumnsMasonryImageGridWith3Images } from "@/components/email/2-colu
 
 | Prop                        | Type                                           | Default          | Description                               |
 | --------------------------- | ---------------------------------------------- | ---------------- | ----------------------------------------- |
-| `theme`                     | `EmailThemeTokens`                             | `defaultTheme`   | MJML React theme tokens                   |
+| `theme`                     | `EmailThemeTokens`                             | `defaultTheme`   | React Email Tailwind configuration        |
 | `variant`                   | `TwoColumnsMasonryImageGridWith3ImagesVariant` | `"stacked-left"` | Selects side and overlay treatment        |
 | `imageSrc1` … `imageSrc3`   | `string`                                       | images           | Landscape and portrait image URLs         |
 | `imageAlt1` … `imageAlt3`   | `string`                                       | `""`             | Alternative text for plain-image variants |

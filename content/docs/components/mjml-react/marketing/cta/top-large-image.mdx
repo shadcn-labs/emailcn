@@ -25,7 +25,7 @@ npx shadcn@latest add @emailcn/cta-with-top-large-image
   <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
 <Step>Copy the component source into your project.</Step>
@@ -53,7 +53,7 @@ import { CTAWithTopLargeImage } from "@/components/email/cta-with-top-large-imag
 
 | Prop                    | Type               | Default        | Description                              |
 | ----------------------- | ------------------ | -------------- | ---------------------------------------- |
-| `theme`                 | `EmailThemeTokens` | `defaultTheme` | MJML React theme tokens                  |
+| `theme`                 | `EmailThemeTokens` | `defaultTheme` | React Email Tailwind configuration       |
 | `heading` / `subtext`   | `string`           | copy           | CTA heading and supporting text          |
 | `ctaLabel` / `ctaHref`  | `string`           | CTA            | Primary action label and destination     |
 | `imageSrc` / `imageAlt` | `string`           | image          | Leading image URL and alternative text   |
