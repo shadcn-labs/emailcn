@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -40,7 +51,7 @@ const socials = [
 ] as const;
 
 const Divider = ({ color }: { color: string }) => (
-  <div
+  <Section
     style={{
       backgroundColor: color,
       height: "1px",
@@ -49,7 +60,7 @@ const Divider = ({ color }: { color: string }) => (
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 export const FooterWithMenuAndFullWidthCtaSection = ({
@@ -63,18 +74,11 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
   ctaText = "Got questions? We're here to help.",
   unsubscribeHref = "https://example.com/unsub",
 }: Omit<FooterWithMenuAndFullWidthCtaProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -82,26 +86,15 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
             width: "600px",
           }}
         >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px", textAlign: "left" }}>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                  >
-                    <tbody>
-                      <tr>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ padding: "0 24px", textAlign: "left" }}>
+                  <Section>
+                    <Fragment>
+                      <Row>
                         {links.map(([label, href], index) => (
-                          <td
+                          <Column
                             key={href}
                             style={
                               index < links.length - 1
@@ -109,7 +102,7 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                                 : undefined
                             }
                           >
-                            <a
+                            <Link
                               href={href}
                               style={{
                                 color: textColor,
@@ -121,15 +114,15 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                               }}
                             >
                               {label}
-                            </a>
-                          </td>
+                            </Link>
+                          </Column>
                         ))}
-                      </tr>
-                    </tbody>
-                  </table>
+                      </Row>
+                    </Fragment>
+                  </Section>
                   <Divider color={dividerColor} />
-                  <div>
-                    <a
+                  <Section>
+                    <Link
                       href={ctaHref}
                       style={{
                         color: textColor,
@@ -141,7 +134,7 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                       }}
                     >
                       <span>{ctaText}</span>
-                      <img
+                      <Img
                         alt="→"
                         src="https://emailcn.vercel.app/api/email-assets/icon-chevron-right.png"
                         style={{
@@ -151,19 +144,14 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                         }}
                         width={20}
                       />
-                    </a>
-                  </div>
+                    </Link>
+                  </Section>
                   <Divider color={dividerColor} />
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                  >
-                    <tbody>
-                      <tr>
+                  <Section>
+                    <Fragment>
+                      <Row>
                         {socials.map(([label, href, icon], index) => (
-                          <td
+                          <Column
                             key={label}
                             style={
                               index < socials.length - 1
@@ -171,8 +159,8 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                                 : undefined
                             }
                           >
-                            <a href={href}>
-                              <img
+                            <Link href={href}>
+                              <Img
                                 alt={label}
                                 src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
                                 style={{
@@ -181,14 +169,14 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                                 }}
                                 width={20}
                               />
-                            </a>
-                          </td>
+                            </Link>
+                          </Column>
                         ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                  <p
+                      </Row>
+                    </Fragment>
+                  </Section>
+                  <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                  <Text
                     style={{
                       color: subduedTextColor,
                       fontFamily,
@@ -198,9 +186,9 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                     }}
                   >
                     © 2026 emailcn. All rights reserved.
-                  </p>
-                  <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                  <p
+                  </Text>
+                  <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                  <Text
                     style={{
                       color: mutedTextColor,
                       fontFamily,
@@ -212,7 +200,7 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                     You're receiving this because you subscribed to updates.{" "}
                     <br className="footer-full-cta-break" /> No longer want to
                     receive emails?{" "}
-                    <a
+                    <Link
                       href={unsubscribeHref}
                       style={{
                         color: mutedTextColor,
@@ -220,17 +208,17 @@ export const FooterWithMenuAndFullWidthCtaSection = ({
                       }}
                     >
                       Unsubscribe
-                    </a>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                    </Link>
+                  </Text>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWithMenuAndFullWidthCta = ({

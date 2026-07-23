@@ -1,4 +1,6 @@
+import { Section, Row, Column, Text, Img } from "jsx-email";
 import type { CSSProperties, ReactNode } from "react";
+import { Fragment } from "react";
 
 export type AvatarAlignment = "center" | "left" | "right";
 export type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
@@ -32,9 +34,9 @@ const avatarSizes: Record<
 };
 
 const AvatarShell = ({ children }: { children: ReactNode }) => (
-  <div style={{ backgroundColor: "#f1f5f9" }}>
-    <div style={{ height: "100px" }} />
-    <div
+  <Section style={{ backgroundColor: "#f1f5f9" }}>
+    <Section style={{ height: "100px" }} />
+    <Section
       style={{
         backgroundColor: "#fffffe",
         fontFamily,
@@ -44,13 +46,13 @@ const AvatarShell = ({ children }: { children: ReactNode }) => (
         paddingBottom: "44px",
       }}
     >
-      <div style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+      <Section style={{ paddingLeft: "24px", paddingRight: "24px" }}>
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
         {children}
-      </div>
-    </div>
-    <div style={{ height: "100px" }} />
-  </div>
+      </Section>
+    </Section>
+    <Section style={{ height: "100px" }} />
+  </Section>
 );
 
 export const AvatarWithDetailsSection = ({
@@ -79,7 +81,7 @@ export const AvatarWithDetailsSection = ({
 
   return (
     <AvatarShell>
-      <table
+      <Section
         style={{
           borderSpacing: 0,
           ...(mjmlCompensation && align === "center"
@@ -88,10 +90,10 @@ export const AvatarWithDetailsSection = ({
           ...alignmentStyle,
         }}
       >
-        <tbody>
-          <tr>
-            <td style={{ verticalAlign: "top" }}>
-              <img
+        <Fragment>
+          <Row>
+            <Column style={{ verticalAlign: "top" }}>
+              <Img
                 alt={name}
                 height={48}
                 src={avatarUrl}
@@ -102,10 +104,10 @@ export const AvatarWithDetailsSection = ({
                 }}
                 width={48}
               />
-            </td>
-            <td style={{ width: "12px" }} />
-            <td style={{ textAlign: "left", verticalAlign: "top" }}>
-              <p
+            </Column>
+            <Column style={{ width: "12px" }} />
+            <Column style={{ textAlign: "left", verticalAlign: "top" }}>
+              <Text
                 style={{
                   color: "#030712",
                   fontFamily,
@@ -116,8 +118,8 @@ export const AvatarWithDetailsSection = ({
                 }}
               >
                 {name}
-              </p>
-              <p
+              </Text>
+              <Text
                 style={{
                   color: "#6b7280",
                   fontFamily,
@@ -129,11 +131,11 @@ export const AvatarWithDetailsSection = ({
                 }}
               >
                 {email}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </Text>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     </AvatarShell>
   );
 };
@@ -151,8 +153,8 @@ export const GroupedOverlappedAvatarsSection = ({
 
   return (
     <AvatarShell>
-      <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: 0 }}>
+      <Section style={{ textAlign: "center" }}>
+        <Section style={{ fontSize: 0 }}>
           {avatars.slice(0, 4).map((avatar, index) => (
             <span
               key={`${avatar.name}-${index}`}
@@ -163,7 +165,7 @@ export const GroupedOverlappedAvatarsSection = ({
                 width: `${config.overlapWidth}px`,
               }}
             >
-              <img
+              <Img
                 alt={avatar.name}
                 height={config.diameter}
                 src={avatar.url ?? defaultAvatars[index % 4]?.url}
@@ -199,8 +201,8 @@ export const GroupedOverlappedAvatarsSection = ({
               +{plusCount}
             </span>
           ) : null}
-        </div>
-      </div>
+        </Section>
+      </Section>
     </AvatarShell>
   );
 };

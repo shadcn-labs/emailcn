@@ -1,5 +1,16 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable @next/next/no-img-element, complexity */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -47,10 +58,10 @@ const textStyle = { fontFamily, margin: 0 } as const;
 const colors = ["#030712", "#fffffe", "#e5e7eb", "#6ee7b7"];
 
 const ColorOptions = ({ short }: { short: boolean }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td
+  <Section>
+    <Fragment>
+      <Row>
+        <Column
           style={{
             color: "#4b5563",
             fontFamily,
@@ -60,8 +71,8 @@ const ColorOptions = ({ short }: { short: boolean }) => (
           }}
         >
           Colors:
-        </td>
-        <td>
+        </Column>
+        <Column>
           {colors.slice(0, short ? 3 : 4).map((color, index) => (
             <Fragment key={`${color}-${index}`}>
               <span
@@ -78,14 +89,14 @@ const ColorOptions = ({ short }: { short: boolean }) => (
               ) : null}
             </Fragment>
           ))}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const ShopButton = ({ label, href }: { href: string; label: string }) => (
-  <a
+  <Link
     href={href}
     style={{
       backgroundColor: "#4f46e5",
@@ -101,13 +112,13 @@ const ShopButton = ({ label, href }: { href: string; label: string }) => (
     }}
   >
     <span style={{ marginRight: "8px" }}>{label}</span>
-    <img
+    <Img
       alt=""
       src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
       style={{ maxWidth: "100%", verticalAlign: "baseline" }}
       width="12"
     />
-  </a>
+  </Link>
 );
 
 interface RowProps {
@@ -129,20 +140,14 @@ const CategoryRow = ({
   price,
   second,
 }: RowProps) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="category-row-column"
           style={{ verticalAlign: "top", width: "188px" }}
         >
-          <img
+          <Img
             alt=""
             className="category-row-image"
             src={imageSrc}
@@ -153,15 +158,18 @@ const CategoryRow = ({
             }}
             width="254"
           />
-        </td>
-        <td
+        </Column>
+        <Column
           className="category-row-column category-row-gap"
           style={{ width: "24px" }}
         >
           &zwj;
-        </td>
-        <td className="category-row-column" style={{ verticalAlign: "top" }}>
-          <h3
+        </Column>
+        <Column
+          className="category-row-column"
+          style={{ verticalAlign: "top" }}
+        >
+          <Heading
             style={{
               ...textStyle,
               color: "#030712",
@@ -169,10 +177,11 @@ const CategoryRow = ({
               fontWeight: 600,
               lineHeight: "28px",
             }}
+            as="h3"
           >
             {name}
-          </h3>
-          <p
+          </Heading>
+          <Text
             style={{
               ...textStyle,
               color: "#030712",
@@ -183,11 +192,11 @@ const CategoryRow = ({
             }}
           >
             {price}
-          </p>
-          <div style={{ lineHeight: "24px" }}>&zwj;</div>
+          </Text>
+          <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
           {details ? (
             <>
-              <p
+              <Text
                 style={{
                   ...textStyle,
                   color: "#4b5563",
@@ -198,9 +207,9 @@ const CategoryRow = ({
                 }}
               >
                 {description}
-              </p>
+              </Text>
               <ColorOptions short={second} />
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             </>
           ) : null}
           <ShopButton
@@ -209,10 +218,10 @@ const CategoryRow = ({
             }
             label={ctaLabel}
           />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const variantFeatures = (variant: CategoryPreviewRowsVariant) => ({
@@ -252,17 +261,11 @@ export const CategoryPreviewRowsSection = ({
   return (
     <>
       <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: "#fffffe",
                 maxWidth: "100%",
@@ -270,20 +273,14 @@ export const CategoryPreviewRowsSection = ({
                 width: "600px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {features.header ? (
                         <>
-                          <h2
+                          <Heading
                             style={{
                               ...textStyle,
                               color: "#030712",
@@ -292,15 +289,18 @@ export const CategoryPreviewRowsSection = ({
                               lineHeight: "36px",
                               textAlign: "center",
                             }}
+                            as="h2"
                           >
                             {heading}
-                          </h2>
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                          </Heading>
+                          <Section style={{ lineHeight: "44px" }}>
+                            &zwj;
+                          </Section>
                         </>
                       ) : null}
                       {features.description ? (
                         <>
-                          <p
+                          <Text
                             style={{
                               ...textStyle,
                               color: "#4b5563",
@@ -310,8 +310,10 @@ export const CategoryPreviewRowsSection = ({
                             }}
                           >
                             {intro}
-                          </p>
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                          </Text>
+                          <Section style={{ lineHeight: "44px" }}>
+                            &zwj;
+                          </Section>
                         </>
                       ) : null}
                       <CategoryRow
@@ -323,7 +325,7 @@ export const CategoryPreviewRowsSection = ({
                         price={price1}
                         second={false}
                       />
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       <CategoryRow
                         ctaLabel={ctaLabel}
                         description={description2}
@@ -333,15 +335,15 @@ export const CategoryPreviewRowsSection = ({
                         price={price2}
                         second
                       />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 };

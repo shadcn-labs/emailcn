@@ -1,17 +1,17 @@
 import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlWrapper,
+  MjmlColumn,
+  MjmlSection,
+  MjmlSocial,
+  MjmlSocialElement,
+  MjmlSpacer,
 } from "@faire/mjml-react";
-/* eslint-disable next/no-img-element */
-import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  HeaderEmailShell,
+  HeaderLogo,
+} from "@/registry/bases/mjml-react/ui/marketing/headers/header-shared";
 
 export type HeaderWithLogoAndSocialIconsAlignment = "left" | "center" | "right";
 
@@ -50,212 +50,67 @@ const defaultSocials: HeaderSocialLink[] = [
   },
 ];
 
-const defaults = {
-  backgroundColor: "#fffffe",
-  logoAlt: "Maizzle",
-  logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
-  pageBackgroundColor: "#f1f5f9",
-  socials: defaultSocials,
-};
-
-type SectionProps = Omit<HeaderWithLogoAndSocialIconsProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
-      alt={props.logoAlt}
-      src={props.logoSrc}
-      style={{ maxWidth: "100%", verticalAlign: "middle" }}
-      width={55}
-    />
-  </a>
-);
-
-const Socials = ({
-  align,
-  props,
-}: {
-  align?: "center" | "right";
-  props: ResolvedProps;
-}) => {
-  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
-  if (align === "center") {
-    tableStyle = { marginLeft: "auto", marginRight: "auto" };
-  } else if (align === "right") {
-    tableStyle = { marginLeft: "auto" };
-  }
-
-  return (
-    <table
-      align={align}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={tableStyle}
-    >
-      <tbody>
-        <tr>
-          {props.socials.slice(0, 3).map((social, index) => (
-            <Fragment key={social.alt + social.href}>
-              {index > 0 ? <td style={{ width: "24px" }}>&zwj;</td> : null}
-              <td>
-                <a href={social.href}>
-                  <img
-                    alt={social.alt}
-                    src={social.src}
-                    style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                    width={20}
-                  />
-                </a>
-              </td>
-            </Fragment>
-          ))}
-        </tr>
-      </tbody>
-    </table>
+export const HeaderWithLogoAndSocialIconsSection = ({
+  alignment = "left",
+  backgroundColor = "#fffffe",
+  logoAlt = "Maizzle",
+  logoHref = "https://example.com",
+  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  socials = defaultSocials,
+}: Omit<HeaderWithLogoAndSocialIconsProps, "theme">) => {
+  const logo = (
+    <HeaderLogo align={alignment} alt={logoAlt} href={logoHref} src={logoSrc} />
   );
-};
+  const icons = (
+    <MjmlSocial align={alignment} iconSize="20px" padding="0">
+      {socials.slice(0, 3).map((social) => (
+        <MjmlSocialElement
+          alt={social.alt}
+          href={social.href}
+          key={`${social.alt}-${social.href}`}
+          name={social.alt}
+          src={social.src}
+        />
+      ))}
+    </MjmlSocial>
+  );
 
-export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
-  const alignment = props.alignment ?? "left";
-  const resolved = { ...defaults, ...props } as ResolvedProps;
-  let content;
   if (alignment === "center") {
-    content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
-              <div style={{ textAlign: "center" }}>
-                <Logo props={resolved} />
-              </div>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-              <Socials align="center" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    );
-  } else if (alignment === "right") {
-    content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
-              <Socials props={resolved} />
-            </td>
-            <td style={{ textAlign: "right", width: "55px" }}>
-              <Logo props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    );
-  } else {
-    content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={{ width: "55px" }}>
-              <Logo props={resolved} />
-            </td>
-            <td>
-              <Socials align="right" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    return (
+      <MjmlSection backgroundColor={backgroundColor} padding="24px">
+        <MjmlColumn padding="0">
+          {logo}
+          <MjmlSpacer height="24px" />
+          {icons}
+        </MjmlColumn>
+      </MjmlSection>
     );
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
-                    style={{
-                      backgroundColor: resolved.backgroundColor,
-                      padding: "24px",
-                    }}
-                  >
-                    {content}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+    <MjmlSection backgroundColor={backgroundColor} padding="24px">
+      <MjmlColumn padding="0" verticalAlign="middle" width="50%">
+        {alignment === "left" ? logo : icons}
+      </MjmlColumn>
+      <MjmlColumn padding="0" verticalAlign="middle" width="50%">
+        {alignment === "left" ? icons : logo}
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const HeaderWithLogoAndSocialIcons = ({
-  alignment = "left",
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
   ...props
 }: HeaderWithLogoAndSocialIconsProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Maizzle on GitHub, LinkedIn, and X</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <HeaderWithLogoAndSocialIconsSection
-            {...props}
-            alignment={alignment}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <HeaderEmailShell
+    pageBackgroundColor={pageBackgroundColor}
+    preview="Social links"
+    theme={theme}
+  >
+    <HeaderWithLogoAndSocialIconsSection {...props} />
+  </HeaderEmailShell>
 );
 
 HeaderWithLogoAndSocialIcons.PreviewProps = {

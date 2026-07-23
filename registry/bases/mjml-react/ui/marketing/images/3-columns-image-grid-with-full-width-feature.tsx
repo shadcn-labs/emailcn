@@ -1,17 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  ImageGridEmailShell,
+  NativeFeatureImage,
+  NativeImageRow,
+} from "@/registry/bases/mjml-react/ui/marketing/images/image-grid-shared";
 
 export type ThreeColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-top"
@@ -48,55 +41,6 @@ export interface ThreeColumnsImageGridWithFullWidthFeatureProps {
   variant?: ThreeColumnsImageGridWithFullWidthFeatureVariant;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = `
-  @media only screen and (max-width: 430px) {
-    .three-feature-plain-stack {
-      display: block !important;
-      width: 100% !important;
-    }
-
-    .three-feature-plain-gap {
-      line-height: 24px !important;
-    }
-  }
-
-  @media only screen and (max-width: 599px) {
-    .three-feature-image {
-      width: 100% !important;
-    }
-
-    .three-feature-overlay-stack {
-      display: block !important;
-      width: 100% !important;
-    }
-
-    .three-feature-overlay-gap {
-      line-height: 24px !important;
-    }
-
-    .three-feature-main-spacer {
-      line-height: 384px !important;
-    }
-
-    .three-feature-small-spacer {
-      line-height: 256px !important;
-    }
-
-    .three-feature-small-heading {
-      font-size: 24px !important;
-      line-height: 32px !important;
-    }
-
-    .three-feature-small-text {
-      font-size: 20px !important;
-      line-height: 28px !important;
-    }
-  }
-`;
-
 const defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Island Escape",
@@ -121,340 +65,88 @@ const defaults = {
     "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-5.jpg",
   imageSrc3:
     "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-6.jpg",
-  pageBackgroundColor: "#f1f5f9",
   subtext1: "Private pools",
   subtext2: "Relax & restore",
   subtext3: "Beach freedom",
   textColor: "#fffffe",
 };
 
-type SectionProps = Omit<
-  ThreeColumnsImageGridWithFullWidthFeatureProps,
-  "theme"
->;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const PlainImage = ({
-  alt,
-  className,
-  href,
-  src,
-  width,
-}: {
-  alt: string;
-  className?: string;
-  href: string;
-  src: string;
-  width: number;
-}) => (
-  <a href={href}>
-    <img
-      alt={alt}
-      className={className}
-      src={src}
-      style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
-      width={width}
-    />
-  </a>
-);
-
-const OverlayCard = ({
-  feature = false,
-  heading,
-  headingColor,
-  imageSrc,
-  subtext,
-  textColor,
-}: {
-  feature?: boolean;
-  heading: string;
-  headingColor: string;
-  imageSrc: string;
-  subtext: string;
-  textColor: string;
-}) => (
-  <div
-    style={{
-      backgroundImage: `url('${imageSrc}')`,
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      borderRadius: "4px",
-      maxWidth: "100%",
-    }}
-  >
-    <div
-      className={
-        feature ? "three-feature-main-spacer" : "three-feature-small-spacer"
-      }
-      style={{ lineHeight: feature ? "304px" : "88px" }}
-    >
-      &zwj;
-    </div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
-            style={{
-              background: "linear-gradient(to bottom, transparent, #000001)",
-              borderBottomLeftRadius: "4px",
-              borderBottomRightRadius: "4px",
-              padding: "16px",
-              textAlign: "left",
-            }}
-          >
-            <h4
-              className={feature ? undefined : "three-feature-small-heading"}
-              style={{
-                color: headingColor,
-                fontFamily,
-                fontSize: feature ? "24px" : "16px",
-                fontWeight: 700,
-                lineHeight: feature ? "32px" : "24px",
-                margin: 0,
-              }}
-            >
-              {heading}
-            </h4>
-            <p
-              className={feature ? undefined : "three-feature-small-text"}
-              style={{
-                color: textColor,
-                fontFamily,
-                fontSize: feature ? "20px" : "14px",
-                lineHeight: feature ? "28px" : "20px",
-                margin: 0,
-              }}
-            >
-              {subtext}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
-
-const FeatureRow = ({
-  overlay,
-  props,
-}: {
-  overlay: boolean;
-  props: ResolvedProps;
-}) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td style={{ width: "24px" }}>&zwj;</td>
-        <td>
-          {overlay ? (
-            <OverlayCard
-              feature
-              heading={props.featureHeading}
-              headingColor={props.headingColor}
-              imageSrc={props.featureImageSrc}
-              subtext={props.featureSubtext}
-              textColor={props.textColor}
-            />
-          ) : (
-            <PlainImage
-              alt={props.featureImageAlt}
-              className="three-feature-image"
-              href={props.featureImageHref}
-              src={props.featureImageSrc}
-              width={552}
-            />
-          )}
-        </td>
-        <td style={{ width: "24px" }}>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const GridItem = ({
-  alt,
-  heading,
-  href,
-  overlay,
-  props,
-  src,
-  subtext,
-}: {
-  alt: string;
-  heading: string;
-  href: string;
-  overlay: boolean;
-  props: ResolvedProps;
-  src: string;
-  subtext: string;
-}) =>
-  overlay ? (
-    <OverlayCard
-      heading={heading}
-      headingColor={props.headingColor}
-      imageSrc={src}
-      subtext={subtext}
-      textColor={props.textColor}
-    />
-  ) : (
-    <PlainImage alt={alt} href={href} src={src} width={168} />
-  );
-
-const GridRow = ({
-  overlay,
-  props,
-}: {
-  overlay: boolean;
-  props: ResolvedProps;
-}) => {
-  const stackClass = overlay
-    ? "three-feature-overlay-stack"
-    : "three-feature-plain-stack";
-  const gapClass = overlay
-    ? "three-feature-overlay-gap"
-    : "three-feature-plain-gap";
-
-  return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ width: "24px" }}>&zwj;</td>
-          <td className={stackClass} style={{ width: "168px" }}>
-            <GridItem
-              alt={props.imageAlt1}
-              heading={props.heading1}
-              href={props.imageHref1}
-              overlay={overlay}
-              props={props}
-              src={props.imageSrc1}
-              subtext={props.subtext1}
-            />
-          </td>
-          <td className={`${stackClass} ${gapClass}`} style={{ width: "24px" }}>
-            &zwj;
-          </td>
-          <td className={stackClass} style={{ width: "168px" }}>
-            <GridItem
-              alt={props.imageAlt2}
-              heading={props.heading2}
-              href={props.imageHref2}
-              overlay={overlay}
-              props={props}
-              src={props.imageSrc2}
-              subtext={props.subtext2}
-            />
-          </td>
-          <td className={`${stackClass} ${gapClass}`} style={{ width: "24px" }}>
-            &zwj;
-          </td>
-          <td className={stackClass} style={{ width: "168px" }}>
-            <GridItem
-              alt={props.imageAlt3}
-              heading={props.heading3}
-              href={props.imageHref3}
-              overlay={overlay}
-              props={props}
-              src={props.imageSrc3}
-              subtext={props.subtext3}
-            />
-          </td>
-          <td style={{ width: "24px" }}>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
 export const ThreeColumnsImageGridWithFullWidthFeatureSection = (
-  props: SectionProps
+  props: Omit<ThreeColumnsImageGridWithFullWidthFeatureProps, "theme">
 ) => {
-  const variant = props.variant ?? "full-width-top";
-  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const resolved = { ...defaults, ...props };
+  const variant = resolved.variant ?? "full-width-top";
   const overlay = variant.endsWith("overlay");
-  const featureBottom = variant.startsWith("full-width-bottom");
-  const feature = <FeatureRow overlay={overlay} props={resolved} />;
-  const grid = <GridRow overlay={overlay} props={resolved} />;
+  const feature = (
+    <NativeFeatureImage
+      backgroundColor={resolved.backgroundColor}
+      data={{
+        alt: resolved.featureImageAlt,
+        heading: resolved.featureHeading,
+        href: resolved.featureImageHref,
+        src: resolved.featureImageSrc,
+        subtext: resolved.featureSubtext,
+      }}
+      headingColor={resolved.headingColor}
+      overlay={overlay}
+      padding={variant.includes("top") ? "24px 24px 12px" : "12px 24px 24px"}
+      textColor={resolved.textColor}
+    />
+  );
+  const grid = (
+    <NativeImageRow
+      backgroundColor={resolved.backgroundColor}
+      cards={[
+        {
+          alt: resolved.imageAlt1,
+          heading: resolved.heading1,
+          href: resolved.imageHref1,
+          src: resolved.imageSrc1,
+          subtext: resolved.subtext1,
+        },
+        {
+          alt: resolved.imageAlt2,
+          heading: resolved.heading2,
+          href: resolved.imageHref2,
+          src: resolved.imageSrc2,
+          subtext: resolved.subtext2,
+        },
+        {
+          alt: resolved.imageAlt3,
+          heading: resolved.heading3,
+          href: resolved.imageHref3,
+          src: resolved.imageSrc3,
+          subtext: resolved.subtext3,
+        },
+      ]}
+      headingColor={resolved.headingColor}
+      overlay={overlay}
+      padding={variant.includes("top") ? "12px 24px 24px" : "24px 24px 12px"}
+      textColor={resolved.textColor}
+      widths={[168, 168, 168]}
+    />
+  );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "24px",
-              width: "600px",
-            }}
-          >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            {featureBottom ? grid : feature}
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            {featureBottom ? feature : grid}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      {variant.includes("top") ? feature : grid}
+      {variant.includes("top") ? grid : feature}
+    </>
   );
 };
 
 export const ThreeColumnsImageGridWithFullWidthFeature = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "full-width-top",
   ...props
 }: ThreeColumnsImageGridWithFullWidthFeatureProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>
-        Three columns image grid with full width feature
-      </MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <ThreeColumnsImageGridWithFullWidthFeatureSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <ImageGridEmailShell
+    backgroundColor={pageBackgroundColor}
+    preview="Three columns image grid with full width feature"
+    theme={theme}
+  >
+    <ThreeColumnsImageGridWithFullWidthFeatureSection {...props} />
+  </ImageGridEmailShell>
 );
 
 ThreeColumnsImageGridWithFullWidthFeature.PreviewProps = {

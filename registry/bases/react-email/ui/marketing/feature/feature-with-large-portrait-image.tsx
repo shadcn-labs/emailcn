@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Section,
+  Heading,
+  Text,
+  Link,
+  Column,
+  Row,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -142,7 +149,7 @@ const ResponsiveImage = ({
 );
 
 const LogoPanel = ({ props }: { props: ResolvedProps }) => (
-  <div
+  <Section
     style={{
       backgroundColor: props.logoBackgroundColor,
       borderRadius: "4px",
@@ -160,17 +167,17 @@ const LogoPanel = ({ props }: { props: ResolvedProps }) => (
       }}
       width={139}
     />
-  </div>
+  </Section>
 );
 
 const SecondaryImage = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
+  <Section style={{ textAlign: "center" }}>
     <ResponsiveImage
       alt={props.secondaryImageAlt}
       src={props.secondaryImageSrc}
       width={205}
     />
-  </div>
+  </Section>
 );
 
 const FeatureCopy = ({
@@ -181,7 +188,7 @@ const FeatureCopy = ({
   props: ResolvedProps;
 }) => (
   <>
-    <h2
+    <Heading
       style={{
         color: props.headingColor,
         fontFamily,
@@ -190,6 +197,7 @@ const FeatureCopy = ({
         lineHeight: "28px",
         margin: 0,
       }}
+      as="h2"
     >
       {contentVariant && props.heading === contentDefaults.heading ? (
         <>
@@ -199,8 +207,8 @@ const FeatureCopy = ({
       ) : (
         props.heading
       )}
-    </h2>
-    <p
+    </Heading>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -211,10 +219,10 @@ const FeatureCopy = ({
       }}
     >
       {props.body}
-    </p>
-    <div style={{ lineHeight: "12px" }}>&zwj;</div>
-    <div>
-      <a
+    </Text>
+    <Section style={{ lineHeight: "12px" }}>&zwj;</Section>
+    <Section>
+      <Link
         href={props.buttonHref}
         style={{
           borderRadius: "8px",
@@ -241,8 +249,8 @@ const FeatureCopy = ({
             width={16}
           />
         </span>
-      </a>
-    </div>
+      </Link>
+    </Section>
   </>
 );
 
@@ -265,19 +273,23 @@ const ContentColumn = ({
     );
 
   return (
-    <td
+    <Column
       className="feature-portrait-stack"
       style={{ textAlign: "left", verticalAlign: "top", width: "205px" }}
     >
-      {mediaAfter ? null : <div style={{ marginBottom: "24px" }}>{media}</div>}
+      {mediaAfter ? null : (
+        <Section style={{ marginBottom: "24px" }}>{media}</Section>
+      )}
       <FeatureCopy contentVariant={contentVariant} props={props} />
-      {mediaAfter ? <div style={{ marginTop: "24px" }}>{media}</div> : null}
-    </td>
+      {mediaAfter ? (
+        <Section style={{ marginTop: "24px" }}>{media}</Section>
+      ) : null}
+    </Column>
   );
 };
 
 const PortraitColumn = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="feature-portrait-stack"
     style={{ verticalAlign: "top", width: "323px" }}
   >
@@ -286,7 +298,7 @@ const PortraitColumn = ({ props }: { props: ResolvedProps }) => (
       src={props.portraitImageSrc}
       width={323}
     />
-  </td>
+  </Column>
 );
 
 export const FeatureWithLargePortraitImageSection = (props: SectionProps) => {
@@ -313,18 +325,14 @@ export const FeatureWithLargePortraitImageSection = (props: SectionProps) => {
   const portrait = <PortraitColumn props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -332,46 +340,34 @@ export const FeatureWithLargePortraitImageSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {portraitLeft ? portrait : content}
-                          <td
+                          <Column
                             className="feature-portrait-stack feature-portrait-gap"
                             style={{ width: "24px" }}
                           >
                             &zwj;
-                          </td>
+                          </Column>
                           {portraitLeft ? content : portrait}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

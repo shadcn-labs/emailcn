@@ -1,17 +1,14 @@
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-/* eslint-disable next/no-img-element */
-import { Fragment } from "react";
+import { MjmlColumn, MjmlSection } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FooterCopy,
+  FooterCta,
+  FooterEmailShell,
+  FooterLegal,
+  FooterLogo,
+} from "@/registry/bases/mjml-react/ui/marketing/footers/footer-shared";
 
 export type FooterWithContentAndCtaVariant =
   | "centered"
@@ -38,9 +35,6 @@ export interface FooterWithContentAndCtaProps {
   variant?: FooterWithContentAndCtaVariant;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const defaults = {
   backgroundColor: "#fffffe",
   buttonColor: "#4f46e5",
@@ -61,200 +55,74 @@ const defaults = {
 };
 
 type SectionProps = Omit<FooterWithContentAndCtaProps, "theme">;
-type ResolvedProps = typeof defaults &
-  SectionProps & { variant: FooterWithContentAndCtaVariant };
-
-const Multiline = ({ text }: { text: string }) =>
-  text.split("\n").map((line, index) => (
-    <Fragment key={line}>
-      {index > 0 ? <br /> : null}
-      {line}
-    </Fragment>
-  ));
 
 export const FooterWithContentAndCtaSection = (props: SectionProps) => {
-  const resolved = {
-    ...defaults,
-    ...props,
-    variant: props.variant ?? "centered",
-  } as ResolvedProps;
-  const textAlign = {
-    centered: "center",
-    "left-aligned": "left",
-    "right-aligned": "right",
-  }[resolved.variant] as "center" | "left" | "right";
+  const resolved = { ...defaults, ...props };
+  let align: "center" | "left" | "right" = "center";
+  if (resolved.variant === "left-aligned") {
+    align = "left";
+  } else if (resolved.variant === "right-aligned") {
+    align = "right";
+  }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor={resolved.backgroundColor}
+      padding="44px 24px 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "44px 24px 24px", textAlign }}>
-                    <p
-                      style={{
-                        color: resolved.headingColor,
-                        fontFamily,
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
-                        margin: 0,
-                      }}
-                    >
-                      <Multiline text={resolved.heading} />
-                    </p>
-                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
-                    <p
-                      style={{
-                        color: resolved.textColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                      }}
-                    >
-                      {resolved.subtext}
-                    </p>
-                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
-                    <div>
-                      <a
-                        href={resolved.ctaHref}
-                        style={{
-                          backgroundColor: resolved.buttonColor,
-                          borderRadius: "8px",
-                          color: resolved.buttonTextColor,
-                          display: "inline-block",
-                          fontFamily,
-                          fontSize: "16px",
-                          fontWeight: 500,
-                          lineHeight: 1,
-                          padding: "14px 48px",
-                          textDecoration: "none",
-                        }}
-                      >
-                        <span
-                          style={{ marginRight: "8px", msoTextRaise: "14px" }}
-                        >
-                          {resolved.ctaLabel}
-                        </span>
-                        <span style={{ msoTextRaise: "14px" }}>
-                          <img
-                            alt=""
-                            src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
-                            style={{
-                              maxWidth: "100%",
-                              verticalAlign: "baseline",
-                            }}
-                            width={12}
-                          />
-                        </span>
-                      </a>
-                    </div>
-                    <div style={{ lineHeight: "96px" }}>&zwj;</div>
-                    <img
-                      alt={resolved.logoAlt}
-                      src={resolved.logoSrc}
-                      style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                      width={55}
-                    />
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <p
-                      style={{
-                        color: resolved.mutedTextColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                      }}
-                    >
-                      © 2026 emailcn. All rights reserved.
-                      <br />
-                      <br />
-                      Want to change how you receive these emails?
-                      <br />
-                      You can{" "}
-                      <a
-                        href={resolved.updatePreferencesHref}
-                        style={{
-                          color: resolved.mutedTextColor,
-                          textDecoration: "underline",
-                        }}
-                      >
-                        update your preferences
-                      </a>{" "}
-                      or{" "}
-                      <a
-                        href={resolved.unsubscribeHref}
-                        style={{
-                          color: resolved.mutedTextColor,
-                          textDecoration: "underline",
-                        }}
-                      >
-                        unsubscribe from this list.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      <MjmlColumn>
+        <FooterCopy
+          align={align}
+          color={resolved.headingColor}
+          fontSize="20px"
+          fontWeight="600"
+          lineHeight="28px"
+        >
+          {resolved.heading}
+        </FooterCopy>
+        <FooterCopy
+          align={align}
+          color={resolved.textColor}
+          fontSize="16px"
+          lineHeight="24px"
+          padding="24px 0 0"
+        >
+          {resolved.subtext}
+        </FooterCopy>
+        <FooterCta
+          align={align}
+          backgroundColor={resolved.buttonColor}
+          color={resolved.buttonTextColor}
+          href={resolved.ctaHref}
+          label={resolved.ctaLabel}
+          padding="28px 0"
+        />
+        <FooterLogo
+          align={align}
+          alt={resolved.logoAlt}
+          href="https://example.com"
+          src={resolved.logoSrc}
+          width="48px"
+        />
+        <FooterLegal
+          align={align}
+          copyright="© 2026 emailcn. Update preferences at any time."
+          mutedTextColor={resolved.mutedTextColor}
+          unsubscribeHref={resolved.unsubscribeHref}
+        />
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const FooterWithContentAndCta = ({
-  pageBackgroundColor = "#f1f5f9",
+  pageBackgroundColor = defaults.pageBackgroundColor,
   theme = defaultTheme,
-  variant = "centered",
   ...props
 }: FooterWithContentAndCtaProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>
-        {props.heading ?? defaults.heading.replaceAll("\\n", " ")}
-      </MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <FooterWithContentAndCtaSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>
+    <FooterWithContentAndCtaSection {...props} />
+  </FooterEmailShell>
 );
 
 FooterWithContentAndCta.PreviewProps = {

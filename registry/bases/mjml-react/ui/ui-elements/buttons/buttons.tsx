@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -44,9 +43,7 @@ export const Buttons = ({ theme = defaultTheme, ...props }: ButtonsProps) => (
     </MjmlHead>
     <MjmlBody width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <ButtonsSection {...props} />
-        </MjmlRaw>
+        <ButtonsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

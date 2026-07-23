@@ -1,54 +1,69 @@
-// MJML parity block — mirrored from react-email (receipt-nike.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Your receipt from Nike
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { nikeTheme } from "@/registry/bases/mjml-react/themes/nike";
 
-type Props = Record<string, never>;
+interface ReceiptItem {
+  name: string;
+  imageUrl?: string;
+  price: string;
+  quantity?: number;
+}
 
-export const ReceiptNike = (_props: Props) => {
-  const theme: EmailThemeTokens = nikeTheme;
+interface Props {
+  orderNumber?: string;
+  customerName?: string;
+  items?: ReceiptItem[];
+  subtotal?: string;
+  tax?: string;
+  total?: string;
+  supportHref?: string;
+  _productName?: string;
+}
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for receipt-nike.tsx — replace with full
-                markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+export const ReceiptNike = ({
+  orderNumber = "ORD-123",
+  customerName = "John",
+  items = [
+    {
+      imageUrl: "https://static.photos/technology/640x640/2",
+      name: "Air Max 90",
+      price: "$149.00",
+      quantity: 1,
+    },
+  ],
+  subtotal = "$149.00",
+  tax = "$11.92",
+  total = "$160.92",
+  supportHref = "#",
+}: Props) => (
+  <ReceiptBlock
+    customerName={customerName}
+    items={items}
+    orderNumber={orderNumber}
+    subtotal={subtotal}
+    supportHref={supportHref}
+    supportLabel="Contact Nike Support"
+    tax={tax}
+    theme={nikeTheme}
+    total={total}
+  />
+);
 
-ReceiptNike.PreviewProps = {} satisfies Props;
+ReceiptNike.PreviewProps = {
+  _productName: "Nike",
+  customerName: "John Doe",
+  items: [
+    {
+      imageUrl: "https://static.photos/technology/640x640/3",
+      name: "Air Max 90",
+      price: "$149.00",
+      quantity: 1,
+    },
+  ],
+  orderNumber: "ORD-12345",
+  subtotal: "$149.00",
+  supportHref: "https://example.com/support",
+  tax: "$11.92",
+  total: "$160.92",
+} satisfies Props;

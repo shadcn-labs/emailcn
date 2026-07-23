@@ -1,6 +1,17 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Column,
+  Text,
+  Section,
+  Row,
+  Img,
+} from "jsx-email";
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -75,14 +86,14 @@ const socialIcons = [
 ] as const;
 
 const Logo = ({ logoSrc, width = 64 }: { logoSrc: string; width?: number }) => (
-  <a href="https://example.com">
-    <img
+  <Link href="https://example.com">
+    <Img
       alt="Maizzle"
       src={logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={width}
     />
-  </a>
+  </Link>
 );
 
 const LinkColumn = ({
@@ -94,8 +105,10 @@ const LinkColumn = ({
   links: readonly (readonly [string, string])[];
   textColor: string;
 }) => (
-  <td style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}>
-    <p
+  <Column
+    style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}
+  >
+    <Text
       style={{
         color: "#030712",
         fontFamily,
@@ -106,10 +119,10 @@ const LinkColumn = ({
       }}
     >
       {heading}
-    </p>
+    </Text>
     {links.map(([label, href]) => (
-      <p key={href} style={{ margin: "0 0 8px" }}>
-        <a
+      <Text key={href} style={{ margin: "0 0 8px" }}>
+        <Link
           href={href}
           style={{
             color: textColor,
@@ -121,18 +134,18 @@ const LinkColumn = ({
           }}
         >
           {label}
-        </a>
-      </p>
+        </Link>
+      </Text>
     ))}
-  </td>
+  </Column>
 );
 
 const Socials = () => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
+  <Section>
+    <Fragment>
+      <Row>
         {socialIcons.map(([label, href, icon], index) => (
-          <td
+          <Column
             key={label}
             style={
               index < socialIcons.length - 1
@@ -140,19 +153,19 @@ const Socials = () => (
                 : undefined
             }
           >
-            <a href={href}>
-              <img
+            <Link href={href}>
+              <Img
                 alt={label}
                 src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}.png`}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
-            </a>
-          </td>
+            </Link>
+          </Column>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const ShortLegal = ({
@@ -164,7 +177,7 @@ const ShortLegal = ({
   textColor: string;
   unsubscribeHref: string;
 }) => (
-  <p
+  <Text
     style={{
       color: textColor,
       fontFamily,
@@ -175,13 +188,13 @@ const ShortLegal = ({
     }}
   >
     © 2026 emailcn. No longer want to receive emails?{" "}
-    <a
+    <Link
       href={unsubscribeHref}
       style={{ color: textColor, textDecoration: "underline" }}
     >
       Unsubscribe
-    </a>
-  </p>
+    </Link>
+  </Text>
 );
 
 const AddressLegal = ({
@@ -195,8 +208,8 @@ const AddressLegal = ({
   textColor: string;
   unsubscribeHref: string;
 }) => (
-  <div style={{ textAlign: centered ? "center" : "left" }}>
-    <p
+  <Section style={{ textAlign: centered ? "center" : "left" }}>
+    <Text
       style={{
         color: textColor,
         fontFamily,
@@ -208,9 +221,9 @@ const AddressLegal = ({
       © 2026 emailcn
       <br />
       emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505 Paris
-    </p>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
+    </Text>
+    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+    <Text
       style={{
         color: mutedTextColor,
         fontFamily,
@@ -221,14 +234,14 @@ const AddressLegal = ({
     >
       We're sending you this because you subscribed.{" "}
       <br className="footer-overlap-break" /> No longer want to receive emails?{" "}
-      <a
+      <Link
         href={unsubscribeHref}
         style={{ color: mutedTextColor, textDecoration: "underline" }}
       >
         Unsubscribe
-      </a>
-    </p>
-  </div>
+      </Link>
+    </Text>
+  </Section>
 );
 
 const OverlappedHero = ({
@@ -239,48 +252,36 @@ const OverlappedHero = ({
   primaryColor: string;
 }) => (
   <>
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: "#f1f5f9",
               verticalAlign: "bottom",
               width: "24px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{ backgroundColor: "#fffffe", lineHeight: "40px" }}
                   >
                     &zwj;
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               borderRadius: "12px 12px 0 0",
             }}
           >
-            <div
+            <Section
               style={{
                 backgroundImage: `url('${backgroundImageSrc}')`,
                 backgroundPosition: "center",
@@ -288,21 +289,15 @@ const OverlappedHero = ({
                 borderRadius: "12px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column
                       className="footer-overlap-hero"
                       style={{ padding: "0 44px", textAlign: "center" }}
                     >
-                      <div style={{ lineHeight: "124px" }}>&zwj;</div>
-                      <p
+                      <Section style={{ lineHeight: "124px" }}>&zwj;</Section>
+                      <Text
                         style={{
                           color: "#fffffe",
                           fontFamily,
@@ -316,9 +311,9 @@ const OverlappedHero = ({
                         Start sending professionally{" "}
                         <br className="footer-overlap-break" />
                         designed emails today
-                      </p>
-                      <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                      <p
+                      </Text>
+                      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                      <Text
                         style={{
                           color: "#d1d5db",
                           fontFamily,
@@ -329,9 +324,9 @@ const OverlappedHero = ({
                         }}
                       >
                         {copy}
-                      </p>
-                      <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                      <a
+                      </Text>
+                      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                      <Link
                         href="https://example.com"
                         style={{
                           backgroundColor: primaryColor,
@@ -347,7 +342,7 @@ const OverlappedHero = ({
                         }}
                       >
                         Visit website&nbsp;&nbsp;
-                        <img
+                        <Img
                           alt=""
                           src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
                           style={{
@@ -356,42 +351,36 @@ const OverlappedHero = ({
                           }}
                           width={12}
                         />
-                      </a>
-                      <div style={{ lineHeight: "124px" }}>&zwj;</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </td>
-          <td
+                      </Link>
+                      <Section style={{ lineHeight: "124px" }}>&zwj;</Section>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Section>
+          </Column>
+          <Column
             style={{
               backgroundColor: "#f1f5f9",
               verticalAlign: "bottom",
               width: "24px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{ backgroundColor: "#fffffe", lineHeight: "40px" }}
                   >
                     &zwj;
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -407,7 +396,7 @@ const SideLayout = ({
   textColor: string;
 }) => {
   const intro = (
-    <td
+    <Column
       className="footer-overlap-column"
       style={{
         padding: "0 24px",
@@ -417,9 +406,9 @@ const SideLayout = ({
       }}
     >
       <Logo logoSrc={logoSrc} />
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
       {columns === 1 ? (
-        <p
+        <Text
           style={{
             color: textColor,
             fontFamily,
@@ -429,25 +418,18 @@ const SideLayout = ({
           }}
         >
           {copy}
-        </p>
+        </Text>
       ) : null}
-    </td>
+    </Column>
   );
   const menus = (
-    <td
+    <Column
       className="footer-overlap-column footer-overlap-column-right"
       style={{ textAlign: "right", verticalAlign: "top" }}
     >
-      <table
-        align="right"
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ marginLeft: "auto" }}
-      >
-        <tbody>
-          <tr>
+      <Section align="right" style={{ marginLeft: "auto" }}>
+        <Fragment>
+          <Row>
             <LinkColumn
               heading="Quick Links"
               links={quickLinks}
@@ -467,26 +449,20 @@ const SideLayout = ({
                 textColor={textColor}
               />
             ) : null}
-          </tr>
-        </tbody>
-      </table>
-    </td>
+          </Row>
+        </Fragment>
+      </Section>
+    </Column>
   );
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
+    <Section width="100%">
+      <Fragment>
+        <Row>
           {logoPosition === "left" ? intro : menus}
           {logoPosition === "left" ? menus : intro}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -514,9 +490,9 @@ const FooterContent = ({
           logoSrc={logoSrc}
           textColor={textColor}
         />
-        <div style={{ lineHeight: "96px" }}>&zwj;</div>
-        <div style={{ padding: "0 24px", textAlign: "left" }}>
-          <p
+        <Section style={{ lineHeight: "96px" }}>&zwj;</Section>
+        <Section style={{ padding: "0 24px", textAlign: "left" }}>
+          <Text
             style={{
               color: "#030712",
               fontFamily,
@@ -527,11 +503,11 @@ const FooterContent = ({
             }}
           >
             Follow us
-          </p>
+          </Text>
           <Socials />
-          <div style={{ lineHeight: "24px" }}>&zwj;</div>
+          <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
           <ShortLegal textColor={textColor} unsubscribeHref={unsubscribeHref} />
-        </div>
+        </Section>
       </>
     );
   }
@@ -544,10 +520,10 @@ const FooterContent = ({
           logoSrc={logoSrc}
           textColor={textColor}
         />
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
-        <div style={{ padding: "0 24px" }}>
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+        <Section style={{ padding: "0 24px" }}>
           <ShortLegal textColor={textColor} unsubscribeHref={unsubscribeHref} />
-        </div>
+        </Section>
       </>
     );
   }
@@ -560,19 +536,19 @@ const FooterContent = ({
           logoSrc={logoSrc}
           textColor={textColor}
         />
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
-        <div style={{ padding: "0 24px" }}>
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+        <Section style={{ padding: "0 24px" }}>
           <ShortLegal textColor={textColor} unsubscribeHref={unsubscribeHref} />
-        </div>
+        </Section>
       </>
     );
   }
   if (variant === "centered-content") {
     return (
-      <div style={{ padding: "0 48px", textAlign: "center" }}>
+      <Section style={{ padding: "0 48px", textAlign: "center" }}>
         <Logo logoSrc={logoSrc} />
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
-        <p
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+        <Text
           style={{
             color: "#030712",
             fontFamily,
@@ -585,9 +561,9 @@ const FooterContent = ({
           Start sending professionally
           <br />
           designed emails today
-        </p>
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-        <p
+        </Text>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+        <Text
           style={{
             color: textColor,
             fontFamily,
@@ -597,9 +573,9 @@ const FooterContent = ({
           }}
         >
           {copy}
-        </p>
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
-        <p
+        </Text>
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+        <Text
           style={{
             color: mutedTextColor,
             fontFamily,
@@ -613,31 +589,27 @@ const FooterContent = ({
           Want to change how you receive these emails?
           <br />
           You can update your preferences or unsubscribe from this list.
-        </p>
-      </div>
+        </Text>
+      </Section>
     );
   }
   if (variant === "centered-menu") {
     return (
-      <div style={{ padding: "0 24px", textAlign: "center" }}>
+      <Section style={{ padding: "0 24px", textAlign: "center" }}>
         <Logo logoSrc={logoSrc} />
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
-        <table
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+        <Section
           align="center"
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
           style={{ marginLeft: "auto", marginRight: "auto" }}
         >
-          <tbody>
-            <tr>
+          <Fragment>
+            <Row>
               {quickLinks.slice(1).map(([label, href], index) => (
-                <td
+                <Column
                   key={href}
                   style={index < 2 ? { paddingRight: "24px" } : undefined}
                 >
-                  <a
+                  <Link
                     href={href}
                     style={{
                       color: textColor,
@@ -648,60 +620,56 @@ const FooterContent = ({
                     }}
                   >
                     {label}
-                  </a>
-                </td>
+                  </Link>
+                </Column>
               ))}
-            </tr>
-          </tbody>
-        </table>
-        <div style={{ lineHeight: "36px" }}>&zwj;</div>
-        <table
+            </Row>
+          </Fragment>
+        </Section>
+        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+        <Section
           align="center"
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
           style={{ marginLeft: "auto", marginRight: "auto" }}
         >
-          <tbody>
-            <tr>
-              <td>
+          <Fragment>
+            <Row>
+              <Column>
                 <Socials />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              </Column>
+            </Row>
+          </Fragment>
+        </Section>
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
         <AddressLegal
           mutedTextColor={mutedTextColor}
           textColor={textColor}
           unsubscribeHref={unsubscribeHref}
         />
-      </div>
+      </Section>
     );
   }
   if (variant === "address") {
     return (
-      <div
+      <Section
         style={{
           padding: "0 24px",
           textAlign: logoPosition === "right" ? "right" : "left",
         }}
       >
         <Logo logoSrc={logoSrc} />
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
         <AddressLegal
           centered={false}
           mutedTextColor={mutedTextColor}
           textColor={textColor}
           unsubscribeHref={unsubscribeHref}
         />
-      </div>
+      </Section>
     );
   }
   return (
-    <div style={{ padding: "0 24px", textAlign: "center" }}>
-      <p
+    <Section style={{ padding: "0 24px", textAlign: "center" }}>
+      <Text
         style={{
           color: "#030712",
           fontFamily,
@@ -712,30 +680,26 @@ const FooterContent = ({
         }}
       >
         Follow us
-      </p>
-      <table
+      </Text>
+      <Section
         align="center"
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
         style={{ marginLeft: "auto", marginRight: "auto" }}
       >
-        <tbody>
-          <tr>
-            <td>
+        <Fragment>
+          <Row>
+            <Column>
               <Socials />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
+      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
       <AddressLegal
         mutedTextColor={mutedTextColor}
         textColor={textColor}
         unsubscribeHref={unsubscribeHref}
       />
-    </div>
+    </Section>
   );
 };
 
@@ -751,18 +715,11 @@ export const FooterWithOverlappedCtaSection = ({
   mutedTextColor = "#d1d5db",
   unsubscribeHref = "https://example.com/unsub",
 }: Omit<FooterWithOverlappedCtaProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor: pageBackgroundColor,
             maxWidth: "100%",
@@ -773,17 +730,11 @@ export const FooterWithOverlappedCtaSection = ({
             backgroundImageSrc={backgroundImageSrc}
             primaryColor={primaryColor}
           />
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ backgroundColor }}>
-                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ backgroundColor }}>
+                  <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                   <FooterContent
                     logoPosition={logoPosition}
                     logoSrc={logoSrc}
@@ -792,16 +743,16 @@ export const FooterWithOverlappedCtaSection = ({
                     unsubscribeHref={unsubscribeHref}
                     variant={variant}
                   />
-                  <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                  <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWithOverlappedCta = ({

@@ -1,6 +1,20 @@
 import type { CSSProperties } from "react";
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -136,27 +150,41 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroWithOverlappedImageProps, "theme">;
 
-export const HeroWithOverlappedImageSection = ({
-  backgroundImageSrc,
-  buttonBackgroundColor = "#4f46e5",
-  buttonTextColor = "#fffffe",
-  contentBackgroundColor,
-  ctaHref = "https://example.com",
-  ctaLabel = "Discover now",
-  description,
-  eyebrow,
-  heading,
-  imageAlt = "Hero image",
-  imageSrc,
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
-  mutedTextColor,
-  pageBackgroundColor = "#f1f5f9",
-  subheading,
-  textColor,
-  variant = "default",
-}: SectionProps) => {
+export const HeroWithOverlappedImageSection = (props: SectionProps) => {
+  const {
+    backgroundImageSrc,
+    buttonBackgroundColor,
+    buttonTextColor,
+    contentBackgroundColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    imageAlt,
+    imageSrc,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    mutedTextColor,
+    pageBackgroundColor,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    ctaHref: "https://example.com",
+    ctaLabel: "Discover now",
+    imageAlt: "Hero image",
+    logoAlt: "emailcn",
+    logoHref: "https://example.com",
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
+    pageBackgroundColor: "#f1f5f9",
+    variant: "default" as HeroWithOverlappedImageVariant,
+    ...props,
+  };
+
   const preset = variantPresets[variant];
   const resolvedBackgroundImageSrc =
     backgroundImageSrc ?? preset.backgroundImageSrc;
@@ -172,18 +200,11 @@ export const HeroWithOverlappedImageSection = ({
   const mobileImageSpacer = preset.mobileImageSpacer ?? preset.imageSpacer;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             aria-label={imageAlt || undefined}
             className="hero-overlapped-image-frame"
             role={imageAlt ? "img" : undefined}
@@ -198,18 +219,18 @@ export const HeroWithOverlappedImageSection = ({
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <div style={{ textAlign: "center" }}>
-              <a href={logoHref}>
-                <img
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section style={{ textAlign: "center" }}>
+              <Link href={logoHref}>
+                <Img
                   alt={logoAlt}
                   src={logoSrc}
                   style={{ maxWidth: "100%", verticalAlign: "middle" }}
                   width="165"
                 />
-              </a>
-            </div>
-            <div
+              </Link>
+            </Section>
+            <Section
               className="hero-overlapped-image-top-spacer"
               style={
                 {
@@ -219,17 +240,17 @@ export const HeroWithOverlappedImageSection = ({
               }
             >
               &zwj;
-            </div>
-            <div>
-              <div style={{ maxHeight: 0, textAlign: "center" }}>
-                <img
+            </Section>
+            <Section>
+              <Section style={{ maxHeight: 0, textAlign: "center" }}>
+                <Img
                   alt={imageAlt}
                   src={resolvedImageSrc}
                   style={{ maxWidth: "100%", verticalAlign: "middle" }}
                   width="455"
                 />
-              </div>
-              <div
+              </Section>
+              <Section
                 className="hero-overlapped-image-image-spacer"
                 style={
                   {
@@ -239,9 +260,9 @@ export const HeroWithOverlappedImageSection = ({
                 }
               >
                 &zwj;
-              </div>
+              </Section>
               {variant === "default" ? (
-                <div
+                <Section
                   style={{
                     backgroundColor: "rgba(3, 7, 18, 0.3)",
                     height: "40px",
@@ -249,9 +270,9 @@ export const HeroWithOverlappedImageSection = ({
                   }}
                 >
                   &zwj;
-                </div>
+                </Section>
               ) : (
-                <div
+                <Section
                   className="hero-overlapped-image-slant"
                   style={{
                     borderColor:
@@ -268,17 +289,11 @@ export const HeroWithOverlappedImageSection = ({
                   }}
                 />
               )}
-            </div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            </Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="hero-overlapped-image-content"
                     style={{
                       backgroundColor: resolvedContentBackgroundColor,
@@ -286,8 +301,8 @@ export const HeroWithOverlappedImageSection = ({
                       textAlign: "center",
                     }}
                   >
-                    <div style={{ lineHeight: "128px" }}>&zwj;</div>
-                    <div
+                    <Section style={{ lineHeight: "128px" }}>&zwj;</Section>
+                    <Section
                       style={{
                         color: resolvedTextColor,
                         fontFamily,
@@ -297,8 +312,8 @@ export const HeroWithOverlappedImageSection = ({
                       }}
                     >
                       {resolvedEyebrow}
-                    </div>
-                    <h1
+                    </Section>
+                    <Heading
                       style={{
                         color: resolvedTextColor,
                         fontFamily,
@@ -307,10 +322,11 @@ export const HeroWithOverlappedImageSection = ({
                         lineHeight: 1,
                         margin: 0,
                       }}
+                      as="h1"
                     >
                       {resolvedHeading}
-                    </h1>
-                    <p
+                    </Heading>
+                    <Text
                       style={{
                         color: resolvedTextColor,
                         fontFamily,
@@ -320,8 +336,8 @@ export const HeroWithOverlappedImageSection = ({
                       }}
                     >
                       {resolvedSubheading}
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         color: resolvedMutedTextColor,
                         fontFamily,
@@ -332,10 +348,10 @@ export const HeroWithOverlappedImageSection = ({
                       }}
                     >
                       {resolvedDescription}
-                    </p>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    </Text>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                     {ctaLabel && ctaHref ? (
-                      <a
+                      <Link
                         className="hero-overlapped-image-cta"
                         href={ctaHref}
                         style={{
@@ -352,7 +368,7 @@ export const HeroWithOverlappedImageSection = ({
                         }}
                       >
                         <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-                        <img
+                        <Img
                           alt=""
                           src={`${assetRoot}/icon-arrow-right.png`}
                           style={{
@@ -361,17 +377,17 @@ export const HeroWithOverlappedImageSection = ({
                           }}
                           width="12"
                         />
-                      </a>
+                      </Link>
                     ) : null}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

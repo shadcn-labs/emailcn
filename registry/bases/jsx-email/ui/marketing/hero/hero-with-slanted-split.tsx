@@ -1,5 +1,18 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Link,
+  Row,
+  Column,
+  Text,
+  Heading,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -81,53 +94,70 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroWithSlantedSplitProps, "theme">;
 
-export const HeroWithSlantedSplitSection = ({
-  buttonBackgroundColor = "#4f46e5",
-  buttonTextColor = "#fffffe",
-  contentBackgroundColor = "#fffffe",
-  ctaHref = "https://example.com",
-  ctaLabel = "Discover now",
-  description = "Celebrating creativity, community, and culture in every edition. Bob Cut brings stories to life through design and narrative — a modern take on the timeless power of print.",
-  eyebrow = "Independent Publishing",
-  heading = "Bob Cut",
-  imageAlt = "Independent publishing photography",
-  imageBackgroundColor = "#030712",
-  imageSrc = `${assetRoot}/hero/split-slanted-bg.jpg`,
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
-  pageBackgroundColor = "#f1f5f9",
-  subheading = "January Edition",
-  textColor = "#030712",
-  variant = "left-slanted-down",
-}: SectionProps) => {
+export const HeroWithSlantedSplitSection = (props: SectionProps) => {
+  const {
+    buttonBackgroundColor,
+    buttonTextColor,
+    contentBackgroundColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    imageAlt,
+    imageBackgroundColor,
+    imageSrc,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    pageBackgroundColor,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    contentBackgroundColor: "#fffffe",
+    ctaHref: "https://example.com",
+    ctaLabel: "Discover now",
+    description:
+      "Celebrating creativity, community, and culture in every edition. Bob Cut brings stories to life through design and narrative — a modern take on the timeless power of print.",
+    eyebrow: "Independent Publishing",
+    heading: "Bob Cut",
+    imageAlt: "Independent publishing photography",
+    imageBackgroundColor: "#030712",
+    imageSrc: `${assetRoot}/hero/split-slanted-bg.jpg`,
+    logoAlt: "emailcn",
+    logoHref: "https://example.com",
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
+    pageBackgroundColor: "#f1f5f9",
+    subheading: "January Edition",
+    textColor: "#030712",
+    variant: "left-slanted-down",
+    ...props,
+  };
+
   const isLeft = variant.startsWith("left-");
   const slantsDown = variant.endsWith("-down");
 
   const logo = (
-    <div style={{ textAlign: "center" }}>
-      <a href={logoHref}>
-        <img
+    <Section style={{ textAlign: "center" }}>
+      <Link href={logoHref}>
+        <Img
           alt={logoAlt}
           src={logoSrc}
           style={{ maxWidth: "100%", verticalAlign: "middle" }}
           width="165"
         />
-      </a>
-    </div>
+      </Link>
+    </Section>
   );
 
   const imageCore = (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             aria-label={imageAlt || undefined}
             role={imageAlt ? "img" : undefined}
             style={{
@@ -138,59 +168,48 @@ export const HeroWithSlantedSplitSection = ({
               backgroundSize: "cover",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ tableLayout: "fixed" }}
-              width="100%"
-            >
-              <tbody>
-                <tr>
+            <Section style={{ tableLayout: "fixed" }} width="100%">
+              <Fragment>
+                <Row>
                   {isLeft ? (
                     <>
-                      <td
+                      <Column
                         style={{
                           verticalAlign: slantsDown ? "top" : "bottom",
                         }}
                       >
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
+                        <Section
                           className="hero-slanted-split-image-core"
-                          role="presentation"
                           style={{ width: "256px" }}
                         >
-                          <tbody>
-                            <tr>
-                              <td>
+                          <Fragment>
+                            <Row>
+                              <Column>
                                 {slantsDown ? (
                                   <>
-                                    <div style={{ lineHeight: "44px" }}>
+                                    <Section style={{ lineHeight: "44px" }}>
                                       &zwj;
-                                    </div>
+                                    </Section>
                                     {logo}
                                   </>
                                 ) : (
                                   <>
                                     {logo}
-                                    <div style={{ lineHeight: "44px" }}>
+                                    <Section style={{ lineHeight: "44px" }}>
                                       &zwj;
-                                    </div>
+                                    </Section>
                                   </>
                                 )}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                      <td
+                              </Column>
+                            </Row>
+                          </Fragment>
+                        </Section>
+                      </Column>
+                      <Column
                         className="hero-slanted-split-slant-cell"
                         style={{ position: "relative", width: "120px" }}
                       >
-                        <div
+                        <Section
                           className="hero-slanted-split-triangle"
                           style={{
                             borderBottom: slantsDown
@@ -204,15 +223,15 @@ export const HeroWithSlantedSplitSection = ({
                             width: 0,
                           }}
                         />
-                      </td>
+                      </Column>
                     </>
                   ) : (
                     <>
-                      <td
+                      <Column
                         className="hero-slanted-split-slant-cell"
                         style={{ position: "relative", width: 0 }}
                       >
-                        <div
+                        <Section
                           className="hero-slanted-split-triangle"
                           style={{
                             borderLeft: slantsDown
@@ -230,57 +249,53 @@ export const HeroWithSlantedSplitSection = ({
                             width: 0,
                           }}
                         />
-                      </td>
-                      <td
+                      </Column>
+                      <Column
                         style={{
                           verticalAlign: slantsDown ? "top" : "bottom",
                         }}
                       >
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
+                        <Section
                           className="hero-slanted-split-image-core"
-                          role="presentation"
                           style={{ width: "256px" }}
                         >
-                          <tbody>
-                            <tr>
-                              <td>
+                          <Fragment>
+                            <Row>
+                              <Column>
                                 {slantsDown ? (
                                   <>
-                                    <div style={{ lineHeight: "44px" }}>
+                                    <Section style={{ lineHeight: "44px" }}>
                                       &zwj;
-                                    </div>
+                                    </Section>
                                     {logo}
                                   </>
                                 ) : (
                                   <>
                                     {logo}
-                                    <div style={{ lineHeight: "44px" }}>
+                                    <Section style={{ lineHeight: "44px" }}>
                                       &zwj;
-                                    </div>
+                                    </Section>
                                   </>
                                 )}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
+                              </Column>
+                            </Row>
+                          </Fragment>
+                        </Section>
+                      </Column>
                     </>
                   )}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 
   const copy = (
     <>
-      <p
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -291,8 +306,8 @@ export const HeroWithSlantedSplitSection = ({
         }}
       >
         {eyebrow}
-      </p>
-      <h1
+      </Text>
+      <Heading
         style={{
           color: textColor,
           fontFamily,
@@ -300,10 +315,11 @@ export const HeroWithSlantedSplitSection = ({
           fontWeight: 500,
           margin: 0,
         }}
+        as="h1"
       >
         {heading}
-      </h1>
-      <p
+      </Heading>
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -313,9 +329,9 @@ export const HeroWithSlantedSplitSection = ({
         }}
       >
         {subheading}
-      </p>
-      <div style={{ lineHeight: "44px" }}>&zwj;</div>
-      <p
+      </Text>
+      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -326,10 +342,10 @@ export const HeroWithSlantedSplitSection = ({
         }}
       >
         {description}
-      </p>
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      </Text>
+      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
       {ctaLabel && ctaHref ? (
-        <a
+        <Link
           className="hero-slanted-split-cta"
           href={ctaHref}
           style={{
@@ -346,19 +362,19 @@ export const HeroWithSlantedSplitSection = ({
           }}
         >
           <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-          <img
+          <Img
             alt=""
             src={`${assetRoot}/icon-arrow-right.png`}
             style={{ maxWidth: "100%", verticalAlign: "baseline" }}
             width="12"
           />
-        </a>
+        </Link>
       ) : null}
     </>
   );
 
   const contentCell = isLeft ? (
-    <td
+    <Column
       className="hero-slanted-split-stack-left hero-slanted-split-content-left"
       style={{
         backgroundColor: contentBackgroundColor,
@@ -367,9 +383,9 @@ export const HeroWithSlantedSplitSection = ({
       }}
     >
       {copy}
-    </td>
+    </Column>
   ) : (
-    <td
+    <Column
       className="hero-slanted-split-content-right"
       style={{
         backgroundColor: contentBackgroundColor,
@@ -377,12 +393,14 @@ export const HeroWithSlantedSplitSection = ({
         textAlign: "left",
       }}
     >
-      <div className="hero-slanted-split-content-inner-right">{copy}</div>
-    </td>
+      <Section className="hero-slanted-split-content-inner-right">
+        {copy}
+      </Section>
+    </Column>
   );
 
   const imageCell = (
-    <td
+    <Column
       className={
         isLeft
           ? "hero-slanted-split-stack-left hero-slanted-split-image-cell"
@@ -391,31 +409,18 @@ export const HeroWithSlantedSplitSection = ({
       style={{ width: "256px" }}
     >
       {imageCore}
-    </td>
+    </Column>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
                   {isLeft ? (
                     <>
                       {imageCell}
@@ -427,14 +432,14 @@ export const HeroWithSlantedSplitSection = ({
                       {imageCell}
                     </>
                   )}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

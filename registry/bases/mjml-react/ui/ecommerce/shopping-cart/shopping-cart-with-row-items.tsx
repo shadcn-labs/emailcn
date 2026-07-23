@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -45,11 +44,7 @@ export const ShoppingCartRowItems = ({
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>
-            <ShoppingCartRowItemsSection {...props} />
-          </div>
-        </MjmlRaw>
+        <ShoppingCartRowItemsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

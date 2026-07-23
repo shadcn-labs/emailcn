@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -38,18 +49,11 @@ export const FooterWithLargeTitleAndButtonsSection = ({
   dividerColor = "#d1d5db",
   unsubscribeHref = "https://example.com/unsub",
 }: Omit<FooterWithLargeTitleAndButtonsProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -57,26 +61,20 @@ export const FooterWithLargeTitleAndButtonsSection = ({
             width: "600px",
           }}
         >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px", textAlign: "center" }}>
-                  <a href="https://example.com">
-                    <img
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                  <Link href="https://example.com">
+                    <Img
                       alt="Maizzle"
                       src="https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={64}
                     />
-                  </a>
-                  <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                  <p
+                  </Link>
+                  <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                  <Text
                     style={{
                       color: "#030712",
                       fontFamily,
@@ -93,24 +91,20 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                         {line}
                       </span>
                     ))}
-                  </p>
-                  <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                  <table
+                  </Text>
+                  <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                  <Section
                     align="center"
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
                     style={{ marginLeft: "auto", marginRight: "auto" }}
                   >
-                    <tbody>
-                      <tr>
-                        <td
+                    <Fragment>
+                      <Row>
+                        <Column
                           className="footer-large-button-cell"
                           style={{ width: "188px" }}
                         >
-                          <div style={{ textAlign: "center" }}>
-                            <a
+                          <Section style={{ textAlign: "center" }}>
+                            <Link
                               href="https://example.com/shop"
                               style={{
                                 backgroundColor: primaryColor,
@@ -127,21 +121,21 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                               }}
                             >
                               Shop with us
-                            </a>
-                          </div>
-                        </td>
-                        <td
+                            </Link>
+                          </Section>
+                        </Column>
+                        <Column
                           className="footer-large-button-gap"
                           style={{ width: "16px" }}
                         >
                           &zwj;
-                        </td>
-                        <td
+                        </Column>
+                        <Column
                           className="footer-large-button-cell"
                           style={{ width: "188px" }}
                         >
-                          <div style={{ textAlign: "center" }}>
-                            <a
+                          <Section style={{ textAlign: "center" }}>
+                            <Link
                               href="https://example.com/follow"
                               style={{
                                 backgroundColor,
@@ -159,14 +153,14 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                               }}
                             >
                               Follow us
-                            </a>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div style={{ lineHeight: "96px" }}>&zwj;</div>
-                  <p
+                            </Link>
+                          </Section>
+                        </Column>
+                      </Row>
+                    </Fragment>
+                  </Section>
+                  <Section style={{ lineHeight: "96px" }}>&zwj;</Section>
+                  <Text
                     style={{
                       color: textColor,
                       fontFamily,
@@ -179,8 +173,8 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                     If you have any questions or need assistance{" "}
                     <br className="footer-large-break" />
                     please reply to this email.
-                  </p>
-                  <div
+                  </Text>
+                  <Section
                     style={{
                       backgroundColor: dividerColor,
                       height: "1px",
@@ -189,8 +183,8 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                     }}
                   >
                     &zwj;
-                  </div>
-                  <p
+                  </Section>
+                  <Text
                     style={{
                       color: mutedTextColor,
                       fontFamily,
@@ -201,9 +195,9 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                     }}
                   >
                     © 2026 emailcn. All rights reserved.
-                  </p>
-                  <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                  <p
+                  </Text>
+                  <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                  <Text
                     style={{
                       color: mutedTextColor,
                       fontFamily,
@@ -216,7 +210,7 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                     You're receiving this because you subscribed to updates.{" "}
                     <br className="footer-large-break" /> No longer want to
                     receive emails?{" "}
-                    <a
+                    <Link
                       href={unsubscribeHref}
                       style={{
                         color: mutedTextColor,
@@ -224,17 +218,17 @@ export const FooterWithLargeTitleAndButtonsSection = ({
                       }}
                     >
                       Unsubscribe
-                    </a>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                    </Link>
+                  </Text>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWithLargeTitleAndButtons = ({

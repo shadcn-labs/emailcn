@@ -1,5 +1,15 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -77,14 +87,14 @@ type SectionProps = Omit<HeaderWithLogoAndFinanceStatsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
+  <Link href={props.logoHref}>
+    <Img
       alt={props.logoAlt}
       src={props.logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={55}
     />
-  </a>
+  </Link>
 );
 
 const FinanceStats = ({
@@ -104,20 +114,16 @@ const FinanceStats = ({
   }
 
   return (
-    <table
+    <Section
       align={align}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
       className={
         centered ? "header-finance-centered" : "header-finance-mobile-table"
       }
-      role="presentation"
       style={tableStyle}
     >
-      <tbody>
-        <tr>
-          <td
+      <Fragment>
+        <Row>
+          <Column
             style={{
               fontFamily,
               fontSize: "16px",
@@ -130,7 +136,7 @@ const FinanceStats = ({
                 key={stat.label + stat.change}
                 style={{ marginRight: index === 0 ? "12px" : undefined }}
               >
-                <img
+                <Img
                   alt={stat.alt}
                   src={stat.src}
                   style={{
@@ -161,10 +167,10 @@ const FinanceStats = ({
                 </span>
               </span>
             ))}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -174,111 +180,83 @@ export const HeaderWithLogoAndFinanceStatsSection = (props: SectionProps) => {
   let content;
   if (alignment === "center") {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
-              <div style={{ textAlign: "center" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column>
+              <Section style={{ textAlign: "center" }}>
                 <Logo props={resolved} />
-              </div>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              </Section>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
               <FinanceStats align="center" centered props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   } else if (alignment === "right") {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td className="header-finance-stack header-finance-before">
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column className="header-finance-stack header-finance-before">
               <FinanceStats props={resolved} />
-            </td>
-            <td
+            </Column>
+            <Column
               className="header-finance-stack header-finance-mobile-logo"
               style={{ textAlign: "right", width: "55px" }}
             >
               <Logo props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   } else {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td className="header-finance-stack" style={{ width: "55px" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column className="header-finance-stack" style={{ width: "55px" }}>
               <Logo props={resolved} />
-            </td>
-            <td className="header-finance-stack header-finance-after">
+            </Column>
+            <Column className="header-finance-stack header-finance-after">
               <FinanceStats align="right" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: resolved.backgroundColor,
                       padding: "24px",
                     }}
                   >
                     {content}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

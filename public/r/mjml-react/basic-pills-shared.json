@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "basic-pills-shared",
+  "title": "Basic Pills Shared",
+  "description": "Basic Pills Shared email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/pills/basic-pills-shared.tsx",
+      "content": "import {\n  MjmlButton,\n  MjmlColumn,\n  MjmlSection,\n  MjmlSpacer,\n} from \"@faire/mjml-react\";\nimport { Fragment } from \"react\";\n\nexport type PillStatusVariant =\n  | \"brand\"\n  | \"danger\"\n  | \"default\"\n  | \"error\"\n  | \"info\"\n  | \"success\"\n  | \"warning\";\n\nexport interface PillItem {\n  label: string;\n  variant: PillStatusVariant;\n}\n\nconst fontFamily =\n  'Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif';\n\nconst pillStyles: Record<\n  PillStatusVariant,\n  { backgroundColor: string; borderColor: string; color: string }\n> = {\n  brand: {\n    backgroundColor: \"#eef2ff\",\n    borderColor: \"#a5b4fc\",\n    color: \"#6366f1\",\n  },\n  danger: {\n    backgroundColor: \"#fef2f2\",\n    borderColor: \"#fca5a5\",\n    color: \"#ef4444\",\n  },\n  default: {\n    backgroundColor: \"#f9fafb\",\n    borderColor: \"#d1d5db\",\n    color: \"#4b5563\",\n  },\n  error: {\n    backgroundColor: \"#fef2f2\",\n    borderColor: \"#fca5a5\",\n    color: \"#ef4444\",\n  },\n  info: {\n    backgroundColor: \"#f0f9ff\",\n    borderColor: \"#7dd3fc\",\n    color: \"#0ea5e9\",\n  },\n  success: {\n    backgroundColor: \"#ecfdf5\",\n    borderColor: \"#6ee7b7\",\n    color: \"#10b981\",\n  },\n  warning: {\n    backgroundColor: \"#fffbeb\",\n    borderColor: \"#fcd34d\",\n    color: \"#f59e0b\",\n  },\n};\n\nexport const defaultPills: PillItem[] = [\n  { label: \"Label\", variant: \"default\" },\n  { label: \"Success\", variant: \"success\" },\n  { label: \"Error\", variant: \"error\" },\n  { label: \"Warning\", variant: \"warning\" },\n  { label: \"Info\", variant: \"info\" },\n  { label: \"Brand\", variant: \"brand\" },\n];\n\nconst Pill = ({ label, variant }: PillItem) => {\n  const colors = pillStyles[variant];\n\n  return (\n    <MjmlButton\n      align=\"center\"\n      backgroundColor={colors.backgroundColor}\n      border={`1px solid ${colors.borderColor}`}\n      borderRadius=\"9999px\"\n      color={colors.color}\n      fontFamily={fontFamily}\n      fontSize=\"12px\"\n      fontWeight=\"500\"\n      innerPadding=\"2px 8px\"\n      lineHeight=\"16px\"\n      padding=\"0\"\n    >\n      {label}\n    </MjmlButton>\n  );\n};\n\nexport const BasicPillsStatusColorsSection = ({\n  mjmlCompensation: _mjmlCompensation = false,\n  pills = defaultPills,\n}: {\n  mjmlCompensation?: boolean;\n  pills?: PillItem[];\n}) => (\n  <>\n    <MjmlSection padding=\"0\">\n      <MjmlColumn padding=\"0\">\n        <MjmlSpacer height=\"100px\" padding=\"0\" />\n      </MjmlColumn>\n    </MjmlSection>\n    <MjmlSection backgroundColor=\"#fffffe\" padding=\"44px 24px\">\n      <MjmlColumn padding=\"0\">\n        {pills.map((pill, index) => (\n          <Fragment key={`${pill.label}-${pill.variant}`}>\n            <Pill {...pill} />\n            {index < pills.length - 1 ? (\n              <MjmlSpacer height=\"24px\" padding=\"0\" />\n            ) : null}\n          </Fragment>\n        ))}\n      </MjmlColumn>\n    </MjmlSection>\n    <MjmlSection padding=\"0\">\n      <MjmlColumn padding=\"0\">\n        <MjmlSpacer height=\"100px\" padding=\"0\" />\n      </MjmlColumn>\n    </MjmlSection>\n  </>\n);\n",
+      "type": "registry:component",
+      "target": "components/email/basic-pills-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

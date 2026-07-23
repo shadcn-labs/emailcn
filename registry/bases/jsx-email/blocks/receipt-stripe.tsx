@@ -13,6 +13,7 @@ import {
   Section,
   Tailwind,
   Text,
+  Link,
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -94,7 +95,7 @@ const ProductCardSection = ({
         </Text>
         {ctaLabel ? (
           <Text style={{ marginTop: "8px" }}>
-            <a
+            <Link
               href={ctaHref}
               style={{
                 color: defaultTheme.colorPrimary,
@@ -104,7 +105,7 @@ const ProductCardSection = ({
               }}
             >
               {ctaLabel}
-            </a>
+            </Link>
           </Text>
         ) : null}
       </Column>
@@ -285,12 +286,12 @@ export const ReceiptStripe = ({
               }}
             >
               Need help?{" "}
-              <a
+              <Link
                 href={supportHref}
                 style={{ color: t.colorText, textDecoration: "underline" }}
               >
                 Contact support
-              </a>
+              </Link>
             </Text>
           </Container>
         </Body>

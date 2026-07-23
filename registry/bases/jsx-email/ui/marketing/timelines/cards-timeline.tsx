@@ -1,5 +1,15 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -31,15 +41,20 @@ const textStyle = {
   margin: 0,
 } as const;
 
-export const CardsTimelineSection = ({
-  badge = "Today",
-  date = "Monday",
-  description = "Description of event",
-  imageAlt = "One workspace. Every team.",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
-  title = "Miles traveled",
-  variant = "default",
-}: Omit<CardsTimelineProps, "theme">) => {
+export const CardsTimelineSection = (
+  props: Omit<CardsTimelineProps, "theme">
+) => {
+  const { badge, date, description, imageAlt, imageSrc, title, variant } = {
+    badge: "Today",
+    date: "Monday",
+    description: "Description of event",
+    imageAlt: "One workspace. Every team.",
+    imageSrc: "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
+    title: "Miles traveled",
+    variant: "default",
+    ...props,
+  };
+
   const dark =
     variant === "with-accent" ||
     variant === "image-top" ||
@@ -48,9 +63,15 @@ export const CardsTimelineSection = ({
   const withCheck = variant === "with-accent";
   const imageTop = variant === "image-top";
   const imageBottom = variant === "image-bottom";
+  let cardBackgroundColor = "#fffffe";
+  if (dark) {
+    cardBackgroundColor = "#030712";
+  } else if (variant === "with-badge") {
+    cardBackgroundColor = "#f9fafb";
+  }
 
   const image = (
-    <img
+    <Img
       alt={imageAlt}
       src={imageSrc}
       style={{
@@ -63,17 +84,11 @@ export const CardsTimelineSection = ({
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -81,32 +96,16 @@ export const CardsTimelineSection = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 16px" }}>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      style={{ width: "100%" }}
-                    >
-                      <tbody>
-                        <tr>
-                          <td
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 16px" }}>
+                    <Section style={{ width: "100%" }}>
+                      <Fragment>
+                        <Row>
+                          <Column
                             style={{
-                              backgroundColor: dark
-                                ? "#030712"
-                                : variant === "with-badge"
-                                  ? "#f9fafb"
-                                  : "#fffffe",
+                              backgroundColor: cardBackgroundColor,
                               borderRadius:
                                 variant === "default" ? undefined : "8px",
                               padding: "16px",
@@ -115,29 +114,20 @@ export const CardsTimelineSection = ({
                             {imageTop ? (
                               <>
                                 {image}
-                                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                                <Section style={{ lineHeight: "16px" }}>
+                                  &zwj;
+                                </Section>
                               </>
                             ) : null}
-                            <table
-                              border={0}
-                              cellPadding={0}
-                              cellSpacing={0}
-                              role="presentation"
-                              style={{ width: "100%" }}
-                            >
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <table
-                                      border={0}
-                                      cellPadding={0}
-                                      cellSpacing={0}
-                                      role="presentation"
-                                    >
-                                      <tbody>
-                                        <tr>
-                                          <td>
-                                            <div
+                            <Section style={{ width: "100%" }}>
+                              <Fragment>
+                                <Row>
+                                  <Column>
+                                    <Section>
+                                      <Fragment>
+                                        <Row>
+                                          <Column>
+                                            <Section
                                               style={{
                                                 backgroundColor:
                                                   variant === "default"
@@ -153,7 +143,7 @@ export const CardsTimelineSection = ({
                                               }}
                                             >
                                               {withCheck ? (
-                                                <img
+                                                <Img
                                                   alt=""
                                                   src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
                                                   style={{
@@ -164,13 +154,13 @@ export const CardsTimelineSection = ({
                                               ) : (
                                                 <>&zwj;</>
                                               )}
-                                            </div>
-                                          </td>
-                                          <td style={{ width: "8px" }}>
+                                            </Section>
+                                          </Column>
+                                          <Column style={{ width: "8px" }}>
                                             &zwj;
-                                          </td>
-                                          <td>
-                                            <p
+                                          </Column>
+                                          <Column>
+                                            <Text
                                               style={{
                                                 ...textStyle,
                                                 color: dark
@@ -181,13 +171,13 @@ export const CardsTimelineSection = ({
                                               }}
                                             >
                                               {date}
-                                            </p>
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  </td>
-                                  <td style={{ textAlign: "right" }}>
+                                            </Text>
+                                          </Column>
+                                        </Row>
+                                      </Fragment>
+                                    </Section>
+                                  </Column>
+                                  <Column style={{ textAlign: "right" }}>
                                     {withBadge ? (
                                       <span
                                         style={{
@@ -206,11 +196,11 @@ export const CardsTimelineSection = ({
                                         {badge}
                                       </span>
                                     ) : null}
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <p
+                                  </Column>
+                                </Row>
+                              </Fragment>
+                            </Section>
+                            <Text
                               style={{
                                 ...textStyle,
                                 color: dark ? "#fffffe" : "#030712",
@@ -221,8 +211,8 @@ export const CardsTimelineSection = ({
                               }}
                             >
                               {title}
-                            </p>
-                            <p
+                            </Text>
+                            <Text
                               style={{
                                 ...textStyle,
                                 color: dark ? "#d1d5db" : "#4b5563",
@@ -232,26 +222,28 @@ export const CardsTimelineSection = ({
                               }}
                             >
                               {description}
-                            </p>
+                            </Text>
                             {imageBottom ? (
                               <>
-                                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                                <Section style={{ lineHeight: "16px" }}>
+                                  &zwj;
+                                </Section>
                                 {image}
                               </>
                             ) : null}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                          </Column>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

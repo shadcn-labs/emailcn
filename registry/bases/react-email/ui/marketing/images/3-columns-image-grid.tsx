@@ -7,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -173,7 +179,7 @@ const OverlayCard = ({
   subtext: string;
   textColor: string;
 }) => (
-  <div
+  <Section
     style={{
       backgroundImage: `url('${imageSrc}')`,
       backgroundPosition: "center",
@@ -183,7 +189,7 @@ const OverlayCard = ({
       maxWidth: "100%",
     }}
   >
-    <div
+    <Section
       className={
         portrait
           ? "three-grid-portrait-overlay-spacer"
@@ -192,17 +198,11 @@ const OverlayCard = ({
       style={{ lineHeight: portrait ? "160px" : "76px" }}
     >
       &zwj;
-    </div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    </Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             style={{
               background: "linear-gradient(to bottom, transparent, #000001)",
               borderBottomLeftRadius: "4px",
@@ -211,7 +211,7 @@ const OverlayCard = ({
               textAlign: "left",
             }}
           >
-            <h4
+            <Heading
               className="three-grid-overlay-heading"
               style={{
                 color: headingColor,
@@ -221,10 +221,11 @@ const OverlayCard = ({
                 lineHeight: "24px",
                 margin: 0,
               }}
+              as="h4"
             >
               {heading}
-            </h4>
-            <p
+            </Heading>
+            <Text
               className="three-grid-overlay-text"
               style={{
                 color: textColor,
@@ -235,12 +236,12 @@ const OverlayCard = ({
               }}
             >
               {subtext}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Section>
 );
 
 const GridItem = ({
@@ -274,7 +275,7 @@ const GridItem = ({
       textColor={textColor}
     />
   ) : (
-    <a href={href}>
+    <Link href={href}>
       <Img
         alt={alt}
         src={src}
@@ -285,7 +286,7 @@ const GridItem = ({
         }}
         width="168"
       />
-    </a>
+    </Link>
   );
 
 export const ThreeColumnsImageGridSection = (props: SectionProps) => {
@@ -336,18 +337,14 @@ export const ThreeColumnsImageGridSection = (props: SectionProps) => {
   ];
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -355,20 +352,14 @@ export const ThreeColumnsImageGridSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
                   {items.map((item, index) => (
                     <Fragment key={item.src}>
-                      <td className={stackClass} style={{ width: "168px" }}>
+                      <Column className={stackClass} style={{ width: "168px" }}>
                         <GridItem
                           {...item}
                           headingColor={resolved.headingColor}
@@ -376,25 +367,25 @@ export const ThreeColumnsImageGridSection = (props: SectionProps) => {
                           portrait={resolved.portrait}
                           textColor={resolved.textColor}
                         />
-                      </td>
-                      <td
+                      </Column>
+                      <Column
                         className={
                           index < 2 ? `${stackClass} ${gapClass}` : undefined
                         }
                         style={{ width: "24px" }}
                       >
                         &zwj;
-                      </td>
+                      </Column>
                     </Fragment>
                   ))}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

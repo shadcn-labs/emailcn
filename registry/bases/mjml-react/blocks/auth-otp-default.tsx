@@ -1,54 +1,35 @@
-// MJML parity block — mirrored from react-email (auth-otp-default.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Your verification code for {_productName}
 
+import { AuthOtpBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface Props {
+  _logoUrl?: string;
+  _logoAlt?: string;
+  otpCode?: string;
+  expiresInMinutes?: number;
+  _recipientEmail?: string;
+  _productName?: string;
+}
 
-export const AuthOtpDefault = (_props: Props) => {
-  const theme: EmailThemeTokens = defaultTheme;
+export const AuthOtpDefault = ({
+  otpCode = "123456",
+  expiresInMinutes = 10,
+  _productName = "Acme",
+}: Props) => (
+  <AuthOtpBlock
+    expiresInMinutes={expiresInMinutes}
+    otpCode={otpCode}
+    productName={_productName}
+    theme={defaultTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for auth-otp-default.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-AuthOtpDefault.PreviewProps = {} satisfies Props;
+AuthOtpDefault.PreviewProps = {
+  _logoAlt: "Acme",
+  _logoUrl: "https://static.photos/business/320x80/2",
+  _productName: "Acme",
+  _recipientEmail: "you@example.com",
+  expiresInMinutes: 10,
+  otpCode: "123456",
+} satisfies Props;

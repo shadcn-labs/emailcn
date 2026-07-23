@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Link,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -111,14 +118,14 @@ const PlainImage = ({
   src: string;
   width: number;
 }) => (
-  <a href={href}>
+  <Link href={href}>
     <Img
       alt={alt}
       src={src}
       style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
       width={width}
     />
-  </a>
+  </Link>
 );
 
 const OverlayCard = ({
@@ -136,7 +143,7 @@ const OverlayCard = ({
   subtext: string;
   textColor: string;
 }) => (
-  <div
+  <Section
     style={{
       backgroundImage: `url('${imageSrc}')`,
       backgroundPosition: "center",
@@ -146,22 +153,16 @@ const OverlayCard = ({
       maxWidth: "100%",
     }}
   >
-    <div
+    <Section
       className="three-masonry-overlay-spacer"
       style={{ lineHeight: spacer }}
     >
       &zwj;
-    </div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    </Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             style={{
               background: "linear-gradient(to bottom, transparent, #000001)",
               borderBottomLeftRadius: "4px",
@@ -170,7 +171,7 @@ const OverlayCard = ({
               textAlign: "left",
             }}
           >
-            <h4
+            <Heading
               className="three-masonry-heading"
               style={{
                 color: headingColor,
@@ -180,10 +181,11 @@ const OverlayCard = ({
                 lineHeight: "28px",
                 margin: 0,
               }}
+              as="h4"
             >
               {heading}
-            </h4>
-            <p
+            </Heading>
+            <Text
               className="three-masonry-text"
               style={{
                 color: textColor,
@@ -194,12 +196,12 @@ const OverlayCard = ({
               }}
             >
               {subtext}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Section>
 );
 
 const StackedColumn = ({
@@ -227,7 +229,7 @@ const StackedColumn = ({
         width={168}
       />
     )}
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
     {overlay ? (
       <OverlayCard
         heading={props.stackHeading2}
@@ -282,18 +284,14 @@ export const ThreeColumnsMasonryImageGridSection = (props: SectionProps) => {
   const wide = <WideColumn overlay={overlay} props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -301,18 +299,12 @@ export const ThreeColumnsMasonryImageGridSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                  <Column
                     className="three-masonry-stack"
                     style={{
                       verticalAlign: "top",
@@ -320,14 +312,14 @@ export const ThreeColumnsMasonryImageGridSection = (props: SectionProps) => {
                     }}
                   >
                     {stackedLeft ? stack : wide}
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     className="three-masonry-stack three-masonry-gap"
                     style={{ width: "24px" }}
                   >
                     &zwj;
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     className="three-masonry-stack"
                     style={{
                       verticalAlign: "top",
@@ -335,16 +327,16 @@ export const ThreeColumnsMasonryImageGridSection = (props: SectionProps) => {
                     }}
                   >
                     {stackedLeft ? wide : stack}
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

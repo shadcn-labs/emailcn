@@ -1,15 +1,20 @@
-/* eslint-disable next/no-img-element */
 import {
   Mjml,
   MjmlBody,
+  MjmlButton,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
-  MjmlRaw,
+  MjmlSection,
+  MjmlSpacer,
   MjmlStyle,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import type { CSSProperties, ReactNode } from "react";
+import { Fragment } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
@@ -22,22 +27,10 @@ const colors = {
   subtle: "#9ca3af",
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
-  white: "#fffffe",
 } as const;
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const tableStyle: CSSProperties = {
-  borderCollapse: "separate",
-  borderSpacing: 0,
-  width: "100%",
-};
-
-const textBase: CSSProperties = {
-  fontFamily,
-  margin: 0,
-};
 
 export interface FaqItem {
   answer?: string;
@@ -47,52 +40,44 @@ export interface FaqItem {
 }
 
 const Question = ({ children }: { children: ReactNode }) => (
-  <h3
-    style={{
-      ...textBase,
-      color: colors.dark,
-      fontSize: "14px",
-      fontWeight: 600,
-      lineHeight: "20px",
-    }}
+  <MjmlText
+    color={colors.dark}
+    fontFamily={fontFamily}
+    fontSize="14px"
+    fontWeight="600"
+    lineHeight="20px"
+    padding="0"
   >
     {children}
-  </h3>
+  </MjmlText>
 );
 
-const Answer = ({
-  children,
-  marginTop = 8,
-}: {
-  children: ReactNode;
-  marginTop?: number;
-}) => (
-  <p
-    style={{
-      ...textBase,
-      color: colors.muted,
-      fontSize: "14px",
-      fontWeight: 400,
-      lineHeight: "22px",
-      marginTop: `${marginTop}px`,
-    }}
-  >
-    {children}
-  </p>
+const Answer = ({ children }: { children: ReactNode }) => (
+  <>
+    <MjmlSpacer height="8px" />
+    <MjmlText
+      color={colors.muted}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      lineHeight="22px"
+      padding="0"
+    >
+      {children}
+    </MjmlText>
+  </>
 );
 
 const NumberLabel = ({ index }: { index: number }) => (
-  <span
-    style={{
-      ...textBase,
-      color: colors.subtle,
-      fontSize: "12px",
-      fontWeight: 600,
-      lineHeight: "20px",
-    }}
+  <MjmlText
+    color={colors.subtle}
+    fontFamily={fontFamily}
+    fontSize="12px"
+    fontWeight="600"
+    lineHeight="20px"
+    padding="0"
   >
     {String(index + 1).padStart(2, "0")}
-  </span>
+  </MjmlText>
 );
 
 const ToggleIcon = ({
@@ -103,56 +88,43 @@ const ToggleIcon = ({
   item?: FaqItem;
 }) =>
   item?.iconSrc ? (
-    <img
+    <MjmlImage
       alt={item.iconAlt ?? ""}
-      height={20}
+      height="20px"
+      padding="0"
       src={item.iconSrc}
-      width={20}
-      style={{
-        border: "none",
-        display: "block",
-        height: "20px",
-        outline: "none",
-        textDecoration: "none",
-        width: "20px",
-      }}
+      width="20px"
     />
   ) : (
-    <span
-      style={{
-        ...textBase,
-        border: `1px solid ${colors.border}`,
-        borderRadius: "9999px",
-        color: colors.dark,
-        display: "inline-block",
-        fontSize: "14px",
-        fontWeight: 500,
-        height: "20px",
-        lineHeight: "18px",
-        textAlign: "center",
-        width: "20px",
-      }}
+    <MjmlText
+      align="center"
+      color={colors.dark}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      fontWeight="500"
+      lineHeight="18px"
+      padding="0"
     >
       {expanded ? "−" : "+"}
-    </span>
+    </MjmlText>
   );
 
 export const FaqHeading = ({ children }: { children: ReactNode }) => (
-  <>
-    <h2
-      style={{
-        ...textBase,
-        color: colors.dark,
-        fontSize: "28px",
-        fontWeight: 600,
-        lineHeight: "36px",
-        textAlign: "center",
-      }}
-    >
-      {children}
-    </h2>
-    <div style={{ fontSize: 0, height: "32px", lineHeight: "32px" }}>&zwj;</div>
-  </>
+  <MjmlSection padding="0 0 32px">
+    <MjmlColumn padding="0">
+      <MjmlText
+        align="center"
+        color={colors.dark}
+        fontFamily={fontFamily}
+        fontSize="28px"
+        fontWeight="600"
+        lineHeight="36px"
+        padding="0"
+      >
+        {children}
+      </MjmlText>
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 export const ExpandedNumbersContent = ({
@@ -160,35 +132,23 @@ export const ExpandedNumbersContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
-            width={40}
-            style={{
-              borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
-              padding: "20px 16px 20px 0",
-              verticalAlign: "top",
-              width: "40px",
-            }}
-          >
-            <NumberLabel index={index} />
-          </td>
-          <td
-            style={{
-              borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
-              padding: "20px 0",
-              verticalAlign: "top",
-            }}
-          >
-            <Question>{item.question}</Question>
-            {item.answer ? <Answer>{item.answer}</Answer> : null}
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <>
+    {items.map((item, index) => (
+      <MjmlSection
+        borderTop={index === 0 ? "none" : `1px solid ${colors.border}`}
+        key={`${item.question}-${index}`}
+        padding="20px 0"
+      >
+        <MjmlColumn padding="0 16px 0 0" verticalAlign="top" width="40px">
+          <NumberLabel index={index} />
+        </MjmlColumn>
+        <MjmlColumn padding="0" verticalAlign="top">
+          <Question>{item.question}</Question>
+          {item.answer ? <Answer>{item.answer}</Answer> : null}
+        </MjmlColumn>
+      </MjmlSection>
+    ))}
+  </>
 );
 
 export const OffsetAnswersContent = ({
@@ -196,79 +156,67 @@ export const OffsetAnswersContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
-            width="38%"
-            style={{
-              borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
-              padding: "20px 24px 20px 0",
-              verticalAlign: "top",
-              width: "38%",
-            }}
-          >
-            <Question>{item.question}</Question>
-          </td>
-          <td
-            style={{
-              borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
-              padding: "20px 0",
-              verticalAlign: "top",
-            }}
-          >
-            {item.answer ? <Answer marginTop={0}>{item.answer}</Answer> : null}
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <>
+    {items.map((item, index) => (
+      <MjmlSection
+        borderTop={index === 0 ? "none" : `1px solid ${colors.border}`}
+        key={`${item.question}-${index}`}
+        padding="20px 0"
+      >
+        <MjmlColumn padding="0 24px 0 0" verticalAlign="top" width="38%">
+          <Question>{item.question}</Question>
+        </MjmlColumn>
+        <MjmlColumn padding="0" verticalAlign="top">
+          {item.answer ? (
+            <MjmlText
+              color={colors.muted}
+              fontFamily={fontFamily}
+              fontSize="14px"
+              lineHeight="22px"
+              padding="0"
+            >
+              {item.answer}
+            </MjmlText>
+          ) : null}
+        </MjmlColumn>
+      </MjmlSection>
+    ))}
+  </>
 );
 
 export const BoxedNumberedContent = ({
   items,
 }: {
   items: readonly FaqItem[];
-}) => (
-  <table
-    role="presentation"
-    style={{
-      ...tableStyle,
-      border: `1px solid ${colors.border}`,
-      borderRadius: "8px",
-      overflow: "hidden",
-    }}
-  >
-    <tbody>
+}) => {
+  const getBorderRadius = (index: number) => {
+    if (index === 0) {
+      return "8px 8px 0 0";
+    }
+    return index === items.length - 1 ? "0 0 8px 8px" : "0";
+  };
+
+  return (
+    <>
       {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
-            width={48}
-            style={{
-              borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
-              padding: "20px 0 20px 20px",
-              verticalAlign: "top",
-              width: "48px",
-            }}
-          >
+        <MjmlSection
+          border={`1px solid ${colors.border}`}
+          borderRadius={getBorderRadius(index)}
+          key={`${item.question}-${index}`}
+          padding="20px"
+        >
+          <MjmlColumn padding="0 16px 0 0" verticalAlign="top" width="40px">
             <NumberLabel index={index} />
-          </td>
-          <td
-            style={{
-              borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
-              padding: "20px",
-              verticalAlign: "top",
-            }}
-          >
+          </MjmlColumn>
+          <MjmlColumn padding="0" verticalAlign="top">
             <Question>{item.question}</Question>
             {item.answer ? <Answer>{item.answer}</Answer> : null}
-          </td>
-        </tr>
+          </MjmlColumn>
+        </MjmlSection>
       ))}
-    </tbody>
-  </table>
-);
+    </>
+  );
+};
 
 export const AlternatingBoxedContent = ({
   items,
@@ -277,39 +225,28 @@ export const AlternatingBoxedContent = ({
 }) => (
   <>
     {items.map((item, index) => (
-      <div key={`${item.question}-${index}`}>
-        <table
-          role="presentation"
-          style={{
-            ...tableStyle,
-            backgroundColor:
-              index % 2 === 0 ? colors.surfaceMuted : colors.light,
-            borderRadius: "8px",
-          }}
+      <Fragment key={`${item.question}-${index}`}>
+        <MjmlSection
+          backgroundColor={index % 2 === 0 ? colors.surfaceMuted : colors.light}
+          borderRadius="8px"
+          padding="20px"
         >
-          <tbody>
-            <tr>
-              <td
-                width={48}
-                style={{
-                  padding: "20px 0 20px 20px",
-                  verticalAlign: "top",
-                  width: "48px",
-                }}
-              >
-                <NumberLabel index={index} />
-              </td>
-              <td style={{ padding: "20px", verticalAlign: "top" }}>
-                <Question>{item.question}</Question>
-                {item.answer ? <Answer>{item.answer}</Answer> : null}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <MjmlColumn padding="0 16px 0 0" verticalAlign="top" width="40px">
+            <NumberLabel index={index} />
+          </MjmlColumn>
+          <MjmlColumn padding="0" verticalAlign="top">
+            <Question>{item.question}</Question>
+            {item.answer ? <Answer>{item.answer}</Answer> : null}
+          </MjmlColumn>
+        </MjmlSection>
         {index < items.length - 1 ? (
-          <div style={{ height: "12px", lineHeight: "12px" }}>&zwj;</div>
+          <MjmlSection padding="0">
+            <MjmlColumn padding="0">
+              <MjmlSpacer height="12px" />
+            </MjmlColumn>
+          </MjmlSection>
         ) : null}
-      </div>
+      </Fragment>
     ))}
   </>
 );
@@ -319,46 +256,25 @@ export const CollapsedNumbersContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
-            width={40}
-            style={{
-              borderTop: `1px solid ${colors.border}`,
-              padding: "16px 16px 16px 0",
-              verticalAlign: "middle",
-              width: "40px",
-            }}
-          >
-            <NumberLabel index={index} />
-          </td>
-          <td
-            style={{
-              borderTop: `1px solid ${colors.border}`,
-              padding: "16px 0",
-              verticalAlign: "middle",
-            }}
-          >
-            <Question>{item.question}</Question>
-          </td>
-          <td
-            width={24}
-            style={{
-              borderTop: `1px solid ${colors.border}`,
-              padding: "16px 0 16px 16px",
-              textAlign: "right",
-              verticalAlign: "middle",
-              width: "24px",
-            }}
-          >
-            <ToggleIcon />
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <>
+    {items.map((item, index) => (
+      <MjmlSection
+        borderTop={`1px solid ${colors.border}`}
+        key={`${item.question}-${index}`}
+        padding="16px 0"
+      >
+        <MjmlColumn padding="0 16px 0 0" verticalAlign="middle" width="40px">
+          <NumberLabel index={index} />
+        </MjmlColumn>
+        <MjmlColumn padding="0" verticalAlign="middle">
+          <Question>{item.question}</Question>
+        </MjmlColumn>
+        <MjmlColumn padding="0 0 0 16px" verticalAlign="middle" width="24px">
+          <ToggleIcon />
+        </MjmlColumn>
+      </MjmlSection>
+    ))}
+  </>
 );
 
 export const CollapsedIconsContent = ({
@@ -368,46 +284,21 @@ export const CollapsedIconsContent = ({
 }) => (
   <>
     {items.map((item, index) => (
-      <div key={`${item.question}-${index}`}>
-        <table
-          role="presentation"
-          style={{
-            ...tableStyle,
-            backgroundColor: index === 0 ? colors.surfaceMuted : undefined,
-            borderRadius: index === 0 ? "8px" : undefined,
-          }}
-        >
-          <tbody>
-            <tr>
-              <td
-                width={36}
-                style={{
-                  borderTop:
-                    index > 1 ? `1px solid ${colors.border}` : undefined,
-                  padding: "16px 16px 16px 0",
-                  verticalAlign: "top",
-                  width: "36px",
-                }}
-              >
-                <ToggleIcon expanded={index === 0} item={item} />
-              </td>
-              <td
-                style={{
-                  borderTop:
-                    index > 1 ? `1px solid ${colors.border}` : undefined,
-                  padding: "16px 0",
-                  verticalAlign: "top",
-                }}
-              >
-                <Question>{item.question}</Question>
-                {index === 0 && item.answer ? (
-                  <Answer>{item.answer}</Answer>
-                ) : null}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <MjmlSection
+        backgroundColor={index === 0 ? colors.surfaceMuted : undefined}
+        borderRadius={index === 0 ? "8px" : undefined}
+        borderTop={index > 1 ? `1px solid ${colors.border}` : "none"}
+        key={`${item.question}-${index}`}
+        padding="16px"
+      >
+        <MjmlColumn padding="0 16px 0 0" verticalAlign="top" width="36px">
+          <ToggleIcon expanded={index === 0} item={item} />
+        </MjmlColumn>
+        <MjmlColumn padding="0" verticalAlign="top">
+          <Question>{item.question}</Question>
+          {index === 0 && item.answer ? <Answer>{item.answer}</Answer> : null}
+        </MjmlColumn>
+      </MjmlSection>
     ))}
   </>
 );
@@ -425,47 +316,47 @@ export const CollapsedCtaContent = ({
 }) => (
   <>
     <CollapsedNumbersContent items={items} />
-    <div style={{ height: "24px", lineHeight: "24px" }}>&zwj;</div>
-    <table
-      role="presentation"
-      style={{
-        ...tableStyle,
-        backgroundColor: colors.surfaceMuted,
-        borderRadius: "8px",
-      }}
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "16px 20px" }}>
-            <span
-              style={{
-                ...textBase,
-                color: colors.muted,
-                fontSize: "14px",
-                lineHeight: "20px",
-              }}
-            >
-              {ctaText}
-            </span>
-          </td>
-          <td style={{ padding: "16px 20px", textAlign: "right" }}>
-            <a
-              href={ctaHref}
-              style={{
-                ...textBase,
-                color: colors.dark,
-                fontSize: "14px",
-                fontWeight: 600,
-                lineHeight: "20px",
-                textDecoration: "underline",
-              }}
-            >
-              {ctaLabel}
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <MjmlSection padding="24px 0 0">
+      <MjmlColumn
+        backgroundColor={colors.surfaceMuted}
+        borderRadius="8px 0 0 8px"
+        padding="16px 20px"
+        verticalAlign="middle"
+      >
+        <MjmlText
+          color={colors.muted}
+          fontFamily={fontFamily}
+          fontSize="14px"
+          lineHeight="20px"
+          padding="0"
+        >
+          {ctaText}
+        </MjmlText>
+      </MjmlColumn>
+      <MjmlColumn
+        backgroundColor={colors.surfaceMuted}
+        borderRadius="0 8px 8px 0"
+        padding="16px 20px"
+        verticalAlign="middle"
+        width="120px"
+      >
+        <MjmlButton
+          align="right"
+          backgroundColor="transparent"
+          color={colors.dark}
+          fontFamily={fontFamily}
+          fontSize="14px"
+          fontWeight="600"
+          href={ctaHref}
+          innerPadding="0"
+          lineHeight="20px"
+          padding="0"
+          textDecoration="underline"
+        >
+          {ctaLabel}
+        </MjmlButton>
+      </MjmlColumn>
+    </MjmlSection>
   </>
 );
 
@@ -496,9 +387,7 @@ export const FaqEmailShell = ({
         cssClass="faq-content"
         padding="44px 64px"
       >
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>{children}</div>
-        </MjmlRaw>
+        {children}
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

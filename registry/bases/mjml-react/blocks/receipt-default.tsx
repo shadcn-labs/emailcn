@@ -1,54 +1,70 @@
-// MJML parity block — mirrored from react-email (receipt-default.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Your receipt from {_productName}
 
+import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface ReceiptItem {
+  name: string;
+  imageUrl?: string;
+  price: string;
+  quantity?: number;
+}
 
-export const ReceiptDefault = (_props: Props) => {
-  const theme: EmailThemeTokens = defaultTheme;
+interface Props {
+  orderNumber?: string;
+  customerName?: string;
+  items?: ReceiptItem[];
+  subtotal?: string;
+  tax?: string;
+  total?: string;
+  supportHref?: string;
+  _productName?: string;
+}
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for receipt-default.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+export const ReceiptDefault = ({
+  orderNumber = "ORD-123",
+  customerName = "John",
+  items = [
+    { name: "Product 1", price: "$99.00", quantity: 1 },
+    { name: "Product 2", price: "$49.00", quantity: 2 },
+  ],
+  subtotal = "$197.00",
+  tax = "$15.76",
+  total = "$212.76",
+  supportHref = "#",
+}: Props) => (
+  <ReceiptBlock
+    customerName={customerName}
+    items={items}
+    orderNumber={orderNumber}
+    subtotal={subtotal}
+    supportHref={supportHref}
+    tax={tax}
+    theme={defaultTheme}
+    total={total}
+  />
+);
 
-ReceiptDefault.PreviewProps = {} satisfies Props;
+ReceiptDefault.PreviewProps = {
+  _productName: "Acme",
+  customerName: "John Doe",
+  items: [
+    {
+      imageUrl: "https://static.photos/technology/640x640/2",
+      name: "Premium Sneakers",
+      price: "$149.00",
+      quantity: 1,
+    },
+    {
+      imageUrl: "https://static.photos/technology/640x640/3",
+      name: "Running Socks",
+      price: "$25.00",
+      quantity: 2,
+    },
+  ],
+  orderNumber: "ORD-12345",
+  subtotal: "$199.00",
+  supportHref: "https://example.com/support",
+  tax: "$15.92",
+  total: "$214.92",
+} satisfies Props;

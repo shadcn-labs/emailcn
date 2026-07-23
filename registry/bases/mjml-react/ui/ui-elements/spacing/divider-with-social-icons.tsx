@@ -1,10 +1,13 @@
+import { MjmlText } from "@faire/mjml-react";
+
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 import {
   DividerFrame,
   SpacingEmailShell,
-  dividerTextStyle,
+  dividerColors,
+  dividerFontFamily,
 } from "./divider-shared";
 import type { DividerVariant } from "./divider-shared";
 
@@ -17,16 +20,17 @@ export const DividerWithSocialIconsSection = ({
   variant = "center",
 }: Omit<DividerWithSocialIconsProps, "theme">) => (
   <DividerFrame variant={variant}>
-    <p
-      style={{
-        ...dividerTextStyle,
-        fontSize: "18px",
-        letterSpacing: "8px",
-        lineHeight: "28px",
-      }}
+    <MjmlText
+      align="center"
+      color={dividerColors.text}
+      fontFamily={dividerFontFamily}
+      fontSize="18px"
+      letterSpacing="8px"
+      lineHeight="28px"
+      padding="0"
     >
       {"ⓐ Ⓐ Ⓢ Ⓨ"}
-    </p>
+    </MjmlText>
   </DividerFrame>
 );
 

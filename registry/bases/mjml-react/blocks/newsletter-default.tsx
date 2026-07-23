@@ -1,54 +1,60 @@
-// MJML parity block — mirrored from react-email (newsletter-default.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: {preheader}
 
+import { NewsletterBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface Article {
+  title: string;
+  summary: string;
+  href: string;
+  imageUrl?: string;
+}
 
-export const NewsletterDefault = (_props: Props) => {
-  const theme: EmailThemeTokens = defaultTheme;
+interface Props {
+  _logoUrl?: string;
+  _logoAlt?: string;
+  issueNumber?: string;
+  preheader?: string;
+  articles?: Article[];
+  _productName?: string;
+}
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for newsletter-default.tsx — replace
-                with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+export const NewsletterDefault = ({
+  issueNumber = "1",
+  preheader = "Your weekly update",
+  articles = [
+    { href: "#", summary: "Summary of article 1", title: "Article 1" },
+    { href: "#", summary: "Summary of article 2", title: "Article 2" },
+    { href: "#", summary: "Summary of article 3", title: "Article 3" },
+  ],
+  _productName = "Newsletter",
+}: Props) => (
+  <NewsletterBlock
+    articles={articles}
+    issueNumber={issueNumber}
+    preheader={preheader}
+    productName={_productName}
+    theme={defaultTheme}
+  />
+);
 
-NewsletterDefault.PreviewProps = {} satisfies Props;
+NewsletterDefault.PreviewProps = {
+  _logoAlt: "Newsletter",
+  _logoUrl: "https://static.photos/business/320x80/2",
+  _productName: "Acme Newsletter",
+  articles: [
+    {
+      href: "#",
+      summary: "How to get the most out of our platform",
+      title: "Getting Started",
+    },
+    {
+      href: "#",
+      summary: "Check out what we just shipped",
+      title: "New Features",
+    },
+    { href: "#", summary: "Become a power user", title: "Tips & Tricks" },
+  ],
+  issueNumber: "42",
+  preheader: "Your weekly update from Acme",
+} satisfies Props;

@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -54,14 +65,14 @@ type ResolvedProps = typeof sharedDefaults &
   };
 
 const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
+  <Link href={props.logoHref}>
+    <Img
       alt={props.logoAlt}
       src={props.logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={55}
     />
-  </a>
+  </Link>
 );
 
 const Avatar = ({
@@ -72,17 +83,17 @@ const Avatar = ({
   props: ResolvedProps;
 }) =>
   avatar === "image" ? (
-    <img
+    <Img
       alt={props.avatarAlt}
       src={props.avatarSrc}
       style={{ borderRadius: "9999px", verticalAlign: "middle" }}
       width={32}
     />
   ) : (
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
-          <td
+    <Section>
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: props.avatarBackgroundColor,
               borderRadius: "9999px",
@@ -102,10 +113,10 @@ const Avatar = ({
             >
               {props.initials}
             </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 
 const Details = ({
@@ -117,22 +128,18 @@ const Details = ({
   avatar: HeaderWithUserDetailsAvatar;
   props: ResolvedProps;
 }) => (
-  <table
+  <Section
     align={alignRight ? "right" : undefined}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
     style={alignRight ? { marginLeft: "auto" } : undefined}
   >
-    <tbody>
-      <tr>
-        <td>
+    <Fragment>
+      <Row>
+        <Column>
           <Avatar avatar={avatar} props={props} />
-        </td>
-        <td style={{ width: "12px" }}>&zwj;</td>
-        <td>
-          <p
+        </Column>
+        <Column style={{ width: "12px" }}>&zwj;</Column>
+        <Column>
+          <Text
             style={{
               color: props.textColor,
               fontFamily,
@@ -143,8 +150,8 @@ const Details = ({
             }}
           >
             {props.userName}
-          </p>
-          <p
+          </Text>
+          <Text
             style={{
               color: props.mutedTextColor,
               fontFamily,
@@ -154,11 +161,11 @@ const Details = ({
             }}
           >
             {props.userEmail}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const HeaderWithUserDetailsSection = (props: SectionProps) => {
@@ -180,82 +187,66 @@ export const HeaderWithUserDetailsSection = (props: SectionProps) => {
   } as ResolvedProps;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: resolved.backgroundColor,
                       padding: "24px",
                     }}
                   >
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {alignment === "left" ? (
                             <>
-                              <td style={{ width: "55px" }}>
+                              <Column style={{ width: "55px" }}>
                                 <Logo props={resolved} />
-                              </td>
-                              <td>
+                              </Column>
+                              <Column>
                                 <Details
                                   alignRight
                                   avatar={avatar}
                                   props={resolved}
                                 />
-                              </td>
+                              </Column>
                             </>
                           ) : (
                             <>
-                              <td>
+                              <Column>
                                 <Details avatar={avatar} props={resolved} />
-                              </td>
-                              <td
+                              </Column>
+                              <Column
                                 style={{
                                   textAlign: "right",
                                   width: "55px",
                                 }}
                               >
                                 <Logo props={resolved} />
-                              </td>
+                              </Column>
                             </>
                           )}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

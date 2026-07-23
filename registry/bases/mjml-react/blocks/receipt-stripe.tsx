@@ -1,54 +1,55 @@
-// MJML parity block — mirrored from react-email (receipt-stripe.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Your receipt from {_productName}
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { stripeTheme } from "@/registry/bases/mjml-react/themes/stripe";
 
-type Props = Record<string, never>;
+interface ReceiptItem {
+  name: string;
+  imageUrl?: string;
+  price: string;
+  quantity?: number;
+}
 
-export const ReceiptStripe = (_props: Props) => {
-  const theme: EmailThemeTokens = stripeTheme;
+interface Props {
+  orderNumber?: string;
+  customerName?: string;
+  items?: ReceiptItem[];
+  subtotal?: string;
+  tax?: string;
+  total?: string;
+  supportHref?: string;
+  _productName?: string;
+}
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for receipt-stripe.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+export const ReceiptStripe = ({
+  orderNumber = "INV-123",
+  customerName = "John",
+  items = [{ name: "Product 1", price: "$99.00", quantity: 1 }],
+  subtotal = "$99.00",
+  tax = "$7.92",
+  total = "$106.92",
+  supportHref = "#",
+}: Props) => (
+  <ReceiptBlock
+    customerName={customerName}
+    items={items}
+    label="Invoice"
+    orderNumber={orderNumber}
+    subtotal={subtotal}
+    supportHref={supportHref}
+    tax={tax}
+    theme={stripeTheme}
+    total={total}
+  />
+);
 
-ReceiptStripe.PreviewProps = {} satisfies Props;
+ReceiptStripe.PreviewProps = {
+  _productName: "Stripe",
+  customerName: "John Doe",
+  items: [{ name: "Subscription", price: "$99.00", quantity: 1 }],
+  orderNumber: "INV-12345",
+  subtotal: "$99.00",
+  supportHref: "https://example.com/support",
+  tax: "$7.92",
+  total: "$106.92",
+} satisfies Props;

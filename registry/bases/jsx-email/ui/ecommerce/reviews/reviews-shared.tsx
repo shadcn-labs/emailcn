@@ -1,5 +1,6 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Section, Row, Column, Text, Img } from "jsx-email";
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 
 export type ReviewsVariant =
   | "with-divider"
@@ -99,25 +100,21 @@ const twoColumnReviews: ReviewItem[] = [
 const textStyle = { fontFamily, margin: 0 } as const;
 
 const Spacer = ({ height }: { height: number }) => (
-  <div style={{ lineHeight: `${height}px` }}>&zwj;</div>
+  <Section style={{ lineHeight: `${height}px` }}>&zwj;</Section>
 );
 
 const Divider = ({ centered = false }: { centered?: boolean }) => (
-  <table
+  <Section
     align={centered ? "center" : undefined}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
     style={
       centered
         ? { margin: 0, marginLeft: "auto", marginRight: "auto" }
         : undefined
     }
   >
-    <tbody>
-      <tr>
-        <td
+    <Fragment>
+      <Row>
+        <Column
           style={{
             backgroundColor: "#6366f1",
             lineHeight: "4px",
@@ -125,37 +122,42 @@ const Divider = ({ centered = false }: { centered?: boolean }) => (
           }}
         >
           &zwj;
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
+const getRatingIcon = (rating: number, index: number) => {
+  if (rating >= index + 1) {
+    return "solid";
+  }
+  if (rating >= index + 0.5) {
+    return "half";
+  }
+  return "outline";
+};
+
 const Rating = ({ rating, size }: { rating: number; size: 16 | 24 }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
+  <Section>
+    <Fragment>
+      <Row>
         {[0, 1, 2, 3, 4].map((index) => {
-          const icon =
-            rating >= index + 1
-              ? "solid"
-              : rating >= index + 0.5
-                ? "half"
-                : "outline";
+          const icon = getRatingIcon(rating, index);
           return (
-            <td key={index} style={{ paddingRight: "4px" }}>
-              <img
+            <Column key={index} style={{ paddingRight: "4px" }}>
+              <Img
                 alt=""
                 src={`${ASSET_ROOT}/icon-star-${icon}.png`}
                 style={{ display: "block" }}
                 width={size}
               />
-            </td>
+            </Column>
           );
         })}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const CenteredRating = ({
@@ -165,48 +167,39 @@ const CenteredRating = ({
   rating: number;
   size: 16 | 24;
 }) => (
-  <table
+  <Section
     align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
     style={{ margin: 0, marginLeft: "auto", marginRight: "auto" }}
   >
-    <tbody>
-      <tr>
+    <Fragment>
+      <Row>
         {[0, 1, 2, 3, 4].map((index) => {
-          const icon =
-            rating >= index + 1
-              ? "solid"
-              : rating >= index + 0.5
-                ? "half"
-                : "outline";
+          const icon = getRatingIcon(rating, index);
           return (
-            <td key={index} style={{ paddingRight: "4px" }}>
-              <img
+            <Column key={index} style={{ paddingRight: "4px" }}>
+              <Img
                 alt=""
                 src={`${ASSET_ROOT}/icon-star-${icon}.png`}
                 style={{ display: "block" }}
                 width={size}
               />
-            </td>
+            </Column>
           );
         })}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Logo = ({ item }: { centered?: boolean; item: ReviewItem }) => (
-  <div>
-    <img
+  <Section>
+    <Img
       alt={item.logoAlt ?? item.company ?? ""}
       src={item.logoUrl}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={item.logoWidth}
     />
-  </div>
+  </Section>
 );
 
 const ReviewCopy = ({
@@ -220,7 +213,7 @@ const ReviewCopy = ({
   separateAuthor?: boolean;
 }) => (
   <>
-    <p
+    <Text
       style={{
         ...textStyle,
         color: "#4b5563",
@@ -229,9 +222,9 @@ const ReviewCopy = ({
       }}
     >
       {item.text}
-    </p>
+    </Text>
     <Spacer height={20} />
-    <p
+    <Text
       style={{
         ...textStyle,
         color: "#9ca3af",
@@ -247,7 +240,7 @@ const ReviewCopy = ({
         </>
       )}
       {item.date}
-    </p>
+    </Text>
   </>
 );
 
@@ -264,8 +257,8 @@ const Author = ({
 }) =>
   centered ? (
     <>
-      <div>
-        <img
+      <Section>
+        <Img
           alt=""
           src={item.avatarUrl}
           style={{
@@ -275,8 +268,8 @@ const Author = ({
           }}
           width="64"
         />
-      </div>
-      <p
+      </Section>
+      <Text
         style={{
           ...textStyle,
           color: "#030712",
@@ -287,16 +280,16 @@ const Author = ({
         }}
       >
         {item.name}
-      </p>
+      </Text>
       <CenteredRating rating={rating} size={size} />
     </>
   ) : (
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
-          <td style={{ verticalAlign: "top", width: "56px" }}>
-            <div>
-              <img
+    <Section>
+      <Fragment>
+        <Row>
+          <Column style={{ verticalAlign: "top", width: "56px" }}>
+            <Section>
+              <Img
                 alt=""
                 src={item.avatarUrl}
                 style={{
@@ -306,11 +299,11 @@ const Author = ({
                 }}
                 width="56"
               />
-            </div>
-          </td>
-          <td style={{ width: "16px" }}>&zwj;</td>
-          <td style={{ verticalAlign: "top" }}>
-            <p
+            </Section>
+          </Column>
+          <Column style={{ width: "16px" }}>&zwj;</Column>
+          <Column style={{ verticalAlign: "top" }}>
+            <Text
               style={{
                 ...textStyle,
                 color: "#030712",
@@ -321,12 +314,12 @@ const Author = ({
               }}
             >
               {item.name}
-            </p>
+            </Text>
             <Rating rating={rating} size={size} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 
 const ratingFor = (
@@ -654,7 +647,7 @@ const AsideReview = ({
 }) => {
   const author = (
     <>
-      <p
+      <Text
         style={{
           ...textStyle,
           color: "#030712",
@@ -665,23 +658,17 @@ const AsideReview = ({
         }}
       >
         {item.name}
-      </p>
+      </Text>
       <Rating rating={rating} size={16} />
     </>
   );
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td style={{ verticalAlign: "top", width: "56px" }}>
-            <div>
-              <img
+    <Section style={{ width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column style={{ verticalAlign: "top", width: "56px" }}>
+            <Section>
+              <Img
                 alt=""
                 src={item.avatarUrl}
                 style={{
@@ -691,10 +678,10 @@ const AsideReview = ({
                 }}
                 width="56"
               />
-            </div>
-          </td>
-          <td style={{ width: "36px" }}>&zwj;</td>
-          <td style={{ verticalAlign: "top" }}>
+            </Section>
+          </Column>
+          <Column style={{ width: "36px" }}>&zwj;</Column>
+          <Column style={{ verticalAlign: "top" }}>
             {variant === "avatar-aside-reverse" ? null : author}
             {variant === "avatar-aside-reverse" ? null : <Spacer height={36} />}
             {variant === "avatar-aside-split" ||
@@ -711,10 +698,10 @@ const AsideReview = ({
                 {author}
               </>
             ) : null}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -803,36 +790,30 @@ const Columns = ({
   children: [ReactNode, ReactNode];
   top: boolean;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="review-column"
           style={{ verticalAlign: top ? "top" : undefined, width: "254px" }}
         >
           {children[0]}
-        </td>
-        <td
+        </Column>
+        <Column
           className="review-column review-column-gap"
           style={{ width: "44px" }}
         >
           &zwj;
-        </td>
-        <td
+        </Column>
+        <Column
           className="review-column"
           style={{ verticalAlign: top ? "top" : undefined, width: "254px" }}
         >
           {children[1]}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const EmailShell = ({
@@ -844,17 +825,11 @@ const EmailShell = ({
 }) => (
   <>
     <style>{reviewsResponsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -862,16 +837,10 @@ const EmailShell = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       padding: "0 24px",
                       textAlign: centered ? "center" : undefined,
@@ -879,15 +848,15 @@ const EmailShell = ({
                   >
                     <Spacer height={44} />
                     {children}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -929,9 +898,9 @@ export const ReviewsSection = ({
   if (layout === "masonry-grid") {
     return (
       <EmailShell centered={centered}>
-        <div>
+        <Section>
           <Review index={0} item={items[0]} layout={layout} variant={variant} />
-        </div>
+        </Section>
         <Spacer height={64} />
         <Columns top={columnsTop}>
           <Review index={1} item={items[1]} layout={layout} variant={variant} />

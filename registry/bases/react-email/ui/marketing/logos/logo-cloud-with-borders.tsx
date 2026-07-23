@@ -1,6 +1,16 @@
-/* eslint-disable next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Section,
+  Row,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -104,17 +114,17 @@ const LogoItem = ({
   logo: Logo;
   width: string;
 }) => (
-  <td
+  <Column
     className={className}
     style={{ lineHeight: "64px", textAlign: "center", width }}
   >
-    <img
+    <Img
       alt={logo.alt}
       src={logo.src}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={logo.width}
     />
-  </td>
+  </Column>
 );
 
 const Divider = ({
@@ -124,9 +134,12 @@ const Divider = ({
   className: string;
   color: string;
 }) => (
-  <td className={className} style={{ backgroundColor: color, width: "1px" }}>
+  <Column
+    className={className}
+    style={{ backgroundColor: color, width: "1px" }}
+  >
     &zwj;
-  </td>
+  </Column>
 );
 
 const LogoRow = ({
@@ -138,17 +151,13 @@ const LogoRow = ({
   logos: Logo[];
   props: ResolvedProps;
 }) => (
-  <table
+  <Section
     align={flush ? undefined : "center"}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
     className={flush ? "border-logo-flush-table" : undefined}
-    role="presentation"
     style={flush ? { width: "100%" } : { margin: "0 auto" }}
   >
-    <tbody>
-      <tr>
+    <Fragment>
+      <Row>
         {logos.map((logo, index) => (
           <Fragment key={logo.alt + logo.src}>
             {index > 0 ? (
@@ -170,10 +179,10 @@ const LogoRow = ({
             />
           </Fragment>
         ))}
-      </tr>
+      </Row>
       {flush ? (
-        <tr>
-          <td
+        <Row>
+          <Column
             className="border-logo-flush-bottom"
             colSpan={9}
             style={{
@@ -182,15 +191,15 @@ const LogoRow = ({
             }}
           >
             &zwj;
-          </td>
-        </tr>
+          </Column>
+        </Row>
       ) : null}
-    </tbody>
-  </table>
+    </Fragment>
+  </Section>
 );
 
 const Title = ({ props }: { props: ResolvedProps }) => (
-  <h3
+  <Heading
     style={{
       color: props.titleColor,
       fontFamily,
@@ -200,13 +209,14 @@ const Title = ({ props }: { props: ResolvedProps }) => (
       margin: 0,
       textAlign: "center",
     }}
+    as="h3"
   >
     {props.title}
-  </h3>
+  </Heading>
 );
 
 const Description = ({ props }: { props: ResolvedProps }) => (
-  <p
+  <Text
     style={{
       color: props.textColor,
       fontFamily,
@@ -218,7 +228,7 @@ const Description = ({ props }: { props: ResolvedProps }) => (
     }}
   >
     {props.description}
-  </p>
+  </Text>
 );
 
 export const LogoCloudWithBordersSection = (props: SectionProps) => {
@@ -234,16 +244,9 @@ export const LogoCloudWithBordersSection = (props: SectionProps) => {
     <LogoRow flush logos={logos} props={resolved} />
   ) : (
     <>
-      <table
-        align="center"
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ margin: "0 auto" }}
-      >
-        <tbody>
-          <tr>
+      <Section align="center" style={{ margin: "0 auto" }}>
+        <Fragment>
+          <Row>
             {logos.slice(0, 3).map((logo, index) => (
               <Fragment key={logo.alt + logo.src}>
                 {index > 0 ? (
@@ -259,9 +262,9 @@ export const LogoCloudWithBordersSection = (props: SectionProps) => {
                 />
               </Fragment>
             ))}
-          </tr>
-          <tr>
-            <td
+          </Row>
+          <Row>
+            <Column
               className="border-logo-divider"
               colSpan={5}
               style={{
@@ -270,27 +273,23 @@ export const LogoCloudWithBordersSection = (props: SectionProps) => {
               }}
             >
               &zwj;
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
       <LogoRow logos={logos.slice(3, 5)} props={resolved} />
     </>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -299,81 +298,71 @@ export const LogoCloudWithBordersSection = (props: SectionProps) => {
             }}
           >
             {flush ? (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {showTitle ? <Title props={resolved} /> : null}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    </Column>
+                  </Row>
+                  <Row>
+                    <Column>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {rows}
-                    </td>
-                  </tr>
+                    </Column>
+                  </Row>
                   {showDescription ? (
-                    <tr>
-                      <td style={{ padding: "0 24px" }}>
-                        <div
+                    <Row>
+                      <Column style={{ padding: "0 24px" }}>
+                        <Section
                           className="border-logo-description-gap"
                           style={{ lineHeight: "36px" }}
                         >
                           &zwj;
-                        </div>
+                        </Section>
                         <Description props={resolved} />
-                      </td>
-                    </tr>
+                      </Column>
+                    </Row>
                   ) : null}
-                </tbody>
-              </table>
+                </Fragment>
+              </Section>
             ) : (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px", textAlign: "center" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {showTitle ? (
                         <>
                           <Title props={resolved} />
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                          <Section style={{ lineHeight: "44px" }}>
+                            &zwj;
+                          </Section>
                         </>
                       ) : null}
                       {rows}
                       {showDescription ? (
                         <>
-                          <div
+                          <Section
                             className="border-logo-description-gap"
                             style={{ lineHeight: "36px" }}
                           >
                             &zwj;
-                          </div>
+                          </Section>
                           <Description props={resolved} />
                         </>
                       ) : null}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
             )}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

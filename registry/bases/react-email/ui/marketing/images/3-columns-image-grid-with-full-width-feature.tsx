@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Link,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -146,7 +153,7 @@ const PlainImage = ({
   src: string;
   width: number;
 }) => (
-  <a href={href}>
+  <Link href={href}>
     <Img
       alt={alt}
       className={className}
@@ -154,7 +161,7 @@ const PlainImage = ({
       style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
       width={width}
     />
-  </a>
+  </Link>
 );
 
 const OverlayCard = ({
@@ -172,7 +179,7 @@ const OverlayCard = ({
   subtext: string;
   textColor: string;
 }) => (
-  <div
+  <Section
     style={{
       backgroundImage: `url('${imageSrc}')`,
       backgroundPosition: "center",
@@ -182,24 +189,18 @@ const OverlayCard = ({
       maxWidth: "100%",
     }}
   >
-    <div
+    <Section
       className={
         feature ? "three-feature-main-spacer" : "three-feature-small-spacer"
       }
       style={{ lineHeight: feature ? "304px" : "88px" }}
     >
       &zwj;
-    </div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    </Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             style={{
               background: "linear-gradient(to bottom, transparent, #000001)",
               borderBottomLeftRadius: "4px",
@@ -208,7 +209,7 @@ const OverlayCard = ({
               textAlign: "left",
             }}
           >
-            <h4
+            <Heading
               className={feature ? undefined : "three-feature-small-heading"}
               style={{
                 color: headingColor,
@@ -218,10 +219,11 @@ const OverlayCard = ({
                 lineHeight: feature ? "32px" : "24px",
                 margin: 0,
               }}
+              as="h4"
             >
               {heading}
-            </h4>
-            <p
+            </Heading>
+            <Text
               className={feature ? undefined : "three-feature-small-text"}
               style={{
                 color: textColor,
@@ -232,12 +234,12 @@ const OverlayCard = ({
               }}
             >
               {subtext}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Section>
 );
 
 const FeatureRow = ({
@@ -247,17 +249,11 @@ const FeatureRow = ({
   overlay: boolean;
   props: ResolvedProps;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td style={{ width: "24px" }}>&zwj;</td>
-        <td>
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column style={{ width: "24px" }}>&zwj;</Column>
+        <Column>
           {overlay ? (
             <OverlayCard
               feature
@@ -276,11 +272,11 @@ const FeatureRow = ({
               width={552}
             />
           )}
-        </td>
-        <td style={{ width: "24px" }}>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+        <Column style={{ width: "24px" }}>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const GridItem = ({
@@ -327,17 +323,11 @@ const GridRow = ({
     : "three-feature-plain-gap";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ width: "24px" }}>&zwj;</td>
-          <td className={stackClass} style={{ width: "168px" }}>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+          <Column className={stackClass} style={{ width: "168px" }}>
             <GridItem
               alt={props.imageAlt1}
               heading={props.heading1}
@@ -347,11 +337,14 @@ const GridRow = ({
               src={props.imageSrc1}
               subtext={props.subtext1}
             />
-          </td>
-          <td className={`${stackClass} ${gapClass}`} style={{ width: "24px" }}>
+          </Column>
+          <Column
+            className={`${stackClass} ${gapClass}`}
+            style={{ width: "24px" }}
+          >
             &zwj;
-          </td>
-          <td className={stackClass} style={{ width: "168px" }}>
+          </Column>
+          <Column className={stackClass} style={{ width: "168px" }}>
             <GridItem
               alt={props.imageAlt2}
               heading={props.heading2}
@@ -361,11 +354,14 @@ const GridRow = ({
               src={props.imageSrc2}
               subtext={props.subtext2}
             />
-          </td>
-          <td className={`${stackClass} ${gapClass}`} style={{ width: "24px" }}>
+          </Column>
+          <Column
+            className={`${stackClass} ${gapClass}`}
+            style={{ width: "24px" }}
+          >
             &zwj;
-          </td>
-          <td className={stackClass} style={{ width: "168px" }}>
+          </Column>
+          <Column className={stackClass} style={{ width: "168px" }}>
             <GridItem
               alt={props.imageAlt3}
               heading={props.heading3}
@@ -375,11 +371,11 @@ const GridRow = ({
               src={props.imageSrc3}
               subtext={props.subtext3}
             />
-          </td>
-          <td style={{ width: "24px" }}>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -394,18 +390,14 @@ export const ThreeColumnsImageGridWithFullWidthFeatureSection = (
   const grid = <GridRow overlay={overlay} props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -413,15 +405,15 @@ export const ThreeColumnsImageGridWithFullWidthFeatureSection = (
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             {featureBottom ? grid : feature}
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             {featureBottom ? feature : grid}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

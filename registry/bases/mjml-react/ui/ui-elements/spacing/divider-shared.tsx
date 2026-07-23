@@ -1,13 +1,16 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
+  MjmlDivider,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
+  MjmlSection,
+  MjmlSpacer,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
@@ -22,47 +25,28 @@ export const dividerColors = {
   white: "#ffffff",
 } as const;
 
-export const dividerTextStyle: CSSProperties = {
-  color: dividerColors.text,
-  fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-  fontSize: "14px",
-  lineHeight: "20px",
-  margin: 0,
+export const dividerFontFamily =
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
+const columnWidths: Record<
+  DividerVariant,
+  { content: string; left: string; right: string }
+> = {
+  center: { content: "34%", left: "33%", right: "33%" },
+  left: { content: "30%", left: "0%", right: "70%" },
+  right: { content: "30%", left: "70%", right: "0%" },
 };
 
-export const dividerButtonStyle: CSSProperties = {
-  ...dividerTextStyle,
-  backgroundColor: dividerColors.text,
-  borderRadius: "6px",
-  color: dividerColors.white,
-  display: "inline-block",
-  fontSize: "12px",
-  fontWeight: 500,
-  lineHeight: "18px",
-  padding: "8px 16px",
-  textDecoration: "none",
-  whiteSpace: "nowrap",
-};
-
-const dividerContentPadding: Record<DividerVariant, string> = {
-  center: "0 16px",
-  left: "0 16px 0 0",
-  right: "0 0 0 16px",
-};
-
-const HorizontalRule = () => (
-  <div
-    style={{
-      backgroundColor: dividerColors.border,
-      fontSize: 0,
-      height: "1px",
-      lineHeight: "1px",
-      width: "100%",
-    }}
-  >
-    &zwj;
-  </div>
+const RuleColumn = ({ width }: { width: string }) => (
+  <MjmlColumn padding="0" verticalAlign="middle" width={width}>
+    <MjmlDivider
+      borderColor={dividerColors.border}
+      borderStyle="solid"
+      borderWidth="1px"
+      padding="0"
+      width="100%"
+    />
+  </MjmlColumn>
 );
 
 export const DividerFrame = ({
@@ -72,61 +56,43 @@ export const DividerFrame = ({
   children: ReactNode;
   variant?: DividerVariant;
 }) => {
-  const showLeftRule = variant !== "left";
-  const showRightRule = variant !== "right";
-  const contentPadding = dividerContentPadding[variant];
+  const widths = columnWidths[variant];
 
   return (
-    <div style={{ padding: "24px 0" }}>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ borderCollapse: "collapse", width: "100%" }}
-        width="100%"
+    <MjmlSection padding="24px 0">
+      {variant === "left" ? null : <RuleColumn width={widths.left} />}
+      <MjmlColumn
+        padding={variant === "left" ? "0 16px 0 0" : "0 16px"}
+        verticalAlign="middle"
+        width={widths.content}
       >
-        <tbody>
-          <tr>
-            {showLeftRule ? (
-              <td style={{ verticalAlign: "middle", width: "50%" }}>
-                <HorizontalRule />
-              </td>
-            ) : null}
-            <td
-              style={{
-                padding: contentPadding,
-                verticalAlign: "middle",
-                whiteSpace: "nowrap",
-                width: "1%",
-              }}
-            >
-              {children}
-            </td>
-            {showRightRule ? (
-              <td style={{ verticalAlign: "middle", width: "50%" }}>
-                <HorizontalRule />
-              </td>
-            ) : null}
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        {children}
+      </MjmlColumn>
+      {variant === "right" ? null : <RuleColumn width={widths.right} />}
+    </MjmlSection>
   );
 };
 
 export const LineDividerSection = () => (
-  <div style={{ padding: "24px 0" }}>
-    <HorizontalRule />
-  </div>
+  <MjmlSection padding="24px 0">
+    <MjmlColumn padding="0">
+      <MjmlDivider
+        borderColor={dividerColors.border}
+        borderStyle="solid"
+        borderWidth="1px"
+        padding="0"
+        width="100%"
+      />
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 export const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
-  <div
-    style={{ fontSize: 0, height: `${height}px`, lineHeight: `${height}px` }}
-  >
-    &zwj;
-  </div>
+  <MjmlSection padding="0">
+    <MjmlColumn padding="0">
+      <MjmlSpacer height={`${height}px`} padding="0" />
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 export const SpacingEmailShell = ({
@@ -147,9 +113,7 @@ export const SpacingEmailShell = ({
       backgroundColor={theme.colorBackground}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>{children}</MjmlRaw>
-      </MjmlWrapper>
+      <MjmlWrapper padding="0">{children}</MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );

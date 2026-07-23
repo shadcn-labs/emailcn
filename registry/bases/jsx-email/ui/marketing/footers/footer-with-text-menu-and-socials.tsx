@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+  Link,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -97,30 +108,24 @@ type SectionProps = Omit<FooterWithTextMenuAndSocialsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const BrandCopy = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column
           className="footer-text-menu-copy"
           style={{
             padding: "0 24px 24px",
             textAlign: props.variant === "right-logo" ? "right" : "left",
           }}
         >
-          <img
+          <Img
             alt={props.logoAlt}
             src={props.logoSrc}
             style={{ maxWidth: "100%", verticalAlign: "middle" }}
             width={55}
           />
-          <div style={{ lineHeight: "24px" }}>&zwj;</div>
-          <p
+          <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+          <Text
             style={{
               color: props.textColor,
               fontFamily,
@@ -130,31 +135,27 @@ const BrandCopy = ({ props }: { props: ResolvedProps }) => (
             }}
           >
             {props.description}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const QuickLinks = ({ props }: { props: ResolvedProps }) => (
-  <table
+  <Section
     align={props.variant === "left-logo" ? "right" : "left"}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
     className="footer-text-menu-links"
-    role="presentation"
     style={
       props.variant === "left-logo"
         ? { marginLeft: "auto" }
         : { marginRight: "auto" }
     }
   >
-    <tbody>
-      <tr>
-        <td style={{ padding: "0 24px", textAlign: "left" }}>
-          <p
+    <Fragment>
+      <Row>
+        <Column style={{ padding: "0 24px", textAlign: "left" }}>
+          <Text
             style={{
               color: props.headingColor,
               fontFamily,
@@ -165,10 +166,10 @@ const QuickLinks = ({ props }: { props: ResolvedProps }) => (
             }}
           >
             Quick Links
-          </p>
+          </Text>
           {props.quickLinks.map((link) => (
-            <p key={link.href} style={{ margin: "0 0 8px" }}>
-              <a
+            <Text key={link.href} style={{ margin: "0 0 8px" }}>
+              <Link
                 href={link.href}
                 style={{
                   color: props.textColor,
@@ -180,13 +181,13 @@ const QuickLinks = ({ props }: { props: ResolvedProps }) => (
                 }}
               >
                 {link.label}
-              </a>
-            </p>
+              </Link>
+            </Text>
           ))}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
@@ -197,35 +198,31 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
     variant: props.variant ?? "left-logo",
   } as ResolvedProps;
   const brandCell = (
-    <td
+    <Column
       className="footer-text-menu-cell"
       style={{ verticalAlign: "top", width: "66.666667%" }}
     >
       <BrandCopy props={resolved} />
-    </td>
+    </Column>
   );
   const linksCell = (
-    <td
+    <Column
       className="footer-text-menu-cell"
       style={{ verticalAlign: "top", width: "33.333333%" }}
     >
       <QuickLinks props={resolved} />
-    </td>
+    </Column>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -233,32 +230,20 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
                   {resolved.variant === "left-logo" ? brandCell : linksCell}
                   {resolved.variant === "left-logo" ? linksCell : brandCell}
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "96px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "left" }}>
-                    <p
+                </Row>
+              </Fragment>
+            </Section>
+            <Section style={{ lineHeight: "96px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "left" }}>
+                    <Text
                       style={{
                         color: resolved.headingColor,
                         fontFamily,
@@ -269,17 +254,12 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
                       }}
                     >
                       Follow us
-                    </p>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                    >
-                      <tbody>
-                        <tr>
+                    </Text>
+                    <Section>
+                      <Fragment>
+                        <Row>
                           {resolved.socials.map((social, index) => (
-                            <td
+                            <Column
                               key={social.href}
                               style={
                                 index === resolved.socials.length - 1
@@ -287,8 +267,8 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
                                   : { paddingRight: "24px" }
                               }
                             >
-                              <a href={social.href}>
-                                <img
+                              <Link href={social.href}>
+                                <Img
                                   alt={social.label}
                                   src={social.iconSrc}
                                   style={{
@@ -297,14 +277,14 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
                                   }}
                                   width={20}
                                 />
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.mutedTextColor,
                         fontFamily,
@@ -314,7 +294,7 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.copyright}{" "}
-                      <a
+                      <Link
                         href={resolved.unsubscribeHref}
                         style={{
                           color: resolved.textColor,
@@ -322,17 +302,17 @@ export const FooterWithTextMenuAndSocialsSection = (props: SectionProps) => {
                         }}
                       >
                         Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                      </Link>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

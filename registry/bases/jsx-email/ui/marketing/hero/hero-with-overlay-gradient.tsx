@@ -1,5 +1,18 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Text,
+  Heading,
+  Section,
+  Row,
+  Column,
+  Link,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -52,33 +65,57 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroWithOverlayGradientProps, "theme">;
 
-export const HeroWithOverlayGradientSection = ({
-  backgroundColor = "#030712",
-  backgroundImageSrc = `${assetRoot}/hero/overlay-gradient-bg.jpg`,
-  buttonBackgroundColor = "#4f46e5",
-  buttonTextColor = "#fffffe",
-  ctaHref = "https://example.com",
-  ctaLabel = "Shop now",
-  description = "Inspired by the granite giants of Yosemite, our latest pack is made for those who roam. Durable, weather-ready, and crafted for every climb, it’s built to carry your story, wherever the trail leads.",
-  eyebrow = "Yosemite Collection",
-  heading = "Forclaz 50L",
-  imageAlt = "Forclaz backpack in Yosemite",
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
-  overlayColor = "rgba(3, 7, 18, 0.6)",
-  pageBackgroundColor = "#f1f5f9",
-  price = "Starts at $129.99",
-  subheading = "Easyfit Version",
-  textColor = "#f9fafb",
-  variant = "split-with-logo",
-}: SectionProps) => {
+export const HeroWithOverlayGradientSection = (props: SectionProps) => {
+  const {
+    backgroundColor,
+    backgroundImageSrc,
+    buttonBackgroundColor,
+    buttonTextColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    imageAlt,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    overlayColor,
+    pageBackgroundColor,
+    price,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    backgroundColor: "#030712",
+    backgroundImageSrc: `${assetRoot}/hero/overlay-gradient-bg.jpg`,
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    ctaHref: "https://example.com",
+    ctaLabel: "Shop now",
+    description:
+      "Inspired by the granite giants of Yosemite, our latest pack is made for those who roam. Durable, weather-ready, and crafted for every climb, it’s built to carry your story, wherever the trail leads.",
+    eyebrow: "Yosemite Collection",
+    heading: "Forclaz 50L",
+    imageAlt: "Forclaz backpack in Yosemite",
+    logoAlt: "emailcn",
+    logoHref: "https://example.com",
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
+    overlayColor: "rgba(3, 7, 18, 0.6)",
+    pageBackgroundColor: "#f1f5f9",
+    price: "Starts at $129.99",
+    subheading: "Easyfit Version",
+    textColor: "#f9fafb",
+    variant: "split-with-logo",
+    ...props,
+  };
+
   const hasLogo = variant.endsWith("with-logo");
   const isSplit = variant.startsWith("split-");
 
   const title = (
     <>
-      <p
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -91,8 +128,8 @@ export const HeroWithOverlayGradientSection = ({
         }}
       >
         {eyebrow}
-      </p>
-      <h1
+      </Text>
+      <Heading
         className="hero-overlay-gradient-heading"
         style={{
           color: textColor,
@@ -103,10 +140,11 @@ export const HeroWithOverlayGradientSection = ({
           margin: 0,
           textAlign: "center",
         }}
+        as="h1"
       >
         {heading}
-      </h1>
-      <p
+      </Heading>
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -117,23 +155,16 @@ export const HeroWithOverlayGradientSection = ({
         }}
       >
         {subheading}
-      </p>
+      </Text>
     </>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             aria-label={imageAlt || undefined}
             role={imageAlt ? "img" : undefined}
             style={{
@@ -148,60 +179,54 @@ export const HeroWithOverlayGradientSection = ({
           >
             {hasLogo ? (
               <>
-                <div style={{ lineHeight: "40px" }}>&zwj;</div>
-                <div style={{ textAlign: "center" }}>
-                  <a href={logoHref}>
-                    <img
+                <Section style={{ lineHeight: "40px" }}>&zwj;</Section>
+                <Section style={{ textAlign: "center" }}>
+                  <Link href={logoHref}>
+                    <Img
                       alt={logoAlt}
                       src={logoSrc}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width="165"
                     />
-                  </a>
-                </div>
-                <div style={{ lineHeight: "112px" }}>&zwj;</div>
+                  </Link>
+                </Section>
+                <Section style={{ lineHeight: "112px" }}>&zwj;</Section>
               </>
             ) : (
-              <div style={{ lineHeight: "136px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "136px" }}>&zwj;</Section>
             )}
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                  <Column
                     style={{
                       backgroundImage: `linear-gradient(rgba(3, 7, 18, 0), ${overlayColor})`,
                     }}
                   >
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
-                          <td style={{ padding: "44px 24px" }}>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
+                          <Column style={{ padding: "44px 24px" }}>
                             {isSplit ? (
                               <>
                                 {title}
-                                <div style={{ lineHeight: "388px" }}>&zwj;</div>
+                                <Section style={{ lineHeight: "388px" }}>
+                                  &zwj;
+                                </Section>
                               </>
                             ) : (
                               <>
-                                <div style={{ lineHeight: "232px" }}>&zwj;</div>
+                                <Section style={{ lineHeight: "232px" }}>
+                                  &zwj;
+                                </Section>
                                 {title}
-                                <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                                <Section style={{ lineHeight: "44px" }}>
+                                  &zwj;
+                                </Section>
                               </>
                             )}
-                            <h2
+                            <Heading
                               style={{
                                 color: textColor,
                                 fontFamily,
@@ -211,11 +236,14 @@ export const HeroWithOverlayGradientSection = ({
                                 margin: 0,
                                 textAlign: "center",
                               }}
+                              as="h2"
                             >
                               {price}
-                            </h2>
-                            <div style={{ lineHeight: "12px" }}>&zwj;</div>
-                            <p
+                            </Heading>
+                            <Section style={{ lineHeight: "12px" }}>
+                              &zwj;
+                            </Section>
+                            <Text
                               style={{
                                 color: textColor,
                                 fontFamily,
@@ -227,11 +255,13 @@ export const HeroWithOverlayGradientSection = ({
                               }}
                             >
                               {description}
-                            </p>
-                            <div style={{ lineHeight: "28px" }}>&zwj;</div>
+                            </Text>
+                            <Section style={{ lineHeight: "28px" }}>
+                              &zwj;
+                            </Section>
                             {ctaLabel && ctaHref ? (
-                              <div style={{ textAlign: "center" }}>
-                                <a
+                              <Section style={{ textAlign: "center" }}>
+                                <Link
                                   className="hero-overlay-gradient-cta"
                                   href={ctaHref}
                                   style={{
@@ -250,7 +280,7 @@ export const HeroWithOverlayGradientSection = ({
                                   <span style={{ marginRight: "8px" }}>
                                     {ctaLabel}
                                   </span>
-                                  <img
+                                  <Img
                                     alt=""
                                     src={`${assetRoot}/icon-arrow-right.png`}
                                     style={{
@@ -259,24 +289,24 @@ export const HeroWithOverlayGradientSection = ({
                                     }}
                                     width="12"
                                   />
-                                </a>
-                              </div>
+                                </Link>
+                              </Section>
                             ) : null}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                          </Column>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                </Row>
+              </Fragment>
+            </Section>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -19,6 +19,8 @@ import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 
 export const BENTO_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/bento-grids";
+export const BENTO_CHART_ROOT =
+  "https://emailcn.vercel.app/email-assets/bento-grids";
 
 export type BentoCaptionsVariant =
   | "captions-top"
@@ -138,7 +140,9 @@ const Gap = () => (
 );
 
 const VerticalGap = () => (
-  <div style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>&zwj;</div>
+  <Section style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>
+    &zwj;
+  </Section>
 );
 
 const Multiline = ({ value }: { value: string }) => (
@@ -733,11 +737,11 @@ export interface MetricCardData {
 }
 
 const Divider = () => (
-  <div
+  <Section
     style={{ backgroundColor: colors.border, height: "1px", lineHeight: "1px" }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const ReportLink = ({ data }: { data: MetricCardData }) => (
@@ -780,7 +784,7 @@ const ImageMetricCard = ({ data }: { data: MetricCardData }) => (
     >
       {data.title}
     </Text>
-    <div style={{ height: "42px", lineHeight: "42px" }}>&zwj;</div>
+    <Section style={{ height: "42px", lineHeight: "42px" }}>&zwj;</Section>
     <Row>
       <Column
         className="bento-column"
@@ -815,7 +819,7 @@ const ImageMetricCard = ({ data }: { data: MetricCardData }) => (
         <Img
           alt=""
           className="bento-chart-desktop"
-          src={`${BENTO_ASSET_ROOT}/trend.png`}
+          src={`${BENTO_CHART_ROOT}/trend.png`}
           width={120}
           style={{
             display: "inline-block",
@@ -826,7 +830,7 @@ const ImageMetricCard = ({ data }: { data: MetricCardData }) => (
         <Img
           alt=""
           className="bento-chart-mobile"
-          src={`${BENTO_ASSET_ROOT}/trend-sm.png`}
+          src={`${BENTO_CHART_ROOT}/trend-sm.png`}
           width={210}
           style={{ display: "none", maxWidth: "100%", verticalAlign: "middle" }}
         />
@@ -858,7 +862,7 @@ const TextMetricCard = ({ data }: { data: MetricCardData }) => (
     >
       {data.title}
     </Text>
-    <div style={{ height: "26px", lineHeight: "26px" }}>&zwj;</div>
+    <Section style={{ height: "26px", lineHeight: "26px" }}>&zwj;</Section>
     <Text style={{ ...textBase, lineHeight: "40px" }}>
       <span style={{ color: colors.dark, fontSize: "36px", fontWeight: 700 }}>
         {data.value}
@@ -880,9 +884,9 @@ const TextMetricCard = ({ data }: { data: MetricCardData }) => (
         {data.comparison}
       </Text>
     ) : null}
-    <div style={{ marginTop: "12px" }}>
+    <Section style={{ marginTop: "12px" }}>
       <Divider />
-    </div>
+    </Section>
     <ReportLink data={data} />
   </Section>
 );

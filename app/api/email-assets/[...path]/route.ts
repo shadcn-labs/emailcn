@@ -1,5 +1,10 @@
 const ONE_YEAR = 31_536_000;
 
+const localEmailAssets = new Set([
+  "bento-grids/trend-sm.png",
+  "bento-grids/trend.png",
+]);
+
 const palettes = [
   ["4F46E5", "FFFFFF"],
   ["0F766E", "FFFFFF"],
@@ -174,13 +179,20 @@ interface EmailAssetRouteContext {
 }
 
 export const GET = async (
-  _request: Request,
+  request: Request,
   context: EmailAssetRouteContext
 ) => {
   const { path } = await context.params;
   const assetPath = path.join("/");
   if (!assetPath || assetPath.includes("..")) {
     return new Response("Invalid asset path", { status: 400 });
+  }
+
+  if (localEmailAssets.has(assetPath)) {
+    return Response.redirect(
+      new URL(`/email-assets/${assetPath}`, request.url),
+      307
+    );
   }
 
   const generatedAsset = await fetch(getGeneratedAssetUrl(assetPath), {

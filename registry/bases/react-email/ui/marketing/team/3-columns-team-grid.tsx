@@ -1,6 +1,18 @@
-/* eslint-disable @next/next/no-img-element, complexity */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -72,32 +84,28 @@ const SocialLinks = ({
 }) => {
   const suffix = accent ? "light" : "dark";
   return (
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-    >
-      <tbody>
-        <tr>
+    <Section align="center">
+      <Fragment>
+        <Row>
           {icons.map((icon, index) => (
             <Fragment key={icon}>
-              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
-              <td style={{ width: "16px" }}>
-                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
-                  <img
+              {index > 0 ? (
+                <Column style={{ width: "16px" }}>&zwj;</Column>
+              ) : null}
+              <Column style={{ width: "16px" }}>
+                <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <Img
                     alt=""
                     src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
                     width="16"
                   />
-                </a>
-              </td>
+                </Link>
+              </Column>
             </Fragment>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -113,16 +121,10 @@ const MemberCard = ({
   const treated = variant === "with-accent" || variant === "bordered";
   const accent = featured && variant === "with-accent";
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section style={{ width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column
             className="team-grid-card-pad"
             style={{
               backgroundColor: accent ? "#030712" : undefined,
@@ -139,7 +141,7 @@ const MemberCard = ({
               textAlign: "center",
             }}
           >
-            <img
+            <Img
               alt={member.alt}
               src={member.image}
               style={{
@@ -149,7 +151,7 @@ const MemberCard = ({
               }}
               width="64"
             />
-            <h3
+            <Heading
               style={{
                 color: accent ? "#fffffe" : "#030712",
                 fontFamily,
@@ -158,10 +160,11 @@ const MemberCard = ({
                 lineHeight: "24px",
                 margin: "12px 0 0",
               }}
+              as="h3"
             >
               {member.name}
-            </h3>
-            <p
+            </Heading>
+            <Text
               style={{
                 color: accent ? "#d1d5db" : "#4b5563",
                 fontFamily,
@@ -171,16 +174,16 @@ const MemberCard = ({
               }}
             >
               {member.role}
-            </p>
-            <div style={{ lineHeight: "16px" }}>&zwj;</div>
+            </Text>
+            <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
             <SocialLinks
               accent={accent}
               icons={accent ? ["instagram", "x", "linkedin"] : member.social}
             />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -194,34 +197,31 @@ const GridRows = ({
   const rows = [members.slice(0, 3), members.slice(3, 6)];
   const gap = variant === "with-accent" || variant === "bordered" ? 20 : 44;
   return (
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-    >
-      <tbody>
+    <Section align="center">
+      <Fragment>
         {rows.map((row, rowIndex) => (
           <Fragment key={rowIndex}>
             {rowIndex > 0 ? (
-              <tr>
-                <td colSpan={5} style={{ lineHeight: `${gap}px` }}>
+              <Row>
+                <Column colSpan={5} style={{ lineHeight: `${gap}px` }}>
                   &zwj;
-                </td>
-              </tr>
+                </Column>
+              </Row>
             ) : null}
-            <tr>
+            <Row>
               {row.map((member, memberIndex) => {
                 const absoluteIndex = rowIndex * 3 + memberIndex;
                 return (
                   <Fragment key={member.name}>
                     {memberIndex > 0 ? (
-                      <td className="team-grid-gap" style={{ width: "24px" }}>
+                      <Column
+                        className="team-grid-gap"
+                        style={{ width: "24px" }}
+                      >
                         &zwj;
-                      </td>
+                      </Column>
                     ) : null}
-                    <td
+                    <Column
                       className="team-grid-cell"
                       style={{ verticalAlign: "top", width: "154px" }}
                     >
@@ -230,46 +230,84 @@ const GridRows = ({
                         member={member}
                         variant={variant}
                       />
-                    </td>
+                    </Column>
                   </Fragment>
                 );
               })}
-            </tr>
+            </Row>
           </Fragment>
         ))}
-      </tbody>
-    </table>
+      </Fragment>
+    </Section>
   );
 };
 
-export const ThreeColumnsTeamGridSection = ({
-  avatarAlt1 = "",
-  avatarAlt2 = "",
-  avatarAlt3 = "",
-  avatarAlt4 = "",
-  avatarAlt5 = "",
-  avatarAlt6 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2.jpg",
-  avatarSrc3 = "https://emailcn.vercel.app/api/email-assets/teams/member-3.jpg",
-  avatarSrc4 = "https://emailcn.vercel.app/api/email-assets/teams/member-4.jpg",
-  avatarSrc5 = "https://emailcn.vercel.app/api/email-assets/teams/member-5.jpg",
-  avatarSrc6 = "https://emailcn.vercel.app/api/email-assets/teams/member-6.jpg",
-  heroImageSrc = "https://emailcn.vercel.app/api/email-assets/teams/hero.jpg",
-  name1 = "Jason Adam",
-  name2 = "Henrik Petersson",
-  name3 = "Ella Roustek",
-  name4 = "Hannah Andersson",
-  name5 = "Terrence Hold",
-  name6 = "Sandra Ver",
-  role1 = "Senior Developer",
-  role2 = "Senior UX/UI designer",
-  role3 = "Frontend Developer",
-  role4 = "Product Manager",
-  role5 = "Head of Engineering",
-  role6 = "UX Research Lead",
-  variant = "default",
-}: Omit<ThreeColumnsTeamGridProps, "theme">) => {
+export const ThreeColumnsTeamGridSection = (
+  props: Omit<ThreeColumnsTeamGridProps, "theme">
+) => {
+  const {
+    avatarAlt1,
+    avatarAlt2,
+    avatarAlt3,
+    avatarAlt4,
+    avatarAlt5,
+    avatarAlt6,
+    avatarSrc1,
+    avatarSrc2,
+    avatarSrc3,
+    avatarSrc4,
+    avatarSrc5,
+    avatarSrc6,
+    heroImageSrc,
+    name1,
+    name2,
+    name3,
+    name4,
+    name5,
+    name6,
+    role1,
+    role2,
+    role3,
+    role4,
+    role5,
+    role6,
+    variant,
+  } = {
+    avatarAlt1: "",
+    avatarAlt2: "",
+    avatarAlt3: "",
+    avatarAlt4: "",
+    avatarAlt5: "",
+    avatarAlt6: "",
+    avatarSrc1:
+      "https://emailcn.vercel.app/api/email-assets/teams/member-1.jpg",
+    avatarSrc2:
+      "https://emailcn.vercel.app/api/email-assets/teams/member-2.jpg",
+    avatarSrc3:
+      "https://emailcn.vercel.app/api/email-assets/teams/member-3.jpg",
+    avatarSrc4:
+      "https://emailcn.vercel.app/api/email-assets/teams/member-4.jpg",
+    avatarSrc5:
+      "https://emailcn.vercel.app/api/email-assets/teams/member-5.jpg",
+    avatarSrc6:
+      "https://emailcn.vercel.app/api/email-assets/teams/member-6.jpg",
+    heroImageSrc: "https://emailcn.vercel.app/api/email-assets/teams/hero.jpg",
+    name1: "Jason Adam",
+    name2: "Henrik Petersson",
+    name3: "Ella Roustek",
+    name4: "Hannah Andersson",
+    name5: "Terrence Hold",
+    name6: "Sandra Ver",
+    role1: "Senior Developer",
+    role2: "Senior UX/UI designer",
+    role3: "Frontend Developer",
+    role4: "Product Manager",
+    role5: "Head of Engineering",
+    role6: "UX Research Lead",
+    variant: "default" as ThreeColumnsTeamGridVariant,
+    ...props,
+  };
+
   const members: Member[] = [
     {
       alt: avatarAlt1,
@@ -318,17 +356,11 @@ export const ThreeColumnsTeamGridSection = ({
   return (
     <>
       <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: "#fffffe",
                 maxWidth: "100%",
@@ -338,7 +370,7 @@ export const ThreeColumnsTeamGridSection = ({
             >
               {variant === "with-hero" ? (
                 <>
-                  <div
+                  <Section
                     style={{
                       backgroundImage: `url('${heroImageSrc}')`,
                       backgroundPosition: "center",
@@ -348,7 +380,7 @@ export const ThreeColumnsTeamGridSection = ({
                       padding: "244px 0 44px",
                     }}
                   >
-                    <p
+                    <Text
                       style={{
                         color: "#fffffe",
                         fontFamily,
@@ -360,8 +392,8 @@ export const ThreeColumnsTeamGridSection = ({
                       }}
                     >
                       Meet the Founder/Organiser
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         color: "#fffffe",
                         fontFamily,
@@ -373,8 +405,8 @@ export const ThreeColumnsTeamGridSection = ({
                       }}
                     >
                       {name1}
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         color: "#9ca3af",
                         fontFamily,
@@ -385,11 +417,11 @@ export const ThreeColumnsTeamGridSection = ({
                       }}
                     >
                       {role1}
-                    </p>
-                    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                    </Text>
+                    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
                     <SocialLinks accent icons={["x", "linkedin"]} />
-                  </div>
-                  <h2
+                  </Section>
+                  <Heading
                     style={{
                       color: "#030712",
                       fontFamily,
@@ -399,20 +431,21 @@ export const ThreeColumnsTeamGridSection = ({
                       margin: "44px 0 24px",
                       textAlign: "center",
                     }}
+                    as="h2"
                   >
                     Additional speakers
-                  </h2>
+                  </Heading>
                 </>
               ) : null}
               <GridRows
                 members={members}
                 variant={variant === "with-hero" ? "default" : variant}
               />
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 };

@@ -429,6 +429,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -452,6 +453,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -475,6 +477,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -498,6 +501,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -521,6 +525,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -544,6 +549,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -567,7 +573,27 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Order Summary Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/email/order-summary-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "order-summary-shared",
+      "title": "Order Summary Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -590,6 +616,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -613,7 +640,27 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Product Detail Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/email/product-detail-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "product-detail-shared",
+      "title": "Product Detail Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -636,6 +683,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -659,6 +707,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -682,6 +731,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -705,6 +755,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -728,7 +779,27 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Product List With Rows Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows-shared.tsx",
+          "target": "components/email/product-list-with-rows-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "product-list-with-rows-shared",
+      "title": "Product List With Rows Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -751,6 +822,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/product-list-with-rows-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -774,6 +846,7 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/reviews-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -797,7 +870,27 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/reviews-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Reviews Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/reviews/reviews-shared.tsx",
+          "target": "components/email/reviews-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "reviews-shared",
+      "title": "Reviews Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -820,7 +913,27 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/reviews-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Shopping Cart Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-shared.tsx",
+          "target": "components/email/shopping-cart-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "shopping-cart-shared",
+      "title": "Shopping Cart Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -843,7 +956,30 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/shopping-cart-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Bento Grid Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/email/bento-grid-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "bento-grid-shared",
+      "title": "Bento Grid Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json"
       ]
     },
     {
@@ -855,11 +991,6 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
           "target": "components/email/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -884,11 +1015,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
           "target": "components/email/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-even-split-text-stats",
@@ -898,7 +1024,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -912,11 +1037,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
           "target": "components/email/bento-grid-with-3-columns-and-flush-images.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-flush-images",
@@ -926,7 +1046,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -940,11 +1059,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
           "target": "components/email/bento-grid-with-3-columns-and-padded-images.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-padded-images",
@@ -954,7 +1068,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -968,11 +1081,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
           "target": "components/email/bento-grid-with-even-split-and-image-stats.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-even-split-and-image-stats",
@@ -982,7 +1090,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -996,11 +1103,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
           "target": "components/email/bento-grid-with-even-split-and-text-stats.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-even-split-and-text-stats",
@@ -1010,7 +1112,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1024,11 +1125,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
           "target": "components/email/bento-grid-with-even-split-and-two-thirds.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-even-split-and-two-thirds",
@@ -1038,7 +1134,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1052,11 +1147,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
           "target": "components/email/bento-grid-with-images-and-captions.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-images-and-captions",
@@ -1066,7 +1156,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1080,11 +1169,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
           "target": "components/email/bento-grid-with-images-and-details.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-images-and-details",
@@ -1094,7 +1178,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1108,11 +1191,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "target": "components/email/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-two-rows-and-3-column-second-row",
@@ -1122,7 +1200,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1136,11 +1213,6 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
           "target": "components/email/two-thirds-bento-grid-with-stats.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
         }
       ],
       "name": "two-thirds-bento-grid-with-stats",
@@ -1150,7 +1222,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1173,7 +1244,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1196,7 +1267,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1219,7 +1290,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1242,7 +1313,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1265,7 +1336,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1288,8 +1359,30 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Blog Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/email/blog-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "blog-shared",
+      "title": "Blog Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json"
       ]
     },
     {
@@ -1311,7 +1404,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1334,7 +1427,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1357,7 +1450,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1380,7 +1473,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1403,7 +1496,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1426,7 +1519,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1449,7 +1542,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/blog-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1725,7 +1818,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1748,7 +1841,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1771,7 +1864,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1794,7 +1887,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1817,7 +1910,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1840,7 +1933,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -1863,8 +1956,30 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/faq-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Faq Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/email/faq-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "faq-shared",
+      "title": "Faq Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json"
       ]
     },
     {
@@ -1989,13 +2104,13 @@
       "description": "Marketing footers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/footer-centered-with-bordered-full-menu.tsx",
-          "target": "components/email/footer-centered-with-bordered-full-menu.tsx",
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-centered-with-menu-and-socials.tsx",
+          "target": "components/email/footer-centered-with-menu-and-socials.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "footer-centered-with-bordered-full-menu",
-      "title": "Footer Centered With Bordered Full Menu",
+      "name": "footer-centered-with-menu-and-socials",
+      "title": "Footer Centered With Menu And Socials",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2009,16 +2124,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing footers variant for email templates",
+      "description": "two-column menu footer with divider and mirrored logo variants",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/footer-centered-with-menu-and-socials.tsx",
-          "target": "components/email/footer-centered-with-menu-and-socials.tsx",
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-2-column-menu-and-divider.tsx",
+          "target": "components/email/footer-with-2-column-menu-and-divider.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "footer-centered-with-menu-and-socials",
-      "title": "Footer Centered With Menu And Socials",
+      "name": "footer-with-2-column-menu-and-divider",
+      "title": "Footer With 2 Column Menu And Divider",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2078,6 +2193,75 @@
       "categories": [
         "email-component"
       ],
+      "description": "app-store footer with centered, two-column, and title variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-app-store-buttons.tsx",
+          "target": "components/email/footer-with-app-store-buttons.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-app-store-buttons",
+      "title": "Footer With App Store Buttons",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Nine background-image footer families consolidated into layout variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-background-image.tsx",
+          "target": "components/email/footer-with-background-image.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-background-image",
+      "title": "Footer With Background Image",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "company-locations footer with stacked and grid variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-company-locations.tsx",
+          "target": "components/email/footer-with-company-locations.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-company-locations",
+      "title": "Footer With Company Locations",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
       "description": "Marketing footers variant for email templates",
       "files": [
         {
@@ -2088,6 +2272,52 @@
       ],
       "name": "footer-with-content-and-cta",
       "title": "Footer With Content And Cta",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "full-menu footers with oversized-logo and bordered variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-full-menu.tsx",
+          "target": "components/email/footer-with-full-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-full-menu",
+      "title": "Footer With Full Menu",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "footer with large title, paired buttons, assistance, and legal content",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-large-title-and-buttons.tsx",
+          "target": "components/email/footer-with-large-title-and-buttons.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-large-title-and-buttons",
+      "title": "Footer With Large Title And Buttons",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2124,16 +2354,39 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing footers variant for email templates",
+      "description": "footer with menu, full-width CTA, socials, and legal content",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
-          "target": "components/email/footer-with-oversized-logo-and-full-menu.tsx",
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-menu-and-full-width-cta.tsx",
+          "target": "components/email/footer-with-menu-and-full-width-cta.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "footer-with-oversized-logo-and-full-menu",
-      "title": "Footer With Oversized Logo And Full Menu",
+      "name": "footer-with-menu-and-full-width-cta",
+      "title": "Footer With Menu And Full Width Cta",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Seven overlapped-CTA footer families consolidated into layout variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-overlapped-cta.tsx",
+          "target": "components/email/footer-with-overlapped-cta.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-overlapped-cta",
+      "title": "Footer With Overlapped Cta",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2311,29 +2564,6 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-text.tsx",
-          "target": "components/email/header-with-logo-and-text.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "header-with-logo-and-text",
-      "title": "Header With Logo And Text",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing headers variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo.tsx",
           "target": "components/email/header-with-logo.tsx",
           "type": "registry:component"
@@ -2341,29 +2571,6 @@
       ],
       "name": "header-with-logo",
       "title": "Header With Logo",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing headers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-user-details-and-avatar.tsx",
-          "target": "components/email/header-with-user-details-and-avatar.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "header-with-user-details-and-avatar",
-      "title": "Header With User Details And Avatar",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2932,29 +3139,6 @@
       "description": "Marketing logos variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/boxed-logo-cloud.tsx",
-          "target": "components/email/boxed-logo-cloud.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-logo-cloud",
-      "title": "Boxed Logo Cloud",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing logos variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/logos/featured-brands-logo-grid.tsx",
           "target": "components/email/featured-brands-logo-grid.tsx",
           "type": "registry:component"
@@ -2998,16 +3182,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing logos variant for email templates",
+      "description": "Logo Cloud email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/logos-grid.tsx",
-          "target": "components/email/logos-grid.tsx",
+          "path": "registry/bases/react-email/ui/marketing/logos/logo-cloud.tsx",
+          "target": "components/email/logo-cloud.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "logos-grid",
-      "title": "Logos Grid",
+      "name": "logo-cloud",
+      "title": "Logo Cloud",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3024,13 +3208,13 @@
       "description": "Marketing logos variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/outlined-logo-cloud.tsx",
-          "target": "components/email/outlined-logo-cloud.tsx",
+          "path": "registry/bases/react-email/ui/marketing/logos/logos-grid.tsx",
+          "target": "components/email/logos-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "outlined-logo-cloud",
-      "title": "Outlined Logo Cloud",
+      "name": "logos-grid",
+      "title": "Logos Grid",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3113,122 +3297,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/circle-tiles-social-logos.tsx",
-          "target": "components/email/circle-tiles-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "circle-tiles-social-logos",
-      "title": "Circle Tiles Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/outlined-box-social-logos.tsx",
-          "target": "components/email/outlined-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-box-social-logos",
-      "title": "Outlined Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/outlined-pill-box-social-logos.tsx",
-          "target": "components/email/outlined-pill-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-pill-box-social-logos",
-      "title": "Outlined Pill Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/outlined-square-tiles-social-logos.tsx",
-          "target": "components/email/outlined-square-tiles-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-square-tiles-social-logos",
-      "title": "Outlined Square Tiles Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/pill-box-social-logos.tsx",
-          "target": "components/email/pill-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "pill-box-social-logos",
-      "title": "Pill Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
+      "description": "Simple centered social logo row",
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/simple-social-logos-row.tsx",
@@ -3251,16 +3320,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Social Logos email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-inline-labels.tsx",
-          "target": "components/email/socials-with-inline-labels.tsx",
+          "path": "registry/bases/react-email/ui/marketing/social/social-logos.tsx",
+          "target": "components/email/social-logos.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "socials-with-inline-labels",
-      "title": "Socials With Inline Labels",
+      "name": "social-logos",
+      "title": "Social Logos",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3274,16 +3343,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Social links with stacked and inline label variants",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-inline-tile-labels.tsx",
-          "target": "components/email/socials-with-inline-tile-labels.tsx",
+          "path": "registry/bases/react-email/ui/marketing/social/socials-with-labels.tsx",
+          "target": "components/email/socials-with-labels.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "socials-with-inline-tile-labels",
-      "title": "Socials With Inline Tile Labels",
+      "name": "socials-with-labels",
+      "title": "Socials With Labels",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3297,16 +3366,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Social tiles with stacked and inline label variants",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-labels-stacked.tsx",
-          "target": "components/email/socials-with-labels-stacked.tsx",
+          "path": "registry/bases/react-email/ui/marketing/social/socials-with-tile-labels.tsx",
+          "target": "components/email/socials-with-tile-labels.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "socials-with-labels-stacked",
-      "title": "Socials With Labels Stacked",
+      "name": "socials-with-tile-labels",
+      "title": "Socials With Tile Labels",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3320,131 +3389,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Grid Stats email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-stacked-tile-labels.tsx",
-          "target": "components/email/socials-with-stacked-tile-labels.tsx",
+          "path": "registry/bases/react-email/ui/marketing/stats/grid-stats.tsx",
+          "target": "components/email/grid-stats.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "socials-with-stacked-tile-labels",
-      "title": "Socials With Stacked Tile Labels",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/square-tiles-social-logos.tsx",
-          "target": "components/email/square-tiles-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "square-tiles-social-logos",
-      "title": "Square Tiles Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/squared-box-social-logos.tsx",
-          "target": "components/email/squared-box-social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "squared-box-social-logos",
-      "title": "Squared Box Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/boxed-grid-stats.tsx",
-          "target": "components/email/boxed-grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-grid-stats",
-      "title": "Boxed Grid Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/grid-stats-with-accent-column.tsx",
-          "target": "components/email/grid-stats-with-accent-column.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "grid-stats-with-accent-column",
-      "title": "Grid Stats With Accent Column",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/grid-stats-with-border.tsx",
-          "target": "components/email/grid-stats-with-border.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "grid-stats-with-border",
-      "title": "Grid Stats With Border",
+      "name": "grid-stats",
+      "title": "Grid Stats",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3468,29 +3422,6 @@
       ],
       "name": "milestone-stats",
       "title": "Milestone Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/outlined-grid-stats.tsx",
-          "target": "components/email/outlined-grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "outlined-grid-stats",
-      "title": "Outlined Grid Stats",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3537,29 +3468,6 @@
       ],
       "name": "rolling-stats",
       "title": "Rolling Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/simple-grid-stats.tsx",
-          "target": "components/email/simple-grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "simple-grid-stats",
-      "title": "Simple Grid Stats",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3760,52 +3668,6 @@
       "description": "Marketing testimonials variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/centered-testimonial-with-cta.tsx",
-          "target": "components/email/centered-testimonial-with-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "centered-testimonial-with-cta",
-      "title": "Centered Testimonial With Cta",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing testimonials variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx",
-          "target": "components/email/full-width-testimonial-with-overlapping-avatar.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "full-width-testimonial-with-overlapping-avatar",
-      "title": "Full Width Testimonial With Overlapping Avatar",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing testimonials variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial.tsx",
           "target": "components/email/full-width-testimonial.tsx",
           "type": "registry:component"
@@ -3829,13 +3691,13 @@
       "description": "Marketing testimonials variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/split-testimonial-with-cta.tsx",
-          "target": "components/email/split-testimonial-with-cta.tsx",
+          "path": "registry/bases/react-email/ui/marketing/testimonials/testimonial-with-cta.tsx",
+          "target": "components/email/testimonial-with-cta.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "split-testimonial-with-cta",
-      "title": "Split Testimonial With Cta",
+      "name": "testimonial-with-cta",
+      "title": "Testimonial With CTA",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3887,6 +3749,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/changelog.json",
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
@@ -3967,29 +3830,6 @@
       "description": "Marketing timelines variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/timelines/stacked-boxed-timeline.tsx",
-          "target": "components/email/stacked-boxed-timeline.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "stacked-boxed-timeline",
-      "title": "Stacked Boxed Timeline",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing timelines variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/timelines/stacked-timeline.tsx",
           "target": "components/email/stacked-timeline.tsx",
           "type": "registry:component"
@@ -4004,6 +3844,25 @@
       "registryDependencies": [
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Avatar Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-shared.tsx",
+          "target": "components/email/avatar-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "avatar-shared",
+      "title": "Avatar Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -4048,7 +3907,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4079,6 +3937,25 @@
       "categories": [
         "email-component"
       ],
+      "description": "Buttons Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/buttons/buttons-shared.tsx",
+          "target": "components/email/buttons-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "buttons-shared",
+      "title": "Buttons Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
       "description": "UI Elements buttons variant for email templates",
       "files": [
         {
@@ -4094,8 +3971,28 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/buttons-shared.json",
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Container Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/containers/container-shared.tsx",
+          "target": "components/email/container-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "container-shared",
+      "title": "Container Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
       ]
     },
     {
@@ -4117,6 +4014,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/container-shared.json",
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
@@ -4140,8 +4038,30 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Data Table Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/email/data-table-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "data-table-shared",
+      "title": "Data Table Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json"
       ]
     },
     {
@@ -4163,7 +4083,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4186,7 +4106,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4209,7 +4129,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4232,7 +4152,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4255,7 +4175,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4278,7 +4198,7 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4309,6 +4229,25 @@
       "categories": [
         "email-component"
       ],
+      "description": "Basic Pills Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/pills/basic-pills-shared.tsx",
+          "target": "components/email/basic-pills-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "basic-pills-shared",
+      "title": "Basic Pills Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
       "description": "UI Elements pills variant for email templates",
       "files": [
         {
@@ -4324,6 +4263,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/basic-pills-shared.json",
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
@@ -4347,7 +4287,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4370,7 +4309,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4393,8 +4331,51 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Progress Bar Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-shared.tsx",
+          "target": "components/email/progress-bar-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "progress-bar-shared",
+      "title": "Progress Bar Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Divider Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/email/divider-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "divider-shared",
+      "title": "Divider Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json"
       ]
     },
     {
@@ -4416,7 +4397,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4439,7 +4419,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4462,7 +4441,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4485,7 +4463,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4508,7 +4485,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4531,7 +4507,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4554,7 +4529,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4577,7 +4551,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4600,7 +4573,6 @@
         "react-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },

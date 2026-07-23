@@ -1,5 +1,15 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+  Link,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -78,35 +88,25 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
   }[resolved.variant] as "center" | "left" | "right";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "44px 24px 24px", textAlign }}>
-                    <p
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "44px 24px 24px", textAlign }}>
+                    <Text
                       style={{
                         color: resolved.headingColor,
                         fontFamily,
@@ -117,9 +117,9 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                       }}
                     >
                       <Multiline text={resolved.heading} />
-                    </p>
-                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
-                    <p
+                    </Text>
+                    <Section style={{ lineHeight: "28px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.textColor,
                         fontFamily,
@@ -129,10 +129,10 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.subtext}
-                    </p>
-                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
-                    <div>
-                      <a
+                    </Text>
+                    <Section style={{ lineHeight: "28px" }}>&zwj;</Section>
+                    <Section>
+                      <Link
                         href={resolved.ctaHref}
                         style={{
                           backgroundColor: resolved.buttonColor,
@@ -153,7 +153,7 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                           {resolved.ctaLabel}
                         </span>
                         <span style={{ msoTextRaise: "14px" }}>
-                          <img
+                          <Img
                             alt=""
                             src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
                             style={{
@@ -163,17 +163,17 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                             width={12}
                           />
                         </span>
-                      </a>
-                    </div>
-                    <div style={{ lineHeight: "96px" }}>&zwj;</div>
-                    <img
+                      </Link>
+                    </Section>
+                    <Section style={{ lineHeight: "96px" }}>&zwj;</Section>
+                    <Img
                       alt={resolved.logoAlt}
                       src={resolved.logoSrc}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={55}
                     />
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <p
+                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.mutedTextColor,
                         fontFamily,
@@ -188,7 +188,7 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                       Want to change how you receive these emails?
                       <br />
                       You can{" "}
-                      <a
+                      <Link
                         href={resolved.updatePreferencesHref}
                         style={{
                           color: resolved.mutedTextColor,
@@ -196,9 +196,9 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                         }}
                       >
                         update your preferences
-                      </a>{" "}
+                      </Link>{" "}
                       or{" "}
-                      <a
+                      <Link
                         href={resolved.unsubscribeHref}
                         style={{
                           color: resolved.mutedTextColor,
@@ -206,17 +206,17 @@ export const FooterWithContentAndCtaSection = (props: SectionProps) => {
                         }}
                       >
                         unsubscribe from this list.
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                      </Link>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import type { CSSProperties } from "react";
+import { Section } from "react-email";
 
 export type PillStatusVariant =
   | "brand"
@@ -106,8 +107,8 @@ export const BasicPillsStatusColorsSection = ({
   pills?: PillItem[];
 }) => (
   <>
-    <div style={{ height: "100px" }} />
-    <div
+    <Section style={{ height: "100px" }} />
+    <Section
       style={{
         backgroundColor: "#fffffe",
         fontSize: "16px",
@@ -117,7 +118,7 @@ export const BasicPillsStatusColorsSection = ({
         textAlign: "start",
       }}
     >
-      <div
+      <Section
         style={{
           paddingBottom: "44px",
           paddingTop: "44px",
@@ -125,19 +126,21 @@ export const BasicPillsStatusColorsSection = ({
           width: "100%",
         }}
       >
-        {mjmlCompensation ? <div style={{ height: "1px" }} /> : null}
+        {mjmlCompensation ? <Section style={{ height: "1px" }} /> : null}
         {pills.map((pill, index) => (
           <Fragment key={`${pill.label}-${pill.variant}`}>
             <Pill {...pill} />
             {index < pills.length - 1 ? (
-              <div style={{ lineHeight: mjmlCompensation ? "25px" : "24px" }}>
+              <Section
+                style={{ lineHeight: mjmlCompensation ? "25px" : "24px" }}
+              >
                 &zwj;
-              </div>
+              </Section>
             ) : null}
           </Fragment>
         ))}
-      </div>
-    </div>
-    <div style={{ height: "100px" }} />
+      </Section>
+    </Section>
+    <Section style={{ height: "100px" }} />
   </>
 );

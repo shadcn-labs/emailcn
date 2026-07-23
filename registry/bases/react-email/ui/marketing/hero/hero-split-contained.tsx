@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Column,
+  Section,
+  Text,
+  Heading,
+  Link,
+  Row,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -203,28 +217,35 @@ const getPreset = (variant: HeroSplitContainedVariant) => {
   return presets.portraitTop;
 };
 
-const resolveProps = ({
-  backgroundColor,
-  buttonBackgroundColor,
-  buttonTextColor,
-  ctaHref,
-  ctaLabel,
-  description,
-  eyebrow,
-  heading,
-  logoAlt,
-  logoSrc,
-  mutedTextColor,
-  pageBackgroundColor,
-  price,
-  primaryImageAlt,
-  primaryImageSrc,
-  secondaryImageAlt,
-  secondaryImageSrc,
-  subheading,
-  textColor,
-  variant = "single-image-left",
-}: Omit<HeroSplitContainedProps, "theme">): ResolvedProps => {
+const resolveProps = (
+  props: Omit<HeroSplitContainedProps, "theme">
+): ResolvedProps => {
+  const {
+    backgroundColor,
+    buttonBackgroundColor,
+    buttonTextColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    logoAlt,
+    logoSrc,
+    mutedTextColor,
+    pageBackgroundColor,
+    price,
+    primaryImageAlt,
+    primaryImageSrc,
+    secondaryImageAlt,
+    secondaryImageSrc,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    variant: "single-image-left" as HeroSplitContainedVariant,
+    ...props,
+  };
+
   const preset = getPreset(variant);
 
   return {
@@ -257,7 +278,7 @@ const ImagePanel = ({ props }: { props: ResolvedProps }) => {
 
   if (single) {
     return (
-      <td
+      <Column
         className="hero-contained-column hero-contained-single-image"
         style={{
           backgroundImage: `url(${props.primaryImageSrc})`,
@@ -269,26 +290,26 @@ const ImagePanel = ({ props }: { props: ResolvedProps }) => {
           width: "196px",
         }}
       >
-        <div style={{ padding: "44px 24px", textAlign: "center" }}>
-          <img
+        <Section style={{ padding: "44px 24px", textAlign: "center" }}>
+          <Img
             alt={props.logoAlt}
             src={props.logoSrc}
             width="165"
             style={{ maxWidth: "100%", verticalAlign: "middle" }}
           />
-        </div>
-      </td>
+        </Section>
+      </Column>
     );
   }
 
   return (
-    <td
+    <Column
       className="hero-contained-column hero-contained-image-panel"
       style={{ verticalAlign: "top", width: "244px" }}
     >
-      <div className="hero-contained-stack">
-        <div className="hero-contained-stack-first">
-          <img
+      <Section className="hero-contained-stack">
+        <Section className="hero-contained-stack-first">
+          <Img
             alt={props.primaryImageAlt}
             className={`hero-contained-stack-image${square ? " hero-contained-square-image" : ""}`}
             src={props.primaryImageSrc}
@@ -299,15 +320,15 @@ const ImagePanel = ({ props }: { props: ResolvedProps }) => {
               verticalAlign: "middle",
             }}
           />
-        </div>
-        <div
+        </Section>
+        <Section
           className="hero-contained-stack-gap"
           style={{ height: "24px", lineHeight: "24px" }}
         >
           &zwj;
-        </div>
-        <div className="hero-contained-stack-second">
-          <img
+        </Section>
+        <Section className="hero-contained-stack-second">
+          <Img
             alt={props.secondaryImageAlt}
             className={`hero-contained-stack-image${square ? " hero-contained-square-image" : ""}`}
             src={props.secondaryImageSrc}
@@ -318,9 +339,9 @@ const ImagePanel = ({ props }: { props: ResolvedProps }) => {
               verticalAlign: "middle",
             }}
           />
-        </div>
-      </div>
-    </td>
+        </Section>
+      </Section>
+    </Column>
   );
 };
 
@@ -328,7 +349,7 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
   const single = props.variant.startsWith("single-");
 
   return (
-    <td
+    <Column
       className="hero-contained-column hero-contained-content"
       style={{
         boxSizing: "border-box",
@@ -340,16 +361,18 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
     >
       {single ? null : (
         <>
-          <img
+          <Img
             alt={props.logoAlt}
             src={props.logoSrc}
             width="165"
             style={{ maxWidth: "100%", verticalAlign: "middle" }}
           />
-          <div style={{ height: "48px", lineHeight: "48px" }}>&zwj;</div>
+          <Section style={{ height: "48px", lineHeight: "48px" }}>
+            &zwj;
+          </Section>
         </>
       )}
-      <p
+      <Text
         style={{
           color: props.textColor,
           fontFamily,
@@ -360,8 +383,8 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
         }}
       >
         {props.eyebrow}
-      </p>
-      <h1
+      </Text>
+      <Heading
         style={{
           color: props.textColor,
           fontFamily,
@@ -370,10 +393,11 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
           lineHeight: "58px",
           margin: 0,
         }}
+        as="h1"
       >
         {props.heading}
-      </h1>
-      <p
+      </Heading>
+      <Text
         style={{
           color: props.textColor,
           fontFamily,
@@ -383,9 +407,9 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
         }}
       >
         {props.subheading}
-      </p>
-      <div style={{ height: "48px", lineHeight: "48px" }}>&zwj;</div>
-      <p
+      </Text>
+      <Section style={{ height: "48px", lineHeight: "48px" }}>&zwj;</Section>
+      <Text
         style={{
           color: props.mutedTextColor,
           fontFamily,
@@ -403,10 +427,10 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
             <span style={{ fontWeight: 700 }}>{props.price}</span>
           </>
         ) : null}
-      </p>
-      <div style={{ height: "24px", lineHeight: "24px" }}>&zwj;</div>
+      </Text>
+      <Section style={{ height: "24px", lineHeight: "24px" }}>&zwj;</Section>
       {props.ctaLabel && props.ctaHref ? (
-        <a
+        <Link
           href={props.ctaHref}
           style={{
             backgroundColor: props.buttonBackgroundColor,
@@ -422,25 +446,25 @@ const ContentPanel = ({ props }: { props: ResolvedProps }) => {
           }}
         >
           <span style={{ marginRight: "8px" }}>{props.ctaLabel}</span>
-          <img
+          <Img
             alt=""
             src={`${assetRoot}/icon-arrow-right.png`}
             width="12"
             style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           />
-        </a>
+        </Link>
       ) : null}
-    </td>
+    </Column>
   );
 };
 
 const SpacerColumn = () => (
-  <td
+  <Column
     className="hero-contained-column hero-contained-spacer"
     style={{ fontSize: 0, lineHeight: 0, width: "24px" }}
   >
     &zwj;
-  </td>
+  </Column>
 );
 
 export const HeroSplitContainedSection = (
@@ -452,27 +476,13 @@ export const HeroSplitContainedSection = (
   const content = <ContentPanel props={props} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: props.backgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "24px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ tableLayout: "fixed" }}
-              width="100%"
-            >
-              <tbody>
-                <tr>
+    <Section style={{ backgroundColor: props.backgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "24px" }}>
+            <Section style={{ tableLayout: "fixed" }} width="100%">
+              <Fragment>
+                <Row>
                   {imageLeft ? (
                     <>
                       {image}
@@ -486,13 +496,13 @@ export const HeroSplitContainedSection = (
                       {image}
                     </>
                   )}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

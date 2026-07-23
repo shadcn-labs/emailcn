@@ -1,4 +1,5 @@
-import { Link, Text } from "react-email";
+import { Fragment } from "react";
+import { Link, Text, Section, Row, Column } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
@@ -26,10 +27,10 @@ export const DividerWithIconButtonSection = ({
   variant = "center",
 }: Omit<DividerWithIconButtonProps, "theme">) => (
   <DividerFrame variant={variant}>
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
-          <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
+    <Section>
+      <Fragment>
+        <Row>
+          <Column style={{ paddingRight: "8px", verticalAlign: "middle" }}>
             <Text
               style={{
                 ...dividerTextStyle,
@@ -39,15 +40,15 @@ export const DividerWithIconButtonSection = ({
             >
               {icon}
             </Text>
-          </td>
-          <td style={{ verticalAlign: "middle" }}>
+          </Column>
+          <Column style={{ verticalAlign: "middle" }}>
             <Link href={href} style={dividerButtonStyle}>
               {label}
             </Link>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </DividerFrame>
 );
 

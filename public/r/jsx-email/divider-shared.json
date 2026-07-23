@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-shared",
+  "title": "Divider Shared",
+  "description": "Divider Shared email component",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
+    "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx",
+      "content": "import {\n  Body,\n  Container,\n  Head,\n  Html,\n  Preview,\n  Section,\n  Row,\n  Column,\n} from \"jsx-email\";\nimport type { CSSProperties, ReactNode } from \"react\";\nimport { Fragment } from \"react\";\n\nimport { DefaultFonts } from \"@/components/email/default\";\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nexport type DividerVariant = \"center\" | \"left\" | \"right\";\n\nexport const dividerColors = {\n  border: \"#e5e7eb\",\n  muted: \"#6b7280\",\n  mutedBackground: \"#f3f4f6\",\n  surface: \"#ffffff\",\n  text: \"#111827\",\n  white: \"#ffffff\",\n} as const;\n\nexport const dividerTextStyle: CSSProperties = {\n  color: dividerColors.text,\n  fontFamily:\n    '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif',\n  fontSize: \"14px\",\n  lineHeight: \"20px\",\n  margin: 0,\n};\n\nexport const dividerButtonStyle: CSSProperties = {\n  ...dividerTextStyle,\n  backgroundColor: dividerColors.text,\n  borderRadius: \"6px\",\n  color: dividerColors.white,\n  display: \"inline-block\",\n  fontSize: \"12px\",\n  fontWeight: 500,\n  lineHeight: \"18px\",\n  padding: \"8px 16px\",\n  textDecoration: \"none\",\n  whiteSpace: \"nowrap\",\n};\n\nconst dividerContentPadding: Record<DividerVariant, string> = {\n  center: \"0 16px\",\n  left: \"0 16px 0 0\",\n  right: \"0 0 0 16px\",\n};\n\nconst HorizontalRule = () => (\n  <Section\n    style={{\n      backgroundColor: dividerColors.border,\n      fontSize: 0,\n      height: \"1px\",\n      lineHeight: \"1px\",\n      width: \"100%\",\n    }}\n  >\n    &zwj;\n  </Section>\n);\n\nexport const DividerFrame = ({\n  children,\n  variant = \"center\",\n}: {\n  children: ReactNode;\n  variant?: DividerVariant;\n}) => {\n  const showLeftRule = variant !== \"left\";\n  const showRightRule = variant !== \"right\";\n  const contentPadding = dividerContentPadding[variant];\n\n  return (\n    <Section style={{ padding: \"24px 0\" }}>\n      <Section\n        style={{ borderCollapse: \"collapse\", width: \"100%\" }}\n        width=\"100%\"\n      >\n        <Fragment>\n          <Row>\n            {showLeftRule ? (\n              <Column style={{ verticalAlign: \"middle\", width: \"50%\" }}>\n                <HorizontalRule />\n              </Column>\n            ) : null}\n            <Column\n              style={{\n                padding: contentPadding,\n                verticalAlign: \"middle\",\n                whiteSpace: \"nowrap\",\n                width: \"1%\",\n              }}\n            >\n              {children}\n            </Column>\n            {showRightRule ? (\n              <Column style={{ verticalAlign: \"middle\", width: \"50%\" }}>\n                <HorizontalRule />\n              </Column>\n            ) : null}\n          </Row>\n        </Fragment>\n      </Section>\n    </Section>\n  );\n};\n\nexport const LineDividerSection = () => (\n  <Section style={{ padding: \"24px 0\" }}>\n    <HorizontalRule />\n  </Section>\n);\n\nexport const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (\n  <Section\n    style={{ fontSize: 0, height: `${height}px`, lineHeight: `${height}px` }}\n  >\n    &zwj;\n  </Section>\n);\n\nexport const SpacingEmailShell = ({\n  children,\n  preview,\n  theme,\n}: {\n  children: ReactNode;\n  preview: string;\n  theme: EmailThemeTokens;\n}) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>{preview}</Preview>\n    <Body style={{ backgroundColor: theme.colorBackground, margin: 0 }}>\n      <Container style={{ margin: \"0 auto\", maxWidth: theme.containerWidth }}>\n        {children}\n      </Container>\n    </Body>\n  </Html>\n);\n",
+      "type": "registry:component",
+      "target": "components/email/divider-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,5 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -164,17 +177,11 @@ const CTAContent = ({
   subtext,
   textColor,
 }: ResolvedProps) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td style={{ padding: "0 16px", textAlign: "center" }}>
-          <h2
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column style={{ padding: "0 16px", textAlign: "center" }}>
+          <Heading
             style={{
               color: headingColor,
               fontFamily,
@@ -184,11 +191,12 @@ const CTAContent = ({
               margin: 0,
               textAlign: "center",
             }}
+            as="h2"
           >
             {heading}
-          </h2>
-          <div style={{ lineHeight: "24px" }}>&zwj;</div>
-          <p
+          </Heading>
+          <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+          <Text
             style={{
               color: textColor,
               fontFamily,
@@ -200,9 +208,9 @@ const CTAContent = ({
             }}
           >
             {subtext}
-          </p>
-          <div style={{ lineHeight: "36px" }}>&zwj;</div>
-          <a
+          </Text>
+          <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+          <Link
             className="cta-shifted-button"
             href={ctaHref}
             style={{
@@ -220,11 +228,11 @@ const CTAContent = ({
             }}
           >
             {ctaLabel}
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Link>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 interface ImageProps {
@@ -246,7 +254,7 @@ const CTAImage = ({
   src,
   width,
 }: ImageProps) => (
-  <img
+  <Img
     alt={alt}
     className={className}
     src={src}
@@ -263,17 +271,11 @@ const CTAImage = ({
 
 const FlushSideImages = (props: ResolvedProps) => (
   <>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             className="cta-shifted-stack cta-shifted-full"
             style={{ verticalAlign: "top", width: "140px" }}
           >
@@ -286,19 +288,19 @@ const FlushSideImages = (props: ResolvedProps) => (
               src={props.imageSrc2}
               width={140}
             />
-          </td>
-          <td className="cta-shifted-stack cta-shifted-full cta-shifted-mobile-content">
+          </Column>
+          <Column className="cta-shifted-stack cta-shifted-full cta-shifted-mobile-content">
             <CTAContent {...props} />
-          </td>
-          <td
+          </Column>
+          <Column
             className="cta-shifted-desktop-only"
             style={{ verticalAlign: "top", width: "140px" }}
           >
             <CTAImage alt={props.imageAlt2} src={props.imageSrc2} width={140} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -309,17 +311,13 @@ const OffsetMobileImages = ({
   alternate: boolean;
   props: ResolvedProps;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
+  <Section
     className="cta-shifted-mobile-table"
-    role="presentation"
     style={{ display: "none", margin: "0 auto" }}
   >
-    <tbody>
-      <tr>
-        <td
+    <Fragment>
+      <Row>
+        <Column
           style={{ paddingTop: alternate ? 0 : "88px", verticalAlign: "top" }}
         >
           <CTAImage
@@ -328,9 +326,9 @@ const OffsetMobileImages = ({
             src={props.imageSrc1}
             width={140}
           />
-        </td>
-        <td style={{ width: "24px" }}>&zwj;</td>
-        <td
+        </Column>
+        <Column style={{ width: "24px" }}>&zwj;</Column>
+        <Column
           style={{ paddingTop: alternate ? "88px" : 0, verticalAlign: "top" }}
         >
           <CTAImage
@@ -339,10 +337,10 @@ const OffsetMobileImages = ({
             src={props.imageSrc2}
             width={140}
           />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const OffsetImages = ({
@@ -354,101 +352,98 @@ const OffsetImages = ({
 }) => (
   <>
     <OffsetMobileImages alternate={alternate} props={props} />
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             className="cta-shifted-desktop-only"
             style={{ verticalAlign: "top", width: "140px" }}
           >
-            {alternate ? null : <div style={{ lineHeight: "88px" }}>&zwj;</div>}
+            {alternate ? null : (
+              <Section style={{ lineHeight: "88px" }}>&zwj;</Section>
+            )}
             <CTAImage
               alt={props.imageAlt1}
               borderRadius="0 4px 4px 0"
               src={props.imageSrc1}
               width={140}
             />
-          </td>
-          <td className="cta-shifted-stack cta-shifted-full cta-shifted-mobile-content">
+          </Column>
+          <Column className="cta-shifted-stack cta-shifted-full cta-shifted-mobile-content">
             <CTAContent {...props} />
-          </td>
-          <td
+          </Column>
+          <Column
             className="cta-shifted-desktop-only"
             style={{ verticalAlign: "top", width: "140px" }}
           >
-            {alternate ? <div style={{ lineHeight: "88px" }}>&zwj;</div> : null}
+            {alternate ? (
+              <Section style={{ lineHeight: "88px" }}>&zwj;</Section>
+            ) : null}
             <CTAImage
               alt={props.imageAlt2}
               borderRadius="4px 0 0 4px"
               src={props.imageSrc2}
               width={140}
             />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
 const CollageImages = (props: ResolvedProps) => (
   <>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      className="cta-shifted-collage-row"
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td className="cta-shifted-collage-edge" style={{ width: "124px" }}>
-            <div style={{ lineHeight: "88px" }}>&zwj;</div>
+    <Section className="cta-shifted-collage-row" width="100%">
+      <Fragment>
+        <Row>
+          <Column
+            className="cta-shifted-collage-edge"
+            style={{ width: "124px" }}
+          >
+            <Section style={{ lineHeight: "88px" }}>&zwj;</Section>
             <CTAImage
               alt={props.imageAlt1}
               borderRadius="0 4px 4px 0"
               src={props.imageSrc1}
               width={124}
             />
-          </td>
-          <td style={{ width: "24px" }}>&zwj;</td>
-          <td style={{ width: "140px" }}>
+          </Column>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+          <Column style={{ width: "140px" }}>
             <CTAImage
               alt={props.imageAlt2}
               borderRadius="4px"
               src={props.imageSrc2}
               width={140}
             />
-          </td>
-          <td style={{ width: "24px" }}>&zwj;</td>
-          <td style={{ width: "140px" }}>
-            <div style={{ lineHeight: "88px" }}>&zwj;</div>
+          </Column>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+          <Column style={{ width: "140px" }}>
+            <Section style={{ lineHeight: "88px" }}>&zwj;</Section>
             <CTAImage
               alt={props.imageAlt3}
               borderRadius="4px"
               src={props.imageSrc3}
               width={140}
             />
-          </td>
-          <td style={{ width: "24px" }}>&zwj;</td>
-          <td className="cta-shifted-collage-edge" style={{ width: "124px" }}>
+          </Column>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+          <Column
+            className="cta-shifted-collage-edge"
+            style={{ width: "124px" }}
+          >
             <CTAImage
               alt={props.imageAlt4}
               borderRadius="4px 0 0 4px"
               src={props.imageSrc4}
               width={124}
             />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
     <CTAContent {...props} />
   </>
 );
@@ -486,18 +481,14 @@ export const CTAWithShiftedImagesSection = (props: SectionProps) => {
     variant === "images-offset" || variant === "images-offset-alt";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -507,11 +498,11 @@ export const CTAWithShiftedImagesSection = (props: SectionProps) => {
             }}
           >
             <VariantLayout props={resolved} variant={variant} />
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

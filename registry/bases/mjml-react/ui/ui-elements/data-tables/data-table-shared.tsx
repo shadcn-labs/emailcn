@@ -4,10 +4,12 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
+  MjmlColumn,
+  MjmlSection,
+  MjmlTable,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
@@ -33,12 +35,6 @@ const colors = {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const tableStyle: CSSProperties = {
-  borderCollapse: "separate",
-  borderSpacing: 0,
-  width: "100%",
-};
 
 export type DataTableAlignment = "center" | "left" | "right";
 
@@ -69,18 +65,17 @@ export const DataTableFrame = ({
   headers: readonly string[];
   rows: readonly (readonly DataTableCell[])[];
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
+  <MjmlTable
+    border={`1px solid ${colors.border}`}
+    cellpadding="0"
+    cellspacing="0"
+    fontFamily={fontFamily}
+    fontSize="14px"
+    lineHeight="20px"
+    padding="0"
     role="presentation"
-    style={{
-      ...tableStyle,
-      border: `1px solid ${colors.border}`,
-      borderRadius: "8px",
-      overflow: "hidden",
-      tableLayout: "fixed",
-    }}
+    tableLayout="fixed"
+    width="100%"
   >
     <tbody>
       <tr>
@@ -133,7 +128,7 @@ export const DataTableFrame = ({
         </tr>
       ))}
     </tbody>
-  </table>
+  </MjmlTable>
 );
 
 export const DataTableText = ({
@@ -275,18 +270,17 @@ export const DataTableProgress = ({ value }: { value: number }) => {
   const progress = clamp(value);
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
+    <MjmlTable
+      cellpadding="0"
+      cellspacing="0"
+      fontFamily={fontFamily}
+      fontSize="10px"
+      fontWeight="600"
+      lineHeight="20px"
+      padding="0"
       role="presentation"
-      style={{
-        ...tableStyle,
-        backgroundColor: colors.track,
-        borderRadius: "9999px",
-        overflow: "hidden",
-        tableLayout: "fixed",
-      }}
+      tableLayout="fixed"
+      width="100%"
     >
       <tbody>
         <tr>
@@ -324,7 +318,7 @@ export const DataTableProgress = ({ value }: { value: number }) => {
           ) : null}
         </tr>
       </tbody>
-    </table>
+    </MjmlTable>
   );
 };
 
@@ -344,9 +338,9 @@ export const DataTableEmailShell = ({
     </MjmlHead>
     <MjmlBody backgroundColor={colors.canvas} width={theme.containerWidth}>
       <MjmlWrapper backgroundColor={colors.surface} padding="44px 24px">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>{children}</div>
-        </MjmlRaw>
+        <MjmlSection padding="0">
+          <MjmlColumn padding="0">{children}</MjmlColumn>
+        </MjmlSection>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

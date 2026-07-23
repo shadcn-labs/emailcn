@@ -1,5 +1,15 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -84,28 +94,24 @@ type SectionProps = Omit<FooterWithLegalTextProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const Divider = ({ color, margin }: { color: string; margin: string }) => (
-  <div
+  <Section
     style={{ backgroundColor: color, height: "1px", lineHeight: "1px", margin }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 export const FooterWithLegalTextSection = (props: SectionProps) => {
   const resolved = { ...defaults, ...props } as ResolvedProps;
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -113,27 +119,16 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "left" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "left" }}>
                     <Divider color={resolved.dividerColor} margin="0 0 36px" />
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                    >
-                      <tbody>
-                        <tr>
+                    <Section>
+                      <Fragment>
+                        <Row>
                           {resolved.links.map((link, index) => (
-                            <td
+                            <Column
                               key={link.href}
                               style={
                                 index === resolved.links.length - 1
@@ -141,7 +136,7 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                                   : { paddingRight: "24px" }
                               }
                             >
-                              <a
+                              <Link
                                 href={link.href}
                                 style={{
                                   color: resolved.textColor,
@@ -153,23 +148,18 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                                 }}
                               >
                                 {link.label}
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                    >
-                      <tbody>
-                        <tr>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    <Section>
+                      <Fragment>
+                        <Row>
                           {resolved.socials.map((social, index) => (
-                            <td
+                            <Column
                               key={social.href}
                               style={
                                 index === resolved.socials.length - 1
@@ -177,8 +167,8 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                                   : { paddingRight: "24px" }
                               }
                             >
-                              <a href={social.href}>
-                                <img
+                              <Link href={social.href}>
+                                <Img
                                   alt={social.label}
                                   src={social.iconSrc}
                                   style={{
@@ -187,18 +177,18 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                                   }}
                                   width={20}
                                 />
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
                     <Divider
                       color={resolved.dividerColor}
                       margin="36px 0 24px"
                     />
-                    <div style={{ margin: "24px 0" }}>
-                      <p
+                    <Section style={{ margin: "24px 0" }}>
+                      <Text
                         style={{
                           color: resolved.textColor,
                           fontFamily,
@@ -220,9 +210,9 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                               {paragraph}
                             </Fragment>
                           ))}
-                      </p>
-                    </div>
-                    <p
+                      </Text>
+                    </Section>
+                    <Text
                       style={{
                         color: resolved.copyrightColor,
                         fontFamily,
@@ -232,9 +222,9 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                       }}
                     >
                       © 2026 emailcn. All rights reserved.
-                    </p>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
+                    </Text>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.mutedTextColor,
                         fontFamily,
@@ -246,7 +236,7 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                       You're receiving this because you subscribed to updates.{" "}
                       <br className="footer-legal-break" /> No longer want to
                       receive emails?{" "}
-                      <a
+                      <Link
                         href={resolved.unsubscribeHref}
                         style={{
                           color: resolved.mutedTextColor,
@@ -254,17 +244,17 @@ export const FooterWithLegalTextSection = (props: SectionProps) => {
                         }}
                       >
                         Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                      </Link>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

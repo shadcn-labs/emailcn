@@ -1,4 +1,12 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import {
+  MjmlButton,
+  MjmlColumn,
+  MjmlDivider,
+  MjmlImage,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
+} from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
 export type OrderSummaryAlignment = "left" | "right" | "centered" | "justified";
@@ -48,381 +56,75 @@ export type BillingInlineVariant =
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 430px) {
-    .order-detail-column { display: block !important; width: 100% !important; }
-    .order-detail-gap { line-height: 44px !important; }
+export const orderSummaryResponsiveStyles = "";
+
+const alignmentFor = (
+  alignment: OrderSummaryAlignment
+): "center" | "left" | "right" => {
+  if (alignment === "centered") {
+    return "center";
   }
-`;
+  return alignment === "right" ? "right" : "left";
+};
 
-const textStyle = { fontFamily, margin: 0 } as const;
+const SummaryLine = ({
+  alignment,
+  amount,
+  label,
+  total = false,
+}: {
+  alignment: OrderSummaryAlignment;
+  amount: string;
+  label: string;
+  total?: boolean;
+}) => (
+  <MjmlText
+    align={alignmentFor(alignment)}
+    color={total ? "#4f46e5" : "#4b5563"}
+    fontFamily={fontFamily}
+    fontSize={total ? "24px" : "16px"}
+    fontWeight={total ? "600" : "500"}
+    lineHeight={total ? "32px" : "24px"}
+    padding="0 0 16px"
+  >
+    {label} {alignment === "justified" ? "—" : "·"} {amount}
+  </MjmlText>
+);
 
-const EmailShell = ({ children }: { children: ReactNode }) => (
+const PaymentMethod = () => (
   <>
-    <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+    <MjmlImage
+      align="left"
+      alt="Visa"
+      padding="0"
+      src="https://emailcn.vercel.app/api/email-assets/icon-card-visa.png"
+      width="40px"
+    />
+    <MjmlText
+      color="#4b5563"
+      fontFamily={fontFamily}
+      fontSize="12px"
+      fontWeight="500"
+      lineHeight="16px"
+      padding="8px 0 0"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: "#fffffe",
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    {children}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      Visa ····6754
+    </MjmlText>
+    <MjmlButton
+      align="left"
+      backgroundColor="transparent"
+      color="#4f46e5"
+      fontFamily={fontFamily}
+      fontSize="14px"
+      href="https://example.com"
+      innerPadding="0"
+      lineHeight="20px"
+      padding="4px 0 0"
+    >
+      Change
+    </MjmlButton>
   </>
 );
-
-const Divider = ({ margin = 24 }: { margin?: number }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td>
-          <div
-            style={{
-              backgroundColor: "#d1d5db",
-              height: "1px",
-              lineHeight: "1px",
-              margin: `${margin}px 0`,
-            }}
-          >
-            &zwj;
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const CardMethod = () => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td>
-          <img
-            alt=""
-            src="https://emailcn.vercel.app/api/email-assets/icon-card-visa.png"
-            style={{ maxWidth: "100%", verticalAlign: "middle" }}
-            width="40"
-          />
-        </td>
-        <td style={{ width: "8px" }}>&zwj;</td>
-        <td
-          style={{
-            color: "#4b5563",
-            fontFamily,
-            fontSize: "12px",
-            fontWeight: 500,
-            lineHeight: "16px",
-          }}
-        >
-          ****6754
-        </td>
-        <td style={{ width: "8px" }}>&zwj;</td>
-        <td>|</td>
-        <td style={{ width: "8px" }}>&zwj;</td>
-        <td>
-          <a
-            href="https://example.com"
-            style={{
-              color: "#4f46e5",
-              fontFamily,
-              fontSize: "14px",
-              lineHeight: "20px",
-              textDecoration: "none",
-            }}
-          >
-            Change
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const PaymentMethod = ({
-  amount,
-  centered = false,
-}: {
-  amount?: string;
-  centered?: boolean;
-}) => {
-  if (!amount) {
-    return <CardMethod />;
-  }
-
-  return (
-    <table
-      align={centered ? "center" : undefined}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{
-        margin: centered ? "0 auto" : undefined,
-        width: centered ? undefined : "100%",
-      }}
-    >
-      <tbody>
-        <tr>
-          <td>
-            <CardMethod />
-          </td>
-          {centered ? (
-            <td
-              style={{
-                fontFamily,
-                fontSize: "12px",
-                lineHeight: "16px",
-                padding: "0 12px",
-              }}
-            >
-              |
-            </td>
-          ) : null}
-          <td
-            style={{
-              color: "#4b5563",
-              fontFamily,
-              fontSize: "12px",
-              fontWeight: 500,
-              lineHeight: "16px",
-              textAlign: "right",
-            }}
-          >
-            {amount}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
-const alignmentStyles = (alignment: OrderSummaryAlignment) => {
-  if (alignment === "left") {
-    return {
-      amountAlign: "left" as const,
-      amountWidth: undefined,
-      labelAlign: "left" as const,
-      labelWidth: "96px",
-    };
-  }
-  if (alignment === "right") {
-    return {
-      amountAlign: "right" as const,
-      amountWidth: "96px",
-      labelAlign: "right" as const,
-      labelWidth: undefined,
-    };
-  }
-  if (alignment === "centered") {
-    return {
-      amountAlign: "left" as const,
-      amountWidth: "50%",
-      labelAlign: "right" as const,
-      labelWidth: "50%",
-    };
-  }
-  return {
-    amountAlign: "right" as const,
-    amountWidth: "50%",
-    labelAlign: "left" as const,
-    labelWidth: "50%",
-  };
-};
-
-const SummaryRow = ({
-  amount,
-  alignment,
-  label,
-  padded,
-  topPadded = false,
-}: {
-  amount: string;
-  alignment: OrderSummaryAlignment;
-  label: string;
-  padded: boolean;
-  topPadded?: boolean;
-}) => {
-  const styles = alignmentStyles(alignment);
-  return (
-    <tr>
-      <td
-        style={{
-          paddingLeft: padded ? "12px" : undefined,
-          paddingTop: topPadded ? "12px" : undefined,
-          textAlign: styles.labelAlign,
-          width: styles.labelWidth,
-        }}
-      >
-        {label}
-      </td>
-      <td style={{ width: "16px" }}>&zwj;</td>
-      <td
-        style={{
-          paddingRight: padded ? "12px" : undefined,
-          paddingTop: topPadded ? "12px" : undefined,
-          textAlign: styles.amountAlign,
-          width: styles.amountWidth,
-        }}
-      >
-        {amount}
-      </td>
-    </tr>
-  );
-};
-
-const TotalRow = ({
-  alignment,
-  boxed,
-  connected,
-  large,
-  position,
-}: {
-  alignment: OrderSummaryAlignment;
-  boxed: boolean;
-  connected: boolean;
-  large: boolean;
-  position: "top" | "bottom";
-}) => {
-  const styles = alignmentStyles(alignment);
-  if (boxed && position === "top") {
-    return (
-      <tr>
-        <td
-          style={{
-            backgroundColor: "#f3f4f6",
-            borderBottomLeftRadius: connected ? undefined : "4px",
-            borderTopLeftRadius: "4px",
-            color: "#4f46e5",
-            fontWeight: 600,
-            padding: "12px",
-            textAlign: styles.labelAlign,
-            width: styles.labelWidth,
-          }}
-        >
-          Total
-        </td>
-        <td style={{ backgroundColor: "#f3f4f6", width: "16px" }}>&zwj;</td>
-        <td
-          style={{
-            backgroundColor: "#f3f4f6",
-            borderBottomRightRadius: connected ? undefined : "4px",
-            borderTopRightRadius: "4px",
-            color: "#4f46e5",
-            fontWeight: 600,
-            paddingRight: "12px",
-            textAlign: styles.amountAlign,
-            width: styles.amountWidth,
-          }}
-        >
-          $35.98
-        </td>
-      </tr>
-    );
-  }
-
-  return boxed ? (
-    <tr>
-      <td
-        colSpan={3}
-        style={{
-          backgroundColor: "#f3f4f6",
-          borderBottomLeftRadius: "4px",
-          borderBottomRightRadius: "4px",
-          borderTopLeftRadius: connected ? undefined : "4px",
-          borderTopRightRadius: connected ? undefined : "4px",
-          padding: "12px",
-        }}
-      >
-        <table
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
-          style={{
-            color: "#4f46e5",
-            fontWeight: 600,
-            tableLayout: "fixed",
-            width: "100%",
-          }}
-        >
-          <tbody>
-            <SummaryRow
-              alignment={alignment}
-              amount="$35.98"
-              label="Total"
-              padded={false}
-            />
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  ) : (
-    <tr>
-      <td
-        style={{
-          color: "#4f46e5",
-          fontSize: large ? "24px" : "16px",
-          fontWeight: 600,
-          lineHeight: large ? "32px" : "24px",
-          textAlign: styles.labelAlign,
-          width: styles.labelWidth,
-        }}
-      >
-        Total
-      </td>
-      <td style={{ width: "16px" }}>&zwj;</td>
-      <td
-        style={{
-          color: "#4f46e5",
-          fontSize: large ? "24px" : "16px",
-          fontWeight: 600,
-          lineHeight: large ? "32px" : "24px",
-          textAlign: styles.amountAlign,
-          width: styles.amountWidth,
-        }}
-      >
-        $35.98
-      </td>
-    </tr>
-  );
-};
 
 interface TableSectionProps {
   alignment: OrderSummaryAlignment;
@@ -440,280 +142,96 @@ export const OrderSummaryTableSection = ({
   totalPosition,
 }: TableSectionProps) => {
   const boxed = surface === "boxed";
-  const summaryRows = (
-    <>
-      <SummaryRow
-        alignment={alignment}
-        amount="$29.99"
-        label="Subtotal"
-        padded={boxed}
-        topPadded={boxed && filled && totalPosition === "bottom"}
-      />
-      <tr>
-        <td colSpan={3} style={{ lineHeight: "16px" }}>
-          &zwj;
-        </td>
-      </tr>
-      <SummaryRow
-        alignment={alignment}
-        amount="$5.99"
-        label="Tax"
-        padded={boxed}
-      />
-      <tr>
-        <td colSpan={3} style={{ lineHeight: "16px" }}>
-          &zwj;
-        </td>
-      </tr>
-      <SummaryRow
-        alignment={alignment}
-        amount="FREE"
-        label="Shipping"
-        padded={boxed}
-      />
-    </>
+  const total = (
+    <SummaryLine alignment={alignment} amount="$35.98" label="Total" total />
   );
 
   return (
-    <EmailShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{
-          backgroundColor: boxed && filled ? "#f9fafb" : undefined,
-          borderRadius: boxed && filled ? "4px" : undefined,
-          color: "#4b5563",
-          fontFamily,
-          fontSize: "16px",
-          fontWeight: 500,
-          lineHeight: "24px",
-          tableLayout: "fixed",
-          width: "100%",
-        }}
+    <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
+      <MjmlColumn
+        backgroundColor={boxed && filled ? "#f9fafb" : "#fffffe"}
+        border={boxed ? undefined : "1px solid #d1d5db"}
+        borderRadius="4px"
+        padding={boxed ? "20px" : "20px 24px"}
       >
-        <tbody>
-          {totalPosition === "top" ? (
-            <>
-              <TotalRow
-                alignment={alignment}
-                boxed={boxed}
-                connected={filled}
-                large={cardDetails && !boxed}
-                position="top"
-              />
-              {boxed ? (
-                <tr>
-                  <td colSpan={3} style={{ lineHeight: "16px" }}>
-                    &zwj;
-                  </td>
-                </tr>
-              ) : (
-                <tr>
-                  <td colSpan={3}>
-                    <Divider />
-                  </td>
-                </tr>
-              )}
-            </>
-          ) : null}
-          {summaryRows}
-          {totalPosition === "bottom" ? (
-            <>
-              {boxed ? (
-                <tr>
-                  <td colSpan={3} style={{ lineHeight: "16px" }}>
-                    &zwj;
-                  </td>
-                </tr>
-              ) : (
-                <tr>
-                  <td colSpan={3}>
-                    <Divider />
-                  </td>
-                </tr>
-              )}
-              <TotalRow
-                alignment={alignment}
-                boxed={boxed}
-                connected={filled}
-                large={cardDetails && !boxed}
-                position="bottom"
-              />
-            </>
-          ) : null}
-          {cardDetails ? (
-            <tr>
-              <td
-                colSpan={3}
-                style={{
-                  backgroundColor: boxed ? "#fffffe" : undefined,
-                  padding: boxed ? "0 12px" : 0,
-                }}
-              >
-                {boxed ? (
-                  <div style={{ lineHeight: "16px" }}>&zwj;</div>
-                ) : (
-                  <Divider margin={16} />
-                )}
-                <p
-                  style={{
-                    ...textStyle,
-                    color: "#030712",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    marginBottom: "8px",
-                    textAlign: alignment === "centered" ? "center" : undefined,
-                  }}
-                >
-                  Amount charged
-                </p>
-                <PaymentMethod
-                  amount="$35.98"
-                  centered={alignment === "centered"}
-                />
-              </td>
-            </tr>
-          ) : null}
-        </tbody>
-      </table>
-    </EmailShell>
+        {totalPosition === "top" ? (
+          <>
+            {total}
+            <MjmlDivider
+              borderColor="#d1d5db"
+              borderWidth="1px"
+              padding="8px 0 24px"
+            />
+          </>
+        ) : null}
+        <SummaryLine alignment={alignment} amount="$29.99" label="Subtotal" />
+        <SummaryLine alignment={alignment} amount="$5.99" label="Tax" />
+        <SummaryLine alignment={alignment} amount="FREE" label="Shipping" />
+        {totalPosition === "bottom" ? (
+          <>
+            <MjmlDivider
+              borderColor="#d1d5db"
+              borderWidth="1px"
+              padding="8px 0 24px"
+            />
+            {total}
+          </>
+        ) : null}
+        {cardDetails ? (
+          <>
+            <MjmlDivider
+              borderColor="#d1d5db"
+              borderWidth="1px"
+              padding="8px 0 16px"
+            />
+            <MjmlText
+              align={alignment === "centered" ? "center" : "left"}
+              color="#030712"
+              fontFamily={fontFamily}
+              fontSize="14px"
+              fontWeight="600"
+              lineHeight="20px"
+              padding="0 0 8px"
+            >
+              Amount charged
+            </MjmlText>
+            <PaymentMethod />
+          </>
+        ) : null}
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
-const DetailText = ({ children }: { children: ReactNode }) => (
-  <p
-    style={{
-      ...textStyle,
-      color: "#4b5563",
-      fontSize: "16px",
-      lineHeight: "24px",
-    }}
-  >
-    {children}
-  </p>
-);
-
 const DetailBlock = ({
   children,
-  gap = 0,
   title,
 }: {
   children?: ReactNode;
-  gap?: number;
   title: string;
 }) => (
   <>
-    <h3
-      style={{
-        ...textStyle,
-        color: "#030712",
-        fontSize: "14px",
-        fontWeight: 600,
-        lineHeight: "20px",
-      }}
+    <MjmlText
+      color="#030712"
+      fontFamily={fontFamily}
+      fontSize="14px"
+      fontWeight="600"
+      lineHeight="20px"
+      padding="0 0 8px"
     >
       {title}
-    </h3>
-    {gap > 0 ? <div style={{ lineHeight: `${gap}px` }}>&zwj;</div> : null}
-    {children}
+    </MjmlText>
+    <MjmlText
+      color="#4b5563"
+      fontFamily={fontFamily}
+      fontSize="16px"
+      lineHeight="24px"
+      padding="0"
+    >
+      {children}
+    </MjmlText>
   </>
 );
-
-const TwoColumnDetails = ({
-  left,
-  right,
-}: {
-  left: ReactNode;
-  right: ReactNode;
-}) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
-          className="order-detail-column"
-          style={{ verticalAlign: "top", width: "254px" }}
-        >
-          {left}
-        </td>
-        <td
-          className="order-detail-column order-detail-gap"
-          style={{ width: "44px" }}
-        >
-          &zwj;
-        </td>
-        <td
-          className="order-detail-column"
-          style={{ verticalAlign: "top", width: "254px" }}
-        >
-          {right}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const AddressColumns = () => (
-  <TwoColumnDetails
-    left={
-      <DetailBlock title="Billing address">
-        <DetailText>
-          1234 Maplewood Drive
-          <br /> Springfield,
-          <br /> IL 62704
-        </DetailText>
-      </DetailBlock>
-    }
-    right={
-      <DetailBlock title="Shipping address">
-        <DetailText>
-          782 Oceanview Avenue
-          <br /> Santa Monica,
-          <br /> CA 90401
-        </DetailText>
-      </DetailBlock>
-    }
-  />
-);
-
-const FedExShipping = () => (
-  <>
-    <div>
-      <img
-        alt="FedEx"
-        src="https://emailcn.vercel.app/api/email-assets/order-summary/logo-fedex.png"
-        width="78"
-      />
-    </div>
-    <DetailText>Takes up to 2 working days</DetailText>
-  </>
-);
-
-const DhlShipping = () => (
-  <DetailText>
-    DHL
-    <br /> Takes up to 2 working days
-  </DetailText>
-);
-
-const NotesText = ({ splitLine = false }: { splitLine?: boolean }) => (
-  <DetailText>
-    Ring buzzer for Apt 3B, or call when outside.
-    {splitLine ? <br /> : " "}
-    Elevator is on the left.
-  </DetailText>
-);
-
-const SectionGap = ({ bordered }: { bordered: boolean }) =>
-  bordered ? <Divider /> : <div style={{ lineHeight: "44px" }}>&zwj;</div>;
 
 export const BillingDetailsSection = ({
   layout,
@@ -727,62 +245,80 @@ export const BillingDetailsSection = ({
   const payment =
     layout === "top" &&
     (variant.includes("with-payment") || variant.includes("full-details"));
+  const columnBorder = bordered ? "1px solid #d1d5db" : undefined;
 
   return (
-    <EmailShell>
+    <>
       {payment ? (
-        <>
-          <DetailBlock gap={8} title="Payment method">
-            <PaymentMethod />
+        <MjmlSection backgroundColor="#fffffe" padding="44px 24px 0">
+          <MjmlColumn border={columnBorder} padding="20px">
+            <DetailBlock title="Payment method">Visa ····6754</DetailBlock>
+          </MjmlColumn>
+        </MjmlSection>
+      ) : null}
+      <MjmlSection
+        backgroundColor="#fffffe"
+        padding={payment ? "24px 24px 0" : "44px 24px 0"}
+      >
+        <MjmlColumn
+          border={columnBorder}
+          padding="20px"
+          verticalAlign="top"
+          width="50%"
+        >
+          <DetailBlock title="Billing address">
+            1234 Maplewood Drive, Springfield, IL 62704
           </DetailBlock>
-          <SectionGap bordered={bordered} />
-        </>
-      ) : null}
-
-      <AddressColumns />
-      <SectionGap bordered={bordered} />
-
-      {layout === "inline" ? (
-        <TwoColumnDetails
-          left={
-            <DetailBlock title="Shipping method">
-              {bordered ? <FedExShipping /> : <DhlShipping />}
-            </DetailBlock>
-          }
-          right={
-            <DetailBlock gap={8} title="Payment method">
-              <PaymentMethod />
-            </DetailBlock>
-          }
-        />
-      ) : bordered ? (
-        <TwoColumnDetails
-          left={<DetailBlock title="Shipping method" />}
-          right={notes ? <DhlShipping /> : <FedExShipping />}
-        />
-      ) : (
-        <DetailBlock title="Shipping method">
-          <DhlShipping />
-        </DetailBlock>
-      )}
-
+        </MjmlColumn>
+        <MjmlColumn
+          border={columnBorder}
+          padding="20px"
+          verticalAlign="top"
+          width="50%"
+        >
+          <DetailBlock title="Shipping address">
+            782 Oceanview Avenue, Santa Monica, CA 90401
+          </DetailBlock>
+        </MjmlColumn>
+      </MjmlSection>
+      <MjmlSection backgroundColor="#fffffe" padding="24px 24px 0">
+        <MjmlColumn
+          border={columnBorder}
+          padding="20px"
+          verticalAlign="top"
+          width={layout === "inline" ? "50%" : "100%"}
+        >
+          <DetailBlock title="Shipping method">
+            {bordered ? "FedEx" : "DHL"} · Takes up to 2 working days
+          </DetailBlock>
+        </MjmlColumn>
+        {layout === "inline" ? (
+          <MjmlColumn
+            border={columnBorder}
+            padding="20px"
+            verticalAlign="top"
+            width="50%"
+          >
+            <DetailBlock title="Payment method">Visa ····6754</DetailBlock>
+          </MjmlColumn>
+        ) : null}
+      </MjmlSection>
       {notes ? (
-        <>
-          <SectionGap bordered={bordered} />
-          {bordered ? (
-            <TwoColumnDetails
-              left={<DetailBlock title="Additional notes" />}
-              right={<NotesText />}
-            />
-          ) : (
+        <MjmlSection backgroundColor="#fffffe" padding="24px">
+          <MjmlColumn border={columnBorder} padding="20px">
             <DetailBlock title="Additional notes">
-              <NotesText splitLine={true} />
+              Ring buzzer for Apt 3B, or call when outside. Elevator is on the
+              left.
             </DetailBlock>
-          )}
-        </>
-      ) : null}
-    </EmailShell>
+          </MjmlColumn>
+        </MjmlSection>
+      ) : (
+        <MjmlSection backgroundColor="#fffffe" padding="0">
+          <MjmlColumn padding="0">
+            <MjmlSpacer height="44px" />
+          </MjmlColumn>
+        </MjmlSection>
+      )}
+    </>
   );
 };
-
-export { responsiveStyles as orderSummaryResponsiveStyles };

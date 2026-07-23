@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Text,
+  Link,
+  Section,
+  Row,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -65,13 +76,13 @@ const LinkColumn = ({
   headingColor: string;
   textColor: string;
 }) => (
-  <td
+  <Column
     style={{
       paddingRight: heading === "Quick Links" ? "64px" : 0,
       verticalAlign: "top",
     }}
   >
-    <p
+    <Text
       style={{
         color: headingColor,
         fontFamily,
@@ -82,10 +93,10 @@ const LinkColumn = ({
       }}
     >
       {heading}
-    </p>
+    </Text>
     {links.map(([label, href]) => (
-      <p key={href} style={{ margin: "0 0 8px" }}>
-        <a
+      <Text key={href} style={{ margin: "0 0 8px" }}>
+        <Link
           href={href}
           style={{
             color: textColor,
@@ -96,10 +107,10 @@ const LinkColumn = ({
           }}
         >
           {label}
-        </a>
-      </p>
+        </Link>
+      </Text>
     ))}
-  </td>
+  </Column>
 );
 
 export const FooterWith2ColumnMenuAndDividerSection = ({
@@ -115,18 +126,11 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
   legalColor = "#9ca3af",
   unsubscribeHref = "https://example.com/unsub",
 }: Omit<FooterWith2ColumnMenuAndDividerProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -134,34 +138,17 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
             width: "600px",
           }}
         >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px", textAlign: "left" }}>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
-                        <td style={{ verticalAlign: "top" }}>
-                          <table
-                            border={0}
-                            cellPadding={0}
-                            cellSpacing={0}
-                            role="presentation"
-                          >
-                            <tbody>
-                              <tr>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ padding: "0 24px", textAlign: "left" }}>
+                  <Section width="100%">
+                    <Fragment>
+                      <Row>
+                        <Column style={{ verticalAlign: "top" }}>
+                          <Section>
+                            <Fragment>
+                              <Row>
                                 <LinkColumn
                                   heading="Quick Links"
                                   headingColor={headingColor}
@@ -174,14 +161,14 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                                   links={legalLinks}
                                   textColor={textColor}
                                 />
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div
+                              </Row>
+                            </Fragment>
+                          </Section>
+                        </Column>
+                      </Row>
+                      <Row>
+                        <Column>
+                          <Section
                             style={{
                               backgroundColor: dividerColor,
                               height: "1px",
@@ -190,18 +177,18 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                             }}
                           >
                             &zwj;
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
+                          </Section>
+                        </Column>
+                      </Row>
+                      <Row>
+                        <Column
                           style={{
                             textAlign:
                               variant === "right-logo" ? "right" : "left",
                           }}
                         >
-                          <a href={logoHref}>
-                            <img
+                          <Link href={logoHref}>
+                            <Img
                               alt={logoAlt}
                               src={logoSrc}
                               style={{
@@ -210,26 +197,22 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                               }}
                               width={64}
                             />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style={{ lineHeight: "24px" }}>&zwj;</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <table
-                            border={0}
-                            cellPadding={0}
-                            cellSpacing={0}
-                            role="presentation"
+                          </Link>
+                        </Column>
+                      </Row>
+                      <Row>
+                        <Column style={{ lineHeight: "24px" }}>&zwj;</Column>
+                      </Row>
+                      <Row>
+                        <Column>
+                          <Section
                             style={{ tableLayout: "fixed" }}
                             width="100%"
                           >
-                            <tbody>
-                              <tr>
-                                <td className="footer-divider-legal">
-                                  <p
+                            <Fragment>
+                              <Row>
+                                <Column className="footer-divider-legal">
+                                  <Text
                                     style={{
                                       color: legalColor,
                                       fontFamily,
@@ -239,8 +222,8 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                                     }}
                                   >
                                     © 2026 emailcn. All rights reserved.
-                                  </p>
-                                  <p
+                                  </Text>
+                                  <Text
                                     style={{
                                       color: legalColor,
                                       fontFamily,
@@ -250,7 +233,7 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                                     }}
                                   >
                                     No longer want to receive emails?{" "}
-                                    <a
+                                    <Link
                                       href={unsubscribeHref}
                                       style={{
                                         color: legalColor,
@@ -258,33 +241,29 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                                       }}
                                     >
                                       Unsubscribe
-                                    </a>
-                                  </p>
-                                </td>
-                                <td
+                                    </Link>
+                                  </Text>
+                                </Column>
+                                <Column
                                   className="footer-divider-social-cell"
                                   style={{
                                     paddingLeft: "44px",
                                     verticalAlign: "top",
                                   }}
                                 >
-                                  <table
+                                  <Section
                                     align="right"
-                                    border={0}
-                                    cellPadding={0}
-                                    cellSpacing={0}
                                     className="footer-divider-socials"
-                                    role="presentation"
                                     style={{
                                       float: "right",
                                       marginLeft: "auto",
                                     }}
                                   >
-                                    <tbody>
-                                      <tr>
+                                    <Fragment>
+                                      <Row>
                                         {socials.map(
                                           ([label, href, icon], index) => (
-                                            <td
+                                            <Column
                                               key={label}
                                               style={
                                                 index < socials.length - 1
@@ -292,8 +271,8 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                                                   : undefined
                                               }
                                             >
-                                              <a href={href}>
-                                                <img
+                                              <Link href={href}>
+                                                <Img
                                                   alt={label}
                                                   src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
                                                   style={{
@@ -302,30 +281,30 @@ export const FooterWith2ColumnMenuAndDividerSection = ({
                                                   }}
                                                   width={20}
                                                 />
-                                              </a>
-                                            </td>
+                                              </Link>
+                                            </Column>
                                           )
                                         )}
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                                      </Row>
+                                    </Fragment>
+                                  </Section>
+                                </Column>
+                              </Row>
+                            </Fragment>
+                          </Section>
+                        </Column>
+                      </Row>
+                    </Fragment>
+                  </Section>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWith2ColumnMenuAndDivider = ({

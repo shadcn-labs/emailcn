@@ -1,6 +1,17 @@
 import { Fragment } from "react";
 import type { ReactNode } from "react";
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Text,
+  Section,
+  Row,
+  Column,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -129,7 +140,7 @@ const OverlayStatCopy = ({
   value: string;
 }) => (
   <>
-    <p
+    <Text
       style={{
         color: props.headingColor,
         fontFamily,
@@ -141,8 +152,8 @@ const OverlayStatCopy = ({
       }}
     >
       {value}
-    </p>
-    <p
+    </Text>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -153,28 +164,18 @@ const OverlayStatCopy = ({
       }}
     >
       {label}
-    </p>
+    </Text>
   </>
 );
 
 const OverlayThreeColumnLayout = ({ props }: { props: ResolvedProps }) => (
   <>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 24px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "0 24px" }}>
+            <Section
               style={{
                 backgroundColor: props.overlayColor,
                 borderRadius: "8px",
@@ -182,10 +183,10 @@ const OverlayThreeColumnLayout = ({ props }: { props: ResolvedProps }) => (
               }}
               width="100%"
             >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "24px" }}>
-                    <p
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "24px" }}>
+                    <Text
                       style={{
                         color: props.headingColor,
                         fontFamily,
@@ -196,8 +197,8 @@ const OverlayThreeColumnLayout = ({ props }: { props: ResolvedProps }) => (
                       }}
                     >
                       {props.featuredStat}
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         color: props.textColor,
                         fontFamily,
@@ -208,40 +209,30 @@ const OverlayThreeColumnLayout = ({ props }: { props: ResolvedProps }) => (
                       }}
                     >
                       {props.featuredLabel}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
                   {props.stats.slice(0, 3).map((stat, index) => (
                     <Fragment key={index}>
                       {index > 0 ? (
-                        <td
+                        <Column
                           className="overlay-stat-stack overlay-stat-gap"
                           style={{ width: "24px" }}
                         >
                           &zwj;
-                        </td>
+                        </Column>
                       ) : null}
-                      <td
+                      <Column
                         className="overlay-stat-stack"
                         style={{ verticalAlign: "top", width: "168px" }}
                       >
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
+                        <Section
                           style={{
                             backgroundColor: props.overlayColor,
                             borderRadius: "8px",
@@ -249,30 +240,30 @@ const OverlayThreeColumnLayout = ({ props }: { props: ResolvedProps }) => (
                           }}
                           width="100%"
                         >
-                          <tbody>
-                            <tr>
-                              <td style={{ padding: "24px 16px" }}>
+                          <Fragment>
+                            <Row>
+                              <Column style={{ padding: "24px 16px" }}>
                                 <OverlayStatCopy
                                   featured={false}
                                   label={stat.label}
                                   props={props}
                                   value={stat.value}
                                 />
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
+                              </Column>
+                            </Row>
+                          </Fragment>
+                        </Section>
+                      </Column>
                     </Fragment>
                   ))}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
   </>
 );
 
@@ -290,12 +281,8 @@ const OverlayBentoCard = ({
   item: OverlayBentoItem;
   props: ResolvedProps;
 }) => (
-  <td className="overlay-stat-stack" style={{ width: item.width }}>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+  <Column className="overlay-stat-stack" style={{ width: item.width }}>
+    <Section
       style={{
         backgroundColor: props.overlayColor,
         borderRadius: "8px",
@@ -303,20 +290,20 @@ const OverlayBentoCard = ({
       }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 16px" }}>
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "0 16px" }}>
             <OverlayStatCopy
               featured={item.featured}
               label={item.label}
               props={props}
               value={item.value}
             />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 const OverlayBentoLayout = ({
@@ -361,51 +348,39 @@ const OverlayBentoLayout = ({
       ];
   return (
     <>
-      <div style={{ lineHeight: "44px" }}>&zwj;</div>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={{ width: "24px" }}>&zwj;</td>
-            <td>
+      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column style={{ width: "24px" }}>&zwj;</Column>
+            <Column>
               {rows.map((items, rowIndex) => (
                 <Fragment key={String(rowIndex)}>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
+                  <Section width="100%">
+                    <Fragment>
+                      <Row>
                         <OverlayBentoCard item={items[0]} props={props} />
-                        <td
+                        <Column
                           className="overlay-stat-stack overlay-stat-gap"
                           style={{ width: "24px" }}
                         >
                           &zwj;
-                        </td>
+                        </Column>
                         <OverlayBentoCard item={items[1]} props={props} />
-                      </tr>
-                    </tbody>
-                  </table>
+                      </Row>
+                    </Fragment>
+                  </Section>
                   {rowIndex === 0 ? (
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                   ) : null}
                 </Fragment>
               ))}
-            </td>
-            <td style={{ width: "24px" }}>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            </Column>
+            <Column style={{ width: "24px" }}>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
+      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
     </>
   );
 };
@@ -434,18 +409,14 @@ export const OverlayStatsSection = (props: SectionProps) => {
     ...props,
   } as ResolvedProps;
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundImage: `url('${resolved.backgroundImageSrc}')`,
               backgroundPosition: "center",
@@ -459,19 +430,13 @@ export const OverlayStatsSection = (props: SectionProps) => {
             {getOverlayContent(
               variant,
               resolved,
-              <div style={{ backgroundColor: resolved.overlayColor }}>
-                <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                <table
-                  border={0}
-                  cellPadding={0}
-                  cellSpacing={0}
-                  role="presentation"
-                  width="100%"
-                >
-                  <tbody>
-                    <tr>
-                      <td style={{ padding: "0 24px" }}>
-                        <p
+              <Section style={{ backgroundColor: resolved.overlayColor }}>
+                <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                <Section width="100%">
+                  <Fragment>
+                    <Row>
+                      <Column style={{ padding: "0 24px" }}>
+                        <Text
                           style={{
                             color: resolved.headingColor,
                             fontFamily,
@@ -482,8 +447,8 @@ export const OverlayStatsSection = (props: SectionProps) => {
                           }}
                         >
                           {resolved.featuredStat}
-                        </p>
-                        <p
+                        </Text>
+                        <Text
                           style={{
                             color: resolved.textColor,
                             fontFamily,
@@ -494,35 +459,29 @@ export const OverlayStatsSection = (props: SectionProps) => {
                           }}
                         >
                           {resolved.featuredLabel}
-                        </p>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
+                        </Text>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Section width="100%">
+                          <Fragment>
+                            <Row>
                               {resolved.stats.slice(0, 3).map((stat, index) => (
                                 <Fragment key={index}>
                                   {index > 0 ? (
-                                    <td
+                                    <Column
                                       className="overlay-stat-stack overlay-stat-gap"
                                       style={{ width: "24px" }}
                                     >
                                       &zwj;
-                                    </td>
+                                    </Column>
                                   ) : null}
-                                  <td
+                                  <Column
                                     className="overlay-stat-stack"
                                     style={{
                                       verticalAlign: "top",
                                       width: "168px",
                                     }}
                                   >
-                                    <p
+                                    <Text
                                       style={{
                                         color: resolved.headingColor,
                                         fontFamily,
@@ -534,8 +493,8 @@ export const OverlayStatsSection = (props: SectionProps) => {
                                       }}
                                     >
                                       {stat.value}
-                                    </p>
-                                    <p
+                                    </Text>
+                                    <Text
                                       style={{
                                         color: resolved.textColor,
                                         fontFamily,
@@ -546,25 +505,25 @@ export const OverlayStatsSection = (props: SectionProps) => {
                                       }}
                                     >
                                       {stat.label}
-                                    </p>
-                                  </td>
+                                    </Text>
+                                  </Column>
                                 </Fragment>
                               ))}
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div style={{ lineHeight: "44px" }}>&zwj;</div>
-              </div>
+                            </Row>
+                          </Fragment>
+                        </Section>
+                      </Column>
+                    </Row>
+                  </Fragment>
+                </Section>
+                <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+              </Section>
             )}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

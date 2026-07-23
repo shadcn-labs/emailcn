@@ -1,15 +1,17 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlButton,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
@@ -43,166 +45,6 @@ export interface CategoryPreviewCardsProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .category-card-column { display: block !important; width: 100% !important; }
-    .category-card-gap { line-height: 44px !important; }
-    .category-card-image { width: 100% !important; }
-  }
-`;
-
-const textStyle = { fontFamily, margin: 0 } as const;
-
-const colors = ["#030712", "#fffffe", "#e5e7eb", "#6ee7b7"];
-
-const ColorOptions = ({ short }: { short: boolean }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td
-          style={{
-            color: "#4b5563",
-            fontFamily,
-            fontSize: "14px",
-            lineHeight: "20px",
-            paddingRight: "8px",
-          }}
-        >
-          Colors:
-        </td>
-        <td>
-          {colors.slice(0, short ? 3 : 4).map((color, index) => (
-            <Fragment key={`${color}-${index}`}>
-              <span
-                style={{
-                  backgroundColor: color,
-                  borderRadius: "9999px",
-                  display: "inline-block",
-                  height: "16px",
-                  width: "16px",
-                }}
-              />
-              {index < (short ? 2 : 3) ? (
-                <span style={{ display: "inline-block", width: "4px" }} />
-              ) : null}
-            </Fragment>
-          ))}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const ShopButton = ({ label, href }: { href: string; label: string }) => (
-  <a
-    href={href}
-    style={{
-      backgroundColor: "#4f46e5",
-      borderRadius: "8px",
-      color: "#fffffe",
-      display: "inline-block",
-      fontFamily,
-      fontSize: "16px",
-      fontWeight: 500,
-      lineHeight: 1,
-      padding: "14px 20px",
-      textDecoration: "none",
-    }}
-  >
-    <span style={{ marginRight: "8px" }}>{label}</span>
-    <img
-      alt=""
-      src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
-      style={{ maxWidth: "100%", verticalAlign: "baseline" }}
-      width="12"
-    />
-  </a>
-);
-
-interface CardProps {
-  ctaLabel: string;
-  description: string;
-  details: boolean;
-  imageSrc: string;
-  name: string;
-  price: string;
-  second: boolean;
-}
-
-const CategoryCard = ({
-  ctaLabel,
-  description,
-  details,
-  imageSrc,
-  name,
-  price,
-  second,
-}: CardProps) => (
-  <td
-    className="category-card-column"
-    style={{ verticalAlign: "top", width: "254px" }}
-  >
-    <img
-      alt=""
-      className="category-card-image"
-      src={imageSrc}
-      style={{
-        borderRadius: "8px",
-        maxWidth: "100%",
-        verticalAlign: "middle",
-      }}
-      width="254"
-    />
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    <h3
-      style={{
-        ...textStyle,
-        color: "#030712",
-        fontSize: "20px",
-        fontWeight: 600,
-        lineHeight: "28px",
-      }}
-    >
-      {name}
-    </h3>
-    <p
-      style={{
-        ...textStyle,
-        color: "#030712",
-        fontSize: "20px",
-        fontWeight: 500,
-        lineHeight: "28px",
-        marginTop: "12px",
-      }}
-    >
-      {price}
-    </p>
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    {details ? (
-      <>
-        <p
-          style={{
-            ...textStyle,
-            color: "#4b5563",
-            fontSize: "16px",
-            fontWeight: 300,
-            lineHeight: "24px",
-            marginBottom: "28px",
-          }}
-        >
-          {description}
-        </p>
-        <ColorOptions short={second} />
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-      </>
-    ) : null}
-    <ShopButton
-      href={second ? "https://example.com/pants" : "https://example.com/shoes"}
-      label={ctaLabel}
-    />
-  </td>
-);
-
 const variantFeatures = (variant: CategoryPreviewCardsVariant) => ({
   description:
     variant === "with-description" ||
@@ -220,6 +62,100 @@ const variantFeatures = (variant: CategoryPreviewCardsVariant) => ({
     variant === "header-details" ||
     variant === "header-full-details",
 });
+
+const CategoryCard = ({
+  ctaLabel,
+  description,
+  details,
+  imageSrc,
+  name,
+  price,
+  second,
+}: {
+  ctaLabel: string;
+  description: string;
+  details: boolean;
+  imageSrc: string;
+  name: string;
+  price: string;
+  second: boolean;
+}) => (
+  <MjmlColumn
+    padding={second ? "0 0 0 22px" : "0 22px 0 0"}
+    verticalAlign="top"
+    width="50%"
+  >
+    <MjmlImage
+      alt={name}
+      borderRadius="8px"
+      padding="0"
+      src={imageSrc}
+      width="254px"
+    />
+    <MjmlSpacer height="24px" />
+    <MjmlText
+      color="#030712"
+      fontFamily={fontFamily}
+      fontSize="20px"
+      fontWeight="600"
+      lineHeight="28px"
+      padding="0"
+    >
+      {name}
+    </MjmlText>
+    <MjmlText
+      color="#030712"
+      fontFamily={fontFamily}
+      fontSize="20px"
+      fontWeight="500"
+      lineHeight="28px"
+      padding="12px 0 0"
+    >
+      {price}
+    </MjmlText>
+    <MjmlSpacer height="24px" />
+    {details ? (
+      <>
+        <MjmlText
+          color="#4b5563"
+          fontFamily={fontFamily}
+          fontSize="16px"
+          fontWeight="300"
+          lineHeight="24px"
+          padding="0"
+        >
+          {description}
+        </MjmlText>
+        <MjmlSpacer height="28px" />
+        <MjmlText
+          color="#4b5563"
+          fontFamily={fontFamily}
+          fontSize="14px"
+          lineHeight="20px"
+          padding="0"
+        >
+          Colors: Black, White, Gray{second ? "" : ", Mint"}
+        </MjmlText>
+        <MjmlSpacer height="24px" />
+      </>
+    ) : null}
+    <MjmlButton
+      align="left"
+      backgroundColor="#4f46e5"
+      borderRadius="8px"
+      color="#fffffe"
+      fontFamily={fontFamily}
+      fontSize="16px"
+      fontWeight="500"
+      href={second ? "https://example.com/pants" : "https://example.com/shoes"}
+      innerPadding="14px 20px"
+      lineHeight="16px"
+      padding="0"
+    >
+      {ctaLabel} →
+    </MjmlButton>
+  </MjmlColumn>
+);
 
 export const CategoryPreviewCardsSection = ({
   ctaLabel = "Shop now",
@@ -239,114 +175,58 @@ export const CategoryPreviewCardsSection = ({
 
   return (
     <>
-      <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
-              style={{
-                backgroundColor: "#fffffe",
-                maxWidth: "100%",
-                paddingBottom: "44px",
-                width: "600px",
-              }}
-            >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
+      <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
+        <MjmlColumn padding="0">
+          {features.header ? (
+            <>
+              <MjmlText
+                align="center"
+                color="#030712"
+                fontFamily={fontFamily}
+                fontSize="30px"
+                fontWeight="600"
+                lineHeight="36px"
+                padding="0"
               >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                      {features.header ? (
-                        <>
-                          <h2
-                            style={{
-                              ...textStyle,
-                              color: "#030712",
-                              fontSize: "30px",
-                              fontWeight: 600,
-                              lineHeight: "36px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {heading}
-                          </h2>
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                        </>
-                      ) : null}
-                      {features.description ? (
-                        <>
-                          <p
-                            style={{
-                              ...textStyle,
-                              color: "#4b5563",
-                              fontSize: "18px",
-                              lineHeight: "28px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {intro}
-                          </p>
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                        </>
-                      ) : null}
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        style={{ width: "100%" }}
-                      >
-                        <tbody>
-                          <tr>
-                            <CategoryCard
-                              ctaLabel={ctaLabel}
-                              description={description1}
-                              details={features.details}
-                              imageSrc={imageSrc1}
-                              name={name1}
-                              price={price1}
-                              second={false}
-                            />
-                            <td
-                              className="category-card-column category-card-gap"
-                              style={{ width: "44px" }}
-                            >
-                              &zwj;
-                            </td>
-                            <CategoryCard
-                              ctaLabel={ctaLabel}
-                              description={description2}
-                              details={features.details}
-                              imageSrc={imageSrc2}
-                              name={name2}
-                              price={price2}
-                              second
-                            />
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+                {heading}
+              </MjmlText>
+              <MjmlSpacer height="44px" />
+            </>
+          ) : null}
+          {features.description ? (
+            <MjmlText
+              align="center"
+              color="#4b5563"
+              fontFamily={fontFamily}
+              fontSize="18px"
+              lineHeight="28px"
+              padding="0"
+            >
+              {intro}
+            </MjmlText>
+          ) : null}
+        </MjmlColumn>
+      </MjmlSection>
+      <MjmlSection backgroundColor="#fffffe" padding="0 24px 44px">
+        <CategoryCard
+          ctaLabel={ctaLabel}
+          description={description1}
+          details={features.details}
+          imageSrc={imageSrc1}
+          name={name1}
+          price={price1}
+          second={false}
+        />
+        <CategoryCard
+          ctaLabel={ctaLabel}
+          description={description2}
+          details={features.details}
+          imageSrc={imageSrc2}
+          name={name2}
+          price={price2}
+          second
+        />
+      </MjmlSection>
     </>
   );
 };
@@ -359,15 +239,10 @@ export const CategoryPreviewCards = ({
     <MjmlHead>
       <MjmlPreview>Our products</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>
-            <CategoryPreviewCardsSection {...props} />
-          </div>
-        </MjmlRaw>
+        <CategoryPreviewCardsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

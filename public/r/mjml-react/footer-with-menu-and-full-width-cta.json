@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-with-menu-and-full-width-cta",
+  "title": "Footer With Menu And Full Width Cta",
+  "description": "footer with menu, full-width CTA, socials, and legal content",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-menu-and-full-width-cta.tsx",
+      "content": "import { MjmlColumn, MjmlDivider, MjmlSection } from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/email/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\nimport {\n  FooterCopy,\n  FooterCta,\n  FooterEmailShell,\n  FooterLegal,\n  FooterMenu,\n  FooterSocials,\n} from \"@/components/email/footer-shared\";\n\nexport interface FooterWithMenuAndFullWidthCtaProps {\n  theme?: EmailThemeTokens;\n  pageBackgroundColor?: string;\n  backgroundColor?: string;\n  dividerColor?: string;\n  textColor?: string;\n  subduedTextColor?: string;\n  mutedTextColor?: string;\n  ctaHref?: string;\n  ctaText?: string;\n  unsubscribeHref?: string;\n}\n\nconst links = [\n  { href: \"https://example.com/about\", label: \"About us\" },\n  { href: \"https://example.com/shop\", label: \"Shop\" },\n  { href: \"https://example.com/faq\", label: \"FAQs\" },\n  { href: \"https://example.com/contact\", label: \"Contact us\" },\n];\n\nconst socials = [\n  {\n    href: \"https://facebook.com\",\n    iconSrc: \"https://emailcn.vercel.app/api/email-assets/icon-facebook.png\",\n    label: \"Facebook\",\n  },\n  {\n    href: \"https://github.com\",\n    iconSrc: \"https://emailcn.vercel.app/api/email-assets/icon-github.png\",\n    label: \"GitHub\",\n  },\n  {\n    href: \"https://linkedin.com\",\n    iconSrc: \"https://emailcn.vercel.app/api/email-assets/icon-linkedin.png\",\n    label: \"LinkedIn\",\n  },\n  {\n    href: \"https://youtube.com\",\n    iconSrc: \"https://emailcn.vercel.app/api/email-assets/icon-youtube.png\",\n    label: \"YouTube\",\n  },\n  {\n    href: \"https://x.com\",\n    iconSrc: \"https://emailcn.vercel.app/api/email-assets/icon-x.png\",\n    label: \"X\",\n  },\n];\n\nexport const FooterWithMenuAndFullWidthCtaSection = ({\n  backgroundColor = \"#fffffe\",\n  dividerColor = \"#d1d5db\",\n  textColor = \"#6b7280\",\n  subduedTextColor = \"#9ca3af\",\n  mutedTextColor = \"#d1d5db\",\n  ctaHref = \"https://example.com/contact\",\n  ctaText = \"Got questions? We’re here to help.\",\n  unsubscribeHref = \"https://example.com/unsub\",\n}: Omit<FooterWithMenuAndFullWidthCtaProps, \"theme\">) => (\n  <MjmlSection backgroundColor={backgroundColor} padding=\"44px 24px 24px\">\n    <MjmlColumn>\n      <FooterMenu links={links} textColor={textColor} />\n      <MjmlDivider borderColor={dividerColor} padding=\"20px 0\" />\n      <FooterCopy color={textColor} fontSize=\"16px\">\n        {ctaText}\n      </FooterCopy>\n      <FooterCta\n        backgroundColor={textColor}\n        color={backgroundColor}\n        href={ctaHref}\n        label=\"Contact us\"\n      />\n      <MjmlDivider borderColor={dividerColor} padding=\"20px 0\" />\n      <FooterSocials socials={socials} />\n      <FooterLegal\n        copyright=\"© 2026 emailcn. All rights reserved.\"\n        mutedTextColor={mutedTextColor || subduedTextColor}\n        unsubscribeHref={unsubscribeHref}\n      />\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const FooterWithMenuAndFullWidthCta = ({\n  pageBackgroundColor = \"#f1f5f9\",\n  theme = defaultTheme,\n  ...props\n}: FooterWithMenuAndFullWidthCtaProps) => (\n  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>\n    <FooterWithMenuAndFullWidthCtaSection {...props} />\n  </FooterEmailShell>\n);\n\nFooterWithMenuAndFullWidthCta.PreviewProps = {\n  theme: defaultTheme,\n} satisfies FooterWithMenuAndFullWidthCtaProps;\n",
+      "type": "registry:component",
+      "target": "components/email/footer-with-menu-and-full-width-cta.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

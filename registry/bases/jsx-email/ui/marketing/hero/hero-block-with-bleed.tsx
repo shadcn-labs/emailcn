@@ -1,5 +1,18 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+  Heading,
+  Link,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -73,60 +86,79 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroBlockWithBleedProps, "theme">;
 
-export const HeroBlockWithBleedSection = ({
-  backgroundColor = "#030712",
-  backgroundImageSrc = `${assetRoot}/hero/block-with-bleed-bg.jpg`,
-  buttonBackgroundColor = "#4f46e5",
-  buttonTextColor = "#fffffe",
-  ctaHref = "https://example.com",
-  ctaLabel = "Discover how",
-  description = "Where golden dunes meet the distant peaks, nature speaks in silence. These fragile landscapes remind us how balance sustains beauty — and how every action we take can help protect it.",
-  eyebrow = "Lush oasis, Our Wonderworld.",
-  heading = "Preserve the planet we share",
-  imageAlt = "Golden dunes beneath distant mountains",
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
-  overlayColor = "rgba(3, 7, 18, 0.8)",
-  pageBackgroundColor = "#f1f5f9",
-  subheading = "Take action today.",
-  textColor = "#f9fafb",
-  variant = "left-centered",
-}: SectionProps) => {
+export const HeroBlockWithBleedSection = (props: SectionProps) => {
+  const {
+    backgroundColor,
+    backgroundImageSrc,
+    buttonBackgroundColor,
+    buttonTextColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    imageAlt,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    overlayColor,
+    pageBackgroundColor,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    backgroundColor: "#030712",
+    backgroundImageSrc: `${assetRoot}/hero/block-with-bleed-bg.jpg`,
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    ctaHref: "https://example.com",
+    ctaLabel: "Discover how",
+    description:
+      "Where golden dunes meet the distant peaks, nature speaks in silence. These fragile landscapes remind us how balance sustains beauty — and how every action we take can help protect it.",
+    eyebrow: "Lush oasis, Our Wonderworld.",
+    heading: "Preserve the planet we share",
+    imageAlt: "Golden dunes beneath distant mountains",
+    logoAlt: "emailcn",
+    logoHref: "https://example.com",
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
+    overlayColor: "rgba(3, 7, 18, 0.8)",
+    pageBackgroundColor: "#f1f5f9",
+    subheading: "Take action today.",
+    textColor: "#f9fafb",
+    variant: "left-centered",
+    ...props,
+  };
+
   const isLeft = variant.startsWith("left-");
   const placement = variant.replace(/^(left|right)-/, "");
   const showsLogo = placement === "centered" || placement === "bottom";
   const hasBottomSpacer = placement === "centered" || placement === "top";
 
   const copy = (
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
-          <td>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
+    <Section>
+      <Fragment>
+        <Row>
+          <Column>
+            <Section
               className="hero-block-bleed-copy"
-              role="presentation"
               style={{ width: "520px" }}
             >
-              <tbody>
-                <tr>
-                  <td
+              <Fragment>
+                <Row>
+                  <Column
                     className="hero-block-bleed-spacer"
                     style={{ width: "80px" }}
                   >
                     &zwj;
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     style={{
                       color: textColor,
                       textAlign: isLeft ? "left" : "right",
                     }}
                   >
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <p
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         fontFamily,
                         fontSize: "16px",
@@ -137,8 +169,8 @@ export const HeroBlockWithBleedSection = ({
                       }}
                     >
                       {eyebrow}
-                    </p>
-                    <h1
+                    </Text>
+                    <Heading
                       className="hero-block-bleed-heading"
                       style={{
                         fontFamily,
@@ -147,10 +179,11 @@ export const HeroBlockWithBleedSection = ({
                         lineHeight: 1,
                         margin: 0,
                       }}
+                      as="h1"
                     >
                       {heading}
-                    </h1>
-                    <p
+                    </Heading>
+                    <Text
                       style={{
                         fontFamily,
                         fontSize: "18px",
@@ -159,9 +192,9 @@ export const HeroBlockWithBleedSection = ({
                       }}
                     >
                       {subheading}
-                    </p>
-                    <div style={{ lineHeight: "144px" }}>&zwj;</div>
-                    <p
+                    </Text>
+                    <Section style={{ lineHeight: "144px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         fontFamily,
                         fontSize: "18px",
@@ -171,11 +204,11 @@ export const HeroBlockWithBleedSection = ({
                       }}
                     >
                       {description}
-                    </p>
-                    <div style={{ lineHeight: "28px" }}>&zwj;</div>
+                    </Text>
+                    <Section style={{ lineHeight: "28px" }}>&zwj;</Section>
                     {ctaLabel && ctaHref ? (
-                      <div style={{ textAlign: isLeft ? "left" : "right" }}>
-                        <a
+                      <Section style={{ textAlign: isLeft ? "left" : "right" }}>
+                        <Link
                           className="hero-block-bleed-cta"
                           href={ctaHref}
                           style={{
@@ -192,7 +225,7 @@ export const HeroBlockWithBleedSection = ({
                           }}
                         >
                           <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-                          <img
+                          <Img
                             alt=""
                             src={`${assetRoot}/icon-arrow-right.png`}
                             style={{
@@ -201,33 +234,26 @@ export const HeroBlockWithBleedSection = ({
                             }}
                             width="12"
                           />
-                        </a>
-                      </div>
+                        </Link>
+                      </Section>
                     ) : null}
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             aria-label={imageAlt || undefined}
             role={imageAlt ? "img" : undefined}
             style={{
@@ -242,33 +268,26 @@ export const HeroBlockWithBleedSection = ({
           >
             {showsLogo ? (
               <>
-                <div style={{ lineHeight: "40px" }}>&zwj;</div>
-                <div style={{ textAlign: "center" }}>
-                  <a href={logoHref}>
-                    <img
+                <Section style={{ lineHeight: "40px" }}>&zwj;</Section>
+                <Section style={{ textAlign: "center" }}>
+                  <Link href={logoHref}>
+                    <Img
                       alt={logoAlt}
                       src={logoSrc}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width="165"
                     />
-                  </a>
-                </div>
-                <div style={{ lineHeight: "80px" }}>&zwj;</div>
+                  </Link>
+                </Section>
+                <Section style={{ lineHeight: "80px" }}>&zwj;</Section>
               </>
             ) : null}
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ tableLayout: "fixed" }}
-              width="100%"
-            >
-              <tbody>
-                <tr>
+            <Section style={{ tableLayout: "fixed" }} width="100%">
+              <Fragment>
+                <Row>
                   {isLeft ? (
                     <>
-                      <td
+                      <Column
                         className="hero-block-bleed-overlay"
                         style={{
                           backgroundColor: overlayColor,
@@ -276,13 +295,13 @@ export const HeroBlockWithBleedSection = ({
                         }}
                       >
                         {copy}
-                      </td>
-                      <td>&zwj;</td>
+                      </Column>
+                      <Column>&zwj;</Column>
                     </>
                   ) : (
                     <>
-                      <td>{copy}</td>
-                      <td
+                      <Column>{copy}</Column>
+                      <Column
                         className="hero-block-bleed-overlay"
                         style={{
                           backgroundColor: overlayColor,
@@ -290,20 +309,20 @@ export const HeroBlockWithBleedSection = ({
                         }}
                       >
                         &zwj;
-                      </td>
+                      </Column>
                     </>
                   )}
-                </tr>
-              </tbody>
-            </table>
+                </Row>
+              </Fragment>
+            </Section>
             {hasBottomSpacer ? (
-              <div style={{ lineHeight: "144px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "144px" }}>&zwj;</Section>
             ) : null}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,4 +1,18 @@
-import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Column,
+  Heading,
+  Text,
+  Section,
+  Link,
+  Row,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -63,7 +77,7 @@ type SectionProps = Omit<FeatureWithProductImageProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const ProductImage = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="feature-product-stack"
     style={{ verticalAlign: "top", width: "188px" }}
   >
@@ -74,15 +88,15 @@ const ProductImage = ({ props }: { props: ResolvedProps }) => (
       style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
       width={188}
     />
-  </td>
+  </Column>
 );
 
 const ProductCopy = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="feature-product-stack"
     style={{ textAlign: "left", verticalAlign: "top" }}
   >
-    <h2
+    <Heading
       style={{
         color: props.headingColor,
         fontFamily,
@@ -91,10 +105,11 @@ const ProductCopy = ({ props }: { props: ResolvedProps }) => (
         lineHeight: "32px",
         margin: 0,
       }}
+      as="h2"
     >
       {props.heading}
-    </h2>
-    <p
+    </Heading>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -105,10 +120,10 @@ const ProductCopy = ({ props }: { props: ResolvedProps }) => (
       }}
     >
       {props.body}
-    </p>
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-    <div>
-      <a
+    </Text>
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+    <Section>
+      <Link
         href={props.buttonHref}
         style={{
           borderRadius: "8px",
@@ -135,9 +150,9 @@ const ProductCopy = ({ props }: { props: ResolvedProps }) => (
             width={16}
           />
         </span>
-      </a>
-    </div>
-  </td>
+      </Link>
+    </Section>
+  </Column>
 );
 
 export const FeatureWithProductImageSection = (props: SectionProps) => {
@@ -147,18 +162,14 @@ export const FeatureWithProductImageSection = (props: SectionProps) => {
   const copy = <ProductCopy props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -166,46 +177,34 @@ export const FeatureWithProductImageSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {imageLeft ? image : copy}
-                          <td
+                          <Column
                             className="feature-product-stack feature-product-gap"
                             style={{ width: "24px" }}
                           >
                             &zwj;
-                          </td>
+                          </Column>
                           {imageLeft ? copy : image}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

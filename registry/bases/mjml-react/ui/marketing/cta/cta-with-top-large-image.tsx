@@ -1,17 +1,16 @@
-/* eslint-disable @next/next/no-img-element */
 import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
+  MjmlColumn,
+  MjmlImage,
+  MjmlSection,
+  MjmlSpacer,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  CTACopy,
+  CTAEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/cta/cta-shared";
 
 export interface CTAWithTopLargeImageProps {
   theme?: EmailThemeTokens;
@@ -29,173 +28,55 @@ export interface CTAWithTopLargeImageProps {
   buttonTextColor?: string;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .cta-top-image-content {
-      padding-left: 24px !important;
-      padding-right: 24px !important;
-    }
-  }
-
-  .cta-top-image-button:hover {
-    background-color: #4338ca !important;
-  }
-`;
-
-type SectionProps = Omit<CTAWithTopLargeImageProps, "theme">;
-
-const defaultSectionProps = {
-  backgroundColor: "#fffffe",
-  buttonBackgroundColor: "#4f46e5",
-  buttonTextColor: "#f8fafc",
-  ctaHref: "https://example.com/",
-  ctaLabel: "Activate & Save",
-  heading: "Built for the journey ahead.",
-  headingColor: "#030712",
-  imageAlt: "",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/cta/cta-with-image-1.jpg",
-  pageBackgroundColor: "#f1f5f9",
-  subtext:
-    "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",
-  textColor: "#4b5563",
-} satisfies SectionProps;
-
-export const CTAWithTopLargeImageSection = (props: SectionProps) => {
-  const resolved = { ...defaultSectionProps, ...props };
-
-  return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
-                    className="cta-top-image-content"
-                    style={{ padding: "0 64px", textAlign: "center" }}
-                  >
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <img
-                      alt={resolved.imageAlt}
-                      src={resolved.imageSrc}
-                      style={{
-                        borderRadius: "4px",
-                        maxWidth: "100%",
-                        verticalAlign: "middle",
-                      }}
-                      width="472"
-                    />
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <h2
-                      style={{
-                        color: resolved.headingColor,
-                        fontFamily,
-                        fontSize: "30px",
-                        fontWeight: 500,
-                        lineHeight: "36px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {resolved.heading}
-                    </h2>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
-                      style={{
-                        color: resolved.textColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        fontWeight: 300,
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {resolved.subtext}
-                    </p>
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <a
-                      className="cta-top-image-button"
-                      href={resolved.ctaHref}
-                      style={{
-                        backgroundColor: resolved.buttonBackgroundColor,
-                        borderRadius: "8px",
-                        color: resolved.buttonTextColor,
-                        display: "inline-block",
-                        fontFamily,
-                        fontSize: "16px",
-                        fontWeight: 500,
-                        lineHeight: "24px",
-                        padding: "10px 22px",
-                        textAlign: "center",
-                        textDecoration: "none",
-                      }}
-                    >
-                      {resolved.ctaLabel}
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
+export const CTAWithTopLargeImageSection = ({
+  backgroundColor = "#fffffe",
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#f8fafc",
+  ctaHref = "https://example.com/",
+  ctaLabel = "Activate & Save",
+  heading = "Built for the journey ahead.",
+  headingColor = "#030712",
+  imageAlt = "",
+  imageSrc = "https://emailcn.vercel.app/api/email-assets/cta/cta-with-image-1.jpg",
+  subtext = "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",
+  textColor = "#4b5563",
+}: Omit<CTAWithTopLargeImageProps, "theme">) => (
+  <MjmlSection backgroundColor={backgroundColor} padding="44px 64px">
+    <MjmlColumn padding="0">
+      <MjmlImage
+        alt={imageAlt}
+        borderRadius="4px"
+        padding="0"
+        src={imageSrc}
+        width="472px"
+      />
+      <MjmlSpacer height="24px" />
+      <CTACopy
+        ctaHref={ctaHref}
+        ctaLabel={ctaLabel}
+        heading={heading}
+        headingColor={headingColor}
+        primaryButtonBackgroundColor={buttonBackgroundColor}
+        primaryButtonTextColor={buttonTextColor}
+        subtext={subtext}
+        textColor={textColor}
+      />
+    </MjmlColumn>
+  </MjmlSection>
+);
 
 export const CTAWithTopLargeImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
   ...props
 }: CTAWithTopLargeImageProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>{props.heading ?? defaultSectionProps.heading}</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <CTAWithTopLargeImageSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <CTAEmailShell
+    pageBackgroundColor={pageBackgroundColor}
+    preview="Built for the journey ahead"
+    theme={theme}
+  >
+    <CTAWithTopLargeImageSection {...props} />
+  </CTAEmailShell>
 );
 
 CTAWithTopLargeImage.PreviewProps = {

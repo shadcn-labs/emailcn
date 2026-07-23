@@ -303,7 +303,7 @@ const HeroSection = ({
           {subheading}
         </Text>
         {ctaLabel && ctaHref ? (
-          <div style={alignStyle}>
+          <Section style={alignStyle}>
             <Button
               href={ctaHref}
               width={160}
@@ -326,7 +326,7 @@ const HeroSection = ({
             >
               {ctaLabel}
             </Button>
-          </div>
+          </Section>
         ) : null}
       </Container>
     </Section>

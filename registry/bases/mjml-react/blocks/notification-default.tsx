@@ -1,54 +1,46 @@
-// MJML parity block — mirrored from react-email (notification-default.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: {_action} — {_targetName}
 
+import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface Props {
+  _logoUrl?: string;
+  actorName?: string;
+  _actorAvatarUrl?: string;
+  _action?: string;
+  _targetName?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  _productName?: string;
+}
 
-export const NotificationDefault = (_props: Props) => {
-  const theme: EmailThemeTokens = defaultTheme;
+export const NotificationDefault = ({
+  _actorAvatarUrl,
+  actorName = "Someone",
+  _action = "notified you",
+  _targetName = "your update",
+  ctaLabel = "View",
+  ctaHref = "#",
+}: Props) => (
+  <NotificationBlock
+    action={_action}
+    actorAvatarUrl={_actorAvatarUrl}
+    actorName={actorName}
+    ctaHref={ctaHref}
+    ctaLabel={ctaLabel}
+    heading={_targetName}
+    theme={defaultTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for notification-default.tsx — replace
-                with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-NotificationDefault.PreviewProps = {} satisfies Props;
+NotificationDefault.PreviewProps = {
+  _action: "commented on your post",
+  _actorAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _logoUrl: "https://static.photos/business/320x80/3",
+  _productName: "Acme",
+  _targetName: "New comment on your project",
+  actorName: "Sarah",
+  ctaHref: "https://example.com/notification",
+  ctaLabel: "View Comment",
+} satisfies Props;

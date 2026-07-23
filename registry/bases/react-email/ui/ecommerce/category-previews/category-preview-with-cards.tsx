@@ -1,6 +1,18 @@
-/* eslint-disable @next/next/no-img-element, complexity */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -48,10 +60,10 @@ const textStyle = { fontFamily, margin: 0 } as const;
 const colors = ["#030712", "#fffffe", "#e5e7eb", "#6ee7b7"];
 
 const ColorOptions = ({ short }: { short: boolean }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td
+  <Section>
+    <Fragment>
+      <Row>
+        <Column
           style={{
             color: "#4b5563",
             fontFamily,
@@ -61,8 +73,8 @@ const ColorOptions = ({ short }: { short: boolean }) => (
           }}
         >
           Colors:
-        </td>
-        <td>
+        </Column>
+        <Column>
           {colors.slice(0, short ? 3 : 4).map((color, index) => (
             <Fragment key={`${color}-${index}`}>
               <span
@@ -79,14 +91,14 @@ const ColorOptions = ({ short }: { short: boolean }) => (
               ) : null}
             </Fragment>
           ))}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const ShopButton = ({ label, href }: { href: string; label: string }) => (
-  <a
+  <Link
     href={href}
     style={{
       backgroundColor: "#4f46e5",
@@ -102,13 +114,13 @@ const ShopButton = ({ label, href }: { href: string; label: string }) => (
     }}
   >
     <span style={{ marginRight: "8px" }}>{label}</span>
-    <img
+    <Img
       alt=""
       src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
       style={{ maxWidth: "100%", verticalAlign: "baseline" }}
       width="12"
     />
-  </a>
+  </Link>
 );
 
 interface CardProps {
@@ -130,11 +142,11 @@ const CategoryCard = ({
   price,
   second,
 }: CardProps) => (
-  <td
+  <Column
     className="category-card-column"
     style={{ verticalAlign: "top", width: "254px" }}
   >
-    <img
+    <Img
       alt=""
       className="category-card-image"
       src={imageSrc}
@@ -145,8 +157,8 @@ const CategoryCard = ({
       }}
       width="254"
     />
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    <h3
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+    <Heading
       style={{
         ...textStyle,
         color: "#030712",
@@ -154,10 +166,11 @@ const CategoryCard = ({
         fontWeight: 600,
         lineHeight: "28px",
       }}
+      as="h3"
     >
       {name}
-    </h3>
-    <p
+    </Heading>
+    <Text
       style={{
         ...textStyle,
         color: "#030712",
@@ -168,11 +181,11 @@ const CategoryCard = ({
       }}
     >
       {price}
-    </p>
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+    </Text>
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
     {details ? (
       <>
-        <p
+        <Text
           style={{
             ...textStyle,
             color: "#4b5563",
@@ -183,16 +196,16 @@ const CategoryCard = ({
           }}
         >
           {description}
-        </p>
+        </Text>
         <ColorOptions short={second} />
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
       </>
     ) : null}
     <ShopButton
       href={second ? "https://example.com/pants" : "https://example.com/shoes"}
       label={ctaLabel}
     />
-  </td>
+  </Column>
 );
 
 const variantFeatures = (variant: CategoryPreviewCardsVariant) => ({
@@ -232,17 +245,11 @@ export const CategoryPreviewCardsSection = ({
   return (
     <>
       <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: "#fffffe",
                 maxWidth: "100%",
@@ -250,20 +257,14 @@ export const CategoryPreviewCardsSection = ({
                 width: "600px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {features.header ? (
                         <>
-                          <h2
+                          <Heading
                             style={{
                               ...textStyle,
                               color: "#030712",
@@ -272,15 +273,18 @@ export const CategoryPreviewCardsSection = ({
                               lineHeight: "36px",
                               textAlign: "center",
                             }}
+                            as="h2"
                           >
                             {heading}
-                          </h2>
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                          </Heading>
+                          <Section style={{ lineHeight: "44px" }}>
+                            &zwj;
+                          </Section>
                         </>
                       ) : null}
                       {features.description ? (
                         <>
-                          <p
+                          <Text
                             style={{
                               ...textStyle,
                               color: "#4b5563",
@@ -290,19 +294,15 @@ export const CategoryPreviewCardsSection = ({
                             }}
                           >
                             {intro}
-                          </p>
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                          </Text>
+                          <Section style={{ lineHeight: "44px" }}>
+                            &zwj;
+                          </Section>
                         </>
                       ) : null}
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        style={{ width: "100%" }}
-                      >
-                        <tbody>
-                          <tr>
+                      <Section style={{ width: "100%" }}>
+                        <Fragment>
+                          <Row>
                             <CategoryCard
                               ctaLabel={ctaLabel}
                               description={description1}
@@ -312,12 +312,12 @@ export const CategoryPreviewCardsSection = ({
                               price={price1}
                               second={false}
                             />
-                            <td
+                            <Column
                               className="category-card-column category-card-gap"
                               style={{ width: "44px" }}
                             >
                               &zwj;
-                            </td>
+                            </Column>
                             <CategoryCard
                               ctaLabel={ctaLabel}
                               description={description2}
@@ -327,18 +327,18 @@ export const CategoryPreviewCardsSection = ({
                               price={price2}
                               second
                             />
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+                          </Row>
+                        </Fragment>
+                      </Section>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 };

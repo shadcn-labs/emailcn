@@ -1,4 +1,15 @@
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Text,
+  Section,
+  Row,
+  Column,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -83,7 +94,7 @@ export const RollingStatsSection = (props: SectionProps) => {
     }
   }
   const value = (text: string, color: string, first: boolean) => (
-    <p
+    <Text
       style={{
         color,
         fontFamily,
@@ -95,22 +106,18 @@ export const RollingStatsSection = (props: SectionProps) => {
       }}
     >
       {text}
-    </p>
+    </Text>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -119,26 +126,20 @@ export const RollingStatsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                  <Column
                     style={{
                       backgroundColor: resolved.panelBackgroundColor,
                       borderRadius: "8px",
                       padding: "0 24px",
                     }}
                   >
-                    <div style={{ lineHeight: topSpace }}>&zwj;</div>
-                    <p
+                    <Section style={{ lineHeight: topSpace }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.eyebrowColor,
                         fontFamily,
@@ -149,8 +150,8 @@ export const RollingStatsSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.eyebrow}
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         color: resolved.labelColor,
                         fontFamily,
@@ -161,7 +162,7 @@ export const RollingStatsSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.label}
-                    </p>
+                    </Text>
                     {value(resolved.values[0], resolved.firstValueColor, true)}
                     {value(
                       resolved.values[1],
@@ -169,17 +170,17 @@ export const RollingStatsSection = (props: SectionProps) => {
                       false
                     )}
                     {value(resolved.values[2], resolved.accentColor, false)}
-                    <div style={{ lineHeight: bottomSpace }}>&zwj;</div>
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    <Section style={{ lineHeight: bottomSpace }}>&zwj;</Section>
+                  </Column>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

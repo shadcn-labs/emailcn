@@ -1,5 +1,10 @@
+import {
+  MjmlButton,
+  MjmlColumn,
+  MjmlSection,
+  MjmlSpacer,
+} from "@faire/mjml-react";
 import { Fragment } from "react";
-import type { CSSProperties } from "react";
 
 export type PillStatusVariant =
   | "brand"
@@ -14,11 +19,6 @@ export interface PillItem {
   label: string;
   variant: PillStatusVariant;
 }
-
-type EmailCssProperties = CSSProperties & {
-  msoPaddingAlt?: string;
-  msoTextRaise?: string;
-};
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -75,69 +75,55 @@ export const defaultPills: PillItem[] = [
 
 const Pill = ({ label, variant }: PillItem) => {
   const colors = pillStyles[variant];
-  const style: EmailCssProperties = {
-    backgroundColor: colors.backgroundColor,
-    border: `1px solid ${colors.borderColor}`,
-    borderRadius: "9999px",
-    color: colors.color,
-    display: "inline-block",
-    fontFamily,
-    fontSize: "12px",
-    fontWeight: 500,
-    lineHeight: "16px",
-    msoPaddingAlt: "0",
-    msoTextRaise: "2px",
-    padding: "2px 8px",
-  };
 
   return (
-    <span style={style}>
-      {" "}
-      <span /> <span>{label}</span> <span />
-    </span>
+    <MjmlButton
+      align="center"
+      backgroundColor={colors.backgroundColor}
+      border={`1px solid ${colors.borderColor}`}
+      borderRadius="9999px"
+      color={colors.color}
+      fontFamily={fontFamily}
+      fontSize="12px"
+      fontWeight="500"
+      innerPadding="2px 8px"
+      lineHeight="16px"
+      padding="0"
+    >
+      {label}
+    </MjmlButton>
   );
 };
 
 export const BasicPillsStatusColorsSection = ({
-  mjmlCompensation = false,
+  mjmlCompensation: _mjmlCompensation = false,
   pills = defaultPills,
 }: {
   mjmlCompensation?: boolean;
   pills?: PillItem[];
 }) => (
   <>
-    <div style={{ height: "100px" }} />
-    <div
-      style={{
-        backgroundColor: "#fffffe",
-        fontSize: "16px",
-        marginLeft: "auto",
-        marginRight: "auto",
-        maxWidth: "600px",
-        textAlign: "start",
-      }}
-    >
-      <div
-        style={{
-          paddingBottom: "44px",
-          paddingTop: "44px",
-          textAlign: "center",
-          width: "100%",
-        }}
-      >
-        {mjmlCompensation ? <div style={{ height: "1px" }} /> : null}
+    <MjmlSection padding="0">
+      <MjmlColumn padding="0">
+        <MjmlSpacer height="100px" padding="0" />
+      </MjmlColumn>
+    </MjmlSection>
+    <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
+      <MjmlColumn padding="0">
         {pills.map((pill, index) => (
           <Fragment key={`${pill.label}-${pill.variant}`}>
             <Pill {...pill} />
             {index < pills.length - 1 ? (
-              <div style={{ lineHeight: mjmlCompensation ? "25px" : "24px" }}>
-                &zwj;
-              </div>
+              <MjmlSpacer height="24px" padding="0" />
             ) : null}
           </Fragment>
         ))}
-      </div>
-    </div>
-    <div style={{ height: "100px" }} />
+      </MjmlColumn>
+    </MjmlSection>
+    <MjmlSection padding="0">
+      <MjmlColumn padding="0">
+        <MjmlSpacer height="100px" padding="0" />
+      </MjmlColumn>
+    </MjmlSection>
   </>
 );

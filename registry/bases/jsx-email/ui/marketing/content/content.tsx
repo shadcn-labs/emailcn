@@ -1,5 +1,17 @@
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Text,
+  Section,
+  Row,
+  Img,
+} from "jsx-email";
 import type { CSSProperties } from "react";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -56,7 +68,7 @@ const ContentColumn = ({
   text: string;
   withIcon: boolean;
 }) => (
-  <td
+  <Column
     className="content-column"
     style={{
       ...columnPadding[index],
@@ -66,7 +78,7 @@ const ContentColumn = ({
     width="50%"
   >
     {withIcon && iconSrc ? (
-      <img
+      <Img
         alt={alt}
         height="24"
         src={iconSrc}
@@ -79,15 +91,15 @@ const ContentColumn = ({
         }}
       />
     ) : null}
-    <p
+    <Text
       style={{
         ...paragraphStyle,
         textAlign: withIcon ? "center" : "left",
       }}
     >
       {text}
-    </p>
-  </td>
+    </Text>
+  </Column>
 );
 
 export const ContentSection = ({
@@ -108,13 +120,13 @@ export const ContentSection = ({
 
   if (type === "title") {
     return (
-      <div
+      <Section
         style={{
           backgroundColor: colors.background,
           padding: verticalPadding,
         }}
       >
-        <p
+        <Text
           style={{
             color: colors.heading,
             fontFamily,
@@ -126,29 +138,25 @@ export const ContentSection = ({
           }}
         >
           {title}
-        </p>
-      </div>
+        </Text>
+      </Section>
     );
   }
 
   if (columns === 2) {
     return (
-      <div
+      <Section
         style={{
           backgroundColor: colors.background,
           padding: verticalPadding,
         }}
       >
-        <table
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
+        <Section
           style={{ borderCollapse: "collapse", width: "100%" }}
           width="100%"
         >
-          <tbody>
-            <tr>
+          <Fragment>
+            <Row>
               <ContentColumn
                 alt={iconAlt1}
                 iconSrc={iconSrc1}
@@ -163,22 +171,22 @@ export const ContentSection = ({
                 text={column2}
                 withIcon={withIcons}
               />
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            </Row>
+          </Fragment>
+        </Section>
+      </Section>
     );
   }
 
   return (
-    <div
+    <Section
       style={{
         backgroundColor: colors.background,
         padding: verticalPadding,
       }}
     >
-      <p style={{ ...paragraphStyle, textAlign: "center" }}>{text}</p>
-    </div>
+      <Text style={{ ...paragraphStyle, textAlign: "center" }}>{text}</Text>
+    </Section>
   );
 };
 

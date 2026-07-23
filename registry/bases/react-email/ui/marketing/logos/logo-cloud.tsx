@@ -1,6 +1,16 @@
-/* eslint-disable next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Section,
+  Row,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -108,7 +118,7 @@ const LogoItem = ({
   const edgeWidth = index === 0 || index === 4 ? "100px" : "112px";
   const outlinedFlush = tone === "outlined" && flush;
   return (
-    <td
+    <Column
       className={
         outlinedFlush
           ? "logo-cloud-item logo-cloud-flush-item"
@@ -127,13 +137,13 @@ const LogoItem = ({
         width: flush ? edgeWidth : "112px",
       }}
     >
-      <img
+      <Img
         alt={logo.alt}
         src={logo.src}
         style={{ maxWidth: "100%", verticalAlign: "middle" }}
         width={logo.width}
       />
-    </td>
+    </Column>
   );
 };
 
@@ -148,22 +158,18 @@ const LogoRow = ({
   props: ResolvedProps;
   tone: LogoCloudTone;
 }) => (
-  <table
+  <Section
     align={flush ? undefined : "center"}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
     style={flush ? { width: "100%" } : { margin: "0 auto" }}
   >
-    <tbody>
-      <tr>
+    <Fragment>
+      <Row>
         {logos.map((logo, index) => (
           <Fragment key={logo.alt + logo.src}>
             {index > 0 ? (
-              <td className="logo-cloud-gap" style={{ width: "16px" }}>
+              <Column className="logo-cloud-gap" style={{ width: "16px" }}>
                 &zwj;
-              </td>
+              </Column>
             ) : null}
             <LogoItem
               flush={flush}
@@ -174,13 +180,13 @@ const LogoRow = ({
             />
           </Fragment>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Title = ({ props }: { props: ResolvedProps }) => (
-  <h3
+  <Heading
     style={{
       color: props.titleColor,
       fontFamily,
@@ -190,13 +196,14 @@ const Title = ({ props }: { props: ResolvedProps }) => (
       margin: 0,
       textAlign: "center",
     }}
+    as="h3"
   >
     {props.title}
-  </h3>
+  </Heading>
 );
 
 const Description = ({ props }: { props: ResolvedProps }) => (
-  <p
+  <Text
     style={{
       color: props.textColor,
       fontFamily,
@@ -208,7 +215,7 @@ const Description = ({ props }: { props: ResolvedProps }) => (
     }}
   >
     {props.description}
-  </p>
+  </Text>
 );
 
 export const LogoCloudSection = (props: SectionProps) => {
@@ -227,26 +234,22 @@ export const LogoCloudSection = (props: SectionProps) => {
   ) : (
     <>
       <LogoRow logos={logos.slice(0, 3)} props={resolved} tone={tone} />
-      <div className="logo-cloud-gap" style={{ lineHeight: "16px" }}>
+      <Section className="logo-cloud-gap" style={{ lineHeight: "16px" }}>
         &zwj;
-      </div>
+      </Section>
       <LogoRow logos={logos.slice(3, 5)} props={resolved} tone={tone} />
     </>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -255,85 +258,75 @@ export const LogoCloudSection = (props: SectionProps) => {
             }}
           >
             {flush ? (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {showTitle ? <Title props={resolved} /> : null}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
+                    </Column>
+                  </Row>
+                  <Row>
+                    <Column>
                       {showTitle ? (
-                        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       ) : (
-                        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       )}
                       {logoRows}
-                    </td>
-                  </tr>
+                    </Column>
+                  </Row>
                   {showDescription ? (
-                    <tr>
-                      <td style={{ padding: "0 24px" }}>
-                        <div
+                    <Row>
+                      <Column style={{ padding: "0 24px" }}>
+                        <Section
                           className="logo-cloud-description-gap"
                           style={{ lineHeight: "36px" }}
                         >
                           &zwj;
-                        </div>
+                        </Section>
                         <Description props={resolved} />
-                      </td>
-                    </tr>
+                      </Column>
+                    </Row>
                   ) : null}
-                </tbody>
-              </table>
+                </Fragment>
+              </Section>
             ) : (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px", textAlign: "center" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       {showTitle ? (
                         <>
                           <Title props={resolved} />
-                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                          <Section style={{ lineHeight: "44px" }}>
+                            &zwj;
+                          </Section>
                         </>
                       ) : null}
                       {logoRows}
                       {showDescription ? (
                         <>
-                          <div
+                          <Section
                             className="logo-cloud-description-gap"
                             style={{ lineHeight: "36px" }}
                           >
                             &zwj;
-                          </div>
+                          </Section>
                           <Description props={resolved} />
                         </>
                       ) : null}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
             )}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

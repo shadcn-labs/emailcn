@@ -9,6 +9,8 @@ import {
   Section,
   Tailwind,
   Text,
+  Heading,
+  Link,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -88,7 +90,9 @@ const offsetImages: HeroWithImageGridImage[] = offsetImageNumbers.map(
 );
 
 const Spacer = ({ height }: { height: number }) => (
-  <div style={{ fontSize: 0, height, lineHeight: `${height}px` }}>&zwj;</div>
+  <Section style={{ fontSize: 0, height, lineHeight: `${height}px` }}>
+    &zwj;
+  </Section>
 );
 
 const ImageGallery = ({
@@ -106,7 +110,7 @@ const ImageGallery = ({
   const wrapAfter = offset ? 4 : 3;
 
   return (
-    <div style={{ fontSize: 0, textAlign: "center" }}>
+    <Section style={{ fontSize: 0, textAlign: "center" }}>
       {resolvedImages.map((image, index) => (
         <span key={`${image.src}-${index}`}>
           <Img
@@ -133,7 +137,7 @@ const ImageGallery = ({
           ) : null}
         </span>
       ))}
-    </div>
+    </Section>
   );
 };
 
@@ -163,7 +167,7 @@ export const HeroWithImageGridSection = ({
   const offset = variant.startsWith("offset-");
   const gallery = <ImageGallery images={images} offset={offset} />;
   const content = (
-    <div style={{ padding: "0 24px", textAlign: "center" }}>
+    <Section style={{ padding: "0 24px", textAlign: "center" }}>
       <Spacer height={imagesFirst ? 20 : 44} />
       <Text
         style={{
@@ -177,7 +181,7 @@ export const HeroWithImageGridSection = ({
       >
         {eyebrow}
       </Text>
-      <h1
+      <Heading
         className="hero-image-grid-heading"
         style={{
           color: "#030712",
@@ -187,9 +191,10 @@ export const HeroWithImageGridSection = ({
           lineHeight: "58px",
           margin: 0,
         }}
+        as="h1"
       >
         {heading}
-      </h1>
+      </Heading>
       <Text
         style={{
           color: "#030712",
@@ -213,21 +218,21 @@ export const HeroWithImageGridSection = ({
       >
         {description}
       </Text>
-    </div>
+    </Section>
   );
 
   return (
     <Section style={{ backgroundColor, padding: "44px 0" }}>
-      <div style={{ textAlign: "center" }}>
-        <a href={logoHref}>
+      <Section style={{ textAlign: "center" }}>
+        <Link href={logoHref}>
           <Img
             alt={logoAlt}
             src={logoSrc}
             width="165"
             style={{ display: "inline-block", maxWidth: "100%" }}
           />
-        </a>
-      </div>
+        </Link>
+      </Section>
       {imagesFirst ? (
         <>
           <Spacer height={44} />
@@ -242,7 +247,7 @@ export const HeroWithImageGridSection = ({
         </>
       )}
       <Spacer height={44} />
-      <div style={{ textAlign: "center" }}>
+      <Section style={{ textAlign: "center" }}>
         {ctaLabel && ctaHref ? (
           <Button
             href={ctaHref}
@@ -272,7 +277,7 @@ export const HeroWithImageGridSection = ({
             />
           </Button>
         ) : null}
-      </div>
+      </Section>
     </Section>
   );
 };

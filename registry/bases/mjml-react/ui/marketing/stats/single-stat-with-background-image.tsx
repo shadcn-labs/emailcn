@@ -1,10 +1,13 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -36,19 +39,6 @@ export interface SingleStatWithBackgroundImageProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const defaults = {
-  backgroundColor: "#fffffe",
-  backgroundImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/stats/single-stat.jpg",
-  eyebrow: "Mapped trails",
-  eyebrowColor: "#d1d5db",
-  label: "Tracked by active users",
-  labelColor: "#fffffe",
-  overlayColor: "rgba(0,0,1,0.25)",
-  pageBackgroundColor: "#f1f5f9",
-  value: "3,120km",
-};
-
 const valueColors: Record<SingleStatWithBackgroundImageVariant, string> = {
   "bottom-left": "#c7d2fe",
   "bottom-right": "#a7f3d0",
@@ -57,191 +47,102 @@ const valueColors: Record<SingleStatWithBackgroundImageVariant, string> = {
   "top-right": "#fecdd3",
 };
 
-type SectionProps = Omit<SingleStatWithBackgroundImageProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps & { valueColor: string };
-
-export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
-  const variant = props.variant ?? "centered";
-  const resolved = {
-    ...defaults,
-    valueColor: valueColors[variant],
-    ...props,
-  } as ResolvedProps;
+export const SingleStatWithBackgroundImageSection = ({
+  backgroundImageSrc = "https://emailcn.vercel.app/api/email-assets/stats/single-stat.jpg",
+  eyebrow = "Mapped trails",
+  eyebrowColor = "#d1d5db",
+  label = "Tracked by active users",
+  labelColor = "#fffffe",
+  value = "3,120km",
+  valueColor,
+  variant = "centered",
+}: Omit<SingleStatWithBackgroundImageProps, "theme">) => {
   const centered = variant === "centered";
   const bottom = variant.startsWith("bottom-");
   let align: "center" | "left" | "right" = "left";
-  let topSpace = "24px";
-  let bottomSpace = "185px";
   if (centered) {
     align = "center";
-    topSpace = "104px";
-    bottomSpace = "104px";
-  } else {
-    if (variant.endsWith("-right")) {
-      align = "right";
-    }
-    if (bottom) {
-      topSpace = "185px";
-      bottomSpace = "24px";
-    }
+  } else if (variant.endsWith("-right")) {
+    align = "right";
+  }
+  let topSpacer = "24px";
+  let bottomSpacer = "185px";
+  if (centered) {
+    topSpacer = "104px";
+    bottomSpacer = "104px";
+  } else if (bottom) {
+    topSpacer = "185px";
+    bottomSpacer = "24px";
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor="#000001"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      backgroundSize="cover"
+      backgroundUrl={backgroundImageSrc}
+      borderRadius="8px"
+      padding="0 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              textAlign: "left",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      style={{
-                        backgroundImage: `url('${resolved.backgroundImageSrc}')`,
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        borderRadius: "8px",
-                      }}
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div
-                              style={{
-                                backgroundColor: resolved.overlayColor,
-                                borderRadius: "8px",
-                              }}
-                            >
-                              <table
-                                border={0}
-                                cellPadding={0}
-                                cellSpacing={0}
-                                role="presentation"
-                                width="100%"
-                              >
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "24px" }}>&zwj;</td>
-                                    <td>
-                                      <div style={{ lineHeight: topSpace }}>
-                                        &zwj;
-                                      </div>
-                                      <p
-                                        style={{
-                                          color: resolved.eyebrowColor,
-                                          fontFamily,
-                                          fontSize: "16px",
-                                          lineHeight: "24px",
-                                          margin: 0,
-                                          textAlign: align,
-                                        }}
-                                      >
-                                        {resolved.eyebrow}
-                                      </p>
-                                      <p
-                                        style={{
-                                          color: resolved.labelColor,
-                                          fontFamily,
-                                          fontSize: "16px",
-                                          lineHeight: "24px",
-                                          margin: 0,
-                                          textAlign: align,
-                                        }}
-                                      >
-                                        {resolved.label}
-                                      </p>
-                                      <p
-                                        style={{
-                                          color: resolved.valueColor,
-                                          fontFamily,
-                                          fontSize: "72px",
-                                          fontWeight: 500,
-                                          lineHeight: "normal",
-                                          margin: 0,
-                                          textAlign: align,
-                                        }}
-                                      >
-                                        {resolved.value}
-                                      </p>
-                                      <div style={{ lineHeight: bottomSpace }}>
-                                        &zwj;
-                                      </div>
-                                    </td>
-                                    <td style={{ width: "24px" }}>&zwj;</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      <MjmlColumn padding="0">
+        <MjmlSpacer height={topSpacer} />
+        <MjmlText
+          align={align}
+          color={eyebrowColor}
+          fontFamily={fontFamily}
+          fontSize="14px"
+          fontWeight="600"
+          lineHeight="20px"
+          padding="0"
+          textTransform="uppercase"
+        >
+          {eyebrow}
+        </MjmlText>
+        <MjmlText
+          align={align}
+          color={valueColor ?? valueColors[variant]}
+          fontFamily={fontFamily}
+          fontSize="72px"
+          fontWeight="500"
+          lineHeight="80px"
+          padding="12px 0 0"
+        >
+          {value}
+        </MjmlText>
+        <MjmlText
+          align={align}
+          color={labelColor}
+          fontFamily={fontFamily}
+          fontSize="16px"
+          lineHeight="24px"
+          padding="16px 0 0"
+        >
+          {label}
+        </MjmlText>
+        <MjmlSpacer height={bottomSpacer} />
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const SingleStatWithBackgroundImage = ({
+  backgroundColor = "#fffffe",
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "centered",
   ...props
 }: SingleStatWithBackgroundImageProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>3,120km mapped trails</MjmlPreview>
+      <MjmlPreview>Single activity statistic</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
     </MjmlHead>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <SingleStatWithBackgroundImageSection
-            {...props}
-            variant={variant}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
+      <MjmlWrapper backgroundColor={backgroundColor} padding="44px 24px">
+        <SingleStatWithBackgroundImageSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

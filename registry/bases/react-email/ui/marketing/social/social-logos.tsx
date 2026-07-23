@@ -1,5 +1,17 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -101,7 +113,7 @@ export const SocialLogosSection = ({
   const decoration = variantStyle(variant);
 
   const itemLink = (item: SocialLogoItem) => (
-    <a
+    <Link
       href={item.href}
       style={{
         ...(individual ? decoration : {}),
@@ -116,28 +128,21 @@ export const SocialLogosSection = ({
         textDecoration: "none",
       }}
     >
-      <img
+      <Img
         alt={item.alt}
         src={item.src}
         style={{ maxWidth: "100%", verticalAlign: "middle" }}
         width={24}
       />
-    </a>
+    </Link>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -145,21 +150,15 @@ export const SocialLogosSection = ({
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="social-logo-content"
                     style={{ padding: "0 64px", textAlign: "center" }}
                   >
-                    <h2
+                    <Heading
                       style={{
                         color: "#030712",
                         fontFamily,
@@ -169,16 +168,13 @@ export const SocialLogosSection = ({
                         margin: 0,
                         textAlign: "center",
                       }}
+                      as="h2"
                     >
                       {title}
-                    </h2>
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <table
+                    </Heading>
+                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    <Section
                       align="center"
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
                       style={
                         individual
                           ? { marginLeft: "auto", marginRight: "auto" }
@@ -189,13 +185,13 @@ export const SocialLogosSection = ({
                             }
                       }
                     >
-                      <tbody>
-                        <tr>
+                      <Fragment>
+                        <Row>
                           {individual ? null : (
-                            <td style={{ width: "8px" }}>&zwj;</td>
+                            <Column style={{ width: "8px" }}>&zwj;</Column>
                           )}
                           {items.map((item, index) => (
-                            <td
+                            <Column
                               className={
                                 individual
                                   ? "social-logo-item"
@@ -209,21 +205,21 @@ export const SocialLogosSection = ({
                               }
                             >
                               {itemLink(item)}
-                            </td>
+                            </Column>
                           ))}
                           {individual ? null : (
-                            <td style={{ width: "8px" }}>&zwj;</td>
+                            <Column style={{ width: "8px" }}>&zwj;</Column>
                           )}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section
                       className="social-logo-description-gap"
                       style={{ lineHeight: "36px" }}
                     >
                       &zwj;
-                    </div>
-                    <p
+                    </Section>
+                    <Text
                       style={{
                         color: "#4b5563",
                         fontFamily,
@@ -235,16 +231,16 @@ export const SocialLogosSection = ({
                       }}
                     >
                       {description}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

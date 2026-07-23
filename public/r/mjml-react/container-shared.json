@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-shared",
+  "title": "Container Shared",
+  "description": "Container Shared email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/containers/container-shared.tsx",
+      "content": "import {\n  MjmlColumn,\n  MjmlGroup,\n  MjmlSection,\n  MjmlSpacer,\n  MjmlText,\n} from \"@faire/mjml-react\";\nimport type { ReactNode } from \"react\";\n\nexport type ContainerMobile = \"flush\" | \"gutters\";\n\nexport const containerResponsiveStyles = `\n  @media only screen and (max-width: 599px) {\n    .container-mobile-gutters {\n      margin-left: 24px !important;\n      margin-right: 24px !important;\n    }\n  }\n`;\n\nexport const ContainerSection = ({\n  align = \"center\",\n  children,\n  content,\n  maxWidth = \"600px\",\n  mobile = \"gutters\",\n}: {\n  align?: \"center\" | \"left\" | \"right\";\n  children?: ReactNode;\n  content?: ReactNode;\n  maxWidth?: string;\n  mobile?: ContainerMobile;\n}) => {\n  const label =\n    children ??\n    content ??\n    (mobile === \"flush\" ? \"Flush on mobile\" : \"With gutters on mobile\");\n\n  return (\n    <>\n      <MjmlSection padding=\"0\">\n        <MjmlColumn padding=\"0\">\n          <MjmlSpacer height=\"100px\" padding=\"0\" />\n        </MjmlColumn>\n      </MjmlSection>\n      <MjmlSection padding=\"0\">\n        <MjmlGroup\n          cssClass={\n            mobile === \"gutters\" ? \"container-mobile-gutters\" : undefined\n          }\n          width={maxWidth}\n        >\n          <MjmlColumn\n            backgroundColor=\"#fffffe\"\n            padding=\"48px 0\"\n            verticalAlign=\"middle\"\n          >\n            <MjmlText\n              align={align}\n              color=\"#030712\"\n              fontFamily='Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif'\n              fontSize=\"16px\"\n              fontWeight=\"500\"\n              lineHeight=\"24px\"\n              padding=\"16px 24px\"\n            >\n              {label}\n            </MjmlText>\n          </MjmlColumn>\n        </MjmlGroup>\n      </MjmlSection>\n      <MjmlSection padding=\"0\">\n        <MjmlColumn padding=\"0\">\n          <MjmlSpacer height=\"100px\" padding=\"0\" />\n        </MjmlColumn>\n      </MjmlSection>\n    </>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/email/container-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

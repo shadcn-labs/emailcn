@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -34,40 +45,36 @@ const responsiveStyles = [
 ].join("\n");
 
 const AppButtons = ({ centered = true }: { centered?: boolean }) => (
-  <table
+  <Section
     align={centered ? "center" : undefined}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
     style={centered ? { marginLeft: "auto", marginRight: "auto" } : undefined}
   >
-    <tbody>
-      <tr>
-        <td>
-          <a href="https://www.apple.com/app-store/">
-            <img
+    <Fragment>
+      <Row>
+        <Column>
+          <Link href="https://www.apple.com/app-store/">
+            <Img
               alt="Download on the App Store"
               src="https://emailcn.vercel.app/api/email-assets/badge-app-store.png"
               style={{ maxWidth: "100%", verticalAlign: "middle" }}
               width={120}
             />
-          </a>
-        </td>
-        <td style={{ width: "24px" }}>&zwj;</td>
-        <td>
-          <a href="https://play.google.com/store/apps">
-            <img
+          </Link>
+        </Column>
+        <Column style={{ width: "24px" }}>&zwj;</Column>
+        <Column>
+          <Link href="https://play.google.com/store/apps">
+            <Img
               alt="Get it on Google Play"
               src="https://emailcn.vercel.app/api/email-assets/badge-google-play.png"
               style={{ maxWidth: "100%", verticalAlign: "middle" }}
               width={135}
             />
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Link>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const AddressAndLegal = ({
@@ -81,8 +88,8 @@ const AddressAndLegal = ({
   textColor: string;
   unsubscribeHref: string;
 }) => (
-  <div style={{ textAlign: align }}>
-    <p
+  <Section style={{ textAlign: align }}>
+    <Text
       style={{
         color: textColor,
         fontFamily,
@@ -94,9 +101,9 @@ const AddressAndLegal = ({
       © 2026 emailcn
       <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
       Paris
-    </p>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-    <p
+    </Text>
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+    <Text
       style={{
         color: mutedTextColor,
         fontFamily,
@@ -107,14 +114,14 @@ const AddressAndLegal = ({
     >
       You're receiving this because you subscribed to updates.{" "}
       <br className="footer-app-break" /> No longer want to receive emails?{" "}
-      <a
+      <Link
         href={unsubscribeHref}
         style={{ color: mutedTextColor, textDecoration: "underline" }}
       >
         Unsubscribe
-      </a>
-    </p>
-  </div>
+      </Link>
+    </Text>
+  </Section>
 );
 
 export const FooterWithAppStoreButtonsSection = ({
@@ -127,18 +134,11 @@ export const FooterWithAppStoreButtonsSection = ({
   mutedTextColor = "#d1d5db",
   unsubscribeHref = "https://example.com/unsub",
 }: Omit<FooterWithAppStoreButtonsProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -146,27 +146,15 @@ export const FooterWithAppStoreButtonsSection = ({
             width: "600px",
           }}
         >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px" }}>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ padding: "0 24px" }}>
                   {variant === "two-columns" ? (
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
-                          <td
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
+                          <Column
                             className="footer-app-column"
                             style={{
                               textAlign: "left",
@@ -174,7 +162,7 @@ export const FooterWithAppStoreButtonsSection = ({
                               width: "50%",
                             }}
                           >
-                            <p
+                            <Text
                               style={{
                                 color: headingColor,
                                 fontFamily,
@@ -185,17 +173,19 @@ export const FooterWithAppStoreButtonsSection = ({
                               }}
                             >
                               {title}
-                            </p>
-                            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                            </Text>
+                            <Section style={{ lineHeight: "24px" }}>
+                              &zwj;
+                            </Section>
                             <AppButtons centered={false} />
-                          </td>
-                          <td
+                          </Column>
+                          <Column
                             className="footer-app-column footer-app-column-gap"
                             style={{ width: "44px" }}
                           >
                             &zwj;
-                          </td>
-                          <td
+                          </Column>
+                          <Column
                             className="footer-app-column"
                             style={{ verticalAlign: "top", width: "50%" }}
                           >
@@ -205,13 +195,13 @@ export const FooterWithAppStoreButtonsSection = ({
                               textColor={textColor}
                               unsubscribeHref={unsubscribeHref}
                             />
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                          </Column>
+                        </Row>
+                      </Fragment>
+                    </Section>
                   ) : (
-                    <div style={{ textAlign: "center" }}>
-                      <p
+                    <Section style={{ textAlign: "center" }}>
+                      <Text
                         style={{
                           color: headingColor,
                           fontFamily,
@@ -223,27 +213,27 @@ export const FooterWithAppStoreButtonsSection = ({
                         }}
                       >
                         {title}
-                      </p>
-                      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                      </Text>
+                      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                       <AppButtons />
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       <AddressAndLegal
                         align="center"
                         mutedTextColor={mutedTextColor}
                         textColor={textColor}
                         unsubscribeHref={unsubscribeHref}
                       />
-                    </div>
+                    </Section>
                   )}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWithAppStoreButtons = ({

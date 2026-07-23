@@ -7,13 +7,12 @@
     "react-email"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/react-email/default-fonts.json",
     "https://emailcn.vercel.app/r/react-email/theme-default.json"
   ],
   "files": [
     {
       "path": "registry/bases/react-email/ui/ui-elements/spacing/vertical-spacer.tsx",
-      "content": "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\nimport { Body, Head, Html, Preview, Section, Tailwind } from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/email/default\";\nimport { defaultTheme } from \"@/components/email/theme-default\";\n\nexport interface VerticalSpacerProps {\n  theme?: TailwindConfig;\n  height?: number;\n  variant?: \"default\" | \"slanted-left\" | \"slanted-right\";\n}\n\nexport const VerticalSpacerSection = ({\n  height = 24,\n}: Omit<VerticalSpacerProps, \"theme\">) => (\n  <div style={{ fontSize: 1, height, lineHeight: `${height}px` }}>&nbsp;</div>\n);\n\nexport const VerticalSpacer = ({\n  theme = defaultTheme,\n  height = 24,\n  variant = \"default\",\n}: VerticalSpacerProps) => (\n  <Html>\n    <Head>\n      <DefaultFonts />\n    </Head>\n    <Preview>Spacer</Preview>\n    <Tailwind config={theme}>\n      <Body className=\"m-0 bg-background font-sans\">\n        <VerticalSpacerSection height={height} />\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\nVerticalSpacer.PreviewProps = {\n  height: 48,\n  theme: defaultTheme,\n  variant: \"default\",\n} satisfies VerticalSpacerProps;\n",
+      "content": "import type { TailwindConfig } from \"react-email\";\n\nimport { defaultTheme } from \"@/components/email/theme-default\";\n\nimport { SpacingEmailShell, VerticalSpacerSection } from \"./divider-shared\";\n\nexport interface VerticalSpacerProps {\n  height?: number;\n  theme?: TailwindConfig;\n}\n\nexport { VerticalSpacerSection };\n\nexport const VerticalSpacer = ({\n  height = 24,\n  theme = defaultTheme,\n}: VerticalSpacerProps) => (\n  <SpacingEmailShell preview=\"Vertical spacer\" theme={theme}>\n    <VerticalSpacerSection height={height} />\n  </SpacingEmailShell>\n);\n\nVerticalSpacer.PreviewProps = {\n  height: 48,\n  theme: defaultTheme,\n} satisfies VerticalSpacerProps;\n",
       "type": "registry:component",
       "target": "components/email/vertical-spacer.tsx"
     }

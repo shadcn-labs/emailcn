@@ -1,5 +1,6 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Section, Row, Column, Text, Heading, Link, Img } from "jsx-email";
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 
 export type ProductListWithRowsVariant =
   | "basic"
@@ -40,23 +41,17 @@ export const productListResponsiveStyles = `
 const textStyle = { fontFamily, margin: 0 } as const;
 
 const Spacer = ({ height }: { height: number }) => (
-  <div style={{ lineHeight: `${height}px` }}>&zwj;</div>
+  <Section style={{ lineHeight: `${height}px` }}>&zwj;</Section>
 );
 
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{productListResponsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -64,27 +59,21 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
                     <Spacer height={44} />
                     {children}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -95,29 +84,29 @@ const Rating = ({
   count: number;
   allSolid?: boolean;
 }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
+  <Section>
+    <Fragment>
+      <Row>
+        <Column>
+          <Section>
+            <Fragment>
+              <Row>
                 {[0, 1, 2, 3, 4].map((index) => (
-                  <td key={index} style={{ paddingRight: "4px" }}>
-                    <img
+                  <Column key={index} style={{ paddingRight: "4px" }}>
+                    <Img
                       alt=""
                       src={`${ASSET_ROOT}/icon-star-${index === 4 && !allSolid ? "half" : "solid"}.png`}
                       style={{ display: "block" }}
                       width="16"
                     />
-                  </td>
+                  </Column>
                 ))}
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td style={{ paddingLeft: "8px" }}>
-          <p
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column style={{ paddingLeft: "8px" }}>
+          <Text
             style={{
               ...textStyle,
               color: "#4b5563",
@@ -127,25 +116,19 @@ const Rating = ({
             }}
           >
             {`(${count} reviews)`}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Header = ({ item }: { item: ProductListItem }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td>
-          <h3
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column>
+          <Heading
             style={{
               ...textStyle,
               color: "#030712",
@@ -153,12 +136,15 @@ const Header = ({ item }: { item: ProductListItem }) => (
               fontWeight: 600,
               lineHeight: "28px",
             }}
+            as="h3"
           >
             {item.name}
-          </h3>
-        </td>
-        <td style={{ textAlign: "right", verticalAlign: "top", width: "80px" }}>
-          <p
+          </Heading>
+        </Column>
+        <Column
+          style={{ textAlign: "right", verticalAlign: "top", width: "80px" }}
+        >
+          <Text
             style={{
               ...textStyle,
               color: "#030712",
@@ -168,15 +154,15 @@ const Header = ({ item }: { item: ProductListItem }) => (
             }}
           >
             {item.price}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Copy = ({ children }: { children: ReactNode }) => (
-  <p
+  <Text
     style={{
       ...textStyle,
       color: "#4b5563",
@@ -186,18 +172,21 @@ const Copy = ({ children }: { children: ReactNode }) => (
     }}
   >
     {children}
-  </p>
+  </Text>
 );
 
 const ProductOptions = () => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td className="product-list-option" style={{ paddingRight: "36px" }}>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td
+  <Section>
+    <Fragment>
+      <Row>
+        <Column
+          className="product-list-option"
+          style={{ paddingRight: "36px" }}
+        >
+          <Section>
+            <Fragment>
+              <Row>
+                <Column
                   style={{
                     color: "#4b5563",
                     fontFamily,
@@ -207,9 +196,9 @@ const ProductOptions = () => (
                   }}
                 >
                   Colors:
-                </td>
-                <td>
-                  <div style={{ fontSize: 0 }}>
+                </Column>
+                <Column>
+                  <Section style={{ fontSize: 0 }}>
                     {["#030712", "#fffffe", "#E5E7EB"].map((color) => (
                       <span
                         key={color}
@@ -226,17 +215,17 @@ const ProductOptions = () => (
                         />
                       </span>
                     ))}
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td className="product-list-option">
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td
+                  </Section>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column className="product-list-option">
+          <Section>
+            <Fragment>
+              <Row>
+                <Column
                   style={{
                     color: "#4b5563",
                     fontFamily,
@@ -246,8 +235,8 @@ const ProductOptions = () => (
                   }}
                 >
                   Sizes:
-                </td>
-                <td
+                </Column>
+                <Column
                   style={{
                     color: "#4b5563",
                     fontFamily,
@@ -265,18 +254,18 @@ const ProductOptions = () => (
                       {`${size}${comma ? ", " : ""}`}
                     </span>
                   ))}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
-  <div
+  <Section
     style={{
       backgroundColor: "#d1d5db",
       height: "1px",
@@ -285,12 +274,12 @@ const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const Discover = ({ href }: { href: string }) => (
-  <div>
-    <a
+  <Section>
+    <Link
       href={href}
       style={{
         backgroundColor: "#fffffe",
@@ -306,7 +295,7 @@ const Discover = ({ href }: { href: string }) => (
     >
       <span style={{ marginRight: "8px" }}>Discover</span>
       <span>
-        <img
+        <Img
           alt=""
           src={`${ASSET_ROOT}/icon-arrow-right-indigo.png`}
           style={{
@@ -316,8 +305,8 @@ const Discover = ({ href }: { href: string }) => (
           width="16"
         />
       </span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 const defaultProducts: ProductListItem[] = [
@@ -361,6 +350,19 @@ const ProductContent = ({
   ].includes(variant);
   const fullDetails = ["full-details", "full-reviews-top"].includes(variant);
   const descriptionOnly = variant === "with-description";
+  let optionsBlock: ReactNode = null;
+  if (fullDetails) {
+    optionsBlock = (
+      <>
+        <Copy>{item.description}</Copy>
+        <Divider bottom={8} top={24} />
+        <ProductOptions />
+        <Divider bottom={6} top={8} />
+      </>
+    );
+  } else if (detailsVariant) {
+    optionsBlock = <ProductOptions />;
+  }
 
   return (
     <>
@@ -377,16 +379,7 @@ const ProductContent = ({
       <Spacer height={24} />
       {descriptionOnly ? <Copy>{item.description}</Copy> : null}
       {!descriptionOnly && !detailsVariant ? <Copy>{item.details}</Copy> : null}
-      {fullDetails ? (
-        <>
-          <Copy>{item.description}</Copy>
-          <Divider bottom={8} top={24} />
-          <ProductOptions />
-          <Divider bottom={6} top={8} />
-        </>
-      ) : detailsVariant ? (
-        <ProductOptions />
-      ) : null}
+      {optionsBlock}
       {!topReview && !descriptionOnly ? (
         <>
           <Spacer height={18} />
@@ -409,21 +402,15 @@ const ProductRow = ({
   item: ProductListItem;
   variant: ProductListWithRowsVariant;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="product-list-column"
           style={{ verticalAlign: "top", width: "144px" }}
         >
-          <div>
-            <img
+          <Section>
+            <Img
               alt=""
               className="product-list-image"
               src={item.imageUrl}
@@ -435,20 +422,23 @@ const ProductRow = ({
               }}
               width="144"
             />
-          </div>
-        </td>
-        <td
+          </Section>
+        </Column>
+        <Column
           className="product-list-column product-list-gap"
           style={{ lineHeight: "24px", width: "24px" }}
         >
           &zwj;
-        </td>
-        <td className="product-list-column" style={{ verticalAlign: "top" }}>
+        </Column>
+        <Column
+          className="product-list-column"
+          style={{ verticalAlign: "top" }}
+        >
           <ProductContent item={item} variant={variant} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const ProductListWithRowsSection = ({
@@ -467,7 +457,7 @@ export const ProductListWithRowsSection = ({
     <EmailShell>
       {variant === "with-intro" ? (
         <>
-          <h2
+          <Heading
             style={{
               ...textStyle,
               color: "#030712",
@@ -476,11 +466,12 @@ export const ProductListWithRowsSection = ({
               lineHeight: "36px",
               textAlign: "center",
             }}
+            as="h2"
           >
             T-shirts
-          </h2>
+          </Heading>
           <Spacer height={44} />
-          <p
+          <Text
             style={{
               ...textStyle,
               color: "#4b5563",
@@ -492,38 +483,32 @@ export const ProductListWithRowsSection = ({
             Style meets purpose in every piece. Designed with attention to
             detail and built for everyday comfort, our collection brings
             together modern design, timeless quality, and effortlessness.
-          </p>
+          </Text>
           <Spacer height={44} />
         </>
       ) : null}
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
           {visible
             .map((item, index) => (
-              <tr key={`${item.name}-${index}`}>
-                <td>
+              <Row key={`${item.name}-${index}`}>
+                <Column>
                   <ProductRow item={item} variant={rowVariant} />
-                </td>
-              </tr>
+                </Column>
+              </Row>
             ))
             .flatMap((row, index) =>
               index === 0 && visible.length > 1
                 ? [
                     row,
-                    <tr key="product-gap">
-                      <td style={{ lineHeight: "44px" }}>&zwj;</td>
-                    </tr>,
+                    <Row key="product-gap">
+                      <Column style={{ lineHeight: "44px" }}>&zwj;</Column>
+                    </Row>,
                   ]
                 : [row]
             )}
-        </tbody>
-      </table>
+        </Fragment>
+      </Section>
     </EmailShell>
   );
 };

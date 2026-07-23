@@ -1,17 +1,14 @@
-/* eslint-disable next/no-img-element */
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+import { MjmlColumn, MjmlSection } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FooterCopy,
+  FooterEmailShell,
+  FooterLegal,
+  FooterLogo,
+  FooterSocials,
+} from "@/registry/bases/mjml-react/ui/marketing/footers/footer-shared";
 
 export type FooterWithSocialIconsAndAddressVariant =
   | "left-logo"
@@ -42,54 +39,39 @@ export interface FooterWithSocialIconsAndAddressProps {
   variant?: FooterWithSocialIconsAndAddressVariant;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = [
-  "@media only screen and (max-width: 599px) {",
-  "  .footer-address-cell { display: block !important; width: 100% !important; }",
-  "  .footer-address-gap { line-height: 96px !important; }",
-  "  .footer-address-logo { text-align: left !important; }",
-  "  .footer-address-break { display: none !important; }",
-  "}",
-].join("\n");
-
+const iconRoot = "https://emailcn.vercel.app/api/email-assets";
 const defaults = {
-  address: "© 2026 emailcn\nemailcn  |  155 Bdv Saint Germain  |  75505 Paris",
+  address: "© 2026 emailcn\nemailcn | 155 Bdv Saint Germain | 75505 Paris",
   backgroundColor: "#fffffe",
-  centeredLegalText: "You're receiving this because you subscribed to updates.",
-  legalText: "We're sending you this because you subscribed.",
+  centeredLegalText: "You’re receiving this because you subscribed to updates.",
+  legalText: "We’re sending you this because you subscribed.",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: `${iconRoot}/maizzle-insignia.png`,
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
+      iconSrc: `${iconRoot}/icon-facebook.png`,
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+      iconSrc: `${iconRoot}/icon-github.png`,
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+      iconSrc: `${iconRoot}/icon-linkedin.png`,
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
+      iconSrc: `${iconRoot}/icon-youtube.png`,
       label: "YouTube",
     },
-    {
-      href: "https://x.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
-      label: "X",
-    },
+    { href: "https://x.com", iconSrc: `${iconRoot}/icon-x.png`, label: "X" },
   ],
   textColor: "#6b7280",
   title: "Follow us",
@@ -97,328 +79,76 @@ const defaults = {
 };
 
 type SectionProps = Omit<FooterWithSocialIconsAndAddressProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const LogoCell = ({ props }: { props: ResolvedProps }) => (
-  <td
-    className="footer-address-cell footer-address-logo"
-    style={{
-      textAlign: props.variant === "right-logo" ? "right" : "left",
-      verticalAlign: "top",
-      width: "55px",
-    }}
-  >
-    <a href={props.logoHref}>
-      <img
-        alt={props.logoAlt}
-        src={props.logoSrc}
-        style={{ maxWidth: "100%", verticalAlign: "middle" }}
-        width={55}
-      />
-    </a>
-  </td>
-);
-
-const ContentCell = ({ props }: { props: ResolvedProps }) => (
-  <td
-    className="footer-address-cell"
-    style={{ textAlign: "left", verticalAlign: "top" }}
-  >
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
-          {props.socials.map((social, index) => (
-            <td
-              key={social.href}
-              style={
-                index === props.socials.length - 1
-                  ? undefined
-                  : { paddingRight: "24px" }
-              }
-            >
-              <a href={social.href}>
-                <img
-                  alt={social.label}
-                  src={social.iconSrc}
-                  style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                  width={20}
-                />
-              </a>
-            </td>
-          ))}
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
-      style={{
-        color: props.textColor,
-        fontFamily,
-        fontSize: "16px",
-        lineHeight: "24px",
-        margin: 0,
-      }}
-    >
-      {props.address.split("\n").map((line, index) => (
-        <span key={line}>
-          {index > 0 ? <br /> : null}
-          {line}
-        </span>
-      ))}
-    </p>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
-      style={{
-        color: props.mutedTextColor,
-        fontFamily,
-        fontSize: "16px",
-        lineHeight: "24px",
-        margin: 0,
-      }}
-    >
-      {props.legalText}
-      <br /> No longer want to receive emails?{" "}
-      <a
-        href={props.unsubscribeHref}
-        style={{ color: props.mutedTextColor, textDecoration: "underline" }}
-      >
-        Unsubscribe
-      </a>
-    </p>
-  </td>
-);
-
-const CenteredContent = ({ props }: { props: ResolvedProps }) => (
-  <>
-    <p
-      style={{
-        color: "#030712",
-        fontFamily,
-        fontSize: "16px",
-        fontWeight: 600,
-        lineHeight: "24px",
-        margin: 0,
-        textAlign: "center",
-      }}
-    >
-      {props.title}
-    </p>
-    <div style={{ lineHeight: "12px" }}>&zwj;</div>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ marginLeft: "auto", marginRight: "auto" }}
-    >
-      <tbody>
-        <tr>
-          {props.socials.map((social, index) => (
-            <td
-              key={social.href}
-              style={
-                index === props.socials.length - 1
-                  ? undefined
-                  : { paddingRight: "24px" }
-              }
-            >
-              <a href={social.href}>
-                <img
-                  alt={social.label}
-                  src={social.iconSrc}
-                  style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                  width={20}
-                />
-              </a>
-            </td>
-          ))}
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "64px" }}>&zwj;</div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 24px", textAlign: "center" }}>
-            <p
-              style={{
-                color: "#9ca3af",
-                fontFamily,
-                fontSize: "16px",
-                lineHeight: "24px",
-                margin: 0,
-              }}
-            >
-              {props.address.split("\n").map((line, index) => (
-                <span key={line}>
-                  {index > 0 ? <br /> : null}
-                  {line}
-                </span>
-              ))}
-            </p>
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <p
-              style={{
-                color: props.mutedTextColor,
-                fontFamily,
-                fontSize: "16px",
-                lineHeight: "24px",
-                margin: 0,
-              }}
-            >
-              {props.centeredLegalText} <br className="footer-address-break" />
-              No longer want to receive emails?{" "}
-              <a
-                href={props.unsubscribeHref}
-                style={{
-                  color: props.mutedTextColor,
-                  textDecoration: "underline",
-                }}
-              >
-                Unsubscribe
-              </a>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </>
-);
 
 export const FooterWithSocialIconsAndAddressSection = (props: SectionProps) => {
-  const resolved = {
-    ...defaults,
-    ...props,
-    variant: props.variant ?? "left-logo",
-  } as ResolvedProps;
-  const logo = <LogoCell props={resolved} />;
-  const gap = (
-    <td
-      className="footer-address-cell footer-address-gap"
-      style={{ width: "96px" }}
-    >
-      &zwj;
-    </td>
-  );
-  const content = <ContentCell props={resolved} />;
-
-  if (resolved.variant === "centered") {
-    return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: resolved.pageBackgroundColor }}
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
-              style={{
-                backgroundColor: resolved.backgroundColor,
-                maxWidth: "100%",
-                padding: "44px 0 24px",
-                width: "600px",
-              }}
-            >
-              <CenteredContent props={resolved} />
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
-    );
+  const resolved = { ...defaults, ...props };
+  const centered = resolved.variant === "centered";
+  let logoAlign: "center" | "left" | "right" = "left";
+  if (centered) {
+    logoAlign = "center";
+  } else if (resolved.variant === "right-logo") {
+    logoAlign = "right";
   }
+  const brand = (
+    <MjmlColumn direction="ltr" width={centered ? "100%" : "25%"}>
+      <FooterLogo
+        align={logoAlign}
+        alt={resolved.logoAlt}
+        href={resolved.logoHref}
+        src={resolved.logoSrc}
+        width="55px"
+      />
+    </MjmlColumn>
+  );
+  const content = (
+    <MjmlColumn direction="ltr" width={centered ? "100%" : "75%"}>
+      <FooterCopy
+        align={centered ? "center" : "left"}
+        color={resolved.textColor}
+        fontSize="16px"
+        fontWeight="600"
+      >
+        {resolved.title}
+      </FooterCopy>
+      <FooterSocials
+        align={centered ? "center" : "left"}
+        socials={resolved.socials}
+      />
+      <FooterCopy
+        align={centered ? "center" : "left"}
+        color={resolved.textColor}
+        padding="20px 0 0"
+      >
+        {resolved.address}
+      </FooterCopy>
+      <FooterLegal
+        align={centered ? "center" : "left"}
+        copyright={centered ? resolved.centeredLegalText : resolved.legalText}
+        mutedTextColor={resolved.mutedTextColor}
+        unsubscribeHref={resolved.unsubscribeHref}
+      />
+    </MjmlColumn>
+  );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor={resolved.backgroundColor}
+      padding="44px 24px 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "44px 24px", verticalAlign: "top" }}>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
-                          {resolved.variant === "left-logo" ? logo : content}
-                          {gap}
-                          {resolved.variant === "left-logo" ? content : logo}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      {centered || resolved.variant !== "right-logo" ? brand : content}
+      {centered || resolved.variant !== "right-logo" ? content : brand}
+    </MjmlSection>
   );
 };
 
 export const FooterWithSocialIconsAndAddress = ({
-  pageBackgroundColor = "#f1f5f9",
-  theme: _theme = defaultTheme,
-  variant = "left-logo",
+  pageBackgroundColor = defaults.pageBackgroundColor,
+  theme = defaultTheme,
   ...props
 }: FooterWithSocialIconsAndAddressProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Footer with social icons and address</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody backgroundColor={pageBackgroundColor} width={600}>
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <FooterWithSocialIconsAndAddressSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>
+    <FooterWithSocialIconsAndAddressSection {...props} />
+  </FooterEmailShell>
 );
 
 FooterWithSocialIconsAndAddress.PreviewProps = {

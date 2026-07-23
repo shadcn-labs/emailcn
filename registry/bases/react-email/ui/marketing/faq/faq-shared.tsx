@@ -1,6 +1,19 @@
-/* eslint-disable next/no-img-element */
 import type { CSSProperties, ReactNode } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Heading,
+  Text,
+  Section,
+  Row,
+  Column,
+  Link,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -39,7 +52,7 @@ export interface FaqItem {
 }
 
 const Question = ({ children }: { children: ReactNode }) => (
-  <h3
+  <Heading
     style={{
       ...textBase,
       color: colors.dark,
@@ -47,9 +60,10 @@ const Question = ({ children }: { children: ReactNode }) => (
       fontWeight: 600,
       lineHeight: "20px",
     }}
+    as="h3"
   >
     {children}
-  </h3>
+  </Heading>
 );
 
 const Answer = ({
@@ -59,7 +73,7 @@ const Answer = ({
   children: ReactNode;
   marginTop?: number;
 }) => (
-  <p
+  <Text
     style={{
       ...textBase,
       color: colors.muted,
@@ -70,7 +84,7 @@ const Answer = ({
     }}
   >
     {children}
-  </p>
+  </Text>
 );
 
 const NumberLabel = ({ index }: { index: number }) => (
@@ -95,7 +109,7 @@ const ToggleIcon = ({
   item?: FaqItem;
 }) =>
   item?.iconSrc ? (
-    <img
+    <Img
       alt={item.iconAlt ?? ""}
       height={20}
       src={item.iconSrc}
@@ -131,7 +145,7 @@ const ToggleIcon = ({
 
 export const FaqHeading = ({ children }: { children: ReactNode }) => (
   <>
-    <h2
+    <Heading
       style={{
         ...textBase,
         color: colors.dark,
@@ -140,10 +154,13 @@ export const FaqHeading = ({ children }: { children: ReactNode }) => (
         lineHeight: "36px",
         textAlign: "center",
       }}
+      as="h2"
     >
       {children}
-    </h2>
-    <div style={{ fontSize: 0, height: "32px", lineHeight: "32px" }}>&zwj;</div>
+    </Heading>
+    <Section style={{ fontSize: 0, height: "32px", lineHeight: "32px" }}>
+      &zwj;
+    </Section>
   </>
 );
 
@@ -152,11 +169,11 @@ export const ExpandedNumbersContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
+  <Section style={tableStyle}>
+    <Fragment>
       {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
+        <Row key={`${item.question}-${index}`}>
+          <Column
             width={40}
             style={{
               borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
@@ -166,8 +183,8 @@ export const ExpandedNumbersContent = ({
             }}
           >
             <NumberLabel index={index} />
-          </td>
-          <td
+          </Column>
+          <Column
             style={{
               borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
               padding: "20px 0",
@@ -176,11 +193,11 @@ export const ExpandedNumbersContent = ({
           >
             <Question>{item.question}</Question>
             {item.answer ? <Answer>{item.answer}</Answer> : null}
-          </td>
-        </tr>
+          </Column>
+        </Row>
       ))}
-    </tbody>
-  </table>
+    </Fragment>
+  </Section>
 );
 
 export const OffsetAnswersContent = ({
@@ -188,11 +205,11 @@ export const OffsetAnswersContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
+  <Section style={tableStyle}>
+    <Fragment>
       {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
+        <Row key={`${item.question}-${index}`}>
+          <Column
             width="38%"
             style={{
               borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
@@ -202,8 +219,8 @@ export const OffsetAnswersContent = ({
             }}
           >
             <Question>{item.question}</Question>
-          </td>
-          <td
+          </Column>
+          <Column
             style={{
               borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
               padding: "20px 0",
@@ -211,11 +228,11 @@ export const OffsetAnswersContent = ({
             }}
           >
             {item.answer ? <Answer marginTop={0}>{item.answer}</Answer> : null}
-          </td>
-        </tr>
+          </Column>
+        </Row>
       ))}
-    </tbody>
-  </table>
+    </Fragment>
+  </Section>
 );
 
 export const BoxedNumberedContent = ({
@@ -223,8 +240,7 @@ export const BoxedNumberedContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table
-    role="presentation"
+  <Section
     style={{
       ...tableStyle,
       border: `1px solid ${colors.border}`,
@@ -232,10 +248,10 @@ export const BoxedNumberedContent = ({
       overflow: "hidden",
     }}
   >
-    <tbody>
+    <Fragment>
       {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
+        <Row key={`${item.question}-${index}`}>
+          <Column
             width={48}
             style={{
               borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
@@ -245,8 +261,8 @@ export const BoxedNumberedContent = ({
             }}
           >
             <NumberLabel index={index} />
-          </td>
-          <td
+          </Column>
+          <Column
             style={{
               borderTop: index === 0 ? undefined : `1px solid ${colors.border}`,
               padding: "20px",
@@ -255,11 +271,11 @@ export const BoxedNumberedContent = ({
           >
             <Question>{item.question}</Question>
             {item.answer ? <Answer>{item.answer}</Answer> : null}
-          </td>
-        </tr>
+          </Column>
+        </Row>
       ))}
-    </tbody>
-  </table>
+    </Fragment>
+  </Section>
 );
 
 export const AlternatingBoxedContent = ({
@@ -269,9 +285,8 @@ export const AlternatingBoxedContent = ({
 }) => (
   <>
     {items.map((item, index) => (
-      <div key={`${item.question}-${index}`}>
-        <table
-          role="presentation"
+      <Section key={`${item.question}-${index}`}>
+        <Section
           style={{
             ...tableStyle,
             backgroundColor:
@@ -279,9 +294,9 @@ export const AlternatingBoxedContent = ({
             borderRadius: "8px",
           }}
         >
-          <tbody>
-            <tr>
-              <td
+          <Fragment>
+            <Row>
+              <Column
                 width={48}
                 style={{
                   padding: "20px 0 20px 20px",
@@ -290,18 +305,20 @@ export const AlternatingBoxedContent = ({
                 }}
               >
                 <NumberLabel index={index} />
-              </td>
-              <td style={{ padding: "20px", verticalAlign: "top" }}>
+              </Column>
+              <Column style={{ padding: "20px", verticalAlign: "top" }}>
                 <Question>{item.question}</Question>
                 {item.answer ? <Answer>{item.answer}</Answer> : null}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </Column>
+            </Row>
+          </Fragment>
+        </Section>
         {index < items.length - 1 ? (
-          <div style={{ height: "12px", lineHeight: "12px" }}>&zwj;</div>
+          <Section style={{ height: "12px", lineHeight: "12px" }}>
+            &zwj;
+          </Section>
         ) : null}
-      </div>
+      </Section>
     ))}
   </>
 );
@@ -311,11 +328,11 @@ export const CollapsedNumbersContent = ({
 }: {
   items: readonly FaqItem[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
+  <Section style={tableStyle}>
+    <Fragment>
       {items.map((item, index) => (
-        <tr key={`${item.question}-${index}`}>
-          <td
+        <Row key={`${item.question}-${index}`}>
+          <Column
             width={40}
             style={{
               borderTop: `1px solid ${colors.border}`,
@@ -325,8 +342,8 @@ export const CollapsedNumbersContent = ({
             }}
           >
             <NumberLabel index={index} />
-          </td>
-          <td
+          </Column>
+          <Column
             style={{
               borderTop: `1px solid ${colors.border}`,
               padding: "16px 0",
@@ -334,8 +351,8 @@ export const CollapsedNumbersContent = ({
             }}
           >
             <Question>{item.question}</Question>
-          </td>
-          <td
+          </Column>
+          <Column
             width={24}
             style={{
               borderTop: `1px solid ${colors.border}`,
@@ -346,11 +363,11 @@ export const CollapsedNumbersContent = ({
             }}
           >
             <ToggleIcon />
-          </td>
-        </tr>
+          </Column>
+        </Row>
       ))}
-    </tbody>
-  </table>
+    </Fragment>
+  </Section>
 );
 
 export const CollapsedIconsContent = ({
@@ -360,18 +377,17 @@ export const CollapsedIconsContent = ({
 }) => (
   <>
     {items.map((item, index) => (
-      <div key={`${item.question}-${index}`}>
-        <table
-          role="presentation"
+      <Section key={`${item.question}-${index}`}>
+        <Section
           style={{
             ...tableStyle,
             backgroundColor: index === 0 ? colors.surfaceMuted : undefined,
             borderRadius: index === 0 ? "8px" : undefined,
           }}
         >
-          <tbody>
-            <tr>
-              <td
+          <Fragment>
+            <Row>
+              <Column
                 width={36}
                 style={{
                   borderTop:
@@ -382,8 +398,8 @@ export const CollapsedIconsContent = ({
                 }}
               >
                 <ToggleIcon expanded={index === 0} item={item} />
-              </td>
-              <td
+              </Column>
+              <Column
                 style={{
                   borderTop:
                     index > 1 ? `1px solid ${colors.border}` : undefined,
@@ -395,11 +411,11 @@ export const CollapsedIconsContent = ({
                 {index === 0 && item.answer ? (
                   <Answer>{item.answer}</Answer>
                 ) : null}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </Column>
+            </Row>
+          </Fragment>
+        </Section>
+      </Section>
     ))}
   </>
 );
@@ -417,18 +433,17 @@ export const CollapsedCtaContent = ({
 }) => (
   <>
     <CollapsedNumbersContent items={items} />
-    <div style={{ height: "24px", lineHeight: "24px" }}>&zwj;</div>
-    <table
-      role="presentation"
+    <Section style={{ height: "24px", lineHeight: "24px" }}>&zwj;</Section>
+    <Section
       style={{
         ...tableStyle,
         backgroundColor: colors.surfaceMuted,
         borderRadius: "8px",
       }}
     >
-      <tbody>
-        <tr>
-          <td style={{ padding: "16px 20px" }}>
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "16px 20px" }}>
             <span
               style={{
                 ...textBase,
@@ -439,9 +454,9 @@ export const CollapsedCtaContent = ({
             >
               {ctaText}
             </span>
-          </td>
-          <td style={{ padding: "16px 20px", textAlign: "right" }}>
-            <a
+          </Column>
+          <Column style={{ padding: "16px 20px", textAlign: "right" }}>
+            <Link
               href={ctaHref}
               style={{
                 ...textBase,
@@ -453,11 +468,11 @@ export const CollapsedCtaContent = ({
               }}
             >
               {ctaLabel}
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </Link>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -486,17 +501,11 @@ export const FaqEmailShell = ({
     <Preview>{preview}</Preview>
     <Tailwind config={theme}>
       <Body style={{ backgroundColor: colors.canvas, fontFamily, margin: 0 }}>
-        <table
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
-          style={{ ...tableStyle, backgroundColor: colors.canvas }}
-        >
-          <tbody>
-            <tr>
-              <td>&zwj;</td>
-              <td
+        <Section style={{ ...tableStyle, backgroundColor: colors.canvas }}>
+          <Fragment>
+            <Row>
+              <Column>&zwj;</Column>
+              <Column
                 className="faq-content"
                 width={600}
                 style={{
@@ -507,11 +516,11 @@ export const FaqEmailShell = ({
                 }}
               >
                 {children}
-              </td>
-              <td>&zwj;</td>
-            </tr>
-          </tbody>
-        </table>
+              </Column>
+              <Column>&zwj;</Column>
+            </Row>
+          </Fragment>
+        </Section>
       </Body>
     </Tailwind>
   </Html>

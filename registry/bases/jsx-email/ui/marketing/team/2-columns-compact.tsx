@@ -1,5 +1,16 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable @next/next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -38,26 +49,28 @@ const responsiveStyles = `
 const SocialLinks = ({ lastIcon }: { lastIcon: "instagram" | "linkedin" }) => {
   const icons = ["facebook", "x", lastIcon] as const;
   return (
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
+    <Section>
+      <Fragment>
+        <Row>
           {icons.map((icon, index) => (
             <Fragment key={icon}>
-              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
-              <td style={{ width: "16px" }}>
-                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
-                  <img
+              {index > 0 ? (
+                <Column style={{ width: "16px" }}>&zwj;</Column>
+              ) : null}
+              <Column style={{ width: "16px" }}>
+                <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <Img
                     alt=""
                     src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-dark.png`}
                     width="16"
                   />
-                </a>
-              </td>
+                </Link>
+              </Column>
             </Fragment>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -81,17 +94,11 @@ const CompactCard = ({
   const boxed = variant === "bordered" || variant === "accent";
   const accent = variant === "accent";
   const member = (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td style={{ verticalAlign: "top", width: "64px" }}>
-            <img
+    <Section style={{ width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column style={{ verticalAlign: "top", width: "64px" }}>
+            <Img
               alt={avatarAlt}
               src={avatarSrc}
               style={{
@@ -101,10 +108,10 @@ const CompactCard = ({
               }}
               width="64"
             />
-          </td>
-          <td style={{ width: boxed ? "16px" : "24px" }}>&zwj;</td>
-          <td>
-            <h3
+          </Column>
+          <Column style={{ width: boxed ? "16px" : "24px" }}>&zwj;</Column>
+          <Column>
+            <Heading
               style={{
                 color: accent ? "#fffffe" : "#030712",
                 fontFamily,
@@ -113,10 +120,11 @@ const CompactCard = ({
                 lineHeight: "24px",
                 margin: 0,
               }}
+              as="h3"
             >
               {name}
-            </h3>
-            <p
+            </Heading>
+            <Text
               style={{
                 color: accent ? "#d1d5db" : "#4b5563",
                 fontFamily,
@@ -126,31 +134,25 @@ const CompactCard = ({
               }}
             >
               {role}
-            </p>
+            </Text>
             {boxed ? null : (
               <>
-                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
                 <SocialLinks lastIcon={lastIcon} />
               </>
             )}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 
   if (boxed) {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column
               style={{
                 backgroundColor: accent ? "#030712" : undefined,
                 border: accent ? undefined : "1px solid #d1d5db",
@@ -159,10 +161,10 @@ const CompactCard = ({
               }}
             >
               {member}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
@@ -170,7 +172,7 @@ const CompactCard = ({
     <>
       {variant === "border-top" ? (
         <>
-          <div
+          <Section
             style={{
               backgroundColor: "#030712",
               height: "2px",
@@ -178,8 +180,8 @@ const CompactCard = ({
             }}
           >
             &zwj;
-          </div>
-          <div style={{ lineHeight: "14px" }}>&zwj;</div>
+          </Section>
+          <Section style={{ lineHeight: "14px" }}>&zwj;</Section>
         </>
       ) : null}
       {member}
@@ -200,17 +202,11 @@ export const TwoColumnsCompactSection = ({
 }: Omit<TwoColumnsCompactProps, "theme">) => (
   <>
     <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -218,16 +214,10 @@ export const TwoColumnsCompactSection = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column
                     className="compact-team-stack"
                     style={{ verticalAlign: "top", width: "264px" }}
                   >
@@ -239,14 +229,14 @@ export const TwoColumnsCompactSection = ({
                       role={role1}
                       variant={variant}
                     />
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     className="compact-team-stack compact-team-gap"
                     style={{ lineHeight: 0, width: "24px" }}
                   >
                     &zwj;
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     className="compact-team-stack"
                     style={{ verticalAlign: "top", width: "264px" }}
                   >
@@ -258,15 +248,15 @@ export const TwoColumnsCompactSection = ({
                       role={role2}
                       variant={variant}
                     />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 

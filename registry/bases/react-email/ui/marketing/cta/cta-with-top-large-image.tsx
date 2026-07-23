@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -60,18 +74,14 @@ export const CTAWithTopLargeImageSection = (props: SectionProps) => {
   const resolved = { ...defaultSectionProps, ...props };
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -79,21 +89,15 @@ export const CTAWithTopLargeImageSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="cta-top-image-content"
                     style={{ padding: "0 64px", textAlign: "center" }}
                   >
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <img
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Img
                       alt={resolved.imageAlt}
                       src={resolved.imageSrc}
                       style={{
@@ -103,8 +107,8 @@ export const CTAWithTopLargeImageSection = (props: SectionProps) => {
                       }}
                       width="472"
                     />
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <h2
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Heading
                       style={{
                         color: resolved.headingColor,
                         fontFamily,
@@ -114,11 +118,12 @@ export const CTAWithTopLargeImageSection = (props: SectionProps) => {
                         margin: 0,
                         textAlign: "center",
                       }}
+                      as="h2"
                     >
                       {resolved.heading}
-                    </h2>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
+                    </Heading>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.textColor,
                         fontFamily,
@@ -130,9 +135,9 @@ export const CTAWithTopLargeImageSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.subtext}
-                    </p>
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <a
+                    </Text>
+                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    <Link
                       className="cta-top-image-button"
                       href={resolved.ctaHref}
                       style={{
@@ -150,16 +155,16 @@ export const CTAWithTopLargeImageSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.ctaLabel}
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    </Link>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

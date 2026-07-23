@@ -1,18 +1,14 @@
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-/* eslint-disable next/no-img-element */
-import type { ReactNode } from "react";
+import { MjmlColumn, MjmlSection } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FooterEmailShell,
+  FooterLegal,
+  FooterLogo,
+  FooterMenu,
+  FooterSocials,
+} from "@/registry/bases/mjml-react/ui/marketing/footers/footer-shared";
 
 export interface CenteredFooterLink {
   href: string;
@@ -36,12 +32,6 @@ export interface FooterCenteredWithMenuAndSocialsProps {
   textColor?: string;
   mutedTextColor?: string;
 }
-
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles =
-  "@media only screen and (max-width: 599px) { .footer-centered-menu-break { display: none !important; } }";
 
 const defaults = {
   backgroundColor: "#fffffe",
@@ -88,189 +78,51 @@ const defaults = {
 };
 
 type SectionProps = Omit<FooterCenteredWithMenuAndSocialsProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const CenteredRow = ({ children }: { children: ReactNode }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ marginLeft: "auto", marginRight: "auto" }}
-  >
-    <tbody>
-      <tr>{children}</tr>
-    </tbody>
-  </table>
-);
 
 export const FooterCenteredWithMenuAndSocialsSection = (
   props: SectionProps
 ) => {
-  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const resolved = { ...defaults, ...props };
+
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor={resolved.backgroundColor}
+      padding="44px 24px 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              padding: "44px 0 24px",
-              width: "600px",
-            }}
-          >
-            <div style={{ textAlign: "center" }}>
-              <a href={resolved.logoHref}>
-                <img
-                  alt={resolved.logoAlt}
-                  src={resolved.logoSrc}
-                  style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                  width={55}
-                />
-              </a>
-            </div>
-            <div style={{ lineHeight: "64px" }}>&zwj;</div>
-            <CenteredRow>
-              {resolved.links.map((link, index) => (
-                <td
-                  key={link.href}
-                  style={
-                    index === resolved.links.length - 1
-                      ? undefined
-                      : { paddingRight: "24px" }
-                  }
-                >
-                  <a
-                    href={link.href}
-                    style={{
-                      color: resolved.textColor,
-                      fontFamily,
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {link.label}
-                  </a>
-                </td>
-              ))}
-            </CenteredRow>
-            <div style={{ lineHeight: "36px" }}>&zwj;</div>
-            <CenteredRow>
-              {resolved.socials.map((social, index) => (
-                <td
-                  key={social.href}
-                  style={
-                    index === resolved.socials.length - 1
-                      ? undefined
-                      : { paddingRight: "24px" }
-                  }
-                >
-                  <a href={social.href}>
-                    <img
-                      alt={social.label}
-                      src={social.iconSrc}
-                      style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                      width={20}
-                    />
-                  </a>
-                </td>
-              ))}
-            </CenteredRow>
-            <div style={{ lineHeight: "64px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <p
-                      style={{
-                        color: resolved.textColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                      }}
-                    >
-                      © 2026 emailcn
-                      <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; |
-                      &nbsp;75505 Paris
-                    </p>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
-                      style={{
-                        color: resolved.mutedTextColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                      }}
-                    >
-                      You're receiving this because you subscribed to updates.{" "}
-                      <br className="footer-centered-menu-break" /> No longer
-                      want to receive emails?{" "}
-                      <a
-                        href={resolved.unsubscribeHref}
-                        style={{
-                          color: resolved.mutedTextColor,
-                          textDecoration: "underline",
-                        }}
-                      >
-                        Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      <MjmlColumn>
+        <FooterLogo
+          align="center"
+          alt={resolved.logoAlt}
+          href={resolved.logoHref}
+          padding="0 0 40px"
+          src={resolved.logoSrc}
+          width="55px"
+        />
+        <FooterMenu
+          align="center"
+          links={resolved.links}
+          textColor={resolved.textColor}
+        />
+        <FooterSocials align="center" socials={resolved.socials} />
+        <FooterLegal
+          align="center"
+          copyright="© 2026 emailcn. All rights reserved."
+          mutedTextColor={resolved.mutedTextColor}
+          unsubscribeHref={resolved.unsubscribeHref}
+        />
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const FooterCenteredWithMenuAndSocials = ({
-  pageBackgroundColor = "#f1f5f9",
+  pageBackgroundColor = defaults.pageBackgroundColor,
   theme = defaultTheme,
   ...props
 }: FooterCenteredWithMenuAndSocialsProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Footer centered with menu and socials</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <FooterCenteredWithMenuAndSocialsSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>
+    <FooterCenteredWithMenuAndSocialsSection {...props} />
+  </FooterEmailShell>
 );
 
 FooterCenteredWithMenuAndSocials.PreviewProps = {

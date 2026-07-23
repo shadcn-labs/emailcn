@@ -1,5 +1,15 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -54,14 +64,14 @@ type SectionProps = Omit<HeaderWithLogoAndBadgeProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
+  <Link href={props.logoHref}>
+    <Img
       alt={props.logoAlt}
       src={props.logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={55}
     />
-  </a>
+  </Link>
 );
 
 const Badge = ({
@@ -79,18 +89,14 @@ const Badge = ({
   }
 
   return (
-    <table
+    <Section
       align={align}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
       className={align === "center" ? undefined : "header-badge-mobile-table"}
-      role="presentation"
       style={tableStyle}
     >
-      <tbody>
-        <tr>
-          <td
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: props.badgeBackgroundColor,
               borderRadius: "9999px",
@@ -121,10 +127,10 @@ const Badge = ({
               {props.badgeLabel}
             </span>{" "}
             <span>{props.message}</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -134,111 +140,83 @@ export const HeaderWithLogoAndBadgeSection = (props: SectionProps) => {
   let content;
   if (alignment === "center") {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
-              <div style={{ textAlign: "center" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column>
+              <Section style={{ textAlign: "center" }}>
                 <Logo props={resolved} />
-              </div>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              </Section>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
               <Badge align="center" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   } else if (alignment === "right") {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td className="header-badge-stack header-badge-before">
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column className="header-badge-stack header-badge-before">
               <Badge props={resolved} />
-            </td>
-            <td
+            </Column>
+            <Column
               className="header-badge-stack header-badge-mobile-logo"
               style={{ textAlign: "right", width: "55px" }}
             >
               <Logo props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   } else {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td className="header-badge-stack" style={{ width: "55px" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column className="header-badge-stack" style={{ width: "55px" }}>
               <Logo props={resolved} />
-            </td>
-            <td className="header-badge-stack header-badge-after">
+            </Column>
+            <Column className="header-badge-stack header-badge-after">
               <Badge align="right" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: resolved.backgroundColor,
                       padding: "24px",
                     }}
                   >
                     {content}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

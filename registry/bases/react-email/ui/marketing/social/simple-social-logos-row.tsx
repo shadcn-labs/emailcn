@@ -1,5 +1,17 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -64,18 +76,11 @@ export const SimpleSocialLogosRowSection = ({
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
 }: Omit<SimpleSocialLogosRowProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -83,21 +88,15 @@ export const SimpleSocialLogosRowSection = ({
             width: "600px",
           }}
         >
-          <div style={{ lineHeight: "44px" }}>&zwj;</div>
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td
+          <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column
                   className="simple-social-content"
                   style={{ padding: "0 64px", textAlign: "center" }}
                 >
-                  <h2
+                  <Heading
                     style={{
                       color: "#030712",
                       fontFamily,
@@ -107,29 +106,26 @@ export const SimpleSocialLogosRowSection = ({
                       margin: 0,
                       textAlign: "center",
                     }}
+                    as="h2"
                   >
                     {title}
-                  </h2>
-                  <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                  <table
+                  </Heading>
+                  <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                  <Section
                     align="center"
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
                     style={{ marginLeft: "auto", marginRight: "auto" }}
                   >
-                    <tbody>
-                      <tr>
+                    <Fragment>
+                      <Row>
                         {items.map((item, index) => (
-                          <td
+                          <Column
                             key={`${item.alt}-${item.href}`}
                             style={
                               index > 0 ? { paddingLeft: "16px" } : undefined
                             }
                           >
-                            <a href={item.href}>
-                              <img
+                            <Link href={item.href}>
+                              <Img
                                 alt={item.alt}
                                 src={item.src}
                                 style={{
@@ -138,14 +134,14 @@ export const SimpleSocialLogosRowSection = ({
                                 }}
                                 width={24}
                               />
-                            </a>
-                          </td>
+                            </Link>
+                          </Column>
                         ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                  <p
+                      </Row>
+                    </Fragment>
+                  </Section>
+                  <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                  <Text
                     style={{
                       color: "#4b5563",
                       fontFamily,
@@ -157,16 +153,16 @@ export const SimpleSocialLogosRowSection = ({
                     }}
                   >
                     {description}
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                  </Text>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const SimpleSocialLogosRow = ({

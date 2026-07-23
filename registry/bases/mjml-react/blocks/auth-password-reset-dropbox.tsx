@@ -1,54 +1,33 @@
-// MJML parity block — mirrored from react-email (auth-password-reset-dropbox.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Reset your password for {_productName}
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { PasswordResetBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { dropboxTheme } from "@/registry/bases/mjml-react/themes/dropbox";
 
-type Props = Record<string, never>;
+interface Props {
+  _logoUrl?: string;
+  _logoAlt?: string;
+  resetHref?: string;
+  expiresInMinutes?: number;
+  _productName?: string;
+}
 
-export const AuthPasswordResetDropbox = (_props: Props) => {
-  const theme: EmailThemeTokens = dropboxTheme;
+export const AuthPasswordResetDropbox = ({
+  resetHref = "#",
+  expiresInMinutes = 60,
+  _productName = "Dropbox",
+}: Props) => (
+  <PasswordResetBlock
+    expiresInMinutes={expiresInMinutes}
+    productName={_productName}
+    resetHref={resetHref}
+    theme={dropboxTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for auth-password-reset-dropbox.tsx —
-                replace with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-AuthPasswordResetDropbox.PreviewProps = {} satisfies Props;
+AuthPasswordResetDropbox.PreviewProps = {
+  _logoAlt: "Dropbox",
+  _logoUrl: "https://static.photos/business/320x80/2",
+  _productName: "Dropbox",
+  expiresInMinutes: 60,
+  resetHref: "https://example.com/reset?token=abc123",
+} satisfies Props;

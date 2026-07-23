@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Text,
+  Link,
+  Section,
+  Row,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -78,8 +89,10 @@ const MenuColumn = ({
   props: ResolvedProps;
   title: string;
 }) => (
-  <td style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}>
-    <p
+  <Column
+    style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}
+  >
+    <Text
       style={{
         color: props.headingColor,
         fontFamily,
@@ -90,10 +103,10 @@ const MenuColumn = ({
       }}
     >
       {title}
-    </p>
+    </Text>
     {links.map((link) => (
-      <p key={link.href} style={{ margin: "0 0 8px" }}>
-        <a
+      <Text key={link.href} style={{ margin: "0 0 8px" }}>
+        <Link
           href={link.href}
           style={{
             color: props.textColor,
@@ -104,14 +117,14 @@ const MenuColumn = ({
           }}
         >
           {link.label}
-        </a>
-      </p>
+        </Link>
+      </Text>
     ))}
-  </td>
+  </Column>
 );
 
 const LogoCell = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="footer-two-menu-cell footer-two-menu-logo"
     style={{
       textAlign: props.variant === "right-logo" ? "right" : "left",
@@ -119,48 +132,38 @@ const LogoCell = ({ props }: { props: ResolvedProps }) => (
       width: "41.666667%",
     }}
   >
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 24px 24px" }}>
-            <a href={props.logoHref}>
-              <img
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "0 24px 24px" }}>
+            <Link href={props.logoHref}>
+              <Img
                 alt={props.logoAlt}
                 src={props.logoSrc}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={55}
               />
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
+            </Link>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 const MenusCell = ({ props }: { props: ResolvedProps }) => (
-  <td className="footer-two-menu-cell" style={{ verticalAlign: "top" }}>
-    <table
+  <Column className="footer-two-menu-cell" style={{ verticalAlign: "top" }}>
+    <Section
       align={props.variant === "left-logo" ? "right" : "left"}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
       className="footer-two-menu-columns"
-      role="presentation"
       style={
         props.variant === "left-logo"
           ? { marginLeft: "auto" }
           : { marginRight: "auto" }
       }
     >
-      <tbody>
-        <tr>
+      <Fragment>
+        <Row>
           <MenuColumn
             links={props.quickLinks}
             props={props}
@@ -171,10 +174,10 @@ const MenusCell = ({ props }: { props: ResolvedProps }) => (
             props={props}
             title="Connect"
           />
-        </tr>
-      </tbody>
-    </table>
-  </td>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
@@ -187,18 +190,14 @@ export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
   const menus = <MenusCell props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -206,32 +205,20 @@ export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
                   {resolved.variant === "left-logo" ? logo : menus}
                   {resolved.variant === "left-logo" ? menus : logo}
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "96px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "left" }}>
-                    <p
+                </Row>
+              </Fragment>
+            </Section>
+            <Section style={{ lineHeight: "96px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "left" }}>
+                    <Text
                       style={{
                         color: resolved.mutedTextColor,
                         fontFamily,
@@ -241,7 +228,7 @@ export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.copyright}{" "}
-                      <a
+                      <Link
                         href={resolved.unsubscribeHref}
                         style={{
                           color: resolved.textColor,
@@ -249,17 +236,17 @@ export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
                         }}
                       >
                         Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                      </Link>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

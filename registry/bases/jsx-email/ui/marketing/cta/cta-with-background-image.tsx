@@ -1,4 +1,17 @@
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -168,26 +181,20 @@ const CTAContent = ({
   subtext,
   textColor,
 }: ContentProps) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td className="cta-background-side" style={{ width: "64px" }}>
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column className="cta-background-side" style={{ width: "64px" }}>
           &zwj;
-        </td>
-        <td style={{ textAlign: "center" }}>
-          <div
+        </Column>
+        <Column style={{ textAlign: "center" }}>
+          <Section
             className={spaceClassName}
             style={{ lineHeight: `${spaceHeight}px` }}
           >
             &zwj;
-          </div>
-          <h2
+          </Section>
+          <Heading
             style={{
               color: headingColor,
               fontFamily,
@@ -197,11 +204,12 @@ const CTAContent = ({
               margin: 0,
               textAlign: "center",
             }}
+            as="h2"
           >
             {heading}
-          </h2>
-          <div style={{ lineHeight: "24px" }}>&zwj;</div>
-          <p
+          </Heading>
+          <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+          <Text
             style={{
               color: textColor,
               fontFamily,
@@ -219,20 +227,13 @@ const CTAContent = ({
                 <span style={{ fontWeight: 700 }}>{emphasis}</span>
               </>
             ) : null}
-          </p>
-          <div style={{ lineHeight: "36px" }}>&zwj;</div>
-          <table
-            align="center"
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            style={{ margin: "auto" }}
-          >
-            <tbody>
-              <tr>
-                <td className="cta-background-action-cell">
-                  <a
+          </Text>
+          <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+          <Section align="center" style={{ margin: "auto" }}>
+            <Fragment>
+              <Row>
+                <Column className="cta-background-action-cell">
+                  <Link
                     className="cta-background-primary"
                     href={ctaHref}
                     style={{
@@ -250,16 +251,16 @@ const CTAContent = ({
                     }}
                   >
                     {ctaLabel}
-                  </a>
-                </td>
-                <td
+                  </Link>
+                </Column>
+                <Column
                   className="cta-background-action-cell cta-background-action-gap"
                   style={{ width: "24px" }}
                 >
                   &zwj;
-                </td>
-                <td className="cta-background-action-cell">
-                  <a
+                </Column>
+                <Column className="cta-background-action-cell">
+                  <Link
                     href={secondaryCtaHref}
                     style={{
                       backgroundColor: "transparent",
@@ -277,24 +278,24 @@ const CTAContent = ({
                     }}
                   >
                     {secondaryCtaLabel}
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div
+                  </Link>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+          <Section
             className={spaceClassName}
             style={{ lineHeight: `${spaceHeight}px` }}
           >
             &zwj;
-          </div>
-        </td>
-        <td className="cta-background-side" style={{ width: "64px" }}>
+          </Section>
+        </Column>
+        <Column className="cta-background-side" style={{ width: "64px" }}>
           &zwj;
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 interface VariantFrameProps extends ContentProps {
@@ -319,114 +320,79 @@ const VariantFrame = ({
 
   if (variant === "flush") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={backgroundStyle}>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ backgroundColor: overlayColor }}
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td>{content}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column style={backgroundStyle}>
+              <Section style={{ backgroundColor: overlayColor }} width="100%">
+                <Fragment>
+                  <Row>
+                    <Column>{content}</Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   if (variant === "boxed") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={backgroundStyle}>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ width: "24px" }}>&zwj;</td>
-                    <td
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column style={backgroundStyle}>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column style={{ width: "24px" }}>&zwj;</Column>
+                    <Column
                       style={{
                         backgroundColor: overlayColor,
                         borderRadius: "4px",
                       }}
                     >
                       {content}
-                    </td>
-                    <td style={{ width: "24px" }}>&zwj;</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                    </Column>
+                    <Column style={{ width: "24px" }}>&zwj;</Column>
+                  </Row>
+                </Fragment>
+              </Section>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   return (
     <>
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={{ width: "24px" }}>&zwj;</td>
-            <td style={{ ...backgroundStyle, borderRadius: "4px" }}>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
+      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column style={{ width: "24px" }}>&zwj;</Column>
+            <Column style={{ ...backgroundStyle, borderRadius: "4px" }}>
+              <Section
                 style={{ backgroundColor: overlayColor, borderRadius: "4px" }}
                 width="100%"
               >
-                <tbody>
-                  <tr>
-                    <td>{content}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td style={{ width: "24px" }}>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                <Fragment>
+                  <Row>
+                    <Column>{content}</Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+            <Column style={{ width: "24px" }}>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
+      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
     </>
   );
 };
@@ -441,18 +407,14 @@ export const CTAWithBackgroundImageSection = (props: SectionProps) => {
   const spacing = variantSpacing[variant];
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -481,11 +443,11 @@ export const CTAWithBackgroundImageSection = (props: SectionProps) => {
               textColor={resolved.textColor}
               variant={variant}
             />
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,4 +1,18 @@
-import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -157,17 +171,10 @@ const CodeBox = ({
   props: ResolvedProps;
   white?: boolean;
 }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ margin: "0 auto" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section align="center" style={{ margin: "0 auto" }}>
+    <Fragment>
+      <Row>
+        <Column
           style={{
             backgroundColor: getCodeBackgroundColor({ dark, props, white }),
             border: dark ? "1px solid #374151" : undefined,
@@ -180,14 +187,14 @@ const CodeBox = ({
           }}
         >
           {props.code}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const OfferHeading = ({ props }: { props: ResolvedProps }) => (
-  <h3
+  <Heading
     className="coupon-card-heading"
     style={{
       color: props.headingColor,
@@ -198,9 +205,10 @@ const OfferHeading = ({ props }: { props: ResolvedProps }) => (
       margin: "36px 0 0",
       textAlign: "center",
     }}
+    as="h3"
   >
     {props.heading}
-  </h3>
+  </Heading>
 );
 
 const StandardCardContent = ({
@@ -211,22 +219,22 @@ const StandardCardContent = ({
   props: ResolvedProps;
 }) => (
   <>
-    <div className="coupon-card-edge-spacer" style={{ lineHeight: "28px" }}>
+    <Section className="coupon-card-edge-spacer" style={{ lineHeight: "28px" }}>
       &zwj;
-    </div>
-    <div style={{ textAlign: "center" }}>
+    </Section>
+    <Section style={{ textAlign: "center" }}>
       <Logo props={props} />
-    </div>
+    </Section>
     <OfferHeading props={props} />
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
     <CodeBox
       dark={codeStyle === "dark"}
       props={props}
       white={codeStyle === "white"}
     />
-    <div className="coupon-card-edge-spacer" style={{ lineHeight: "28px" }}>
+    <Section className="coupon-card-edge-spacer" style={{ lineHeight: "28px" }}>
       &zwj;
-    </div>
+    </Section>
   </>
 );
 
@@ -239,16 +247,10 @@ const CouponCard = ({
 }) => {
   if (variant === "with-name") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column
               className="coupon-card-name-pad"
               style={{
                 backgroundColor: props.cardBackgroundColor,
@@ -260,7 +262,7 @@ const CouponCard = ({
             >
               <Logo props={props} />
               <OfferHeading props={props} />
-              <p
+              <Text
                 style={{
                   color: props.mutedTextColor,
                   fontFamily,
@@ -270,26 +272,20 @@ const CouponCard = ({
                 }}
               >
                 {props.recipient}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </Text>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   if (variant === "background-image-header") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column
               style={{
                 backgroundColor: props.cardBackgroundColor,
                 backgroundImage: `url('${props.backgroundImageSrc}')`,
@@ -300,31 +296,19 @@ const CouponCard = ({
                 boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ width: "10px" }}>&zwj;</td>
-                    <td>
-                      <div style={{ lineHeight: "12px" }}>&zwj;</div>
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        width="100%"
-                      >
-                        <tbody>
-                          <tr>
-                            <td style={{ width: "50%" }}>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column style={{ width: "10px" }}>&zwj;</Column>
+                    <Column>
+                      <Section style={{ lineHeight: "12px" }}>&zwj;</Section>
+                      <Section width="100%">
+                        <Fragment>
+                          <Row>
+                            <Column style={{ width: "50%" }}>
                               <Logo props={props} width={44} />
-                            </td>
-                            <td
+                            </Column>
+                            <Column
                               style={{
                                 color: props.headingColor,
                                 fontFamily,
@@ -334,11 +318,11 @@ const CouponCard = ({
                               }}
                             >
                               {props.recipient}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <h3
+                            </Column>
+                          </Row>
+                        </Fragment>
+                      </Section>
+                      <Heading
                         className="coupon-card-heading"
                         style={{
                           color: props.headingColor,
@@ -349,26 +333,27 @@ const CouponCard = ({
                           margin: "72px 0 0",
                           textAlign: "center",
                         }}
+                        as="h3"
                       >
                         {props.heading}
-                      </h3>
-                      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                      </Heading>
+                      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
                       <CodeBox props={props} white />
-                      <div style={{ lineHeight: "28px" }}>&zwj;</div>
-                    </td>
-                    <td style={{ width: "10px" }}>&zwj;</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                      <Section style={{ lineHeight: "28px" }}>&zwj;</Section>
+                    </Column>
+                    <Column style={{ width: "10px" }}>&zwj;</Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   const card = (
-    <td
+    <Column
       style={{
         backgroundColor: props.cardBackgroundColor,
         backgroundImage: `url('${props.backgroundImageSrc}')`,
@@ -381,7 +366,7 @@ const CouponCard = ({
       }}
     >
       {variant === "with-overlay" ? (
-        <div
+        <Section
           style={{
             background:
               "linear-gradient(to bottom, transparent, rgba(3,7,18,0.6))",
@@ -390,43 +375,34 @@ const CouponCard = ({
           }}
         >
           <StandardCardContent codeStyle="dark" props={props} />
-        </div>
+        </Section>
       ) : (
         <StandardCardContent
           codeStyle={variant === "with-pattern" ? "dark" : "white"}
           props={props}
         />
       )}
-    </td>
+    </Column>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>{card}</tr>
-      </tbody>
-    </table>
+    <Section width="100%">
+      <Fragment>
+        <Row>{card}</Row>
+      </Fragment>
+    </Section>
   );
 };
 
 const Description = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td className="coupon-card-description" style={{ padding: "0 44px" }}>
-          <p
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column
+          className="coupon-card-description"
+          style={{ padding: "0 44px" }}
+        >
+          <Text
             style={{
               color: props.textColor,
               fontFamily,
@@ -439,16 +415,16 @@ const Description = ({ props }: { props: ResolvedProps }) => (
           >
             Use code: <strong>{props.code}</strong> at checkout, or click the
             link below to automatically apply the discount to your order.
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
-    <a
+  <Section style={{ textAlign: "center" }}>
+    <Link
       href={props.buttonHref}
       style={{
         backgroundColor: props.buttonBackgroundColor,
@@ -476,8 +452,8 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
           width={12}
         />
       </span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 export const CardCouponsSection = (props: SectionProps) => {
@@ -493,18 +469,14 @@ export const CardCouponsSection = (props: SectionProps) => {
     variant === "with-overlay";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -512,44 +484,37 @@ export const CardCouponsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              align="center"
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ margin: "0 auto" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ maxWidth: "100%", width: "400px" }}>
-                    <div className="coupon-card-shell">
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section align="center" style={{ margin: "0 auto" }}>
+              <Fragment>
+                <Row>
+                  <Column style={{ maxWidth: "100%", width: "400px" }}>
+                    <Section className="coupon-card-shell">
                       <CouponCard props={resolved} variant={variant} />
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
             {showDescription ? (
               <>
-                <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                 <Description props={resolved} />
               </>
             ) : null}
             {variant === "with-name" ? (
               <>
-                <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                 <CodeBox props={resolved} />
               </>
             ) : null}
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             <CouponButton props={resolved} />
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

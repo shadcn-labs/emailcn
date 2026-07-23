@@ -1,5 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Heading as EmailHeading,
+  Text,
+  Link,
+  Row,
+  Column,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -146,7 +159,7 @@ const Avatar = ({
   src: string;
   width: number;
 }) => (
-  <img
+  <Img
     alt={alt}
     src={src}
     style={{
@@ -161,40 +174,40 @@ const Avatar = ({
 );
 
 const AvatarGroup = (props: ResolvedProps) => (
-  <div style={{ fontSize: 0, textAlign: "center" }}>
+  <Section style={{ fontSize: 0, textAlign: "center" }}>
     {[
       [props.avatarSrc1, props.avatarAlt1],
       [props.avatarSrc2, props.avatarAlt2],
       [props.avatarSrc3, props.avatarAlt3],
       [props.avatarSrc4, props.avatarAlt4],
     ].map(([src, alt]) => (
-      <div key={src} style={{ display: "inline-block", maxWidth: "30px" }}>
+      <Section key={src} style={{ display: "inline-block", maxWidth: "30px" }}>
         <Avatar
           alt={alt}
           borderColor={props.avatarBorderColor}
           src={src}
           width={40}
         />
-      </div>
+      </Section>
     ))}
-  </div>
+  </Section>
 );
 
 const SingleAvatar = (props: ResolvedProps) => (
-  <div style={{ fontSize: 0, textAlign: "center" }}>
-    <div style={{ display: "inline-block", maxWidth: "72px" }}>
+  <Section style={{ fontSize: 0, textAlign: "center" }}>
+    <Section style={{ display: "inline-block", maxWidth: "72px" }}>
       <Avatar
         alt={props.avatarAlt2}
         borderColor={props.avatarBorderColor}
         src={props.avatarSrc2}
         width={96}
       />
-    </div>
-  </div>
+    </Section>
+  </Section>
 );
 
 const Heading = ({ color, children }: { color: string; children: string }) => (
-  <h2
+  <EmailHeading
     style={{
       color,
       fontFamily,
@@ -204,9 +217,10 @@ const Heading = ({ color, children }: { color: string; children: string }) => (
       margin: 0,
       textAlign: "center",
     }}
+    as="h2"
   >
     {children}
-  </h2>
+  </EmailHeading>
 );
 
 const Copy = ({
@@ -218,7 +232,7 @@ const Copy = ({
   color: string;
   text: string;
 }) => (
-  <p
+  <Text
     className={className}
     style={{
       color,
@@ -231,11 +245,11 @@ const Copy = ({
     }}
   >
     {text}
-  </p>
+  </Text>
 );
 
 const PrimaryButton = (props: ResolvedProps) => (
-  <a
+  <Link
     className="cta-team-primary"
     href={props.ctaHref}
     style={{
@@ -253,31 +267,24 @@ const PrimaryButton = (props: ResolvedProps) => (
     }}
   >
     {props.ctaLabel}
-  </a>
+  </Link>
 );
 
 const SingleAvatarActions = (props: ResolvedProps) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ margin: "auto" }}
-  >
-    <tbody>
-      <tr>
-        <td className="cta-team-action-cell">
+  <Section align="center" style={{ margin: "auto" }}>
+    <Fragment>
+      <Row>
+        <Column className="cta-team-action-cell">
           <PrimaryButton {...props} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="cta-team-action-cell cta-team-action-gap"
           style={{ width: "24px" }}
         >
           &zwj;
-        </td>
-        <td className="cta-team-action-cell">
-          <a
+        </Column>
+        <Column className="cta-team-action-cell">
+          <Link
             className="cta-team-secondary"
             href={props.secondaryCtaHref}
             style={{
@@ -296,11 +303,11 @@ const SingleAvatarActions = (props: ResolvedProps) => (
             }}
           >
             {props.secondaryCtaLabel}
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Link>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const VariantContent = ({
@@ -314,13 +321,13 @@ const VariantContent = ({
     return (
       <>
         <SingleAvatar {...props} />
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
         <Heading color={props.headingColor}>{props.heading}</Heading>
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-        <div className="cta-team-single-copy" style={{ padding: "0 44px" }}>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+        <Section className="cta-team-single-copy" style={{ padding: "0 44px" }}>
           <Copy color={props.textColor} text={props.subtext} />
-        </div>
-        <div style={{ lineHeight: "36px" }}>&zwj;</div>
+        </Section>
+        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
         <SingleAvatarActions {...props} />
       </>
     );
@@ -332,16 +339,16 @@ const VariantContent = ({
     <>
       {variant === "avatars-top" ? avatars : null}
       {variant === "avatars-top" ? (
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
       ) : null}
       <Heading color={props.headingColor}>{props.heading}</Heading>
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
       {variant === "default" ? avatars : null}
       {variant === "default" ? (
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
       ) : null}
       <Copy color={props.textColor} text={props.subtext} />
-      <div style={{ lineHeight: "36px" }}>&zwj;</div>
+      <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
       <PrimaryButton {...props} />
     </>
   );
@@ -356,18 +363,14 @@ export const CTAWithTeamAvatarsSection = (props: SectionProps) => {
   } as ResolvedProps;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -375,27 +378,21 @@ export const CTAWithTeamAvatarsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     <VariantContent props={resolved} variant={variant} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

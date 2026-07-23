@@ -1,14 +1,14 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
@@ -41,542 +41,223 @@ export interface GridStatsProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .grid-stat-stack { display: block !important; width: 100% !important; }
-    .grid-stat-gap { line-height: 24px !important; }
-  }
-`;
-
 const detailedStats = [
   { label: "Increase in conversion rate", value: "45%" },
   { label: "Average page load time", value: "2.1s" },
   { label: "Monthly churn reduction", value: "18%" },
 ];
-
 const simpleStats = [
   { label: "Uptime across all core services", value: "99.9%" },
   { label: "Uptime across all core services", value: "3x" },
   { label: "Average support response", value: "24hr" },
 ];
-
 const bentoStats = [
   { label: "Uptime across all core services", value: "99.9%" },
   { label: "Growth in user engagement", value: "3x" },
   { label: "Maximum support response time", value: "24hr" },
 ];
 
-const defaults = {
-  accentBackgroundColor: "#030712",
-  accentColor: "#818cf8",
-  backgroundColor: "#fffffe",
-  borderColor: "#d1d5db",
-  cardBackgroundColor: "#f9fafb",
-  featuredLabel: "Active users globally",
-  featuredStat: "120k+",
-  headingColor: "#030712",
-  pageBackgroundColor: "#f1f5f9",
-  textColor: "#4b5563",
-};
-
-type SectionProps = Omit<GridStatsProps, "theme">;
-type ResolvedProps = typeof defaults &
-  SectionProps & { stats: { label: string; value: string }[] };
-
-const StatText = ({
-  label,
-  props,
-  value,
-}: {
+interface StatCardProps {
+  accent: boolean;
+  accentBackgroundColor: string;
+  accentColor: string;
+  borderColor: string;
+  cardBackgroundColor: string;
+  featured?: boolean;
+  headingColor: string;
   label: string;
-  props: ResolvedProps;
+  textColor: string;
   value: string;
-}) => (
-  <>
-    <p
-      style={{
-        color: props.headingColor,
-        fontFamily,
-        fontSize: "36px",
-        fontWeight: 300,
-        lineHeight: "40px",
-        margin: 0,
-        textAlign: "center",
-      }}
-    >
-      {value}
-    </p>
-    <p
-      style={{
-        color: props.textColor,
-        fontFamily,
-        fontSize: "16px",
-        lineHeight: "24px",
-        margin: "8px 0 0",
-        textAlign: "center",
-      }}
-    >
-      {label}
-    </p>
-  </>
-);
-
-interface BentoItem {
-  featured: boolean;
-  label: string;
-  value: string;
+  variant: GridStatsVariant;
   width: string;
 }
 
-type BentoRow = [BentoItem, BentoItem];
-type BentoRows = [BentoRow, BentoRow];
-
-const getBentoCardBackground = (
-  dark: boolean,
-  boxed: boolean,
-  props: ResolvedProps
-) => {
-  if (dark) {
-    return props.accentBackgroundColor;
-  }
-  if (boxed) {
-    return props.cardBackgroundColor;
-  }
-};
-
-const getBentoAccentColor = (variant: GridStatsVariant, reversed: boolean) => {
-  if (variant === "boxed") {
-    return;
-  }
-  return reversed ? "#34d399" : "#fbbf24";
-};
-
-const getStats = (variant: GridStatsVariant, useThreeColumns: boolean) => {
-  if (variant === "simple") {
-    return simpleStats;
-  }
-  if (useThreeColumns) {
-    return detailedStats;
-  }
-  return bentoStats;
-};
-
-const getBentoRows = (props: ResolvedProps, reversed: boolean): BentoRows => {
-  const feature: BentoItem = {
-    featured: true,
-    label: `${props.featuredLabel} since 2018`,
-    value: props.featuredStat,
-    width: "320px",
-  };
-  const uptime: BentoItem = {
-    featured: false,
-    label: props.stats[0]?.label ?? "",
-    value: props.stats[0]?.value ?? "",
-    width: "208px",
-  };
-  const growth: BentoItem = {
-    featured: true,
-    label: props.stats[1]?.label ?? "",
-    value: props.stats[1]?.value ?? "",
-    width: "320px",
-  };
-  const support: BentoItem = {
-    featured: false,
-    label: props.stats[2]?.label ?? "",
-    value: props.stats[2]?.value ?? "",
-    width: "208px",
-  };
-
-  if (reversed) {
-    return [
-      [uptime, feature],
-      [support, growth],
-    ];
-  }
-
-  return [
-    [feature, uptime],
-    [growth, support],
-  ];
-};
-
-const BentoCard = ({
+const StatCard = ({
+  accent,
+  accentBackgroundColor,
   accentColor,
-  bordered,
-  item,
-  props,
+  borderColor,
+  cardBackgroundColor,
+  featured = false,
+  headingColor,
+  label,
+  textColor,
+  value,
   variant,
-}: {
-  accentColor?: string;
-  bordered: boolean;
-  item: BentoItem;
-  props: ResolvedProps;
-  variant: GridStatsVariant;
-}) => {
-  const dark =
-    variant === "accent-column" &&
-    item.featured &&
-    item.value === props.featuredStat;
+  width,
+}: StatCardProps) => {
   const boxed = variant === "boxed" || variant === "accent-column";
+  const outlined = variant === "outlined";
+  const dark = accent && variant === "accent-column";
+  let backgroundColor: string | undefined;
+  if (dark) {
+    backgroundColor = accentBackgroundColor;
+  } else if (boxed) {
+    backgroundColor = cardBackgroundColor;
+  }
+  let valueColor = headingColor;
+  if (dark) {
+    valueColor = "#c7d2fe";
+  } else if (featured) {
+    valueColor = accentColor;
+  }
+
   return (
-    <td className="grid-stat-stack" style={{ width: item.width }}>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{
-          backgroundColor: getBentoCardBackground(dark, boxed, props),
-          border:
-            variant === "outlined"
-              ? `1px solid ${props.borderColor}`
-              : undefined,
-          borderRadius: variant === "bordered" ? undefined : "8px",
-          borderTop:
-            variant === "bordered" && bordered
-              ? `4px solid ${props.headingColor}`
-              : undefined,
-          height: variant === "bordered" ? undefined : "180px",
-        }}
-        width="100%"
+    <MjmlColumn
+      backgroundColor={backgroundColor}
+      border={outlined ? `1px solid ${borderColor}` : undefined}
+      borderRadius={outlined || boxed ? "8px" : "0"}
+      borderTop={
+        variant === "bordered" ? `4px solid ${headingColor}` : undefined
+      }
+      padding={variant === "simple" ? "12px" : "24px 16px"}
+      verticalAlign="top"
+      width={width}
+    >
+      <MjmlText
+        align="center"
+        color={valueColor}
+        fontFamily={fontFamily}
+        fontSize={featured ? "72px" : "36px"}
+        fontWeight={featured ? "500" : "300"}
+        lineHeight={featured ? "80px" : "40px"}
+        padding="0"
       >
-        <tbody>
-          <tr>
-            <td
-              style={{
-                padding:
-                  variant === "bordered" && bordered ? "24px 16px" : "0 16px",
-              }}
-            >
-              <p
-                style={{
-                  color: dark
-                    ? (accentColor ?? "#c7d2fe")
-                    : (accentColor ?? props.headingColor),
-                  fontFamily,
-                  fontSize: item.featured ? "72px" : "36px",
-                  fontWeight: item.featured ? 500 : 300,
-                  lineHeight: item.featured ? 1 : "40px",
-                  margin: 0,
-                  textAlign: "center",
-                }}
-              >
-                {item.value}
-              </p>
-              <p
-                style={{
-                  color: dark ? "#d1d5db" : props.textColor,
-                  fontFamily,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  margin: item.featured ? 0 : "8px 0 0",
-                  textAlign: "center",
-                }}
-              >
-                {item.label}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
+        {value}
+      </MjmlText>
+      <MjmlText
+        align="center"
+        color={dark ? "#d1d5db" : textColor}
+        fontFamily={fontFamily}
+        fontSize={featured ? "18px" : "16px"}
+        lineHeight={featured ? "28px" : "24px"}
+        padding="8px 0 0"
+      >
+        {label}
+      </MjmlText>
+    </MjmlColumn>
   );
 };
 
-const BentoLayout = ({
-  props,
-  reversed,
-  variant,
-}: {
-  props: ResolvedProps;
-  reversed: boolean;
-  variant: GridStatsVariant;
-}) => {
-  const accentColor = getBentoAccentColor(variant, reversed);
-  const rows = getBentoRows(props, reversed);
+export const GridStatsSection = ({
+  accentBackgroundColor = "#030712",
+  accentColor = "#818cf8",
+  backgroundColor = "#fffffe",
+  borderColor = "#d1d5db",
+  cardBackgroundColor = "#f9fafb",
+  featuredLabel = "Active users globally",
+  featuredStat = "120k+",
+  headingColor = "#030712",
+  layout = "three-columns",
+  stats,
+  textColor = "#4b5563",
+  variant = "boxed",
+}: Omit<GridStatsProps, "theme">) => {
+  const useThreeColumns = variant === "simple" || layout === "three-columns";
+  let fallbackStats = bentoStats;
+  if (variant === "simple") {
+    fallbackStats = simpleStats;
+  } else if (useThreeColumns) {
+    fallbackStats = detailedStats;
+  }
+  const resolvedStats = stats ?? fallbackStats;
+  const common = {
+    accentBackgroundColor,
+    accentColor,
+    borderColor,
+    cardBackgroundColor,
+    headingColor,
+    textColor,
+    variant,
+  };
+
+  if (useThreeColumns) {
+    return (
+      <>
+        <MjmlSection backgroundColor={backgroundColor} padding="44px 24px 12px">
+          <StatCard
+            {...common}
+            accent
+            featured
+            label={featuredLabel}
+            value={featuredStat}
+            width="100%"
+          />
+        </MjmlSection>
+        <MjmlSection backgroundColor={backgroundColor} padding="12px 24px 44px">
+          {resolvedStats.slice(0, 3).map((stat, index) => (
+            <StatCard
+              {...common}
+              accent={false}
+              key={`${stat.label}-${index}`}
+              label={stat.label}
+              value={stat.value}
+              width="33.333%"
+            />
+          ))}
+        </MjmlSection>
+      </>
+    );
+  }
+
+  const featured = {
+    label: `${featuredLabel} since 2018`,
+    value: featuredStat,
+  };
+  const firstRow =
+    layout === "bento-reversed"
+      ? [resolvedStats[0], featured]
+      : [featured, resolvedStats[0]];
+  const secondRow =
+    layout === "bento-reversed"
+      ? [resolvedStats[2], resolvedStats[1]]
+      : [resolvedStats[1], resolvedStats[2]];
+
   return (
     <>
-      {rows.map((items, rowIndex) => (
-        <Fragment key={String(rowIndex)}>
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <BentoCard
-                  accentColor={items[0].featured ? accentColor : undefined}
-                  bordered={rowIndex === 1}
-                  item={items[0]}
-                  props={props}
-                  variant={variant}
-                />
-                <td
-                  className="grid-stat-stack grid-stat-gap"
-                  style={{ width: "24px" }}
-                >
-                  &zwj;
-                </td>
-                <BentoCard
-                  accentColor={items[1].featured ? accentColor : undefined}
-                  bordered={rowIndex === 1}
-                  item={items[1]}
-                  props={props}
-                  variant={variant}
-                />
-              </tr>
-            </tbody>
-          </table>
-          {rowIndex === 0 ? (
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-          ) : null}
-        </Fragment>
+      {[firstRow, secondRow].map((row, rowIndex) => (
+        <MjmlSection
+          backgroundColor={backgroundColor}
+          key={`row-${rowIndex}`}
+          padding={rowIndex === 0 ? "44px 24px 12px" : "12px 24px 44px"}
+        >
+          {row.map((stat, index) => {
+            const isFeatured =
+              stat?.value === featuredStat || stat === resolvedStats[1];
+            return (
+              <StatCard
+                {...common}
+                accent={isFeatured}
+                featured={isFeatured}
+                key={`${stat?.label}-${index}`}
+                label={stat?.label ?? ""}
+                value={stat?.value ?? ""}
+                width={isFeatured ? "60%" : "40%"}
+              />
+            );
+          })}
+        </MjmlSection>
       ))}
     </>
   );
 };
 
-export const GridStatsSection = (props: SectionProps) => {
-  const variant = props.variant ?? "boxed";
-  const layout = props.layout ?? "three-columns";
-  const useThreeColumns = variant === "simple" || layout === "three-columns";
-  const resolved = {
-    ...defaults,
-    stats: getStats(variant, useThreeColumns),
-    ...props,
-  } as ResolvedProps;
-  const isOutlined = variant === "outlined";
-  const isBordered = variant === "bordered";
-  const isBoxed = variant === "boxed" || variant === "accent-column";
-  const isAccent = variant === "accent-column";
-  let featuredBackgroundColor: string | undefined;
-  if (isAccent) {
-    featuredBackgroundColor = resolved.accentBackgroundColor;
-  } else if (isBoxed) {
-    featuredBackgroundColor = resolved.cardBackgroundColor;
-  }
-  let featuredColor = resolved.accentColor;
-  if (variant === "simple") {
-    featuredColor = resolved.headingColor;
-  } else if (isAccent) {
-    featuredColor = "#c7d2fe";
-  }
-
-  return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              textAlign: "left",
-              width: "600px",
-            }}
-          >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    {useThreeColumns ? (
-                      <>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
-                              <td
-                                style={{
-                                  backgroundColor: featuredBackgroundColor,
-                                  border: isOutlined
-                                    ? `1px solid ${resolved.borderColor}`
-                                    : undefined,
-                                  borderRadius:
-                                    isOutlined || isBoxed ? "8px" : undefined,
-                                  padding:
-                                    isOutlined || isBoxed ? "24px" : undefined,
-                                }}
-                              >
-                                <p
-                                  style={{
-                                    color: featuredColor,
-                                    fontFamily,
-                                    fontSize: "72px",
-                                    fontWeight: 500,
-                                    margin: 0,
-                                    textAlign: "center",
-                                  }}
-                                >
-                                  {resolved.featuredStat}
-                                </p>
-                                <p
-                                  style={{
-                                    color: isAccent
-                                      ? "#d1d5db"
-                                      : resolved.textColor,
-                                    fontFamily,
-                                    fontSize: "18px",
-                                    lineHeight: "28px",
-                                    margin: 0,
-                                    textAlign: "center",
-                                  }}
-                                >
-                                  {resolved.featuredLabel}
-                                </p>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
-                              {resolved.stats.slice(0, 3).map((stat, index) => (
-                                <Fragment key={stat.label + stat.value}>
-                                  {index > 0 ? (
-                                    <td
-                                      className="grid-stat-stack grid-stat-gap"
-                                      style={{ width: "24px" }}
-                                    >
-                                      &zwj;
-                                    </td>
-                                  ) : null}
-                                  <td
-                                    className="grid-stat-stack"
-                                    style={{
-                                      verticalAlign: "top",
-                                      width: "168px",
-                                    }}
-                                  >
-                                    {variant === "simple" ? (
-                                      <StatText
-                                        label={stat.label}
-                                        props={resolved}
-                                        value={stat.value}
-                                      />
-                                    ) : (
-                                      <table
-                                        border={0}
-                                        cellPadding={0}
-                                        cellSpacing={0}
-                                        role="presentation"
-                                        style={{
-                                          backgroundColor: isBoxed
-                                            ? resolved.cardBackgroundColor
-                                            : undefined,
-                                          border: isOutlined
-                                            ? `1px solid ${resolved.borderColor}`
-                                            : undefined,
-                                          borderRadius:
-                                            isOutlined || isBoxed
-                                              ? "8px"
-                                              : undefined,
-                                          borderTop: isBordered
-                                            ? `4px solid ${resolved.headingColor}`
-                                            : undefined,
-                                        }}
-                                        width="100%"
-                                      >
-                                        <tbody>
-                                          <tr>
-                                            <td
-                                              style={{
-                                                padding: isBordered
-                                                  ? "20px 16px"
-                                                  : "24px 16px",
-                                              }}
-                                            >
-                                              <StatText
-                                                label={stat.label}
-                                                props={resolved}
-                                                value={stat.value}
-                                              />
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    )}
-                                  </td>
-                                </Fragment>
-                              ))}
-                            </tr>
-                          </tbody>
-                        </table>
-                      </>
-                    ) : (
-                      <BentoLayout
-                        props={resolved}
-                        reversed={layout === "bento-reversed"}
-                        variant={variant}
-                      />
-                    )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
 export const GridStats = ({
   pageBackgroundColor = "#f1f5f9",
-  layout = "three-columns",
   theme = defaultTheme,
-  variant = "boxed",
   ...props
 }: GridStatsProps) => (
   <Mjml>
     <MjmlHead>
       <MjmlPreview>120k+ Active users globally</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <GridStatsSection
-            {...props}
-            layout={layout}
-            variant={variant}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
+        <GridStatsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

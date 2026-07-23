@@ -1,3 +1,10 @@
+import {
+  MjmlColumn,
+  MjmlGroup,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
+} from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
 export type ContainerMobile = "flush" | "gutters";
@@ -31,38 +38,42 @@ export const ContainerSection = ({
 
   return (
     <>
-      <div style={{ height: "100px" }} />
-      <div
-        className={
-          mobile === "gutters" ? "container-mobile-gutters" : undefined
-        }
-        style={{
-          backgroundColor: "#fffffe",
-          marginLeft: "auto",
-          marginRight: "auto",
-          maxWidth,
-        }}
-      >
-        <div style={{ paddingBottom: "48px", paddingTop: "48px" }}>
-          <div style={{ paddingBottom: "16px", paddingTop: "16px" }}>
-            <p
-              style={{
-                color: "#030712",
-                fontFamily:
-                  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                margin: 0,
-                textAlign: align,
-              }}
+      <MjmlSection padding="0">
+        <MjmlColumn padding="0">
+          <MjmlSpacer height="100px" padding="0" />
+        </MjmlColumn>
+      </MjmlSection>
+      <MjmlSection padding="0">
+        <MjmlGroup
+          cssClass={
+            mobile === "gutters" ? "container-mobile-gutters" : undefined
+          }
+          width={maxWidth}
+        >
+          <MjmlColumn
+            backgroundColor="#fffffe"
+            padding="48px 0"
+            verticalAlign="middle"
+          >
+            <MjmlText
+              align={align}
+              color="#030712"
+              fontFamily='Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif'
+              fontSize="16px"
+              fontWeight="500"
+              lineHeight="24px"
+              padding="16px 24px"
             >
               {label}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div style={{ height: "100px" }} />
+            </MjmlText>
+          </MjmlColumn>
+        </MjmlGroup>
+      </MjmlSection>
+      <MjmlSection padding="0">
+        <MjmlColumn padding="0">
+          <MjmlSpacer height="100px" padding="0" />
+        </MjmlColumn>
+      </MjmlSection>
     </>
   );
 };

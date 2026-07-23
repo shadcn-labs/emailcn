@@ -1,5 +1,17 @@
 import type { CSSProperties, ReactNode } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Heading as EmailHeading,
+  Text,
+  Row,
+  Column,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -63,7 +75,7 @@ export const isPaddedVariant = (variant: ProgressBarPaddedVariant) =>
   variant.endsWith("-padded");
 
 const Spacer = ({ height }: { height: number }) => (
-  <div
+  <Section
     style={{
       fontSize: 0,
       height: `${height}px`,
@@ -71,11 +83,11 @@ const Spacer = ({ height }: { height: number }) => (
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const Heading = ({ children }: { children: ReactNode }) => (
-  <h3
+  <EmailHeading
     style={{
       ...textBase,
       color: colors.dark,
@@ -83,9 +95,10 @@ const Heading = ({ children }: { children: ReactNode }) => (
       fontWeight: 600,
       lineHeight: "20px",
     }}
+    as="h3"
   >
     {children}
-  </h3>
+  </EmailHeading>
 );
 
 const Description = ({
@@ -97,7 +110,7 @@ const Description = ({
   marginBottom?: number;
   marginTop?: number;
 }) => (
-  <p
+  <Text
     style={{
       ...textBase,
       color: colors.muted,
@@ -108,7 +121,7 @@ const Description = ({
     }}
   >
     {children}
-  </p>
+  </Text>
 );
 
 const ProgressTrack = ({
@@ -118,10 +131,10 @@ const ProgressTrack = ({
   const progress = clamp(value);
 
   return (
-    <table role="presentation" style={{ ...tableStyle, tableLayout: "fixed" }}>
-      <tbody>
-        <tr>
-          <td
+    <Section style={{ ...tableStyle, tableLayout: "fixed" }}>
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: colors.track,
               borderRadius: "9999px",
@@ -129,17 +142,16 @@ const ProgressTrack = ({
               lineHeight: "8px",
             }}
           >
-            <table
-              role="presentation"
+            <Section
               style={{
                 borderCollapse: "separate",
                 borderSpacing: 0,
                 width: `${progress}%`,
               }}
             >
-              <tbody>
-                <tr>
-                  <td
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: color,
                       borderRadius: "9999px",
@@ -148,12 +160,12 @@ const ProgressTrack = ({
                     }}
                   >
                     &zwj;
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column
             width={40}
             style={{
               height: "8px",
@@ -172,10 +184,10 @@ const ProgressTrack = ({
             >
               {progress}%
             </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -235,30 +247,30 @@ export const ProgressBarColumnsContent = ({
   >;
 
   return (
-    <table role="presentation" style={tableStyle}>
-      <tbody>
-        <tr>
-          <td className="progress-column" style={{ verticalAlign: "top" }}>
+    <Section style={tableStyle}>
+      <Fragment>
+        <Row>
+          <Column className="progress-column" style={{ verticalAlign: "top" }}>
             <ItemContent item={items[0]} variant={contentVariant} />
-          </td>
-          <td
+          </Column>
+          <Column
             className="progress-column-gap"
             width={44}
             style={{ fontSize: 0, lineHeight: "1px", width: "44px" }}
           >
             &zwj;
-          </td>
-          <td className="progress-column" style={{ verticalAlign: "top" }}>
+          </Column>
+          <Column className="progress-column" style={{ verticalAlign: "top" }}>
             <ItemContent item={items[1]} variant={contentVariant} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
 const GroupHeading = ({ children }: { children: ReactNode }) => (
-  <h3
+  <EmailHeading
     style={{
       ...textBase,
       color: colors.dark,
@@ -267,14 +279,15 @@ const GroupHeading = ({ children }: { children: ReactNode }) => (
       lineHeight: "28px",
       marginBottom: "24px",
     }}
+    as="h3"
   >
     {children}
-  </h3>
+  </EmailHeading>
 );
 
 const GroupItem = ({ item }: { item: ProgressBarItem }) => (
   <>
-    <h3
+    <EmailHeading
       style={{
         ...textBase,
         color: colors.label,
@@ -283,9 +296,10 @@ const GroupItem = ({ item }: { item: ProgressBarItem }) => (
         lineHeight: "20px",
         marginBottom: "10px",
       }}
+      as="h3"
     >
       {item.title}
-    </h3>
+    </EmailHeading>
     <ProgressTrack color={item.color} value={item.value} />
   </>
 );
@@ -312,10 +326,10 @@ export const ProgressBarGroupContent = ({
         <Description marginBottom={24}>{description}</Description>
       ) : null}
       {items.map((item, index) => (
-        <div key={`${item.title}-${index}`}>
+        <Section key={`${item.title}-${index}`}>
           <GroupItem item={item} />
           {index < items.length - 1 ? <Spacer height={24} /> : null}
-        </div>
+        </Section>
       ))}
       {contentVariant === "with-text" ? (
         <Description marginTop={24}>{description}</Description>
@@ -354,14 +368,11 @@ export const ProgressEmailShell = ({
     <Preview>{preview}</Preview>
     <Tailwind config={theme}>
       <Body style={{ backgroundColor: colors.canvas, fontFamily, margin: 0 }}>
-        <table
-          role="presentation"
-          style={{ ...tableStyle, backgroundColor: colors.canvas }}
-        >
-          <tbody>
-            <tr>
-              <td>&zwj;</td>
-              <td
+        <Section style={{ ...tableStyle, backgroundColor: colors.canvas }}>
+          <Fragment>
+            <Row>
+              <Column>&zwj;</Column>
+              <Column
                 width={600}
                 style={{
                   backgroundColor: colors.surface,
@@ -370,34 +381,34 @@ export const ProgressEmailShell = ({
                   width: "600px",
                 }}
               >
-                <table role="presentation" style={tableStyle}>
-                  <tbody>
-                    <tr>
-                      <td>
+                <Section style={tableStyle}>
+                  <Fragment>
+                    <Row>
+                      <Column>
                         <Spacer height={topSpacer} />
-                        <table role="presentation" style={tableStyle}>
-                          <tbody>
-                            <tr>
-                              <td
+                        <Section style={tableStyle}>
+                          <Fragment>
+                            <Row>
+                              <Column
                                 style={{
                                   paddingLeft: `${horizontalPadding}px`,
                                   paddingRight: `${horizontalPadding}px`,
                                 }}
                               >
                                 {children}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-              <td>&zwj;</td>
-            </tr>
-          </tbody>
-        </table>
+                              </Column>
+                            </Row>
+                          </Fragment>
+                        </Section>
+                      </Column>
+                    </Row>
+                  </Fragment>
+                </Section>
+              </Column>
+              <Column>&zwj;</Column>
+            </Row>
+          </Fragment>
+        </Section>
       </Body>
     </Tailwind>
   </Html>

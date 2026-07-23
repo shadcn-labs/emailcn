@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -46,9 +45,7 @@ export const Container = ({
       </MjmlHead>
       <MjmlBody width={theme.containerWidth}>
         <MjmlWrapper padding="0">
-          <MjmlRaw>
-            <ContainerSection {...props} mobile={mobile} />
-          </MjmlRaw>
+          <ContainerSection {...props} mobile={mobile} />
         </MjmlWrapper>
       </MjmlBody>
     </Mjml>

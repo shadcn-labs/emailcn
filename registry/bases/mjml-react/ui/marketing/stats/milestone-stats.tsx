@@ -1,11 +1,14 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
+  MjmlDivider,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -37,293 +40,136 @@ export interface MilestoneStatsProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) { .milestone-side-gap { width: 48px !important; } }
-  @media only screen and (max-width: 430px) { .milestone-side-gap { display: none !important; } }
-`;
+export const MilestoneStatsSection = (
+  props: Omit<MilestoneStatsProps, "theme">
+) => {
+  const {
+    backgroundColor,
+    cardBackgroundColor,
+    currentLevel,
+    heading,
+    headingColor,
+    mutedTextColor,
+    nextLevel,
+    progress,
+    progressColor,
+    progressTrackColor,
+    remaining,
+    textColor,
+    unit,
+    value,
+    variant,
+  } = {
+    backgroundColor: "#fffffe",
+    cardBackgroundColor: "#f9fafb",
+    currentLevel: "SILVER",
+    heading: "Miles traveled",
+    headingColor: "#030712",
+    mutedTextColor: "#9ca3af",
+    nextLevel: "GOLD",
+    progress: 90,
+    progressColor: "#030712",
+    progressTrackColor: "#e5e7eb",
+    remaining: "1,315 miles",
+    textColor: "#4b5563",
+    unit: "miles",
+    value: "5,685",
+    variant: "default",
+    ...props,
+  };
 
-const defaults = {
-  backgroundColor: "#fffffe",
-  cardBackgroundColor: "#f9fafb",
-  currentLevel: "SILVER",
-  heading: "Miles traveled",
-  headingColor: "#030712",
-  mutedTextColor: "#9ca3af",
-  nextLevel: "GOLD",
-  pageBackgroundColor: "#f1f5f9",
-  progress: 90,
-  progressColor: "#030712",
-  progressTrackColor: "#e5e7eb",
-  remaining: "1,315 miles",
-  textColor: "#4b5563",
-  unit: "miles",
-  value: "5,685",
-};
-
-type SectionProps = Omit<MilestoneStatsProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const MilestoneContent = ({
-  props,
-  variant,
-}: {
-  props: ResolvedProps;
-  variant: MilestoneStatsVariant;
-}) => {
   const accent = variant === "accent";
-  const primary = accent ? "#fffffe" : props.headingColor;
-  return (
-    <>
-      <div>
-        <p
-          style={{
-            color: primary,
-            fontFamily,
-            fontSize: "18px",
-            fontWeight: 600,
-            lineHeight: "28px",
-            margin: 0,
-            textAlign: "center",
-          }}
-        >
-          {props.heading}
-        </p>
-        <p
-          style={{
-            color: accent ? "#fde68a" : props.headingColor,
-            fontFamily,
-            fontSize: "48px",
-            fontWeight: 600,
-            lineHeight: "normal",
-            margin: "8px 0 0",
-            textAlign: "center",
-          }}
-        >
-          {props.value}{" "}
-          <span style={{ color: props.mutedTextColor, fontSize: "30px" }}>
-            {props.unit}
-          </span>
-        </p>
-      </div>
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td className="milestone-side-gap" style={{ width: "88px" }}>
-              &zwj;
-            </td>
-            <td>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td
-                      style={{
-                        color: props.mutedTextColor,
-                        fontFamily,
-                        fontSize: "14px",
-                        fontWeight: accent ? 500 : 600,
-                        lineHeight: "20px",
-                      }}
-                    >
-                      {props.currentLevel}
-                    </td>
-                    <td
-                      style={{
-                        color: primary,
-                        fontFamily,
-                        fontSize: "14px",
-                        fontWeight: accent ? 500 : 600,
-                        lineHeight: "20px",
-                        textAlign: "right",
-                      }}
-                    >
-                      {props.nextLevel}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div style={{ lineHeight: "10px" }}>&zwj;</div>
-            </td>
-            <td className="milestone-side-gap" style={{ width: "88px" }}>
-              &zwj;
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="milestone-side-gap"
-              style={{ lineHeight: "4px", width: "88px" }}
-            >
-              &zwj;
-            </td>
-            <td
-              style={{
-                backgroundColor: accent ? "#4b5563" : props.progressTrackColor,
-                borderRadius: "4px",
-                height: "4px",
-              }}
-            >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: `${props.progress}%` }}
-              >
-                <tbody>
-                  <tr>
-                    <td
-                      style={{
-                        backgroundColor: accent
-                          ? "#fde68a"
-                          : props.progressColor,
-                        borderRadius: "4px",
-                        lineHeight: "4px",
-                      }}
-                    >
-                      &zwj;
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td
-              className="milestone-side-gap"
-              style={{ lineHeight: "4px", width: "88px" }}
-            >
-              &zwj;
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p
-        style={{
-          color: accent ? "#d1d5db" : props.textColor,
-          fontFamily,
-          fontSize: "14px",
-          lineHeight: "20px",
-          margin: "16px 0 0",
-          textAlign: "center",
-        }}
-      >
-        You’re <strong>{props.remaining}</strong> from Gold status
-      </p>
-    </>
-  );
-};
+  let panel = backgroundColor;
+  if (accent) {
+    panel = "#030712";
+  } else if (variant === "boxed") {
+    panel = cardBackgroundColor;
+  }
+  const primary = accent ? "#fffffe" : headingColor;
 
-export const MilestoneStatsSection = (props: SectionProps) => {
-  const variant = props.variant ?? "default";
-  const resolved = { ...defaults, ...props } as ResolvedProps;
-  const boxed = variant !== "default";
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              textAlign: "left",
-              width: "600px",
-            }}
-          >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    {boxed ? (
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        style={{
-                          backgroundColor:
-                            variant === "accent"
-                              ? "#030712"
-                              : resolved.cardBackgroundColor,
-                          borderRadius: "8px",
-                        }}
-                        width="100%"
-                      >
-                        <tbody>
-                          <tr>
-                            <td style={{ padding: "24px" }}>
-                              <MilestoneContent
-                                props={resolved}
-                                variant={variant}
-                              />
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    ) : (
-                      <MilestoneContent props={resolved} variant={variant} />
-                    )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+    <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
+      <MjmlColumn
+        backgroundColor={panel}
+        borderRadius={variant === "default" ? "0" : "8px"}
+        padding={variant === "default" ? "0" : "24px"}
+      >
+        <MjmlText
+          align="center"
+          color={primary}
+          fontFamily={fontFamily}
+          fontSize="18px"
+          fontWeight="600"
+          lineHeight="28px"
+          padding="0"
+        >
+          {heading}
+        </MjmlText>
+        <MjmlText
+          align="center"
+          color={accent ? "#fde68a" : headingColor}
+          fontFamily={fontFamily}
+          fontSize="48px"
+          fontWeight="600"
+          lineHeight="56px"
+          padding="8px 0 0"
+        >
+          {value} {unit}
+        </MjmlText>
+        <MjmlSpacer height="24px" />
+        <MjmlText
+          color={mutedTextColor}
+          fontFamily={fontFamily}
+          fontSize="14px"
+          fontWeight="600"
+          lineHeight="20px"
+          padding="0"
+        >
+          {currentLevel}　　　　　　　　　　　　　　　　　{nextLevel}
+        </MjmlText>
+        <MjmlDivider
+          borderColor={progressTrackColor}
+          borderWidth="8px"
+          padding="8px 0 0"
+        />
+        <MjmlDivider
+          align="left"
+          borderColor={accent ? "#fde68a" : progressColor}
+          borderWidth="8px"
+          padding="0"
+          width={`${Math.min(100, Math.max(0, progress))}%`}
+        />
+        <MjmlText
+          align="center"
+          color={accent ? "#d1d5db" : textColor}
+          fontFamily={fontFamily}
+          fontSize="14px"
+          lineHeight="20px"
+          padding="16px 0 0"
+        >
+          You’re {remaining} from Gold status
+        </MjmlText>
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const MilestoneStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "default",
   ...props
 }: MilestoneStatsProps) => (
   <Mjml>
     <MjmlHead>
       <MjmlPreview>5,685 miles traveled</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <MilestoneStatsSection
-            {...props}
-            variant={variant}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
+        <MilestoneStatsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

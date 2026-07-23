@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Section,
+  Text,
+  Link,
+  Column,
+  Row,
+  Heading,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -84,7 +91,7 @@ type SectionProps = Omit<
 type ResolvedProps = typeof defaults & SectionProps;
 
 const LogoPanel = ({ props }: { props: ResolvedProps }) => (
-  <div
+  <Section
     style={{
       backgroundColor: props.logoBackgroundColor,
       borderRadius: "4px",
@@ -98,12 +105,12 @@ const LogoPanel = ({ props }: { props: ResolvedProps }) => (
       style={{ display: "inline", maxWidth: "100%", verticalAlign: "middle" }}
       width={139}
     />
-  </div>
+  </Section>
 );
 
 const FeatureCopy = ({ props }: { props: ResolvedProps }) => (
   <>
-    <p
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -114,10 +121,10 @@ const FeatureCopy = ({ props }: { props: ResolvedProps }) => (
       }}
     >
       {props.body}
-    </p>
-    <div style={{ lineHeight: "12px" }}>&zwj;</div>
-    <div>
-      <a
+    </Text>
+    <Section style={{ lineHeight: "12px" }}>&zwj;</Section>
+    <Section>
+      <Link
         href={props.buttonHref}
         style={{
           borderRadius: "8px",
@@ -144,8 +151,8 @@ const FeatureCopy = ({ props }: { props: ResolvedProps }) => (
             width={16}
           />
         </span>
-      </a>
-    </div>
+      </Link>
+    </Section>
   </>
 );
 
@@ -156,22 +163,22 @@ const ContentColumn = ({
   logoAfter: boolean;
   props: ResolvedProps;
 }) => (
-  <td
+  <Column
     className="feature-full-stack"
     style={{ textAlign: "left", verticalAlign: "top", width: "204px" }}
   >
     {logoAfter ? null : (
-      <div style={{ marginBottom: "24px" }}>
+      <Section style={{ marginBottom: "24px" }}>
         <LogoPanel props={props} />
-      </div>
+      </Section>
     )}
     <FeatureCopy props={props} />
     {logoAfter ? (
-      <div style={{ marginTop: "24px" }}>
+      <Section style={{ marginTop: "24px" }}>
         <LogoPanel props={props} />
-      </div>
+      </Section>
     ) : null}
-  </td>
+  </Column>
 );
 
 const BackgroundCard = ({
@@ -181,7 +188,7 @@ const BackgroundCard = ({
   imageSrc: string;
   props: ResolvedProps;
 }) => (
-  <td
+  <Column
     className="feature-full-image-stack"
     style={{
       backgroundColor: props.imageBackgroundColor,
@@ -194,36 +201,30 @@ const BackgroundCard = ({
       width: "150px",
     }}
   >
-    <div style={{ lineHeight: "280px" }}>&zwj;</div>
-  </td>
+    <Section style={{ lineHeight: "280px" }}>&zwj;</Section>
+  </Column>
 );
 
 const ImagesColumn = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="feature-full-stack"
     style={{ verticalAlign: "top", width: "324px" }}
   >
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
+    <Section width="100%">
+      <Fragment>
+        <Row>
           <BackgroundCard imageSrc={props.imageSrc1} props={props} />
-          <td
+          <Column
             className="feature-full-image-stack feature-full-image-gap"
             style={{ width: "24px" }}
           >
             &zwj;
-          </td>
+          </Column>
           <BackgroundCard imageSrc={props.imageSrc2} props={props} />
-        </tr>
-      </tbody>
-    </table>
-  </td>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 export const FeatureWithFullTitleAndTallBackgroundImagesSection = (
@@ -237,18 +238,14 @@ export const FeatureWithFullTitleAndTallBackgroundImagesSection = (
   const images = <ImagesColumn props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -256,18 +253,12 @@ export const FeatureWithFullTitleAndTallBackgroundImagesSection = (
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <h2
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Heading
                       style={{
                         color: resolved.headingColor,
                         fontFamily,
@@ -276,38 +267,33 @@ export const FeatureWithFullTitleAndTallBackgroundImagesSection = (
                         lineHeight: "32px",
                         margin: "0 0 24px",
                       }}
+                      as="h2"
                     >
                       {resolved.heading}
-                    </h2>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+                    </Heading>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {contentRight ? images : content}
-                          <td
+                          <Column
                             className="feature-full-stack feature-full-gap"
                             style={{ width: "24px" }}
                           >
                             &zwj;
-                          </td>
+                          </Column>
                           {contentRight ? content : images}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

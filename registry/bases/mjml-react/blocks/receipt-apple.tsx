@@ -1,54 +1,62 @@
-// MJML parity block — mirrored from react-email (receipt-apple.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Your receipt from Apple
 
+import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { appleTheme } from "@/registry/bases/mjml-react/themes/apple";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface ReceiptItem {
+  name: string;
+  imageUrl?: string;
+  price: string;
+  quantity?: number;
+}
 
-export const ReceiptApple = (_props: Props) => {
-  const theme: EmailThemeTokens = appleTheme;
+interface Props {
+  orderNumber?: string;
+  customerName?: string;
+  items?: ReceiptItem[];
+  subtotal?: string;
+  tax?: string;
+  total?: string;
+  supportHref?: string;
+  _productName?: string;
+}
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for receipt-apple.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+export const ReceiptApple = ({
+  orderNumber = "ORD-123",
+  customerName = "John",
+  items = [{ name: "iPhone 15 Pro", price: "$999.00", quantity: 1 }],
+  subtotal = "$999.00",
+  tax = "$79.92",
+  total = "$1078.92",
+  supportHref = "#",
+}: Props) => (
+  <ReceiptBlock
+    customerName={customerName}
+    items={items}
+    orderNumber={orderNumber}
+    subtotal={subtotal}
+    supportHref={supportHref}
+    supportLabel="Contact Apple Support"
+    tax={tax}
+    theme={appleTheme}
+    total={total}
+  />
+);
 
-ReceiptApple.PreviewProps = {} satisfies Props;
+ReceiptApple.PreviewProps = {
+  _productName: "Apple",
+  customerName: "John Doe",
+  items: [
+    {
+      imageUrl: "https://static.photos/technology/640x640/2",
+      name: "iPhone 15 Pro",
+      price: "$999.00",
+      quantity: 1,
+    },
+  ],
+  orderNumber: "ORD-12345",
+  subtotal: "$999.00",
+  supportHref: "https://example.com/support",
+  tax: "$79.92",
+  total: "$1078.92",
+} satisfies Props;

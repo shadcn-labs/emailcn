@@ -1,6 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -50,42 +62,38 @@ const SocialLinks = ({
   const suffix = accent ? "light" : "dark";
   const icons = ["facebook", "x", lastIcon] as const;
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      className="horizontal-team-social"
-      role="presentation"
-    >
-      <tbody>
-        <tr>
+    <Section className="horizontal-team-social">
+      <Fragment>
+        <Row>
           {icons.map((icon, index) => (
             <Fragment key={icon}>
-              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
-              <td style={{ width: "16px" }}>
-                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
-                  <img
+              {index > 0 ? (
+                <Column style={{ width: "16px" }}>&zwj;</Column>
+              ) : null}
+              <Column style={{ width: "16px" }}>
+                <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <Img
                     alt=""
                     src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
                     width="16"
                   />
-                </a>
-              </td>
+                </Link>
+              </Column>
             </Fragment>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
 const GapCell = () => (
-  <td
+  <Column
     className="horizontal-team-stack horizontal-team-gap"
     style={{ lineHeight: 0, width: "24px" }}
   >
     &zwj;
-  </td>
+  </Column>
 );
 
 interface HorizontalCardProps {
@@ -110,11 +118,11 @@ const HorizontalCard = ({
   role,
 }: HorizontalCardProps) => {
   const ImageCell = () => (
-    <td
+    <Column
       className="horizontal-team-stack"
       style={{ textAlign: "center", verticalAlign: "top", width: "164px" }}
     >
-      <img
+      <Img
         alt={avatarAlt}
         className="horizontal-team-image"
         src={avatarSrc}
@@ -125,17 +133,17 @@ const HorizontalCard = ({
         }}
         width="164"
       />
-    </td>
+    </Column>
   );
   const ContentCell = () => (
-    <td
+    <Column
       className="horizontal-team-stack"
       style={{
         padding: imageLeft ? "12px 0" : 0,
         verticalAlign: "top",
       }}
     >
-      <h3
+      <Heading
         className="horizontal-team-center"
         style={{
           color: accent ? "#fffffe" : "#030712",
@@ -145,10 +153,11 @@ const HorizontalCard = ({
           lineHeight: "24px",
           margin: 0,
         }}
+        as="h3"
       >
         {name}
-      </h3>
-      <p
+      </Heading>
+      <Text
         className="horizontal-team-center"
         style={{
           color: accent ? "#d1d5db" : "#4b5563",
@@ -159,9 +168,9 @@ const HorizontalCard = ({
         }}
       >
         {role}
-      </p>
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
-      <p
+      </Text>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+      <Text
         className="horizontal-team-center"
         style={{
           color: accent ? "#9ca3af" : "#4b5563",
@@ -172,38 +181,26 @@ const HorizontalCard = ({
         }}
       >
         {bio}
-      </p>
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      </Text>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
       <SocialLinks accent={accent} lastIcon={lastIcon} />
-    </td>
+    </Column>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section style={{ width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: accent ? "#030712" : "#f9fafb",
               borderRadius: "8px",
               padding: "24px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
                   {imageLeft ? (
                     <>
                       <ImageCell />
@@ -217,13 +214,13 @@ const HorizontalCard = ({
                       <ImageCell />
                     </>
                   )}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -245,17 +242,11 @@ export const HorizontalTeamMemberBiosSection = ({
   return (
     <>
       <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: "#fffffe",
                 maxWidth: "100%",
@@ -273,7 +264,7 @@ export const HorizontalTeamMemberBiosSection = ({
                 name={name1}
                 role={role1}
               />
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
               <HorizontalCard
                 accent={accent}
                 avatarAlt={avatarAlt2}
@@ -284,11 +275,11 @@ export const HorizontalTeamMemberBiosSection = ({
                 name={name2}
                 role={role2}
               />
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 };

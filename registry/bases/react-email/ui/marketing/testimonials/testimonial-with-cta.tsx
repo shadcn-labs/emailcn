@@ -1,5 +1,17 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -55,18 +67,11 @@ export const TestimonialWithCtaSection = ({
       : "After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.");
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -74,16 +79,10 @@ export const TestimonialWithCtaSection = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className={
                       centered ? "testimonial-centered-content" : undefined
                     }
@@ -92,17 +91,17 @@ export const TestimonialWithCtaSection = ({
                       textAlign: centered ? "center" : "left",
                     }}
                   >
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     {centered ? (
-                      <div style={{ textAlign: "center" }}>
-                        <img
+                      <Section style={{ textAlign: "center" }}>
+                        <Img
                           alt=""
                           src={quoteIconSrc}
                           style={{ maxWidth: "100%", verticalAlign: "middle" }}
                           width={36}
                         />
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <h2
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Heading
                           className="testimonial-centered-quote"
                           style={{
                             color: "#030712",
@@ -113,11 +112,12 @@ export const TestimonialWithCtaSection = ({
                             margin: 0,
                             textAlign: "center",
                           }}
+                          as="h2"
                         >
                           {resolvedQuote}
-                        </h2>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <img
+                        </Heading>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Img
                           alt=""
                           src={avatarSrc}
                           style={{
@@ -127,8 +127,8 @@ export const TestimonialWithCtaSection = ({
                           }}
                           width={64}
                         />
-                        <div style={{ lineHeight: "8px" }}>&zwj;</div>
-                        <p
+                        <Section style={{ lineHeight: "8px" }}>&zwj;</Section>
+                        <Text
                           style={{
                             color: "#4b5563",
                             fontFamily,
@@ -140,10 +140,10 @@ export const TestimonialWithCtaSection = ({
                           }}
                         >
                           {author}, <br /> {role}
-                        </p>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <p style={{ margin: 0, textAlign: "center" }}>
-                          <a
+                        </Text>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Text style={{ margin: 0, textAlign: "center" }}>
+                          <Link
                             href={ctaHref}
                             style={{
                               color: "#4f46e5",
@@ -155,24 +155,18 @@ export const TestimonialWithCtaSection = ({
                             }}
                           >
                             {ctaLabel}
-                          </a>
-                        </p>
-                      </div>
+                          </Link>
+                        </Text>
+                      </Section>
                     ) : (
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        width="100%"
-                      >
-                        <tbody>
-                          <tr>
-                            <td
+                      <Section width="100%">
+                        <Fragment>
+                          <Row>
+                            <Column
                               className="testimonial-split-column"
                               style={{ verticalAlign: "top", width: "104px" }}
                             >
-                              <img
+                              <Img
                                 alt=""
                                 src={avatarSrc}
                                 style={{
@@ -182,8 +176,10 @@ export const TestimonialWithCtaSection = ({
                                 }}
                                 width={64}
                               />
-                              <div style={{ lineHeight: "8px" }}>&zwj;</div>
-                              <p
+                              <Section style={{ lineHeight: "8px" }}>
+                                &zwj;
+                              </Section>
+                              <Text
                                 style={{
                                   color: "#030712",
                                   fontFamily,
@@ -197,16 +193,16 @@ export const TestimonialWithCtaSection = ({
                                 <span style={{ color: "#4b5563" }}>
                                   {company}
                                 </span>
-                              </p>
-                            </td>
-                            <td
+                              </Text>
+                            </Column>
+                            <Column
                               className="testimonial-split-gap"
                               style={{ width: "44px" }}
                             >
                               &zwj;
-                            </td>
-                            <td className="testimonial-split-column">
-                              <img
+                            </Column>
+                            <Column className="testimonial-split-column">
+                              <Img
                                 alt=""
                                 src={quoteIconSrc}
                                 style={{
@@ -215,8 +211,10 @@ export const TestimonialWithCtaSection = ({
                                 }}
                                 width={36}
                               />
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <h2
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Heading
                                 style={{
                                   color: "#030712",
                                   fontFamily,
@@ -225,11 +223,14 @@ export const TestimonialWithCtaSection = ({
                                   lineHeight: "28px",
                                   margin: 0,
                                 }}
+                                as="h2"
                               >
                                 {resolvedQuote}
-                              </h2>
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <a
+                              </Heading>
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Link
                                 href={ctaHref}
                                 style={{
                                   color: "#4f46e5",
@@ -241,21 +242,21 @@ export const TestimonialWithCtaSection = ({
                                 }}
                               >
                                 {ctaLabel}
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                              </Link>
+                            </Column>
+                          </Row>
+                        </Fragment>
+                      </Section>
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

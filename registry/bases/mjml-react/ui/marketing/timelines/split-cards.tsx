@@ -1,15 +1,17 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlButton,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
-import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
@@ -42,337 +44,149 @@ export interface SplitCardsProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .split-card-column { display: block !important; width: 100% !important; }
-    .split-card-meta { display: table-header-group !important; width: 100% !important; }
-    .split-card-copy { display: table-footer-group !important; width: 100% !important; }
-    .split-card-mobile-space { display: block !important; line-height: 16px !important; }
-  }
-`;
+export const SplitCardsSection = (props: Omit<SplitCardsProps, "theme">) => {
+  const {
+    badge,
+    date,
+    description,
+    imageAlt,
+    imageSrc,
+    index,
+    label,
+    title,
+    variant,
+  } = {
+    badge: "Today",
+    date: "Monday",
+    description: "Description of event",
+    imageAlt: "Placeholder image",
+    imageSrc: "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
+    index: "01",
+    label: "Miles traveled",
+    title: "Miles traveled",
+    variant: "muted",
+    ...props,
+  };
 
-const textStyle = {
-  fontFamily,
-  margin: 0,
-} as const;
-
-const SplitShell = ({ children }: { children: ReactNode }) => (
-  <>
-    <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: "#fffffe",
-              maxWidth: "100%",
-              width: "600px",
-            }}
-          >
-            {children}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
-  </>
-);
-
-const SplitMeta = ({ index, label }: { index: string; label: string }) => (
-  <td
-    className="split-card-column split-card-meta"
-    style={{ padding: "16px 0", verticalAlign: "top", width: "112px" }}
-  >
-    <div>
-      <p
-        style={{
-          ...textStyle,
-          color: "#030712",
-          fontSize: "60px",
-          fontWeight: 600,
-          lineHeight: 1,
-        }}
-      >
-        {index}
-      </p>
-      <p
-        style={{
-          ...textStyle,
-          color: "#9ca3af",
-          fontSize: "12px",
-          fontWeight: 600,
-          lineHeight: "16px",
-        }}
-      >
-        {label}
-      </p>
-    </div>
-  </td>
-);
-
-interface EventCardProps {
-  badge: string;
-  date: string;
-  description: string;
-  imageAlt: string;
-  imageSrc: string;
-  title: string;
-  variant: SplitCardsVariant;
-}
-
-const EventCard = ({
-  badge,
-  date,
-  description,
-  imageAlt,
-  imageSrc,
-  title,
-  variant,
-}: EventCardProps) => {
-  const muted = variant.startsWith("muted");
-  const boxed = variant.startsWith("boxed");
+  const reverse = variant.endsWith("-reverse");
   const accent = variant.startsWith("accent");
   const imageTop = variant.startsWith("image-top");
   const imageBottom = variant.startsWith("image-bottom");
   const dark = accent || imageTop || imageBottom;
-
+  let cardBackgroundColor = "#fffffe";
+  if (dark) {
+    cardBackgroundColor = "#030712";
+  } else if (variant.startsWith("boxed")) {
+    cardBackgroundColor = "#f9fafb";
+  }
+  const meta = (
+    <MjmlColumn
+      padding={reverse ? "16px 0 16px 16px" : "16px 16px 16px 0"}
+      verticalAlign="top"
+      width="24%"
+    >
+      <MjmlText
+        align={reverse ? "left" : "right"}
+        color="#030712"
+        fontFamily={fontFamily}
+        fontSize="60px"
+        fontWeight="600"
+        lineHeight="64px"
+        padding="0"
+      >
+        {index}
+      </MjmlText>
+      <MjmlText
+        align={reverse ? "left" : "right"}
+        color="#9ca3af"
+        fontFamily={fontFamily}
+        fontSize="12px"
+        fontWeight="600"
+        lineHeight="16px"
+        padding="0"
+      >
+        {label}
+      </MjmlText>
+    </MjmlColumn>
+  );
   const image = (
-    <img
+    <MjmlImage
       alt={imageAlt}
+      borderRadius="4px"
+      padding="0"
       src={imageSrc}
-      style={{
-        borderRadius: "4px",
-        maxWidth: "100%",
-        verticalAlign: "middle",
-      }}
-      width="536"
+      width="392px"
     />
   );
-
-  return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ width: "100%" }}
+  const card = (
+    <MjmlColumn
+      backgroundColor={cardBackgroundColor}
+      borderRadius={variant.startsWith("muted") ? "0" : "8px"}
+      padding="16px"
+      verticalAlign="top"
+      width="76%"
     >
-      <tbody>
-        <tr>
-          <td
-            style={{
-              backgroundColor: dark ? "#030712" : boxed ? "#f9fafb" : undefined,
-              borderRadius: muted ? undefined : "8px",
-              padding: muted ? 0 : "16px",
-            }}
-          >
-            {imageTop ? (
-              <>
-                {image}
-                <div style={{ lineHeight: "16px" }}>&zwj;</div>
-              </>
-            ) : null}
-            {muted ? (
-              <p
-                style={{
-                  ...textStyle,
-                  color: "#374151",
-                  fontSize: "12px",
-                  lineHeight: "16px",
-                }}
-              >
-                {date}
-              </p>
-            ) : (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                      >
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div
-                                style={{
-                                  backgroundColor: "#6ee7b7",
-                                  borderRadius: "9999px",
-                                  height: "12px",
-                                  lineHeight: accent ? "10px" : "12px",
-                                  textAlign: "center",
-                                  width: "12px",
-                                }}
-                              >
-                                {accent ? (
-                                  <img
-                                    alt=""
-                                    src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
-                                    style={{ marginBottom: "1px" }}
-                                    width="8"
-                                  />
-                                ) : (
-                                  <>&zwj;</>
-                                )}
-                              </div>
-                            </td>
-                            <td style={{ width: "8px" }}>&zwj;</td>
-                            <td>
-                              <p
-                                style={{
-                                  ...textStyle,
-                                  color: dark ? "#e5e7eb" : "#374151",
-                                  fontSize: "12px",
-                                  lineHeight: "16px",
-                                }}
-                              >
-                                {date}
-                              </p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                    <td style={{ textAlign: "right" }}>
-                      <span
-                        style={{
-                          backgroundColor: "#eef2ff",
-                          border: "1px solid #c7d2fe",
-                          borderRadius: "9999px",
-                          color: "#4f46e5",
-                          display: "inline-block",
-                          fontFamily,
-                          fontSize: "12px",
-                          fontWeight: 500,
-                          lineHeight: "16px",
-                          padding: "1px 8px",
-                        }}
-                      >
-                        {badge}
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            )}
-            <p
-              style={{
-                ...textStyle,
-                color: dark ? "#fffffe" : "#030712",
-                fontSize: "18px",
-                fontWeight: 600,
-                lineHeight: "28px",
-                marginTop: "4px",
-              }}
-            >
-              {title}
-            </p>
-            <p
-              style={{
-                ...textStyle,
-                color: dark ? "#d1d5db" : "#4b5563",
-                fontSize: "16px",
-                lineHeight: "24px",
-                marginTop: "4px",
-              }}
-            >
-              {description}
-            </p>
-            {imageBottom ? (
-              <>
-                <div style={{ lineHeight: "16px" }}>&zwj;</div>
-                {image}
-              </>
-            ) : null}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
-export const SplitCardsSection = ({
-  badge = "Today",
-  date = "Monday",
-  description = "Description of event",
-  imageAlt = "Placeholder image",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
-  index = "01",
-  label = "Miles traveled",
-  title = "Miles traveled",
-  variant = "muted",
-}: Omit<SplitCardsProps, "theme">) => {
-  const reverse = variant.endsWith("-reverse");
-  const muted = variant.startsWith("muted");
-  const meta = <SplitMeta index={index} label={label} />;
-  const copy = (
-    <td
-      className="split-card-column split-card-copy"
-      style={{ padding: "16px", verticalAlign: "top" }}
-    >
-      <EventCard
-        badge={badge}
-        date={date}
-        description={description}
-        imageAlt={imageAlt}
-        imageSrc={imageSrc}
-        title={title}
-        variant={variant}
-      />
-    </td>
-  );
-
-  return (
-    <SplitShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
+      {imageTop ? (
+        <>
+          {image}
+          <MjmlSpacer height="16px" />
+        </>
+      ) : null}
+      <MjmlButton
+        align="left"
+        backgroundColor={dark ? "#312e81" : "#eef2ff"}
+        borderRadius="9999px"
+        color={dark ? "#c7d2fe" : "#4f46e5"}
+        fontFamily={fontFamily}
+        fontSize="12px"
+        fontWeight="600"
+        innerPadding="3px 8px"
+        padding="0"
       >
-        <tbody>
-          <tr>
-            <td
-              style={{
-                padding: muted && !reverse ? "0 24px" : "16px 24px",
-              }}
-            >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    {reverse ? copy : meta}
-                    {reverse ? meta : copy}
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </SplitShell>
+        {badge}
+      </MjmlButton>
+      <MjmlText
+        color={dark ? "#9ca3af" : "#6b7280"}
+        fontFamily={fontFamily}
+        fontSize="13px"
+        lineHeight="18px"
+        padding="8px 0 0"
+      >
+        {date}
+      </MjmlText>
+      <MjmlText
+        color={dark ? "#fffffe" : "#030712"}
+        fontFamily={fontFamily}
+        fontSize="20px"
+        fontWeight="600"
+        lineHeight="28px"
+        padding="8px 0 0"
+      >
+        {title}
+      </MjmlText>
+      <MjmlText
+        color={dark ? "#d1d5db" : "#4b5563"}
+        fontFamily={fontFamily}
+        fontSize="16px"
+        lineHeight="24px"
+        padding="4px 0 0"
+      >
+        {description}
+      </MjmlText>
+      {imageBottom ? (
+        <>
+          <MjmlSpacer height="16px" />
+          {image}
+        </>
+      ) : null}
+    </MjmlColumn>
+  );
+
+  return (
+    <MjmlSection backgroundColor="#fffffe" padding="16px 24px">
+      {reverse ? card : meta}
+      {reverse ? meta : card}
+    </MjmlSection>
   );
 };
 
@@ -384,15 +198,10 @@ export const SplitCards = ({
     <MjmlHead>
       <MjmlPreview>Miles traveled</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>
-            <SplitCardsSection {...props} />
-          </div>
-        </MjmlRaw>
+        <SplitCardsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

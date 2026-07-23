@@ -1,5 +1,15 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Section,
+  Row,
+  Heading,
+  Text,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -105,7 +115,7 @@ const GridItem = ({
   props: ResolvedProps;
   tone: LogosGridTone;
 }) => (
-  <td
+  <Column
     className={bordered ? "logos-grid-bordered-item" : "logos-grid-item"}
     style={{
       backgroundColor: tone === "boxed" ? props.boxBackgroundColor : undefined,
@@ -117,22 +127,22 @@ const GridItem = ({
       width: "112px",
     }}
   >
-    <img
+    <Img
       alt={logo.alt}
       src={logo.src}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={logo.width}
     />
-  </td>
+  </Column>
 );
 
 const Divider = ({ color }: { color: string }) => (
-  <td
+  <Column
     className="logos-grid-divider"
     style={{ backgroundColor: color, width: "1px" }}
   >
     &zwj;
-  </td>
+  </Column>
 );
 
 const CardRow = ({
@@ -144,29 +154,22 @@ const CardRow = ({
   props: ResolvedProps;
   tone: LogosGridTone;
 }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ margin: "0 auto" }}
-  >
-    <tbody>
-      <tr>
+  <Section align="center" style={{ margin: "0 auto" }}>
+    <Fragment>
+      <Row>
         {logos.map((logo, index) => (
           <Fragment key={logo.alt + logo.src}>
             {index > 0 ? (
-              <td className="logos-grid-gap" style={{ width: "16px" }}>
+              <Column className="logos-grid-gap" style={{ width: "16px" }}>
                 &zwj;
-              </td>
+              </Column>
             ) : null}
             <GridItem bordered={false} logo={logo} props={props} tone={tone} />
           </Fragment>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const BorderedRows = ({
@@ -177,53 +180,39 @@ const BorderedRows = ({
   props: ResolvedProps;
 }) => (
   <>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ margin: "0 auto" }}
-    >
-      <tbody>
-        <tr>
+    <Section align="center" style={{ margin: "0 auto" }}>
+      <Fragment>
+        <Row>
           {logos.slice(0, 3).map((logo, index) => (
             <Fragment key={logo.alt + logo.src}>
               {index > 0 ? <Divider color={props.borderColor} /> : null}
               <GridItem bordered logo={logo} props={props} tone="bordered" />
             </Fragment>
           ))}
-        </tr>
-        <tr>
-          <td
+        </Row>
+        <Row>
+          <Column
             className="logos-grid-divider"
             colSpan={5}
             style={{ backgroundColor: props.borderColor, lineHeight: "1px" }}
           >
             &zwj;
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ margin: "0 auto" }}
-    >
-      <tbody>
-        <tr>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+    <Section align="center" style={{ margin: "0 auto" }}>
+      <Fragment>
+        <Row>
           {logos.slice(3, 6).map((logo, index) => (
             <Fragment key={logo.alt + logo.src}>
               {index > 0 ? <Divider color={props.borderColor} /> : null}
               <GridItem bordered logo={logo} props={props} tone="bordered" />
             </Fragment>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -232,18 +221,14 @@ export const LogosGridSection = (props: SectionProps) => {
   const resolved = { ...defaults, ...props } as ResolvedProps;
   const logos = resolved.logos.slice(0, 6) as Logo[];
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -251,18 +236,12 @@ export const LogosGridSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <h3
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Heading
                       style={{
                         color: resolved.titleColor,
                         fontFamily,
@@ -272,10 +251,11 @@ export const LogosGridSection = (props: SectionProps) => {
                         margin: 0,
                         textAlign: "center",
                       }}
+                      as="h3"
                     >
                       {resolved.title}
-                    </h3>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    </Heading>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     {tone === "bordered" ? (
                       <BorderedRows logos={logos} props={resolved} />
                     ) : (
@@ -285,12 +265,12 @@ export const LogosGridSection = (props: SectionProps) => {
                           props={resolved}
                           tone={tone}
                         />
-                        <div
+                        <Section
                           className="logos-grid-gap"
                           style={{ lineHeight: "16px" }}
                         >
                           &zwj;
-                        </div>
+                        </Section>
                         <CardRow
                           logos={logos.slice(3, 6)}
                           props={resolved}
@@ -298,13 +278,13 @@ export const LogosGridSection = (props: SectionProps) => {
                         />
                       </>
                     )}
-                    <div
+                    <Section
                       className="logos-grid-description-gap"
                       style={{ lineHeight: "36px" }}
                     >
                       &zwj;
-                    </div>
-                    <p
+                    </Section>
+                    <Text
                       style={{
                         color: resolved.textColor,
                         fontFamily,
@@ -316,16 +296,16 @@ export const LogosGridSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.description}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

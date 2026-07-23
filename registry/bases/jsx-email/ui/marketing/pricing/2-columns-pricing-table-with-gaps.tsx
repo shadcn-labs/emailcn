@@ -1,4 +1,15 @@
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+  Link,
+  Row,
+  Column,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
@@ -61,7 +72,7 @@ const PriceBlock = ({
   backgroundColor: string;
   rounded?: "top" | "bottom";
 }) => (
-  <div
+  <Section
     style={{
       backgroundColor,
       borderBottomLeftRadius: rounded === "bottom" ? "8px" : undefined,
@@ -71,8 +82,8 @@ const PriceBlock = ({
       textAlign: "center",
     }}
   >
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-    <p
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+    <Text
       style={{
         color: "#4b5563",
         fontFamily,
@@ -84,8 +95,8 @@ const PriceBlock = ({
       }}
     >
       {label}
-    </p>
-    <p
+    </Text>
+    <Text
       style={{
         color: "#030712",
         fontFamily,
@@ -109,9 +120,9 @@ const PriceBlock = ({
           {period}
         </span>
       ) : null}
-    </p>
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-  </div>
+    </Text>
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+  </Section>
 );
 
 const ProductCard = ({
@@ -124,7 +135,7 @@ const ProductCard = ({
   buttonBackgroundColor: string;
 }) => (
   <>
-    <div
+    <Section
       style={{
         backgroundColor: cardBackgroundColor,
         borderTopLeftRadius: "8px",
@@ -132,8 +143,8 @@ const ProductCard = ({
         textAlign: "center",
       }}
     >
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
-      <p
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+      <Text
         style={{
           color: "#030712",
           fontFamily,
@@ -145,25 +156,25 @@ const ProductCard = ({
         }}
       >
         {plan.name}
-      </p>
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
-    </div>
-    <div style={{ lineHeight: "4px" }}>&zwj;</div>
+      </Text>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+    </Section>
+    <Section style={{ lineHeight: "4px" }}>&zwj;</Section>
     <PriceBlock
       backgroundColor={cardBackgroundColor}
       label="Leasing starting at"
       period="/Month"
       price={plan.leasePrice}
     />
-    <div style={{ lineHeight: "4px" }}>&zwj;</div>
+    <Section style={{ lineHeight: "4px" }}>&zwj;</Section>
     <PriceBlock
       backgroundColor={cardBackgroundColor}
       label="Purchase starting at"
       price={plan.purchasePrice}
       rounded="bottom"
     />
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    <a
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+    <Link
       href={plan.ctaHref}
       style={{
         backgroundColor: buttonBackgroundColor,
@@ -180,7 +191,7 @@ const ProductCard = ({
       }}
     >
       {plan.ctaLabel}
-    </a>
+    </Link>
   </>
 );
 
@@ -191,18 +202,11 @@ export const TwoColumnsPricingTableWithGapsSection = ({
   cardBackgroundColor = "#f9fafb",
   buttonBackgroundColor = "#030712",
 }: Omit<TwoColumnsPricingTableWithGapsProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -210,28 +214,16 @@ export const TwoColumnsPricingTableWithGapsSection = ({
             width: "600px",
           }}
         >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px" }}>
-                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ padding: "0 24px" }}>
+                  <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                  <Section width="100%">
+                    <Fragment>
+                      <Row>
                         {plans.map((plan, index) => (
-                          <td
+                          <Column
                             className="product-pricing-column"
                             key={plan.name}
                             style={{
@@ -245,20 +237,20 @@ export const TwoColumnsPricingTableWithGapsSection = ({
                               cardBackgroundColor={cardBackgroundColor}
                               plan={plan}
                             />
-                          </td>
+                          </Column>
                         ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                      </Row>
+                    </Fragment>
+                  </Section>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const TwoColumnsPricingTableWithGaps = ({

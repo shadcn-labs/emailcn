@@ -1,15 +1,16 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-/* eslint-disable next/no-img-element */
-import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
@@ -32,310 +33,111 @@ export interface LogosGridProps {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .logos-grid-item {
-      display: inline-block !important;
-      margin: 0 8px 16px !important;
-    }
-    .logos-grid-gap { display: none !important; }
-    .logos-grid-description-gap { line-height: 20px !important; }
-  }
-  @media only screen and (max-width: 430px) {
-    .logos-grid-bordered-item { display: block !important; width: 100% !important; }
-    .logos-grid-divider {
-      display: block !important;
-      line-height: 1px !important;
-      width: 100% !important;
-    }
-  }
-`;
-
 const defaultLogos = [
-  {
-    alt: "Stripe",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
-    width: 57,
-  },
-  {
-    alt: "Apple Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
-    width: 60,
-  },
-  {
-    alt: "Mastercard",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
-    width: 40,
-  },
-  {
-    alt: "Visa",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
-    width: 50,
-  },
-  {
-    alt: "Google Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-google-pay.png",
-    width: 60,
-  },
-  {
-    alt: "Klarna",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-klarna.png",
-    width: 70,
-  },
-];
+  ["Stripe", "logo-stripe.png", 57],
+  ["Apple Pay", "logo-apple-pay.png", 60],
+  ["Mastercard", "logo-mastercard.png", 40],
+  ["Visa", "logo-visa.png", 50],
+  ["Google Pay", "logo-google-pay.png", 60],
+  ["Klarna", "logo-klarna.png", 70],
+].map(([alt, file, width]) => ({
+  alt: String(alt),
+  src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
+  width: Number(width),
+}));
 
-const defaults = {
-  backgroundColor: "#fffffe",
-  borderColor: "#d1d5db",
-  boxBackgroundColor: "#f3f4f6",
-  description:
-    "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
-  logos: defaultLogos,
-  pageBackgroundColor: "#f1f5f9",
-  textColor: "#4b5563",
-  title: "Supported payment services",
-  titleColor: "#030712",
-};
-
-type SectionProps = Omit<LogosGridProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-type Logo = (typeof defaultLogos)[number];
-
-const GridItem = ({
-  bordered,
-  logo,
-  props,
+const LogoRow = ({
+  borderColor,
+  boxBackgroundColor,
+  logos,
   tone,
 }: {
-  bordered: boolean;
-  logo: Logo;
-  props: ResolvedProps;
+  borderColor: string;
+  boxBackgroundColor: string;
+  logos: typeof defaultLogos;
   tone: LogosGridTone;
 }) => (
-  <td
-    className={bordered ? "logos-grid-bordered-item" : "logos-grid-item"}
-    style={{
-      backgroundColor: tone === "boxed" ? props.boxBackgroundColor : undefined,
-      border:
-        tone === "outlined" ? `1px solid ${props.borderColor}` : undefined,
-      borderRadius: tone === "outlined" ? "4px" : undefined,
-      lineHeight: "64px",
-      textAlign: "center",
-      width: "112px",
-    }}
-  >
-    <img
-      alt={logo.alt}
-      src={logo.src}
-      style={{ maxWidth: "100%", verticalAlign: "middle" }}
-      width={logo.width}
-    />
-  </td>
+  <MjmlSection padding="0 24px">
+    {logos.map((logo) => (
+      <MjmlColumn
+        backgroundColor={tone === "boxed" ? boxBackgroundColor : undefined}
+        border={tone === "boxed" ? undefined : `1px solid ${borderColor}`}
+        borderRadius="4px"
+        key={`${logo.alt}-${logo.src}`}
+        padding="24px 12px"
+      >
+        <MjmlImage
+          alt={logo.alt}
+          padding="0"
+          src={logo.src}
+          width={`${logo.width}px`}
+        />
+      </MjmlColumn>
+    ))}
+  </MjmlSection>
 );
 
-const Divider = ({ color }: { color: string }) => (
-  <td
-    className="logos-grid-divider"
-    style={{ backgroundColor: color, width: "1px" }}
-  >
-    &zwj;
-  </td>
-);
-
-const CardRow = ({
-  logos,
-  props,
-  tone,
-}: {
-  logos: Logo[];
-  props: ResolvedProps;
-  tone: LogosGridTone;
-}) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ margin: "0 auto" }}
-  >
-    <tbody>
-      <tr>
-        {logos.map((logo, index) => (
-          <Fragment key={logo.alt + logo.src}>
-            {index > 0 ? (
-              <td className="logos-grid-gap" style={{ width: "16px" }}>
-                &zwj;
-              </td>
-            ) : null}
-            <GridItem bordered={false} logo={logo} props={props} tone={tone} />
-          </Fragment>
-        ))}
-      </tr>
-    </tbody>
-  </table>
-);
-
-const BorderedRows = ({
-  logos,
-  props,
-}: {
-  logos: Logo[];
-  props: ResolvedProps;
-}) => (
+export const LogosGridSection = ({
+  backgroundColor = "#fffffe",
+  borderColor = "#d1d5db",
+  boxBackgroundColor = "#f3f4f6",
+  description = "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
+  logos = defaultLogos,
+  textColor = "#4b5563",
+  title = "Supported payment services",
+  titleColor = "#030712",
+  tone = "boxed",
+}: Omit<LogosGridProps, "theme">) => (
   <>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ margin: "0 auto" }}
-    >
-      <tbody>
-        <tr>
-          {logos.slice(0, 3).map((logo, index) => (
-            <Fragment key={logo.alt + logo.src}>
-              {index > 0 ? <Divider color={props.borderColor} /> : null}
-              <GridItem bordered logo={logo} props={props} tone="bordered" />
-            </Fragment>
-          ))}
-        </tr>
-        <tr>
-          <td
-            className="logos-grid-divider"
-            colSpan={5}
-            style={{ backgroundColor: props.borderColor, lineHeight: "1px" }}
-          >
-            &zwj;
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ margin: "0 auto" }}
-    >
-      <tbody>
-        <tr>
-          {logos.slice(3, 6).map((logo, index) => (
-            <Fragment key={logo.alt + logo.src}>
-              {index > 0 ? <Divider color={props.borderColor} /> : null}
-              <GridItem bordered logo={logo} props={props} tone="bordered" />
-            </Fragment>
-          ))}
-        </tr>
-      </tbody>
-    </table>
+    <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
+      <MjmlColumn padding="0">
+        <MjmlText
+          align="center"
+          color={titleColor}
+          fontFamily={fontFamily}
+          fontSize="20px"
+          fontWeight="600"
+          lineHeight="28px"
+          padding="0"
+        >
+          {title}
+        </MjmlText>
+      </MjmlColumn>
+    </MjmlSection>
+    <LogoRow
+      borderColor={borderColor}
+      boxBackgroundColor={boxBackgroundColor}
+      logos={logos.slice(0, 3)}
+      tone={tone}
+    />
+    <MjmlSection backgroundColor={backgroundColor} padding="0">
+      <MjmlColumn padding="0">
+        <MjmlSpacer height="16px" />
+      </MjmlColumn>
+    </MjmlSection>
+    <LogoRow
+      borderColor={borderColor}
+      boxBackgroundColor={boxBackgroundColor}
+      logos={logos.slice(3, 6)}
+      tone={tone}
+    />
+    <MjmlSection backgroundColor={backgroundColor} padding="36px 24px 44px">
+      <MjmlColumn padding="0">
+        <MjmlText
+          align="center"
+          color={textColor}
+          fontFamily={fontFamily}
+          fontSize="16px"
+          fontWeight="300"
+          lineHeight="24px"
+          padding="0"
+        >
+          {description}
+        </MjmlText>
+      </MjmlColumn>
+    </MjmlSection>
   </>
 );
-
-export const LogosGridSection = (props: SectionProps) => {
-  const tone = props.tone ?? "boxed";
-  const resolved = { ...defaults, ...props } as ResolvedProps;
-  const logos = resolved.logos.slice(0, 6) as Logo[];
-  return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <h3
-                      style={{
-                        color: resolved.titleColor,
-                        fontFamily,
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {resolved.title}
-                    </h3>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    {tone === "bordered" ? (
-                      <BorderedRows logos={logos} props={resolved} />
-                    ) : (
-                      <>
-                        <CardRow
-                          logos={logos.slice(0, 3)}
-                          props={resolved}
-                          tone={tone}
-                        />
-                        <div
-                          className="logos-grid-gap"
-                          style={{ lineHeight: "16px" }}
-                        >
-                          &zwj;
-                        </div>
-                        <CardRow
-                          logos={logos.slice(3, 6)}
-                          props={resolved}
-                          tone={tone}
-                        />
-                      </>
-                    )}
-                    <div
-                      className="logos-grid-description-gap"
-                      style={{ lineHeight: "36px" }}
-                    >
-                      &zwj;
-                    </div>
-                    <p
-                      style={{
-                        color: resolved.textColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        fontWeight: 300,
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {resolved.description}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
 
 export const LogosGrid = ({
   pageBackgroundColor = "#f1f5f9",
@@ -347,20 +149,17 @@ export const LogosGrid = ({
     <MjmlHead>
       <MjmlPreview>Supported payment services</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <LogosGridSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            tone={tone}
-          />
-        </MjmlRaw>
+        <LogosGridSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          tone={tone}
+        />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

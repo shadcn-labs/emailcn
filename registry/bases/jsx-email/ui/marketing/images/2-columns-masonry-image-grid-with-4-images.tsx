@@ -1,4 +1,18 @@
-import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -122,14 +136,14 @@ const PlainImage = ({
   src: string;
   width: number;
 }) => (
-  <a href={href}>
+  <Link href={href}>
     <Img
       alt={alt}
       src={src}
       style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
       width={width}
     />
-  </a>
+  </Link>
 );
 
 const OverlayCard = ({
@@ -160,7 +174,7 @@ const OverlayCard = ({
   }
 
   return (
-    <div
+    <Section
       style={{
         backgroundImage: `url('${imageSrc}')`,
         backgroundPosition: "center",
@@ -170,19 +184,13 @@ const OverlayCard = ({
         maxWidth: "100%",
       }}
     >
-      <div className={spacerClass} style={{ lineHeight: spacer }}>
+      <Section className={spacerClass} style={{ lineHeight: spacer }}>
         &zwj;
-      </div>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td
+      </Section>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column
               style={{
                 background: "linear-gradient(to bottom, transparent, #000001)",
                 borderBottomLeftRadius: "4px",
@@ -191,7 +199,7 @@ const OverlayCard = ({
                 textAlign: "left",
               }}
             >
-              <h4
+              <Heading
                 className={feature ? undefined : "masonry-four-small-heading"}
                 style={{
                   color: headingColor,
@@ -201,10 +209,11 @@ const OverlayCard = ({
                   lineHeight: feature ? "32px" : "28px",
                   margin: 0,
                 }}
+                as="h4"
               >
                 {heading}
-              </h4>
-              <p
+              </Heading>
+              <Text
                 className={feature ? undefined : "masonry-four-small-text"}
                 style={{
                   color: textColor,
@@ -215,12 +224,12 @@ const OverlayCard = ({
                 }}
               >
                 {subtext}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              </Text>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
+    </Section>
   );
 };
 
@@ -231,17 +240,11 @@ const FeatureRow = ({
   overlay: boolean;
   props: ResolvedProps;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td style={{ width: "24px" }}>&zwj;</td>
-        <td>
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column style={{ width: "24px" }}>&zwj;</Column>
+        <Column>
           {overlay ? (
             <OverlayCard
               feature
@@ -259,11 +262,11 @@ const FeatureRow = ({
               width={552}
             />
           )}
-        </td>
-        <td style={{ width: "24px" }}>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+        <Column style={{ width: "24px" }}>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const LandscapeStack = ({
@@ -290,7 +293,7 @@ const LandscapeStack = ({
         width={264}
       />
     )}
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
     {overlay ? (
       <OverlayCard
         heading={props.landscapeHeading2}
@@ -348,38 +351,32 @@ const MasonryRow = ({
   const portrait = <PortraitCard overlay={overlay} props={props} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ width: "24px" }}>&zwj;</td>
-          <td
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+          <Column
             className="masonry-four-stack"
             style={{ verticalAlign: "top", width: "264px" }}
           >
             {stackedLeft ? landscape : portrait}
-          </td>
-          <td
+          </Column>
+          <Column
             className="masonry-four-stack masonry-four-gap"
             style={{ width: "24px" }}
           >
             &zwj;
-          </td>
-          <td
+          </Column>
+          <Column
             className="masonry-four-stack"
             style={{ verticalAlign: "top", width: "264px" }}
           >
             {stackedLeft ? portrait : landscape}
-          </td>
-          <td style={{ width: "24px" }}>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -397,18 +394,14 @@ export const TwoColumnsMasonryImageGridWith4ImagesSection = (
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -416,15 +409,15 @@ export const TwoColumnsMasonryImageGridWith4ImagesSection = (
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             {reverse ? masonry : feature}
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             {reverse ? feature : masonry}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,17 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Link,
+  Text,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
@@ -73,18 +85,11 @@ export const SocialsWithLabelsSection = ({
   const stacked = variant === "stacked";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -92,21 +97,15 @@ export const SocialsWithLabelsSection = ({
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="labeled-social-content"
                     style={{ padding: "0 64px", textAlign: "center" }}
                   >
-                    <h2
+                    <Heading
                       style={{
                         color: "#030712",
                         fontFamily,
@@ -116,22 +115,19 @@ export const SocialsWithLabelsSection = ({
                         margin: 0,
                         textAlign: "center",
                       }}
+                      as="h2"
                     >
                       {title}
-                    </h2>
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <table
+                    </Heading>
+                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    <Section
                       align="center"
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
                       style={{ marginLeft: "auto", marginRight: "auto" }}
                     >
-                      <tbody>
-                        <tr>
+                      <Fragment>
+                        <Row>
                           {resolvedItems.map((item, index) => (
-                            <td
+                            <Column
                               className="labeled-social-item"
                               key={`${item.label}-${item.href}`}
                               style={
@@ -140,7 +136,7 @@ export const SocialsWithLabelsSection = ({
                                   : undefined
                               }
                             >
-                              <a
+                              <Link
                                 href={item.href}
                                 style={{
                                   color: "#6b7280",
@@ -153,7 +149,7 @@ export const SocialsWithLabelsSection = ({
                                   textDecoration: "none",
                                 }}
                               >
-                                <img
+                                <Img
                                   alt={stacked ? item.alt : ""}
                                   src={item.src}
                                   style={{
@@ -171,19 +167,19 @@ export const SocialsWithLabelsSection = ({
                                 >
                                   {item.label}
                                 </span>
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section
                       className="labeled-social-description-gap"
                       style={{ lineHeight: "36px" }}
                     >
                       &zwj;
-                    </div>
-                    <p
+                    </Section>
+                    <Text
                       style={{
                         color: "#4b5563",
                         fontFamily,
@@ -195,16 +191,16 @@ export const SocialsWithLabelsSection = ({
                       }}
                     >
                       {description}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

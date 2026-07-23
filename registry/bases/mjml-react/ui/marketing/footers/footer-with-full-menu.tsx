@@ -1,17 +1,15 @@
-/* eslint-disable next/no-img-element */
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+import { MjmlColumn, MjmlDivider, MjmlSection } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FooterCopy,
+  FooterEmailShell,
+  FooterLegal,
+  FooterLogo,
+  FooterMenu,
+  FooterSocials,
+} from "@/registry/bases/mjml-react/ui/marketing/footers/footer-shared";
 
 export type FooterWithFullMenuVariant = "oversized-logo" | "bordered";
 
@@ -41,20 +39,10 @@ export interface FooterWithFullMenuProps {
   variant?: FooterWithFullMenuVariant;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = [
-  "@media only screen and (max-width: 599px) {",
-  "  .footer-full-menu-item { display: inline-block !important; }",
-  "  .footer-full-menu-break { display: none !important; }",
-  "  .footer-full-menu-row { line-height: 32px !important; text-align: center !important; }",
-  "}",
-].join("\n");
-
+const iconRoot = "https://emailcn.vercel.app/api/email-assets";
 const defaults = {
   assistanceText:
-    "If you have any questions or need assistance\nplease reply to this email.",
+    "If you have any questions or need assistance, please reply to this email.",
   backgroundColor: "#fffffe",
   dividerColor: "#d1d5db",
   links: [
@@ -68,298 +56,93 @@ const defaults = {
   ],
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
+  logoSrc: `${iconRoot}/maizzle-insignia.png`,
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
+      iconSrc: `${iconRoot}/icon-facebook.png`,
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+      iconSrc: `${iconRoot}/icon-github.png`,
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+      iconSrc: `${iconRoot}/icon-linkedin.png`,
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
+      iconSrc: `${iconRoot}/icon-youtube.png`,
       label: "YouTube",
     },
-    {
-      href: "https://x.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
-      label: "X",
-    },
+    { href: "https://x.com", iconSrc: `${iconRoot}/icon-x.png`, label: "X" },
   ],
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
 
 type SectionProps = Omit<FooterWithFullMenuProps, "theme">;
-type ResolvedProps = typeof defaults &
-  SectionProps & {
-    logoSrc: string;
-    variant: FooterWithFullMenuVariant;
-  };
-
-const Divider = ({ props }: { props: ResolvedProps }) => (
-  <div
-    style={{
-      backgroundColor: props.dividerColor,
-      height: "1px",
-      lineHeight: "1px",
-      margin: "24px 0",
-    }}
-  >
-    &zwj;
-  </div>
-);
-
-const Menu = ({ props }: { props: ResolvedProps }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    className="footer-full-menu-row"
-    role="presentation"
-    style={{ marginLeft: "auto", marginRight: "auto" }}
-  >
-    <tbody>
-      <tr>
-        {props.links.map((link) => (
-          <td
-            className="footer-full-menu-item"
-            key={link.href}
-            style={{ padding: "0 12px" }}
-          >
-            <a
-              href={link.href}
-              style={{
-                color: props.textColor,
-                fontFamily,
-                fontSize: "14px",
-                lineHeight: "20px",
-                textDecoration: "none",
-              }}
-            >
-              {link.label}
-            </a>
-          </td>
-        ))}
-      </tr>
-    </tbody>
-  </table>
-);
-
-const Socials = ({ props }: { props: ResolvedProps }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ marginLeft: "auto", marginRight: "auto" }}
-  >
-    <tbody>
-      <tr>
-        {props.socials.map((social, index) => (
-          <td
-            key={social.href}
-            style={
-              index === props.socials.length - 1
-                ? undefined
-                : { paddingRight: "24px" }
-            }
-          >
-            <a href={social.href}>
-              <img
-                alt={social.label}
-                src={social.iconSrc}
-                style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                width={20}
-              />
-            </a>
-          </td>
-        ))}
-      </tr>
-    </tbody>
-  </table>
-);
-
-const Address = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
-    <p
-      style={{
-        color: props.textColor,
-        fontFamily,
-        fontSize: "16px",
-        lineHeight: "24px",
-        margin: 0,
-      }}
-    >
-      © 2026 emailcn
-      <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
-      Paris
-    </p>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
-      style={{
-        color: props.mutedTextColor,
-        fontFamily,
-        fontSize: "16px",
-        lineHeight: "24px",
-        margin: 0,
-      }}
-    >
-      We're sending you this because you subscribed.{" "}
-      <br className="footer-full-menu-break" /> No longer want to receive
-      emails?{" "}
-      <a
-        href={props.unsubscribeHref}
-        style={{ color: props.mutedTextColor, textDecoration: "underline" }}
-      >
-        Unsubscribe
-      </a>
-    </p>
-  </div>
-);
 
 export const FooterWithFullMenuSection = (props: SectionProps) => {
-  const variant = props.variant ?? "oversized-logo";
   const resolved = {
     ...defaults,
     ...props,
-    logoSrc:
-      props.logoSrc ??
-      (variant === "bordered"
-        ? "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
-        : "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-lg.png"),
-    variant,
-  } as ResolvedProps;
-  const bordered = variant === "bordered";
+    variant: props.variant ?? "oversized-logo",
+  };
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor={resolved.backgroundColor}
+      border={
+        resolved.variant === "bordered"
+          ? `1px solid ${resolved.dividerColor}`
+          : "none"
+      }
+      padding="44px 24px 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              padding: "44px 0 24px",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <a href={resolved.logoHref}>
-                      <img
-                        alt={resolved.logoAlt}
-                        src={resolved.logoSrc}
-                        style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                        width={bordered ? 88 : 197}
-                      />
-                    </a>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    {bordered ? (
-                      <>
-                        <p
-                          style={{
-                            color: resolved.textColor,
-                            fontFamily,
-                            fontSize: "18px",
-                            lineHeight: "28px",
-                            margin: 0,
-                          }}
-                        >
-                          {resolved.assistanceText
-                            .split("\n")
-                            .map((line, index) => (
-                              <span key={line}>
-                                {index > 0 ? (
-                                  <br className="footer-full-menu-break" />
-                                ) : null}
-                                {line}
-                              </span>
-                            ))}
-                        </p>
-                        <Divider props={resolved} />
-                        <Menu props={resolved} />
-                        <Divider props={resolved} />
-                        <Socials props={resolved} />
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                      </>
-                    ) : (
-                      <>
-                        <Menu props={resolved} />
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <Socials props={resolved} />
-                        <Divider props={resolved} />
-                      </>
-                    )}
-                    <Address props={resolved} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      <MjmlColumn>
+        <FooterLogo
+          align="center"
+          alt={resolved.logoAlt}
+          href={resolved.logoHref}
+          padding="0 0 28px"
+          src={resolved.logoSrc}
+          width={resolved.variant === "oversized-logo" ? "96px" : "55px"}
+        />
+        <FooterMenu
+          align="center"
+          links={resolved.links}
+          textColor={resolved.textColor}
+        />
+        <MjmlDivider borderColor={resolved.dividerColor} padding="24px 0" />
+        <FooterCopy align="center" color={resolved.textColor}>
+          {resolved.assistanceText}
+        </FooterCopy>
+        <FooterSocials align="center" socials={resolved.socials} />
+        <FooterLegal
+          align="center"
+          copyright="© 2026 emailcn. All rights reserved."
+          mutedTextColor={resolved.mutedTextColor}
+          unsubscribeHref={resolved.unsubscribeHref}
+        />
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const FooterWithFullMenu = ({
-  pageBackgroundColor = "#f1f5f9",
+  pageBackgroundColor = defaults.pageBackgroundColor,
   theme = defaultTheme,
-  variant = "oversized-logo",
   ...props
 }: FooterWithFullMenuProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Footer with full menu</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <FooterWithFullMenuSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>
+    <FooterWithFullMenuSection {...props} />
+  </FooterEmailShell>
 );
 
 FooterWithFullMenu.PreviewProps = {

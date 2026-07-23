@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "basic-pills-shared",
+  "title": "Basic Pills Shared",
+  "description": "Basic Pills Shared email component",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/pills/basic-pills-shared.tsx",
+      "content": "import { Section } from \"jsx-email\";\nimport { Fragment } from \"react\";\nimport type { CSSProperties } from \"react\";\n\nexport type PillStatusVariant =\n  | \"brand\"\n  | \"danger\"\n  | \"default\"\n  | \"error\"\n  | \"info\"\n  | \"success\"\n  | \"warning\";\n\nexport interface PillItem {\n  label: string;\n  variant: PillStatusVariant;\n}\n\ntype EmailCssProperties = CSSProperties & {\n  msoPaddingAlt?: string;\n  msoTextRaise?: string;\n};\n\nconst fontFamily =\n  'Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif';\n\nconst pillStyles: Record<\n  PillStatusVariant,\n  { backgroundColor: string; borderColor: string; color: string }\n> = {\n  brand: {\n    backgroundColor: \"#eef2ff\",\n    borderColor: \"#a5b4fc\",\n    color: \"#6366f1\",\n  },\n  danger: {\n    backgroundColor: \"#fef2f2\",\n    borderColor: \"#fca5a5\",\n    color: \"#ef4444\",\n  },\n  default: {\n    backgroundColor: \"#f9fafb\",\n    borderColor: \"#d1d5db\",\n    color: \"#4b5563\",\n  },\n  error: {\n    backgroundColor: \"#fef2f2\",\n    borderColor: \"#fca5a5\",\n    color: \"#ef4444\",\n  },\n  info: {\n    backgroundColor: \"#f0f9ff\",\n    borderColor: \"#7dd3fc\",\n    color: \"#0ea5e9\",\n  },\n  success: {\n    backgroundColor: \"#ecfdf5\",\n    borderColor: \"#6ee7b7\",\n    color: \"#10b981\",\n  },\n  warning: {\n    backgroundColor: \"#fffbeb\",\n    borderColor: \"#fcd34d\",\n    color: \"#f59e0b\",\n  },\n};\n\nexport const defaultPills: PillItem[] = [\n  { label: \"Label\", variant: \"default\" },\n  { label: \"Success\", variant: \"success\" },\n  { label: \"Error\", variant: \"error\" },\n  { label: \"Warning\", variant: \"warning\" },\n  { label: \"Info\", variant: \"info\" },\n  { label: \"Brand\", variant: \"brand\" },\n];\n\nconst Pill = ({ label, variant }: PillItem) => {\n  const colors = pillStyles[variant];\n  const style: EmailCssProperties = {\n    backgroundColor: colors.backgroundColor,\n    border: `1px solid ${colors.borderColor}`,\n    borderRadius: \"9999px\",\n    color: colors.color,\n    display: \"inline-block\",\n    fontFamily,\n    fontSize: \"12px\",\n    fontWeight: 500,\n    lineHeight: \"16px\",\n    msoPaddingAlt: \"0\",\n    msoTextRaise: \"2px\",\n    padding: \"2px 8px\",\n  };\n\n  return (\n    <span style={style}>\n      {\" \"}\n      <span /> <span>{label}</span> <span />\n    </span>\n  );\n};\n\nexport const BasicPillsStatusColorsSection = ({\n  mjmlCompensation = false,\n  pills = defaultPills,\n}: {\n  mjmlCompensation?: boolean;\n  pills?: PillItem[];\n}) => (\n  <>\n    <Section style={{ height: \"100px\" }} />\n    <Section\n      style={{\n        backgroundColor: \"#fffffe\",\n        fontSize: \"16px\",\n        marginLeft: \"auto\",\n        marginRight: \"auto\",\n        maxWidth: \"600px\",\n        textAlign: \"start\",\n      }}\n    >\n      <Section\n        style={{\n          paddingBottom: \"44px\",\n          paddingTop: \"44px\",\n          textAlign: \"center\",\n          width: \"100%\",\n        }}\n      >\n        {mjmlCompensation ? <Section style={{ height: \"1px\" }} /> : null}\n        {pills.map((pill, index) => (\n          <Fragment key={`${pill.label}-${pill.variant}`}>\n            <Pill {...pill} />\n            {index < pills.length - 1 ? (\n              <Section\n                style={{ lineHeight: mjmlCompensation ? \"25px\" : \"24px\" }}\n              >\n                &zwj;\n              </Section>\n            ) : null}\n          </Fragment>\n        ))}\n      </Section>\n    </Section>\n    <Section style={{ height: \"100px\" }} />\n  </>\n);\n",
+      "type": "registry:component",
+      "target": "components/email/basic-pills-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,19 +1,27 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlButton,
+  MjmlColumn,
+  MjmlDivider,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export const BENTO_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/bento-grids";
+
+const TREND_CHART_URL =
+  "https://emailcn.vercel.app/email-assets/bento-grids/trend.png";
 
 export type BentoCaptionsVariant =
   | "captions-top"
@@ -63,13 +71,8 @@ const colors = {
   white: "#fffffe",
 } as const;
 
-const textBase: CSSProperties = {
-  fontFamily:
-    "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif",
-  fontSize: "14px",
-  lineHeight: "24px",
-  margin: 0,
-};
+const fontFamily =
+  "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif";
 
 export interface BentoEmailShellProps {
   children: ReactNode;
@@ -86,137 +89,39 @@ export const BentoEmailShell = ({
     <MjmlHead>
       <MjmlPreview>{preview}</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{`
-        table { border-spacing: 0; }
-        td { padding: 0; }
-        img { max-width: 100%; vertical-align: middle; }
-        @media only screen and (max-width: 599px) {
-          .bento-column { display: block !important; width: 100% !important; }
-          .bento-gap { display: block !important; width: 100% !important; min-width: 100% !important; max-width: 100% !important; height: 24px !important; line-height: 24px !important; }
-          .bento-chart-desktop { display: none !important; }
-          .bento-chart-mobile { display: block !important; width: 100% !important; }
-        }
-      `}</MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor={colors.canvas} width={theme.containerWidth}>
       <MjmlWrapper backgroundColor={colors.surface} padding="44px 24px">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>{children}</div>
-        </MjmlRaw>
+        {children}
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
-const Table = ({ children }: { children: ReactNode }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>{children}</tbody>
-  </table>
-);
-
-const Section = ({
-  children,
-  style,
-}: {
-  children: ReactNode;
-  style?: CSSProperties;
-}) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ borderCollapse: "separate", borderSpacing: 0, ...style }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td style={{ textAlign: "left" }}>{children}</td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const Cell = ({
-  children,
-  className = "bento-column",
-  style,
-  width,
-}: {
-  children?: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-  width?: number;
-}) => (
-  <td className={className} style={style} width={width}>
-    {children}
-  </td>
-);
-
-const Gap = () => (
-  <Cell
-    className="bento-gap"
-    style={{
-      fontSize: 0,
-      height: "1px",
-      lineHeight: "1px",
-      maxWidth: "24px",
-      minWidth: "24px",
-      width: "24px",
-    }}
-    width={24}
-  >
-    &zwj;
-  </Cell>
-);
-
 const VerticalGap = () => (
-  <div style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>&zwj;</div>
+  <MjmlSection padding="0">
+    <MjmlColumn padding="0">
+      <MjmlSpacer height="24px" />
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 const Image = ({
   alt,
-  className,
   src,
-  style,
   width,
 }: {
   alt: string;
-  className?: string;
   src: string;
-  style?: CSSProperties;
   width: number;
 }) => (
-  <img
+  <MjmlImage
     alt={alt}
-    className={className}
+    borderRadius="8px"
+    padding="0"
     src={src}
-    style={{
-      border: "none",
-      display: "block",
-      outline: "none",
-      textDecoration: "none",
-      ...style,
-    }}
-    width={width}
+    width={`${width}px`}
   />
-);
-
-const Multiline = ({ value }: { value: string }) => (
-  <>
-    {value.split("\n").map((line, index) => (
-      <span key={`${line}-${index}`}>
-        {index > 0 ? <br /> : null}
-        {line}
-      </span>
-    ))}
-  </>
 );
 
 export interface BentoImageCardItem {
@@ -225,6 +130,40 @@ export interface BentoImageCardItem {
   imageSrc: string;
   title: string;
 }
+
+const CardCaption = ({
+  dark,
+  item,
+}: {
+  dark: boolean;
+  item: BentoImageCardItem;
+}) => (
+  <>
+    <MjmlText
+      color={dark ? colors.white : colors.dark}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      fontWeight="600"
+      lineHeight="20px"
+      padding="16px 16px 0"
+    >
+      {item.title}
+    </MjmlText>
+    {item.description ? (
+      <MjmlText
+        color={dark ? colors.mutedDark : colors.muted}
+        fontFamily={fontFamily}
+        fontSize="12px"
+        lineHeight="16px"
+        padding="12px 16px 16px"
+      >
+        {item.description}
+      </MjmlText>
+    ) : (
+      <MjmlSpacer height="16px" />
+    )}
+  </>
+);
 
 const HeaderImageCard = ({
   captionPosition,
@@ -238,58 +177,20 @@ const HeaderImageCard = ({
   width: 168 | 360;
 }) => {
   const dark = tone === "dark";
-  const caption = (
-    <Section
-      style={{
-        backgroundColor: dark ? colors.dark : colors.light,
-        borderRadius: captionPosition === "top" ? "4px 4px 0 0" : "0 0 4px 4px",
-        padding: "16px",
-      }}
-    >
-      <p
-        style={{
-          ...textBase,
-          color: dark ? colors.white : colors.dark,
-          fontSize: "14px",
-          fontWeight: 600,
-          lineHeight: "20px",
-        }}
-      >
-        {item.title}
-      </p>
-      {item.description ? (
-        <p
-          style={{
-            ...textBase,
-            color: dark ? colors.mutedDark : colors.muted,
-            fontSize: "12px",
-            lineHeight: "16px",
-            marginTop: "12px",
-          }}
-        >
-          {item.description}
-        </p>
-      ) : null}
-    </Section>
-  );
-  const image = (
-    <Image
-      alt={item.imageAlt}
-      src={item.imageSrc}
-      width={width}
-      style={{
-        borderRadius: captionPosition === "top" ? "0 0 4px 4px" : "4px 4px 0 0",
-        display: "block",
-        height: "auto",
-        width: "100%",
-      }}
-    />
-  );
+  const caption = <CardCaption dark={dark} item={item} />;
+  const image = <Image alt={item.imageAlt} src={item.imageSrc} width={width} />;
+
   return (
-    <Cell style={{ verticalAlign: "top", width: `${width}px` }} width={width}>
+    <MjmlColumn
+      backgroundColor={dark ? colors.dark : colors.light}
+      borderRadius="8px"
+      padding="0"
+      verticalAlign="top"
+      width={`${width}px`}
+    >
       {captionPosition === "top" ? caption : image}
       {captionPosition === "top" ? image : caption}
-    </Cell>
+    </MjmlColumn>
   );
 };
 
@@ -310,87 +211,47 @@ export const AlternatingImageCardsSection = ({
   const topWidths = reverse ? ([360, 168] as const) : ([168, 360] as const);
   const bottomWidths = reverse ? ([168, 360] as const) : ([360, 168] as const);
   const tone = reverse ? "dark" : "light";
+
   return (
     <>
-      <Table>
-        <tr>
-          <HeaderImageCard
-            captionPosition={captionPosition}
-            item={items[0]}
-            tone={tone}
-            width={topWidths[0]}
-          />
-          <Gap />
-          <HeaderImageCard
-            captionPosition={captionPosition}
-            item={items[1]}
-            tone={tone}
-            width={topWidths[1]}
-          />
-        </tr>
-      </Table>
+      <MjmlSection padding="0">
+        <HeaderImageCard
+          captionPosition={captionPosition}
+          item={items[0]}
+          tone={tone}
+          width={topWidths[0]}
+        />
+        <MjmlColumn padding="0" width="24px">
+          <MjmlSpacer height="1px" />
+        </MjmlColumn>
+        <HeaderImageCard
+          captionPosition={captionPosition}
+          item={items[1]}
+          tone={tone}
+          width={topWidths[1]}
+        />
+      </MjmlSection>
       <VerticalGap />
-      <Table>
-        <tr>
-          <HeaderImageCard
-            captionPosition={captionPosition}
-            item={items[2]}
-            tone={tone}
-            width={bottomWidths[0]}
-          />
-          <Gap />
-          <HeaderImageCard
-            captionPosition={captionPosition}
-            item={items[3]}
-            tone={tone}
-            width={bottomWidths[1]}
-          />
-        </tr>
-      </Table>
+      <MjmlSection padding="0">
+        <HeaderImageCard
+          captionPosition={captionPosition}
+          item={items[2]}
+          tone={tone}
+          width={bottomWidths[0]}
+        />
+        <MjmlColumn padding="0" width="24px">
+          <MjmlSpacer height="1px" />
+        </MjmlColumn>
+        <HeaderImageCard
+          captionPosition={captionPosition}
+          item={items[3]}
+          tone={tone}
+          width={bottomWidths[1]}
+        />
+      </MjmlSection>
     </>
   );
 };
-
-const ProductDetails = ({
-  description,
-  position,
-  title,
-}: {
-  description: string;
-  position: "bottom" | "top";
-  title: string;
-}) => (
-  <Section
-    style={{
-      backgroundColor: colors.light,
-      borderRadius: position === "top" ? "4px 4px 0 0" : "0 0 4px 4px",
-      padding: "16px",
-    }}
-  >
-    <p
-      style={{
-        ...textBase,
-        color: colors.dark,
-        fontSize: "14px",
-        fontWeight: 600,
-        lineHeight: "20px",
-      }}
-    >
-      {title}
-    </p>
-    <p
-      style={{
-        ...textBase,
-        color: "#4b5563",
-        fontSize: "14px",
-        fontWeight: 600,
-        lineHeight: "20px",
-      }}
-    >
-      {description}
-    </p>
-  </Section>
-);
 
 export interface ThreeColumnFlushData {
   left: BentoImageCardItem;
@@ -415,103 +276,71 @@ const ThreeColumnOuterCard = ({
   captionPosition: "bottom" | "top";
   item: BentoImageCardItem;
   padded: boolean;
-}) => {
-  const details = (
-    <ProductDetails
-      description={item.description ?? ""}
-      position={captionPosition}
-      title={item.title}
-    />
-  );
-  const image = padded ? (
-    <Section
-      style={{
-        backgroundColor: colors.light,
-        borderRadius: captionPosition === "top" ? "0 0 4px 4px" : "4px 4px 0 0",
-        paddingLeft: "16px",
-      }}
-    >
-      <Image
-        alt={item.imageAlt}
-        src={item.imageSrc}
-        width={152}
-        style={{
-          borderRadius:
-            captionPosition === "top" ? "4px 0 4px 0" : "0 4px 0 4px",
-          display: "block",
-          width: "100%",
-        }}
-      />
-    </Section>
-  ) : (
-    <Image
+}) => (
+  <MjmlColumn
+    backgroundColor={colors.light}
+    borderRadius="8px"
+    padding="0"
+    verticalAlign="top"
+    width="31%"
+  >
+    {captionPosition === "top" ? (
+      <CardCaption dark={false} item={item} />
+    ) : null}
+    <MjmlImage
       alt={item.imageAlt}
+      borderRadius="8px"
+      padding={padded ? "0 0 0 16px" : "0"}
       src={item.imageSrc}
-      width={168}
-      style={{
-        borderRadius: captionPosition === "top" ? "0 0 4px 4px" : "4px 4px 0 0",
-        display: "block",
-        width: "100%",
-      }}
     />
-  );
+    {captionPosition === "bottom" ? (
+      <CardCaption dark={false} item={item} />
+    ) : null}
+  </MjmlColumn>
+);
+
+const MiddleContent = ({
+  data,
+  variant,
+}: {
+  data: ThreeColumnFlushData;
+  variant: BentoThreeColumnVariant;
+}) => {
+  const alt = variant.endsWith("alt");
+  const captionBottom = variant.includes("bottom");
+  const { promo } = data;
+  const promoFirst = alt && captionBottom;
+
   return (
-    <Cell style={{ verticalAlign: "top" }} width={168}>
-      {captionPosition === "top" ? details : image}
-      {captionPosition === "top" ? image : details}
-    </Cell>
+    <MjmlColumn padding="0" verticalAlign="top" width="31%">
+      {promoFirst && promo ? (
+        <CardCaption
+          dark={Boolean(promo.dark)}
+          item={{ ...promo, imageAlt: "", imageSrc: "" }}
+        />
+      ) : (
+        <Image
+          alt={data.middleImages[0].imageAlt}
+          src={data.middleImages[0].imageSrc}
+          width={168}
+        />
+      )}
+      <MjmlSpacer height="24px" />
+      {alt && !captionBottom && promo ? (
+        <CardCaption
+          dark={Boolean(promo.dark)}
+          item={{ ...promo, imageAlt: "", imageSrc: "" }}
+        />
+      ) : (
+        <Image
+          alt={(data.middleImages[1] ?? data.middleImages[0]).imageAlt}
+          src={(data.middleImages[1] ?? data.middleImages[0]).imageSrc}
+          width={168}
+        />
+      )}
+    </MjmlColumn>
   );
 };
-
-const ThreeColumnPromo = ({
-  dark = false,
-  description,
-  title,
-}: {
-  dark?: boolean;
-  description: string;
-  title: string;
-}) => (
-  <Section
-    style={{
-      backgroundColor: dark ? colors.dark : colors.light,
-      borderRadius: "4px",
-      padding: "32px 16px",
-    }}
-  >
-    <p
-      style={{
-        ...textBase,
-        color: dark ? colors.white : colors.dark,
-        fontSize: "14px",
-        fontWeight: 600,
-        lineHeight: "20px",
-      }}
-    >
-      {title}
-    </p>
-    <p
-      style={{
-        ...textBase,
-        color: dark ? colors.mutedDark : "#4b5563",
-        fontSize: "12px",
-        lineHeight: "16px",
-        marginTop: "16px",
-      }}
-    >
-      {description}
-    </p>
-  </Section>
-);
-
-const ThreeColumnMiddleImage = ({ item }: { item: BentoImageCardItem }) => (
-  <Image
-    alt={item.imageAlt}
-    src={item.imageSrc}
-    width={168}
-    style={{ borderRadius: "4px", display: "block", width: "100%" }}
-  />
-);
 
 const ThreeColumnsImagesSection = ({
   data,
@@ -523,48 +352,27 @@ const ThreeColumnsImagesSection = ({
   variant: BentoThreeColumnVariant;
 }) => {
   const captionPosition = variant.includes("bottom") ? "bottom" : "top";
-  const alt = variant.endsWith("alt");
-  const promo = data.promo ? <ThreeColumnPromo {...data.promo} /> : null;
-  const upperMiddle =
-    alt && captionPosition === "bottom" ? (
-      promo
-    ) : (
-      <ThreeColumnMiddleImage item={data.middleImages[0]} />
-    );
-  let lowerMiddle: ReactNode;
-  if (!alt) {
-    lowerMiddle = (
-      <ThreeColumnMiddleImage
-        item={data.middleImages[1] ?? data.middleImages[0]}
-      />
-    );
-  } else if (captionPosition === "bottom") {
-    lowerMiddle = <ThreeColumnMiddleImage item={data.middleImages[0]} />;
-  } else {
-    lowerMiddle = promo;
-  }
+
   return (
-    <Table>
-      <tr>
-        <ThreeColumnOuterCard
-          captionPosition={captionPosition}
-          item={data.left}
-          padded={padded}
-        />
-        <Gap />
-        <Cell style={{ verticalAlign: "top" }} width={168}>
-          {upperMiddle}
-          <VerticalGap />
-          {lowerMiddle}
-        </Cell>
-        <Gap />
-        <ThreeColumnOuterCard
-          captionPosition={captionPosition}
-          item={data.right}
-          padded={padded}
-        />
-      </tr>
-    </Table>
+    <MjmlSection padding="0">
+      <ThreeColumnOuterCard
+        captionPosition={captionPosition}
+        item={data.left}
+        padded={padded}
+      />
+      <MjmlColumn padding="0" width="3.5%">
+        <MjmlSpacer height="1px" />
+      </MjmlColumn>
+      <MiddleContent data={data} variant={variant} />
+      <MjmlColumn padding="0" width="3.5%">
+        <MjmlSpacer height="1px" />
+      </MjmlColumn>
+      <ThreeColumnOuterCard
+        captionPosition={captionPosition}
+        item={data.right}
+        padded={padded}
+      />
+    </MjmlSection>
   );
 };
 
@@ -592,7 +400,6 @@ export interface ProductTileData extends BentoImageCardItem {
 
 const ProductTile = ({
   dark = false,
-  imageInsetOverride,
   item,
   padding,
   width,
@@ -603,82 +410,75 @@ const ProductTile = ({
   padding: "full" | "left" | "right" | "sides";
   width: 168 | 264 | 360;
 }) => {
-  const inset =
-    imageInsetOverride ?? (padding === "left" || padding === "right" ? 16 : 32);
-  const imageWidth = width - inset;
   const imagePadding = {
     full: "16px",
     left: "16px 0 0 16px",
     right: "16px 16px 0 0",
     sides: "16px 16px 0",
   }[padding];
-  const imageRadius = {
-    full: "4px",
-    left: "4px 0 4px 0",
-    right: "0 4px 0 4px",
-    sides: "4px 4px 0 0",
-  }[padding];
+
   return (
-    <Cell
-      style={{
-        backgroundColor: dark ? colors.dark : colors.light,
-        borderRadius: "4px",
-        verticalAlign: "top",
-        width: `${width}px`,
-      }}
-      width={width}
+    <MjmlColumn
+      backgroundColor={dark ? colors.dark : colors.light}
+      borderRadius="8px"
+      padding="0"
+      verticalAlign="top"
+      width={`${width}px`}
     >
-      <Section style={{ padding: "16px 16px 0" }}>
-        <p style={{ ...textBase, lineHeight: "20px" }}>
-          <span
-            style={{
-              color: dark ? colors.white : colors.dark,
-              fontSize: "14px",
-              fontWeight: 600,
-            }}
-          >
-            {item.title}
-          </span>{" "}
-          <span
-            style={{
-              color: dark ? colors.subtle : "#4b5563",
-              fontSize: "12px",
-              fontWeight: 300,
-            }}
-          >
-            {item.price}
-          </span>
-        </p>
-        {item.description ? (
-          <p
-            style={{
-              ...textBase,
-              color: dark ? colors.subtle : "#4b5563",
-              fontSize: "12px",
-              fontWeight: 300,
-              lineHeight: "16px",
-              marginTop: "12px",
-            }}
-          >
-            <Multiline value={item.description} />
-          </p>
-        ) : null}
-      </Section>
-      <Section style={{ padding: imagePadding }}>
-        <Image
-          alt={item.imageAlt}
-          src={item.imageSrc}
-          width={imageWidth}
-          style={{
-            borderRadius: imageRadius,
-            display: "block",
-            width: "100%",
-          }}
-        />
-      </Section>
-    </Cell>
+      <MjmlText
+        color={dark ? colors.white : colors.dark}
+        fontFamily={fontFamily}
+        fontSize="14px"
+        fontWeight="600"
+        lineHeight="20px"
+        padding="16px 16px 0"
+      >
+        {item.title} · {item.price}
+      </MjmlText>
+      {item.description ? (
+        <MjmlText
+          color={dark ? colors.subtle : colors.muted}
+          fontFamily={fontFamily}
+          fontSize="12px"
+          lineHeight="16px"
+          padding="12px 16px 0"
+        >
+          {item.description}
+        </MjmlText>
+      ) : null}
+      <MjmlImage
+        alt={item.imageAlt}
+        borderRadius="8px"
+        padding={imagePadding}
+        src={item.imageSrc}
+      />
+    </MjmlColumn>
   );
 };
+
+const ProductRow = ({
+  darkIndexes,
+  items,
+  padding,
+  widths,
+}: {
+  darkIndexes: readonly number[];
+  items: readonly ProductTileData[];
+  padding: "full" | "left" | "right" | "sides";
+  widths: readonly (168 | 264 | 360)[];
+}) => (
+  <MjmlSection padding="0">
+    {items.map((item, index) => (
+      <ProductTile
+        dark={darkIndexes.includes(index)}
+        item={item}
+        key={`${item.title}-${index}`}
+        padding={padding}
+        width={widths[index]}
+      />
+    ))}
+  </MjmlSection>
+);
 
 export const TwoRowsThreeColumnsSection = ({
   bottom,
@@ -695,55 +495,23 @@ export const TwoRowsThreeColumnsSection = ({
     | "right"
     | "sides";
   const reverse = variant.endsWith("reverse");
-  const imageInsetOverride =
-    variant === "padded-sides-reverse" ? (16 as const) : undefined;
   const topRow = (
-    <Table>
-      <tr>
-        <ProductTile
-          dark
-          imageInsetOverride={imageInsetOverride}
-          item={top[0]}
-          padding={padding}
-          width={264}
-        />
-        <Gap />
-        <ProductTile
-          imageInsetOverride={imageInsetOverride}
-          item={top[1]}
-          padding={padding}
-          width={264}
-        />
-      </tr>
-    </Table>
+    <ProductRow
+      darkIndexes={[0]}
+      items={top}
+      padding={padding}
+      widths={[264, 264]}
+    />
   );
   const bottomRow = (
-    <Table>
-      <tr>
-        <ProductTile
-          imageInsetOverride={imageInsetOverride}
-          item={bottom[0]}
-          padding={padding}
-          width={168}
-        />
-        <Gap />
-        <ProductTile
-          dark
-          imageInsetOverride={imageInsetOverride}
-          item={bottom[1]}
-          padding={padding}
-          width={168}
-        />
-        <Gap />
-        <ProductTile
-          imageInsetOverride={imageInsetOverride}
-          item={bottom[2]}
-          padding={padding}
-          width={168}
-        />
-      </tr>
-    </Table>
+    <ProductRow
+      darkIndexes={[1]}
+      items={bottom}
+      padding={padding}
+      widths={[168, 168, 168]}
+    />
   );
+
   return (
     <>
       {reverse ? bottomRow : topRow}
@@ -769,23 +537,22 @@ export const EvenSplitTwoThirdsSection = ({
     | "sides";
   const reverse = variant.endsWith("reverse");
   const topRow = (
-    <Table>
-      <tr>
-        <ProductTile dark item={top[0]} padding={padding} width={264} />
-        <Gap />
-        <ProductTile item={top[1]} padding={padding} width={264} />
-      </tr>
-    </Table>
+    <ProductRow
+      darkIndexes={[0]}
+      items={top}
+      padding={padding}
+      widths={[264, 264]}
+    />
   );
   const bottomRow = (
-    <Table>
-      <tr>
-        <ProductTile item={bottom[0]} padding={padding} width={168} />
-        <Gap />
-        <ProductTile dark item={bottom[1]} padding={padding} width={360} />
-      </tr>
-    </Table>
+    <ProductRow
+      darkIndexes={[1]}
+      items={bottom}
+      padding={padding}
+      widths={[168, 360]}
+    />
   );
+
   return (
     <>
       {reverse ? bottomRow : topRow}
@@ -804,159 +571,95 @@ export interface MetricCardData {
   value: string;
 }
 
-const Divider = () => (
-  <div
-    style={{ backgroundColor: colors.border, height: "1px", lineHeight: "1px" }}
-  >
-    &zwj;
-  </div>
-);
-
-const ReportLink = ({ data }: { data: MetricCardData }) => (
-  <p
-    style={{
-      ...textBase,
-      fontSize: "12px",
-      lineHeight: "16px",
-      marginTop: "12px",
-      textAlign: "left",
-    }}
-  >
-    <a
-      href={data.reportHref}
-      style={{ color: "#4f46e5", fontWeight: 500, textDecoration: "none" }}
-    >
-      {data.reportLabel}
-    </a>
-  </p>
-);
-
-const ImageMetricCard = ({ data }: { data: MetricCardData }) => (
-  <Section
-    style={{
-      border: `1px solid ${colors.border}`,
-      borderRadius: "8px",
-      padding: "16px",
-      textAlign: "left",
-    }}
-  >
-    <p
-      style={{
-        ...textBase,
-        color: colors.dark,
-        fontSize: "14px",
-        fontWeight: 500,
-        lineHeight: "20px",
-        textAlign: "left",
-      }}
+const MetricCopy = ({
+  data,
+  image,
+}: {
+  data: MetricCardData;
+  image: boolean;
+}) => (
+  <>
+    <MjmlText
+      color={colors.dark}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      fontWeight="500"
+      lineHeight="20px"
+      padding="16px 16px 0"
     >
       {data.title}
-    </p>
-    <div style={{ height: "42px", lineHeight: "42px" }}>&zwj;</div>
-    <Table>
-      <tr>
-        <Cell style={{ textAlign: "left", verticalAlign: "top" }}>
-          <p
-            style={{
-              ...textBase,
-              color: colors.dark,
-              fontSize: "24px",
-              fontWeight: 700,
-              lineHeight: "32px",
-            }}
-          >
-            {data.value}
-          </p>
-          <p
-            style={{
-              ...textBase,
-              color: colors.muted,
-              fontSize: "12px",
-              lineHeight: "16px",
-            }}
-          >
-            ↗&nbsp; {data.change}
-          </p>
-        </Cell>
-        <Cell style={{ textAlign: "right", verticalAlign: "bottom" }}>
-          <Image
-            alt=""
-            className="bento-chart-desktop"
-            src={`${BENTO_ASSET_ROOT}/trend.png`}
-            width={120}
-            style={{
-              display: "inline-block",
-              maxWidth: "100%",
-              verticalAlign: "middle",
-            }}
-          />
-          <Image
-            alt=""
-            className="bento-chart-mobile"
-            src={`${BENTO_ASSET_ROOT}/trend-sm.png`}
-            width={210}
-            style={{
-              display: "none",
-              maxWidth: "100%",
-              verticalAlign: "middle",
-            }}
-          />
-        </Cell>
-      </tr>
-    </Table>
-    <Divider />
-    <ReportLink data={data} />
-  </Section>
-);
-
-const TextMetricCard = ({ data }: { data: MetricCardData }) => (
-  <Section
-    style={{
-      border: `1px solid ${colors.border}`,
-      borderRadius: "8px",
-      padding: "16px",
-      textAlign: "left",
-    }}
-  >
-    <p
-      style={{
-        ...textBase,
-        color: colors.dark,
-        fontSize: "14px",
-        fontWeight: 500,
-        lineHeight: "20px",
-        textAlign: "left",
-      }}
+    </MjmlText>
+    <MjmlSpacer height={image ? "42px" : "26px"} />
+    <MjmlText
+      color={colors.dark}
+      fontFamily={fontFamily}
+      fontSize={image ? "24px" : "36px"}
+      fontWeight="700"
+      lineHeight={image ? "32px" : "40px"}
+      padding="0 16px"
     >
-      {data.title}
-    </p>
-    <div style={{ height: "26px", lineHeight: "26px" }}>&zwj;</div>
-    <p style={{ ...textBase, lineHeight: "40px" }}>
-      <span style={{ color: colors.dark, fontSize: "36px", fontWeight: 700 }}>
-        {data.value}
-      </span>
-      <span style={{ color: colors.muted, fontSize: "12px" }}>
-        &nbsp;&nbsp;↗&nbsp; {data.change}
-      </span>
-    </p>
+      {data.value}
+    </MjmlText>
+    <MjmlText
+      color={colors.muted}
+      fontFamily={fontFamily}
+      fontSize="12px"
+      lineHeight="16px"
+      padding="0 16px"
+    >
+      ↗&nbsp; {data.change}
+    </MjmlText>
     {data.comparison ? (
-      <p
-        style={{
-          ...textBase,
-          color: colors.muted,
-          fontSize: "12px",
-          lineHeight: "16px",
-          marginTop: "8px",
-        }}
+      <MjmlText
+        color={colors.muted}
+        fontFamily={fontFamily}
+        fontSize="12px"
+        lineHeight="16px"
+        padding="8px 16px 0"
       >
         {data.comparison}
-      </p>
+      </MjmlText>
     ) : null}
-    <div style={{ marginTop: "12px" }}>
-      <Divider />
-    </div>
-    <ReportLink data={data} />
-  </Section>
+  </>
+);
+
+const MetricCard = ({
+  data,
+  image,
+}: {
+  data: MetricCardData;
+  image: boolean;
+}) => (
+  <>
+    <MetricCopy data={data} image={image} />
+    {image ? (
+      <MjmlImage
+        alt="Trend chart"
+        padding="12px 16px"
+        src={TREND_CHART_URL}
+        width="240px"
+      />
+    ) : null}
+    <MjmlDivider
+      borderColor={colors.border}
+      borderWidth="1px"
+      padding="12px 16px 0"
+    />
+    <MjmlButton
+      align="left"
+      backgroundColor="transparent"
+      color="#4f46e5"
+      fontFamily={fontFamily}
+      fontSize="12px"
+      fontWeight="500"
+      href={data.reportHref}
+      innerPadding="0"
+      lineHeight="16px"
+      padding="12px 16px 16px"
+    >
+      {data.reportLabel}
+    </MjmlButton>
+  </>
 );
 
 export interface FeatureCardData {
@@ -967,43 +670,39 @@ export interface FeatureCardData {
 const FeatureCard = ({
   dark = false,
   data,
+  width = "66%",
 }: {
   dark?: boolean;
   data: FeatureCardData;
+  width?: string;
 }) => (
-  <Cell
-    style={{
-      backgroundColor: dark ? colors.dark : colors.surfaceMuted,
-      borderRadius: "8px",
-      padding: "44px 16px",
-      verticalAlign: "middle",
-      width: "360px",
-    }}
-    width={360}
+  <MjmlColumn
+    backgroundColor={dark ? colors.dark : colors.surfaceMuted}
+    borderRadius="8px"
+    padding="44px 16px"
+    verticalAlign="middle"
+    width={width}
   >
-    <p
-      style={{
-        ...textBase,
-        color: dark ? colors.white : colors.dark,
-        fontSize: "20px",
-        fontWeight: 600,
-        lineHeight: "28px",
-      }}
+    <MjmlText
+      color={dark ? colors.white : colors.dark}
+      fontFamily={fontFamily}
+      fontSize="20px"
+      fontWeight="600"
+      lineHeight="28px"
+      padding="0"
     >
       {data.title}
-    </p>
-    <p
-      style={{
-        ...textBase,
-        color: dark ? colors.subtle : colors.dark,
-        fontSize: "18px",
-        lineHeight: "28px",
-        marginTop: "12px",
-      }}
+    </MjmlText>
+    <MjmlText
+      color={dark ? colors.subtle : colors.dark}
+      fontFamily={fontFamily}
+      fontSize="18px"
+      lineHeight="28px"
+      padding="12px 0 0"
     >
       {data.description}
-    </p>
-  </Cell>
+    </MjmlText>
+  </MjmlColumn>
 );
 
 export interface StatCardData {
@@ -1016,53 +715,51 @@ const StatCard = ({
   background = colors.surfaceMuted,
   dark = false,
   data,
+  width = "34%",
 }: {
   background?: string;
   dark?: boolean;
   data: StatCardData;
+  width?: string;
 }) => (
-  <Cell
-    style={{
-      backgroundColor: dark ? colors.dark : background,
-      borderRadius: "8px",
-      padding: "44px 0",
-      textAlign: "center",
-      verticalAlign: "middle",
-      width: "168px",
-    }}
-    width={168}
+  <MjmlColumn
+    backgroundColor={dark ? colors.dark : background}
+    borderRadius="8px"
+    padding="44px 0"
+    verticalAlign="middle"
+    width={width}
   >
-    <p
-      style={{
-        ...textBase,
-        color: dark ? colors.white : colors.dark,
-        fontSize: "14px",
-        fontWeight: 600,
-      }}
+    <MjmlText
+      align="center"
+      color={dark ? colors.white : colors.dark}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      fontWeight="600"
+      padding="0"
     >
       {data.label}
-    </p>
-    <p
-      style={{
-        ...textBase,
-        color: dark ? colors.white : colors.dark,
-        fontSize: "48px",
-        fontWeight: 500,
-      }}
+    </MjmlText>
+    <MjmlText
+      align="center"
+      color={dark ? colors.white : colors.dark}
+      fontFamily={fontFamily}
+      fontSize="48px"
+      fontWeight="500"
+      padding="0"
     >
       {data.value}
-    </p>
-    <p
-      style={{
-        ...textBase,
-        color: colors.muted,
-        fontSize: "12px",
-        fontWeight: 500,
-      }}
+    </MjmlText>
+    <MjmlText
+      align="center"
+      color={colors.muted}
+      fontFamily={fontFamily}
+      fontSize="12px"
+      fontWeight="500"
+      padding="0"
     >
       {data.suffix}
-    </p>
-  </Cell>
+    </MjmlText>
+  </MjmlColumn>
 );
 
 export interface MiniMetricData {
@@ -1072,57 +769,90 @@ export interface MiniMetricData {
   value: string;
 }
 
-const MiniMetricCard = ({ data }: { data: MiniMetricData }) => (
-  <Cell style={{ verticalAlign: "top", width: "168px" }} width={168}>
-    <Section
-      style={{
-        border: "1px solid #d1fae5",
-        borderRadius: "8px",
-        padding: "16px",
-      }}
+const MiniMetricCard = ({
+  data,
+  width = "34%",
+}: {
+  data: MiniMetricData;
+  width?: string;
+}) => (
+  <MjmlColumn
+    border="1px solid #d1fae5"
+    borderRadius="8px"
+    padding="16px"
+    verticalAlign="top"
+    width={width}
+  >
+    <MjmlText
+      color={colors.dark}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      fontWeight="500"
+      padding="0"
     >
-      <p
-        style={{
-          ...textBase,
-          color: colors.dark,
-          fontSize: "14px",
-          fontWeight: 500,
-        }}
-      >
-        {data.title}
-      </p>
-      <p style={{ ...textBase, color: colors.subtle, fontSize: "14px" }}>
-        {data.period}
-      </p>
-      <p
-        style={{
-          ...textBase,
-          color: colors.dark,
-          fontSize: "48px",
-          fontWeight: 600,
-          marginTop: "28px",
-        }}
-      >
-        {data.value}
-      </p>
-      <p
-        style={{
-          ...textBase,
-          backgroundColor: "#ecfdf5",
-          border: "1px solid #d1fae5",
-          borderRadius: "9999px",
-          color: "#059669",
-          display: "inline-block",
-          fontSize: "12px",
-          fontWeight: 500,
-          marginTop: "8px",
-          padding: "2px 8px",
-        }}
-      >
-        {data.change} ↗
-      </p>
-    </Section>
-  </Cell>
+      {data.title}
+    </MjmlText>
+    <MjmlText
+      color={colors.subtle}
+      fontFamily={fontFamily}
+      fontSize="14px"
+      padding="0"
+    >
+      {data.period}
+    </MjmlText>
+    <MjmlText
+      color={colors.dark}
+      fontFamily={fontFamily}
+      fontSize="48px"
+      fontWeight="600"
+      padding="28px 0 0"
+    >
+      {data.value}
+    </MjmlText>
+    <MjmlText
+      color="#059669"
+      fontFamily={fontFamily}
+      fontSize="12px"
+      fontWeight="500"
+      padding="8px 0 0"
+    >
+      {data.change} ↗
+    </MjmlText>
+  </MjmlColumn>
+);
+
+const ImageCard = ({
+  alt,
+  src,
+  width,
+}: {
+  alt: string;
+  src: string;
+  width: string;
+}) => (
+  <MjmlColumn padding="0" verticalAlign="top" width={width}>
+    <MjmlImage alt={alt} borderRadius="8px" padding="0" src={src} />
+  </MjmlColumn>
+);
+
+const MetricColumn = ({
+  data,
+  image,
+  width = "50%",
+}: {
+  data: MetricCardData;
+  image: boolean;
+  width?: string;
+}) => (
+  <MjmlColumn
+    border={`1px solid ${colors.border}`}
+    borderRadius="8px"
+    padding="0"
+    verticalAlign="top"
+    width={width}
+  >
+    <MetricCard data={data} image={image} />
+  </MjmlColumn>
 );
 
 export const TwoThirdsStatsSection = ({
@@ -1142,43 +872,37 @@ export const TwoThirdsStatsSection = ({
 }) => {
   const imageLeft = variant.endsWith("left");
   const imageBottom = variant.includes("bottom");
-  const metricCard = <MiniMetricCard data={metric} />;
-  const imageCard = (
-    <Cell style={{ verticalAlign: "top", width: "360px" }} width={360}>
-      <Image
-        alt={imageAlt}
-        src={imageSrc}
-        width={360}
-        style={{ borderRadius: "8px", display: "block", width: "100%" }}
-      />
-    </Cell>
-  );
   const imageRow = (
-    <Table>
-      <tr>
-        {imageLeft ? imageCard : metricCard}
-        <Gap />
-        {imageLeft ? metricCard : imageCard}
-      </tr>
-    </Table>
+    <MjmlSection padding="0">
+      {imageLeft ? (
+        <>
+          <ImageCard alt={imageAlt} src={imageSrc} width="66%" />
+          <MiniMetricCard data={metric} />
+        </>
+      ) : (
+        <>
+          <MiniMetricCard data={metric} />
+          <ImageCard alt={imageAlt} src={imageSrc} width="66%" />
+        </>
+      )}
+    </MjmlSection>
   );
   const supportRow = (
-    <Table>
-      <tr>
-        {imageLeft ? (
+    <MjmlSection padding="0">
+      {imageLeft ? (
+        <>
           <StatCard dark data={stat} />
-        ) : (
           <FeatureCard data={feature} />
-        )}
-        <Gap />
-        {imageLeft ? (
+        </>
+      ) : (
+        <>
           <FeatureCard data={feature} />
-        ) : (
           <StatCard dark data={stat} />
-        )}
-      </tr>
-    </Table>
+        </>
+      )}
+    </MjmlSection>
   );
+
   return (
     <>
       {imageBottom ? supportRow : imageRow}
@@ -1208,50 +932,31 @@ export const EvenSplitStatsSection = ({
   const imageLeft = variant.endsWith("left");
   const imageBottom = variant.includes("bottom");
   const metricCard = (
-    <Cell style={{ verticalAlign: "top", width: "264px" }} width={264}>
-      {mode === "image" ? (
-        <ImageMetricCard data={metric} />
-      ) : (
-        <TextMetricCard data={metric} />
-      )}
-    </Cell>
+    <MetricColumn data={metric} image={mode === "image"} width="50%" />
   );
-  const imageCard = (
-    <Cell style={{ verticalAlign: "top", width: "264px" }} width={264}>
-      <Image
-        alt={imageAlt}
-        src={imageSrc}
-        width={264}
-        style={{ borderRadius: "8px", display: "block", width: "100%" }}
-      />
-    </Cell>
-  );
+  const imageCard = <ImageCard alt={imageAlt} src={imageSrc} width="50%" />;
   const imageRow = (
-    <Table>
-      <tr>
-        {imageLeft ? imageCard : metricCard}
-        <Gap />
-        {imageLeft ? metricCard : imageCard}
-      </tr>
-    </Table>
+    <MjmlSection padding="0">
+      {imageLeft ? imageCard : metricCard}
+      {imageLeft ? metricCard : imageCard}
+    </MjmlSection>
   );
   const supportRow = (
-    <Table>
-      <tr>
-        {imageLeft ? (
-          <StatCard dark={mode === "image"} data={stat} />
-        ) : (
-          <FeatureCard dark={mode === "text"} data={feature} />
-        )}
-        <Gap />
-        {imageLeft ? (
-          <FeatureCard dark={mode === "text"} data={feature} />
-        ) : (
-          <StatCard dark={mode === "image"} data={stat} />
-        )}
-      </tr>
-    </Table>
+    <MjmlSection padding="0">
+      {imageLeft ? (
+        <>
+          <StatCard dark={mode === "image"} data={stat} width="34%" />
+          <FeatureCard dark={mode === "text"} data={feature} width="66%" />
+        </>
+      ) : (
+        <>
+          <FeatureCard dark={mode === "text"} data={feature} width="66%" />
+          <StatCard dark={mode === "image"} data={stat} width="34%" />
+        </>
+      )}
+    </MjmlSection>
   );
+
   return (
     <>
       {imageBottom ? supportRow : imageRow}
@@ -1279,44 +984,23 @@ export const ThreeColumnStatsSection = ({
   const imageLeft = variant.endsWith("left");
   const imageBottom = variant.includes("bottom");
   const metricCard = (
-    <Cell style={{ verticalAlign: "top", width: "264px" }} width={264}>
-      {mode === "image" ? (
-        <ImageMetricCard data={metric} />
-      ) : (
-        <TextMetricCard data={metric} />
-      )}
-    </Cell>
+    <MetricColumn data={metric} image={mode === "image"} width="50%" />
   );
-  const imageCard = (
-    <Cell style={{ verticalAlign: "top", width: "264px" }} width={264}>
-      <Image
-        alt={imageAlt}
-        src={imageSrc}
-        width={264}
-        style={{ borderRadius: "8px", display: "block", width: "100%" }}
-      />
-    </Cell>
-  );
+  const imageCard = <ImageCard alt={imageAlt} src={imageSrc} width="50%" />;
   const imageRow = (
-    <Table>
-      <tr>
-        {imageLeft ? imageCard : metricCard}
-        <Gap />
-        {imageLeft ? metricCard : imageCard}
-      </tr>
-    </Table>
+    <MjmlSection padding="0">
+      {imageLeft ? imageCard : metricCard}
+      {imageLeft ? metricCard : imageCard}
+    </MjmlSection>
   );
   const statsRow = (
-    <Table>
-      <tr>
-        <StatCard background={colors.surfaceMuted} data={stats[0]} />
-        <Gap />
-        <StatCard background={colors.light} data={stats[1]} />
-        <Gap />
-        <StatCard background={colors.surface} data={stats[2]} />
-      </tr>
-    </Table>
+    <MjmlSection padding="0">
+      <StatCard background={colors.surfaceMuted} data={stats[0]} width="33%" />
+      <StatCard background={colors.light} data={stats[1]} width="34%" />
+      <StatCard background={colors.surface} data={stats[2]} width="33%" />
+    </MjmlSection>
   );
+
   return (
     <>
       {imageBottom ? statsRow : imageRow}

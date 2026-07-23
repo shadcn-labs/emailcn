@@ -4,7 +4,7 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -12,6 +12,7 @@ import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 import {
+  avatarResponsiveStyles,
   defaultAvatars,
   GroupedOverlappedAvatarsSection,
 } from "./avatar-shared";
@@ -35,12 +36,11 @@ export const GroupedOverlappedAvatars = ({
     <MjmlHead>
       <MjmlPreview>Grouped overlapped avatars</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{avatarResponsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <GroupedOverlappedAvatarsSection {...props} />
-        </MjmlRaw>
+        <GroupedOverlappedAvatarsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

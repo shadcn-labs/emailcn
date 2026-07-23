@@ -1,5 +1,17 @@
 import type { CSSProperties, ReactNode } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -62,11 +74,7 @@ export const DataTableFrame = ({
   headers: readonly string[];
   rows: readonly (readonly DataTableCell[])[];
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
+  <Section
     style={{
       ...tableStyle,
       border: `1px solid ${colors.border}`,
@@ -75,10 +83,10 @@ export const DataTableFrame = ({
       tableLayout: "fixed",
     }}
   >
-    <tbody>
-      <tr>
+    <Fragment>
+      <Row>
         {headers.map((header, index) => (
-          <td
+          <Column
             key={`${header}-${index}`}
             role="columnheader"
             width={cellWidth(columnWidths, index)}
@@ -97,13 +105,13 @@ export const DataTableFrame = ({
             }}
           >
             {header}
-          </td>
+          </Column>
         ))}
-      </tr>
+      </Row>
       {rows.map((row, rowIndex) => (
-        <tr key={rowIndex}>
+        <Row key={rowIndex}>
           {row.map((cell, cellIndex) => (
-            <td
+            <Column
               key={cellIndex}
               width={cellWidth(columnWidths, cellIndex)}
               style={{
@@ -121,12 +129,12 @@ export const DataTableFrame = ({
               }}
             >
               {cell.content}
-            </td>
+            </Column>
           ))}
-        </tr>
+        </Row>
       ))}
-    </tbody>
-  </table>
+    </Fragment>
+  </Section>
 );
 
 export const DataTableText = ({
@@ -210,7 +218,7 @@ export const DataTableLink = ({
   children: ReactNode;
   href: string;
 }) => (
-  <a
+  <Link
     href={href}
     style={{
       color: colors.dark,
@@ -221,12 +229,12 @@ export const DataTableLink = ({
     }}
   >
     {children}
-  </a>
+  </Link>
 );
 
 export const DataTableLogo = ({ name, src }: { name: string; src?: string }) =>
   src ? (
-    <img
+    <Img
       alt={name}
       height={24}
       src={src}
@@ -268,11 +276,7 @@ export const DataTableProgress = ({ value }: { value: number }) => {
   const progress = clamp(value);
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{
         ...tableStyle,
         backgroundColor: colors.track,
@@ -281,10 +285,10 @@ export const DataTableProgress = ({ value }: { value: number }) => {
         tableLayout: "fixed",
       }}
     >
-      <tbody>
-        <tr>
+      <Fragment>
+        <Row>
           {progress > 0 ? (
-            <td
+            <Column
               width={`${progress}%`}
               style={{
                 backgroundColor: colors.dark,
@@ -300,10 +304,10 @@ export const DataTableProgress = ({ value }: { value: number }) => {
               }}
             >
               {progress}%
-            </td>
+            </Column>
           ) : null}
           {progress < 100 ? (
-            <td
+            <Column
               width={`${100 - progress}%`}
               style={{
                 backgroundColor: colors.track,
@@ -313,11 +317,11 @@ export const DataTableProgress = ({ value }: { value: number }) => {
               }}
             >
               &zwj;
-            </td>
+            </Column>
           ) : null}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -337,17 +341,11 @@ export const DataTableEmailShell = ({
     <Preview>{preview}</Preview>
     <Tailwind config={theme}>
       <Body style={{ backgroundColor: colors.canvas, fontFamily, margin: 0 }}>
-        <table
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
-          style={{ ...tableStyle, backgroundColor: colors.canvas }}
-        >
-          <tbody>
-            <tr>
-              <td>&zwj;</td>
-              <td
+        <Section style={{ ...tableStyle, backgroundColor: colors.canvas }}>
+          <Fragment>
+            <Row>
+              <Column>&zwj;</Column>
+              <Column
                 width={600}
                 style={{
                   backgroundColor: colors.surface,
@@ -357,11 +355,11 @@ export const DataTableEmailShell = ({
                 }}
               >
                 {children}
-              </td>
-              <td>&zwj;</td>
-            </tr>
-          </tbody>
-        </table>
+              </Column>
+              <Column>&zwj;</Column>
+            </Row>
+          </Fragment>
+        </Section>
       </Body>
     </Tailwind>
   </Html>

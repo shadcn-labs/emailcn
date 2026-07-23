@@ -1,5 +1,16 @@
 import { Fragment } from "react";
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Text,
+  Column,
+  Section,
+  Row,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -85,7 +96,7 @@ const StatText = ({
   value: string;
 }) => (
   <>
-    <p
+    <Text
       style={{
         color: props.headingColor,
         fontFamily,
@@ -97,8 +108,8 @@ const StatText = ({
       }}
     >
       {value}
-    </p>
-    <p
+    </Text>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -109,7 +120,7 @@ const StatText = ({
       }}
     >
       {label}
-    </p>
+    </Text>
   </>
 );
 
@@ -211,12 +222,8 @@ const BentoCard = ({
     item.value === props.featuredStat;
   const boxed = variant === "boxed" || variant === "accent-column";
   return (
-    <td className="grid-stat-stack" style={{ width: item.width }}>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
+    <Column className="grid-stat-stack" style={{ width: item.width }}>
+      <Section
         style={{
           backgroundColor: getBentoCardBackground(dark, boxed, props),
           border:
@@ -232,15 +239,15 @@ const BentoCard = ({
         }}
         width="100%"
       >
-        <tbody>
-          <tr>
-            <td
+        <Fragment>
+          <Row>
+            <Column
               style={{
                 padding:
                   variant === "bordered" && bordered ? "24px 16px" : "0 16px",
               }}
             >
-              <p
+              <Text
                 style={{
                   color: dark
                     ? (accentColor ?? "#c7d2fe")
@@ -254,8 +261,8 @@ const BentoCard = ({
                 }}
               >
                 {item.value}
-              </p>
-              <p
+              </Text>
+              <Text
                 style={{
                   color: dark ? "#d1d5db" : props.textColor,
                   fontFamily,
@@ -266,12 +273,12 @@ const BentoCard = ({
                 }}
               >
                 {item.label}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
+              </Text>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
+    </Column>
   );
 };
 
@@ -290,15 +297,9 @@ const BentoLayout = ({
     <>
       {rows.map((items, rowIndex) => (
         <Fragment key={String(rowIndex)}>
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
+          <Section width="100%">
+            <Fragment>
+              <Row>
                 <BentoCard
                   accentColor={items[0].featured ? accentColor : undefined}
                   bordered={rowIndex === 1}
@@ -306,12 +307,12 @@ const BentoLayout = ({
                   props={props}
                   variant={variant}
                 />
-                <td
+                <Column
                   className="grid-stat-stack grid-stat-gap"
                   style={{ width: "24px" }}
                 >
                   &zwj;
-                </td>
+                </Column>
                 <BentoCard
                   accentColor={items[1].featured ? accentColor : undefined}
                   bordered={rowIndex === 1}
@@ -319,11 +320,11 @@ const BentoLayout = ({
                   props={props}
                   variant={variant}
                 />
-              </tr>
-            </tbody>
-          </table>
+              </Row>
+            </Fragment>
+          </Section>
           {rowIndex === 0 ? (
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
           ) : null}
         </Fragment>
       ))}
@@ -358,18 +359,14 @@ export const GridStatsSection = (props: SectionProps) => {
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -378,29 +375,17 @@ export const GridStatsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
                     {useThreeColumns ? (
                       <>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
-                              <td
+                        <Section width="100%">
+                          <Fragment>
+                            <Row>
+                              <Column
                                 style={{
                                   backgroundColor: featuredBackgroundColor,
                                   border: isOutlined
@@ -412,7 +397,7 @@ export const GridStatsSection = (props: SectionProps) => {
                                     isOutlined || isBoxed ? "24px" : undefined,
                                 }}
                               >
-                                <p
+                                <Text
                                   style={{
                                     color: featuredColor,
                                     fontFamily,
@@ -423,8 +408,8 @@ export const GridStatsSection = (props: SectionProps) => {
                                   }}
                                 >
                                   {resolved.featuredStat}
-                                </p>
-                                <p
+                                </Text>
+                                <Text
                                   style={{
                                     color: isAccent
                                       ? "#d1d5db"
@@ -437,32 +422,26 @@ export const GridStatsSection = (props: SectionProps) => {
                                   }}
                                 >
                                   {resolved.featuredLabel}
-                                </p>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
+                                </Text>
+                              </Column>
+                            </Row>
+                          </Fragment>
+                        </Section>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Section width="100%">
+                          <Fragment>
+                            <Row>
                               {resolved.stats.slice(0, 3).map((stat, index) => (
                                 <Fragment key={stat.label + stat.value}>
                                   {index > 0 ? (
-                                    <td
+                                    <Column
                                       className="grid-stat-stack grid-stat-gap"
                                       style={{ width: "24px" }}
                                     >
                                       &zwj;
-                                    </td>
+                                    </Column>
                                   ) : null}
-                                  <td
+                                  <Column
                                     className="grid-stat-stack"
                                     style={{
                                       verticalAlign: "top",
@@ -476,11 +455,7 @@ export const GridStatsSection = (props: SectionProps) => {
                                         value={stat.value}
                                       />
                                     ) : (
-                                      <table
-                                        border={0}
-                                        cellPadding={0}
-                                        cellSpacing={0}
-                                        role="presentation"
+                                      <Section
                                         style={{
                                           backgroundColor: isBoxed
                                             ? resolved.cardBackgroundColor
@@ -498,9 +473,9 @@ export const GridStatsSection = (props: SectionProps) => {
                                         }}
                                         width="100%"
                                       >
-                                        <tbody>
-                                          <tr>
-                                            <td
+                                        <Fragment>
+                                          <Row>
+                                            <Column
                                               style={{
                                                 padding: isBordered
                                                   ? "20px 16px"
@@ -512,17 +487,17 @@ export const GridStatsSection = (props: SectionProps) => {
                                                 props={resolved}
                                                 value={stat.value}
                                               />
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                                            </Column>
+                                          </Row>
+                                        </Fragment>
+                                      </Section>
                                     )}
-                                  </td>
+                                  </Column>
                                 </Fragment>
                               ))}
-                            </tr>
-                          </tbody>
-                        </table>
+                            </Row>
+                          </Fragment>
+                        </Section>
                       </>
                     ) : (
                       <BentoLayout
@@ -531,15 +506,15 @@ export const GridStatsSection = (props: SectionProps) => {
                         variant={variant}
                       />
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

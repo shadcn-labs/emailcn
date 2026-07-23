@@ -1,12 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
 import {
   Mjml,
   MjmlBody,
+  MjmlButton,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -43,294 +45,135 @@ export interface CouponsWithCenteredTextProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .coupon-centered-description { padding-left: 24px !important; padding-right: 24px !important; }
-    .coupon-centered-impact { font-size: 60px !important; }
-    .coupon-centered-inline { font-size: 36px !important; }
-    .coupon-centered-code { margin-top: 16px !important; }
-  }
-`;
+export const CouponsWithCenteredTextSection = (
+  props: Omit<CouponsWithCenteredTextProps, "theme">
+) => {
+  const {
+    overline,
+    discount,
+    code,
+    expiry,
+    description,
+    backgroundImageSrc,
+    buttonLabel,
+    buttonHref,
+    backgroundColor,
+    codeBackgroundColor,
+    headingColor,
+    textColor,
+    buttonBackgroundColor,
+    buttonColor,
+    variant,
+  } = {
+    backgroundColor: "#fffffe",
+    backgroundImageSrc:
+      "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
+    buttonBackgroundColor: "#4f46e5",
+    buttonColor: "#fffffe",
+    buttonHref: "https://example.com",
+    buttonLabel: "Shop now",
+    code: "WINTER20OFF",
+    codeBackgroundColor: "#f3f4f6",
+    description:
+      "Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order.",
+    discount: "20% OFF",
+    expiry: "until 31/10/2025",
+    headingColor: "#030712",
+    overline: "Our biggest sale of the year",
+    textColor: "#4b5563",
+    variant: "impact",
+    ...props,
+  };
 
-const defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
-  backgroundColor: "#fffffe",
-  backgroundImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
-  buttonBackgroundColor: "#4f46e5",
-  buttonColor: "#fffffe",
-  buttonHref: "https://example.com",
-  buttonLabel: "Shop now",
-  code: "WINTER20OFF",
-  codeBackgroundColor: "#f3f4f6",
-  description:
-    "Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order.",
-  discount: "20% OFF",
-  expiry: "until 31/10/2025",
-  headingColor: "#030712",
-  overline: "Our biggest sale of the year",
-  pageBackgroundColor: "#f1f5f9",
-  textColor: "#4b5563",
-};
-
-type SectionProps = Omit<CouponsWithCenteredTextProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const Overline = ({
-  light,
-  props,
-}: {
-  light: boolean;
-  props: ResolvedProps;
-}) => (
-  <p
-    style={{
-      color: light ? "#fffffe" : props.headingColor,
-      fontFamily,
-      fontSize: "16px",
-      fontWeight: light ? 600 : undefined,
-      lineHeight: "24px",
-      margin: 0,
-      textAlign: "center",
-      textTransform: "uppercase",
-    }}
-  >
-    {props.overline === defaults.overline && !light ? (
-      <>
-        Our <strong>biggest sale</strong> of the year
-      </>
-    ) : (
-      props.overline
-    )}
-  </p>
-);
-
-const ImpactHeading = ({
-  alt,
-  light,
-  props,
-}: {
-  alt: boolean;
-  light: boolean;
-  props: ResolvedProps;
-}) => (
-  <h3
-    className="coupon-centered-impact"
-    style={{
-      color: light ? "#fffffe" : props.headingColor,
-      fontFamily,
-      fontSize: "96px",
-      fontWeight: 500,
-      lineHeight: "normal",
-      margin: 0,
-      textAlign: "center",
-    }}
-  >
-    {alt && props.discount === defaults.discount ? (
-      <>
-        20%<span style={{ fontWeight: 100 }}>OFF</span>
-      </>
-    ) : (
-      props.discount
-    )}
-  </h3>
-);
-
-const Description = ({
-  light,
-  props,
-}: {
-  light: boolean;
-  props: ResolvedProps;
-}) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td
-          className="coupon-centered-description"
-          style={{ padding: "0 44px" }}
-        >
-          <p
-            style={{
-              color: light ? "#fffffe" : props.textColor,
-              fontFamily,
-              fontSize: "16px",
-              fontWeight: 300,
-              lineHeight: "24px",
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            Use code: <strong>{props.code}</strong> at checkout, or click the
-            link below to automatically apply the discount to your order.
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const CodeBox = ({ props }: { props: ResolvedProps }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    className="coupon-centered-code"
-    role="presentation"
-    style={{ margin: "0 auto" }}
-  >
-    <tbody>
-      <tr>
-        <td
-          style={{
-            backgroundColor: props.codeBackgroundColor,
-            borderRadius: "8px",
-            color: props.headingColor,
-            fontFamily,
-            fontSize: "16px",
-            lineHeight: "24px",
-            padding: "8px 16px",
-          }}
-        >
-          {props.code}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const CouponButton = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
-    <a
-      href={props.buttonHref}
-      style={{
-        backgroundColor: props.buttonBackgroundColor,
-        borderRadius: "8px",
-        color: props.buttonColor,
-        display: "inline-block",
-        fontFamily,
-        fontSize: "16px",
-        fontWeight: 500,
-        lineHeight: 1,
-        padding: "14px 20px",
-        textDecoration: "none",
-      }}
-    >
-      <span style={{ marginRight: "8px" }}>{props.buttonLabel}</span>
-      <span>
-        <img
-          alt=""
-          src={props.arrowIconSrc}
-          style={{
-            display: "inline",
-            maxWidth: "100%",
-            verticalAlign: "baseline",
-          }}
-          width={12}
-        />
-      </span>
-    </a>
-  </div>
-);
-
-export const CouponsWithCenteredTextSection = (props: SectionProps) => {
-  const variant = props.variant ?? "impact";
-  const resolved = { ...defaults, ...props } as ResolvedProps;
   const background = variant === "impact-background";
   const inline = variant === "inline";
   const alt = variant === "impact-alt";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor={background ? "#111827" : backgroundColor}
+      backgroundUrl={background ? backgroundImageSrc : undefined}
+      padding="44px 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: background
-                ? "#030712"
-                : resolved.backgroundColor,
-              backgroundImage: background
-                ? `url('${resolved.backgroundImageSrc}')`
-                : undefined,
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              maxWidth: "100%",
-              paddingBottom: background ? undefined : "44px",
-              width: "600px",
-            }}
+      <MjmlColumn padding="0">
+        <MjmlText
+          align="center"
+          color={background ? "#fffffe" : headingColor}
+          fontFamily={fontFamily}
+          fontSize="16px"
+          fontWeight="600"
+          lineHeight="24px"
+          padding="0"
+          textTransform="uppercase"
+        >
+          {overline}
+        </MjmlText>
+        <MjmlSpacer height="24px" />
+        <MjmlText
+          align="center"
+          color={background ? "#fffffe" : headingColor}
+          fontFamily={fontFamily}
+          fontSize={inline ? "36px" : "64px"}
+          fontWeight="700"
+          lineHeight={inline ? "44px" : "68px"}
+          padding="0"
+        >
+          {inline ? `An extra ${discount}` : discount}
+        </MjmlText>
+        {alt ? (
+          <MjmlText
+            align="center"
+            color={headingColor}
+            fontFamily={fontFamily}
+            fontSize="16px"
+            lineHeight="24px"
+            padding="12px 0 0"
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <Overline light={background} props={resolved} />
-            {inline ? (
-              <h3
-                className="coupon-centered-inline"
-                style={{
-                  color: resolved.headingColor,
-                  fontFamily,
-                  fontSize: "48px",
-                  fontWeight: 500,
-                  lineHeight: "normal",
-                  margin: 0,
-                  textAlign: "center",
-                }}
-              >
-                {resolved.discount === defaults.discount
-                  ? "An extra 20% OFF"
-                  : resolved.discount}
-              </h3>
-            ) : (
-              <ImpactHeading
-                alt={alt || background}
-                light={background}
-                props={resolved}
-              />
-            )}
-            {alt ? (
-              <p
-                style={{
-                  color: resolved.headingColor,
-                  fontFamily,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  margin: 0,
-                  textAlign: "center",
-                }}
-              >
-                {resolved.expiry}
-              </p>
-            ) : null}
-            {!inline && !alt && !background ? (
-              <CodeBox props={resolved} />
-            ) : null}
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <Description light={background} props={resolved} />
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <CouponButton props={resolved} />
-            {background ? (
-              <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            ) : null}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+            {expiry}
+          </MjmlText>
+        ) : null}
+        {!inline && !alt && !background ? (
+          <MjmlText
+            align="center"
+            color={headingColor}
+            containerBackgroundColor={codeBackgroundColor}
+            fontFamily={fontFamily}
+            fontSize="18px"
+            fontWeight="600"
+            lineHeight="24px"
+            padding="12px 18px"
+          >
+            {code}
+          </MjmlText>
+        ) : null}
+        <MjmlSpacer height="24px" />
+        <MjmlText
+          align="center"
+          color={background ? "#f3f4f6" : textColor}
+          fontFamily={fontFamily}
+          fontSize="16px"
+          lineHeight="24px"
+          padding="0"
+        >
+          {description}
+        </MjmlText>
+        <MjmlSpacer height="44px" />
+        <MjmlButton
+          backgroundColor={buttonBackgroundColor}
+          borderRadius="8px"
+          color={buttonColor}
+          fontFamily={fontFamily}
+          fontSize="16px"
+          fontWeight="500"
+          href={buttonHref}
+          innerPadding="14px 20px"
+          lineHeight="16px"
+          padding="0"
+        >
+          {buttonLabel} →
+        </MjmlButton>
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
@@ -344,20 +187,17 @@ export const CouponsWithCenteredText = ({
     <MjmlHead>
       <MjmlPreview>Our biggest sale of the year</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <CouponsWithCenteredTextSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
+        <CouponsWithCenteredTextSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

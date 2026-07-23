@@ -1,3 +1,5 @@
+import { MjmlImage } from "@faire/mjml-react";
+
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
@@ -18,17 +20,13 @@ export const DividerWithLogoSection = ({
 }: Omit<DividerWithLogoProps, "theme">) => (
   <DividerFrame variant={variant}>
     {logoSrc ? (
-      <img
+      <MjmlImage
+        align="center"
         alt={logoAlt}
         height={32}
+        padding="0"
         src={logoSrc}
         width={128}
-        style={{
-          display: "block",
-          height: "32px",
-          objectFit: "contain",
-          width: "128px",
-        }}
       />
     ) : null}
   </DividerFrame>

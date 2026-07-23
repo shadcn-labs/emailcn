@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
@@ -48,18 +59,11 @@ export const FullWidthTestimonialSection = ({
       : "https://emailcn.vercel.app/api/email-assets/testimonials/logo-monarch.png");
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -67,28 +71,16 @@ export const FullWidthTestimonialSection = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "left" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "left" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     {overlapping ? (
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        width="100%"
-                      >
-                        <tbody>
-                          <tr>
-                            <td
+                      <Section width="100%">
+                        <Fragment>
+                          <Row>
+                            <Column
                               className="full-testimonial-card"
                               style={{
                                 backgroundColor: cardBackgroundColor,
@@ -96,7 +88,7 @@ export const FullWidthTestimonialSection = ({
                                 padding: "48px 44px 24px",
                               }}
                             >
-                              <h2
+                              <Heading
                                 style={{
                                   color: "#030712",
                                   fontFamily,
@@ -105,11 +97,14 @@ export const FullWidthTestimonialSection = ({
                                   lineHeight: "28px",
                                   margin: 0,
                                 }}
+                                as="h2"
                               >
                                 {quote}
-                              </h2>
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <img
+                              </Heading>
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Img
                                 alt=""
                                 src={resolvedLogoSrc}
                                 style={{
@@ -118,8 +113,10 @@ export const FullWidthTestimonialSection = ({
                                 }}
                                 width={106}
                               />
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <p
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Text
                                 style={{
                                   color: "#030712",
                                   fontFamily,
@@ -131,10 +128,12 @@ export const FullWidthTestimonialSection = ({
                               >
                                 {author}, <br />{" "}
                                 <span style={{ color: "#4b5563" }}>{role}</span>
-                              </p>
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <div style={{ maxHeight: "8px" }}>
-                                <img
+                              </Text>
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Section style={{ maxHeight: "8px" }}>
+                                <Img
                                   alt=""
                                   src={avatarSrc}
                                   style={{
@@ -144,23 +143,17 @@ export const FullWidthTestimonialSection = ({
                                   }}
                                   width={64}
                                 />
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                              </Section>
+                            </Column>
+                          </Row>
+                        </Fragment>
+                      </Section>
                     ) : (
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                        width="100%"
-                      >
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img
+                      <Section width="100%">
+                        <Fragment>
+                          <Row>
+                            <Column>
+                              <Img
                                 alt=""
                                 src={resolvedLogoSrc}
                                 style={{
@@ -169,8 +162,10 @@ export const FullWidthTestimonialSection = ({
                                 }}
                                 width={145}
                               />
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <h2
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Heading
                                 style={{
                                   color: "#030712",
                                   fontFamily,
@@ -179,20 +174,18 @@ export const FullWidthTestimonialSection = ({
                                   lineHeight: "28px",
                                   margin: 0,
                                 }}
+                                as="h2"
                               >
                                 {quote}
-                              </h2>
-                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                              <table
-                                border={0}
-                                cellPadding={0}
-                                cellSpacing={0}
-                                role="presentation"
-                              >
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "64px" }}>
-                                      <img
+                              </Heading>
+                              <Section style={{ lineHeight: "24px" }}>
+                                &zwj;
+                              </Section>
+                              <Section>
+                                <Fragment>
+                                  <Row>
+                                    <Column style={{ width: "64px" }}>
+                                      <Img
                                         alt=""
                                         src={avatarSrc}
                                         style={{
@@ -202,10 +195,12 @@ export const FullWidthTestimonialSection = ({
                                         }}
                                         width={64}
                                       />
-                                    </td>
-                                    <td style={{ width: "12px" }}>&zwj;</td>
-                                    <td>
-                                      <p
+                                    </Column>
+                                    <Column style={{ width: "12px" }}>
+                                      &zwj;
+                                    </Column>
+                                    <Column>
+                                      <Text
                                         style={{
                                           color: "#030712",
                                           fontFamily,
@@ -219,25 +214,25 @@ export const FullWidthTestimonialSection = ({
                                         <span style={{ color: "#4b5563" }}>
                                           {role}
                                         </span>
-                                      </p>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                                      </Text>
+                                    </Column>
+                                  </Row>
+                                </Fragment>
+                              </Section>
+                            </Column>
+                          </Row>
+                        </Fragment>
+                      </Section>
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

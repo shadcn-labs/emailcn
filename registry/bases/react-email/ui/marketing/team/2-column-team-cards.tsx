@@ -1,6 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -70,28 +82,24 @@ const SocialLinks = ({
   const icons = accent ? socialIcons.light : socialIcons.dark;
   const links = ["facebook", "x", lastIcon] as const;
   return (
-    <table
-      align={lastIcon === "linkedin" ? undefined : undefined}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-    >
-      <tbody>
-        <tr>
+    <Section align={lastIcon === "linkedin" ? undefined : undefined}>
+      <Fragment>
+        <Row>
           {links.map((icon, index) => (
             <Fragment key={icon}>
-              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
-              <td style={{ width: "16px" }}>
-                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
-                  <img alt="" src={icons[icon]} width="16" />
-                </a>
-              </td>
+              {index > 0 ? (
+                <Column style={{ width: "16px" }}>&zwj;</Column>
+              ) : null}
+              <Column style={{ width: "16px" }}>
+                <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <Img alt="" src={icons[icon]} width="16" />
+                </Link>
+              </Column>
             </Fragment>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -120,7 +128,7 @@ const TeamCard = ({
   const cardBackground = accent ? "#030712" : "#f9fafb";
   const content = (
     <>
-      <h3
+      <Heading
         style={{
           color: accent ? "#fffffe" : "#030712",
           fontFamily,
@@ -130,10 +138,11 @@ const TeamCard = ({
           margin: 0,
           textAlign: rounded ? "center" : "left",
         }}
+        as="h3"
       >
         {name}
-      </h3>
-      <p
+      </Heading>
+      <Text
         style={{
           color: accent ? "#d1d5db" : "#4b5563",
           fontFamily,
@@ -144,46 +153,34 @@ const TeamCard = ({
         }}
       >
         {role}
-      </p>
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
-      <table
-        align={rounded ? "center" : undefined}
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-      >
-        <tbody>
-          <tr>
-            <td>
+      </Text>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+      <Section align={rounded ? "center" : undefined}>
+        <Fragment>
+          <Row>
+            <Column>
               <SocialLinks accent={accent} lastIcon={lastIcon} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 
   if (rounded) {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column
               style={{
                 backgroundColor: cardBackground,
                 borderRadius: "8px",
                 padding: "16px 24px 24px",
               }}
             >
-              <div style={{ textAlign: "center" }}>
-                <img
+              <Section style={{ textAlign: "center" }}>
+                <Img
                   alt={avatarAlt}
                   className="team-round-image"
                   src={avatarSrc}
@@ -194,26 +191,26 @@ const TeamCard = ({
                   }}
                   width="188"
                 />
-              </div>
-              <div style={{ lineHeight: "16px" }}>&zwj;</div>
+              </Section>
+              <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
               {content}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   if (boxed) {
     return (
       <>
-        <div
+        <Section
           style={{
             backgroundColor: cardBackground,
             borderRadius: "8px 8px 0 0",
           }}
         >
-          <img
+          <Img
             alt={avatarAlt}
             src={avatarSrc}
             style={{
@@ -223,17 +220,11 @@ const TeamCard = ({
             }}
             width="264"
           />
-        </div>
-        <table
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
-          style={{ width: "100%" }}
-        >
-          <tbody>
-            <tr>
-              <td
+        </Section>
+        <Section style={{ width: "100%" }}>
+          <Fragment>
+            <Row>
+              <Column
                 style={{
                   backgroundColor: cardBackground,
                   borderRadius: "0 0 8px 8px",
@@ -241,17 +232,17 @@ const TeamCard = ({
                 }}
               >
                 {content}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </Column>
+            </Row>
+          </Fragment>
+        </Section>
       </>
     );
   }
 
   return (
     <>
-      <img
+      <Img
         alt={avatarAlt}
         src={avatarSrc}
         style={{
@@ -261,7 +252,7 @@ const TeamCard = ({
         }}
         width="264"
       />
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
       {content}
     </>
   );
@@ -286,17 +277,11 @@ export const TwoColumnTeamCardsSection = ({
   return (
     <>
       <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: "#fffffe",
                 maxWidth: "100%",
@@ -304,16 +289,10 @@ export const TwoColumnTeamCardsSection = ({
                 width: "600px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    <td
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
+                    <Column
                       className="team-stack"
                       style={{ verticalAlign: "top", width: "264px" }}
                     >
@@ -329,14 +308,14 @@ export const TwoColumnTeamCardsSection = ({
                         role={role1}
                         variant={variant}
                       />
-                    </td>
-                    <td
+                    </Column>
+                    <Column
                       className="team-stack team-gap"
                       style={{ lineHeight: 0, width: "24px" }}
                     >
                       &zwj;
-                    </td>
-                    <td
+                    </Column>
+                    <Column
                       className="team-stack"
                       style={{ verticalAlign: "top", width: "264px" }}
                     >
@@ -352,15 +331,15 @@ export const TwoColumnTeamCardsSection = ({
                         role={role2}
                         variant={variant}
                       />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 };

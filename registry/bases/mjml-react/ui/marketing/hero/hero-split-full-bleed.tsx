@@ -181,13 +181,7 @@ const HeroTextColumn = ({
         lineHeight="16px"
         padding="0"
       >
-        <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-        <img
-          alt=""
-          src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
-          width="12"
-          style={{ maxWidth: "100%", verticalAlign: "baseline" }}
-        />
+        {ctaLabel} →
       </MjmlButton>
     ) : null}
     <MjmlSpacer height="44px" />

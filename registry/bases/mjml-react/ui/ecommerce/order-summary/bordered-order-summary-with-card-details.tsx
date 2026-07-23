@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -62,11 +61,7 @@ export const BorderedOrderSummaryCardDetails = ({
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>
-            <BorderedOrderSummaryCardDetailsSection {...props} />
-          </div>
-        </MjmlRaw>
+        <BorderedOrderSummaryCardDetailsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

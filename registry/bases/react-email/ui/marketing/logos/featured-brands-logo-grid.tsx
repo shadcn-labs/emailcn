@@ -1,6 +1,16 @@
-/* eslint-disable next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Section,
+  Row,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -91,7 +101,7 @@ const LargeCard = ({
   props: ResolvedProps;
   tone: FeaturedBrandsLogoGridTone;
 }) => (
-  <td
+  <Column
     className="featured-logo-stack featured-logo-large"
     style={{
       ...getCardStyle(props, tone),
@@ -100,13 +110,13 @@ const LargeCard = ({
       width: "240px",
     }}
   >
-    <img
+    <Img
       alt={props.featuredLogo.alt}
       src={props.featuredLogo.src}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={props.featuredLogo.width}
     />
-  </td>
+  </Column>
 );
 
 const SmallCard = ({
@@ -118,20 +128,20 @@ const SmallCard = ({
   props: ResolvedProps;
   tone: FeaturedBrandsLogoGridTone;
 }) => (
-  <div
+  <Section
     className="featured-logo-small-card"
     style={{
       ...getCardStyle(props, tone),
       lineHeight: "64px",
     }}
   >
-    <img
+    <Img
       alt={logo.alt}
       src={logo.src}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={logo.width}
     />
-  </div>
+  </Section>
 );
 
 const SmallColumn = ({
@@ -146,13 +156,16 @@ const SmallColumn = ({
   const first = reversed ? props.supportingLogos[1] : props.supportingLogos[0];
   const second = reversed ? props.supportingLogos[0] : props.supportingLogos[1];
   return (
-    <td className="featured-logo-small-column" style={{ width: "112px" }}>
+    <Column className="featured-logo-small-column" style={{ width: "112px" }}>
       <SmallCard logo={first} props={props} tone={tone} />
-      <div className="featured-logo-small-gap" style={{ lineHeight: "16px" }}>
+      <Section
+        className="featured-logo-small-gap"
+        style={{ lineHeight: "16px" }}
+      >
         &zwj;
-      </div>
+      </Section>
       <SmallCard logo={second} props={props} tone={tone} />
-    </td>
+    </Column>
   );
 };
 
@@ -177,18 +190,14 @@ export const FeaturedBrandsLogoGridSection = (props: SectionProps) => {
   };
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -196,18 +205,12 @@ export const FeaturedBrandsLogoGridSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <h3
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Heading
                       style={{
                         color: resolved.titleColor,
                         fontFamily,
@@ -217,42 +220,37 @@ export const FeaturedBrandsLogoGridSection = (props: SectionProps) => {
                         margin: 0,
                         textAlign: "center",
                       }}
+                      as="h3"
                     >
                       {resolved.title}
-                    </h3>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+                    </Heading>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {order.map((kind, index) => (
                             <Fragment key={kind}>
                               {index > 0 ? (
-                                <td
+                                <Column
                                   className="featured-logo-stack"
                                   style={{ width: "16px" }}
                                 >
                                   &zwj;
-                                </td>
+                                </Column>
                               ) : null}
                               {renderColumn(kind)}
                             </Fragment>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section
                       className="featured-logo-description-gap"
                       style={{ lineHeight: "36px" }}
                     >
                       &zwj;
-                    </div>
-                    <p
+                    </Section>
+                    <Text
                       style={{
                         color: resolved.textColor,
                         fontFamily,
@@ -264,16 +262,16 @@ export const FeaturedBrandsLogoGridSection = (props: SectionProps) => {
                       }}
                     >
                       {resolved.description}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

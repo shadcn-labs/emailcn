@@ -1,14 +1,14 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import { Fragment } from "react";
 import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
@@ -36,34 +36,19 @@ export interface OverlayStatsProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .overlay-stat-stack { display: block !important; width: 100% !important; }
-    .overlay-stat-gap { line-height: 24px !important; }
-  }
-`;
-
-const common = {
-  headingColor: "#fffffe",
-  pageBackgroundColor: "#f1f5f9",
-  textColor: "#e5e7eb",
-};
-
-interface OverlayVariantDefaults {
+interface OverlayDefaults {
   backgroundImageSrc: string;
   featuredLabel: string;
   featuredStat: string;
-  overlayColor: string;
   stats: { label: ReactNode; value: string }[];
 }
 
-const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
+const variants: Record<OverlayStatsVariant, OverlayDefaults> = {
   bento: {
     backgroundImageSrc:
       "https://emailcn.vercel.app/api/email-assets/stats/overlay-3.jpg",
     featuredLabel: "Active explorers worldwide",
     featuredStat: "98k+",
-    overlayColor: "rgba(0,0,1,0.4)",
     stats: [
       { label: "Countries covered", value: "72" },
       { label: "Data integrity and service uptime", value: "99%" },
@@ -75,7 +60,6 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
       "https://emailcn.vercel.app/api/email-assets/stats/overlay-4.jpg",
     featuredLabel: "Average fulfillment time",
     featuredStat: "48hr",
-    overlayColor: "rgba(0,0,1,0.4)",
     stats: [
       { label: "Customers worldwide", value: "120k+" },
       { label: "Based on 1k product reviews", value: "4.9*" },
@@ -87,25 +71,10 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
       "https://emailcn.vercel.app/api/email-assets/stats/overlay-1.jpg",
     featuredLabel: "Active users globally",
     featuredStat: "120k+",
-    overlayColor: "rgba(0,0,1,0.25)",
     stats: [
-      {
-        label: (
-          <>
-            Season <br /> performance rating
-          </>
-        ),
-        value: "4s",
-      },
+      { label: "Season performance rating", value: "4s" },
       { label: "Water and wind resistance", value: "10k" },
-      {
-        label: (
-          <>
-            Cold-tested <br /> durability
-          </>
-        ),
-        value: "72hr",
-      },
+      { label: "Cold-tested durability", value: "72hr" },
     ],
   },
   "three-columns": {
@@ -113,7 +82,6 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
       "https://emailcn.vercel.app/api/email-assets/stats/overlay-2.jpg",
     featuredLabel: "Monthly builds",
     featuredStat: "1m+",
-    overlayColor: "rgba(0,0,1,0.4)",
     stats: [
       { label: "Average failure rate", value: "0.1%" },
       { label: "Faster CI pipelines", value: "3x" },
@@ -122,484 +90,164 @@ const variants: Record<OverlayStatsVariant, OverlayVariantDefaults> = {
   },
 };
 
-type SectionProps = Omit<OverlayStatsProps, "theme">;
-type ResolvedProps = typeof common & SectionProps & OverlayVariantDefaults;
-
-const OverlayStatCopy = ({
-  featured,
+const OverlayStat = ({
+  featured = false,
+  headingColor,
   label,
-  props,
+  textColor,
   value,
+  width,
 }: {
-  featured: boolean;
+  featured?: boolean;
+  headingColor: string;
   label: ReactNode;
-  props: ResolvedProps;
-  value: string;
-}) => (
-  <>
-    <p
-      style={{
-        color: props.headingColor,
-        fontFamily,
-        fontSize: featured ? "72px" : "36px",
-        fontWeight: featured ? 500 : 300,
-        lineHeight: featured ? 1 : "40px",
-        margin: 0,
-        textAlign: "center",
-      }}
-    >
-      {value}
-    </p>
-    <p
-      style={{
-        color: props.textColor,
-        fontFamily,
-        fontSize: "16px",
-        lineHeight: "24px",
-        margin: featured ? 0 : "8px 0 0",
-        textAlign: "center",
-      }}
-    >
-      {label}
-    </p>
-  </>
-);
-
-const OverlayThreeColumnLayout = ({ props }: { props: ResolvedProps }) => (
-  <>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 24px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{
-                backgroundColor: props.overlayColor,
-                borderRadius: "8px",
-                height: "144px",
-              }}
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "24px" }}>
-                    <p
-                      style={{
-                        color: props.headingColor,
-                        fontFamily,
-                        fontSize: "72px",
-                        fontWeight: 500,
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {props.featuredStat}
-                    </p>
-                    <p
-                      style={{
-                        color: props.textColor,
-                        fontFamily,
-                        fontSize: "18px",
-                        lineHeight: "28px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {props.featuredLabel}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  {props.stats.slice(0, 3).map((stat, index) => (
-                    <Fragment key={index}>
-                      {index > 0 ? (
-                        <td
-                          className="overlay-stat-stack overlay-stat-gap"
-                          style={{ width: "24px" }}
-                        >
-                          &zwj;
-                        </td>
-                      ) : null}
-                      <td
-                        className="overlay-stat-stack"
-                        style={{ verticalAlign: "top", width: "168px" }}
-                      >
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          style={{
-                            backgroundColor: props.overlayColor,
-                            borderRadius: "8px",
-                            height: "144px",
-                          }}
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
-                              <td style={{ padding: "24px 16px" }}>
-                                <OverlayStatCopy
-                                  featured={false}
-                                  label={stat.label}
-                                  props={props}
-                                  value={stat.value}
-                                />
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </Fragment>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-  </>
-);
-
-interface OverlayBentoItem {
-  featured: boolean;
-  label: ReactNode;
+  textColor: string;
   value: string;
   width: string;
-}
-
-const OverlayBentoCard = ({
-  item,
-  props,
-}: {
-  item: OverlayBentoItem;
-  props: ResolvedProps;
 }) => (
-  <td className="overlay-stat-stack" style={{ width: item.width }}>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{
-        backgroundColor: props.overlayColor,
-        borderRadius: "8px",
-        height: "180px",
-      }}
-      width="100%"
+  <MjmlColumn
+    backgroundColor="rgba(0,0,1,0.42)"
+    borderRadius="8px"
+    padding="24px 16px"
+    verticalAlign="middle"
+    width={width}
+  >
+    <MjmlText
+      align="center"
+      color={headingColor}
+      fontFamily={fontFamily}
+      fontSize={featured ? "72px" : "36px"}
+      fontWeight={featured ? "500" : "300"}
+      lineHeight={featured ? "80px" : "40px"}
+      padding="0"
     >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 16px" }}>
-            <OverlayStatCopy
-              featured={item.featured}
-              label={item.label}
-              props={props}
-              value={item.value}
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
+      {value}
+    </MjmlText>
+    <MjmlText
+      align="center"
+      color={textColor}
+      fontFamily={fontFamily}
+      fontSize={featured ? "18px" : "16px"}
+      lineHeight={featured ? "28px" : "24px"}
+      padding="8px 0 0"
+    >
+      {label}
+    </MjmlText>
+  </MjmlColumn>
 );
 
-const OverlayBentoLayout = ({
-  props,
-  reversed,
-}: {
-  props: ResolvedProps;
-  reversed: boolean;
-}) => {
-  const feature: OverlayBentoItem = {
-    featured: true,
-    label: props.featuredLabel,
-    value: props.featuredStat,
-    width: "320px",
-  };
-  const first: OverlayBentoItem = {
-    featured: false,
-    label: props.stats[0]?.label ?? "",
-    value: props.stats[0]?.value ?? "",
-    width: "208px",
-  };
-  const second: OverlayBentoItem = {
-    featured: true,
-    label: props.stats[1]?.label ?? "",
-    value: props.stats[1]?.value ?? "",
-    width: "320px",
-  };
-  const third: OverlayBentoItem = {
-    featured: false,
-    label: props.stats[2]?.label ?? "",
-    value: props.stats[2]?.value ?? "",
-    width: "208px",
-  };
-  const rows: [OverlayBentoItem, OverlayBentoItem][] = reversed
-    ? [
-        [first, feature],
-        [second, third],
-      ]
-    : [
-        [feature, first],
-        [third, second],
-      ];
+const backgroundProps = (url: string) => ({
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat" as const,
+  backgroundSize: "cover",
+  backgroundUrl: url,
+});
+
+export const OverlayStatsSection = ({
+  backgroundImageSrc,
+  featuredLabel,
+  featuredStat,
+  headingColor = "#fffffe",
+  stats,
+  textColor = "#e5e7eb",
+  variant = "default",
+}: Omit<OverlayStatsProps, "theme">) => {
+  const preset = variants[variant];
+  const image = backgroundImageSrc ?? preset.backgroundImageSrc;
+  const resolvedFeaturedLabel = featuredLabel ?? preset.featuredLabel;
+  const resolvedFeaturedStat = featuredStat ?? preset.featuredStat;
+  const resolvedStats = stats ?? preset.stats;
+  const background = backgroundProps(image);
+
+  if (variant === "bento" || variant === "bento-reversed") {
+    const feature = {
+      label: resolvedFeaturedLabel,
+      value: resolvedFeaturedStat,
+    };
+    const rows =
+      variant === "bento-reversed"
+        ? [
+            [resolvedStats[0], feature],
+            [resolvedStats[2], resolvedStats[1]],
+          ]
+        : [
+            [feature, resolvedStats[0]],
+            [resolvedStats[1], resolvedStats[2]],
+          ];
+    return (
+      <>
+        {rows.map((row, rowIndex) => (
+          <MjmlSection
+            {...background}
+            key={`overlay-row-${rowIndex}`}
+            padding={rowIndex === 0 ? "44px 24px 12px" : "12px 24px 44px"}
+          >
+            {row.map((stat, index) => {
+              const featured =
+                stat?.value === resolvedFeaturedStat ||
+                stat === resolvedStats[1];
+              return (
+                <OverlayStat
+                  featured={featured}
+                  headingColor={headingColor}
+                  key={`${stat?.value}-${index}`}
+                  label={stat?.label ?? ""}
+                  textColor={textColor}
+                  value={stat?.value ?? ""}
+                  width={featured ? "60%" : "40%"}
+                />
+              );
+            })}
+          </MjmlSection>
+        ))}
+      </>
+    );
+  }
+
   return (
     <>
-      <div style={{ lineHeight: "44px" }}>&zwj;</div>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={{ width: "24px" }}>&zwj;</td>
-            <td>
-              {rows.map((items, rowIndex) => (
-                <Fragment key={String(rowIndex)}>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
-                        <OverlayBentoCard item={items[0]} props={props} />
-                        <td
-                          className="overlay-stat-stack overlay-stat-gap"
-                          style={{ width: "24px" }}
-                        >
-                          &zwj;
-                        </td>
-                        <OverlayBentoCard item={items[1]} props={props} />
-                      </tr>
-                    </tbody>
-                  </table>
-                  {rowIndex === 0 ? (
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                  ) : null}
-                </Fragment>
-              ))}
-            </td>
-            <td style={{ width: "24px" }}>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+      <MjmlSection {...background} padding="44px 24px 12px">
+        <OverlayStat
+          featured
+          headingColor={headingColor}
+          label={resolvedFeaturedLabel}
+          textColor={textColor}
+          value={resolvedFeaturedStat}
+          width="100%"
+        />
+      </MjmlSection>
+      <MjmlSection {...background} padding="12px 24px 44px">
+        {resolvedStats.slice(0, 3).map((stat, index) => (
+          <OverlayStat
+            headingColor={headingColor}
+            key={`${stat.value}-${index}`}
+            label={stat.label}
+            textColor={textColor}
+            value={stat.value}
+            width="33.333%"
+          />
+        ))}
+      </MjmlSection>
     </>
-  );
-};
-
-const getOverlayContent = (
-  variant: OverlayStatsVariant,
-  props: ResolvedProps,
-  defaultContent: ReactNode
-) => {
-  if (variant === "default") {
-    return defaultContent;
-  }
-  if (variant === "three-columns") {
-    return <OverlayThreeColumnLayout props={props} />;
-  }
-  return (
-    <OverlayBentoLayout props={props} reversed={variant === "bento-reversed"} />
-  );
-};
-
-export const OverlayStatsSection = (props: SectionProps) => {
-  const variant = props.variant ?? "default";
-  const resolved = {
-    ...common,
-    ...variants[variant],
-    ...props,
-  } as ResolvedProps;
-  return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundImage: `url('${resolved.backgroundImageSrc}')`,
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              maxWidth: "100%",
-              textAlign: "left",
-              width: "600px",
-            }}
-          >
-            {getOverlayContent(
-              variant,
-              resolved,
-              <div style={{ backgroundColor: resolved.overlayColor }}>
-                <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                <table
-                  border={0}
-                  cellPadding={0}
-                  cellSpacing={0}
-                  role="presentation"
-                  width="100%"
-                >
-                  <tbody>
-                    <tr>
-                      <td style={{ padding: "0 24px" }}>
-                        <p
-                          style={{
-                            color: resolved.headingColor,
-                            fontFamily,
-                            fontSize: "72px",
-                            fontWeight: 500,
-                            margin: 0,
-                            textAlign: "center",
-                          }}
-                        >
-                          {resolved.featuredStat}
-                        </p>
-                        <p
-                          style={{
-                            color: resolved.textColor,
-                            fontFamily,
-                            fontSize: "18px",
-                            lineHeight: "28px",
-                            margin: 0,
-                            textAlign: "center",
-                          }}
-                        >
-                          {resolved.featuredLabel}
-                        </p>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          width="100%"
-                        >
-                          <tbody>
-                            <tr>
-                              {resolved.stats.slice(0, 3).map((stat, index) => (
-                                <Fragment key={index}>
-                                  {index > 0 ? (
-                                    <td
-                                      className="overlay-stat-stack overlay-stat-gap"
-                                      style={{ width: "24px" }}
-                                    >
-                                      &zwj;
-                                    </td>
-                                  ) : null}
-                                  <td
-                                    className="overlay-stat-stack"
-                                    style={{
-                                      verticalAlign: "top",
-                                      width: "168px",
-                                    }}
-                                  >
-                                    <p
-                                      style={{
-                                        color: resolved.headingColor,
-                                        fontFamily,
-                                        fontSize: "36px",
-                                        fontWeight: 300,
-                                        lineHeight: "40px",
-                                        margin: 0,
-                                        textAlign: "center",
-                                      }}
-                                    >
-                                      {stat.value}
-                                    </p>
-                                    <p
-                                      style={{
-                                        color: resolved.textColor,
-                                        fontFamily,
-                                        fontSize: "16px",
-                                        lineHeight: "24px",
-                                        margin: "8px 0 0",
-                                        textAlign: "center",
-                                      }}
-                                    >
-                                      {stat.label}
-                                    </p>
-                                  </td>
-                                </Fragment>
-                              ))}
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div style={{ lineHeight: "44px" }}>&zwj;</div>
-              </div>
-            )}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
   );
 };
 
 export const OverlayStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "default",
   ...props
 }: OverlayStatsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>120k+ Active users globally</MjmlPreview>
+      <MjmlPreview>Overlay statistics</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <OverlayStatsSection
-            {...props}
-            variant={variant}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
+        <OverlayStatsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Text,
+  Section,
+  Row,
+  Column,
+  Link,
+  Heading,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -86,7 +93,7 @@ const Overline = ({
   dark: boolean;
   props: ResolvedProps;
 }) => (
-  <p
+  <Text
     style={{
       color: dark ? "#030712" : props.headingColor,
       fontFamily,
@@ -105,12 +112,12 @@ const Overline = ({
     ) : (
       props.overline
     )}
-  </p>
+  </Text>
 );
 
 const CodeBlock = ({ props }: { props: ResolvedProps }) => (
   <>
-    <p
+    <Text
       style={{
         color: props.headingColor,
         fontFamily,
@@ -122,18 +129,11 @@ const CodeBlock = ({ props }: { props: ResolvedProps }) => (
       }}
     >
       Your code:
-    </p>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ margin: "0 auto" }}
-    >
-      <tbody>
-        <tr>
-          <td
+    </Text>
+    <Section align="center" style={{ margin: "0 auto" }}>
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: props.codeBackgroundColor,
               borderRadius: "8px",
@@ -145,16 +145,16 @@ const CodeBlock = ({ props }: { props: ResolvedProps }) => (
             }}
           >
             {props.code}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
-    <a
+  <Section style={{ textAlign: "center" }}>
+    <Link
       href={props.buttonHref}
       style={{
         backgroundColor: props.buttonBackgroundColor,
@@ -182,8 +182,8 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
           width={12}
         />
       </span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
@@ -197,18 +197,14 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
   const split = variant === "split";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundImage: `url('${resolved.backgroundImageSrc}')`,
               backgroundPosition: "center",
@@ -219,25 +215,27 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
             }}
           >
             {centered ? (
-              <div
+              <Section
                 className="coupon-overlay-centered-space"
                 style={{ lineHeight: "182px" }}
               >
                 &zwj;
-              </div>
+              </Section>
             ) : null}
             {!centered && !split ? (
-              <div
+              <Section
                 className="coupon-overlay-bottom-space"
                 style={{ lineHeight: "216px" }}
               >
                 &zwj;
-              </div>
+              </Section>
             ) : null}
-            {split ? <div style={{ lineHeight: "44px" }}>&zwj;</div> : null}
+            {split ? (
+              <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            ) : null}
             <Overline bold={!centered} dark={centered} props={resolved} />
             {split ? (
-              <h3
+              <Heading
                 className="coupon-overlay-inline"
                 style={{
                   color: resolved.headingColor,
@@ -248,13 +246,14 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
                   margin: 0,
                   textAlign: "center",
                 }}
+                as="h3"
               >
                 {resolved.discount === sharedDefaults.discount
                   ? "An extra 20% OFF"
                   : resolved.discount}
-              </h3>
+              </Heading>
             ) : (
-              <h3
+              <Heading
                 className="coupon-overlay-impact"
                 style={{
                   color: centered ? "#030712" : resolved.headingColor,
@@ -265,6 +264,7 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
                   margin: 0,
                   textAlign: "center",
                 }}
+                as="h3"
               >
                 {centered && resolved.discount === sharedDefaults.discount ? (
                   <>
@@ -273,10 +273,10 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
                 ) : (
                   resolved.discount
                 )}
-              </h3>
+              </Heading>
             )}
             {centered ? (
-              <p
+              <Text
                 style={{
                   color: "#030712",
                   fontFamily,
@@ -287,39 +287,41 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
                 }}
               >
                 {resolved.expiry}
-              </p>
+              </Text>
             ) : (
               <CodeBlock props={resolved} />
             )}
             {split ? (
-              <div
+              <Section
                 className="coupon-overlay-split-space"
                 style={{ lineHeight: "274px" }}
               >
                 &zwj;
-              </div>
+              </Section>
             ) : (
-              <div style={{ lineHeight: centered ? "24px" : "44px" }}>
+              <Section style={{ lineHeight: centered ? "24px" : "44px" }}>
                 &zwj;
-              </div>
+              </Section>
             )}
-            {split ? <div style={{ lineHeight: "44px" }}>&zwj;</div> : null}
+            {split ? (
+              <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            ) : null}
             <CouponButton props={resolved} />
             {centered ? (
-              <div
+              <Section
                 className="coupon-overlay-centered-space"
                 style={{ lineHeight: "182px" }}
               >
                 &zwj;
-              </div>
+              </Section>
             ) : (
-              <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             )}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -16,4 +16,12 @@ export default defineConfig({
     ".web-kits/**",
     "audio/**",
   ],
+  overrides: [
+    {
+      files: ["registry/**"],
+      rules: {
+        "nextjs/no-img-element": "off",
+      },
+    },
+  ],
 });

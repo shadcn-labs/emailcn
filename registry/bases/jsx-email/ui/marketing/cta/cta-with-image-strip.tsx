@@ -1,6 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Heading,
+  Text,
+  Link,
+  Column,
+  Row,
+  Img,
+} from "jsx-email";
 import type { ReactElement } from "react";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -154,9 +167,9 @@ const CTAContent = ({
   subtext,
   textColor,
 }: ResolvedProps) => (
-  <div className="cta-strip-copy">
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    <h2
+  <Section className="cta-strip-copy">
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+    <Heading
       style={{
         color: headingColor,
         fontFamily,
@@ -165,11 +178,12 @@ const CTAContent = ({
         lineHeight: "32px",
         margin: 0,
       }}
+      as="h2"
     >
       {heading}
-    </h2>
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-    <p
+    </Heading>
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+    <Text
       style={{
         color: textColor,
         fontFamily,
@@ -180,9 +194,9 @@ const CTAContent = ({
       }}
     >
       {subtext}
-    </p>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <a
+    </Text>
+    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+    <Link
       className="cta-strip-button"
       href={ctaHref}
       style={{
@@ -200,9 +214,9 @@ const CTAContent = ({
       }}
     >
       {ctaLabel}
-    </a>
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-  </div>
+    </Link>
+    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+  </Section>
 );
 
 const StripImage = ({
@@ -214,7 +228,7 @@ const StripImage = ({
   borderRadius?: string;
   src: string;
 }) => (
-  <img
+  <Img
     alt={alt}
     src={src}
     style={{ borderRadius, maxWidth: "100%", verticalAlign: "middle" }}
@@ -229,16 +243,16 @@ const ImageColumn = ({
   children: ReactElement<{ src: string }>[];
   firstOffset?: boolean;
 }) => (
-  <td style={{ verticalAlign: "middle" }}>
+  <Column style={{ verticalAlign: "middle" }}>
     {children.map((child, index) => (
-      <div
+      <Section
         key={child.props.src}
         style={{ marginTop: index === 0 && !firstOffset ? 0 : "24px" }}
       >
         {child}
-      </div>
+      </Section>
     ))}
-  </td>
+  </Column>
 );
 
 const ImageStrip = ({
@@ -250,24 +264,19 @@ const ImageStrip = ({
   left: boolean;
   props: ResolvedProps;
 }) => (
-  <td
+  <Column
     className="cta-strip-stack"
     style={{
       backgroundColor: props.stripBackgroundColor,
       width: boxed ? "304px" : undefined,
     }}
   >
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      className="cta-strip-inner"
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          {boxed || left ? <td style={{ width: "24px" }}>&zwj;</td> : null}
+    <Section className="cta-strip-inner" width="100%">
+      <Fragment>
+        <Row>
+          {boxed || left ? (
+            <Column style={{ width: "24px" }}>&zwj;</Column>
+          ) : null}
           <ImageColumn firstOffset={!boxed}>
             <StripImage
               alt={props.imageAlt1}
@@ -281,16 +290,18 @@ const ImageStrip = ({
               src={props.imageSrc3}
             />
           </ImageColumn>
-          <td style={{ width: "24px" }}>&zwj;</td>
+          <Column style={{ width: "24px" }}>&zwj;</Column>
           <ImageColumn>
             <StripImage alt={props.imageAlt4} src={props.imageSrc4} />
             <StripImage alt={props.imageAlt5} src={props.imageSrc5} />
           </ImageColumn>
-          {boxed || !left ? <td style={{ width: "24px" }}>&zwj;</td> : null}
-        </tr>
-      </tbody>
-    </table>
-  </td>
+          {boxed || !left ? (
+            <Column style={{ width: "24px" }}>&zwj;</Column>
+          ) : null}
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 export const CTAWithImageStripSection = (props: SectionProps) => {
@@ -303,7 +314,7 @@ export const CTAWithImageStripSection = (props: SectionProps) => {
   const boxed = variant.startsWith("boxed");
   const left = variant.endsWith("left");
   const contentCell = (
-    <td
+    <Column
       className="cta-strip-stack"
       style={{
         textAlign: "left",
@@ -312,73 +323,58 @@ export const CTAWithImageStripSection = (props: SectionProps) => {
       }}
     >
       <CTAContent {...resolved} />
-    </td>
+    </Column>
   );
   const stripCell = <ImageStrip boxed={boxed} left={left} props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="cta-strip-outer-content"
                     style={{
                       paddingLeft: left ? 0 : "24px",
                       paddingRight: left ? "24px" : 0,
                     }}
                   >
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                    >
-                      <tbody>
-                        <tr>
+                    <Section>
+                      <Fragment>
+                        <Row>
                           {left ? stripCell : contentCell}
-                          <td
+                          <Column
                             className="cta-strip-stack cta-strip-gap"
                             style={{ width: "44px" }}
                           >
                             &zwj;
-                          </td>
+                          </Column>
                           {left ? contentCell : stripCell}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -96,18 +107,14 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
   }[resolved.variant];
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -115,39 +122,26 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign }}>
-                    <div>
-                      <a href={resolved.logoHref}>
-                        <img
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign }}>
+                    <Section>
+                      <Link href={resolved.logoHref}>
+                        <Img
                           alt={resolved.logoAlt}
                           src={resolved.logoSrc}
                           style={{ maxWidth: "100%", verticalAlign: "middle" }}
                           width={64}
                         />
-                      </a>
-                    </div>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <table
-                      align={tableAlign}
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      style={tableStyle}
-                    >
-                      <tbody>
-                        <tr>
+                      </Link>
+                    </Section>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Section align={tableAlign} style={tableStyle}>
+                      <Fragment>
+                        <Row>
                           {resolved.socials.map((social, index) => (
-                            <td
+                            <Column
                               key={social.href}
                               style={
                                 index === resolved.socials.length - 1
@@ -155,8 +149,8 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
                                   : { paddingRight: "24px" }
                               }
                             >
-                              <a href={social.href}>
-                                <img
+                              <Link href={social.href}>
+                                <Img
                                   alt={social.label}
                                   src={social.iconSrc}
                                   style={{
@@ -165,15 +159,15 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
                                   }}
                                   width={20}
                                 />
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <div>
-                      <p
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Section>
+                      <Text
                         style={{
                           color: resolved.mutedTextColor,
                           fontFamily,
@@ -183,8 +177,8 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
                         }}
                       >
                         © 2026 emailcn. All rights reserved.
-                      </p>
-                      <p
+                      </Text>
+                      <Text
                         style={{
                           color: resolved.mutedTextColor,
                           fontFamily,
@@ -194,7 +188,7 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
                         }}
                       >
                         No longer want to receive emails?{" "}
-                        <a
+                        <Link
                           href={resolved.unsubscribeHref}
                           style={{
                             color: resolved.mutedTextColor,
@@ -202,18 +196,18 @@ export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
                           }}
                         >
                           Unsubscribe
-                        </a>
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Link>
+                      </Text>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

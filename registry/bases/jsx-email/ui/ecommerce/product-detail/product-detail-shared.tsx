@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Section, Row, Column, Heading, Text, Link, Img } from "jsx-email";
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -23,6 +23,7 @@ export type ProductDetailWithDetailsVariant =
 export type ProductDetailImageLayout = "single" | "two" | "three" | "masonry";
 
 type RatingIcon = "solid" | "half" | "outline";
+type SplitProductKind = "stacked" | "image" | "rating" | "bleed";
 
 interface ProductDetailData {
   name: string;
@@ -84,6 +85,48 @@ export const productDetailResponsiveStyles = `
 
 const textStyle = { fontFamily, margin: 0 } as const;
 
+const getSplitProductKind = (
+  variant: SplitProductDetailVariant
+): SplitProductKind => {
+  if (variant.startsWith("stacked")) {
+    return "stacked";
+  }
+  if (variant.startsWith("rating")) {
+    return "rating";
+  }
+  if (variant.startsWith("bleed")) {
+    return "bleed";
+  }
+  return "image";
+};
+
+const getSplitImageRadius = (
+  kind: SplitProductKind,
+  side: "left" | "right"
+) => {
+  if (kind !== "bleed") {
+    return "4px";
+  }
+  return side === "left" ? "0 4px 4px 0" : "4px 0 0 4px";
+};
+
+const getBleedCopyStyle = (
+  isBleed: boolean,
+  side: "left" | "right"
+): CSSProperties | undefined => {
+  if (!isBleed) {
+    return undefined;
+  }
+  return side === "left" ? { padding: "0 24px" } : { paddingRight: "24px" };
+};
+
+const getSplitShellPadding = (isBleed: boolean, side: "left" | "right") => {
+  if (!isBleed) {
+    return "0 24px";
+  }
+  return side === "left" ? "0 24px 0 0" : "0 0 0 24px";
+};
+
 const Spacer = ({
   className,
   height,
@@ -91,9 +134,9 @@ const Spacer = ({
   className?: string;
   height: number;
 }) => (
-  <div className={className} style={{ lineHeight: `${height}px` }}>
+  <Section className={className} style={{ lineHeight: `${height}px` }}>
     &zwj;
-  </div>
+  </Section>
 );
 
 const EmailShell = ({
@@ -105,17 +148,11 @@ const EmailShell = ({
 }) => (
   <>
     <style>{productDetailResponsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -123,33 +160,27 @@ const EmailShell = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding }}>
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column style={{ padding }}>
                     <Spacer height={44} />
                     {children}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
 const ProductHeader = ({ name, price }: { name: string; price: string }) => (
   <>
-    <h2
+    <Heading
       style={{
         ...textStyle,
         color: "#030712",
@@ -157,11 +188,12 @@ const ProductHeader = ({ name, price }: { name: string; price: string }) => (
         fontWeight: 600,
         lineHeight: "28px",
       }}
+      as="h2"
     >
       {name}
-    </h2>
+    </Heading>
     <Spacer height={12} />
-    <p
+    <Text
       style={{
         ...textStyle,
         color: "#030712",
@@ -170,12 +202,12 @@ const ProductHeader = ({ name, price }: { name: string; price: string }) => (
       }}
     >
       {price}
-    </p>
+    </Text>
   </>
 );
 
 const Description = ({ children }: { children: ReactNode }) => (
-  <p
+  <Text
     style={{
       ...textStyle,
       color: "#4b5563",
@@ -185,30 +217,30 @@ const Description = ({ children }: { children: ReactNode }) => (
     }}
   >
     {children}
-  </p>
+  </Text>
 );
 
 const Star = ({ icon }: { icon: RatingIcon }) => (
-  <td style={{ paddingRight: "4px" }}>
-    <img
+  <Column style={{ paddingRight: "4px" }}>
+    <Img
       alt=""
       src={`${ASSET_ROOT}/icon-star-${icon}.png`}
       style={{ display: "block" }}
       width="16"
     />
-  </td>
+  </Column>
 );
 
 const Stars = ({ icons }: { icons: RatingIcon[] }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
+  <Section>
+    <Fragment>
+      <Row>
         {icons.map((icon, index) => (
           <Star icon={icon} key={`${icon}-${index}`} />
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Rating = ({
@@ -218,13 +250,13 @@ const Rating = ({
   icons: RatingIcon[];
   reviewLabel?: string;
 }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
+  <Section>
+    <Fragment>
+      <Row>
         {icons.map((icon, index) => (
           <Star icon={icon} key={`${icon}-${index}`} />
         ))}
-        <td style={{ fontSize: 0, paddingLeft: "4px" }}>
+        <Column style={{ fontSize: 0, paddingLeft: "4px" }}>
           <span
             style={{
               color: "#4b5563",
@@ -236,15 +268,15 @@ const Rating = ({
           >
             {reviewLabel}
           </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const CallToAction = ({ href, label }: { href: string; label: string }) => (
-  <div>
-    <a
+  <Section>
+    <Link
       href={href}
       style={{
         backgroundColor: "#4f46e5",
@@ -261,15 +293,15 @@ const CallToAction = ({ href, label }: { href: string; label: string }) => (
     >
       <span style={{ marginRight: "8px" }}>{label}</span>
       <span>
-        <img
+        <Img
           alt=""
           src={`${ASSET_ROOT}/icon-arrow-right.png`}
           style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           width="12"
         />
       </span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 const ProductImage = ({
@@ -288,7 +320,7 @@ const ProductImage = ({
   width: number;
 }) => {
   const image = (
-    <img
+    <Img
       alt=""
       className={className}
       src={src}
@@ -302,11 +334,11 @@ const ProductImage = ({
     />
   );
 
-  return href ? <a href={href}>{image}</a> : image;
+  return href ? <Link href={href}>{image}</Link> : image;
 };
 
 const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
-  <div
+  <Section
     style={{
       backgroundColor: "#d1d5db",
       height: "1px",
@@ -315,7 +347,7 @@ const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const ProductOptions = ({
@@ -325,14 +357,17 @@ const ProductOptions = ({
   colors: string[];
   sizes: string[];
 }) => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td className="product-detail-option" style={{ paddingRight: "36px" }}>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td
+  <Section>
+    <Fragment>
+      <Row>
+        <Column
+          className="product-detail-option"
+          style={{ paddingRight: "36px" }}
+        >
+          <Section>
+            <Fragment>
+              <Row>
+                <Column
                   style={{
                     color: "#4b5563",
                     fontFamily,
@@ -342,9 +377,9 @@ const ProductOptions = ({
                   }}
                 >
                   Colors:
-                </td>
-                <td>
-                  <div style={{ fontSize: 0 }}>
+                </Column>
+                <Column>
+                  <Section style={{ fontSize: 0 }}>
                     {colors.map((color) => (
                       <span
                         key={color}
@@ -361,17 +396,17 @@ const ProductOptions = ({
                         />
                       </span>
                     ))}
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td className="product-detail-option">
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td
+                  </Section>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column className="product-detail-option">
+          <Section>
+            <Fragment>
+              <Row>
+                <Column
                   style={{
                     color: "#4b5563",
                     fontFamily,
@@ -381,8 +416,8 @@ const ProductOptions = ({
                   }}
                 >
                   Sizes:
-                </td>
-                <td
+                </Column>
+                <Column
                   style={{
                     color: "#4b5563",
                     fontFamily,
@@ -395,14 +430,14 @@ const ProductOptions = ({
                       {`${size}${index < sizes.length - 1 ? ", " : ""}`}
                     </span>
                   ))}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const splitData = (variant: SplitProductDetailVariant): ProductDetailData => {
@@ -493,7 +528,7 @@ const SplitCopy = ({
 
 const StackedImages = ({ imageUrls }: { imageUrls: string[] }) => (
   <>
-    <div className="product-stacked-image">
+    <Section className="product-stacked-image">
       <ProductImage
         className="product-responsive-image"
         href="https://example.com"
@@ -501,9 +536,9 @@ const StackedImages = ({ imageUrls }: { imageUrls: string[] }) => (
         style={{ width: "100%" }}
         width={254}
       />
-    </div>
+    </Section>
     <Spacer className="product-stacked-gap" height={26} />
-    <div className="product-stacked-image">
+    <Section className="product-stacked-image">
       <ProductImage
         className="product-responsive-image"
         href="https://example.com"
@@ -511,7 +546,7 @@ const StackedImages = ({ imageUrls }: { imageUrls: string[] }) => (
         style={{ width: "100%" }}
         width={254}
       />
-    </div>
+    </Section>
   </>
 );
 
@@ -521,7 +556,7 @@ const SplitImageColumn = ({
   side,
 }: {
   data: ProductDetailData;
-  kind: "stacked" | "image" | "rating" | "bleed";
+  kind: SplitProductKind;
   side: "left" | "right";
 }) => {
   if (kind === "stacked") {
@@ -531,13 +566,7 @@ const SplitImageColumn = ({
   return (
     <>
       <ProductImage
-        borderRadius={
-          kind === "bleed"
-            ? side === "left"
-              ? "0 4px 4px 0"
-              : "4px 0 0 4px"
-            : "4px"
-        }
+        borderRadius={getSplitImageRadius(kind, side)}
         className="product-responsive-image"
         href="https://example.com"
         src={data.imageUrls[0]}
@@ -549,7 +578,7 @@ const SplitImageColumn = ({
           <Spacer height={24} />
           <Stars icons={data.ratingIcons} />
           <Spacer height={12} />
-          <p
+          <Text
             style={{
               ...textStyle,
               color: "#030712",
@@ -559,7 +588,7 @@ const SplitImageColumn = ({
             }}
           >
             Based on 456 ratings
-          </p>
+          </Text>
         </>
       ) : null}
     </>
@@ -576,40 +605,28 @@ export const SplitProductDetailSection = ({
 }) => {
   const data = mergeData(splitData(variant), overrides);
   const side = variant.endsWith("right") ? "right" : "left";
-  const kind = variant.startsWith("stacked")
-    ? "stacked"
-    : variant.startsWith("rating")
-      ? "rating"
-      : variant.startsWith("bleed")
-        ? "bleed"
-        : "image";
+  const kind = getSplitProductKind(variant);
   const isBleed = kind === "bleed";
   const imageCell = (
-    <td
+    <Column
       className={
         side === "left" ? "product-split-stack" : "product-split-mobile-header"
       }
       style={{ verticalAlign: "top", width: isBleed ? "266px" : "254px" }}
     >
       <SplitImageColumn data={data} kind={kind} side={side} />
-    </td>
+    </Column>
   );
   const copyCell = (
-    <td
+    <Column
       className={
         side === "left" ? "product-split-stack" : "product-split-mobile-footer"
       }
       style={{ verticalAlign: "top", width: isBleed ? "266px" : "254px" }}
     >
-      <div
+      <Section
         className={isBleed ? "product-bleed-copy" : undefined}
-        style={
-          isBleed
-            ? side === "left"
-              ? { padding: "0 24px" }
-              : { paddingRight: "24px" }
-            : undefined
-        }
+        style={getBleedCopyStyle(isBleed, side)}
       >
         <SplitCopy
           ctaHref={ctaHref}
@@ -617,41 +634,31 @@ export const SplitProductDetailSection = ({
           data={data}
           showRating={kind !== "rating"}
         />
-      </div>
-    </td>
+      </Section>
+    </Column>
   );
   const gapCell = (
-    <td
+    <Column
       className={
         side === "left" ? "product-split-stack" : "product-split-mobile-footer"
       }
       style={{ lineHeight: "24px", width: "44px" }}
     >
       &zwj;
-    </td>
+    </Column>
   );
 
   return (
-    <EmailShell
-      padding={
-        isBleed ? (side === "left" ? "0 24px 0 0" : "0 0 0 24px") : "0 24px"
-      }
-    >
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
+    <EmailShell padding={getSplitShellPadding(isBleed, side)}>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
             {side === "left" ? imageCell : copyCell}
             {gapCell}
             {side === "left" ? copyCell : imageCell}
-          </tr>
-        </tbody>
-      </table>
+          </Row>
+        </Fragment>
+      </Section>
     </EmailShell>
   );
 };
@@ -715,40 +722,34 @@ const SingleImage = ({ data }: { data: ProductDetailData }) => (
 );
 
 const TwoImages = ({ data }: { data: ProductDetailData }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
         {data.imageUrls.map((src, index) => (
           <Fragment key={src}>
             {index > 0 ? (
-              <td
+              <Column
                 className="product-detail-column"
                 key={`gap-${src}`}
                 style={{ lineHeight: "24px", width: "24px" }}
               >
                 &zwj;
-              </td>
+              </Column>
             ) : null}
-            <td
+            <Column
               className="product-detail-column"
               key={src}
               style={{ verticalAlign: "top", width: "264px" }}
             >
-              <div className="product-desktop-image">
+              <Section className="product-desktop-image">
                 <ProductImage
                   className="product-responsive-image"
                   src={src}
                   style={{ width: "100%" }}
                   width={264}
                 />
-              </div>
-              <div
+              </Section>
+              <Section
                 className="product-mobile-image"
                 style={{
                   backgroundImage: `url('${src}')`,
@@ -759,26 +760,20 @@ const TwoImages = ({ data }: { data: ProductDetailData }) => (
                 }}
               >
                 <Spacer height={388} />
-              </div>
-            </td>
+              </Section>
+            </Column>
           </Fragment>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const ThreeImages = ({ data }: { data: ProductDetailData }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="product-three-column"
           style={{ verticalAlign: "top", width: "264px" }}
         >
@@ -788,103 +783,96 @@ const ThreeImages = ({ data }: { data: ProductDetailData }) => (
             style={{ width: "100%" }}
             width={264}
           />
-        </td>
-        <td
+        </Column>
+        <Column
           className="product-three-column"
           style={{ lineHeight: "24px", width: "24px" }}
         >
           &zwj;
-        </td>
-        <td
+        </Column>
+        <Column
           className="product-three-column product-three-secondary"
           style={{ fontSize: 0, verticalAlign: "top", width: "264px" }}
         >
-          <div className="product-three-secondary-item">
+          <Section className="product-three-secondary-item">
             <ProductImage
               className="product-three-secondary-image"
               src={data.imageUrls[1]}
               style={{ objectFit: "cover", width: "100%" }}
               width={264}
             />
-          </div>
+          </Section>
           <Spacer className="product-three-gap" height={24} />
-          <div className="product-three-secondary-item">
+          <Section className="product-three-secondary-item">
             <ProductImage
               className="product-three-secondary-image"
               src={data.imageUrls[2]}
               style={{ objectFit: "cover", width: "100%" }}
               width={264}
             />
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Section>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const MasonryImages = ({ data }: { data: ProductDetailData }) => (
   <>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      className="product-masonry-desktop"
-      role="presentation"
-      style={{ width: "100%" }}
-    >
-      <tbody>
-        <tr>
+    <Section className="product-masonry-desktop" style={{ width: "100%" }}>
+      <Fragment>
+        <Row>
           {[data.imageUrls.slice(0, 2), data.imageUrls.slice(2, 4)].map(
             (column, index) => (
               <Fragment key={column[0]}>
                 {index > 0 ? (
-                  <td
+                  <Column
                     key={`gap-${column[0]}`}
                     style={{ lineHeight: "24px", width: "24px" }}
                   >
                     &zwj;
-                  </td>
+                  </Column>
                 ) : null}
-                <td
+                <Column
                   key={column[0]}
                   style={{ verticalAlign: "top", width: "264px" }}
                 >
                   <ProductImage src={column[0]} width={264} />
                   <Spacer height={24} />
                   <ProductImage src={column[1]} width={264} />
-                </td>
+                </Column>
               </Fragment>
             )
           )}
-        </tr>
-      </tbody>
-    </table>
-    <div
+        </Row>
+      </Fragment>
+    </Section>
+    <Section
       className="product-masonry-mobile"
       style={{ display: "none", msoHide: "all" } as CSSProperties}
     >
       <ProductImage src={data.imageUrls[0]} width={430} />
       <Spacer height={24} />
-      <div style={{ display: "flex", width: "100%" }}>
-        <div style={{ display: "inline-block" }}>
+      <Section style={{ display: "flex", width: "100%" }}>
+        <Section style={{ display: "inline-block" }}>
           <ProductImage
             src={data.imageUrls[1]}
             style={{ aspectRatio: "4/3", objectFit: "cover" }}
             width={180}
           />
-        </div>
-        <div style={{ minWidth: "24px" }}>&zwj;</div>
-        <div style={{ display: "inline-block" }}>
+        </Section>
+        <Section style={{ minWidth: "24px" }}>&zwj;</Section>
+        <Section style={{ display: "inline-block" }}>
           <ProductImage
             src={data.imageUrls[2]}
             style={{ aspectRatio: "4/3", objectFit: "cover" }}
             width={180}
           />
-        </div>
-      </div>
+        </Section>
+      </Section>
       <Spacer height={24} />
       <ProductImage src={data.imageUrls[3]} width={430} />
-    </div>
+    </Section>
   </>
 );
 
@@ -908,36 +896,30 @@ const ProductImages = ({
 };
 
 const AsideHeader = ({ data }: { data: ProductDetailData }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="product-aside-column product-aside-copy"
           style={{ paddingRight: "24px", verticalAlign: "top" }}
         >
           <ProductHeader name={data.name} price={data.price} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="product-aside-column product-aside-rating"
           style={{ paddingTop: "4px", verticalAlign: "top", width: "100px" }}
         >
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td>
+          <Section>
+            <Fragment>
+              <Row>
+                <Column>
                   <Stars icons={data.ratingIcons} />
-                </td>
-                <td
+                </Column>
+                <Column
                   className="product-aside-inline-review"
                   style={{ display: "none", paddingLeft: "8px" }}
                 >
-                  <p
+                  <Text
                     style={{
                       ...textStyle,
                       color: "#4b5563",
@@ -947,12 +929,12 @@ const AsideHeader = ({ data }: { data: ProductDetailData }) => (
                     }}
                   >
                     (18 reviews)
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p
+                  </Text>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+          <Text
             className="product-aside-block-review"
             style={{
               ...textStyle,
@@ -963,12 +945,34 @@ const AsideHeader = ({ data }: { data: ProductDetailData }) => (
             }}
           >
             (18 reviews)
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
+
+const ProductDetailHeader = ({
+  data,
+  variant,
+}: {
+  data: ProductDetailData;
+  variant: ProductDetailWithDetailsVariant;
+}) => {
+  if (variant === "rating-top" || variant === "header-top") {
+    return (
+      <>
+        <Rating icons={data.ratingIcons} />
+        <Spacer height={12} />
+        <ProductHeader name={data.name} price={data.price} />
+      </>
+    );
+  }
+  if (variant === "rating-aside" || variant === "rating-aside-top") {
+    return <AsideHeader data={data} />;
+  }
+  return <ProductHeader name={data.name} price={data.price} />;
+};
 
 const DetailBody = ({ data }: { data: ProductDetailData }) => (
   <>
@@ -992,21 +996,15 @@ export const ProductDetailWithDetailsSection = ({
   const data = mergeData(detailData[layout], overrides);
   const normalizedVariant = variant === "default" ? "rating-bottom" : variant;
   const imageBlock = <ProductImages data={data} layout={layout} />;
-  const headerBlock = <ProductHeader name={data.name} price={data.price} />;
+  const headerBlock = (
+    <ProductDetailHeader data={data} variant={normalizedVariant} />
+  );
   return (
     <EmailShell>
       {normalizedVariant === "header-top" ||
       normalizedVariant === "rating-aside-top" ? (
         <>
-          {normalizedVariant === "header-top" ? (
-            <>
-              <Rating icons={data.ratingIcons} />
-              <Spacer height={12} />
-              {headerBlock}
-            </>
-          ) : (
-            <AsideHeader data={data} />
-          )}
+          {headerBlock}
           <Spacer height={44} />
           {imageBlock}
           <Spacer height={44} />
@@ -1015,17 +1013,7 @@ export const ProductDetailWithDetailsSection = ({
         <>
           {imageBlock}
           <Spacer height={44} />
-          {normalizedVariant === "rating-top" ? (
-            <>
-              <Rating icons={data.ratingIcons} />
-              <Spacer height={12} />
-              {headerBlock}
-            </>
-          ) : normalizedVariant === "rating-aside" ? (
-            <AsideHeader data={data} />
-          ) : (
-            headerBlock
-          )}
+          {headerBlock}
           <Spacer height={24} />
         </>
       )}

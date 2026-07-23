@@ -1,4 +1,18 @@
-import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -132,7 +146,7 @@ const OverlayCard = ({
   subtext: string;
   textColor: string;
 }) => (
-  <div
+  <Section
     style={{
       backgroundImage: `url('${imageSrc}')`,
       backgroundPosition: "center",
@@ -142,22 +156,16 @@ const OverlayCard = ({
       maxWidth: "100%",
     }}
   >
-    <div
+    <Section
       className={portrait ? "two-grid-portrait-overlay-spacer" : undefined}
       style={{ lineHeight: portrait ? "304px" : "172px" }}
     >
       &zwj;
-    </div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    </Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             style={{
               background: "linear-gradient(to bottom, transparent, #000001)",
               borderBottomLeftRadius: "4px",
@@ -166,7 +174,7 @@ const OverlayCard = ({
               textAlign: "left",
             }}
           >
-            <h4
+            <Heading
               style={{
                 color: headingColor,
                 fontFamily,
@@ -175,10 +183,11 @@ const OverlayCard = ({
                 lineHeight: "32px",
                 margin: 0,
               }}
+              as="h4"
             >
               {heading}
-            </h4>
-            <p
+            </Heading>
+            <Text
               style={{
                 color: textColor,
                 fontFamily,
@@ -188,12 +197,12 @@ const OverlayCard = ({
               }}
             >
               {subtext}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Section>
 );
 
 const GridItem = ({
@@ -227,7 +236,7 @@ const GridItem = ({
       textColor={textColor}
     />
   ) : (
-    <a href={href}>
+    <Link href={href}>
       <Img
         alt={alt}
         src={src}
@@ -238,7 +247,7 @@ const GridItem = ({
         }}
         width="264"
       />
-    </a>
+    </Link>
   );
 
 export const TwoColumnsImageGridSection = (props: SectionProps) => {
@@ -256,18 +265,14 @@ export const TwoColumnsImageGridSection = (props: SectionProps) => {
     : "two-grid-plain-gap";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -275,18 +280,12 @@ export const TwoColumnsImageGridSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td className={stackClass} style={{ width: "264px" }}>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                  <Column className={stackClass} style={{ width: "264px" }}>
                     <GridItem
                       alt={resolved.imageAlt1}
                       heading={resolved.heading1}
@@ -298,14 +297,14 @@ export const TwoColumnsImageGridSection = (props: SectionProps) => {
                       subtext={resolved.subtext1}
                       textColor={resolved.textColor}
                     />
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     className={`${stackClass} ${gapClass}`}
                     style={{ width: "24px" }}
                   >
                     &zwj;
-                  </td>
-                  <td className={stackClass} style={{ width: "264px" }}>
+                  </Column>
+                  <Column className={stackClass} style={{ width: "264px" }}>
                     <GridItem
                       alt={resolved.imageAlt2}
                       heading={resolved.heading2}
@@ -317,16 +316,16 @@ export const TwoColumnsImageGridSection = (props: SectionProps) => {
                       subtext={resolved.subtext2}
                       textColor={resolved.textColor}
                     />
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

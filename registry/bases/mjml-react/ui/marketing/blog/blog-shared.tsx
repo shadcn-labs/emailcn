@@ -1,15 +1,18 @@
-/* eslint-disable next/no-img-element */
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
-import type { CSSProperties, ReactNode } from "react";
+import { Fragment } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
@@ -25,14 +28,6 @@ const colors = {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const tableStyle: CSSProperties = {
-  borderCollapse: "separate",
-  borderSpacing: 0,
-  width: "100%",
-};
-
-const textBase: CSSProperties = { fontFamily, margin: 0 };
 
 export type BlogLayout =
   | "featured"
@@ -73,88 +68,103 @@ const Image = ({
   src: string;
   width: number;
 }) => (
-  <img
+  <MjmlImage
     alt={alt}
+    borderRadius="8px"
+    padding="0"
     src={src}
-    width={width}
-    style={{
-      border: "none",
-      borderRadius: "8px",
-      display: "block",
-      height: "auto",
-      maxWidth: "100%",
-      outline: "none",
-      textDecoration: "none",
-      width: "100%",
-    }}
+    width={`${width}px`}
   />
 );
 
-const Meta = ({ post }: { post: BlogPostData }) => {
+const Meta = ({
+  boxed = false,
+  post,
+}: {
+  boxed?: boolean;
+  post: BlogPostData;
+}) => {
   const label =
     post.episode ??
     post.badge ??
     (post.date && post.month ? `${post.date} ${post.month}` : undefined);
 
   return label ? (
-    <p
-      style={{
-        ...textBase,
-        color: colors.subtle,
-        fontSize: "12px",
-        fontWeight: 600,
-        letterSpacing: "0.04em",
-        lineHeight: "16px",
-        textTransform: "uppercase",
-      }}
+    <MjmlText
+      color={colors.subtle}
+      fontFamily={fontFamily}
+      fontSize="12px"
+      fontWeight="600"
+      letterSpacing="0.04em"
+      lineHeight="16px"
+      padding={boxed ? "20px 20px 0" : "0"}
+      textTransform="uppercase"
     >
       {label}
-    </p>
+    </MjmlText>
   ) : null;
 };
 
-const Copy = ({ post }: { post: BlogPostData }) => (
-  <>
-    <Meta post={post} />
-    <h3
-      style={{
-        ...textBase,
-        color: colors.dark,
-        fontSize: "20px",
-        fontWeight: 600,
-        lineHeight: "28px",
-        marginTop:
-          post.episode || post.badge || (post.date && post.month) ? "8px" : 0,
-      }}
-    >
-      {post.title}
-    </h3>
-    <p
-      style={{
-        ...textBase,
-        color: colors.muted,
-        fontSize: "14px",
-        lineHeight: "22px",
-        marginTop: "10px",
-      }}
-    >
-      {post.excerpt}
-    </p>
-    {post.author || post.host ? (
-      <p
-        style={{
-          ...textBase,
-          color: colors.subtle,
-          fontSize: "12px",
-          lineHeight: "16px",
-          marginTop: "12px",
-        }}
+const Copy = ({
+  boxed = false,
+  post,
+}: {
+  boxed?: boolean;
+  post: BlogPostData;
+}) => {
+  const hasMeta = Boolean(
+    post.episode ?? post.badge ?? (post.date && post.month)
+  );
+  const horizontalPadding = boxed ? "20px" : "0";
+  let titleTopPadding = 0;
+  if (hasMeta) {
+    titleTopPadding = 8;
+  } else if (boxed) {
+    titleTopPadding = 20;
+  }
+  let footer: ReactNode = null;
+  if (post.author || post.host) {
+    footer = (
+      <MjmlText
+        color={colors.subtle}
+        fontFamily={fontFamily}
+        fontSize="12px"
+        lineHeight="16px"
+        padding={`12px ${horizontalPadding} ${boxed ? "20px" : "0"}`}
       >
         {post.host ? `Hosted by ${post.host}` : `By ${post.author}`}
-      </p>
-    ) : null}
-  </>
-);
+      </MjmlText>
+    );
+  } else if (boxed) {
+    footer = <MjmlSpacer height="20px" />;
+  }
+
+  return (
+    <>
+      <Meta boxed={boxed} post={post} />
+      <MjmlText
+        color={colors.dark}
+        fontFamily={fontFamily}
+        fontSize="20px"
+        fontWeight="600"
+        lineHeight="28px"
+        padding={`${titleTopPadding}px ${horizontalPadding} 0`}
+      >
+        {post.title}
+      </MjmlText>
+      <MjmlText
+        color={colors.muted}
+        fontFamily={fontFamily}
+        fontSize="14px"
+        lineHeight="22px"
+        padding={`10px ${horizontalPadding} 0`}
+      >
+        {post.excerpt}
+      </MjmlText>
+      {footer}
+    </>
+  );
+};
 
 const VerticalCard = ({
   boxed = false,
@@ -165,58 +175,10 @@ const VerticalCard = ({
   post: BlogPostData;
   width?: number;
 }) => (
-  <table
-    role="presentation"
-    style={{
-      ...tableStyle,
-      backgroundColor: boxed ? colors.surfaceMuted : undefined,
-      border: boxed ? `1px solid ${colors.border}` : undefined,
-      borderRadius: "8px",
-      overflow: "hidden",
-    }}
-  >
-    <tbody>
-      <tr>
-        <td>
-          <Image alt={post.imageAlt} src={post.imageSrc} width={width} />
-        </td>
-      </tr>
-      <tr>
-        <td style={{ padding: boxed ? "20px" : "16px 0 0" }}>
-          <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
-
-const Gap = ({ width = 24 }: { width?: number }) => (
-  <td
-    className="blog-gap"
-    width={width}
-    style={{ fontSize: 0, lineHeight: "1px", width: `${width}px` }}
-  >
-    &zwj;
-  </td>
-);
-
-const BlogColumnFragment = ({
-  boxed,
-  index,
-  post,
-}: {
-  boxed: boolean;
-  index: number;
-  post: BlogPostData;
-}) => (
   <>
-    {index > 0 ? <Gap /> : null}
-    <td
-      className="blog-column"
-      style={{ verticalAlign: "top", width: "264px" }}
-    >
-      <VerticalCard boxed={boxed} post={post} />
-    </td>
+    <Image alt={post.imageAlt} src={post.imageSrc} width={width} />
+    {boxed ? null : <MjmlSpacer height="16px" />}
+    <Copy boxed={boxed} post={post} />
   </>
 );
 
@@ -227,20 +189,21 @@ const TwoColumns = ({
   boxed: boolean;
   posts: readonly BlogPostData[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      <tr>
-        {posts.slice(0, 2).map((post, index) => (
-          <BlogColumnFragment
-            boxed={boxed}
-            index={index}
-            key={`${post.title}-${index}`}
-            post={post}
-          />
-        ))}
-      </tr>
-    </tbody>
-  </table>
+  <MjmlSection padding="0">
+    {posts.slice(0, 2).map((post, index) => (
+      <MjmlColumn
+        backgroundColor={boxed ? colors.surfaceMuted : undefined}
+        border={boxed ? `1px solid ${colors.border}` : undefined}
+        borderRadius="8px"
+        key={`${post.title}-${index}`}
+        padding={index === 0 ? "0 12px 0 0" : "0 0 0 12px"}
+        verticalAlign="top"
+        width="50%"
+      >
+        <VerticalCard boxed={boxed} post={post} />
+      </MjmlColumn>
+    ))}
+  </MjmlSection>
 );
 
 const Masonry = ({
@@ -250,27 +213,26 @@ const Masonry = ({
   boxed: boolean;
   posts: readonly BlogPostData[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      <tr>
-        <td
-          className="blog-column"
-          style={{ verticalAlign: "top", width: "264px" }}
-        >
-          <VerticalCard boxed={boxed} post={posts[0]} />
-        </td>
-        <Gap />
-        <td
-          className="blog-column"
-          style={{ verticalAlign: "top", width: "264px" }}
-        >
-          <VerticalCard boxed={boxed} post={posts[1]} />
-          <div style={{ height: "16px", lineHeight: "16px" }}>&zwj;</div>
-          <VerticalCard boxed={boxed} post={posts[2]} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <MjmlSection padding="0">
+    <MjmlColumn
+      backgroundColor={boxed ? colors.surfaceMuted : undefined}
+      border={boxed ? `1px solid ${colors.border}` : undefined}
+      borderRadius="8px"
+      padding="0 12px 0 0"
+      verticalAlign="top"
+      width="50%"
+    >
+      <VerticalCard boxed={boxed} post={posts[0]} />
+    </MjmlColumn>
+    <MjmlColumn padding="0 0 0 12px" verticalAlign="top" width="50%">
+      {posts.slice(1, 3).map((post, index) => (
+        <Fragment key={`${post.title}-${index}`}>
+          <VerticalCard boxed={boxed} post={post} />
+          {index === 0 ? <MjmlSpacer height="16px" /> : null}
+        </Fragment>
+      ))}
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 const Horizontal = ({
@@ -280,96 +242,52 @@ const Horizontal = ({
   boxed?: boolean;
   post: BlogPostData;
 }) => (
-  <table
-    role="presentation"
-    style={{
-      ...tableStyle,
-      backgroundColor: boxed ? colors.surfaceMuted : undefined,
-      border: boxed ? `1px solid ${colors.border}` : undefined,
-      borderRadius: "8px",
-      overflow: "hidden",
-    }}
+  <MjmlSection
+    backgroundColor={boxed ? colors.surfaceMuted : undefined}
+    border={boxed ? `1px solid ${colors.border}` : undefined}
+    borderRadius="8px"
+    padding="0"
   >
-    <tbody>
-      <tr>
-        <td
-          className="blog-column"
-          width={220}
-          style={{ verticalAlign: "top" }}
-        >
-          <Image alt={post.imageAlt} src={post.imageSrc} width={220} />
-        </td>
-        <td
-          className="blog-column"
-          style={{
-            padding: boxed ? "20px" : "0 0 0 24px",
-            verticalAlign: "middle",
-          }}
-        >
-          <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <MjmlColumn padding="0" verticalAlign="middle" width="220px">
+      <Image alt={post.imageAlt} src={post.imageSrc} width={220} />
+    </MjmlColumn>
+    <MjmlColumn padding={boxed ? "0" : "0 0 0 24px"} verticalAlign="middle">
+      <Copy boxed={boxed} post={post} />
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 const SplitImages = ({ post }: { post: BlogPostData }) => (
-  <table
-    role="presentation"
-    style={{
-      ...tableStyle,
-      backgroundColor: colors.surfaceMuted,
-      border: `1px solid ${colors.border}`,
-      borderRadius: "8px",
-      overflow: "hidden",
-    }}
+  <MjmlSection
+    backgroundColor={colors.surfaceMuted}
+    border={`1px solid ${colors.border}`}
+    borderRadius="8px"
+    padding="0"
   >
-    <tbody>
-      <tr>
-        <td
-          className="blog-column"
-          width={112}
-          style={{ verticalAlign: "top" }}
-        >
-          <Image alt={post.imageAlt} src={post.imageSrc} width={112} />
-        </td>
-        <td
-          className="blog-column"
-          width={112}
-          style={{ paddingLeft: "8px", verticalAlign: "top" }}
-        >
-          <Image
-            alt={post.imageAlt2 ?? ""}
-            src={post.imageSrc2 ?? post.imageSrc}
-            width={112}
-          />
-        </td>
-        <td
-          className="blog-column"
-          style={{ padding: "20px", verticalAlign: "middle" }}
-        >
-          <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <MjmlColumn padding="0 4px 0 0" verticalAlign="middle" width="112px">
+      <Image alt={post.imageAlt} src={post.imageSrc} width={112} />
+    </MjmlColumn>
+    <MjmlColumn padding="0 0 0 4px" verticalAlign="middle" width="112px">
+      <Image
+        alt={post.imageAlt2 ?? ""}
+        src={post.imageSrc2 ?? post.imageSrc}
+        width={112}
+      />
+    </MjmlColumn>
+    <MjmlColumn padding="0" verticalAlign="middle">
+      <Copy boxed post={post} />
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 const FullWidth = ({ post }: { post: BlogPostData }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      <tr>
-        <td>
-          <Image alt={post.imageAlt} src={post.imageSrc} width={552} />
-        </td>
-      </tr>
-      <tr>
-        <td style={{ paddingTop: "20px" }}>
-          <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <MjmlSection padding="0">
+    <MjmlColumn padding="0">
+      <Image alt={post.imageAlt} src={post.imageSrc} width={552} />
+      <MjmlSpacer height="20px" />
+      <Copy post={post} />
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 export const BlogContent = ({
@@ -406,21 +324,21 @@ export const BlogContent = ({
 };
 
 export const BlogHeading = ({ children }: { children: ReactNode }) => (
-  <>
-    <h2
-      style={{
-        ...textBase,
-        color: colors.dark,
-        fontSize: "28px",
-        fontWeight: 600,
-        lineHeight: "36px",
-        textAlign: "center",
-      }}
-    >
-      {children}
-    </h2>
-    <div style={{ height: "32px", lineHeight: "32px" }}>&zwj;</div>
-  </>
+  <MjmlSection padding="0 0 32px">
+    <MjmlColumn padding="0">
+      <MjmlText
+        align="center"
+        color={colors.dark}
+        fontFamily={fontFamily}
+        fontSize="28px"
+        fontWeight="600"
+        lineHeight="36px"
+        padding="0"
+      >
+        {children}
+      </MjmlText>
+    </MjmlColumn>
+  </MjmlSection>
 );
 
 export const BlogEmailShell = ({
@@ -436,20 +354,10 @@ export const BlogEmailShell = ({
     <MjmlHead>
       <MjmlPreview>{preview}</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>
-        {[
-          "@media only screen and (max-width: 599px) {",
-          "  .blog-column { display: block !important; width: 100% !important; }",
-          "  .blog-gap { display: block !important; height: 24px !important; line-height: 24px !important; width: 100% !important; }",
-          "}",
-        ].join("\n")}
-      </MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor={colors.canvas} width={theme.containerWidth}>
       <MjmlWrapper backgroundColor={colors.surface} padding="44px 24px">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>{children}</div>
-        </MjmlRaw>
+        {children}
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

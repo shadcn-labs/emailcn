@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -62,11 +61,7 @@ export const BoxedOrderSummaryTotalBottom = ({
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>
-            <BoxedOrderSummaryTotalBottomSection {...props} />
-          </div>
-        </MjmlRaw>
+        <BoxedOrderSummaryTotalBottomSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

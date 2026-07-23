@@ -1,17 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+import { MjmlColumn, MjmlSection, MjmlSpacer } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  ImageGridEmailShell,
+  NativeImageCard,
+} from "@/registry/bases/mjml-react/ui/marketing/images/image-grid-shared";
 
 export type TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-left"
@@ -43,31 +37,7 @@ export interface TwoColumnsMasonryImageGridWith3ImagesProps {
   variant?: TwoColumnsMasonryImageGridWith3ImagesVariant;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .masonry-three-stack {
-      display: block !important;
-      width: 100% !important;
-    }
-
-    .masonry-three-gap {
-      line-height: 24px !important;
-    }
-
-    .masonry-three-landscape-spacer {
-      line-height: 176px !important;
-    }
-
-    .masonry-three-portrait-spacer {
-      line-height: 384px !important;
-    }
-  }
-`;
-
-const defaultSectionStyles = {
+const defaults = {
   backgroundColor: "#fffffe",
   heading1: "White Glass",
   heading2: "Flow White",
@@ -85,284 +55,96 @@ const defaultSectionStyles = {
     "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-6.jpg",
   imageSrc3:
     "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-4.jpg",
-  pageBackgroundColor: "#f1f5f9",
   subtext1: "Eco-Friendly",
   subtext2: "Sport & Travel",
   subtext3: "Insulated Steel",
   textColor: "#fffffe",
 };
 
-type SectionProps = Omit<TwoColumnsMasonryImageGridWith3ImagesProps, "theme">;
-type ResolvedProps = typeof defaultSectionStyles & SectionProps;
-
-const OverlayCard = ({
-  heading,
-  headingColor,
-  imageSrc,
-  portrait = false,
-  subtext,
-  textColor,
-}: {
-  heading: string;
-  headingColor: string;
-  imageSrc: string;
-  portrait?: boolean;
-  subtext: string;
-  textColor: string;
-}) => (
-  <div
-    style={{
-      backgroundImage: `url('${imageSrc}')`,
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      borderRadius: "4px",
-      maxWidth: "100%",
-    }}
-  >
-    <div
-      className={
-        portrait
-          ? "masonry-three-portrait-spacer"
-          : "masonry-three-landscape-spacer"
-      }
-      style={{ lineHeight: portrait ? "316px" : "106px" }}
-    >
-      &zwj;
-    </div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
-            style={{
-              background: "linear-gradient(to bottom, transparent, #000001)",
-              borderBottomLeftRadius: "4px",
-              borderBottomRightRadius: "4px",
-              padding: "16px",
-              textAlign: "left",
-            }}
-          >
-            <h4
-              style={{
-                color: headingColor,
-                fontFamily,
-                fontSize: "20px",
-                fontWeight: 700,
-                lineHeight: "28px",
-                margin: 0,
-              }}
-            >
-              {heading}
-            </h4>
-            <p
-              style={{
-                color: textColor,
-                fontFamily,
-                fontSize: "14px",
-                lineHeight: "20px",
-                margin: 0,
-              }}
-            >
-              {subtext}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
-
-const PlainImage = ({
-  alt,
-  href,
-  src,
-}: {
-  alt: string;
-  href: string;
-  src: string;
-}) => (
-  <a href={href}>
-    <img
-      alt={alt}
-      src={src}
-      style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
-      width="264"
-    />
-  </a>
-);
-
-const StackedColumn = ({
-  overlay,
-  props,
-}: {
-  overlay: boolean;
-  props: ResolvedProps;
-}) => (
-  <>
-    {overlay ? (
-      <OverlayCard
-        heading={props.heading1}
-        headingColor={props.headingColor}
-        imageSrc={props.imageSrc1}
-        subtext={props.subtext1}
-        textColor={props.textColor}
-      />
-    ) : (
-      <PlainImage
-        alt={props.imageAlt1}
-        href={props.imageHref1}
-        src={props.imageSrc1}
-      />
-    )}
-    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-    {overlay ? (
-      <OverlayCard
-        heading={props.heading2}
-        headingColor={props.headingColor}
-        imageSrc={props.imageSrc2}
-        subtext={props.subtext2}
-        textColor={props.textColor}
-      />
-    ) : (
-      <PlainImage
-        alt={props.imageAlt2}
-        href={props.imageHref2}
-        src={props.imageSrc2}
-      />
-    )}
-  </>
-);
-
-const PortraitColumn = ({
-  overlay,
-  props,
-}: {
-  overlay: boolean;
-  props: ResolvedProps;
-}) =>
-  overlay ? (
-    <OverlayCard
-      heading={props.heading3}
-      headingColor={props.headingColor}
-      imageSrc={props.imageSrc3}
-      portrait
-      subtext={props.subtext3}
-      textColor={props.textColor}
-    />
-  ) : (
-    <PlainImage
-      alt={props.imageAlt3}
-      href={props.imageHref3}
-      src={props.imageSrc3}
-    />
-  );
-
 export const TwoColumnsMasonryImageGridWith3ImagesSection = (
-  props: SectionProps
+  props: Omit<TwoColumnsMasonryImageGridWith3ImagesProps, "theme">
 ) => {
-  const variant = props.variant ?? "stacked-left";
-  const resolved = { ...defaultSectionStyles, ...props } as ResolvedProps;
+  const resolved = { ...defaults, ...props };
+  const variant = resolved.variant ?? "stacked-left";
   const overlay = variant.endsWith("overlay");
   const stackedLeft = variant.startsWith("stacked-left");
-  const stacked = <StackedColumn overlay={overlay} props={resolved} />;
-  const portrait = <PortraitColumn overlay={overlay} props={resolved} />;
+  const stackedColumn = (
+    <MjmlColumn
+      padding={stackedLeft ? "0 12px 0 0" : "0 0 0 12px"}
+      verticalAlign="top"
+      width="50%"
+    >
+      <NativeImageCard
+        data={{
+          alt: resolved.imageAlt1,
+          heading: resolved.heading1,
+          href: resolved.imageHref1,
+          src: resolved.imageSrc1,
+          subtext: resolved.subtext1,
+        }}
+        headingColor={resolved.headingColor}
+        overlay={overlay}
+        textColor={resolved.textColor}
+        width={264}
+      />
+      <MjmlSpacer height="24px" />
+      <NativeImageCard
+        data={{
+          alt: resolved.imageAlt2,
+          heading: resolved.heading2,
+          href: resolved.imageHref2,
+          src: resolved.imageSrc2,
+          subtext: resolved.subtext2,
+        }}
+        headingColor={resolved.headingColor}
+        overlay={overlay}
+        textColor={resolved.textColor}
+        width={264}
+      />
+    </MjmlColumn>
+  );
+  const portraitColumn = (
+    <MjmlColumn
+      padding={stackedLeft ? "0 0 0 12px" : "0 12px 0 0"}
+      verticalAlign="top"
+      width="50%"
+    >
+      <NativeImageCard
+        data={{
+          alt: resolved.imageAlt3,
+          heading: resolved.heading3,
+          href: resolved.imageHref3,
+          src: resolved.imageSrc3,
+          subtext: resolved.subtext3,
+        }}
+        headingColor={resolved.headingColor}
+        overlay={overlay}
+        textColor={resolved.textColor}
+        width={264}
+      />
+    </MjmlColumn>
+  );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "24px",
-              width: "600px",
-            }}
-          >
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td
-                    className="masonry-three-stack"
-                    style={{ verticalAlign: "top", width: "264px" }}
-                  >
-                    {stackedLeft ? stacked : portrait}
-                  </td>
-                  <td
-                    className="masonry-three-stack masonry-three-gap"
-                    style={{ width: "24px" }}
-                  >
-                    &zwj;
-                  </td>
-                  <td
-                    className="masonry-three-stack"
-                    style={{ verticalAlign: "top", width: "264px" }}
-                  >
-                    {stackedLeft ? portrait : stacked}
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+    <MjmlSection backgroundColor={resolved.backgroundColor} padding="24px">
+      {stackedLeft ? stackedColumn : portraitColumn}
+      {stackedLeft ? portraitColumn : stackedColumn}
+    </MjmlSection>
   );
 };
 
 export const TwoColumnsMasonryImageGridWith3Images = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "stacked-left",
   ...props
 }: TwoColumnsMasonryImageGridWith3ImagesProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>
-        Two columns masonry image grid with three images
-      </MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <TwoColumnsMasonryImageGridWith3ImagesSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <ImageGridEmailShell
+    backgroundColor={pageBackgroundColor}
+    preview="Two columns masonry image grid with three images"
+    theme={theme}
+  >
+    <TwoColumnsMasonryImageGridWith3ImagesSection {...props} />
+  </ImageGridEmailShell>
 );
 
 TwoColumnsMasonryImageGridWith3Images.PreviewProps = {

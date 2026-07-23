@@ -1,17 +1,16 @@
-/* eslint-disable @next/next/no-img-element, complexity */
 import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
+  MjmlColumn,
+  MjmlImage,
+  MjmlSection,
+  MjmlSpacer,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  HeroCopy,
+  HeroEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/hero/hero-shared";
 
 export type HeroSplitContainedVariant =
   | "single-image-left"
@@ -47,83 +46,7 @@ export interface HeroSplitContainedProps {
   variant?: HeroSplitContainedVariant;
 }
 
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 const assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .hero-contained-column {
-      display: block !important;
-      width: 100% !important;
-    }
-
-    .hero-contained-spacer {
-      height: 44px !important;
-      line-height: 44px !important;
-    }
-
-    .hero-contained-content {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-
-    .hero-contained-stack {
-      display: flex !important;
-      width: 100% !important;
-    }
-
-    .hero-contained-stack-gap {
-      display: none !important;
-    }
-
-    .hero-contained-stack-first {
-      padding-right: 12px !important;
-    }
-
-    .hero-contained-stack-second {
-      padding-left: 12px !important;
-    }
-  }
-
-  @media only screen and (max-width: 430px) {
-    .hero-contained-stack {
-      display: block !important;
-    }
-
-    .hero-contained-stack-first,
-    .hero-contained-stack-second {
-      display: block !important;
-      padding: 0 !important;
-    }
-
-    .hero-contained-stack-image {
-      width: 100% !important;
-    }
-
-    .hero-contained-square-image {
-      aspect-ratio: 16 / 9 !important;
-      object-fit: cover !important;
-    }
-  }
-`;
-
-interface HeroPreset {
-  backgroundColor: string;
-  ctaLabel: string;
-  description: string;
-  eyebrow: string;
-  heading: string;
-  logoSrc: string;
-  mutedTextColor: string;
-  price: string;
-  primaryImageAlt: string;
-  primaryImageSrc: string;
-  secondaryImageAlt: string;
-  secondaryImageSrc: string;
-  subheading: string;
-  textColor: string;
-}
 
 const presets = {
   portraitBottom: {
@@ -134,11 +57,7 @@ const presets = {
     eyebrow: "Taiwanese Steamed Shop",
     heading: "Gua Bao",
     logoSrc: `${assetRoot}/emailcn-logo-light.png`,
-    mutedTextColor: "#d1d5db",
-    price: "",
-    primaryImageAlt: "Top image",
     primaryImageSrc: `${assetRoot}/hero/split-contained-landscape-top.jpg`,
-    secondaryImageAlt: "Bottom image",
     secondaryImageSrc: `${assetRoot}/hero/split-contained-portrait-bottom.jpg`,
     subheading: "53 Lexington St. London",
     textColor: "#f9fafb",
@@ -151,11 +70,7 @@ const presets = {
     eyebrow: "Es Kopi Susu",
     heading: "Sarina",
     logoSrc: `${assetRoot}/emailcn-logo.png`,
-    mutedTextColor: "#4b5563",
-    price: "",
-    primaryImageAlt: "Top image",
     primaryImageSrc: `${assetRoot}/hero/split-contained-portrait-top.jpg`,
-    secondaryImageAlt: "Bottom image",
     secondaryImageSrc: `${assetRoot}/hero/split-contained-landscape-bottom.jpg`,
     subheading: "Americano Grape Fruit",
     textColor: "#030712",
@@ -168,11 +83,7 @@ const presets = {
     eyebrow: "Toothpaste",
     heading: "Salt.",
     logoSrc: `${assetRoot}/emailcn-logo.png`,
-    mutedTextColor: "#4b5563",
-    price: "",
-    primaryImageAlt: "Salt toothpaste",
     primaryImageSrc: `${assetRoot}/hero/split-contained-bg.jpg`,
-    secondaryImageAlt: "",
     secondaryImageSrc: "",
     subheading: "Dusk | French Vanilla",
     textColor: "#030712",
@@ -185,18 +96,12 @@ const presets = {
     eyebrow: "THE",
     heading: "Ordinary.",
     logoSrc: `${assetRoot}/emailcn-logo-light.png`,
-    mutedTextColor: "#d1d5db",
-    price: "From $8.99",
-    primaryImageAlt: "Top image",
     primaryImageSrc: `${assetRoot}/hero/split-contained-square-1.jpg`,
-    secondaryImageAlt: "Bottom image",
     secondaryImageSrc: `${assetRoot}/hero/split-contained-square-2.jpg`,
     subheading: "For blemish-prone skin",
     textColor: "#f9fafb",
   },
-} satisfies Record<string, HeroPreset>;
-
-type ResolvedProps = Required<Omit<HeroSplitContainedProps, "theme">>;
+};
 
 const getPreset = (variant: HeroSplitContainedVariant) => {
   if (variant.startsWith("single-")) {
@@ -205,331 +110,108 @@ const getPreset = (variant: HeroSplitContainedVariant) => {
   if (variant.startsWith("square-")) {
     return presets.square;
   }
-  if (variant.startsWith("portrait-bottom-")) {
-    return presets.portraitBottom;
-  }
-  return presets.portraitTop;
+  return variant.startsWith("portrait-bottom-")
+    ? presets.portraitBottom
+    : presets.portraitTop;
 };
-
-const resolveProps = ({
-  backgroundColor,
-  buttonBackgroundColor,
-  buttonTextColor,
-  ctaHref,
-  ctaLabel,
-  description,
-  eyebrow,
-  heading,
-  logoAlt,
-  logoSrc,
-  mutedTextColor,
-  pageBackgroundColor,
-  price,
-  primaryImageAlt,
-  primaryImageSrc,
-  secondaryImageAlt,
-  secondaryImageSrc,
-  subheading,
-  textColor,
-  variant = "single-image-left",
-}: Omit<HeroSplitContainedProps, "theme">): ResolvedProps => {
-  const preset = getPreset(variant);
-
-  return {
-    backgroundColor: backgroundColor ?? preset.backgroundColor,
-    buttonBackgroundColor: buttonBackgroundColor ?? "#4f46e5",
-    buttonTextColor: buttonTextColor ?? "#fffffe",
-    ctaHref: ctaHref ?? "https://example.com",
-    ctaLabel: ctaLabel ?? preset.ctaLabel,
-    description: description ?? preset.description,
-    eyebrow: eyebrow ?? preset.eyebrow,
-    heading: heading ?? preset.heading,
-    logoAlt: logoAlt ?? "emailcn",
-    logoSrc: logoSrc ?? preset.logoSrc,
-    mutedTextColor: mutedTextColor ?? preset.mutedTextColor,
-    pageBackgroundColor: pageBackgroundColor ?? "#f1f5f9",
-    price: price ?? preset.price,
-    primaryImageAlt: primaryImageAlt ?? preset.primaryImageAlt,
-    primaryImageSrc: primaryImageSrc ?? preset.primaryImageSrc,
-    secondaryImageAlt: secondaryImageAlt ?? preset.secondaryImageAlt,
-    secondaryImageSrc: secondaryImageSrc ?? preset.secondaryImageSrc,
-    subheading: subheading ?? preset.subheading,
-    textColor: textColor ?? preset.textColor,
-    variant,
-  };
-};
-
-const ImagePanel = ({ props }: { props: ResolvedProps }) => {
-  const single = props.variant.startsWith("single-");
-  const square = props.variant.startsWith("square-");
-
-  if (single) {
-    return (
-      <td
-        className="hero-contained-column hero-contained-single-image"
-        style={{
-          backgroundImage: `url(${props.primaryImageSrc})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          height: "552px",
-          verticalAlign: "top",
-          width: "196px",
-        }}
-      >
-        <div style={{ padding: "44px 24px", textAlign: "center" }}>
-          <img
-            alt={props.logoAlt}
-            src={props.logoSrc}
-            width="165"
-            style={{ maxWidth: "100%", verticalAlign: "middle" }}
-          />
-        </div>
-      </td>
-    );
-  }
-
-  return (
-    <td
-      className="hero-contained-column hero-contained-image-panel"
-      style={{ verticalAlign: "top", width: "244px" }}
-    >
-      <div className="hero-contained-stack">
-        <div className="hero-contained-stack-first">
-          <img
-            alt={props.primaryImageAlt}
-            className={`hero-contained-stack-image${square ? " hero-contained-square-image" : ""}`}
-            src={props.primaryImageSrc}
-            width="244"
-            style={{
-              borderRadius: "4px",
-              maxWidth: "100%",
-              verticalAlign: "middle",
-            }}
-          />
-        </div>
-        <div
-          className="hero-contained-stack-gap"
-          style={{ height: "24px", lineHeight: "24px" }}
-        >
-          &zwj;
-        </div>
-        <div className="hero-contained-stack-second">
-          <img
-            alt={props.secondaryImageAlt}
-            className={`hero-contained-stack-image${square ? " hero-contained-square-image" : ""}`}
-            src={props.secondaryImageSrc}
-            width="244"
-            style={{
-              borderRadius: "4px",
-              maxWidth: "100%",
-              verticalAlign: "middle",
-            }}
-          />
-        </div>
-      </div>
-    </td>
-  );
-};
-
-const ContentPanel = ({ props }: { props: ResolvedProps }) => {
-  const single = props.variant.startsWith("single-");
-
-  return (
-    <td
-      className="hero-contained-column hero-contained-content"
-      style={{
-        boxSizing: "border-box",
-        padding: single ? "44px 24px" : "44px 24px",
-        textAlign: "left",
-        verticalAlign: single ? "bottom" : "top",
-        width: single ? "332px" : "284px",
-      }}
-    >
-      {single ? null : (
-        <>
-          <img
-            alt={props.logoAlt}
-            src={props.logoSrc}
-            width="165"
-            style={{ maxWidth: "100%", verticalAlign: "middle" }}
-          />
-          <div style={{ height: "48px", lineHeight: "48px" }}>&zwj;</div>
-        </>
-      )}
-      <p
-        style={{
-          color: props.textColor,
-          fontFamily,
-          fontSize: "16px",
-          fontWeight: 200,
-          lineHeight: "24px",
-          margin: 0,
-        }}
-      >
-        {props.eyebrow}
-      </p>
-      <h1
-        style={{
-          color: props.textColor,
-          fontFamily,
-          fontSize: "48px",
-          fontWeight: 500,
-          lineHeight: "58px",
-          margin: 0,
-        }}
-      >
-        {props.heading}
-      </h1>
-      <p
-        style={{
-          color: props.textColor,
-          fontFamily,
-          fontSize: "18px",
-          lineHeight: "28px",
-          margin: 0,
-        }}
-      >
-        {props.subheading}
-      </p>
-      <div style={{ height: "48px", lineHeight: "48px" }}>&zwj;</div>
-      <p
-        style={{
-          color: props.mutedTextColor,
-          fontFamily,
-          fontSize: "16px",
-          fontWeight: 300,
-          lineHeight: "24px",
-          margin: 0,
-        }}
-      >
-        {props.description}
-        {props.price ? (
-          <>
-            <br />
-            <br />
-            <span style={{ fontWeight: 700 }}>{props.price}</span>
-          </>
-        ) : null}
-      </p>
-      <div style={{ height: "24px", lineHeight: "24px" }}>&zwj;</div>
-      {props.ctaLabel && props.ctaHref ? (
-        <a
-          href={props.ctaHref}
-          style={{
-            backgroundColor: props.buttonBackgroundColor,
-            borderRadius: "8px",
-            color: props.buttonTextColor,
-            display: "inline-block",
-            fontFamily,
-            fontSize: "16px",
-            fontWeight: 500,
-            lineHeight: 1,
-            padding: "14px 20px",
-            textDecoration: "none",
-          }}
-        >
-          <span style={{ marginRight: "8px" }}>{props.ctaLabel}</span>
-          <img
-            alt=""
-            src={`${assetRoot}/icon-arrow-right.png`}
-            width="12"
-            style={{ maxWidth: "100%", verticalAlign: "baseline" }}
-          />
-        </a>
-      ) : null}
-    </td>
-  );
-};
-
-const SpacerColumn = () => (
-  <td
-    className="hero-contained-column hero-contained-spacer"
-    style={{ fontSize: 0, lineHeight: 0, width: "24px" }}
-  >
-    &zwj;
-  </td>
-);
 
 export const HeroSplitContainedSection = (
-  input: Omit<HeroSplitContainedProps, "theme">
+  props: Omit<HeroSplitContainedProps, "theme">
 ) => {
-  const props = resolveProps(input);
-  const imageLeft = props.variant.endsWith("-left");
-  const image = <ImagePanel props={props} />;
-  const content = <ContentPanel props={props} />;
+  const {
+    backgroundColor,
+    buttonBackgroundColor,
+    buttonTextColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    logoAlt,
+    logoSrc,
+    primaryImageAlt,
+    primaryImageSrc,
+    secondaryImageAlt,
+    secondaryImageSrc,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    ctaHref: "https://example.com",
+    logoAlt: "emailcn",
+    primaryImageAlt: "",
+    secondaryImageAlt: "",
+    variant: "single-image-left" as HeroSplitContainedVariant,
+    ...props,
+  };
+
+  const preset = getPreset(variant);
+  const imageLeft = variant.endsWith("-left");
+  const resolvedBackground = backgroundColor ?? preset.backgroundColor;
+  const image = (
+    <MjmlColumn padding="0" verticalAlign="top" width="50%">
+      <MjmlImage
+        alt={primaryImageAlt}
+        borderRadius="4px"
+        padding="0"
+        src={primaryImageSrc ?? preset.primaryImageSrc}
+        width="264px"
+      />
+      {(secondaryImageSrc ?? preset.secondaryImageSrc) ? (
+        <>
+          <MjmlSpacer height="24px" />
+          <MjmlImage
+            alt={secondaryImageAlt}
+            borderRadius="4px"
+            padding="0"
+            src={secondaryImageSrc ?? preset.secondaryImageSrc}
+            width="264px"
+          />
+        </>
+      ) : null}
+    </MjmlColumn>
+  );
+  const content = (
+    <MjmlColumn padding="24px" verticalAlign="middle" width="50%">
+      <HeroCopy
+        buttonBackgroundColor={buttonBackgroundColor}
+        buttonTextColor={buttonTextColor}
+        ctaHref={ctaHref}
+        ctaLabel={ctaLabel ?? preset.ctaLabel}
+        description={description ?? preset.description}
+        eyebrow={eyebrow ?? preset.eyebrow}
+        heading={heading ?? preset.heading}
+        logoAlt={logoAlt}
+        logoSrc={logoSrc ?? preset.logoSrc}
+        subheading={subheading ?? preset.subheading}
+        textColor={textColor ?? preset.textColor}
+      />
+    </MjmlColumn>
+  );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: props.backgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "24px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ tableLayout: "fixed" }}
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  {imageLeft ? (
-                    <>
-                      {image}
-                      <SpacerColumn />
-                      {content}
-                    </>
-                  ) : (
-                    <>
-                      {content}
-                      <SpacerColumn />
-                      {image}
-                    </>
-                  )}
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <MjmlSection backgroundColor={resolvedBackground} padding="24px">
+      {imageLeft ? image : content}
+      {imageLeft ? content : image}
+    </MjmlSection>
   );
 };
 
 export const HeroSplitContained = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
   ...props
-}: HeroSplitContainedProps) => {
-  const resolved = resolveProps(props);
-
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>{`${resolved.heading} — ${resolved.subheading}`}</MjmlPreview>
-        <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-        <MjmlStyle>{responsiveStyles}</MjmlStyle>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={resolved.pageBackgroundColor}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper backgroundColor={resolved.backgroundColor} padding="0">
-          <MjmlRaw>
-            <HeroSplitContainedSection {...props} variant={resolved.variant} />
-          </MjmlRaw>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+}: HeroSplitContainedProps) => (
+  <HeroEmailShell
+    pageBackgroundColor={pageBackgroundColor}
+    preview={props.heading ?? "Salt."}
+    theme={theme}
+  >
+    <HeroSplitContainedSection {...props} />
+  </HeroEmailShell>
+);
 
 HeroSplitContained.PreviewProps = {
   theme: defaultTheme,

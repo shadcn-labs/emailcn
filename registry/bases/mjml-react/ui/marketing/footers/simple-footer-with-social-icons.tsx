@@ -1,16 +1,13 @@
-/* eslint-disable next/no-img-element */
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+import { MjmlColumn, MjmlSection } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FooterEmailShell,
+  FooterLegal,
+  FooterLogo,
+  FooterSocials,
+} from "@/registry/bases/mjml-react/ui/marketing/footers/footer-shared";
 
 export type SimpleFooterWithSocialIconsVariant =
   | "left-aligned"
@@ -35,9 +32,6 @@ export interface SimpleFooterWithSocialIconsProps {
   mutedTextColor?: string;
   variant?: SimpleFooterWithSocialIconsVariant;
 }
-
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
 const defaults = {
   backgroundColor: "#fffffe",
@@ -77,179 +71,49 @@ const defaults = {
 };
 
 type SectionProps = Omit<SimpleFooterWithSocialIconsProps, "theme">;
-type ResolvedProps = typeof defaults &
-  SectionProps & { variant: SimpleFooterWithSocialIconsVariant };
 
 export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
-  const resolved = {
-    ...defaults,
-    ...props,
-    variant: props.variant ?? "left-aligned",
-  } as ResolvedProps;
-  const textAlign = {
-    centered: "center",
-    "left-aligned": "left",
-    "right-aligned": "right",
-  }[resolved.variant] as "center" | "left" | "right";
-  const tableAlign = {
-    centered: "center",
-    "left-aligned": undefined,
-    "right-aligned": "right",
-  }[resolved.variant] as "center" | "right" | undefined;
-  const tableStyle = {
-    centered: { marginLeft: "auto", marginRight: "auto" },
-    "left-aligned": undefined,
-    "right-aligned": { marginLeft: "auto" },
-  }[resolved.variant];
+  const resolved = { ...defaults, ...props };
+  let align: "center" | "left" | "right" = "left";
+  if (resolved.variant === "centered") {
+    align = "center";
+  } else if (resolved.variant === "right-aligned") {
+    align = "right";
+  }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
+    <MjmlSection
+      backgroundColor={resolved.backgroundColor}
+      padding="44px 24px 24px"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              padding: "44px 0 24px",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign }}>
-                    <div>
-                      <a href={resolved.logoHref}>
-                        <img
-                          alt={resolved.logoAlt}
-                          src={resolved.logoSrc}
-                          style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                          width={64}
-                        />
-                      </a>
-                    </div>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <table
-                      align={tableAlign}
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      style={tableStyle}
-                    >
-                      <tbody>
-                        <tr>
-                          {resolved.socials.map((social, index) => (
-                            <td
-                              key={social.href}
-                              style={
-                                index === resolved.socials.length - 1
-                                  ? undefined
-                                  : { paddingRight: "24px" }
-                              }
-                            >
-                              <a href={social.href}>
-                                <img
-                                  alt={social.label}
-                                  src={social.iconSrc}
-                                  style={{
-                                    maxWidth: "100%",
-                                    verticalAlign: "middle",
-                                  }}
-                                  width={20}
-                                />
-                              </a>
-                            </td>
-                          ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <div>
-                      <p
-                        style={{
-                          color: resolved.mutedTextColor,
-                          fontFamily,
-                          fontSize: "16px",
-                          lineHeight: "24px",
-                          margin: "0 0 8px",
-                        }}
-                      >
-                        © 2026 emailcn. All rights reserved.
-                      </p>
-                      <p
-                        style={{
-                          color: resolved.mutedTextColor,
-                          fontFamily,
-                          fontSize: "16px",
-                          lineHeight: "24px",
-                          margin: 0,
-                        }}
-                      >
-                        No longer want to receive emails?{" "}
-                        <a
-                          href={resolved.unsubscribeHref}
-                          style={{
-                            color: resolved.mutedTextColor,
-                            textDecoration: "underline",
-                          }}
-                        >
-                          Unsubscribe
-                        </a>
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+      <MjmlColumn>
+        <FooterLogo
+          align={align}
+          alt={resolved.logoAlt}
+          href={resolved.logoHref}
+          src={resolved.logoSrc}
+          width="64px"
+        />
+        <FooterSocials align={align} socials={resolved.socials} />
+        <FooterLegal
+          align={align}
+          copyright="© 2026 emailcn. All rights reserved."
+          mutedTextColor={resolved.mutedTextColor}
+          unsubscribeHref={resolved.unsubscribeHref}
+        />
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const SimpleFooterWithSocialIcons = ({
-  pageBackgroundColor = "#f1f5f9",
+  pageBackgroundColor = defaults.pageBackgroundColor,
   theme = defaultTheme,
-  variant = "left-aligned",
   ...props
 }: SimpleFooterWithSocialIconsProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Simple footer with social icons</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <SimpleFooterWithSocialIconsSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>
+    <SimpleFooterWithSocialIconsSection {...props} />
+  </FooterEmailShell>
 );
 
 SimpleFooterWithSocialIcons.PreviewProps = {

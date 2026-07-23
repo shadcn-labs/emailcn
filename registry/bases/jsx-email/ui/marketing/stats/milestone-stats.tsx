@@ -1,4 +1,15 @@
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Text,
+  Row,
+  Column,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -66,8 +77,8 @@ const MilestoneContent = ({
   const primary = accent ? "#fffffe" : props.headingColor;
   return (
     <>
-      <div>
-        <p
+      <Section>
+        <Text
           style={{
             color: primary,
             fontFamily,
@@ -79,8 +90,8 @@ const MilestoneContent = ({
           }}
         >
           {props.heading}
-        </p>
-        <p
+        </Text>
+        <Text
           style={{
             color: accent ? "#fde68a" : props.headingColor,
             fontFamily,
@@ -95,32 +106,20 @@ const MilestoneContent = ({
           <span style={{ color: props.mutedTextColor, fontSize: "30px" }}>
             {props.unit}
           </span>
-        </p>
-      </div>
-      <div style={{ lineHeight: "24px" }}>&zwj;</div>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td className="milestone-side-gap" style={{ width: "88px" }}>
+        </Text>
+      </Section>
+      <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column className="milestone-side-gap" style={{ width: "88px" }}>
               &zwj;
-            </td>
-            <td>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td
+            </Column>
+            <Column>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
+                    <Column
                       style={{
                         color: props.mutedTextColor,
                         fontFamily,
@@ -130,8 +129,8 @@ const MilestoneContent = ({
                       }}
                     >
                       {props.currentLevel}
-                    </td>
-                    <td
+                    </Column>
+                    <Column
                       style={{
                         color: primary,
                         fontFamily,
@@ -142,40 +141,34 @@ const MilestoneContent = ({
                       }}
                     >
                       {props.nextLevel}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div style={{ lineHeight: "10px" }}>&zwj;</div>
-            </td>
-            <td className="milestone-side-gap" style={{ width: "88px" }}>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+              <Section style={{ lineHeight: "10px" }}>&zwj;</Section>
+            </Column>
+            <Column className="milestone-side-gap" style={{ width: "88px" }}>
               &zwj;
-            </td>
-          </tr>
-          <tr>
-            <td
+            </Column>
+          </Row>
+          <Row>
+            <Column
               className="milestone-side-gap"
               style={{ lineHeight: "4px", width: "88px" }}
             >
               &zwj;
-            </td>
-            <td
+            </Column>
+            <Column
               style={{
                 backgroundColor: accent ? "#4b5563" : props.progressTrackColor,
                 borderRadius: "4px",
                 height: "4px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: `${props.progress}%` }}
-              >
-                <tbody>
-                  <tr>
-                    <td
+              <Section style={{ width: `${props.progress}%` }}>
+                <Fragment>
+                  <Row>
+                    <Column
                       style={{
                         backgroundColor: accent
                           ? "#fde68a"
@@ -185,21 +178,21 @@ const MilestoneContent = ({
                       }}
                     >
                       &zwj;
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+            <Column
               className="milestone-side-gap"
               style={{ lineHeight: "4px", width: "88px" }}
             >
               &zwj;
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
+      <Text
         style={{
           color: accent ? "#d1d5db" : props.textColor,
           fontFamily,
@@ -210,7 +203,7 @@ const MilestoneContent = ({
         }}
       >
         You’re <strong>{props.remaining}</strong> from Gold status
-      </p>
+      </Text>
     </>
   );
 };
@@ -220,18 +213,14 @@ export const MilestoneStatsSection = (props: SectionProps) => {
   const resolved = { ...defaults, ...props } as ResolvedProps;
   const boxed = variant !== "default";
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -240,23 +229,13 @@ export const MilestoneStatsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
                     {boxed ? (
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
+                      <Section
                         style={{
                           backgroundColor:
                             variant === "accent"
@@ -266,29 +245,29 @@ export const MilestoneStatsSection = (props: SectionProps) => {
                         }}
                         width="100%"
                       >
-                        <tbody>
-                          <tr>
-                            <td style={{ padding: "24px" }}>
+                        <Fragment>
+                          <Row>
+                            <Column style={{ padding: "24px" }}>
                               <MilestoneContent
                                 props={resolved}
                                 variant={variant}
                               />
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                            </Column>
+                          </Row>
+                        </Fragment>
+                      </Section>
                     ) : (
                       <MilestoneContent props={resolved} variant={variant} />
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

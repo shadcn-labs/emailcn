@@ -1,3 +1,4 @@
+import { Section, Link, Img } from "jsx-email";
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -162,7 +163,7 @@ const Icon = ({
   }
 
   return (
-    <img
+    <Img
       alt=""
       src={`${ASSET_ROOT}/${prefix}${suffix}.png`}
       style={{
@@ -223,8 +224,8 @@ const ButtonExample = ({
   const text = <span style={getTextStyle(iconPosition)}>{label}</span>;
 
   return (
-    <div style={{ textAlign: align }}>
-      <a
+    <Section style={{ textAlign: align }}>
+      <Link
         className={buttonClass}
         href={href}
         style={{
@@ -247,8 +248,8 @@ const ButtonExample = ({
         {text}
         {iconPosition === "trailing" ? " " : null}
         {iconPosition === "trailing" ? icon : null}
-      </a>
-    </div>
+      </Link>
+    </Section>
   );
 };
 
@@ -299,8 +300,8 @@ export const ButtonsSection = ({
 
   return (
     <>
-      <div style={{ height: "100px" }} />
-      <div
+      <Section style={{ height: "100px" }} />
+      <Section
         style={{
           backgroundColor: "#fffffe",
           fontSize: "16px",
@@ -310,7 +311,7 @@ export const ButtonsSection = ({
           textAlign: "start",
         }}
       >
-        <div
+        <Section
           style={{ paddingBottom: "44px", paddingTop: "44px", width: "100%" }}
         >
           {visibleSizes.map((buttonSize, index) => (
@@ -325,13 +326,13 @@ export const ButtonsSection = ({
                 size={buttonSize}
               />
               {index < visibleSizes.length - 1 ? (
-                <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
               ) : null}
             </Fragment>
           ))}
-        </div>
-      </div>
-      <div style={{ height: "100px" }} />
+        </Section>
+      </Section>
+      <Section style={{ height: "100px" }} />
     </>
   );
 };

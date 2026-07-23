@@ -1,54 +1,38 @@
-// MJML parity block — mirrored from react-email (onboarding-linear.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Welcome to {_productName} — let's get you started
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { linearTheme } from "@/registry/bases/mjml-react/themes/linear";
 
-type Props = Record<string, never>;
+interface Props {
+  _firstName?: string;
+  _productName?: string;
+  ctaHref?: string;
+  _senderName?: string;
+  _senderTitle?: string;
+  _senderAvatarUrl?: string;
+}
 
-export const OnboardingLinear = (_props: Props) => {
-  const theme: EmailThemeTokens = linearTheme;
+export const OnboardingLinear = ({
+  _firstName = "there",
+  _productName = "Linear",
+  ctaHref = "https://linear.app",
+  _senderName = "Linear Team",
+}: Props) => (
+  <OnboardingBlock
+    ctaHref={ctaHref}
+    firstName={_firstName}
+    productName={_productName}
+    senderName={_senderName}
+    theme={linearTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for onboarding-linear.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-OnboardingLinear.PreviewProps = {} satisfies Props;
+OnboardingLinear.PreviewProps = {
+  _firstName: "Aniket",
+  _productName: "Linear",
+  _senderAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderName: "Linear Team",
+  _senderTitle: "Team",
+  ctaHref: "https://linear.app",
+} satisfies Props;

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-shared",
+  "title": "Container Shared",
+  "description": "Container Shared email component",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/ui/ui-elements/containers/container-shared.tsx",
+      "content": "import { Section, Text } from \"jsx-email\";\nimport type { ReactNode } from \"react\";\n\nexport type ContainerMobile = \"flush\" | \"gutters\";\n\nexport const containerResponsiveStyles = `\n  @media only screen and (max-width: 599px) {\n    .container-mobile-gutters {\n      margin-left: 24px !important;\n      margin-right: 24px !important;\n    }\n  }\n`;\n\nexport const ContainerSection = ({\n  align = \"center\",\n  children,\n  content,\n  maxWidth = \"600px\",\n  mobile = \"gutters\",\n}: {\n  align?: \"center\" | \"left\" | \"right\";\n  children?: ReactNode;\n  content?: ReactNode;\n  maxWidth?: string;\n  mobile?: ContainerMobile;\n}) => {\n  const label =\n    children ??\n    content ??\n    (mobile === \"flush\" ? \"Flush on mobile\" : \"With gutters on mobile\");\n\n  return (\n    <>\n      <Section style={{ height: \"100px\" }} />\n      <Section\n        className={\n          mobile === \"gutters\" ? \"container-mobile-gutters\" : undefined\n        }\n        style={{\n          backgroundColor: \"#fffffe\",\n          marginLeft: \"auto\",\n          marginRight: \"auto\",\n          maxWidth,\n        }}\n      >\n        <Section style={{ paddingBottom: \"48px\", paddingTop: \"48px\" }}>\n          <Section style={{ paddingBottom: \"16px\", paddingTop: \"16px\" }}>\n            <Text\n              style={{\n                color: \"#030712\",\n                fontFamily:\n                  'Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif',\n                fontSize: \"16px\",\n                fontWeight: 500,\n                lineHeight: \"24px\",\n                margin: 0,\n                textAlign: align,\n              }}\n            >\n              {label}\n            </Text>\n          </Section>\n        </Section>\n      </Section>\n      <Section style={{ height: \"100px\" }} />\n    </>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/email/container-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

@@ -1,6 +1,17 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
 import type { ReactNode } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -51,17 +62,11 @@ const textStyle = {
 const SplitShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -69,21 +74,21 @@ const SplitShell = ({ children }: { children: ReactNode }) => (
             }}
           >
             {children}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
 const SplitMeta = ({ index, label }: { index: string; label: string }) => (
-  <td
+  <Column
     className="split-card-column split-card-meta"
     style={{ padding: "16px 0", verticalAlign: "top", width: "112px" }}
   >
-    <div>
-      <p
+    <Section>
+      <Text
         style={{
           ...textStyle,
           color: "#030712",
@@ -93,8 +98,8 @@ const SplitMeta = ({ index, label }: { index: string; label: string }) => (
         }}
       >
         {index}
-      </p>
-      <p
+      </Text>
+      <Text
         style={{
           ...textStyle,
           color: "#9ca3af",
@@ -104,9 +109,9 @@ const SplitMeta = ({ index, label }: { index: string; label: string }) => (
         }}
       >
         {label}
-      </p>
-    </div>
-  </td>
+      </Text>
+    </Section>
+  </Column>
 );
 
 interface EventCardProps {
@@ -134,9 +139,15 @@ const EventCard = ({
   const imageTop = variant.startsWith("image-top");
   const imageBottom = variant.startsWith("image-bottom");
   const dark = accent || imageTop || imageBottom;
+  let cardBackgroundColor: string | undefined;
+  if (dark) {
+    cardBackgroundColor = "#030712";
+  } else if (boxed) {
+    cardBackgroundColor = "#f9fafb";
+  }
 
   const image = (
-    <img
+    <Img
       alt={imageAlt}
       src={imageSrc}
       style={{
@@ -149,18 +160,12 @@ const EventCard = ({
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section style={{ width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column
             style={{
-              backgroundColor: dark ? "#030712" : boxed ? "#f9fafb" : undefined,
+              backgroundColor: cardBackgroundColor,
               borderRadius: muted ? undefined : "8px",
               padding: muted ? 0 : "16px",
             }}
@@ -168,11 +173,11 @@ const EventCard = ({
             {imageTop ? (
               <>
                 {image}
-                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
               </>
             ) : null}
             {muted ? (
-              <p
+              <Text
                 style={{
                   ...textStyle,
                   color: "#374151",
@@ -181,28 +186,17 @@ const EventCard = ({
                 }}
               >
                 {date}
-              </p>
+              </Text>
             ) : (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
-                        role="presentation"
-                      >
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
+                    <Column>
+                      <Section>
+                        <Fragment>
+                          <Row>
+                            <Column>
+                              <Section
                                 style={{
                                   backgroundColor: "#6ee7b7",
                                   borderRadius: "9999px",
@@ -213,7 +207,7 @@ const EventCard = ({
                                 }}
                               >
                                 {accent ? (
-                                  <img
+                                  <Img
                                     alt=""
                                     src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
                                     style={{ marginBottom: "1px" }}
@@ -222,11 +216,11 @@ const EventCard = ({
                                 ) : (
                                   <>&zwj;</>
                                 )}
-                              </div>
-                            </td>
-                            <td style={{ width: "8px" }}>&zwj;</td>
-                            <td>
-                              <p
+                              </Section>
+                            </Column>
+                            <Column style={{ width: "8px" }}>&zwj;</Column>
+                            <Column>
+                              <Text
                                 style={{
                                   ...textStyle,
                                   color: dark ? "#e5e7eb" : "#374151",
@@ -235,13 +229,13 @@ const EventCard = ({
                                 }}
                               >
                                 {date}
-                              </p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                    <td style={{ textAlign: "right" }}>
+                              </Text>
+                            </Column>
+                          </Row>
+                        </Fragment>
+                      </Section>
+                    </Column>
+                    <Column style={{ textAlign: "right" }}>
                       <span
                         style={{
                           backgroundColor: "#eef2ff",
@@ -258,12 +252,12 @@ const EventCard = ({
                       >
                         {badge}
                       </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
             )}
-            <p
+            <Text
               style={{
                 ...textStyle,
                 color: dark ? "#fffffe" : "#030712",
@@ -274,8 +268,8 @@ const EventCard = ({
               }}
             >
               {title}
-            </p>
-            <p
+            </Text>
+            <Text
               style={{
                 ...textStyle,
                 color: dark ? "#d1d5db" : "#4b5563",
@@ -285,17 +279,17 @@ const EventCard = ({
               }}
             >
               {description}
-            </p>
+            </Text>
             {imageBottom ? (
               <>
-                <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
                 {image}
               </>
             ) : null}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -314,7 +308,7 @@ export const SplitCardsSection = ({
   const muted = variant.startsWith("muted");
   const meta = <SplitMeta index={index} label={label} />;
   const copy = (
-    <td
+    <Column
       className="split-card-column split-card-copy"
       style={{ padding: "16px", verticalAlign: "top" }}
     >
@@ -327,43 +321,31 @@ export const SplitCardsSection = ({
         title={title}
         variant={variant}
       />
-    </td>
+    </Column>
   );
 
   return (
     <SplitShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column
               style={{
                 padding: muted && !reverse ? "0 24px" : "16px 24px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
                     {reverse ? copy : meta}
                     {reverse ? meta : copy}
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     </SplitShell>
   );
 };

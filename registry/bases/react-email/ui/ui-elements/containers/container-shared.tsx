@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Section, Text } from "react-email";
 
 export type ContainerMobile = "flush" | "gutters";
 
@@ -31,8 +32,8 @@ export const ContainerSection = ({
 
   return (
     <>
-      <div style={{ height: "100px" }} />
-      <div
+      <Section style={{ height: "100px" }} />
+      <Section
         className={
           mobile === "gutters" ? "container-mobile-gutters" : undefined
         }
@@ -43,9 +44,9 @@ export const ContainerSection = ({
           maxWidth,
         }}
       >
-        <div style={{ paddingBottom: "48px", paddingTop: "48px" }}>
-          <div style={{ paddingBottom: "16px", paddingTop: "16px" }}>
-            <p
+        <Section style={{ paddingBottom: "48px", paddingTop: "48px" }}>
+          <Section style={{ paddingBottom: "16px", paddingTop: "16px" }}>
+            <Text
               style={{
                 color: "#030712",
                 fontFamily:
@@ -58,11 +59,11 @@ export const ContainerSection = ({
               }}
             >
               {label}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div style={{ height: "100px" }} />
+            </Text>
+          </Section>
+        </Section>
+      </Section>
+      <Section style={{ height: "100px" }} />
     </>
   );
 };

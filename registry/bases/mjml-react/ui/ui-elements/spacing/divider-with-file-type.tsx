@@ -1,3 +1,5 @@
+import { MjmlButton } from "@faire/mjml-react";
+
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
@@ -5,7 +7,7 @@ import {
   DividerFrame,
   SpacingEmailShell,
   dividerColors,
-  dividerTextStyle,
+  dividerFontFamily,
 } from "./divider-shared";
 import type { DividerVariant } from "./divider-shared";
 
@@ -20,21 +22,20 @@ export const DividerWithFileTypeSection = ({
   variant = "center",
 }: Omit<DividerWithFileTypeProps, "theme">) => (
   <DividerFrame variant={variant}>
-    <p
-      style={{
-        ...dividerTextStyle,
-        backgroundColor: dividerColors.mutedBackground,
-        borderRadius: "4px",
-        color: dividerColors.muted,
-        display: "inline-block",
-        fontSize: "12px",
-        fontWeight: 500,
-        lineHeight: "18px",
-        padding: "4px 8px",
-      }}
+    <MjmlButton
+      align="center"
+      backgroundColor={dividerColors.mutedBackground}
+      borderRadius="4px"
+      color={dividerColors.muted}
+      fontFamily={dividerFontFamily}
+      fontSize="12px"
+      fontWeight="500"
+      innerPadding="4px 8px"
+      lineHeight="18px"
+      padding="0"
     >
       {fileType}
-    </p>
+    </MjmlButton>
   </DividerFrame>
 );
 

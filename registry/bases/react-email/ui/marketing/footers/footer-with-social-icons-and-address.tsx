@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Link,
+  Section,
+  Row,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -92,7 +103,7 @@ type SectionProps = Omit<FooterWithSocialIconsAndAddressProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const LogoCell = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="footer-address-cell footer-address-logo"
     style={{
       textAlign: props.variant === "right-logo" ? "right" : "left",
@@ -100,27 +111,27 @@ const LogoCell = ({ props }: { props: ResolvedProps }) => (
       width: "55px",
     }}
   >
-    <a href={props.logoHref}>
-      <img
+    <Link href={props.logoHref}>
+      <Img
         alt={props.logoAlt}
         src={props.logoSrc}
         style={{ maxWidth: "100%", verticalAlign: "middle" }}
         width={55}
       />
-    </a>
-  </td>
+    </Link>
+  </Column>
 );
 
 const ContentCell = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="footer-address-cell"
     style={{ textAlign: "left", verticalAlign: "top" }}
   >
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
+    <Section>
+      <Fragment>
+        <Row>
           {props.socials.map((social, index) => (
-            <td
+            <Column
               key={social.href}
               style={
                 index === props.socials.length - 1
@@ -128,21 +139,21 @@ const ContentCell = ({ props }: { props: ResolvedProps }) => (
                   : { paddingRight: "24px" }
               }
             >
-              <a href={social.href}>
-                <img
+              <Link href={social.href}>
+                <Img
                   alt={social.label}
                   src={social.iconSrc}
                   style={{ maxWidth: "100%", verticalAlign: "middle" }}
                   width={20}
                 />
-              </a>
-            </td>
+              </Link>
+            </Column>
           ))}
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
+        </Row>
+      </Fragment>
+    </Section>
+    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -157,9 +168,9 @@ const ContentCell = ({ props }: { props: ResolvedProps }) => (
           {line}
         </span>
       ))}
-    </p>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
+    </Text>
+    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+    <Text
       style={{
         color: props.mutedTextColor,
         fontFamily,
@@ -170,19 +181,19 @@ const ContentCell = ({ props }: { props: ResolvedProps }) => (
     >
       {props.legalText}
       <br /> No longer want to receive emails?{" "}
-      <a
+      <Link
         href={props.unsubscribeHref}
         style={{ color: props.mutedTextColor, textDecoration: "underline" }}
       >
         Unsubscribe
-      </a>
-    </p>
-  </td>
+      </Link>
+    </Text>
+  </Column>
 );
 
 const CenteredContent = ({ props }: { props: ResolvedProps }) => (
   <>
-    <p
+    <Text
       style={{
         color: "#030712",
         fontFamily,
@@ -194,20 +205,13 @@ const CenteredContent = ({ props }: { props: ResolvedProps }) => (
       }}
     >
       {props.title}
-    </p>
-    <div style={{ lineHeight: "12px" }}>&zwj;</div>
-    <table
-      align="center"
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ marginLeft: "auto", marginRight: "auto" }}
-    >
-      <tbody>
-        <tr>
+    </Text>
+    <Section style={{ lineHeight: "12px" }}>&zwj;</Section>
+    <Section align="center" style={{ marginLeft: "auto", marginRight: "auto" }}>
+      <Fragment>
+        <Row>
           {props.socials.map((social, index) => (
-            <td
+            <Column
               key={social.href}
               style={
                 index === props.socials.length - 1
@@ -215,31 +219,25 @@ const CenteredContent = ({ props }: { props: ResolvedProps }) => (
                   : { paddingRight: "24px" }
               }
             >
-              <a href={social.href}>
-                <img
+              <Link href={social.href}>
+                <Img
                   alt={social.label}
                   src={social.iconSrc}
                   style={{ maxWidth: "100%", verticalAlign: "middle" }}
                   width={20}
                 />
-              </a>
-            </td>
+              </Link>
+            </Column>
           ))}
-        </tr>
-      </tbody>
-    </table>
-    <div style={{ lineHeight: "64px" }}>&zwj;</div>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 24px", textAlign: "center" }}>
-            <p
+        </Row>
+      </Fragment>
+    </Section>
+    <Section style={{ lineHeight: "64px" }}>&zwj;</Section>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "0 24px", textAlign: "center" }}>
+            <Text
               style={{
                 color: "#9ca3af",
                 fontFamily,
@@ -254,9 +252,9 @@ const CenteredContent = ({ props }: { props: ResolvedProps }) => (
                   {line}
                 </span>
               ))}
-            </p>
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <p
+            </Text>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Text
               style={{
                 color: props.mutedTextColor,
                 fontFamily,
@@ -267,7 +265,7 @@ const CenteredContent = ({ props }: { props: ResolvedProps }) => (
             >
               {props.centeredLegalText} <br className="footer-address-break" />
               No longer want to receive emails?{" "}
-              <a
+              <Link
                 href={props.unsubscribeHref}
                 style={{
                   color: props.mutedTextColor,
@@ -275,12 +273,12 @@ const CenteredContent = ({ props }: { props: ResolvedProps }) => (
                 }}
               >
                 Unsubscribe
-              </a>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              </Link>
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -292,29 +290,25 @@ export const FooterWithSocialIconsAndAddressSection = (props: SectionProps) => {
   } as ResolvedProps;
   const logo = <LogoCell props={resolved} />;
   const gap = (
-    <td
+    <Column
       className="footer-address-cell footer-address-gap"
       style={{ width: "96px" }}
     >
       &zwj;
-    </td>
+    </Column>
   );
   const content = <ContentCell props={resolved} />;
 
   if (resolved.variant === "centered") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
+      <Section
         style={{ backgroundColor: resolved.pageBackgroundColor }}
         width="100%"
       >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: resolved.backgroundColor,
                 maxWidth: "100%",
@@ -323,67 +317,53 @@ export const FooterWithSocialIconsAndAddressSection = (props: SectionProps) => {
               }}
             >
               <CenteredContent props={resolved} />
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "44px 24px", verticalAlign: "top" }}>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
+                    style={{ padding: "44px 24px", verticalAlign: "top" }}
+                  >
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {resolved.variant === "left-logo" ? logo : content}
                           {gap}
                           {resolved.variant === "left-logo" ? content : logo}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,7 +1,17 @@
 import { Fragment } from "react";
 import type { CSSProperties } from "react";
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -100,7 +110,7 @@ const Divider = ({
   color: string;
   style?: CSSProperties;
 }) => (
-  <div
+  <Section
     style={{
       backgroundColor: color,
       height: "1px",
@@ -110,33 +120,33 @@ const Divider = ({
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const SocialLinks = () => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
+  <Section>
+    <Fragment>
+      <Row>
         {socials.map(([label, href, icon], index) => (
-          <td
+          <Column
             key={label}
             style={
               index < socials.length - 1 ? { paddingRight: "24px" } : undefined
             }
           >
-            <a href={href}>
-              <img
+            <Link href={href}>
+              <Img
                 alt={label}
                 src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
-            </a>
-          </td>
+            </Link>
+          </Column>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterWithCompanyLocationsSection = ({
@@ -158,18 +168,11 @@ export const FooterWithCompanyLocationsSection = ({
     locations ?? (variant === "grid" ? gridLocations : stackedLocations);
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -177,39 +180,29 @@ export const FooterWithCompanyLocationsSection = ({
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ textAlign: "center" }}>
-                      <a href={logoHref}>
-                        <img
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section style={{ textAlign: "center" }}>
+                      <Link href={logoHref}>
+                        <Img
                           alt={logoAlt}
                           src={logoSrc}
                           style={{ maxWidth: "100%", verticalAlign: "middle" }}
                           width={64}
                         />
-                      </a>
-                    </div>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <table
+                      </Link>
+                    </Section>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Section
                       align="center"
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
                       style={{ marginLeft: "auto", marginRight: "auto" }}
                     >
-                      <tbody>
-                        <tr>
+                      <Fragment>
+                        <Row>
                           {menu.map((link, index) => (
-                            <td
+                            <Column
                               key={link.href}
                               style={
                                 index < menu.length - 1
@@ -217,7 +210,7 @@ export const FooterWithCompanyLocationsSection = ({
                                   : undefined
                               }
                             >
-                              <a
+                              <Link
                                 href={link.href}
                                 style={{
                                   color: textColor,
@@ -229,16 +222,18 @@ export const FooterWithCompanyLocationsSection = ({
                                 }}
                               >
                                 {link.label}
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
                     <Divider color={dividerColor} />
                     {variant === "stacked" ? (
-                      <div style={{ margin: "24px 0", textAlign: "center" }}>
-                        <p
+                      <Section
+                        style={{ margin: "24px 0", textAlign: "center" }}
+                      >
+                        <Text
                           style={{
                             color: strongTextColor,
                             fontFamily,
@@ -249,9 +244,9 @@ export const FooterWithCompanyLocationsSection = ({
                           }}
                         >
                           Locations
-                        </p>
+                        </Text>
                         {items.map((location) => (
-                          <div
+                          <Section
                             key={location.name}
                             style={{
                               color: textColor,
@@ -261,8 +256,10 @@ export const FooterWithCompanyLocationsSection = ({
                               textAlign: "center",
                             }}
                           >
-                            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                            <p
+                            <Section style={{ lineHeight: "44px" }}>
+                              &zwj;
+                            </Section>
+                            <Text
                               style={{
                                 color: strongTextColor,
                                 fontWeight: 600,
@@ -270,16 +267,16 @@ export const FooterWithCompanyLocationsSection = ({
                               }}
                             >
                               {location.name}
-                            </p>
-                            <p style={{ margin: 0 }}>
+                            </Text>
+                            <Text style={{ margin: 0 }}>
                               <LineBreaks text={location.address} />
-                            </p>
-                          </div>
+                            </Text>
+                          </Section>
                         ))}
-                      </div>
+                      </Section>
                     ) : (
-                      <div style={{ margin: "24px 0", textAlign: "left" }}>
-                        <p
+                      <Section style={{ margin: "24px 0", textAlign: "left" }}>
+                        <Text
                           style={{
                             color: strongTextColor,
                             fontFamily,
@@ -290,18 +287,11 @@ export const FooterWithCompanyLocationsSection = ({
                           }}
                         >
                           Locations
-                        </p>
-                        <table
-                          border={0}
-                          cellPadding={0}
-                          cellSpacing={0}
-                          role="presentation"
-                          style={{ tableLayout: "fixed" }}
-                          width="100%"
-                        >
-                          <tbody>
+                        </Text>
+                        <Section style={{ tableLayout: "fixed" }} width="100%">
+                          <Fragment>
                             {[0, 2].map((start, rowIndex) => (
-                              <tr key={start}>
+                              <Row key={start}>
                                 {[start, start + 1].map(
                                   (itemIndex, columnIndex) => {
                                     const location = items[itemIndex];
@@ -310,14 +300,14 @@ export const FooterWithCompanyLocationsSection = ({
                                         key={location?.name ?? itemIndex}
                                       >
                                         {columnIndex > 0 ? (
-                                          <td
+                                          <Column
                                             className="footer-locations-grid-gap"
                                             style={{ width: "44px" }}
                                           >
                                             &zwj;
-                                          </td>
+                                          </Column>
                                         ) : null}
-                                        <td
+                                        <Column
                                           className={`footer-locations-grid-cell ${rowIndex === 0 ? "footer-locations-grid-cell-spaced" : ""}`}
                                           style={{
                                             color: textColor,
@@ -330,7 +320,7 @@ export const FooterWithCompanyLocationsSection = ({
                                         >
                                           {location ? (
                                             <>
-                                              <p
+                                              <Text
                                                 style={{
                                                   color: strongTextColor,
                                                   fontWeight: 600,
@@ -338,24 +328,24 @@ export const FooterWithCompanyLocationsSection = ({
                                                 }}
                                               >
                                                 {location.name}
-                                              </p>
-                                              <p style={{ margin: 0 }}>
+                                              </Text>
+                                              <Text style={{ margin: 0 }}>
                                                 <LineBreaks
                                                   text={location.address}
                                                 />
-                                              </p>
+                                              </Text>
                                             </>
                                           ) : null}
-                                        </td>
+                                        </Column>
                                       </Fragment>
                                     );
                                   }
                                 )}
-                              </tr>
+                              </Row>
                             ))}
-                          </tbody>
-                        </table>
-                      </div>
+                          </Fragment>
+                        </Section>
+                      </Section>
                     )}
                     <Divider
                       color={dividerColor}
@@ -366,8 +356,8 @@ export const FooterWithCompanyLocationsSection = ({
                       }
                     />
                     <SocialLinks />
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: subduedTextColor,
                         fontFamily,
@@ -378,9 +368,9 @@ export const FooterWithCompanyLocationsSection = ({
                       }}
                     >
                       © 2026 emailcn. All rights reserved.
-                    </p>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
+                    </Text>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: mutedTextColor,
                         fontFamily,
@@ -393,7 +383,7 @@ export const FooterWithCompanyLocationsSection = ({
                       You're receiving this because you subscribed to updates.{" "}
                       <br className="footer-locations-break" /> No longer want
                       to receive emails?{" "}
-                      <a
+                      <Link
                         href={unsubscribeHref}
                         style={{
                           color: mutedTextColor,
@@ -401,17 +391,17 @@ export const FooterWithCompanyLocationsSection = ({
                         }}
                       >
                         Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                      </Link>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,16 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -33,8 +44,18 @@ const textStyle = {
   margin: 0,
 } as const;
 
+const getDateAlignment = (
+  index: number,
+  length: number
+): "center" | "left" | "right" => {
+  if (index === 0) {
+    return "left";
+  }
+  return index === length - 1 ? "right" : "center";
+};
+
 const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
-  <div
+  <Section
     style={{
       backgroundColor: dark ? "#030712" : "#d1d5db",
       borderRadius: "9999px",
@@ -46,7 +67,7 @@ const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
     }}
   >
     {checked ? (
-      <img
+      <Img
         alt=""
         src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check-white.png"
         style={{ marginBottom: "1px" }}
@@ -55,7 +76,7 @@ const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
     ) : (
       <>&zwj;</>
     )}
-  </div>
+  </Section>
 );
 
 export const PaymentTimelineSection = ({
@@ -74,17 +95,11 @@ export const PaymentTimelineSection = ({
   return (
     <>
       <style>{responsiveStyles}</style>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               style={{
                 backgroundColor: "#fffffe",
                 maxWidth: "100%",
@@ -92,41 +107,25 @@ export const PaymentTimelineSection = ({
                 width: "600px",
               }}
             >
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
-                    <td style={{ padding: "0 24px" }}>
-                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                      <table
-                        border={0}
-                        cellPadding={0}
-                        cellSpacing={0}
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
+                    <Column style={{ padding: "0 24px" }}>
+                      <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                      <Section
                         className="payment-timeline-desktop"
-                        role="presentation"
                         style={{ tableLayout: "fixed", width: "100%" }}
                       >
-                        <tbody>
-                          <tr>
+                        <Fragment>
+                          <Row>
                             {dates.map((date, index) => (
-                              <td key={date}>
-                                <table
-                                  border={0}
-                                  cellPadding={0}
-                                  cellSpacing={0}
-                                  role="presentation"
-                                  style={{ width: "100%" }}
-                                >
-                                  <tbody>
-                                    <tr>
-                                      <td>
+                              <Column key={date}>
+                                <Section style={{ width: "100%" }}>
+                                  <Fragment>
+                                    <Row>
+                                      <Column>
                                         {index === 0 ? null : (
-                                          <div
+                                          <Section
                                             style={{
                                               backgroundColor:
                                                 index <= 1
@@ -137,18 +136,18 @@ export const PaymentTimelineSection = ({
                                             }}
                                           >
                                             &zwj;
-                                          </div>
+                                          </Section>
                                         )}
-                                      </td>
-                                      <td style={{ width: "16px" }}>
+                                      </Column>
+                                      <Column style={{ width: "16px" }}>
                                         <Dot
                                           checked={index === 0}
                                           dark={index <= 1}
                                         />
-                                      </td>
-                                      <td>
+                                      </Column>
+                                      <Column>
                                         {index === dates.length - 1 ? null : (
-                                          <div
+                                          <Section
                                             style={{
                                               backgroundColor:
                                                 index === 0
@@ -159,38 +158,36 @@ export const PaymentTimelineSection = ({
                                             }}
                                           >
                                             &zwj;
-                                          </div>
+                                          </Section>
                                         )}
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
+                                      </Column>
+                                    </Row>
+                                  </Fragment>
+                                </Section>
+                              </Column>
                             ))}
-                          </tr>
-                          <tr>
-                            <td
+                          </Row>
+                          <Row>
+                            <Column
                               colSpan={dates.length}
                               style={{ lineHeight: "8px" }}
                             >
                               &zwj;
-                            </td>
-                          </tr>
-                          <tr>
+                            </Column>
+                          </Row>
+                          <Row>
                             {dates.map((date, index) => (
-                              <td
+                              <Column
                                 key={date}
                                 style={{
-                                  textAlign:
-                                    index === 0
-                                      ? "left"
-                                      : index === dates.length - 1
-                                        ? "right"
-                                        : "center",
+                                  textAlign: getDateAlignment(
+                                    index,
+                                    dates.length
+                                  ),
                                   verticalAlign: "top",
                                 }}
                               >
-                                <p
+                                <Text
                                   style={{
                                     ...textStyle,
                                     color: "#030712",
@@ -200,8 +197,8 @@ export const PaymentTimelineSection = ({
                                   }}
                                 >
                                   {date}
-                                </p>
-                                <p
+                                </Text>
+                                <Text
                                   style={{
                                     ...textStyle,
                                     color: "#4b5563",
@@ -210,21 +207,21 @@ export const PaymentTimelineSection = ({
                                   }}
                                 >
                                   {amount}
-                                </p>
-                              </td>
+                                </Text>
+                              </Column>
                             ))}
-                          </tr>
-                        </tbody>
-                      </table>
-                      <div className="payment-timeline-mobile">
+                          </Row>
+                        </Fragment>
+                      </Section>
+                      <Section className="payment-timeline-mobile">
                         {dates.map((date, index) => (
-                          <div key={date} style={{ display: "flex" }}>
-                            <div>
-                              <div style={{ margin: "2px 0" }}>
+                          <Section key={date} style={{ display: "flex" }}>
+                            <Section>
+                              <Section style={{ margin: "2px 0" }}>
                                 <Dot checked={index === 0} dark={index <= 1} />
-                              </div>
+                              </Section>
                               {index === dates.length - 1 ? null : (
-                                <div
+                                <Section
                                   style={{
                                     backgroundColor:
                                       index === 0 ? "#030712" : "#d1d5db",
@@ -234,9 +231,9 @@ export const PaymentTimelineSection = ({
                                   }}
                                 />
                               )}
-                            </div>
-                            <div style={{ paddingLeft: "8px" }}>
-                              <p
+                            </Section>
+                            <Section style={{ paddingLeft: "8px" }}>
+                              <Text
                                 style={{
                                   ...textStyle,
                                   color: "#030712",
@@ -246,8 +243,8 @@ export const PaymentTimelineSection = ({
                                 }}
                               >
                                 {date}
-                              </p>
-                              <p
+                              </Text>
+                              <Text
                                 style={{
                                   ...textStyle,
                                   color: "#4b5563",
@@ -256,20 +253,20 @@ export const PaymentTimelineSection = ({
                                 }}
                               >
                                 {amount}
-                              </p>
-                            </div>
-                          </div>
+                              </Text>
+                            </Section>
+                          </Section>
                         ))}
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+                      </Section>
+                    </Column>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </>
   );
 };

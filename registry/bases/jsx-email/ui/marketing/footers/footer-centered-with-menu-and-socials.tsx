@@ -1,6 +1,17 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "jsx-email";
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -83,18 +94,11 @@ type SectionProps = Omit<FooterCenteredWithMenuAndSocialsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const CenteredRow = ({ children }: { children: ReactNode }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ marginLeft: "auto", marginRight: "auto" }}
-  >
-    <tbody>
-      <tr>{children}</tr>
-    </tbody>
-  </table>
+  <Section align="center" style={{ marginLeft: "auto", marginRight: "auto" }}>
+    <Fragment>
+      <Row>{children}</Row>
+    </Fragment>
+  </Section>
 );
 
 export const FooterCenteredWithMenuAndSocialsSection = (
@@ -102,18 +106,14 @@ export const FooterCenteredWithMenuAndSocialsSection = (
 ) => {
   const resolved = { ...defaults, ...props } as ResolvedProps;
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -121,20 +121,20 @@ export const FooterCenteredWithMenuAndSocialsSection = (
               width: "600px",
             }}
           >
-            <div style={{ textAlign: "center" }}>
-              <a href={resolved.logoHref}>
-                <img
+            <Section style={{ textAlign: "center" }}>
+              <Link href={resolved.logoHref}>
+                <Img
                   alt={resolved.logoAlt}
                   src={resolved.logoSrc}
                   style={{ maxWidth: "100%", verticalAlign: "middle" }}
                   width={55}
                 />
-              </a>
-            </div>
-            <div style={{ lineHeight: "64px" }}>&zwj;</div>
+              </Link>
+            </Section>
+            <Section style={{ lineHeight: "64px" }}>&zwj;</Section>
             <CenteredRow>
               {resolved.links.map((link, index) => (
-                <td
+                <Column
                   key={link.href}
                   style={
                     index === resolved.links.length - 1
@@ -142,7 +142,7 @@ export const FooterCenteredWithMenuAndSocialsSection = (
                       : { paddingRight: "24px" }
                   }
                 >
-                  <a
+                  <Link
                     href={link.href}
                     style={{
                       color: resolved.textColor,
@@ -153,14 +153,14 @@ export const FooterCenteredWithMenuAndSocialsSection = (
                     }}
                   >
                     {link.label}
-                  </a>
-                </td>
+                  </Link>
+                </Column>
               ))}
             </CenteredRow>
-            <div style={{ lineHeight: "36px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
             <CenteredRow>
               {resolved.socials.map((social, index) => (
-                <td
+                <Column
                   key={social.href}
                   style={
                     index === resolved.socials.length - 1
@@ -168,29 +168,23 @@ export const FooterCenteredWithMenuAndSocialsSection = (
                       : { paddingRight: "24px" }
                   }
                 >
-                  <a href={social.href}>
-                    <img
+                  <Link href={social.href}>
+                    <Img
                       alt={social.label}
                       src={social.iconSrc}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={20}
                     />
-                  </a>
-                </td>
+                  </Link>
+                </Column>
               ))}
             </CenteredRow>
-            <div style={{ lineHeight: "64px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <p
+            <Section style={{ lineHeight: "64px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Text
                       style={{
                         color: resolved.textColor,
                         fontFamily,
@@ -202,9 +196,9 @@ export const FooterCenteredWithMenuAndSocialsSection = (
                       © 2026 emailcn
                       <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; |
                       &nbsp;75505 Paris
-                    </p>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <p
+                    </Text>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Text
                       style={{
                         color: resolved.mutedTextColor,
                         fontFamily,
@@ -216,7 +210,7 @@ export const FooterCenteredWithMenuAndSocialsSection = (
                       You're receiving this because you subscribed to updates.{" "}
                       <br className="footer-centered-menu-break" /> No longer
                       want to receive emails?{" "}
-                      <a
+                      <Link
                         href={resolved.unsubscribeHref}
                         style={{
                           color: resolved.mutedTextColor,
@@ -224,17 +218,17 @@ export const FooterCenteredWithMenuAndSocialsSection = (
                         }}
                       >
                         Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                      </Link>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

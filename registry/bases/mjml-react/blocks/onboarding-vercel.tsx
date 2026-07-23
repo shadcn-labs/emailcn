@@ -1,54 +1,38 @@
-// MJML parity block — mirrored from react-email (onboarding-vercel.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Welcome to {_productName} — let's get you started
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { vercelTheme } from "@/registry/bases/mjml-react/themes/vercel";
 
-type Props = Record<string, never>;
+interface Props {
+  _firstName?: string;
+  _productName?: string;
+  ctaHref?: string;
+  _senderName?: string;
+  _senderTitle?: string;
+  _senderAvatarUrl?: string;
+}
 
-export const OnboardingVercel = (_props: Props) => {
-  const theme: EmailThemeTokens = vercelTheme;
+export const OnboardingVercel = ({
+  _firstName = "there",
+  _productName = "Vercel",
+  ctaHref = "https://vercel.com",
+  _senderName = "Vercel Team",
+}: Props) => (
+  <OnboardingBlock
+    ctaHref={ctaHref}
+    firstName={_firstName}
+    productName={_productName}
+    senderName={_senderName}
+    theme={vercelTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for onboarding-vercel.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-OnboardingVercel.PreviewProps = {} satisfies Props;
+OnboardingVercel.PreviewProps = {
+  _firstName: "Aniket",
+  _productName: "Vercel",
+  _senderAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderName: "Vercel Team",
+  _senderTitle: "Team",
+  ctaHref: "https://vercel.com/dashboard",
+} satisfies Props;

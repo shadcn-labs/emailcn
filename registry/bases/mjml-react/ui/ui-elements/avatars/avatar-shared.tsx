@@ -1,4 +1,12 @@
-import type { CSSProperties, ReactNode } from "react";
+import {
+  MjmlColumn,
+  MjmlGroup,
+  MjmlImage,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
+} from "@faire/mjml-react";
+import type { ReactNode } from "react";
 
 export type AvatarAlignment = "center" | "left" | "right";
 export type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
@@ -11,6 +19,12 @@ export interface AvatarItem {
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+export const avatarResponsiveStyles = `
+  .emailcn-avatar-group-left { margin-left: 0 !important; margin-right: auto !important; }
+  .emailcn-avatar-group-center { margin-left: auto !important; margin-right: auto !important; }
+  .emailcn-avatar-group-right { margin-left: auto !important; margin-right: 0 !important; }
+`;
 
 export const defaultAvatars: AvatarItem[] = [
   { name: "John Adams", url: `${ASSET_ROOT}/avatar-2.jpg` },
@@ -32,32 +46,27 @@ const avatarSizes: Record<
 };
 
 const AvatarShell = ({ children }: { children: ReactNode }) => (
-  <div style={{ backgroundColor: "#f1f5f9" }}>
-    <div style={{ height: "100px" }} />
-    <div
-      style={{
-        backgroundColor: "#fffffe",
-        fontFamily,
-        marginLeft: "auto",
-        marginRight: "auto",
-        maxWidth: "600px",
-        paddingBottom: "44px",
-      }}
-    >
-      <div style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-        <div style={{ lineHeight: "44px" }}>&zwj;</div>
-        {children}
-      </div>
-    </div>
-    <div style={{ height: "100px" }} />
-  </div>
+  <>
+    <MjmlSection padding="0">
+      <MjmlColumn padding="0">
+        <MjmlSpacer height="100px" />
+      </MjmlColumn>
+    </MjmlSection>
+    <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
+      {children}
+    </MjmlSection>
+    <MjmlSection padding="0">
+      <MjmlColumn padding="0">
+        <MjmlSpacer height="100px" />
+      </MjmlColumn>
+    </MjmlSection>
+  </>
 );
 
 export const AvatarWithDetailsSection = ({
   align = "center",
   avatarUrl = `${ASSET_ROOT}/avatar-2.jpg`,
   email = "johnadams@example.com",
-  mjmlCompensation = false,
   name = "John Adams",
 }: {
   align?: AvatarAlignment;
@@ -65,78 +74,49 @@ export const AvatarWithDetailsSection = ({
   email?: string;
   mjmlCompensation?: boolean;
   name?: string;
-}) => {
-  let alignmentStyle: CSSProperties = {
-    marginLeft: "auto",
-    marginRight: "auto",
-  };
-
-  if (align === "left") {
-    alignmentStyle = { marginRight: "auto" };
-  } else if (align === "right") {
-    alignmentStyle = { marginLeft: "auto" };
-  }
-
-  return (
-    <AvatarShell>
-      <table
-        style={{
-          borderSpacing: 0,
-          ...(mjmlCompensation && align === "center"
-            ? { left: "1px", position: "relative" as const }
-            : {}),
-          ...alignmentStyle,
-        }}
-      >
-        <tbody>
-          <tr>
-            <td style={{ verticalAlign: "top" }}>
-              <img
-                alt={name}
-                height={48}
-                src={avatarUrl}
-                style={{
-                  borderRadius: "9999px",
-                  maxWidth: "100%",
-                  verticalAlign: "middle",
-                }}
-                width={48}
-              />
-            </td>
-            <td style={{ width: "12px" }} />
-            <td style={{ textAlign: "left", verticalAlign: "top" }}>
-              <p
-                style={{
-                  color: "#030712",
-                  fontFamily,
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  lineHeight: "20px",
-                  margin: 0,
-                }}
-              >
-                {name}
-              </p>
-              <p
-                style={{
-                  color: "#6b7280",
-                  fontFamily,
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                  margin: 0,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {email}
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </AvatarShell>
-  );
-};
+}) => (
+  <AvatarShell>
+    <MjmlGroup
+      cssClass={`emailcn-avatar-group-${align}`}
+      verticalAlign="middle"
+      width="260px"
+    >
+      <MjmlColumn padding="0 12px 0 0" verticalAlign="middle" width="60px">
+        <MjmlImage
+          alt={name}
+          borderRadius="9999px"
+          height="48px"
+          padding="0"
+          src={avatarUrl}
+          width="48px"
+        />
+      </MjmlColumn>
+      <MjmlColumn padding="0" verticalAlign="middle" width="200px">
+        <MjmlText
+          align="left"
+          color="#030712"
+          fontFamily={fontFamily}
+          fontSize="14px"
+          fontWeight="500"
+          lineHeight="20px"
+          padding="0"
+        >
+          {name}
+        </MjmlText>
+        <MjmlText
+          align="left"
+          color="#6b7280"
+          fontFamily={fontFamily}
+          fontSize="14px"
+          lineHeight="20px"
+          padding="0"
+        >
+          {email}
+        </MjmlText>
+      </MjmlColumn>
+    </MjmlGroup>
+  </AvatarShell>
+);
 
 export const GroupedOverlappedAvatarsSection = ({
   avatars = defaultAvatars,
@@ -148,59 +128,60 @@ export const GroupedOverlappedAvatarsSection = ({
   size?: AvatarSize;
 }) => {
   const config = avatarSizes[size];
+  const visibleAvatars = avatars.slice(0, 4);
+  const itemCount =
+    visibleAvatars.length + (plusCount && plusCount > 0 ? 1 : 0);
+  const groupWidth =
+    Math.max(0, itemCount - 1) * config.overlapWidth + config.diameter;
 
   return (
     <AvatarShell>
-      <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: 0 }}>
-          {avatars.slice(0, 4).map((avatar, index) => (
-            <span
-              key={`${avatar.name}-${index}`}
-              style={{
-                display: "inline-block",
-                maxWidth: `${config.overlapWidth}px`,
-                verticalAlign: "top",
-                width: `${config.overlapWidth}px`,
-              }}
-            >
-              <img
-                alt={avatar.name}
-                height={config.diameter}
-                src={avatar.url ?? defaultAvatars[index % 4]?.url}
-                style={{
-                  border: "2px solid #fffffe",
-                  borderRadius: "9999px",
-                  display: "inline-block",
-                  maxWidth: `${config.diameter}px`,
-                  verticalAlign: "middle",
-                }}
-                width={config.diameter}
-              />
-            </span>
-          ))}
-          {plusCount && plusCount > 0 ? (
-            <span
-              style={{
-                backgroundColor: "#d1fae5",
-                border: "2px solid #fffffe",
-                borderRadius: "9999px",
-                color: "#030712",
-                display: "inline-block",
-                fontFamily,
-                fontSize: `${config.countFontSize}px`,
-                fontWeight: 500,
-                height: `${config.diameter}px`,
-                lineHeight: `${config.diameter}px`,
-                textAlign: "center",
-                verticalAlign: "top",
-                width: `${config.diameter}px`,
-              }}
+      <MjmlGroup
+        cssClass="emailcn-avatar-group-center"
+        verticalAlign="middle"
+        width={`${groupWidth}px`}
+      >
+        {visibleAvatars.map((avatar, index) => (
+          <MjmlColumn
+            key={`${avatar.name}-${index}`}
+            padding="0"
+            verticalAlign="middle"
+            width={`${config.overlapWidth}px`}
+          >
+            <MjmlImage
+              alt={avatar.name}
+              border="2px solid #fffffe"
+              borderRadius="9999px"
+              height={`${config.diameter}px`}
+              padding="0"
+              src={avatar.url ?? defaultAvatars[index % 4]?.url}
+              width={`${config.diameter}px`}
+            />
+          </MjmlColumn>
+        ))}
+        {plusCount && plusCount > 0 ? (
+          <MjmlColumn
+            backgroundColor="#d1fae5"
+            border="2px solid #fffffe"
+            borderRadius="9999px"
+            padding="0"
+            verticalAlign="middle"
+            width={`${config.diameter}px`}
+          >
+            <MjmlText
+              align="center"
+              color="#030712"
+              fontFamily={fontFamily}
+              fontSize={`${config.countFontSize}px`}
+              fontWeight="500"
+              lineHeight={`${config.diameter}px`}
+              padding="0"
             >
               +{plusCount}
-            </span>
-          ) : null}
-        </div>
-      </div>
+            </MjmlText>
+          </MjmlColumn>
+        ) : null}
+      </MjmlGroup>
     </AvatarShell>
   );
 };

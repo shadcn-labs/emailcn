@@ -1,10 +1,13 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -37,18 +40,6 @@ export interface RollingStatsProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const defaults = {
-  backgroundColor: "#fffffe",
-  eyebrow: "Mapped trails",
-  eyebrowColor: "#9ca3af",
-  firstValueColor: "#262626",
-  label: "Tracked by active users",
-  labelColor: "#fffffe",
-  pageBackgroundColor: "#f1f5f9",
-  panelBackgroundColor: "#030712",
-  secondValueColor: "#737373",
-};
-
 const accentColors: Record<RollingStatsVariant, string> = {
   "bottom-left": "#c7d2fe",
   "bottom-right": "#a7f3d0",
@@ -57,148 +48,104 @@ const accentColors: Record<RollingStatsVariant, string> = {
   "top-right": "#fecdd3",
 };
 
-type SectionProps = Omit<RollingStatsProps, "theme">;
-type ResolvedProps = typeof defaults &
-  SectionProps & { accentColor: string; values: [string, string, string] };
-
-export const RollingStatsSection = (props: SectionProps) => {
-  const variant = props.variant ?? "centered";
+export const RollingStatsSection = ({
+  accentColor,
+  backgroundColor = "#fffffe",
+  eyebrow = "Mapped trails",
+  eyebrowColor = "#9ca3af",
+  firstValueColor = "#262626",
+  label = "Tracked by active users",
+  labelColor = "#fffffe",
+  panelBackgroundColor = "#030712",
+  secondValueColor = "#737373",
+  values,
+  variant = "centered",
+}: Omit<RollingStatsProps, "theme">) => {
   const centered = variant === "centered";
   const bottom = variant.startsWith("bottom-");
-  const resolved = {
-    ...defaults,
-    accentColor: accentColors[variant],
-    values: centered
-      ? (["3,117km", "3,118km", "3,119km"] as [string, string, string])
-      : (["14,598", "14,599", "14,600"] as [string, string, string]),
-    ...props,
-  } as ResolvedProps;
   let align: "center" | "left" | "right" = "left";
-  let topSpace = "24px";
-  let bottomSpace = "92px";
   if (centered) {
     align = "center";
-    topSpace = "58px";
-    bottomSpace = "58px";
-  } else {
-    if (variant.endsWith("-right")) {
-      align = "right";
-    }
-    if (bottom) {
-      topSpace = "92px";
-      bottomSpace = "24px";
-    }
+  } else if (variant.endsWith("-right")) {
+    align = "right";
   }
-  const value = (text: string, color: string, first: boolean) => (
-    <p
-      style={{
-        color,
-        fontFamily,
-        fontSize: "72px",
-        fontWeight: 500,
-        lineHeight: "56px",
-        margin: first ? "12px 0 0" : 0,
-        textAlign: align,
-      }}
-    >
-      {text}
-    </p>
-  );
+  let topSpacer = "24px";
+  let bottomSpacer = "92px";
+  if (centered) {
+    topSpacer = "58px";
+    bottomSpacer = "58px";
+  } else if (bottom) {
+    topSpacer = "92px";
+    bottomSpacer = "24px";
+  }
+  const resolvedValues =
+    values ??
+    (centered
+      ? (["3,117km", "3,118km", "3,119km"] as const)
+      : (["14,598", "14,599", "14,600"] as const));
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              textAlign: "left",
-              width: "600px",
-            }}
+    <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
+      <MjmlColumn
+        backgroundColor={panelBackgroundColor}
+        borderRadius="8px"
+        padding="0 24px"
+      >
+        <MjmlSpacer height={topSpacer} />
+        <MjmlText
+          align={align}
+          color={eyebrowColor}
+          fontFamily={fontFamily}
+          fontSize="14px"
+          fontWeight="600"
+          lineHeight="20px"
+          padding="0"
+          textTransform="uppercase"
+        >
+          {eyebrow}
+        </MjmlText>
+        {[
+          firstValueColor,
+          secondValueColor,
+          accentColor ?? accentColors[variant],
+        ].map((color, index) => (
+          <MjmlText
+            align={align}
+            color={color}
+            fontFamily={fontFamily}
+            fontSize="72px"
+            fontWeight="500"
+            key={`${resolvedValues[index]}-${index}`}
+            lineHeight="56px"
+            padding={index === 0 ? "12px 0 0" : "0"}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td
-                    style={{
-                      backgroundColor: resolved.panelBackgroundColor,
-                      borderRadius: "8px",
-                      padding: "0 24px",
-                    }}
-                  >
-                    <div style={{ lineHeight: topSpace }}>&zwj;</div>
-                    <p
-                      style={{
-                        color: resolved.eyebrowColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: align,
-                      }}
-                    >
-                      {resolved.eyebrow}
-                    </p>
-                    <p
-                      style={{
-                        color: resolved.labelColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: align,
-                      }}
-                    >
-                      {resolved.label}
-                    </p>
-                    {value(resolved.values[0], resolved.firstValueColor, true)}
-                    {value(
-                      resolved.values[1],
-                      resolved.secondValueColor,
-                      false
-                    )}
-                    {value(resolved.values[2], resolved.accentColor, false)}
-                    <div style={{ lineHeight: bottomSpace }}>&zwj;</div>
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+            {resolvedValues[index]}
+          </MjmlText>
+        ))}
+        <MjmlText
+          align={align}
+          color={labelColor}
+          fontFamily={fontFamily}
+          fontSize="16px"
+          lineHeight="24px"
+          padding="16px 0 0"
+        >
+          {label}
+        </MjmlText>
+        <MjmlSpacer height={bottomSpacer} />
+      </MjmlColumn>
+    </MjmlSection>
   );
 };
 
 export const RollingStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "centered",
   ...props
 }: RollingStatsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>3,119km mapped trails</MjmlPreview>
+      <MjmlPreview>Rolling activity statistics</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
     </MjmlHead>
     <MjmlBody
@@ -206,13 +153,7 @@ export const RollingStats = ({
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <RollingStatsSection
-            {...props}
-            variant={variant}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
+        <RollingStatsSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

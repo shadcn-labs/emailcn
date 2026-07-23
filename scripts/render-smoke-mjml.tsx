@@ -2,7 +2,7 @@
 // Renders every mjml-react demo to HTML and fails on errors, MJML parse
 // errors, or suspiciously short output. Run with:
 //   npx tsx scripts/render-smoke-mjml.tsx
-import { render } from "@faire/mjml-react/utils/render";
+import { render } from "@faire/mjml-react/utils/render.js";
 
 import { demos } from "@/examples/__index__";
 

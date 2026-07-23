@@ -1,54 +1,38 @@
-// MJML parity block — mirrored from react-email (invite-default.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: You're invited to join {teamName}
 
+import { InviteBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface Props {
+  inviterName?: string;
+  inviterAvatarUrl?: string;
+  teamName?: string;
+  ctaHref?: string;
+  expiresInHours?: number;
+}
 
-export const InviteDefault = (_props: Props) => {
-  const theme: EmailThemeTokens = defaultTheme;
+export const InviteDefault = ({
+  inviterName = "Someone",
+  inviterAvatarUrl,
+  teamName = "Acme",
+  ctaHref = "#",
+  expiresInHours = 72,
+}: Props) => (
+  <InviteBlock
+    ctaHref={ctaHref}
+    expiresInHours={expiresInHours}
+    inviterAvatarUrl={inviterAvatarUrl}
+    inviterName={inviterName}
+    teamName={teamName}
+    theme={defaultTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for invite-default.tsx — replace with
-                full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-InviteDefault.PreviewProps = {} satisfies Props;
+InviteDefault.PreviewProps = {
+  ctaHref: "https://example.com/invite/abc123",
+  expiresInHours: 72,
+  inviterAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  inviterName: "Sarah",
+  teamName: "Acme Team",
+} satisfies Props;

@@ -1,54 +1,33 @@
-// MJML parity block — mirrored from react-email (auth-password-reset-notion.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Reset your password for {_productName}
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { PasswordResetBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { notionTheme } from "@/registry/bases/mjml-react/themes/notion";
 
-type Props = Record<string, never>;
+interface Props {
+  _logoUrl?: string;
+  _logoAlt?: string;
+  resetHref?: string;
+  expiresInMinutes?: number;
+  _productName?: string;
+}
 
-export const AuthPasswordResetNotion = (_props: Props) => {
-  const theme: EmailThemeTokens = notionTheme;
+export const AuthPasswordResetNotion = ({
+  resetHref = "#",
+  expiresInMinutes = 60,
+  _productName = "Notion",
+}: Props) => (
+  <PasswordResetBlock
+    expiresInMinutes={expiresInMinutes}
+    productName={_productName}
+    resetHref={resetHref}
+    theme={notionTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for auth-password-reset-notion.tsx —
-                replace with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-AuthPasswordResetNotion.PreviewProps = {} satisfies Props;
+AuthPasswordResetNotion.PreviewProps = {
+  _logoAlt: "Notion",
+  _logoUrl: "https://static.photos/business/320x80/2",
+  _productName: "Notion",
+  expiresInMinutes: 60,
+  resetHref: "https://example.com/reset?token=abc123",
+} satisfies Props;

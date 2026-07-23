@@ -1,12 +1,14 @@
-/* eslint-disable next/no-img-element */
 import {
   Mjml,
   MjmlBody,
+  MjmlButton,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -39,14 +41,6 @@ export interface TwoColumnsPricingTableProps {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = [
-  "@media only screen and (max-width: 599px) {",
-  "  .pricing-plan-column { display: block !important; width: 100% !important; }",
-  "  .pricing-plan-gap { display: block !important; line-height: 16px !important; }",
-  "}",
-].join("\n");
-
 const defaultPlans: PricingPlan[] = [
   {
     ctaHref: "https://example.com",
@@ -84,242 +78,99 @@ const PlanCard = ({
   plan,
   cardBackgroundColor,
   brandColor,
+  second,
 }: {
   plan: PricingPlan;
   cardBackgroundColor: string;
   brandColor: string;
+  second: boolean;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
+  <MjmlColumn
+    backgroundColor={cardBackgroundColor}
+    borderRadius="8px"
+    padding={second ? "24px 24px 24px 32px" : "24px 32px 24px 24px"}
+    verticalAlign="top"
+    width="50%"
   >
-    <tbody>
-      <tr>
-        <td
-          style={{
-            backgroundColor: cardBackgroundColor,
-            borderRadius: "8px",
-            padding: "24px",
-          }}
-        >
-          <p
-            style={{
-              color: brandColor,
-              fontFamily,
-              fontSize: "24px",
-              fontWeight: 600,
-              lineHeight: "32px",
-              margin: 0,
-            }}
-          >
-            {plan.name}
-          </p>
-          <div style={{ lineHeight: "16px" }}>&zwj;</div>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td>
-                  <p
-                    style={{
-                      color: "#030712",
-                      fontFamily,
-                      fontSize: "60px",
-                      fontWeight: 600,
-                      lineHeight: 1,
-                      margin: 0,
-                    }}
-                  >
-                    {plan.price}
-                  </p>
-                </td>
-                <td style={{ width: "8px" }}>&zwj;</td>
-                <td>
-                  <p
-                    style={{
-                      color: "#374151",
-                      fontFamily,
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      margin: 0,
-                    }}
-                  >
-                    USD
-                  </p>
-                  <p
-                    style={{
-                      color: "#6b7280",
-                      fontFamily,
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                      margin: 0,
-                    }}
-                  >
-                    {plan.period}
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div style={{ lineHeight: "16px" }}>&zwj;</div>
-          <p
-            style={{
-              color: "#030712",
-              fontFamily,
-              fontSize: "18px",
-              fontWeight: 500,
-              lineHeight: "28px",
-              margin: 0,
-            }}
-          >
-            {plan.description}
-          </p>
-          <div style={{ lineHeight: "36px" }}>&zwj;</div>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              {plan.features.map((feature, index) => (
-                <tr key={feature.label}>
-                  <td
-                    style={{
-                      lineHeight: "24px",
-                      verticalAlign: "top",
-                      width: "16px",
-                    }}
-                  >
-                    <img
-                      alt=""
-                      src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
-                      style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                      width={16}
-                    />
-                  </td>
-                  <td style={{ width: "12px" }}>&zwj;</td>
-                  <td
-                    style={{
-                      paddingBottom:
-                        index < plan.features.length - 1 ? "16px" : 0,
-                      verticalAlign: "top",
-                    }}
-                  >
-                    <p
-                      style={{
-                        color: feature.muted ? "#9ca3af" : "#4b5563",
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                      }}
-                    >
-                      {feature.label}
-                    </p>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div style={{ lineHeight: "36px" }}>&zwj;</div>
-          <a
-            href={plan.ctaHref}
-            style={{
-              backgroundColor: brandColor,
-              borderRadius: "8px",
-              color: "#f8fafc",
-              display: "block",
-              fontFamily,
-              fontSize: "16px",
-              fontWeight: 500,
-              lineHeight: 1,
-              padding: "10px 18px",
-              textAlign: "center",
-              textDecoration: "none",
-            }}
-          >
-            {plan.ctaLabel}
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <MjmlText
+      color={brandColor}
+      fontFamily={fontFamily}
+      fontSize="22px"
+      fontWeight="600"
+      lineHeight="30px"
+      padding="0"
+    >
+      {plan.name}
+    </MjmlText>
+    <MjmlSpacer height="16px" />
+    <MjmlText
+      color="#030712"
+      fontFamily={fontFamily}
+      fontSize="44px"
+      fontWeight="600"
+      lineHeight="48px"
+      padding="0"
+    >
+      {plan.price} {plan.period}
+    </MjmlText>
+    <MjmlSpacer height="16px" />
+    <MjmlText
+      color="#4b5563"
+      fontFamily={fontFamily}
+      fontSize="15px"
+      lineHeight="22px"
+      padding="0"
+    >
+      {plan.description}
+    </MjmlText>
+    <MjmlSpacer height="28px" />
+    {plan.features.map((feature) => (
+      <MjmlText
+        color={feature.muted ? "#9ca3af" : "#4b5563"}
+        fontFamily={fontFamily}
+        fontSize="14px"
+        key={feature.label}
+        lineHeight="20px"
+        padding="0 0 12px"
+      >
+        ✓ &nbsp;{feature.label}
+      </MjmlText>
+    ))}
+    <MjmlSpacer height="16px" />
+    <MjmlButton
+      backgroundColor={brandColor}
+      borderRadius="8px"
+      color="#fffffe"
+      fontFamily={fontFamily}
+      fontSize="16px"
+      fontWeight="500"
+      href={plan.ctaHref}
+      innerPadding="10px 18px"
+      lineHeight="16px"
+      padding="0"
+    >
+      {plan.ctaLabel}
+    </MjmlButton>
+  </MjmlColumn>
 );
 
 export const TwoColumnsPricingTableSection = ({
   plans = defaultPlans,
-  pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
   cardBackgroundColor = "#f9fafb",
   brandColor = "#4f46e5",
 }: Omit<TwoColumnsPricingTableProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
-          style={{
-            backgroundColor,
-            maxWidth: "100%",
-            paddingBottom: "44px",
-            width: "600px",
-          }}
-        >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px" }}>
-                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
-                        {plans.map((plan, index) => (
-                          <td
-                            className="pricing-plan-column"
-                            key={plan.name}
-                            style={{
-                              paddingLeft: index > 0 ? "16px" : undefined,
-                              verticalAlign: "top",
-                              width: "268px",
-                            }}
-                          >
-                            <PlanCard
-                              cardBackgroundColor={cardBackgroundColor}
-                              brandColor={brandColor}
-                              plan={plan}
-                            />
-                          </td>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+  <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
+    {plans.slice(0, 2).map((plan, index) => (
+      <PlanCard
+        brandColor={brandColor}
+        cardBackgroundColor={cardBackgroundColor}
+        key={plan.name}
+        plan={plan}
+        second={index === 1}
+      />
+    ))}
+  </MjmlSection>
 );
 
 export const TwoColumnsPricingTable = ({
@@ -330,20 +181,17 @@ export const TwoColumnsPricingTable = ({
   <Mjml>
     <MjmlHead>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
+      <MjmlPreview>Pricing plans</MjmlPreview>
     </MjmlHead>
-    <MjmlPreview>Pricing plans</MjmlPreview>
     <MjmlBody
       backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <TwoColumnsPricingTableSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-          />
-        </MjmlRaw>
+        <TwoColumnsPricingTableSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+        />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

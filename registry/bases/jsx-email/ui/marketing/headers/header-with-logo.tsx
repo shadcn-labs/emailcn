@@ -1,5 +1,15 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Text,
+  Section,
+  Row,
+  Column,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -50,14 +60,14 @@ type SectionProps = Omit<HeaderWithLogoProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
+  <Link href={props.logoHref}>
+    <Img
       alt={props.logoAlt}
       src={props.logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={55}
     />
-  </a>
+  </Link>
 );
 
 const Copy = ({
@@ -67,7 +77,7 @@ const Copy = ({
   centered?: boolean;
   props: ResolvedProps;
 }) => (
-  <p
+  <Text
     style={{
       color: props.textColor,
       fontFamily,
@@ -86,7 +96,7 @@ const Copy = ({
           </Fragment>
         ))
       : props.text.replaceAll("\n", " ")}
-  </p>
+  </Text>
 );
 
 const WithText = ({
@@ -98,80 +108,61 @@ const WithText = ({
 }) => {
   if (alignment === "center") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
-              <div style={{ textAlign: "center" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column>
+              <Section style={{ textAlign: "center" }}>
                 <Logo props={props} />
-              </div>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              </Section>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
               <Copy centered props={props} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
   if (alignment === "right") {
     return (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        className="header-logo-text-right-row"
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td
+      <Section className="header-logo-text-right-row" width="100%">
+        <Fragment>
+          <Row>
+            <Column
               className="header-logo-text-right-copy-cell"
               style={{ width: "50%" }}
             >
-              <div className="header-logo-text-right-copy">
+              <Section className="header-logo-text-right-copy">
                 <Copy props={props} />
-              </div>
-            </td>
-            <td
+              </Section>
+            </Column>
+            <Column
               className="header-logo-text-right-logo"
               style={{ textAlign: "right", width: "50%" }}
             >
               <Logo props={props} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             className="header-logo-text-stack header-logo-text-left-logo"
             style={{ width: "50%" }}
           >
             <Logo props={props} />
-          </td>
-          <td className="header-logo-text-stack" style={{ width: "50%" }}>
+          </Column>
+          <Column className="header-logo-text-stack" style={{ width: "50%" }}>
             <Copy props={props} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -180,28 +171,18 @@ export const HeaderWithLogoSection = (props: SectionProps) => {
   const variant = props.variant ?? "minimal";
   const resolved = { ...defaults, ...props } as ResolvedProps;
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: resolved.backgroundColor,
                       padding: "24px",
@@ -213,15 +194,15 @@ export const HeaderWithLogoSection = (props: SectionProps) => {
                     ) : (
                       <WithText alignment={alignment} props={resolved} />
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,4 +1,17 @@
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -106,18 +119,14 @@ export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
   };
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               backgroundImage: `url('${resolved.backgroundImageSrc}')`,
@@ -129,33 +138,21 @@ export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="boxed-cta-background-side"
                     style={{ width: "44px" }}
                   >
                     &zwj;
-                  </td>
-                  <td>
-                    <div style={{ lineHeight: "80px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
-                          <td
+                  </Column>
+                  <Column>
+                    <Section style={{ lineHeight: "80px" }}>&zwj;</Section>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
+                          <Column
                             style={{
                               backgroundColor: resolved.cardBackgroundColor,
                               borderRadius: "4px",
@@ -163,8 +160,10 @@ export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
                               textAlign: "center",
                             }}
                           >
-                            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                            <h2
+                            <Section style={{ lineHeight: "44px" }}>
+                              &zwj;
+                            </Section>
+                            <Heading
                               style={{
                                 color: resolved.headingColor,
                                 fontFamily,
@@ -174,11 +173,14 @@ export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
                                 margin: 0,
                                 textAlign: "center",
                               }}
+                              as="h2"
                             >
                               {resolved.heading}
-                            </h2>
-                            <div style={{ lineHeight: "16px" }}>&zwj;</div>
-                            <p
+                            </Heading>
+                            <Section style={{ lineHeight: "16px" }}>
+                              &zwj;
+                            </Section>
+                            <Text
                               style={{
                                 color: resolved.textColor,
                                 fontFamily,
@@ -190,9 +192,11 @@ export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
                               }}
                             >
                               {resolved.subtext}
-                            </p>
-                            <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                            <a
+                            </Text>
+                            <Section style={{ lineHeight: "36px" }}>
+                              &zwj;
+                            </Section>
+                            <Link
                               className="boxed-cta-background-button"
                               href={resolved.ctaHref}
                               style={{
@@ -210,29 +214,31 @@ export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
                               }}
                             >
                               {resolved.ctaLabel}
-                            </a>
+                            </Link>
                             {resolved.padded ? (
-                              <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                              <Section style={{ lineHeight: "44px" }}>
+                                &zwj;
+                              </Section>
                             ) : null}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                  <td
+                          </Column>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                  <Column
                     className="boxed-cta-background-side"
                     style={{ width: "44px" }}
                   >
                     &zwj;
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

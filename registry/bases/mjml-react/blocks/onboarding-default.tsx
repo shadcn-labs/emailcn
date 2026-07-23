@@ -1,54 +1,38 @@
-// MJML parity block — mirrored from react-email (onboarding-default.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Welcome to {_productName} — let's get you started
 
+import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-type Props = Record<string, never>;
+interface Props {
+  _firstName?: string;
+  _productName?: string;
+  ctaHref?: string;
+  _senderName?: string;
+  _senderTitle?: string;
+  _senderAvatarUrl?: string;
+}
 
-export const OnboardingDefault = (_props: Props) => {
-  const theme: EmailThemeTokens = defaultTheme;
+export const OnboardingDefault = ({
+  _firstName = "there",
+  _productName = "Acme",
+  ctaHref = "https://example.com",
+  _senderName = "Team",
+}: Props) => (
+  <OnboardingBlock
+    ctaHref={ctaHref}
+    firstName={_firstName}
+    productName={_productName}
+    senderName={_senderName}
+    theme={defaultTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for onboarding-default.tsx — replace
-                with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-OnboardingDefault.PreviewProps = {} satisfies Props;
+OnboardingDefault.PreviewProps = {
+  _firstName: "Aniket",
+  _productName: "Acme",
+  _senderAvatarUrl:
+    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderName: "The team",
+  _senderTitle: "Team",
+  ctaHref: "https://example.com/dashboard",
+} satisfies Props;

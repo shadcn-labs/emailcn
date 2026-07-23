@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Link,
+  Section,
+  Row,
+  Column,
+  Text,
+  Heading,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -103,7 +117,7 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
     (variant === "title-and-lead" ? "Activate account" : "Shop now");
 
   const primaryButton = (
-    <a
+    <Link
       className="cta-title-action-primary"
       href={ctaHref}
       style={{
@@ -124,29 +138,22 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
         {resolvedCtaLabel}
       </span>
       {variant === "minimal" ? (
-        <img
+        <Img
           alt=""
           src={arrowSrc}
           style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           width="12"
         />
       ) : null}
-    </a>
+    </Link>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -154,22 +161,16 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     {variant === "minimal" ? (
                       <>
                         {primaryButton}
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <p
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Text
                           style={{
                             color: headingColor,
                             fontFamily,
@@ -180,11 +181,11 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
                           }}
                         >
                           {signoff}
-                        </p>
+                        </Text>
                       </>
                     ) : (
                       <>
-                        <h2
+                        <Heading
                           style={{
                             color: headingColor,
                             fontFamily,
@@ -193,11 +194,12 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
                             lineHeight: "36px",
                             margin: 0,
                           }}
+                          as="h2"
                         >
                           {heading}
-                        </h2>
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                        <p
+                        </Heading>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                        <Text
                           style={{
                             color: textColor,
                             fontFamily,
@@ -208,32 +210,25 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
                           }}
                         >
                           {subtext}
-                        </p>
-                        <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                        </Text>
+                        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
                         {variant === "title-and-lead" ? (
                           primaryButton
                         ) : (
-                          <table
-                            align="center"
-                            border={0}
-                            cellPadding={0}
-                            cellSpacing={0}
-                            role="presentation"
-                            style={{ margin: "auto" }}
-                          >
-                            <tbody>
-                              <tr>
-                                <td className="cta-title-action-cell">
+                          <Section align="center" style={{ margin: "auto" }}>
+                            <Fragment>
+                              <Row>
+                                <Column className="cta-title-action-cell">
                                   {primaryButton}
-                                </td>
-                                <td
+                                </Column>
+                                <Column
                                   className="cta-title-action-cell cta-title-action-gap"
                                   style={{ width: "24px" }}
                                 >
                                   &zwj;
-                                </td>
-                                <td className="cta-title-action-cell">
-                                  <a
+                                </Column>
+                                <Column className="cta-title-action-cell">
+                                  <Link
                                     className="cta-title-action-secondary"
                                     href={secondaryCtaHref}
                                     style={{
@@ -253,23 +248,23 @@ export const CTAWithTitleAndActionLeadSection = (props: SectionProps) => {
                                     }}
                                   >
                                     {secondaryCtaLabel}
-                                  </a>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                                  </Link>
+                                </Column>
+                              </Row>
+                            </Fragment>
+                          </Section>
                         )}
                       </>
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

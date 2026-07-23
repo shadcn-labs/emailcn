@@ -1,6 +1,15 @@
-/* eslint-disable no-nested-ternary, no-use-before-define */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+} from "jsx-email";
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -56,17 +65,11 @@ interface ShellProps {
 const TimelineShell = ({ children }: ShellProps) => (
   <>
     <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -74,11 +77,11 @@ const TimelineShell = ({ children }: ShellProps) => (
             }}
           >
             {children}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -90,7 +93,7 @@ interface MetaProps {
 }
 
 const TimelineMeta = ({ index, label, muted, right }: MetaProps) => (
-  <td
+  <Column
     className="stacked-timeline-meta"
     style={{
       textAlign: right ? "left" : "right",
@@ -98,7 +101,7 @@ const TimelineMeta = ({ index, label, muted, right }: MetaProps) => (
       width: "136px",
     }}
   >
-    <p
+    <Text
       style={{
         ...textStyle,
         color: muted ? "#9ca3af" : "#030712",
@@ -107,8 +110,8 @@ const TimelineMeta = ({ index, label, muted, right }: MetaProps) => (
       }}
     >
       {index}
-    </p>
-    <p
+    </Text>
+    <Text
       style={{
         ...textStyle,
         color: "#9ca3af",
@@ -118,9 +121,139 @@ const TimelineMeta = ({ index, label, muted, right }: MetaProps) => (
       }}
     >
       {label}
-    </p>
-  </td>
+    </Text>
+  </Column>
 );
+
+const Rail = ({
+  boxed,
+  muted,
+  railColor,
+}: {
+  boxed: boolean;
+  muted: boolean;
+  railColor: string;
+}) => (
+  <Column style={{ verticalAlign: "top", width: "12px" }}>
+    <Section
+      style={{
+        backgroundColor: railColor,
+        height: boxed ? "24px" : "4px",
+        margin: "0 auto",
+        width: "2px",
+      }}
+    >
+      &zwj;
+    </Section>
+    <Section
+      style={{
+        backgroundColor: muted ? undefined : "#4f46e5",
+        border: muted ? "2px solid #d1d5db" : undefined,
+        borderRadius: "9999px",
+        height: muted ? "8px" : "12px",
+        margin: muted ? "6px 2px" : "6px 0",
+        width: muted ? "8px" : "12px",
+      }}
+    >
+      &zwj;
+    </Section>
+    <Section
+      style={{
+        backgroundColor: railColor,
+        height: "104px",
+        margin: "0 auto",
+        width: "2px",
+      }}
+    >
+      &zwj;
+    </Section>
+  </Column>
+);
+
+interface CopyProps {
+  accent: boolean;
+  boxed: boolean;
+  cardBackground?: string;
+  description: string;
+  descriptionColor: string;
+  title: string;
+  titleColor: string;
+}
+
+const TimelineCopy = ({
+  boxed,
+  cardBackground,
+  description,
+  descriptionColor,
+  title,
+  titleColor,
+}: CopyProps) =>
+  boxed ? (
+    <Section
+      style={{
+        backgroundColor: cardBackground,
+        borderRadius: "8px",
+        width: "100%",
+      }}
+    >
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "24px 24px 0" }}>
+            <Text
+              style={{
+                ...textStyle,
+                color: titleColor,
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "24px",
+              }}
+            >
+              {title}
+            </Text>
+          </Column>
+        </Row>
+        <Row>
+          <Column style={{ padding: "16px 24px 24px" }}>
+            <Text
+              style={{
+                ...textStyle,
+                color: descriptionColor,
+                fontSize: "16px",
+                lineHeight: "24px",
+              }}
+            >
+              {description}
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  ) : (
+    <>
+      <Text
+        style={{
+          ...textStyle,
+          color: titleColor,
+          fontSize: "18px",
+          fontWeight: 600,
+          lineHeight: "24px",
+        }}
+      >
+        {title}
+      </Text>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+      <Text
+        style={{
+          ...textStyle,
+          color: descriptionColor,
+          fontSize: "16px",
+          lineHeight: "24px",
+        }}
+      >
+        {description}
+      </Text>
+    </>
+  );
 
 interface ContentProps {
   accent: boolean;
@@ -144,32 +277,29 @@ const TimelineContent = ({
   title,
 }: ContentProps) => {
   const railColor = accent ? "#030712" : "#d1d5db";
-  const cardBackground = boxed ? (accent ? "#030712" : "#f9fafb") : undefined;
+  let cardBackground: string | undefined;
+  if (boxed) {
+    cardBackground = accent ? "#030712" : "#f9fafb";
+  }
   const titleColor = boxed && accent ? "#fffffe" : "#030712";
   const descriptionColor = boxed && accent ? "#d1d5db" : "#4b5563";
 
   return (
-    <td
+    <Column
       className="stacked-timeline-content"
       style={{ textAlign: right ? "right" : "left", verticalAlign: "top" }}
     >
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
             {right ? (
               <>
-                <td
+                <Column
                   className="stacked-timeline-card"
                   style={{ paddingBottom: "80px" }}
                 >
-                  <div className="stacked-timeline-mobile">
-                    <p
+                  <Section className="stacked-timeline-mobile">
+                    <Text
                       style={{
                         ...textStyle,
                         color: muted ? "#9ca3af" : "#030712",
@@ -179,8 +309,8 @@ const TimelineContent = ({
                       }}
                     >
                       {index}
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         ...textStyle,
                         color: "#9ca3af",
@@ -190,9 +320,9 @@ const TimelineContent = ({
                       }}
                     >
                       {label}
-                    </p>
-                    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-                  </div>
+                    </Text>
+                    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+                  </Section>
                   <TimelineCopy
                     accent={accent}
                     boxed={boxed}
@@ -202,20 +332,20 @@ const TimelineContent = ({
                     title={title}
                     titleColor={titleColor}
                   />
-                </td>
-                <td style={{ width: "16px" }}>&zwj;</td>
+                </Column>
+                <Column style={{ width: "16px" }}>&zwj;</Column>
                 <Rail boxed={boxed} muted={muted} railColor={railColor} />
               </>
             ) : (
               <>
                 <Rail boxed={boxed} muted={muted} railColor={railColor} />
-                <td style={{ width: "16px" }}>&zwj;</td>
-                <td
+                <Column style={{ width: "16px" }}>&zwj;</Column>
+                <Column
                   className="stacked-timeline-card"
                   style={{ paddingBottom: "80px" }}
                 >
-                  <div className="stacked-timeline-mobile">
-                    <p
+                  <Section className="stacked-timeline-mobile">
+                    <Text
                       style={{
                         ...textStyle,
                         color: muted ? "#9ca3af" : "#030712",
@@ -225,8 +355,8 @@ const TimelineContent = ({
                       }}
                     >
                       {index}
-                    </p>
-                    <p
+                    </Text>
+                    <Text
                       style={{
                         ...textStyle,
                         color: "#9ca3af",
@@ -236,9 +366,9 @@ const TimelineContent = ({
                       }}
                     >
                       {label}
-                    </p>
-                    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-                  </div>
+                    </Text>
+                    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+                  </Section>
                   <TimelineCopy
                     accent={accent}
                     boxed={boxed}
@@ -248,149 +378,15 @@ const TimelineContent = ({
                     title={title}
                     titleColor={titleColor}
                   />
-                </td>
+                </Column>
               </>
             )}
-          </tr>
-        </tbody>
-      </table>
-    </td>
+          </Row>
+        </Fragment>
+      </Section>
+    </Column>
   );
 };
-
-const Rail = ({
-  boxed,
-  muted,
-  railColor,
-}: {
-  boxed: boolean;
-  muted: boolean;
-  railColor: string;
-}) => (
-  <td style={{ verticalAlign: "top", width: "12px" }}>
-    <div
-      style={{
-        backgroundColor: railColor,
-        height: boxed ? "24px" : "4px",
-        margin: "0 auto",
-        width: "2px",
-      }}
-    >
-      &zwj;
-    </div>
-    <div
-      style={{
-        backgroundColor: muted ? undefined : "#4f46e5",
-        border: muted ? "2px solid #d1d5db" : undefined,
-        borderRadius: "9999px",
-        height: muted ? "8px" : "12px",
-        margin: muted ? "6px 2px" : "6px 0",
-        width: muted ? "8px" : "12px",
-      }}
-    >
-      &zwj;
-    </div>
-    <div
-      style={{
-        backgroundColor: railColor,
-        height: "104px",
-        margin: "0 auto",
-        width: "2px",
-      }}
-    >
-      &zwj;
-    </div>
-  </td>
-);
-
-interface CopyProps {
-  accent: boolean;
-  boxed: boolean;
-  cardBackground?: string;
-  description: string;
-  descriptionColor: string;
-  title: string;
-  titleColor: string;
-}
-
-const TimelineCopy = ({
-  boxed,
-  cardBackground,
-  description,
-  descriptionColor,
-  title,
-  titleColor,
-}: CopyProps) =>
-  boxed ? (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{
-        backgroundColor: cardBackground,
-        borderRadius: "8px",
-        width: "100%",
-      }}
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "24px 24px 0" }}>
-            <p
-              style={{
-                ...textStyle,
-                color: titleColor,
-                fontSize: "18px",
-                fontWeight: 600,
-                lineHeight: "24px",
-              }}
-            >
-              {title}
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td style={{ padding: "16px 24px 24px" }}>
-            <p
-              style={{
-                ...textStyle,
-                color: descriptionColor,
-                fontSize: "16px",
-                lineHeight: "24px",
-              }}
-            >
-              {description}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  ) : (
-    <>
-      <p
-        style={{
-          ...textStyle,
-          color: titleColor,
-          fontSize: "18px",
-          fontWeight: 600,
-          lineHeight: "24px",
-        }}
-      >
-        {title}
-      </p>
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
-      <p
-        style={{
-          ...textStyle,
-          color: descriptionColor,
-          fontSize: "16px",
-          lineHeight: "24px",
-        }}
-      >
-        {description}
-      </p>
-    </>
-  );
 
 export const StackedTimelineSection = ({
   description = "Every mile tells a story. Each step forward adds to the journey, shaping the path ahead and marking progress along the way.",
@@ -431,40 +427,28 @@ export const StackedTimelineSection = ({
 
   return (
     <TimelineShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td style={{ padding: "0 24px" }}>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column style={{ padding: "0 24px" }}>
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
                     {right ? content : meta}
-                    <td
+                    <Column
                       className="stacked-timeline-gap"
                       style={{ width: "16px" }}
                     >
                       &zwj;
-                    </td>
+                    </Column>
                     {right ? meta : content}
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     </TimelineShell>
   );
 };

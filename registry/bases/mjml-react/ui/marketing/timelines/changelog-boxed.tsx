@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -33,11 +32,7 @@ export const ChangelogBoxed = ({
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <div style={{ textAlign: "left" }}>
-            <ChangelogBoxedSection {...props} />
-          </div>
-        </MjmlRaw>
+        <ChangelogBoxedSection {...props} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -101,7 +112,7 @@ type ResolvedProps = typeof defaults &
   };
 
 const Divider = ({ props }: { props: ResolvedProps }) => (
-  <div
+  <Section
     style={{
       backgroundColor: props.dividerColor,
       height: "1px",
@@ -110,28 +121,24 @@ const Divider = ({ props }: { props: ResolvedProps }) => (
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const Menu = ({ props }: { props: ResolvedProps }) => (
-  <table
+  <Section
     align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
     className="footer-full-menu-row"
-    role="presentation"
     style={{ marginLeft: "auto", marginRight: "auto" }}
   >
-    <tbody>
-      <tr>
+    <Fragment>
+      <Row>
         {props.links.map((link) => (
-          <td
+          <Column
             className="footer-full-menu-item"
             key={link.href}
             style={{ padding: "0 12px" }}
           >
-            <a
+            <Link
               href={link.href}
               style={{
                 color: props.textColor,
@@ -142,27 +149,20 @@ const Menu = ({ props }: { props: ResolvedProps }) => (
               }}
             >
               {link.label}
-            </a>
-          </td>
+            </Link>
+          </Column>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Socials = ({ props }: { props: ResolvedProps }) => (
-  <table
-    align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ marginLeft: "auto", marginRight: "auto" }}
-  >
-    <tbody>
-      <tr>
+  <Section align="center" style={{ marginLeft: "auto", marginRight: "auto" }}>
+    <Fragment>
+      <Row>
         {props.socials.map((social, index) => (
-          <td
+          <Column
             key={social.href}
             style={
               index === props.socials.length - 1
@@ -170,24 +170,24 @@ const Socials = ({ props }: { props: ResolvedProps }) => (
                 : { paddingRight: "24px" }
             }
           >
-            <a href={social.href}>
-              <img
+            <Link href={social.href}>
+              <Img
                 alt={social.label}
                 src={social.iconSrc}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
-            </a>
-          </td>
+            </Link>
+          </Column>
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Address = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
-    <p
+  <Section style={{ textAlign: "center" }}>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -199,9 +199,9 @@ const Address = ({ props }: { props: ResolvedProps }) => (
       © 2026 emailcn
       <br /> emailcn&nbsp; | &nbsp;155 Bdv Saint Germain&nbsp; | &nbsp;75505
       Paris
-    </p>
-    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-    <p
+    </Text>
+    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+    <Text
       style={{
         color: props.mutedTextColor,
         fontFamily,
@@ -213,14 +213,14 @@ const Address = ({ props }: { props: ResolvedProps }) => (
       We're sending you this because you subscribed.{" "}
       <br className="footer-full-menu-break" /> No longer want to receive
       emails?{" "}
-      <a
+      <Link
         href={props.unsubscribeHref}
         style={{ color: props.mutedTextColor, textDecoration: "underline" }}
       >
         Unsubscribe
-      </a>
-    </p>
-  </div>
+      </Link>
+    </Text>
+  </Section>
 );
 
 export const FooterWithFullMenuSection = (props: SectionProps) => {
@@ -238,18 +238,14 @@ export const FooterWithFullMenuSection = (props: SectionProps) => {
   const bordered = variant === "bordered";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -257,28 +253,22 @@ export const FooterWithFullMenuSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <a href={resolved.logoHref}>
-                      <img
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Link href={resolved.logoHref}>
+                      <Img
                         alt={resolved.logoAlt}
                         src={resolved.logoSrc}
                         style={{ maxWidth: "100%", verticalAlign: "middle" }}
                         width={bordered ? 88 : 197}
                       />
-                    </a>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    </Link>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                     {bordered ? (
                       <>
-                        <p
+                        <Text
                           style={{
                             color: resolved.textColor,
                             fontFamily,
@@ -297,31 +287,31 @@ export const FooterWithFullMenuSection = (props: SectionProps) => {
                                 {line}
                               </span>
                             ))}
-                        </p>
+                        </Text>
                         <Divider props={resolved} />
                         <Menu props={resolved} />
                         <Divider props={resolved} />
                         <Socials props={resolved} />
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                       </>
                     ) : (
                       <>
                         <Menu props={resolved} />
-                        <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
                         <Socials props={resolved} />
                         <Divider props={resolved} />
                       </>
                     )}
                     <Address props={resolved} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,4 +1,18 @@
-import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Img,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Link,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -118,26 +132,22 @@ const ProductImage = ({
 );
 
 const LogoArtwork = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
+  <Section
     className="feature-multiple-auto feature-multiple-centered"
-    role="presentation"
     width="100%"
   >
-    <tbody>
-      <tr>
-        <td style={{ verticalAlign: "bottom", width: "144px" }}>
+    <Fragment>
+      <Row>
+        <Column style={{ verticalAlign: "bottom", width: "144px" }}>
           <ProductImage
             alt={props.largeImageAlt}
             src={props.largeImageSrc}
             width={144}
           />
-        </td>
-        <td style={{ width: "16px" }}>&zwj;</td>
-        <td style={{ verticalAlign: "bottom", width: "96px" }}>
-          <div
+        </Column>
+        <Column style={{ width: "16px" }}>&zwj;</Column>
+        <Column style={{ verticalAlign: "bottom", width: "96px" }}>
+          <Section
             style={{
               backgroundColor: props.logoBackgroundColor,
               borderRadius: "4px",
@@ -155,78 +165,74 @@ const LogoArtwork = ({ props }: { props: ResolvedProps }) => (
               }}
               width={50}
             />
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Section>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const LogoImageGroup = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="feature-multiple-stack"
     style={{ verticalAlign: "top", width: "256px" }}
   >
     <LogoArtwork props={props} />
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-    <div style={{ textAlign: "center" }}>
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+    <Section style={{ textAlign: "center" }}>
       <ProductImage
         alt={props.smallImageAlt}
         src={props.smallImageSrc}
         width={112}
       />
-    </div>
-  </td>
+    </Section>
+  </Column>
 );
 
 const ImagesArtwork = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
+  <Section
     className="feature-multiple-auto feature-multiple-centered"
-    role="presentation"
     width="100%"
   >
-    <tbody>
-      <tr>
-        <td style={{ verticalAlign: "bottom", width: "144px" }}>
-          <div style={{ textAlign: "right" }}>
+    <Fragment>
+      <Row>
+        <Column style={{ verticalAlign: "bottom", width: "144px" }}>
+          <Section style={{ textAlign: "right" }}>
             <ProductImage
               alt={props.largeImageAlt}
               src={props.largeImageSrc}
               width={144}
             />
-          </div>
-          <div style={{ lineHeight: "16px" }}>&zwj;</div>
-          <div style={{ textAlign: "right" }}>
+          </Section>
+          <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+          <Section style={{ textAlign: "right" }}>
             <ProductImage
               alt={props.middleImageAlt}
               src={props.middleImageSrc}
               width={112}
             />
-          </div>
-        </td>
-        <td style={{ width: "16px" }}>&zwj;</td>
-        <td style={{ textAlign: "center", width: "96px" }}>
+          </Section>
+        </Column>
+        <Column style={{ width: "16px" }}>&zwj;</Column>
+        <Column style={{ textAlign: "center", width: "96px" }}>
           <ProductImage
             alt={props.smallImageAlt}
             src={props.smallImageSrc}
             width={112}
           />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const ImagesGroup = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="feature-multiple-stack"
     style={{ verticalAlign: "top", width: "256px" }}
   >
     <ImagesArtwork props={props} />
-  </td>
+  </Column>
 );
 
 const FeatureCopy = ({
@@ -236,14 +242,14 @@ const FeatureCopy = ({
   logoVariant: boolean;
   props: ResolvedProps;
 }) => (
-  <td
+  <Column
     className="feature-multiple-stack"
     style={{
       textAlign: "left",
       verticalAlign: logoVariant ? "top" : "middle",
     }}
   >
-    <h2
+    <Heading
       style={{
         color: props.headingColor,
         fontFamily,
@@ -252,6 +258,7 @@ const FeatureCopy = ({
         lineHeight: "32px",
         margin: 0,
       }}
+      as="h2"
     >
       {logoVariant && props.heading === logoDefaults.heading ? (
         <>
@@ -261,8 +268,8 @@ const FeatureCopy = ({
       ) : (
         props.heading
       )}
-    </h2>
-    <p
+    </Heading>
+    <Text
       style={{
         color: props.textColor,
         fontFamily,
@@ -273,10 +280,10 @@ const FeatureCopy = ({
       }}
     >
       {props.body}
-    </p>
-    <div style={{ lineHeight: "16px" }}>&zwj;</div>
-    <div>
-      <a
+    </Text>
+    <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+    <Section>
+      <Link
         href={props.buttonHref}
         style={{
           borderRadius: "8px",
@@ -303,9 +310,9 @@ const FeatureCopy = ({
             width={16}
           />
         </span>
-      </a>
-    </div>
-  </td>
+      </Link>
+    </Section>
+  </Column>
 );
 
 export const FeatureWithMultipleProductImagesSection = (
@@ -328,18 +335,14 @@ export const FeatureWithMultipleProductImagesSection = (
   const copy = <FeatureCopy logoVariant={logoVariant} props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -347,46 +350,34 @@ export const FeatureWithMultipleProductImagesSection = (
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {artworkRight ? copy : artwork}
-                          <td
+                          <Column
                             className="feature-multiple-stack feature-multiple-gap"
                             style={{ width: "44px" }}
                           >
                             &zwj;
-                          </td>
+                          </Column>
                           {artworkRight ? artwork : copy}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

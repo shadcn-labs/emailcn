@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Column,
+  Section,
+  Row,
+  Text,
+  Heading,
+  Link,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -74,43 +88,60 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroBlockOverlayProps, "theme">;
 
-export const HeroBlockOverlaySection = ({
-  backgroundColor = "#030712",
-  backgroundImageSrc = `${assetRoot}/hero/block-overlay-bg.jpg`,
-  buttonBackgroundColor = "#4f46e5",
-  buttonTextColor = "#fffffe",
-  ctaHref = "https://example.com",
-  ctaLabel = "Discover how",
-  description = "SumUp is a global fintech leader transforming the way businesses accept payments. From mobile card readers to POS systems, we equip over 4 million merchants across 35+ countries with streamlined, secure tools that help them scale.",
-  eyebrow = "Transaction fees as low as 0.89%",
-  heading = "SumUp",
-  imageAlt = "Entrepreneur using a SumUp payment terminal",
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
-  overlayColor = "rgba(3, 7, 18, 0.8)",
-  pageBackgroundColor = "#f1f5f9",
-  subheading = "Powering Modern Entrepreneurs",
-  textColor = "#f9fafb",
-  variant = "left-centered",
-}: SectionProps) => {
+export const HeroBlockOverlaySection = (props: SectionProps) => {
+  const {
+    backgroundColor,
+    backgroundImageSrc,
+    buttonBackgroundColor,
+    buttonTextColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    imageAlt,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    overlayColor,
+    pageBackgroundColor,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    backgroundColor: "#030712",
+    backgroundImageSrc: `${assetRoot}/hero/block-overlay-bg.jpg`,
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    ctaHref: "https://example.com",
+    ctaLabel: "Discover how",
+    description:
+      "SumUp is a global fintech leader transforming the way businesses accept payments. From mobile card readers to POS systems, we equip over 4 million merchants across 35+ countries with streamlined, secure tools that help them scale.",
+    eyebrow: "Transaction fees as low as 0.89%",
+    heading: "SumUp",
+    imageAlt: "Entrepreneur using a SumUp payment terminal",
+    logoAlt: "emailcn",
+    logoHref: "https://example.com",
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
+    overlayColor: "rgba(3, 7, 18, 0.8)",
+    pageBackgroundColor: "#f1f5f9",
+    subheading: "Powering Modern Entrepreneurs",
+    textColor: "#f9fafb",
+    variant: "left-centered",
+    ...props,
+  };
+
   const isLeft = variant.startsWith("left-");
   const placement = variant.replace(/^(left|right)-/, "");
   const showsLogo = placement === "centered" || placement === "bottom";
   const hasBottomSpacer = placement === "centered" || placement === "top";
 
   const copy = (
-    <td style={{ backgroundColor: overlayColor }}>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td
+    <Column style={{ backgroundColor: overlayColor }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column
               className={
                 isLeft
                   ? "hero-block-overlay-copy-left"
@@ -118,7 +149,7 @@ export const HeroBlockOverlaySection = ({
               }
               style={{ color: textColor, padding: "44px", textAlign: "left" }}
             >
-              <p
+              <Text
                 style={{
                   fontFamily,
                   fontSize: "16px",
@@ -129,8 +160,8 @@ export const HeroBlockOverlaySection = ({
                 }}
               >
                 {eyebrow}
-              </p>
-              <h1
+              </Text>
+              <Heading
                 className="hero-block-overlay-heading"
                 style={{
                   fontFamily,
@@ -139,10 +170,11 @@ export const HeroBlockOverlaySection = ({
                   lineHeight: 1,
                   margin: 0,
                 }}
+                as="h1"
               >
                 {heading}
-              </h1>
-              <p
+              </Heading>
+              <Text
                 style={{
                   fontFamily,
                   fontSize: "18px",
@@ -151,9 +183,9 @@ export const HeroBlockOverlaySection = ({
                 }}
               >
                 {subheading}
-              </p>
-              <div style={{ lineHeight: "144px" }}>&zwj;</div>
-              <p
+              </Text>
+              <Section style={{ lineHeight: "144px" }}>&zwj;</Section>
+              <Text
                 style={{
                   fontFamily,
                   fontSize: "18px",
@@ -163,10 +195,10 @@ export const HeroBlockOverlaySection = ({
                 }}
               >
                 {description}
-              </p>
-              <div style={{ lineHeight: "28px" }}>&zwj;</div>
+              </Text>
+              <Section style={{ lineHeight: "28px" }}>&zwj;</Section>
               {ctaLabel && ctaHref ? (
-                <a
+                <Link
                   className="hero-block-overlay-cta"
                   href={ctaHref}
                   style={{
@@ -183,40 +215,33 @@ export const HeroBlockOverlaySection = ({
                   }}
                 >
                   <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-                  <img
+                  <Img
                     alt=""
                     src={`${assetRoot}/icon-arrow-right.png`}
                     style={{ maxWidth: "100%", verticalAlign: "baseline" }}
                     width="12"
                   />
-                </a>
+                </Link>
               ) : null}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
+    </Column>
   );
 
   const gap = (
-    <td className="hero-block-overlay-gap" style={{ width: "192px" }}>
+    <Column className="hero-block-overlay-gap" style={{ width: "192px" }}>
       &zwj;
-    </td>
+    </Column>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             aria-label={imageAlt || undefined}
             role={imageAlt ? "img" : undefined}
             style={{
@@ -231,29 +256,23 @@ export const HeroBlockOverlaySection = ({
           >
             {showsLogo ? (
               <>
-                <div style={{ lineHeight: "40px" }}>&zwj;</div>
-                <div style={{ textAlign: "center" }}>
-                  <a href={logoHref}>
-                    <img
+                <Section style={{ lineHeight: "40px" }}>&zwj;</Section>
+                <Section style={{ textAlign: "center" }}>
+                  <Link href={logoHref}>
+                    <Img
                       alt={logoAlt}
                       src={logoSrc}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width="165"
                     />
-                  </a>
-                </div>
-                <div style={{ lineHeight: "80px" }}>&zwj;</div>
+                  </Link>
+                </Section>
+                <Section style={{ lineHeight: "80px" }}>&zwj;</Section>
               </>
             ) : null}
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
                   {isLeft ? (
                     <>
                       {copy}
@@ -265,17 +284,17 @@ export const HeroBlockOverlaySection = ({
                       {copy}
                     </>
                   )}
-                </tr>
-              </tbody>
-            </table>
+                </Row>
+              </Fragment>
+            </Section>
             {hasBottomSpacer ? (
-              <div style={{ lineHeight: "144px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "144px" }}>&zwj;</Section>
             ) : null}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

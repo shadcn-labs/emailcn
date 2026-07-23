@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "divider-shared",
+  "title": "Divider Shared",
+  "description": "Divider Shared email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/spacing/divider-shared.tsx",
+      "content": "import {\n  Mjml,\n  MjmlBody,\n  MjmlColumn,\n  MjmlDivider,\n  MjmlFont,\n  MjmlHead,\n  MjmlPreview,\n  MjmlSection,\n  MjmlSpacer,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\nimport type { ReactNode } from \"react\";\n\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nexport type DividerVariant = \"center\" | \"left\" | \"right\";\n\nexport const dividerColors = {\n  border: \"#e5e7eb\",\n  muted: \"#6b7280\",\n  mutedBackground: \"#f3f4f6\",\n  surface: \"#ffffff\",\n  text: \"#111827\",\n  white: \"#ffffff\",\n} as const;\n\nexport const dividerFontFamily =\n  '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif';\n\nconst columnWidths: Record<\n  DividerVariant,\n  { content: string; left: string; right: string }\n> = {\n  center: { content: \"34%\", left: \"33%\", right: \"33%\" },\n  left: { content: \"30%\", left: \"0%\", right: \"70%\" },\n  right: { content: \"30%\", left: \"70%\", right: \"0%\" },\n};\n\nconst RuleColumn = ({ width }: { width: string }) => (\n  <MjmlColumn padding=\"0\" verticalAlign=\"middle\" width={width}>\n    <MjmlDivider\n      borderColor={dividerColors.border}\n      borderStyle=\"solid\"\n      borderWidth=\"1px\"\n      padding=\"0\"\n      width=\"100%\"\n    />\n  </MjmlColumn>\n);\n\nexport const DividerFrame = ({\n  children,\n  variant = \"center\",\n}: {\n  children: ReactNode;\n  variant?: DividerVariant;\n}) => {\n  const widths = columnWidths[variant];\n\n  return (\n    <MjmlSection padding=\"24px 0\">\n      {variant === \"left\" ? null : <RuleColumn width={widths.left} />}\n      <MjmlColumn\n        padding={variant === \"left\" ? \"0 16px 0 0\" : \"0 16px\"}\n        verticalAlign=\"middle\"\n        width={widths.content}\n      >\n        {children}\n      </MjmlColumn>\n      {variant === \"right\" ? null : <RuleColumn width={widths.right} />}\n    </MjmlSection>\n  );\n};\n\nexport const LineDividerSection = () => (\n  <MjmlSection padding=\"24px 0\">\n    <MjmlColumn padding=\"0\">\n      <MjmlDivider\n        borderColor={dividerColors.border}\n        borderStyle=\"solid\"\n        borderWidth=\"1px\"\n        padding=\"0\"\n        width=\"100%\"\n      />\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (\n  <MjmlSection padding=\"0\">\n    <MjmlColumn padding=\"0\">\n      <MjmlSpacer height={`${height}px`} padding=\"0\" />\n    </MjmlColumn>\n  </MjmlSection>\n);\n\nexport const SpacingEmailShell = ({\n  children,\n  preview,\n  theme,\n}: {\n  children: ReactNode;\n  preview: string;\n  theme: EmailThemeTokens;\n}) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>{preview}</MjmlPreview>\n      <MjmlFont href=\"https://rsms.me/inter/inter.css\" name=\"Inter\" />\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={theme.colorBackground}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">{children}</MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n",
+      "type": "registry:component",
+      "target": "components/email/divider-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

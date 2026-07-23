@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,12 @@ import {
   Img,
   Preview,
   Tailwind,
+  Text,
+  Heading,
+  Section,
+  Row,
+  Column,
+  Link,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -83,7 +90,7 @@ const Overline = ({
   light: boolean;
   props: ResolvedProps;
 }) => (
-  <p
+  <Text
     style={{
       color: light ? "#fffffe" : props.headingColor,
       fontFamily,
@@ -102,7 +109,7 @@ const Overline = ({
     ) : (
       props.overline
     )}
-  </p>
+  </Text>
 );
 
 const ImpactHeading = ({
@@ -114,7 +121,7 @@ const ImpactHeading = ({
   light: boolean;
   props: ResolvedProps;
 }) => (
-  <h3
+  <Heading
     className="coupon-centered-impact"
     style={{
       color: light ? "#fffffe" : props.headingColor,
@@ -125,6 +132,7 @@ const ImpactHeading = ({
       margin: 0,
       textAlign: "center",
     }}
+    as="h3"
   >
     {alt && props.discount === defaults.discount ? (
       <>
@@ -133,7 +141,7 @@ const ImpactHeading = ({
     ) : (
       props.discount
     )}
-  </h3>
+  </Heading>
 );
 
 const Description = ({
@@ -143,20 +151,14 @@ const Description = ({
   light: boolean;
   props: ResolvedProps;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column
           className="coupon-centered-description"
           style={{ padding: "0 44px" }}
         >
-          <p
+          <Text
             style={{
               color: light ? "#fffffe" : props.textColor,
               fontFamily,
@@ -169,26 +171,22 @@ const Description = ({
           >
             Use code: <strong>{props.code}</strong> at checkout, or click the
             link below to automatically apply the discount to your order.
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const CodeBox = ({ props }: { props: ResolvedProps }) => (
-  <table
+  <Section
     align="center"
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
     className="coupon-centered-code"
-    role="presentation"
     style={{ margin: "0 auto" }}
   >
-    <tbody>
-      <tr>
-        <td
+    <Fragment>
+      <Row>
+        <Column
           style={{
             backgroundColor: props.codeBackgroundColor,
             borderRadius: "8px",
@@ -200,15 +198,15 @@ const CodeBox = ({ props }: { props: ResolvedProps }) => (
           }}
         >
           {props.code}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
-  <div style={{ textAlign: "center" }}>
-    <a
+  <Section style={{ textAlign: "center" }}>
+    <Link
       href={props.buttonHref}
       style={{
         backgroundColor: props.buttonBackgroundColor,
@@ -236,8 +234,8 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
           width={12}
         />
       </span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 export const CouponsWithCenteredTextSection = (props: SectionProps) => {
@@ -248,18 +246,14 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
   const alt = variant === "impact-alt";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: background
                 ? "#030712"
@@ -275,10 +269,10 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             <Overline light={background} props={resolved} />
             {inline ? (
-              <h3
+              <Heading
                 className="coupon-centered-inline"
                 style={{
                   color: resolved.headingColor,
@@ -289,11 +283,12 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
                   margin: 0,
                   textAlign: "center",
                 }}
+                as="h3"
               >
                 {resolved.discount === defaults.discount
                   ? "An extra 20% OFF"
                   : resolved.discount}
-              </h3>
+              </Heading>
             ) : (
               <ImpactHeading
                 alt={alt || background}
@@ -302,7 +297,7 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
               />
             )}
             {alt ? (
-              <p
+              <Text
                 style={{
                   color: resolved.headingColor,
                   fontFamily,
@@ -313,23 +308,23 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
                 }}
               >
                 {resolved.expiry}
-              </p>
+              </Text>
             ) : null}
             {!inline && !alt && !background ? (
               <CodeBox props={resolved} />
             ) : null}
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             <Description light={background} props={resolved} />
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             <CouponButton props={resolved} />
             {background ? (
-              <div style={{ lineHeight: "44px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             ) : null}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

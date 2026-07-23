@@ -1,5 +1,6 @@
-/* eslint-disable @next/next/no-img-element, complexity */
+import { Section, Link, Row, Column, Heading, Text, Img } from "jsx-email";
 import type { CSSProperties, ReactNode } from "react";
+import { Fragment } from "react";
 
 export type ShoppingCartVariant =
   | "basic"
@@ -90,12 +91,12 @@ const msoRaise6: EmailCssProperties = { msoTextRaise: "6px" };
 const msoRaise16: EmailCssProperties = { msoTextRaise: "16px" };
 
 const Spacer = ({ height }: { height: number }) => (
-  <div style={{ lineHeight: `${height}px` }}>&zwj;</div>
+  <Section style={{ lineHeight: `${height}px` }}>&zwj;</Section>
 );
 
 const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
-  <div style={align ? { textAlign: align } : undefined}>
-    <a
+  <Section style={align ? { textAlign: align } : undefined}>
+    <Link
       href={href}
       style={{
         backgroundColor: "#fffffe",
@@ -111,7 +112,7 @@ const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
       }}
     >
       <span style={msoRaise6}>
-        <img
+        <Img
           alt=""
           src={`${ASSET_ROOT}/icon-edit-indigo.png`}
           style={{
@@ -122,8 +123,8 @@ const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
         />
       </span>
       <span style={{ ...msoRaise6, marginLeft: "8px" }}>Edit</span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 const Divider = ({
@@ -133,7 +134,7 @@ const Divider = ({
   bottom?: number;
   top?: number;
 }) => (
-  <div
+  <Section
     style={{
       backgroundColor: "#d1d5db",
       height: "1px",
@@ -144,21 +145,15 @@ const Divider = ({
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 const Header = ({ item }: { item: ShoppingCartItem }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td>
-          <h3
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column>
+          <Heading
             style={{
               ...textStyle,
               color: "#030712",
@@ -166,12 +161,15 @@ const Header = ({ item }: { item: ShoppingCartItem }) => (
               fontWeight: 600,
               lineHeight: "28px",
             }}
+            as="h3"
           >
             {item.name}
-          </h3>
-        </td>
-        <td style={{ textAlign: "right", verticalAlign: "top", width: "80px" }}>
-          <p
+          </Heading>
+        </Column>
+        <Column
+          style={{ textAlign: "right", verticalAlign: "top", width: "80px" }}
+        >
+          <Text
             style={{
               ...textStyle,
               color: "#030712",
@@ -181,15 +179,15 @@ const Header = ({ item }: { item: ShoppingCartItem }) => (
             }}
           >
             {item.price}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Copy = ({ children }: { children: ReactNode }) => (
-  <p
+  <Text
     style={{
       ...textStyle,
       color: "#4b5563",
@@ -199,24 +197,20 @@ const Copy = ({ children }: { children: ReactNode }) => (
     }}
   >
     {children}
-  </p>
+  </Text>
 );
 
 const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td style={{ paddingRight: "16px", verticalAlign: "top" }}>
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column style={{ paddingRight: "16px", verticalAlign: "top" }}>
           <Copy>Indigo | {item.size ?? "Large"}</Copy>
-        </td>
-        <td style={{ textAlign: "right", verticalAlign: "top", width: "96px" }}>
-          <p
+        </Column>
+        <Column
+          style={{ textAlign: "right", verticalAlign: "top", width: "96px" }}
+        >
+          <Text
             style={{
               ...textStyle,
               color: "#4b5563",
@@ -226,15 +220,15 @@ const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
             }}
           >
             <span style={{ fontWeight: 500 }}>Quantity:</span> {item.quantity}
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Text>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const ColorSwatches = ({ colors }: { colors: string[] }) => (
-  <div style={{ fontSize: 0, lineHeight: 1 }}>
+  <Section style={{ fontSize: 0, lineHeight: 1 }}>
     {colors.map((color) => (
       <span key={color} style={{ display: "inline-block", maxWidth: "12px" }}>
         <span
@@ -248,7 +242,7 @@ const ColorSwatches = ({ colors }: { colors: string[] }) => (
         />
       </span>
     ))}
-  </div>
+  </Section>
 );
 
 const Option = ({
@@ -262,14 +256,14 @@ const Option = ({
   last?: boolean;
   unstyled?: boolean;
 }) => (
-  <td
+  <Column
     className="shopping-cart-option"
     style={{ paddingRight: last ? undefined : "24px" }}
   >
-    <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-      <tbody>
-        <tr>
-          <td
+    <Section>
+      <Fragment>
+        <Row>
+          <Column
             style={{
               color: "#4b5563",
               fontFamily,
@@ -279,8 +273,8 @@ const Option = ({
             }}
           >
             {`${label}:`}
-          </td>
-          <td
+          </Column>
+          <Column
             style={
               unstyled
                 ? undefined
@@ -293,11 +287,11 @@ const Option = ({
             }
           >
             {children}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 const Options = ({
@@ -307,15 +301,9 @@ const Options = ({
   item: ShoppingCartItem;
   showQuantity?: boolean;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    className="shopping-cart-options"
-    role="presentation"
-  >
-    <tbody>
-      <tr>
+  <Section className="shopping-cart-options">
+    <Fragment>
+      <Row>
         <Option label="Colors" unstyled>
           <ColorSwatches
             colors={item.colors ?? ["#030712", "#fffffe", "#E5E7EB"]}
@@ -329,22 +317,16 @@ const Options = ({
             {item.quantity}
           </Option>
         ) : null}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const QuantityAndEdit = ({ item }: { item: ShoppingCartItem }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           style={{
             color: "#4b5563",
             fontFamily,
@@ -352,16 +334,16 @@ const QuantityAndEdit = ({ item }: { item: ShoppingCartItem }) => (
           }}
         >
           Qty: {item.quantity}
-        </td>
-        <td>
+        </Column>
+        <Column>
           <EditLink
             align="right"
             href={item.editHref ?? "https://example.com/cart/edit"}
           />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const RowContent = ({
@@ -418,21 +400,15 @@ const CartRow = ({
   item: ShoppingCartItem;
   variant: ShoppingCartVariant;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="shopping-cart-column"
           style={{ verticalAlign: "top", width: "144px" }}
         >
-          <div>
-            <img
+          <Section>
+            <Img
               alt=""
               className="shopping-cart-image"
               src={item.imageUrl}
@@ -443,25 +419,28 @@ const CartRow = ({
               }}
               width="144"
             />
-          </div>
-        </td>
-        <td
+          </Section>
+        </Column>
+        <Column
           className="shopping-cart-column shopping-cart-gap"
           style={{ width: "24px" }}
         >
           &zwj;
-        </td>
-        <td className="shopping-cart-column" style={{ verticalAlign: "top" }}>
+        </Column>
+        <Column
+          className="shopping-cart-column"
+          style={{ verticalAlign: "top" }}
+        >
           <RowContent item={item} variant={variant} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Checkout = () => (
-  <div style={{ textAlign: "center" }}>
-    <a
+  <Section style={{ textAlign: "center" }}>
+    <Link
       href="https://example.com/checkout"
       style={{
         backgroundColor: "#4f46e5",
@@ -478,24 +457,18 @@ const Checkout = () => (
       }}
     >
       <span style={msoRaise16}>Checkout now</span>
-    </a>
-  </div>
+    </Link>
+  </Section>
 );
 
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{shoppingCartResponsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -503,27 +476,21 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
                     <Spacer height={44} />
                     {children}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -547,28 +514,22 @@ export const ShoppingCartSection = ({
 
   return (
     <EmailShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
           {visible.flatMap((item, index) => [
-            <tr key={`${item.name}-row`}>
-              <td>
+            <Row key={`${item.name}-row`}>
+              <Column>
                 <CartRow item={item} variant={rowVariant} />
-              </td>
-            </tr>,
+              </Column>
+            </Row>,
             index < visible.length - 1 ? (
-              <tr key={`${item.name}-gap`}>
-                <td style={{ lineHeight: "44px" }}>&zwj;</td>
-              </tr>
+              <Row key={`${item.name}-gap`}>
+                <Column style={{ lineHeight: "44px" }}>&zwj;</Column>
+              </Row>
             ) : null,
           ])}
-        </tbody>
-      </table>
+        </Fragment>
+      </Section>
       {variant === "example-with-cta" ? (
         <>
           <Spacer height={64} />

@@ -1,5 +1,16 @@
 import { Fragment } from "react";
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Text,
+  Section,
+  Row,
+  Column,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -57,7 +68,7 @@ const StatCopy = ({
   value: string;
 }) => (
   <>
-    <p
+    <Text
       style={{
         color: headingColor,
         fontFamily,
@@ -69,8 +80,8 @@ const StatCopy = ({
       }}
     >
       {value}
-    </p>
-    <p
+    </Text>
+    <Text
       style={{
         color: textColor,
         fontFamily,
@@ -81,7 +92,7 @@ const StatCopy = ({
       }}
     >
       {label}
-    </p>
+    </Text>
   </>
 );
 
@@ -89,18 +100,14 @@ export const SimpleStatsSection = (props: SectionProps) => {
   const resolved = { ...defaults, ...props };
   const variant = props.variant ?? "default";
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -109,37 +116,25 @@ export const SimpleStatsSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {resolved.stats.slice(0, 3).map((stat, index) => (
                             <Fragment key={stat.label + stat.value}>
                               {index > 0 ? (
-                                <td
+                                <Column
                                   className="simple-stat-stack simple-stat-gap"
                                   style={{ width: "24px" }}
                                 >
                                   &zwj;
-                                </td>
+                                </Column>
                               ) : null}
-                              <td
+                              <Column
                                 className="simple-stat-stack"
                                 style={{ verticalAlign: "top", width: "168px" }}
                               >
@@ -151,11 +146,7 @@ export const SimpleStatsSection = (props: SectionProps) => {
                                     value={stat.value}
                                   />
                                 ) : (
-                                  <table
-                                    border={0}
-                                    cellPadding={0}
-                                    cellSpacing={0}
-                                    role="presentation"
+                                  <Section
                                     style={{
                                       backgroundColor:
                                         variant === "boxed"
@@ -177,9 +168,9 @@ export const SimpleStatsSection = (props: SectionProps) => {
                                     }}
                                     width="100%"
                                   >
-                                    <tbody>
-                                      <tr>
-                                        <td
+                                    <Fragment>
+                                      <Row>
+                                        <Column
                                           style={{
                                             padding:
                                               variant === "bordered"
@@ -193,26 +184,26 @@ export const SimpleStatsSection = (props: SectionProps) => {
                                             textColor={resolved.textColor}
                                             value={stat.value}
                                           />
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
+                                        </Column>
+                                      </Row>
+                                    </Fragment>
+                                  </Section>
                                 )}
-                              </td>
+                              </Column>
                             </Fragment>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

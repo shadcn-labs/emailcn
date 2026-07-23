@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Link,
+  Text,
+  Heading,
+  Row,
+  Column,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -99,20 +113,20 @@ export const HeroAlignedOverlaySection = ({
   const contentRight = variant.startsWith("content-right");
   const reversed = variant.endsWith("-reversed");
   const logo = (
-    <div>
-      <a href={logoHref}>
-        <img
+    <Section>
+      <Link href={logoHref}>
+        <Img
           alt={logoAlt}
           src={logoSrc}
           width="165"
           style={{ maxWidth: "100%", verticalAlign: "middle" }}
         />
-      </a>
-    </div>
+      </Link>
+    </Section>
   );
   const copy = (
     <>
-      <p
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -123,8 +137,8 @@ export const HeroAlignedOverlaySection = ({
         }}
       >
         {eyebrow}
-      </p>
-      <h1
+      </Text>
+      <Heading
         style={{
           color: textColor,
           fontFamily,
@@ -133,12 +147,13 @@ export const HeroAlignedOverlaySection = ({
           lineHeight: "58px",
           margin: 0,
         }}
+        as="h1"
       >
         {headingStart}{" "}
         <span style={{ fontWeight: 300 }}>{headingEmphasis}</span> {headingEnd}
-      </h1>
-      <div style={{ height: "44px", lineHeight: "44px" }}>&zwj;</div>
-      <p
+      </Heading>
+      <Section style={{ height: "44px", lineHeight: "44px" }}>&zwj;</Section>
+      <Text
         style={{
           color: textColor,
           fontFamily,
@@ -149,10 +164,10 @@ export const HeroAlignedOverlaySection = ({
         }}
       >
         {description}
-      </p>
-      <div style={{ height: "28px", lineHeight: "28px" }}>&zwj;</div>
+      </Text>
+      <Section style={{ height: "28px", lineHeight: "28px" }}>&zwj;</Section>
       {ctaLabel && ctaHref ? (
-        <a
+        <Link
           href={ctaHref}
           style={{
             backgroundColor: buttonBackgroundColor,
@@ -168,24 +183,20 @@ export const HeroAlignedOverlaySection = ({
           }}
         >
           <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-          <img
+          <Img
             alt=""
             src={`${assetRoot}/icon-arrow-right.png`}
             width="12"
             style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           />
-        </a>
+        </Link>
       ) : null}
     </>
   );
 
   return (
-    <table
+    <Section
       aria-label={imageAlt || undefined}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role={imageAlt ? "img" : "presentation"}
       style={{
         backgroundColor,
         backgroundImage: `url(${imageSrc})`,
@@ -195,42 +206,44 @@ export const HeroAlignedOverlaySection = ({
       }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td colSpan={3} style={{ height: "44px", lineHeight: "44px" }}>
+      <Fragment>
+        <Row>
+          <Column colSpan={3} style={{ height: "44px", lineHeight: "44px" }}>
             &zwj;
-          </td>
-        </tr>
-        <tr>
-          <td
+          </Column>
+        </Row>
+        <Row>
+          <Column
             className="hero-aligned-overlay-start"
             style={{ width: contentRight ? "224px" : "48px" }}
           >
             &zwj;
-          </td>
-          <td
+          </Column>
+          <Column
             className="hero-aligned-overlay-content"
             style={{ textAlign: contentRight ? "right" : "left" }}
           >
             {reversed ? copy : logo}
-            <div
+            <Section
               className="hero-aligned-overlay-logo-gap"
               style={{ height: "120px", lineHeight: "120px" }}
             >
               &zwj;
-            </div>
+            </Section>
             {reversed ? logo : copy}
-            <div style={{ height: "44px", lineHeight: "44px" }}>&zwj;</div>
-          </td>
-          <td
+            <Section style={{ height: "44px", lineHeight: "44px" }}>
+              &zwj;
+            </Section>
+          </Column>
+          <Column
             className="hero-aligned-overlay-end"
             style={{ width: contentRight ? "44px" : "224px" }}
           >
             &zwj;
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+  Link,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
@@ -81,23 +92,17 @@ const PlanCard = ({
   cardBackgroundColor: string;
   brandColor: string;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column
           style={{
             backgroundColor: cardBackgroundColor,
             borderRadius: "8px",
             padding: "24px",
           }}
         >
-          <p
+          <Text
             style={{
               color: brandColor,
               fontFamily,
@@ -108,13 +113,13 @@ const PlanCard = ({
             }}
           >
             {plan.name}
-          </p>
-          <div style={{ lineHeight: "16px" }}>&zwj;</div>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
-              <tr>
-                <td>
-                  <p
+          </Text>
+          <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+          <Section>
+            <Fragment>
+              <Row>
+                <Column>
+                  <Text
                     style={{
                       color: "#030712",
                       fontFamily,
@@ -125,11 +130,11 @@ const PlanCard = ({
                     }}
                   >
                     {plan.price}
-                  </p>
-                </td>
-                <td style={{ width: "8px" }}>&zwj;</td>
-                <td>
-                  <p
+                  </Text>
+                </Column>
+                <Column style={{ width: "8px" }}>&zwj;</Column>
+                <Column>
+                  <Text
                     style={{
                       color: "#374151",
                       fontFamily,
@@ -140,8 +145,8 @@ const PlanCard = ({
                     }}
                   >
                     USD
-                  </p>
-                  <p
+                  </Text>
+                  <Text
                     style={{
                       color: "#6b7280",
                       fontFamily,
@@ -151,13 +156,13 @@ const PlanCard = ({
                     }}
                   >
                     {plan.period}
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div style={{ lineHeight: "16px" }}>&zwj;</div>
-          <p
+                  </Text>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+          <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+          <Text
             style={{
               color: "#030712",
               fontFamily,
@@ -168,35 +173,35 @@ const PlanCard = ({
             }}
           >
             {plan.description}
-          </p>
-          <div style={{ lineHeight: "36px" }}>&zwj;</div>
-          <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-            <tbody>
+          </Text>
+          <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+          <Section>
+            <Fragment>
               {plan.features.map((feature, index) => (
-                <tr key={feature.label}>
-                  <td
+                <Row key={feature.label}>
+                  <Column
                     style={{
                       lineHeight: "24px",
                       verticalAlign: "top",
                       width: "16px",
                     }}
                   >
-                    <img
+                    <Img
                       alt=""
                       src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={16}
                     />
-                  </td>
-                  <td style={{ width: "12px" }}>&zwj;</td>
-                  <td
+                  </Column>
+                  <Column style={{ width: "12px" }}>&zwj;</Column>
+                  <Column
                     style={{
                       paddingBottom:
                         index < plan.features.length - 1 ? "16px" : 0,
                       verticalAlign: "top",
                     }}
                   >
-                    <p
+                    <Text
                       style={{
                         color: feature.muted ? "#9ca3af" : "#4b5563",
                         fontFamily,
@@ -206,14 +211,14 @@ const PlanCard = ({
                       }}
                     >
                       {feature.label}
-                    </p>
-                  </td>
-                </tr>
+                    </Text>
+                  </Column>
+                </Row>
               ))}
-            </tbody>
-          </table>
-          <div style={{ lineHeight: "36px" }}>&zwj;</div>
-          <a
+            </Fragment>
+          </Section>
+          <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+          <Link
             href={plan.ctaHref}
             style={{
               backgroundColor: brandColor,
@@ -230,11 +235,11 @@ const PlanCard = ({
             }}
           >
             {plan.ctaLabel}
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Link>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const TwoColumnsPricingTableSection = ({
@@ -244,18 +249,11 @@ export const TwoColumnsPricingTableSection = ({
   cardBackgroundColor = "#f9fafb",
   brandColor = "#4f46e5",
 }: Omit<TwoColumnsPricingTableProps, "theme">) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ backgroundColor: pageBackgroundColor }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td>&zwj;</td>
-        <td
+  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+    <Fragment>
+      <Row>
+        <Column>&zwj;</Column>
+        <Column
           style={{
             backgroundColor,
             maxWidth: "100%",
@@ -263,28 +261,16 @@ export const TwoColumnsPricingTableSection = ({
             width: "600px",
           }}
         >
-          <table
-            border={0}
-            cellPadding={0}
-            cellSpacing={0}
-            role="presentation"
-            width="100%"
-          >
-            <tbody>
-              <tr>
-                <td style={{ padding: "0 24px" }}>
-                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                  <table
-                    border={0}
-                    cellPadding={0}
-                    cellSpacing={0}
-                    role="presentation"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
+          <Section width="100%">
+            <Fragment>
+              <Row>
+                <Column style={{ padding: "0 24px" }}>
+                  <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                  <Section width="100%">
+                    <Fragment>
+                      <Row>
                         {plans.map((plan, index) => (
-                          <td
+                          <Column
                             className="pricing-plan-column"
                             key={plan.name}
                             style={{
@@ -298,20 +284,20 @@ export const TwoColumnsPricingTableSection = ({
                               brandColor={brandColor}
                               plan={plan}
                             />
-                          </td>
+                          </Column>
                         ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-        <td>&zwj;</td>
-      </tr>
-    </tbody>
-  </table>
+                      </Row>
+                    </Fragment>
+                  </Section>
+                </Column>
+              </Row>
+            </Fragment>
+          </Section>
+        </Column>
+        <Column>&zwj;</Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const TwoColumnsPricingTable = ({

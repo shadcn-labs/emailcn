@@ -1,17 +1,17 @@
-/* eslint-disable @next/next/no-img-element */
 import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
+  MjmlColumn,
+  MjmlImage,
+  MjmlSection,
+  MjmlSpacer,
+  MjmlText,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FeatureCopy,
+  FeatureEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/feature/feature-shared";
 
 export type FeatureWithFullTitleAndTallBackgroundImagesVariant =
   | "logo-bottom-left"
@@ -43,302 +43,117 @@ export interface FeatureWithFullTitleAndTallBackgroundImagesProps {
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const responsiveStyles = `
-  @media only screen and (max-width: 599px) {
-    .feature-full-stack { display: block !important; width: 100% !important; }
-    .feature-full-gap { line-height: 24px !important; }
-  }
-
-  @media only screen and (max-width: 430px) {
-    .feature-full-image-stack { display: block !important; width: 100% !important; }
-    .feature-full-image-gap { line-height: 24px !important; }
-  }
-`;
-
-const defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
-  backgroundColor: "#fffffe",
-  body: "Discover clinically proven formulas designed to target concerns with precision and clarity.",
-  buttonHref: "https://example.com",
-  buttonLabel: "Discover more",
-  heading: "Science-led skincare essentials.",
-  headingColor: "#030712",
-  imageBackgroundColor: "#f3f4f6",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-4.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-5.jpg",
-  linkColor: "#4f46e5",
-  logoAlt: "Monarch",
-  logoBackgroundColor: "#f3f4f6",
-  logoSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-2.png",
-  pageBackgroundColor: "#f1f5f9",
-  textColor: "#4b5563",
-};
-
-type SectionProps = Omit<
-  FeatureWithFullTitleAndTallBackgroundImagesProps,
-  "theme"
->;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const LogoPanel = ({ props }: { props: ResolvedProps }) => (
-  <div
-    style={{
-      backgroundColor: props.logoBackgroundColor,
-      borderRadius: "4px",
-      lineHeight: "144px",
-      textAlign: "center",
-    }}
-  >
-    <img
-      alt={props.logoAlt}
-      src={props.logoSrc}
-      style={{ display: "inline", maxWidth: "100%", verticalAlign: "middle" }}
-      width={139}
-    />
-  </div>
-);
-
-const FeatureCopy = ({ props }: { props: ResolvedProps }) => (
-  <>
-    <p
-      style={{
-        color: props.textColor,
-        fontFamily,
-        fontSize: "14px",
-        fontWeight: 300,
-        lineHeight: "20px",
-        margin: 0,
-      }}
-    >
-      {props.body}
-    </p>
-    <div style={{ lineHeight: "12px" }}>&zwj;</div>
-    <div>
-      <a
-        href={props.buttonHref}
-        style={{
-          borderRadius: "8px",
-          color: props.linkColor,
-          display: "inline-block",
-          fontFamily,
-          fontSize: "14px",
-          fontWeight: 500,
-          lineHeight: "20px",
-          padding: 0,
-          textDecoration: "none",
-        }}
-      >
-        <span style={{ marginRight: "8px" }}>{props.buttonLabel}</span>
-        <span>
-          <img
-            alt=""
-            src={props.arrowIconSrc}
-            style={{
-              display: "inline",
-              maxWidth: "100%",
-              verticalAlign: "baseline",
-            }}
-            width={16}
-          />
-        </span>
-      </a>
-    </div>
-  </>
-);
-
-const ContentColumn = ({
-  logoAfter,
-  props,
-}: {
-  logoAfter: boolean;
-  props: ResolvedProps;
-}) => (
-  <td
-    className="feature-full-stack"
-    style={{ textAlign: "left", verticalAlign: "top", width: "204px" }}
-  >
-    {logoAfter ? null : (
-      <div style={{ marginBottom: "24px" }}>
-        <LogoPanel props={props} />
-      </div>
-    )}
-    <FeatureCopy props={props} />
-    {logoAfter ? (
-      <div style={{ marginTop: "24px" }}>
-        <LogoPanel props={props} />
-      </div>
-    ) : null}
-  </td>
-);
-
-const BackgroundCard = ({
-  imageSrc,
-  props,
-}: {
-  imageSrc: string;
-  props: ResolvedProps;
-}) => (
-  <td
-    className="feature-full-image-stack"
-    style={{
-      backgroundColor: props.imageBackgroundColor,
-      backgroundImage: `url('${imageSrc}')`,
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      borderRadius: "4px",
-      textAlign: "center",
-      width: "150px",
-    }}
-  >
-    <div style={{ lineHeight: "280px" }}>&zwj;</div>
-  </td>
-);
-
-const ImagesColumn = ({ props }: { props: ResolvedProps }) => (
-  <td
-    className="feature-full-stack"
-    style={{ verticalAlign: "top", width: "324px" }}
-  >
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <BackgroundCard imageSrc={props.imageSrc1} props={props} />
-          <td
-            className="feature-full-image-stack feature-full-image-gap"
-            style={{ width: "24px" }}
-          >
-            &zwj;
-          </td>
-          <BackgroundCard imageSrc={props.imageSrc2} props={props} />
-        </tr>
-      </tbody>
-    </table>
-  </td>
-);
-
-export const FeatureWithFullTitleAndTallBackgroundImagesSection = (
-  props: SectionProps
-) => {
-  const variant = props.variant ?? "logo-bottom-left";
+export const FeatureWithFullTitleAndTallBackgroundImagesSection = ({
+  backgroundColor = "#fffffe",
+  body = "Discover clinically proven formulas designed to target concerns with precision and clarity.",
+  buttonHref = "https://example.com",
+  buttonLabel = "Discover more",
+  heading = "Science-led skincare essentials.",
+  headingColor = "#030712",
+  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-4.jpg",
+  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-5.jpg",
+  linkColor = "#4f46e5",
+  logoAlt = "Monarch",
+  logoSrc = "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-2.png",
+  textColor = "#4b5563",
+  variant = "logo-bottom-left",
+}: Omit<FeatureWithFullTitleAndTallBackgroundImagesProps, "theme">) => {
   const contentRight = variant.endsWith("-right");
   const logoAfter = variant.startsWith("logo-bottom-");
-  const resolved = { ...defaults, ...props } as ResolvedProps;
-  const content = <ContentColumn logoAfter={logoAfter} props={resolved} />;
-  const images = <ImagesColumn props={resolved} />;
+  const content = (
+    <MjmlColumn padding="0 12px" verticalAlign="top" width="48%">
+      {logoAfter ? null : (
+        <>
+          <MjmlImage
+            align="left"
+            alt={logoAlt}
+            padding="0"
+            src={logoSrc}
+            width="139px"
+          />
+          <MjmlSpacer height="24px" />
+        </>
+      )}
+      <FeatureCopy
+        body={body}
+        buttonHref={buttonHref}
+        buttonLabel={buttonLabel}
+        heading=""
+        headingColor={headingColor}
+        linkColor={linkColor}
+        textColor={textColor}
+      />
+      {logoAfter ? (
+        <>
+          <MjmlSpacer height="24px" />
+          <MjmlImage
+            align="left"
+            alt={logoAlt}
+            padding="0"
+            src={logoSrc}
+            width="139px"
+          />
+        </>
+      ) : null}
+    </MjmlColumn>
+  );
+  const images = [
+    <MjmlColumn key="feature-full-1" padding="0 8px" width="26%">
+      <MjmlImage
+        alt=""
+        borderRadius="4px"
+        padding="0"
+        src={imageSrc1}
+        width="132px"
+      />
+    </MjmlColumn>,
+    <MjmlColumn key="feature-full-2" padding="0 8px" width="26%">
+      <MjmlImage
+        alt=""
+        borderRadius="4px"
+        padding="0"
+        src={imageSrc2}
+        width="132px"
+      />
+    </MjmlColumn>,
+  ];
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              paddingBottom: "44px",
-              width: "600px",
-            }}
+    <>
+      <MjmlSection backgroundColor={backgroundColor} padding="44px 24px 12px">
+        <MjmlColumn padding="0">
+          <MjmlText
+            color={headingColor}
+            fontFamily={fontFamily}
+            fontSize="24px"
+            fontWeight="600"
+            lineHeight="32px"
+            padding="0"
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <h2
-                      style={{
-                        color: resolved.headingColor,
-                        fontFamily,
-                        fontSize: "24px",
-                        fontWeight: 600,
-                        lineHeight: "32px",
-                        margin: "0 0 24px",
-                      }}
-                    >
-                      {resolved.heading}
-                    </h2>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
-                          {contentRight ? images : content}
-                          <td
-                            className="feature-full-stack feature-full-gap"
-                            style={{ width: "24px" }}
-                          >
-                            &zwj;
-                          </td>
-                          {contentRight ? content : images}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+            {heading}
+          </MjmlText>
+        </MjmlColumn>
+      </MjmlSection>
+      <MjmlSection backgroundColor={backgroundColor} padding="12px 12px 44px">
+        {contentRight ? images : content}
+        {contentRight ? content : images}
+      </MjmlSection>
+    </>
   );
 };
 
 export const FeatureWithFullTitleAndTallBackgroundImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  variant = "logo-bottom-left",
   ...props
 }: FeatureWithFullTitleAndTallBackgroundImagesProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Science-led skincare essentials.</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <FeatureWithFullTitleAndTallBackgroundImagesSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FeatureEmailShell
+    pageBackgroundColor={pageBackgroundColor}
+    preview="Science-led skincare essentials"
+    theme={theme}
+  >
+    <FeatureWithFullTitleAndTallBackgroundImagesSection {...props} />
+  </FeatureEmailShell>
 );
 
 FeatureWithFullTitleAndTallBackgroundImages.PreviewProps = {

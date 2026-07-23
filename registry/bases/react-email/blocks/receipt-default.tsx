@@ -12,6 +12,7 @@ import {
   Section,
   Tailwind,
   Text,
+  Link,
 } from "react-email";
 
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
@@ -124,9 +125,9 @@ export const ReceiptDefault = ({
 
             <Text className="mt-8 text-sm text-foreground-muted">
               Need help?{" "}
-              <a href={supportHref} className="text-foreground underline">
+              <Link href={supportHref} className="text-foreground underline">
                 Contact support
-              </a>
+              </Link>
             </Text>
           </Container>
         </Body>

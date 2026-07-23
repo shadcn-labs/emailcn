@@ -1,6 +1,16 @@
-/* eslint-disable next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -91,18 +101,14 @@ export const BasicLogoCloudSection = (props: SectionProps) => {
   const showDescription = variant === "with-description" || variant === "full";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -110,20 +116,14 @@ export const BasicLogoCloudSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "center" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "center" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     {showTitle ? (
                       <>
-                        <h3
+                        <Heading
                           style={{
                             color: resolved.titleColor,
                             fontFamily,
@@ -133,37 +133,31 @@ export const BasicLogoCloudSection = (props: SectionProps) => {
                             margin: 0,
                             textAlign: "center",
                           }}
+                          as="h3"
                         >
                           {resolved.title}
-                        </h3>
-                        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                        </Heading>
+                        <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                       </>
                     ) : null}
-                    <table
-                      align="center"
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      style={{ margin: "0 auto" }}
-                    >
-                      <tbody>
-                        <tr>
+                    <Section align="center" style={{ margin: "0 auto" }}>
+                      <Fragment>
+                        <Row>
                           {logos.map((logo, index) => (
                             <Fragment key={logo.alt + logo.src}>
                               {index > 0 ? (
-                                <td
+                                <Column
                                   className="basic-logo-gap"
                                   style={{ width: "36px" }}
                                 >
                                   &zwj;
-                                </td>
+                                </Column>
                               ) : null}
-                              <td
+                              <Column
                                 className="basic-logo-item"
                                 style={{ textAlign: "center" }}
                               >
-                                <img
+                                <Img
                                   alt={logo.alt}
                                   src={logo.src}
                                   style={{
@@ -172,21 +166,21 @@ export const BasicLogoCloudSection = (props: SectionProps) => {
                                   }}
                                   width={logo.width}
                                 />
-                              </td>
+                              </Column>
                             </Fragment>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
                     {showDescription ? (
                       <>
-                        <div
+                        <Section
                           className="basic-logo-description-gap"
                           style={{ lineHeight: "36px" }}
                         >
                           &zwj;
-                        </div>
-                        <p
+                        </Section>
+                        <Text
                           style={{
                             color: resolved.textColor,
                             fontFamily,
@@ -198,18 +192,18 @@ export const BasicLogoCloudSection = (props: SectionProps) => {
                           }}
                         >
                           {resolved.description}
-                        </p>
+                        </Text>
                       </>
                     ) : null}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

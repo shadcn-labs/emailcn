@@ -4,7 +4,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlRaw,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -38,9 +37,7 @@ export const BasicPillsStatusColors = ({
     </MjmlHead>
     <MjmlBody width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <BasicPillsStatusColorsSection mjmlCompensation pills={pills} />
-        </MjmlRaw>
+        <BasicPillsStatusColorsSection mjmlCompensation pills={pills} />
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>

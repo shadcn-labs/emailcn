@@ -1,6 +1,17 @@
-/* eslint-disable next/no-img-element */
 import { Fragment } from "react";
-import { Body, Head, Html, Preview } from "react-email";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Heading,
+  Link,
+  Text,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -76,18 +87,11 @@ export const SocialsWithTileLabelsSection = ({
   const stacked = variant === "stacked";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor,
               maxWidth: "100%",
@@ -95,24 +99,18 @@ export const SocialsWithTileLabelsSection = ({
               width: "600px",
             }}
           >
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="tiled-social-content"
                     style={{
                       padding: stacked ? "0 52px" : "0 24px",
                       textAlign: "center",
                     }}
                   >
-                    <h2
+                    <Heading
                       style={{
                         color: "#030712",
                         fontFamily,
@@ -122,38 +120,35 @@ export const SocialsWithTileLabelsSection = ({
                         margin: 0,
                         textAlign: "center",
                       }}
+                      as="h2"
                     >
                       {title}
-                    </h2>
-                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
-                    <table
+                    </Heading>
+                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    <Section
                       align="center"
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
                       style={{ marginLeft: "auto", marginRight: "auto" }}
                     >
-                      <tbody>
-                        <tr>
+                      <Fragment>
+                        <Row>
                           {resolvedItems.map((item, index) => (
                             <Fragment key={`${item.label}-${item.href}`}>
                               {index > 0 ? (
-                                <td
+                                <Column
                                   className="tiled-social-spacer"
                                   style={{ width: "16px" }}
                                 >
                                   &zwj;
-                                </td>
+                                </Column>
                               ) : null}
-                              <td
+                              <Column
                                 className="tiled-social-item"
                                 style={{
                                   backgroundColor: tileBackgroundColor,
                                   width: stacked ? "112px" : undefined,
                                 }}
                               >
-                                <a
+                                <Link
                                   href={item.href}
                                   style={{
                                     backgroundColor: tileBackgroundColor,
@@ -169,7 +164,7 @@ export const SocialsWithTileLabelsSection = ({
                                     textDecoration: "none",
                                   }}
                                 >
-                                  <img
+                                  <Img
                                     alt={stacked ? item.alt : ""}
                                     src={item.src}
                                     style={{
@@ -188,20 +183,20 @@ export const SocialsWithTileLabelsSection = ({
                                   >
                                     {item.label}
                                   </span>
-                                </a>
-                              </td>
+                                </Link>
+                              </Column>
                             </Fragment>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    <Section
                       className="tiled-social-description-gap"
                       style={{ lineHeight: "36px" }}
                     >
                       &zwj;
-                    </div>
-                    <p
+                    </Section>
+                    <Text
                       style={{
                         color: "#4b5563",
                         fontFamily,
@@ -213,16 +208,16 @@ export const SocialsWithTileLabelsSection = ({
                       }}
                     >
                       {description}
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                    </Text>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Link,
+  Text,
+  Heading,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -51,228 +65,241 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroWithOverlayedContentProps, "theme">;
 
-export const HeroWithOverlayedContentSection = ({
-  accentColor = "#D34A36",
-  buttonBackgroundColor = "#D34A36",
-  buttonTextColor = "#fffffe",
-  ctaHref = "https://example.com",
-  ctaLabel = "Make an offer now",
-  description = "Step back into the golden era of hoops style with the iconic Blazer Mid '77 Vintage. A timeless mix of crisp white leather, retro suede accents, and that bold Swoosh, this pair delivers heritage with a modern edge.",
-  eyebrow = "Fresh Drop",
-  heading = "Mid ‘77 Vintage",
-  headingAccent = "Blazer",
-  imageAlt = "Nike Blazer Mid ‘77 Vintage",
-  imageSrc = `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-insignia-mono.png`,
-  slantColor = "#fffffe",
-  subheading = "Only One Pair Left",
-  textColor = "#030712",
-  variant = "default",
-}: SectionProps) => (
-  <table
-    aria-label={imageAlt || undefined}
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role={imageAlt ? "img" : "presentation"}
-    style={{
-      backgroundImage: `url(${imageSrc})`,
-      backgroundPosition: "top",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-    }}
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td colSpan={3} style={{ height: "44px", lineHeight: "44px" }}>
-          &zwj;
-        </td>
-      </tr>
-      <tr>
-        <td className="hero-overlayed-content-side" style={{ width: "48px" }}>
-          &zwj;
-        </td>
-        <td style={{ textAlign: "center" }}>
-          <a href={logoHref}>
-            <img
-              alt={logoAlt}
-              src={logoSrc}
-              width="65"
-              style={{ maxWidth: "100%", verticalAlign: "middle" }}
-            />
-          </a>
-          <div style={{ height: "332px", lineHeight: "332px" }}>&zwj;</div>
-          <p
-            style={{
-              color: accentColor,
-              fontFamily,
-              fontSize: "16px",
-              fontWeight: 500,
-              lineHeight: "24px",
-              margin: 0,
-            }}
+const sectionDefaults = {
+  accentColor: "#D34A36",
+  buttonBackgroundColor: "#D34A36",
+  buttonTextColor: "#fffffe",
+  ctaHref: "https://example.com",
+  ctaLabel: "Make an offer now",
+  description:
+    "Step back into the golden era of hoops style with the iconic Blazer Mid '77 Vintage. A timeless mix of crisp white leather, retro suede accents, and that bold Swoosh, this pair delivers heritage with a modern edge.",
+  eyebrow: "Fresh Drop",
+  heading: "Mid ‘77 Vintage",
+  headingAccent: "Blazer",
+  imageAlt: "Nike Blazer Mid ‘77 Vintage",
+  imageSrc: `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
+  logoAlt: "emailcn",
+  logoHref: "https://example.com",
+  logoSrc: `${assetRoot}/emailcn-insignia-mono.png`,
+  pageBackgroundColor: "#f1f5f9",
+  slantColor: "#fffffe",
+  subheading: "Only One Pair Left",
+  textColor: "#030712",
+  variant: "default",
+} satisfies SectionProps;
+
+export const HeroWithOverlayedContentSection = (props: SectionProps) => {
+  const {
+    accentColor,
+    buttonBackgroundColor,
+    buttonTextColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    headingAccent,
+    imageAlt,
+    imageSrc,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    slantColor,
+    subheading,
+    textColor,
+    variant,
+  } = { ...sectionDefaults, ...props };
+
+  return (
+    <Section
+      aria-label={imageAlt || undefined}
+      style={{
+        backgroundImage: `url(${imageSrc})`,
+        backgroundPosition: "top",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+      width="100%"
+    >
+      <Fragment>
+        <Row>
+          <Column colSpan={3} style={{ height: "44px", lineHeight: "44px" }}>
+            &zwj;
+          </Column>
+        </Row>
+        <Row>
+          <Column
+            className="hero-overlayed-content-side"
+            style={{ width: "48px" }}
           >
-            {eyebrow}
-          </p>
-          <h1
-            style={{
-              color: textColor,
-              fontFamily,
-              fontSize: "48px",
-              fontWeight: 300,
-              lineHeight: "58px",
-              margin: 0,
-            }}
-          >
-            <span style={{ fontWeight: 500 }}>{headingAccent}</span> {heading}
-          </h1>
-          <p
-            style={{
-              color: textColor,
-              fontFamily,
-              fontSize: "18px",
-              lineHeight: "28px",
-              margin: 0,
-            }}
-          >
-            {subheading}
-          </p>
-          <div style={{ height: "44px", lineHeight: "44px" }}>&zwj;</div>
-          <p
-            style={{
-              color: textColor,
-              fontFamily,
-              fontSize: "16px",
-              fontWeight: 300,
-              lineHeight: "24px",
-              margin: 0,
-            }}
-          >
-            {description}
-          </p>
-          <div style={{ height: "24px", lineHeight: "24px" }}>&zwj;</div>
-          {ctaLabel && ctaHref ? (
-            <a
-              href={ctaHref}
+            &zwj;
+          </Column>
+          <Column style={{ textAlign: "center" }}>
+            <Link href={logoHref}>
+              <Img
+                alt={logoAlt}
+                src={logoSrc}
+                width="65"
+                style={{ maxWidth: "100%", verticalAlign: "middle" }}
+              />
+            </Link>
+            <Section style={{ height: "332px", lineHeight: "332px" }}>
+              &zwj;
+            </Section>
+            <Text
               style={{
-                backgroundColor: buttonBackgroundColor,
-                borderRadius: "8px",
-                color: buttonTextColor,
-                display: "inline-block",
+                color: accentColor,
                 fontFamily,
                 fontSize: "16px",
                 fontWeight: 500,
-                lineHeight: 1,
-                padding: "14px 20px",
-                textDecoration: "none",
+                lineHeight: "24px",
+                margin: 0,
               }}
             >
-              <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-              <img
-                alt=""
-                src={`${assetRoot}/icon-arrow-right.png`}
-                width="12"
-                style={{ maxWidth: "100%", verticalAlign: "baseline" }}
-              />
-            </a>
-          ) : null}
-        </td>
-        <td className="hero-overlayed-content-side" style={{ width: "48px" }}>
-          &zwj;
-        </td>
-      </tr>
-      <tr>
-        <td colSpan={3}>
-          {variant === "default" ? (
-            <div style={{ height: "64px", lineHeight: "64px" }}>&zwj;</div>
-          ) : (
-            <>
-              <div style={{ height: "28px", lineHeight: "28px" }}>&zwj;</div>
-              <div
-                className="hero-overlayed-content-slant"
+              {eyebrow}
+            </Text>
+            <Heading
+              style={{
+                color: textColor,
+                fontFamily,
+                fontSize: "48px",
+                fontWeight: 300,
+                lineHeight: "58px",
+                margin: 0,
+              }}
+              as="h1"
+            >
+              <span style={{ fontWeight: 500 }}>{headingAccent}</span> {heading}
+            </Heading>
+            <Text
+              style={{
+                color: textColor,
+                fontFamily,
+                fontSize: "18px",
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              {subheading}
+            </Text>
+            <Section style={{ height: "44px", lineHeight: "44px" }}>
+              &zwj;
+            </Section>
+            <Text
+              style={{
+                color: textColor,
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 300,
+                lineHeight: "24px",
+                margin: 0,
+              }}
+            >
+              {description}
+            </Text>
+            <Section style={{ height: "24px", lineHeight: "24px" }}>
+              &zwj;
+            </Section>
+            {ctaLabel && ctaHref ? (
+              <Link
+                href={ctaHref}
                 style={{
-                  borderColor: `transparent transparent ${slantColor}`,
-                  borderStyle: "solid",
-                  borderWidth:
-                    variant === "slanted-left"
-                      ? "0 0 100px 600px"
-                      : "0 600px 100px 0",
-                  height: 0,
-                  width: 0,
+                  backgroundColor: buttonBackgroundColor,
+                  borderRadius: "8px",
+                  color: buttonTextColor,
+                  display: "inline-block",
+                  fontFamily,
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: 1,
+                  padding: "14px 20px",
+                  textDecoration: "none",
                 }}
-              />
-            </>
-          )}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-);
+              >
+                <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+                <Img
+                  alt=""
+                  src={`${assetRoot}/icon-arrow-right.png`}
+                  width="12"
+                  style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+                />
+              </Link>
+            ) : null}
+          </Column>
+          <Column
+            className="hero-overlayed-content-side"
+            style={{ width: "48px" }}
+          >
+            &zwj;
+          </Column>
+        </Row>
+        <Row>
+          <Column colSpan={3}>
+            {variant === "default" ? (
+              <Section style={{ height: "64px", lineHeight: "64px" }}>
+                &zwj;
+              </Section>
+            ) : (
+              <>
+                <Section style={{ height: "28px", lineHeight: "28px" }}>
+                  &zwj;
+                </Section>
+                <Section
+                  className="hero-overlayed-content-slant"
+                  style={{
+                    borderColor: `transparent transparent ${slantColor}`,
+                    borderStyle: "solid",
+                    borderWidth:
+                      variant === "slanted-left"
+                        ? "0 0 100px 600px"
+                        : "0 600px 100px 0",
+                    height: 0,
+                    width: 0,
+                  }}
+                />
+              </>
+            )}
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  );
+};
 
-export const HeroWithOverlayedContent = ({
-  accentColor = "#D34A36",
-  buttonBackgroundColor = "#D34A36",
-  buttonTextColor = "#fffffe",
-  ctaHref = "https://example.com",
-  ctaLabel = "Make an offer now",
-  description = "Step back into the golden era of hoops style with the iconic Blazer Mid '77 Vintage. A timeless mix of crisp white leather, retro suede accents, and that bold Swoosh, this pair delivers heritage with a modern edge.",
-  eyebrow = "Fresh Drop",
-  heading = "Mid ‘77 Vintage",
-  headingAccent = "Blazer",
-  imageAlt = "Nike Blazer Mid ‘77 Vintage",
-  imageSrc = `${assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-insignia-mono.png`,
-  pageBackgroundColor = "#f1f5f9",
-  slantColor = "#fffffe",
-  subheading = "Only One Pair Left",
-  textColor = "#030712",
-  theme = defaultTheme,
-  variant = "default",
-}: HeroWithOverlayedContentProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
-    <Preview>{`${eyebrow} — ${headingAccent} ${heading}`}</Preview>
-    <Tailwind config={theme}>
-      <Body
-        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
-      >
-        <Container
-          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+export const HeroWithOverlayedContent = (
+  props: HeroWithOverlayedContentProps
+) => {
+  const { pageBackgroundColor, theme, ...sectionProps } = {
+    ...sectionDefaults,
+    theme: defaultTheme,
+    ...props,
+  };
+
+  return (
+    <Html>
+      <Head>
+        <DefaultFonts />
+        <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+      </Head>
+      <Preview>{`${sectionProps.eyebrow} — ${sectionProps.headingAccent} ${sectionProps.heading}`}</Preview>
+      <Tailwind config={theme}>
+        <Body
+          style={{
+            backgroundColor: pageBackgroundColor,
+            fontFamily,
+            margin: 0,
+          }}
         >
-          <HeroWithOverlayedContentSection
-            accentColor={accentColor}
-            buttonBackgroundColor={buttonBackgroundColor}
-            buttonTextColor={buttonTextColor}
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            description={description}
-            eyebrow={eyebrow}
-            heading={heading}
-            headingAccent={headingAccent}
-            imageAlt={imageAlt}
-            imageSrc={imageSrc}
-            logoAlt={logoAlt}
-            logoHref={logoHref}
-            logoSrc={logoSrc}
-            pageBackgroundColor={pageBackgroundColor}
-            slantColor={slantColor}
-            subheading={subheading}
-            textColor={textColor}
-            variant={variant}
-          />
-        </Container>
-      </Body>
-    </Tailwind>
-  </Html>
-);
+          <Container
+            style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+          >
+            <HeroWithOverlayedContentSection {...sectionProps} />
+          </Container>
+        </Body>
+      </Tailwind>
+    </Html>
+  );
+};
 
 HeroWithOverlayedContent.PreviewProps = {
   accentColor: "#D34A36",

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-with-app-store-buttons",
+  "title": "Footer With App Store Buttons",
+  "description": "app-store footer with centered, two-column, and title variants",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml-browser"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/footers/footer-with-app-store-buttons.tsx",
+      "content": "import { MjmlColumn, MjmlImage, MjmlSection } from \"@faire/mjml-react\";\n\nimport { defaultTheme } from \"@/components/email/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\nimport {\n  FooterCopy,\n  FooterEmailShell,\n  FooterLegal,\n} from \"@/components/email/footer-shared\";\n\nexport type FooterWithAppStoreButtonsVariant =\n  | \"centered\"\n  | \"two-columns\"\n  | \"with-title\";\n\nexport interface FooterWithAppStoreButtonsProps {\n  theme?: EmailThemeTokens;\n  variant?: FooterWithAppStoreButtonsVariant;\n  title?: string;\n  pageBackgroundColor?: string;\n  backgroundColor?: string;\n  textColor?: string;\n  headingColor?: string;\n  mutedTextColor?: string;\n  unsubscribeHref?: string;\n}\n\nconst appStore =\n  \"https://emailcn.vercel.app/api/email-assets/badge-app-store.png\";\nconst googlePlay =\n  \"https://emailcn.vercel.app/api/email-assets/badge-google-play.png\";\n\nconst AppButtons = ({ align }: { align: \"center\" | \"left\" }) => (\n  <>\n    <MjmlImage\n      align={align}\n      alt=\"Download on the App Store\"\n      href=\"https://www.apple.com/app-store/\"\n      padding=\"6px 0\"\n      src={appStore}\n      width=\"120px\"\n    />\n    <MjmlImage\n      align={align}\n      alt=\"Get it on Google Play\"\n      href=\"https://play.google.com/store/apps\"\n      padding=\"6px 0\"\n      src={googlePlay}\n      width=\"135px\"\n    />\n  </>\n);\n\nexport const FooterWithAppStoreButtonsSection = ({\n  variant = \"centered\",\n  title = \"Get the app\",\n  backgroundColor = \"#fffffe\",\n  textColor = \"#6b7280\",\n  headingColor = \"#030712\",\n  mutedTextColor = \"#d1d5db\",\n  unsubscribeHref = \"https://example.com/unsub\",\n}: Omit<FooterWithAppStoreButtonsProps, \"theme\">) => {\n  const centered = variant !== \"two-columns\";\n\n  return (\n    <MjmlSection backgroundColor={backgroundColor} padding=\"44px 24px 24px\">\n      <MjmlColumn width={variant === \"two-columns\" ? \"50%\" : \"100%\"}>\n        {variant === \"with-title\" ? (\n          <FooterCopy\n            align=\"center\"\n            color={headingColor}\n            fontSize=\"24px\"\n            fontWeight=\"600\"\n            padding=\"0 0 16px\"\n          >\n            {title}\n          </FooterCopy>\n        ) : null}\n        <AppButtons align={centered ? \"center\" : \"left\"} />\n      </MjmlColumn>\n      {variant === \"two-columns\" ? (\n        <MjmlColumn width=\"50%\">\n          <FooterCopy color={textColor} fontSize=\"16px\">\n            © 2026 emailcn\n          </FooterCopy>\n          <FooterCopy color={textColor}>\n            155 Bdv Saint Germain, 75505 Paris\n          </FooterCopy>\n          <FooterLegal\n            copyright=\"You’re receiving this because you subscribed to updates.\"\n            mutedTextColor={mutedTextColor}\n            unsubscribeHref={unsubscribeHref}\n          />\n        </MjmlColumn>\n      ) : (\n        <MjmlColumn>\n          <FooterLegal\n            align=\"center\"\n            copyright=\"© 2026 emailcn · 155 Bdv Saint Germain, 75505 Paris\"\n            mutedTextColor={mutedTextColor}\n            unsubscribeHref={unsubscribeHref}\n          />\n        </MjmlColumn>\n      )}\n    </MjmlSection>\n  );\n};\n\nexport const FooterWithAppStoreButtons = ({\n  pageBackgroundColor = \"#f1f5f9\",\n  theme = defaultTheme,\n  ...props\n}: FooterWithAppStoreButtonsProps) => (\n  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>\n    <FooterWithAppStoreButtonsSection {...props} />\n  </FooterEmailShell>\n);\n\nFooterWithAppStoreButtons.PreviewProps = {\n  theme: defaultTheme,\n  variant: \"centered\",\n} satisfies FooterWithAppStoreButtonsProps;\n",
+      "type": "registry:component",
+      "target": "components/email/footer-with-app-store-buttons.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

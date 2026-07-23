@@ -1,5 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Column,
+  Section,
+  Row,
+  Link,
+  Text,
+  Heading,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -73,30 +87,26 @@ export const HeroOverlayedSplitSection = ({
   variant,
 }: SectionProps) => {
   const content = (
-    <td
+    <Column
       className="hero-overlayed-split-content"
       style={{ background: overlayColor, width: "388px" }}
     >
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={{ padding: "44px 24px", textAlign: "left" }}>
-              <a href={logoHref}>
-                <img
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column style={{ padding: "44px 24px", textAlign: "left" }}>
+              <Link href={logoHref}>
+                <Img
                   alt={logoAlt}
                   src={logoSrc}
                   width="165"
                   style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 />
-              </a>
-              <div style={{ height: "144px", lineHeight: "144px" }}>&zwj;</div>
-              <p
+              </Link>
+              <Section style={{ height: "144px", lineHeight: "144px" }}>
+                &zwj;
+              </Section>
+              <Text
                 style={{
                   color: textColor,
                   fontFamily,
@@ -107,8 +117,8 @@ export const HeroOverlayedSplitSection = ({
                 }}
               >
                 {eyebrow}
-              </p>
-              <h1
+              </Text>
+              <Heading
                 style={{
                   color: textColor,
                   fontFamily,
@@ -117,10 +127,11 @@ export const HeroOverlayedSplitSection = ({
                   lineHeight: 1,
                   margin: 0,
                 }}
+                as="h1"
               >
                 {heading}
-              </h1>
-              <p
+              </Heading>
+              <Text
                 style={{
                   color: textColor,
                   fontFamily,
@@ -130,9 +141,11 @@ export const HeroOverlayedSplitSection = ({
                 }}
               >
                 {subheading}
-              </p>
-              <div style={{ height: "44px", lineHeight: "44px" }}>&zwj;</div>
-              <p
+              </Text>
+              <Section style={{ height: "44px", lineHeight: "44px" }}>
+                &zwj;
+              </Section>
+              <Text
                 style={{
                   color: textColor,
                   fontFamily,
@@ -143,10 +156,12 @@ export const HeroOverlayedSplitSection = ({
                 }}
               >
                 {description}
-              </p>
-              <div style={{ height: "28px", lineHeight: "28px" }}>&zwj;</div>
+              </Text>
+              <Section style={{ height: "28px", lineHeight: "28px" }}>
+                &zwj;
+              </Section>
               {ctaLabel && ctaHref ? (
-                <a
+                <Link
                   href={ctaHref}
                   style={{
                     backgroundColor: buttonBackgroundColor,
@@ -162,37 +177,33 @@ export const HeroOverlayedSplitSection = ({
                   }}
                 >
                   <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-                  <img
+                  <Img
                     alt=""
                     src={`${assetRoot}/icon-arrow-right.png`}
                     width="12"
                     style={{ maxWidth: "100%", verticalAlign: "baseline" }}
                   />
-                </a>
+                </Link>
               ) : null}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
+    </Column>
   );
   const spacer = (
-    <td
+    <Column
       aria-label={imageAlt || undefined}
       className="hero-overlayed-split-spacer"
       role={imageAlt ? "img" : undefined}
       style={{ fontSize: 0, lineHeight: 0, width: "212px" }}
     >
       &zwj;
-    </td>
+    </Column>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{
         backgroundImage: `url(${imageSrc})`,
         backgroundPosition: "center",
@@ -202,8 +213,8 @@ export const HeroOverlayedSplitSection = ({
       }}
       width="100%"
     >
-      <tbody>
-        <tr>
+      <Fragment>
+        <Row>
           {variant === "overlay-left" ? (
             <>
               {content}
@@ -215,9 +226,9 @@ export const HeroOverlayedSplitSection = ({
               {content}
             </>
           )}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

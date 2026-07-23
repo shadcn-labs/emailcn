@@ -1,17 +1,13 @@
-/* eslint-disable next/no-img-element */
-import {
-  Mjml,
-  MjmlBody,
-  MjmlFont,
-  MjmlHead,
-  MjmlPreview,
-  MjmlRaw,
-  MjmlStyle,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+import { MjmlColumn, MjmlSection } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  FooterEmailShell,
+  FooterLegal,
+  FooterLogo,
+  FooterVerticalMenu,
+} from "@/registry/bases/mjml-react/ui/marketing/footers/footer-shared";
 
 export type FooterWith2ColumnMenuVariant = "left-logo" | "right-logo";
 
@@ -36,17 +32,6 @@ export interface FooterWith2ColumnMenuProps {
   mutedTextColor?: string;
   variant?: FooterWith2ColumnMenuVariant;
 }
-
-const fontFamily =
-  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const responsiveStyles = [
-  "@media only screen and (max-width: 599px) {",
-  "  .footer-two-menu-cell { display: block !important; width: 100% !important; }",
-  "  .footer-two-menu-logo { padding-bottom: 24px !important; text-align: left !important; }",
-  "  .footer-two-menu-columns { float: none !important; margin: 0 !important; text-align: left !important; }",
-  "}",
-].join("\n");
 
 const defaults = {
   backgroundColor: "#fffffe",
@@ -75,229 +60,74 @@ const defaults = {
 };
 
 type SectionProps = Omit<FooterWith2ColumnMenuProps, "theme">;
-type ResolvedProps = typeof defaults & SectionProps;
-
-const MenuColumn = ({
-  links,
-  props,
-  title,
-}: {
-  links: FooterWith2ColumnMenuLink[];
-  props: ResolvedProps;
-  title: string;
-}) => (
-  <td style={{ padding: "0 24px", textAlign: "left", verticalAlign: "top" }}>
-    <p
-      style={{
-        color: props.headingColor,
-        fontFamily,
-        fontSize: "16px",
-        fontWeight: 600,
-        lineHeight: "24px",
-        margin: "0 0 10px",
-      }}
-    >
-      {title}
-    </p>
-    {links.map((link) => (
-      <p key={link.href} style={{ margin: "0 0 8px" }}>
-        <a
-          href={link.href}
-          style={{
-            color: props.textColor,
-            fontFamily,
-            fontSize: "14px",
-            lineHeight: "20px",
-            textDecoration: "none",
-          }}
-        >
-          {link.label}
-        </a>
-      </p>
-    ))}
-  </td>
-);
-
-const LogoCell = ({ props }: { props: ResolvedProps }) => (
-  <td
-    className="footer-two-menu-cell footer-two-menu-logo"
-    style={{
-      textAlign: props.variant === "right-logo" ? "right" : "left",
-      verticalAlign: "top",
-      width: "41.666667%",
-    }}
-  >
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ padding: "0 24px 24px" }}>
-            <a href={props.logoHref}>
-              <img
-                alt={props.logoAlt}
-                src={props.logoSrc}
-                style={{ maxWidth: "100%", verticalAlign: "middle" }}
-                width={55}
-              />
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
-);
-
-const MenusCell = ({ props }: { props: ResolvedProps }) => (
-  <td className="footer-two-menu-cell" style={{ verticalAlign: "top" }}>
-    <table
-      align={props.variant === "left-logo" ? "right" : "left"}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      className="footer-two-menu-columns"
-      role="presentation"
-      style={
-        props.variant === "left-logo"
-          ? { marginLeft: "auto" }
-          : { marginRight: "auto" }
-      }
-    >
-      <tbody>
-        <tr>
-          <MenuColumn
-            links={props.quickLinks}
-            props={props}
-            title="Quick Links"
-          />
-          <MenuColumn
-            links={props.connectLinks}
-            props={props}
-            title="Connect"
-          />
-        </tr>
-      </tbody>
-    </table>
-  </td>
-);
 
 export const FooterWith2ColumnMenuSection = (props: SectionProps) => {
-  const resolved = {
-    ...defaults,
-    ...props,
-    variant: props.variant ?? "left-logo",
-  } as ResolvedProps;
-  const logo = <LogoCell props={resolved} />;
-  const menus = <MenusCell props={resolved} />;
+  const resolved = { ...defaults, ...props };
+  const brand = (
+    <MjmlColumn direction="ltr" width="40%">
+      <FooterLogo
+        align={resolved.variant === "right-logo" ? "right" : "left"}
+        alt={resolved.logoAlt}
+        href={resolved.logoHref}
+        src={resolved.logoSrc}
+        width="55px"
+      />
+    </MjmlColumn>
+  );
+  const menus = (
+    <>
+      <MjmlColumn direction="ltr" width="30%">
+        <FooterVerticalMenu
+          heading="Quick links"
+          headingColor={resolved.headingColor}
+          links={resolved.quickLinks}
+          textColor={resolved.textColor}
+        />
+      </MjmlColumn>
+      <MjmlColumn direction="ltr" width="30%">
+        <FooterVerticalMenu
+          heading="Connect"
+          headingColor={resolved.headingColor}
+          links={resolved.connectLinks}
+          textColor={resolved.textColor}
+        />
+      </MjmlColumn>
+    </>
+  );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: resolved.pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
-            style={{
-              backgroundColor: resolved.backgroundColor,
-              maxWidth: "100%",
-              padding: "44px 0 24px",
-              width: "600px",
-            }}
-          >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  {resolved.variant === "left-logo" ? logo : menus}
-                  {resolved.variant === "left-logo" ? menus : logo}
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "96px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "left" }}>
-                    <p
-                      style={{
-                        color: resolved.mutedTextColor,
-                        fontFamily,
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        margin: 0,
-                      }}
-                    >
-                      {resolved.copyright}{" "}
-                      <a
-                        href={resolved.unsubscribeHref}
-                        style={{
-                          color: resolved.textColor,
-                          textDecoration: "underline",
-                        }}
-                      >
-                        Unsubscribe
-                      </a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <MjmlSection
+        backgroundColor={resolved.backgroundColor}
+        padding="44px 24px 16px"
+      >
+        {resolved.variant === "right-logo" ? menus : brand}
+        {resolved.variant === "right-logo" ? brand : menus}
+      </MjmlSection>
+      <MjmlSection
+        backgroundColor={resolved.backgroundColor}
+        padding="0 24px 24px"
+      >
+        <MjmlColumn>
+          <FooterLegal
+            copyright={resolved.copyright}
+            mutedTextColor={resolved.mutedTextColor}
+            unsubscribeHref={resolved.unsubscribeHref}
+          />
+        </MjmlColumn>
+      </MjmlSection>
+    </>
   );
 };
 
 export const FooterWith2ColumnMenu = ({
-  pageBackgroundColor = "#f1f5f9",
+  pageBackgroundColor = defaults.pageBackgroundColor,
   theme = defaultTheme,
-  variant = "left-logo",
   ...props
 }: FooterWith2ColumnMenuProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Footer with 2-column menu</MjmlPreview>
-      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{responsiveStyles}</MjmlStyle>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={pageBackgroundColor}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <MjmlRaw>
-          <FooterWith2ColumnMenuSection
-            {...props}
-            pageBackgroundColor={pageBackgroundColor}
-            variant={variant}
-          />
-        </MjmlRaw>
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <FooterEmailShell pageBackgroundColor={pageBackgroundColor} theme={theme}>
+    <FooterWith2ColumnMenuSection {...props} />
+  </FooterEmailShell>
 );
 
 FooterWith2ColumnMenu.PreviewProps = {

@@ -1,5 +1,16 @@
 import type { ReactNode } from "react";
-import { Body, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Text,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -50,17 +61,11 @@ const textStyle = {
 const ChangelogShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -68,11 +73,11 @@ const ChangelogShell = ({ children }: { children: ReactNode }) => (
             }}
           >
             {children}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
@@ -115,7 +120,7 @@ const ChangelogMeta = ({
   right,
   version,
 }: MetaProps) => (
-  <td
+  <Column
     className="changelog-meta"
     style={{
       textAlign: right ? "left" : "right",
@@ -123,9 +128,9 @@ const ChangelogMeta = ({
       width: "136px",
     }}
   >
-    <div style={{ lineHeight: "6px" }}>&zwj;</div>
+    <Section style={{ lineHeight: "6px" }}>&zwj;</Section>
     <VersionBadge muted={muted} version={version} />
-    <p
+    <Text
       style={{
         ...textStyle,
         color: "#030712",
@@ -136,8 +141,8 @@ const ChangelogMeta = ({
       }}
     >
       {date}
-    </p>
-    <p
+    </Text>
+    <Text
       style={{
         ...textStyle,
         color: "#6b7280",
@@ -148,8 +153,8 @@ const ChangelogMeta = ({
       }}
     >
       {category}
-    </p>
-  </td>
+    </Text>
+  </Column>
 );
 
 const ChangelogRail = ({
@@ -159,8 +164,8 @@ const ChangelogRail = ({
   accent: boolean;
   muted: boolean;
 }) => (
-  <td style={{ verticalAlign: "top", width: "12px" }}>
-    <div
+  <Column style={{ verticalAlign: "top", width: "12px" }}>
+    <Section
       style={{
         backgroundColor: muted ? undefined : "#4f46e5",
         border: muted ? "2px solid #d1d5db" : undefined,
@@ -171,8 +176,8 @@ const ChangelogRail = ({
       }}
     >
       &zwj;
-    </div>
-    <div
+    </Section>
+    <Section
       style={{
         backgroundColor: accent ? "#030712" : "#d1d5db",
         height: "104px",
@@ -181,8 +186,8 @@ const ChangelogRail = ({
       }}
     >
       &zwj;
-    </div>
-  </td>
+    </Section>
+  </Column>
 );
 
 interface CopyProps {
@@ -194,21 +199,17 @@ interface CopyProps {
 
 const ChangelogCopy = ({ boxed, dark, description, title }: CopyProps) =>
   boxed ? (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{
         backgroundColor: dark ? "#030712" : "#f9fafb",
         borderRadius: "8px",
         width: "100%",
       }}
     >
-      <tbody>
-        <tr>
-          <td style={{ padding: "24px 24px 0" }}>
-            <p
+      <Fragment>
+        <Row>
+          <Column style={{ padding: "24px 24px 0" }}>
+            <Text
               style={{
                 ...textStyle,
                 color: dark ? "#fffffe" : "#030712",
@@ -218,12 +219,12 @@ const ChangelogCopy = ({ boxed, dark, description, title }: CopyProps) =>
               }}
             >
               {title}
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td style={{ padding: "16px 24px 24px" }}>
-            <p
+            </Text>
+          </Column>
+        </Row>
+        <Row>
+          <Column style={{ padding: "16px 24px 24px" }}>
+            <Text
               style={{
                 ...textStyle,
                 color: dark ? "#d1d5db" : "#4b5563",
@@ -232,14 +233,14 @@ const ChangelogCopy = ({ boxed, dark, description, title }: CopyProps) =>
               }}
             >
               {description}
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </Text>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   ) : (
     <>
-      <p
+      <Text
         style={{
           ...textStyle,
           color: "#030712",
@@ -249,9 +250,9 @@ const ChangelogCopy = ({ boxed, dark, description, title }: CopyProps) =>
         }}
       >
         {title}
-      </p>
-      <div style={{ lineHeight: "16px" }}>&zwj;</div>
-      <p
+      </Text>
+      <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
+      <Text
         style={{
           ...textStyle,
           color: "#4b5563",
@@ -260,7 +261,7 @@ const ChangelogCopy = ({ boxed, dark, description, title }: CopyProps) =>
         }}
       >
         {description}
-      </p>
+      </Text>
     </>
   );
 
@@ -288,13 +289,13 @@ const ChangelogContent = ({
   version,
 }: ContentProps) => {
   const copy = (
-    <td
+    <Column
       className="changelog-copy"
       style={{ paddingBottom: "80px", textAlign: right ? "right" : "left" }}
     >
-      <div className="changelog-mobile">
+      <Section className="changelog-mobile">
         <VersionBadge muted={muted} version={version} />
-        <p
+        <Text
           style={{
             ...textStyle,
             color: "#030712",
@@ -305,8 +306,8 @@ const ChangelogContent = ({
           }}
         >
           {date}
-        </p>
-        <p
+        </Text>
+        <Text
           style={{
             ...textStyle,
             color: "#6b7280",
@@ -317,46 +318,40 @@ const ChangelogContent = ({
           }}
         >
           {category}
-        </p>
-        <div style={{ lineHeight: "24px" }}>&zwj;</div>
-      </div>
+        </Text>
+        <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+      </Section>
       <ChangelogCopy
         boxed={boxed}
         dark={boxed && accent}
         description={description}
         title={title}
       />
-    </td>
+    </Column>
   );
 
   return (
-    <td className="changelog-content" style={{ verticalAlign: "top" }}>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
+    <Column className="changelog-content" style={{ verticalAlign: "top" }}>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
             {right ? (
               <>
                 {copy}
-                <td style={{ width: "16px" }}>&zwj;</td>
+                <Column style={{ width: "16px" }}>&zwj;</Column>
                 <ChangelogRail accent={accent} muted={muted} />
               </>
             ) : (
               <>
                 <ChangelogRail accent={accent} muted={muted} />
-                <td style={{ width: "16px" }}>&zwj;</td>
+                <Column style={{ width: "16px" }}>&zwj;</Column>
                 {copy}
               </>
             )}
-          </tr>
-        </tbody>
-      </table>
-    </td>
+          </Row>
+        </Fragment>
+      </Section>
+    </Column>
   );
 };
 
@@ -398,37 +393,25 @@ export const ChangelogSection = ({
 
   return (
     <ChangelogShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        style={{ width: "100%" }}
-      >
-        <tbody>
-          <tr>
-            <td style={{ padding: "0 24px" }}>
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                style={{ width: "100%" }}
-              >
-                <tbody>
-                  <tr>
+      <Section style={{ width: "100%" }}>
+        <Fragment>
+          <Row>
+            <Column style={{ padding: "0 24px" }}>
+              <Section style={{ width: "100%" }}>
+                <Fragment>
+                  <Row>
                     {right ? content : meta}
-                    <td className="changelog-gap" style={{ width: "16px" }}>
+                    <Column className="changelog-gap" style={{ width: "16px" }}>
                       &zwj;
-                    </td>
+                    </Column>
                     {right ? meta : content}
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  </Row>
+                </Fragment>
+              </Section>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     </ChangelogShell>
   );
 };

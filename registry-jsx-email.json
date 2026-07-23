@@ -960,6 +960,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },

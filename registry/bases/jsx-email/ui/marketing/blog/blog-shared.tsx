@@ -1,6 +1,17 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Text,
+  Heading,
+  Section,
+  Row,
+  Column,
+  Img,
+} from "jsx-email";
 import type { CSSProperties, ReactNode } from "react";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
@@ -65,7 +76,7 @@ const Image = ({
   src: string;
   width: number;
 }) => (
-  <img
+  <Img
     alt={alt}
     src={src}
     width={width}
@@ -89,7 +100,7 @@ const Meta = ({ post }: { post: BlogPostData }) => {
     (post.date && post.month ? `${post.date} ${post.month}` : undefined);
 
   return label ? (
-    <p
+    <Text
       style={{
         ...textBase,
         color: colors.subtle,
@@ -101,14 +112,14 @@ const Meta = ({ post }: { post: BlogPostData }) => {
       }}
     >
       {label}
-    </p>
+    </Text>
   ) : null;
 };
 
 const Copy = ({ post }: { post: BlogPostData }) => (
   <>
     <Meta post={post} />
-    <h3
+    <Heading
       style={{
         ...textBase,
         color: colors.dark,
@@ -118,10 +129,11 @@ const Copy = ({ post }: { post: BlogPostData }) => (
         marginTop:
           post.episode || post.badge || (post.date && post.month) ? "8px" : 0,
       }}
+      as="h3"
     >
       {post.title}
-    </h3>
-    <p
+    </Heading>
+    <Text
       style={{
         ...textBase,
         color: colors.muted,
@@ -131,9 +143,9 @@ const Copy = ({ post }: { post: BlogPostData }) => (
       }}
     >
       {post.excerpt}
-    </p>
+    </Text>
     {post.author || post.host ? (
-      <p
+      <Text
         style={{
           ...textBase,
           color: colors.subtle,
@@ -143,7 +155,7 @@ const Copy = ({ post }: { post: BlogPostData }) => (
         }}
       >
         {post.host ? `Hosted by ${post.host}` : `By ${post.author}`}
-      </p>
+      </Text>
     ) : null}
   </>
 );
@@ -157,8 +169,7 @@ const VerticalCard = ({
   post: BlogPostData;
   width?: number;
 }) => (
-  <table
-    role="presentation"
+  <Section
     style={{
       ...tableStyle,
       backgroundColor: boxed ? colors.surfaceMuted : undefined,
@@ -167,29 +178,29 @@ const VerticalCard = ({
       overflow: "hidden",
     }}
   >
-    <tbody>
-      <tr>
-        <td>
+    <Fragment>
+      <Row>
+        <Column>
           <Image alt={post.imageAlt} src={post.imageSrc} width={width} />
-        </td>
-      </tr>
-      <tr>
-        <td style={{ padding: boxed ? "20px" : "16px 0 0" }}>
+        </Column>
+      </Row>
+      <Row>
+        <Column style={{ padding: boxed ? "20px" : "16px 0 0" }}>
           <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Gap = ({ width = 24 }: { width?: number }) => (
-  <td
+  <Column
     className="blog-gap"
     width={width}
     style={{ fontSize: 0, lineHeight: "1px", width: `${width}px` }}
   >
     &zwj;
-  </td>
+  </Column>
 );
 
 const BlogColumnFragment = ({
@@ -203,12 +214,12 @@ const BlogColumnFragment = ({
 }) => (
   <>
     {index > 0 ? <Gap /> : null}
-    <td
+    <Column
       className="blog-column"
       style={{ verticalAlign: "top", width: "264px" }}
     >
       <VerticalCard boxed={boxed} post={post} />
-    </td>
+    </Column>
   </>
 );
 
@@ -219,9 +230,9 @@ const TwoColumns = ({
   boxed: boolean;
   posts: readonly BlogPostData[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      <tr>
+  <Section style={tableStyle}>
+    <Fragment>
+      <Row>
         {posts.slice(0, 2).map((post, index) => (
           <BlogColumnFragment
             boxed={boxed}
@@ -230,9 +241,9 @@ const TwoColumns = ({
             post={post}
           />
         ))}
-      </tr>
-    </tbody>
-  </table>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Masonry = ({
@@ -242,27 +253,29 @@ const Masonry = ({
   boxed: boolean;
   posts: readonly BlogPostData[];
 }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      <tr>
-        <td
+  <Section style={tableStyle}>
+    <Fragment>
+      <Row>
+        <Column
           className="blog-column"
           style={{ verticalAlign: "top", width: "264px" }}
         >
           <VerticalCard boxed={boxed} post={posts[0]} />
-        </td>
+        </Column>
         <Gap />
-        <td
+        <Column
           className="blog-column"
           style={{ verticalAlign: "top", width: "264px" }}
         >
           <VerticalCard boxed={boxed} post={posts[1]} />
-          <div style={{ height: "16px", lineHeight: "16px" }}>&zwj;</div>
+          <Section style={{ height: "16px", lineHeight: "16px" }}>
+            &zwj;
+          </Section>
           <VerticalCard boxed={boxed} post={posts[2]} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const Horizontal = ({
@@ -272,8 +285,7 @@ const Horizontal = ({
   boxed?: boolean;
   post: BlogPostData;
 }) => (
-  <table
-    role="presentation"
+  <Section
     style={{
       ...tableStyle,
       backgroundColor: boxed ? colors.surfaceMuted : undefined,
@@ -282,16 +294,16 @@ const Horizontal = ({
       overflow: "hidden",
     }}
   >
-    <tbody>
-      <tr>
-        <td
+    <Fragment>
+      <Row>
+        <Column
           className="blog-column"
           width={220}
           style={{ verticalAlign: "top" }}
         >
           <Image alt={post.imageAlt} src={post.imageSrc} width={220} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="blog-column"
           style={{
             padding: boxed ? "20px" : "0 0 0 24px",
@@ -299,15 +311,14 @@ const Horizontal = ({
           }}
         >
           <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const SplitImages = ({ post }: { post: BlogPostData }) => (
-  <table
-    role="presentation"
+  <Section
     style={{
       ...tableStyle,
       backgroundColor: colors.surfaceMuted,
@@ -316,16 +327,16 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
       overflow: "hidden",
     }}
   >
-    <tbody>
-      <tr>
-        <td
+    <Fragment>
+      <Row>
+        <Column
           className="blog-column"
           width={112}
           style={{ verticalAlign: "top" }}
         >
           <Image alt={post.imageAlt} src={post.imageSrc} width={112} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="blog-column"
           width={112}
           style={{ paddingLeft: "8px", verticalAlign: "top" }}
@@ -335,33 +346,33 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
             src={post.imageSrc2 ?? post.imageSrc}
             width={112}
           />
-        </td>
-        <td
+        </Column>
+        <Column
           className="blog-column"
           style={{ padding: "20px", verticalAlign: "middle" }}
         >
           <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const FullWidth = ({ post }: { post: BlogPostData }) => (
-  <table role="presentation" style={tableStyle}>
-    <tbody>
-      <tr>
-        <td>
+  <Section style={tableStyle}>
+    <Fragment>
+      <Row>
+        <Column>
           <Image alt={post.imageAlt} src={post.imageSrc} width={552} />
-        </td>
-      </tr>
-      <tr>
-        <td style={{ paddingTop: "20px" }}>
+        </Column>
+      </Row>
+      <Row>
+        <Column style={{ paddingTop: "20px" }}>
           <Copy post={post} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 export const BlogContent = ({
@@ -399,7 +410,7 @@ export const BlogContent = ({
 
 export const BlogHeading = ({ children }: { children: ReactNode }) => (
   <>
-    <h2
+    <Heading
       style={{
         ...textBase,
         color: colors.dark,
@@ -408,10 +419,11 @@ export const BlogHeading = ({ children }: { children: ReactNode }) => (
         lineHeight: "36px",
         textAlign: "center",
       }}
+      as="h2"
     >
       {children}
-    </h2>
-    <div style={{ height: "32px", lineHeight: "32px" }}>&zwj;</div>
+    </Heading>
+    <Section style={{ height: "32px", lineHeight: "32px" }}>&zwj;</Section>
   </>
 );
 
@@ -440,14 +452,11 @@ export const BlogEmailShell = ({
     </Head>
     <Preview>{preview}</Preview>
     <Body style={{ backgroundColor: colors.canvas, fontFamily, margin: 0 }}>
-      <table
-        role="presentation"
-        style={{ ...tableStyle, backgroundColor: colors.canvas }}
-      >
-        <tbody>
-          <tr>
-            <td>&zwj;</td>
-            <td
+      <Section style={{ ...tableStyle, backgroundColor: colors.canvas }}>
+        <Fragment>
+          <Row>
+            <Column>&zwj;</Column>
+            <Column
               width={600}
               style={{
                 backgroundColor: colors.surface,
@@ -457,11 +466,11 @@ export const BlogEmailShell = ({
               }}
             >
               {children}
-            </td>
-            <td>&zwj;</td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+            <Column>&zwj;</Column>
+          </Row>
+        </Fragment>
+      </Section>
     </Body>
   </Html>
 );

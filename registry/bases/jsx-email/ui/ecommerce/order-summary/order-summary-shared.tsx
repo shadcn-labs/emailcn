@@ -1,5 +1,6 @@
-/* eslint-disable @next/next/no-img-element, complexity, no-nested-ternary */
+import { Section, Row, Column, Link, Text, Heading, Img } from "jsx-email";
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 
 export type OrderSummaryAlignment = "left" | "right" | "centered" | "justified";
 
@@ -60,17 +61,11 @@ const textStyle = { fontFamily, margin: 0 } as const;
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{responsiveStyles}</style>
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: "#f1f5f9", width: "100%" }}
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: "#f1f5f9", width: "100%" }}>
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: "#fffffe",
               maxWidth: "100%",
@@ -78,42 +73,30 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              style={{ width: "100%" }}
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <Section style={{ width: "100%" }}>
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
                     {children}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   </>
 );
 
 const Divider = ({ margin = 24 }: { margin?: number }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td>
-          <div
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column>
+          <Section
             style={{
               backgroundColor: "#d1d5db",
               height: "1px",
@@ -122,27 +105,27 @@ const Divider = ({ margin = 24 }: { margin?: number }) => (
             }}
           >
             &zwj;
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Section>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const CardMethod = () => (
-  <table border={0} cellPadding={0} cellSpacing={0} role="presentation">
-    <tbody>
-      <tr>
-        <td>
-          <img
+  <Section>
+    <Fragment>
+      <Row>
+        <Column>
+          <Img
             alt=""
             src="https://emailcn.vercel.app/api/email-assets/icon-card-visa.png"
             style={{ maxWidth: "100%", verticalAlign: "middle" }}
             width="40"
           />
-        </td>
-        <td style={{ width: "8px" }}>&zwj;</td>
-        <td
+        </Column>
+        <Column style={{ width: "8px" }}>&zwj;</Column>
+        <Column
           style={{
             color: "#4b5563",
             fontFamily,
@@ -152,12 +135,12 @@ const CardMethod = () => (
           }}
         >
           ****6754
-        </td>
-        <td style={{ width: "8px" }}>&zwj;</td>
-        <td>|</td>
-        <td style={{ width: "8px" }}>&zwj;</td>
-        <td>
-          <a
+        </Column>
+        <Column style={{ width: "8px" }}>&zwj;</Column>
+        <Column>|</Column>
+        <Column style={{ width: "8px" }}>&zwj;</Column>
+        <Column>
+          <Link
             href="https://example.com"
             style={{
               color: "#4f46e5",
@@ -168,11 +151,11 @@ const CardMethod = () => (
             }}
           >
             Change
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </Link>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const PaymentMethod = ({
@@ -187,24 +170,20 @@ const PaymentMethod = ({
   }
 
   return (
-    <table
+    <Section
       align={centered ? "center" : undefined}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
       style={{
         margin: centered ? "0 auto" : undefined,
         width: centered ? undefined : "100%",
       }}
     >
-      <tbody>
-        <tr>
-          <td>
+      <Fragment>
+        <Row>
+          <Column>
             <CardMethod />
-          </td>
+          </Column>
           {centered ? (
-            <td
+            <Column
               style={{
                 fontFamily,
                 fontSize: "12px",
@@ -213,9 +192,9 @@ const PaymentMethod = ({
               }}
             >
               |
-            </td>
+            </Column>
           ) : null}
-          <td
+          <Column
             style={{
               color: "#4b5563",
               fontFamily,
@@ -226,10 +205,10 @@ const PaymentMethod = ({
             }}
           >
             {amount}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -281,8 +260,8 @@ const SummaryRow = ({
 }) => {
   const styles = alignmentStyles(alignment);
   return (
-    <tr>
-      <td
+    <Row>
+      <Column
         style={{
           paddingLeft: padded ? "12px" : undefined,
           paddingTop: topPadded ? "12px" : undefined,
@@ -291,9 +270,9 @@ const SummaryRow = ({
         }}
       >
         {label}
-      </td>
-      <td style={{ width: "16px" }}>&zwj;</td>
-      <td
+      </Column>
+      <Column style={{ width: "16px" }}>&zwj;</Column>
+      <Column
         style={{
           paddingRight: padded ? "12px" : undefined,
           paddingTop: topPadded ? "12px" : undefined,
@@ -302,8 +281,8 @@ const SummaryRow = ({
         }}
       >
         {amount}
-      </td>
-    </tr>
+      </Column>
+    </Row>
   );
 };
 
@@ -323,8 +302,8 @@ const TotalRow = ({
   const styles = alignmentStyles(alignment);
   if (boxed && position === "top") {
     return (
-      <tr>
-        <td
+      <Row>
+        <Column
           style={{
             backgroundColor: "#f3f4f6",
             borderBottomLeftRadius: connected ? undefined : "4px",
@@ -337,9 +316,11 @@ const TotalRow = ({
           }}
         >
           Total
-        </td>
-        <td style={{ backgroundColor: "#f3f4f6", width: "16px" }}>&zwj;</td>
-        <td
+        </Column>
+        <Column style={{ backgroundColor: "#f3f4f6", width: "16px" }}>
+          &zwj;
+        </Column>
+        <Column
           style={{
             backgroundColor: "#f3f4f6",
             borderBottomRightRadius: connected ? undefined : "4px",
@@ -352,14 +333,14 @@ const TotalRow = ({
           }}
         >
           $35.98
-        </td>
-      </tr>
+        </Column>
+      </Row>
     );
   }
 
   return boxed ? (
-    <tr>
-      <td
+    <Row>
+      <Column
         colSpan={3}
         style={{
           backgroundColor: "#f3f4f6",
@@ -370,11 +351,7 @@ const TotalRow = ({
           padding: "12px",
         }}
       >
-        <table
-          border={0}
-          cellPadding={0}
-          cellSpacing={0}
-          role="presentation"
+        <Section
           style={{
             color: "#4f46e5",
             fontWeight: 600,
@@ -382,20 +359,20 @@ const TotalRow = ({
             width: "100%",
           }}
         >
-          <tbody>
+          <Fragment>
             <SummaryRow
               alignment={alignment}
               amount="$35.98"
               label="Total"
               padded={false}
             />
-          </tbody>
-        </table>
-      </td>
-    </tr>
+          </Fragment>
+        </Section>
+      </Column>
+    </Row>
   ) : (
-    <tr>
-      <td
+    <Row>
+      <Column
         style={{
           color: "#4f46e5",
           fontSize: large ? "24px" : "16px",
@@ -406,9 +383,9 @@ const TotalRow = ({
         }}
       >
         Total
-      </td>
-      <td style={{ width: "16px" }}>&zwj;</td>
-      <td
+      </Column>
+      <Column style={{ width: "16px" }}>&zwj;</Column>
+      <Column
         style={{
           color: "#4f46e5",
           fontSize: large ? "24px" : "16px",
@@ -419,8 +396,8 @@ const TotalRow = ({
         }}
       >
         $35.98
-      </td>
-    </tr>
+      </Column>
+    </Row>
   );
 };
 
@@ -449,22 +426,22 @@ export const OrderSummaryTableSection = ({
         padded={boxed}
         topPadded={boxed && filled && totalPosition === "bottom"}
       />
-      <tr>
-        <td colSpan={3} style={{ lineHeight: "16px" }}>
+      <Row>
+        <Column colSpan={3} style={{ lineHeight: "16px" }}>
           &zwj;
-        </td>
-      </tr>
+        </Column>
+      </Row>
       <SummaryRow
         alignment={alignment}
         amount="$5.99"
         label="Tax"
         padded={boxed}
       />
-      <tr>
-        <td colSpan={3} style={{ lineHeight: "16px" }}>
+      <Row>
+        <Column colSpan={3} style={{ lineHeight: "16px" }}>
           &zwj;
-        </td>
-      </tr>
+        </Column>
+      </Row>
       <SummaryRow
         alignment={alignment}
         amount="FREE"
@@ -476,11 +453,7 @@ export const OrderSummaryTableSection = ({
 
   return (
     <EmailShell>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
+      <Section
         style={{
           backgroundColor: boxed && filled ? "#f9fafb" : undefined,
           borderRadius: boxed && filled ? "4px" : undefined,
@@ -493,7 +466,7 @@ export const OrderSummaryTableSection = ({
           width: "100%",
         }}
       >
-        <tbody>
+        <Fragment>
           {totalPosition === "top" ? (
             <>
               <TotalRow
@@ -504,17 +477,17 @@ export const OrderSummaryTableSection = ({
                 position="top"
               />
               {boxed ? (
-                <tr>
-                  <td colSpan={3} style={{ lineHeight: "16px" }}>
+                <Row>
+                  <Column colSpan={3} style={{ lineHeight: "16px" }}>
                     &zwj;
-                  </td>
-                </tr>
+                  </Column>
+                </Row>
               ) : (
-                <tr>
-                  <td colSpan={3}>
+                <Row>
+                  <Column colSpan={3}>
                     <Divider />
-                  </td>
-                </tr>
+                  </Column>
+                </Row>
               )}
             </>
           ) : null}
@@ -522,17 +495,17 @@ export const OrderSummaryTableSection = ({
           {totalPosition === "bottom" ? (
             <>
               {boxed ? (
-                <tr>
-                  <td colSpan={3} style={{ lineHeight: "16px" }}>
+                <Row>
+                  <Column colSpan={3} style={{ lineHeight: "16px" }}>
                     &zwj;
-                  </td>
-                </tr>
+                  </Column>
+                </Row>
               ) : (
-                <tr>
-                  <td colSpan={3}>
+                <Row>
+                  <Column colSpan={3}>
                     <Divider />
-                  </td>
-                </tr>
+                  </Column>
+                </Row>
               )}
               <TotalRow
                 alignment={alignment}
@@ -544,8 +517,8 @@ export const OrderSummaryTableSection = ({
             </>
           ) : null}
           {cardDetails ? (
-            <tr>
-              <td
+            <Row>
+              <Column
                 colSpan={3}
                 style={{
                   backgroundColor: boxed ? "#fffffe" : undefined,
@@ -553,11 +526,11 @@ export const OrderSummaryTableSection = ({
                 }}
               >
                 {boxed ? (
-                  <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                  <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
                 ) : (
                   <Divider margin={16} />
                 )}
-                <p
+                <Text
                   style={{
                     ...textStyle,
                     color: "#030712",
@@ -569,22 +542,22 @@ export const OrderSummaryTableSection = ({
                   }}
                 >
                   Amount charged
-                </p>
+                </Text>
                 <PaymentMethod
                   amount="$35.98"
                   centered={alignment === "centered"}
                 />
-              </td>
-            </tr>
+              </Column>
+            </Row>
           ) : null}
-        </tbody>
-      </table>
+        </Fragment>
+      </Section>
     </EmailShell>
   );
 };
 
 const DetailText = ({ children }: { children: ReactNode }) => (
-  <p
+  <Text
     style={{
       ...textStyle,
       color: "#4b5563",
@@ -593,7 +566,7 @@ const DetailText = ({ children }: { children: ReactNode }) => (
     }}
   >
     {children}
-  </p>
+  </Text>
 );
 
 const DetailBlock = ({
@@ -606,7 +579,7 @@ const DetailBlock = ({
   title: string;
 }) => (
   <>
-    <h3
+    <Heading
       style={{
         ...textStyle,
         color: "#030712",
@@ -614,10 +587,13 @@ const DetailBlock = ({
         fontWeight: 600,
         lineHeight: "20px",
       }}
+      as="h3"
     >
       {title}
-    </h3>
-    {gap > 0 ? <div style={{ lineHeight: `${gap}px` }}>&zwj;</div> : null}
+    </Heading>
+    {gap > 0 ? (
+      <Section style={{ lineHeight: `${gap}px` }}>&zwj;</Section>
+    ) : null}
     {children}
   </>
 );
@@ -629,36 +605,30 @@ const TwoColumnDetails = ({
   left: ReactNode;
   right: ReactNode;
 }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    style={{ width: "100%" }}
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section style={{ width: "100%" }}>
+    <Fragment>
+      <Row>
+        <Column
           className="order-detail-column"
           style={{ verticalAlign: "top", width: "254px" }}
         >
           {left}
-        </td>
-        <td
+        </Column>
+        <Column
           className="order-detail-column order-detail-gap"
           style={{ width: "44px" }}
         >
           &zwj;
-        </td>
-        <td
+        </Column>
+        <Column
           className="order-detail-column"
           style={{ verticalAlign: "top", width: "254px" }}
         >
           {right}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const AddressColumns = () => (
@@ -686,13 +656,13 @@ const AddressColumns = () => (
 
 const FedExShipping = () => (
   <>
-    <div>
-      <img
+    <Section>
+      <Img
         alt="FedEx"
         src="https://emailcn.vercel.app/api/email-assets/order-summary/logo-fedex.png"
         width="78"
       />
-    </div>
+    </Section>
     <DetailText>Takes up to 2 working days</DetailText>
   </>
 );
@@ -713,7 +683,51 @@ const NotesText = ({ splitLine = false }: { splitLine?: boolean }) => (
 );
 
 const SectionGap = ({ bordered }: { bordered: boolean }) =>
-  bordered ? <Divider /> : <div style={{ lineHeight: "44px" }}>&zwj;</div>;
+  bordered ? (
+    <Divider />
+  ) : (
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+  );
+
+const ShippingDetails = ({
+  bordered,
+  layout,
+  notes,
+}: {
+  bordered: boolean;
+  layout: "top" | "inline";
+  notes: boolean;
+}) => {
+  if (layout === "inline") {
+    return (
+      <TwoColumnDetails
+        left={
+          <DetailBlock title="Shipping method">
+            {bordered ? <FedExShipping /> : <DhlShipping />}
+          </DetailBlock>
+        }
+        right={
+          <DetailBlock gap={8} title="Payment method">
+            <PaymentMethod />
+          </DetailBlock>
+        }
+      />
+    );
+  }
+  if (bordered) {
+    return (
+      <TwoColumnDetails
+        left={<DetailBlock title="Shipping method" />}
+        right={notes ? <DhlShipping /> : <FedExShipping />}
+      />
+    );
+  }
+  return (
+    <DetailBlock title="Shipping method">
+      <DhlShipping />
+    </DetailBlock>
+  );
+};
 
 export const BillingDetailsSection = ({
   layout,
@@ -742,29 +756,7 @@ export const BillingDetailsSection = ({
       <AddressColumns />
       <SectionGap bordered={bordered} />
 
-      {layout === "inline" ? (
-        <TwoColumnDetails
-          left={
-            <DetailBlock title="Shipping method">
-              {bordered ? <FedExShipping /> : <DhlShipping />}
-            </DetailBlock>
-          }
-          right={
-            <DetailBlock gap={8} title="Payment method">
-              <PaymentMethod />
-            </DetailBlock>
-          }
-        />
-      ) : bordered ? (
-        <TwoColumnDetails
-          left={<DetailBlock title="Shipping method" />}
-          right={notes ? <DhlShipping /> : <FedExShipping />}
-        />
-      ) : (
-        <DetailBlock title="Shipping method">
-          <DhlShipping />
-        </DetailBlock>
-      )}
+      <ShippingDetails bordered={bordered} layout={layout} notes={notes} />
 
       {notes ? (
         <>

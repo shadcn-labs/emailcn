@@ -1,4 +1,16 @@
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+  Text,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -80,18 +92,14 @@ export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -100,23 +108,13 @@ export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                  <td>
-                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                  <Column>
+                    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+                    <Section
                       style={{
                         backgroundImage: `url('${resolved.backgroundImageSrc}')`,
                         backgroundPosition: "center",
@@ -126,30 +124,26 @@ export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
                       }}
                       width="100%"
                     >
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div
+                      <Fragment>
+                        <Row>
+                          <Column>
+                            <Section
                               style={{
                                 backgroundColor: resolved.overlayColor,
                                 borderRadius: "8px",
                               }}
                             >
-                              <table
-                                border={0}
-                                cellPadding={0}
-                                cellSpacing={0}
-                                role="presentation"
-                                width="100%"
-                              >
-                                <tbody>
-                                  <tr>
-                                    <td style={{ width: "24px" }}>&zwj;</td>
-                                    <td>
-                                      <div style={{ lineHeight: topSpace }}>
+                              <Section width="100%">
+                                <Fragment>
+                                  <Row>
+                                    <Column style={{ width: "24px" }}>
+                                      &zwj;
+                                    </Column>
+                                    <Column>
+                                      <Section style={{ lineHeight: topSpace }}>
                                         &zwj;
-                                      </div>
-                                      <p
+                                      </Section>
+                                      <Text
                                         style={{
                                           color: resolved.eyebrowColor,
                                           fontFamily,
@@ -160,8 +154,8 @@ export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
                                         }}
                                       >
                                         {resolved.eyebrow}
-                                      </p>
-                                      <p
+                                      </Text>
+                                      <Text
                                         style={{
                                           color: resolved.labelColor,
                                           fontFamily,
@@ -172,8 +166,8 @@ export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
                                         }}
                                       >
                                         {resolved.label}
-                                      </p>
-                                      <p
+                                      </Text>
+                                      <Text
                                         style={{
                                           color: resolved.valueColor,
                                           fontFamily,
@@ -185,30 +179,34 @@ export const SingleStatWithBackgroundImageSection = (props: SectionProps) => {
                                         }}
                                       >
                                         {resolved.value}
-                                      </p>
-                                      <div style={{ lineHeight: bottomSpace }}>
+                                      </Text>
+                                      <Section
+                                        style={{ lineHeight: bottomSpace }}
+                                      >
                                         &zwj;
-                                      </div>
-                                    </td>
-                                    <td style={{ width: "24px" }}>&zwj;</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                  <td style={{ width: "24px" }}>&zwj;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                                      </Section>
+                                    </Column>
+                                    <Column style={{ width: "24px" }}>
+                                      &zwj;
+                                    </Column>
+                                  </Row>
+                                </Fragment>
+                              </Section>
+                            </Section>
+                          </Column>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                  <Column style={{ width: "24px" }}>&zwj;</Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

@@ -1,5 +1,16 @@
 import type { CSSProperties, ReactNode } from "react";
-import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Tailwind,
+  Section,
+  Row,
+  Column,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -45,7 +56,7 @@ const dividerContentPadding: Record<DividerVariant, string> = {
 };
 
 const HorizontalRule = () => (
-  <div
+  <Section
     style={{
       backgroundColor: dividerColors.border,
       fontSize: 0,
@@ -55,7 +66,7 @@ const HorizontalRule = () => (
     }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 export const DividerFrame = ({
@@ -70,23 +81,19 @@ export const DividerFrame = ({
   const contentPadding = dividerContentPadding[variant];
 
   return (
-    <div style={{ padding: "24px 0" }}>
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
+    <Section style={{ padding: "24px 0" }}>
+      <Section
         style={{ borderCollapse: "collapse", width: "100%" }}
         width="100%"
       >
-        <tbody>
-          <tr>
+        <Fragment>
+          <Row>
             {showLeftRule ? (
-              <td style={{ verticalAlign: "middle", width: "50%" }}>
+              <Column style={{ verticalAlign: "middle", width: "50%" }}>
                 <HorizontalRule />
-              </td>
+              </Column>
             ) : null}
-            <td
+            <Column
               style={{
                 padding: contentPadding,
                 verticalAlign: "middle",
@@ -95,31 +102,31 @@ export const DividerFrame = ({
               }}
             >
               {children}
-            </td>
+            </Column>
             {showRightRule ? (
-              <td style={{ verticalAlign: "middle", width: "50%" }}>
+              <Column style={{ verticalAlign: "middle", width: "50%" }}>
                 <HorizontalRule />
-              </td>
+              </Column>
             ) : null}
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          </Row>
+        </Fragment>
+      </Section>
+    </Section>
   );
 };
 
 export const LineDividerSection = () => (
-  <div style={{ padding: "24px 0" }}>
+  <Section style={{ padding: "24px 0" }}>
     <HorizontalRule />
-  </div>
+  </Section>
 );
 
 export const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
-  <div
+  <Section
     style={{ fontSize: 0, height: `${height}px`, lineHeight: `${height}px` }}
   >
     &zwj;
-  </div>
+  </Section>
 );
 
 export const SpacingEmailShell = ({

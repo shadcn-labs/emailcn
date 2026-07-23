@@ -1,5 +1,15 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -72,14 +82,14 @@ type SectionProps = Omit<HeaderWithLogoAndMenuProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
+  <Link href={props.logoHref}>
+    <Img
       alt={props.logoAlt}
       src={props.logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={55}
     />
-  </a>
+  </Link>
 );
 
 const MenuLinks = ({
@@ -108,7 +118,7 @@ const MenuLinks = ({
         marginRight = "12px";
       }
       return (
-        <a
+        <Link
           className={responsiveClassName}
           href={link.href}
           key={link.href + link.label}
@@ -125,26 +135,20 @@ const MenuLinks = ({
           }}
         >
           {link.label}
-        </a>
+        </Link>
       );
     })}
   </>
 );
 
 const MenuRight = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td className="header-menu-stack" style={{ width: "55px" }}>
+  <Section width="100%">
+    <Fragment>
+      <Row>
+        <Column className="header-menu-stack" style={{ width: "55px" }}>
           <Logo props={props} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="header-menu-stack header-menu-right-links"
           style={{
             fontSize: 0,
@@ -158,54 +162,43 @@ const MenuRight = ({ props }: { props: ResolvedProps }) => (
             props={props}
             responsiveClassName="header-menu-right-link"
           />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const MenuLeft = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    className="header-menu-left-row"
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section className="header-menu-left-row" width="100%">
+    <Fragment>
+      <Row>
+        <Column
           className="header-menu-left-links"
           style={{ paddingRight: "24px", textAlign: "left" }}
         >
-          <div className="header-menu-left-links-inner" style={{ fontSize: 0 }}>
+          <Section
+            className="header-menu-left-links-inner"
+            style={{ fontSize: 0 }}
+          >
             <MenuLinks links={props.links} margin="left" props={props} />
-          </div>
-        </td>
-        <td
+          </Section>
+        </Column>
+        <Column
           className="header-menu-left-logo"
           style={{ textAlign: "right", width: "55px" }}
         >
           <Logo props={props} />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const MenuAround = ({ props }: { props: ResolvedProps }) => (
-  <table
-    border={0}
-    cellPadding={0}
-    cellSpacing={0}
-    className="header-menu-around-row"
-    role="presentation"
-    width="100%"
-  >
-    <tbody>
-      <tr>
-        <td
+  <Section className="header-menu-around-row" width="100%">
+    <Fragment>
+      <Row>
+        <Column
           className="header-menu-around-desktop"
           style={{ fontSize: 0, textAlign: "left" }}
         >
@@ -214,20 +207,20 @@ const MenuAround = ({ props }: { props: ResolvedProps }) => (
             margin="left"
             props={props}
           />
-        </td>
-        <td
+        </Column>
+        <Column
           className="header-menu-around-logo"
           style={{ textAlign: "center", width: "55px" }}
         >
           <Logo props={props} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="header-menu-around-mobile"
           style={{ display: "none", fontSize: 0, textAlign: "center" }}
         >
           <MenuLinks links={props.links} margin="around" props={props} />
-        </td>
-        <td
+        </Column>
+        <Column
           className="header-menu-around-desktop"
           style={{ fontSize: 0, textAlign: "right" }}
         >
@@ -236,10 +229,10 @@ const MenuAround = ({ props }: { props: ResolvedProps }) => (
             margin="left"
             props={props}
           />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </Column>
+      </Row>
+    </Fragment>
+  </Section>
 );
 
 const StackedMenu = ({
@@ -257,27 +250,21 @@ const StackedMenu = ({
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td style={{ textAlign: alignment }}>
-            <div>
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column style={{ textAlign: alignment }}>
+            <Section>
               <Logo props={props} />
-            </div>
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
-            <div style={{ fontSize: 0 }}>
+            </Section>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+            <Section style={{ fontSize: 0 }}>
               <MenuLinks links={props.links} margin={margin} props={props} />
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </Section>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -303,43 +290,33 @@ export const HeaderWithLogoAndMenuSection = (props: SectionProps) => {
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: resolved.backgroundColor,
                       padding: "24px",
                     }}
                   >
                     {content}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

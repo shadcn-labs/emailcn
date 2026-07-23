@@ -12,6 +12,7 @@ import {
   Section,
   Tailwind,
   Text,
+  Link,
 } from "react-email";
 
 import { nikeTheme } from "@/registry/bases/react-email/themes/nike";
@@ -128,9 +129,9 @@ export const ReceiptNike = ({
 
             <Text className="mt-8 text-sm text-foreground-muted">
               Need help?{" "}
-              <a href={supportHref} className="text-foreground underline">
+              <Link href={supportHref} className="text-foreground underline">
                 Contact Nike Support
-              </a>
+              </Link>
             </Text>
           </Container>
         </Body>

@@ -198,7 +198,9 @@ const HeroTextColumn = ({
     >
       {subheading}
     </Text>
-    <div style={{ fontSize: 0, height: "48px", lineHeight: "48px" }}>&zwj;</div>
+    <Section style={{ fontSize: 0, height: "48px", lineHeight: "48px" }}>
+      &zwj;
+    </Section>
     <Text
       style={{
         color: "#4b5563",
@@ -218,7 +220,9 @@ const HeroTextColumn = ({
         </>
       ) : null}
     </Text>
-    <div style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>&zwj;</div>
+    <Section style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>
+      &zwj;
+    </Section>
     {ctaLabel && ctaHref ? (
       <Button
         align="left"
@@ -253,7 +257,9 @@ const HeroTextColumn = ({
         />
       </Button>
     ) : null}
-    <div style={{ fontSize: 0, height: "44px", lineHeight: "44px" }}>&zwj;</div>
+    <Section style={{ fontSize: 0, height: "44px", lineHeight: "44px" }}>
+      &zwj;
+    </Section>
   </Column>
 );
 

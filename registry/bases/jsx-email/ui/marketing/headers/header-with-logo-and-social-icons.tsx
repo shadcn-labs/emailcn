@@ -1,5 +1,14 @@
-import { Body, Head, Html, Preview } from "jsx-email";
-/* eslint-disable next/no-img-element */
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Link,
+  Section,
+  Row,
+  Column,
+  Img,
+} from "jsx-email";
 import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
@@ -59,14 +68,14 @@ type SectionProps = Omit<HeaderWithLogoAndSocialIconsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
 
 const Logo = ({ props }: { props: ResolvedProps }) => (
-  <a href={props.logoHref}>
-    <img
+  <Link href={props.logoHref}>
+    <Img
       alt={props.logoAlt}
       src={props.logoSrc}
       style={{ maxWidth: "100%", verticalAlign: "middle" }}
       width={55}
     />
-  </a>
+  </Link>
 );
 
 const Socials = ({
@@ -84,34 +93,29 @@ const Socials = ({
   }
 
   return (
-    <table
-      align={align}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={tableStyle}
-    >
-      <tbody>
-        <tr>
+    <Section align={align} style={tableStyle}>
+      <Fragment>
+        <Row>
           {props.socials.slice(0, 3).map((social, index) => (
             <Fragment key={social.alt + social.href}>
-              {index > 0 ? <td style={{ width: "24px" }}>&zwj;</td> : null}
-              <td>
-                <a href={social.href}>
-                  <img
+              {index > 0 ? (
+                <Column style={{ width: "24px" }}>&zwj;</Column>
+              ) : null}
+              <Column>
+                <Link href={social.href}>
+                  <Img
                     alt={social.alt}
                     src={social.src}
                     style={{ maxWidth: "100%", verticalAlign: "middle" }}
                     width={20}
                   />
-                </a>
-              </td>
+                </Link>
+              </Column>
             </Fragment>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
@@ -121,108 +125,80 @@ export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
   let content;
   if (alignment === "center") {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
-              <div style={{ textAlign: "center" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column>
+              <Section style={{ textAlign: "center" }}>
                 <Logo props={resolved} />
-              </div>
-              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              </Section>
+              <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
               <Socials align="center" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   } else if (alignment === "right") {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column>
               <Socials props={resolved} />
-            </td>
-            <td style={{ textAlign: "right", width: "55px" }}>
+            </Column>
+            <Column style={{ textAlign: "right", width: "55px" }}>
               <Logo props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   } else {
     content = (
-      <table
-        border={0}
-        cellPadding={0}
-        cellSpacing={0}
-        role="presentation"
-        width="100%"
-      >
-        <tbody>
-          <tr>
-            <td style={{ width: "55px" }}>
+      <Section width="100%">
+        <Fragment>
+          <Row>
+            <Column style={{ width: "55px" }}>
               <Logo props={resolved} />
-            </td>
-            <td>
+            </Column>
+            <Column>
               <Socials align="right" props={resolved} />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </Column>
+          </Row>
+        </Fragment>
+      </Section>
     );
   }
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td style={{ maxWidth: "100%", width: "600px" }}>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column style={{ maxWidth: "100%", width: "600px" }}>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     style={{
                       backgroundColor: resolved.backgroundColor,
                       padding: "24px",
                     }}
                   >
                     {content}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

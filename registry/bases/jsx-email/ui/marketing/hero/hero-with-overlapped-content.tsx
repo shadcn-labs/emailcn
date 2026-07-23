@@ -1,5 +1,18 @@
-/* eslint-disable @next/next/no-img-element, complexity */
-import { Body, Container, Head, Html, Preview } from "jsx-email";
+import {
+  Body,
+  Container,
+  Head,
+  Html,
+  Preview,
+  Section,
+  Row,
+  Column,
+  Text,
+  Heading,
+  Link,
+  Img,
+} from "jsx-email";
+import { Fragment } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
@@ -126,25 +139,38 @@ const responsiveStyles = `
 
 type SectionProps = Omit<HeroWithOverlappedContentProps, "theme">;
 
-export const HeroWithOverlappedContentSection = ({
-  backgroundImageSrc,
-  buttonBackgroundColor = "#4f46e5",
-  buttonTextColor = "#fffffe",
-  contentBackgroundColor,
-  ctaHref = "https://example.com",
-  ctaLabel = "Discover now",
-  description,
-  eyebrow,
-  heading,
-  imageAlt,
-  logoAlt = "emailcn",
-  logoHref = "https://example.com",
-  logoSrc = `${assetRoot}/emailcn-logo-light.png`,
-  pageBackgroundColor = "#f1f5f9",
-  subheading,
-  textColor,
-  variant = "basic",
-}: SectionProps) => {
+export const HeroWithOverlappedContentSection = (props: SectionProps) => {
+  const {
+    backgroundImageSrc,
+    buttonBackgroundColor,
+    buttonTextColor,
+    contentBackgroundColor,
+    ctaHref,
+    ctaLabel,
+    description,
+    eyebrow,
+    heading,
+    imageAlt,
+    logoAlt,
+    logoHref,
+    logoSrc,
+    pageBackgroundColor,
+    subheading,
+    textColor,
+    variant,
+  } = {
+    buttonBackgroundColor: "#4f46e5",
+    buttonTextColor: "#fffffe",
+    ctaHref: "https://example.com",
+    ctaLabel: "Discover now",
+    logoAlt: "emailcn",
+    logoHref: "https://example.com",
+    logoSrc: `${assetRoot}/emailcn-logo-light.png`,
+    pageBackgroundColor: "#f1f5f9",
+    variant: "basic" as HeroWithOverlappedContentVariant,
+    ...props,
+  };
+
   const preset = variantPresets[variant];
   const isReversed = variant.startsWith("reversed");
   const hasGradient = variant.endsWith("with-gradient");
@@ -153,16 +179,10 @@ export const HeroWithOverlappedContentSection = ({
   const resolvedTextColor = textColor ?? preset.textColor;
 
   const content = (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             style={{
               backgroundColor: hasGradient
                 ? undefined
@@ -174,7 +194,7 @@ export const HeroWithOverlappedContentSection = ({
               textAlign: "center",
             }}
           >
-            <p
+            <Text
               style={{
                 color: resolvedTextColor,
                 fontFamily,
@@ -185,8 +205,8 @@ export const HeroWithOverlappedContentSection = ({
               }}
             >
               {eyebrow ?? preset.eyebrow}
-            </p>
-            <h1
+            </Text>
+            <Heading
               style={{
                 color: resolvedTextColor,
                 fontFamily,
@@ -194,10 +214,11 @@ export const HeroWithOverlappedContentSection = ({
                 fontWeight: 500,
                 margin: 0,
               }}
+              as="h1"
             >
               {heading ?? preset.heading}
-            </h1>
-            <p
+            </Heading>
+            <Text
               style={{
                 color: resolvedTextColor,
                 fontFamily,
@@ -207,9 +228,9 @@ export const HeroWithOverlappedContentSection = ({
               }}
             >
               {subheading ?? preset.subheading}
-            </p>
-            <div style={{ lineHeight: "44px" }}>&zwj;</div>
-            <p
+            </Text>
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Text
               style={{
                 color: resolvedTextColor,
                 fontFamily,
@@ -220,10 +241,10 @@ export const HeroWithOverlappedContentSection = ({
               }}
             >
               {description ?? preset.description}
-            </p>
-            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            </Text>
+            <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
             {ctaLabel && ctaHref ? (
-              <a
+              <Link
                 className="hero-overlapped-content-cta"
                 href={ctaHref}
                 style={{
@@ -240,46 +261,39 @@ export const HeroWithOverlappedContentSection = ({
                 }}
               >
                 <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
-                <img
+                <Img
                   alt=""
                   src={`${assetRoot}/icon-arrow-right.png`}
                   style={{ maxWidth: "100%", verticalAlign: "baseline" }}
                   width="12"
                 />
-              </a>
+              </Link>
             ) : null}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 
   const logo = (
-    <div style={{ textAlign: "center" }}>
-      <a href={logoHref}>
-        <img
+    <Section style={{ textAlign: "center" }}>
+      <Link href={logoHref}>
+        <Img
           alt={logoAlt}
           src={logoSrc}
           style={{ maxWidth: "100%", verticalAlign: "middle" }}
           width="165"
         />
-      </a>
-    </div>
+      </Link>
+    </Section>
   );
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             aria-label={imageAlt ?? preset.imageAlt}
             role="img"
             style={{
@@ -294,58 +308,52 @@ export const HeroWithOverlappedContentSection = ({
             }}
           >
             {isReversed ? null : (
-              <div style={{ lineHeight: "48px" }}>&zwj;</div>
+              <Section style={{ lineHeight: "48px" }}>&zwj;</Section>
             )}
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
                     className="hero-overlapped-content-side"
                     style={{ width: "48px" }}
                   >
                     &zwj;
-                  </td>
-                  <td>
+                  </Column>
+                  <Column>
                     {isReversed ? (
                       <>
                         {content}
-                        <div
+                        <Section
                           style={{ lineHeight: `${preset.reversedSpacer}px` }}
                         >
                           &zwj;
-                        </div>
+                        </Section>
                         {logo}
-                        <div style={{ lineHeight: "48px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "48px" }}>&zwj;</Section>
                       </>
                     ) : (
                       <>
                         {logo}
-                        <div style={{ lineHeight: "212px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "212px" }}>&zwj;</Section>
                         {content}
-                        <div style={{ lineHeight: "40px" }}>&zwj;</div>
+                        <Section style={{ lineHeight: "40px" }}>&zwj;</Section>
                       </>
                     )}
-                  </td>
-                  <td
+                  </Column>
+                  <Column
                     className="hero-overlapped-content-side"
                     style={{ width: "48px" }}
                   >
                     &zwj;
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

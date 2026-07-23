@@ -1,5 +1,16 @@
-/* eslint-disable next/no-img-element */
-import { Body, Head, Html, Preview } from "react-email";
+import { Fragment } from "react";
+import {
+  Body,
+  Head,
+  Html,
+  Preview,
+  Column,
+  Text,
+  Link,
+  Section,
+  Row,
+  Img,
+} from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
@@ -118,7 +129,7 @@ const MenuColumn = ({
   props: ResolvedProps;
   title: string;
 }) => (
-  <td
+  <Column
     className={last ? undefined : "footer-three-menu-column"}
     style={{
       paddingRight: last ? undefined : "40px",
@@ -126,7 +137,7 @@ const MenuColumn = ({
       verticalAlign: "top",
     }}
   >
-    <p
+    <Text
       style={{
         color: props.headingColor,
         fontFamily,
@@ -137,10 +148,10 @@ const MenuColumn = ({
       }}
     >
       {title}
-    </p>
+    </Text>
     {links.map((link) => (
-      <p key={link.href} style={{ margin: "0 0 8px" }}>
-        <a
+      <Text key={link.href} style={{ margin: "0 0 8px" }}>
+        <Link
           href={link.href}
           style={{
             color: props.textColor,
@@ -151,14 +162,14 @@ const MenuColumn = ({
           }}
         >
           {link.label}
-        </a>
-      </p>
+        </Link>
+      </Text>
     ))}
-  </td>
+  </Column>
 );
 
 const BrandCell = ({ props }: { props: ResolvedProps }) => (
-  <td
+  <Column
     className="footer-three-menu-cell footer-three-menu-brand"
     style={{
       textAlign: props.variant === "right-logo" ? "right" : "left",
@@ -166,16 +177,16 @@ const BrandCell = ({ props }: { props: ResolvedProps }) => (
       width: "33.333333%",
     }}
   >
-    <a href={props.logoHref}>
-      <img
+    <Link href={props.logoHref}>
+      <Img
         alt={props.logoAlt}
         src={props.logoSrc}
         style={{ maxWidth: "100%", verticalAlign: "middle" }}
         width={55}
       />
-    </a>
-    <div style={{ lineHeight: "44px" }}>&zwj;</div>
-    <p
+    </Link>
+    <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+    <Text
       style={{
         color: props.mutedTextColor,
         fontFamily,
@@ -186,27 +197,23 @@ const BrandCell = ({ props }: { props: ResolvedProps }) => (
     >
       © 2026 emailcn. <br className="footer-three-menu-break" /> All rights
       reserved.
-    </p>
-  </td>
+    </Text>
+  </Column>
 );
 
 const MenusCell = ({ props }: { props: ResolvedProps }) => (
-  <td className="footer-three-menu-cell" style={{ verticalAlign: "top" }}>
-    <table
+  <Column className="footer-three-menu-cell" style={{ verticalAlign: "top" }}>
+    <Section
       align={props.variant === "left-logo" ? "right" : "left"}
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
       className="footer-three-menu-columns"
-      role="presentation"
       style={
         props.variant === "left-logo"
           ? { marginLeft: "auto" }
           : { marginRight: "auto" }
       }
     >
-      <tbody>
-        <tr>
+      <Fragment>
+        <Row>
           <MenuColumn
             links={props.quickLinks}
             props={props}
@@ -223,10 +230,10 @@ const MenusCell = ({ props }: { props: ResolvedProps }) => (
             props={props}
             title="Legal"
           />
-        </tr>
-      </tbody>
-    </table>
-  </td>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 export const FooterWith3ColMenuSection = (props: SectionProps) => {
@@ -239,18 +246,14 @@ export const FooterWith3ColMenuSection = (props: SectionProps) => {
   const menus = <MenusCell props={resolved} />;
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
+    <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
       width="100%"
     >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: resolved.backgroundColor,
               maxWidth: "100%",
@@ -258,46 +261,28 @@ export const FooterWith3ColMenuSection = (props: SectionProps) => {
               width: "600px",
             }}
           >
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px" }}>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                      width="100%"
-                    >
-                      <tbody>
-                        <tr>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px" }}>
+                    <Section width="100%">
+                      <Fragment>
+                        <Row>
                           {resolved.variant === "left-logo" ? brand : menus}
                           {resolved.variant === "left-logo" ? menus : brand}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div style={{ lineHeight: "96px" }}>&zwj;</div>
-            <table
-              border={0}
-              cellPadding={0}
-              cellSpacing={0}
-              role="presentation"
-              width="100%"
-            >
-              <tbody>
-                <tr>
-                  <td style={{ padding: "0 24px", textAlign: "left" }}>
-                    <p
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+            <Section style={{ lineHeight: "96px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column style={{ padding: "0 24px", textAlign: "left" }}>
+                    <Text
                       style={{
                         color: resolved.mutedTextColor,
                         fontFamily,
@@ -307,7 +292,7 @@ export const FooterWith3ColMenuSection = (props: SectionProps) => {
                       }}
                     >
                       © 2026 emailcn. No longer want to receive emails?{" "}
-                      <a
+                      <Link
                         href={resolved.unsubscribeHref}
                         style={{
                           color: resolved.textColor,
@@ -315,19 +300,14 @@ export const FooterWith3ColMenuSection = (props: SectionProps) => {
                         }}
                       >
                         Unsubscribe
-                      </a>
-                    </p>
-                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
-                    <table
-                      border={0}
-                      cellPadding={0}
-                      cellSpacing={0}
-                      role="presentation"
-                    >
-                      <tbody>
-                        <tr>
+                      </Link>
+                    </Text>
+                    <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
+                    <Section>
+                      <Fragment>
+                        <Row>
                           {resolved.socials.map((social, index) => (
-                            <td
+                            <Column
                               key={social.href}
                               style={
                                 index === resolved.socials.length - 1
@@ -335,8 +315,8 @@ export const FooterWith3ColMenuSection = (props: SectionProps) => {
                                   : { paddingRight: "24px" }
                               }
                             >
-                              <a href={social.href}>
-                                <img
+                              <Link href={social.href}>
+                                <Img
                                   alt={social.label}
                                   src={social.iconSrc}
                                   style={{
@@ -345,21 +325,21 @@ export const FooterWith3ColMenuSection = (props: SectionProps) => {
                                   }}
                                   width={20}
                                 />
-                              </a>
-                            </td>
+                              </Link>
+                            </Column>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+                        </Row>
+                      </Fragment>
+                    </Section>
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 

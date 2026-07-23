@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   Body,
   Container,
@@ -6,6 +7,9 @@ import {
   Img,
   Preview,
   Tailwind,
+  Column,
+  Section,
+  Row,
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
@@ -172,23 +176,17 @@ const SideSpacer = ({
   pageBackgroundColor: string;
   spacerBackgroundColor: string;
 }) => (
-  <td
+  <Column
     style={{
       backgroundColor: spacerBackgroundColor,
       verticalAlign: alignment,
       width: "24px",
     }}
   >
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td
+    <Section width="100%">
+      <Fragment>
+        <Row>
+          <Column
             className="full-image-side-block"
             style={{
               backgroundColor: pageBackgroundColor,
@@ -196,11 +194,11 @@ const SideSpacer = ({
             }}
           >
             &zwj;
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
+          </Column>
+        </Row>
+      </Fragment>
+    </Section>
+  </Column>
 );
 
 export const FullWidthImageSection = ({
@@ -222,18 +220,11 @@ export const FullWidthImageSection = ({
   const hasRight = layout.sides || layout.side === "right";
 
   return (
-    <table
-      border={0}
-      cellPadding={0}
-      cellSpacing={0}
-      role="presentation"
-      style={{ backgroundColor: pageBackgroundColor }}
-      width="100%"
-    >
-      <tbody>
-        <tr>
-          <td>&zwj;</td>
-          <td
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
             style={{
               backgroundColor: pageBackgroundColor,
               maxWidth: "100%",
@@ -241,25 +232,19 @@ export const FullWidthImageSection = ({
             }}
           >
             {layout.top ? (
-              <div
+              <Section
                 style={{
                   backgroundColor: spacerBackgroundColor,
                   lineHeight: "24px",
                 }}
               >
                 &zwj;
-              </div>
+              </Section>
             ) : null}
             {sideCount > 0 && layout.sideAlignment ? (
-              <table
-                border={0}
-                cellPadding={0}
-                cellSpacing={0}
-                role="presentation"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
+              <Section width="100%">
+                <Fragment>
+                  <Row>
                     {hasLeft ? (
                       <SideSpacer
                         alignment={layout.sideAlignment}
@@ -267,14 +252,14 @@ export const FullWidthImageSection = ({
                         spacerBackgroundColor={spacerBackgroundColor}
                       />
                     ) : null}
-                    <td>
+                    <Column>
                       <Img
                         alt={imageAlt}
                         src={imageSrc}
                         style={{ maxWidth: "100%", verticalAlign: "middle" }}
                         width={imageWidth}
                       />
-                    </td>
+                    </Column>
                     {hasRight ? (
                       <SideSpacer
                         alignment={layout.sideAlignment}
@@ -282,9 +267,9 @@ export const FullWidthImageSection = ({
                         spacerBackgroundColor={spacerBackgroundColor}
                       />
                     ) : null}
-                  </tr>
-                </tbody>
-              </table>
+                  </Row>
+                </Fragment>
+              </Section>
             ) : (
               <Img
                 alt={imageAlt}
@@ -294,20 +279,20 @@ export const FullWidthImageSection = ({
               />
             )}
             {layout.bottom ? (
-              <div
+              <Section
                 style={{
                   backgroundColor: spacerBackgroundColor,
                   lineHeight: "24px",
                 }}
               >
                 &zwj;
-              </div>
+              </Section>
             ) : null}
-          </td>
-          <td>&zwj;</td>
-        </tr>
-      </tbody>
-    </table>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
   );
 };
 
