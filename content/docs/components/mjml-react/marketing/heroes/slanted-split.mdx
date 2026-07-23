@@ -1,6 +1,6 @@
 ---
 title: "Slanted Split"
-description: "Marketing hero variant for email templates"
+description: "A magazine hero with four exact image-side and slant-direction variants"
 ---
 
 <ComponentPreview base="mjml-react" name="hero-with-slanted-split-demo" />
@@ -49,8 +49,55 @@ import { HeroWithSlantedSplit } from "@/components/emails/marketing/hero/hero-wi
 <HeroWithSlantedSplit {...HeroWithSlantedSplit.PreviewProps} />
 ```
 
+## Examples
+
+### Left Slanted Down
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-slanted-split-demo"
+  variant="left-slanted-down"
+  hideCode
+/>
+
+### Left Slanted Up
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-slanted-split-demo"
+  variant="left-slanted-up"
+  hideCode
+/>
+
+### Right Slanted Down
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-slanted-split-demo"
+  variant="right-slanted-down"
+  hideCode
+/>
+
+### Right Slanted Up
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-slanted-split-demo"
+  variant="right-slanted-up"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                                                      | Type                          | Default               | Description                                     |
+| ------------------------------------------------------------------------- | ----------------------------- | --------------------- | ----------------------------------------------- |
+| `theme`                                                                   | `EmailThemeTokens`            | `defaultTheme`        | MJML React theme tokens                         |
+| `variant`                                                                 | `HeroWithSlantedSplitVariant` | `"left-slanted-down"` | Selects image side and slant direction          |
+| `eyebrow` / `heading` / `subheading`                                      | `string`                      | Mailviews copy        | Magazine title copy                             |
+| `description`                                                             | `string`                      | Mailviews copy        | Supporting editorial paragraph                  |
+| `ctaLabel` / `ctaHref`                                                    | `string`                      | Mailviews CTA         | Button label and destination                    |
+| `imageSrc` / `imageAlt`                                                   | `string`                      | Mailviews imagery     | Full-height image and accessible label          |
+| `logoSrc` / `logoAlt` / `logoHref`                                        | `string`                      | Light logo            | Brand logo and destination                      |
+| `pageBackgroundColor` / `imageBackgroundColor` / `contentBackgroundColor` | `string`                      | Mailviews colors      | Canvas, image fallback, and copy surface colors |
+| `textColor`                                                               | `string`                      | `"#030712"`           | Hero copy color                                 |
+| `buttonBackgroundColor` / `buttonTextColor`                               | `string`                      | Mailviews colors      | CTA colors                                      |

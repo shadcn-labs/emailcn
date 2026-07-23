@@ -1,9 +1,47 @@
 ---
 title: "Basic Logo Cloud"
-description: "Marketing logos variant for email templates"
+description: "Mailviews logo cloud with optional title and description"
 ---
 
-<ComponentPreview base="react-email" name="basic-logo-cloud-demo" />
+The four Mailviews arrangements share one component. Select the content treatment with `variant`.
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="react-email"
+  name="basic-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="react-email"
+  name="basic-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="react-email"
+  name="basic-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="react-email"
+  name="basic-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
 
 ## Installation
 
@@ -40,11 +78,12 @@ import { BasicLogoCloud } from "@/components/emails/marketing/logos/basic-logo-c
 ```
 
 ```tsx
-<BasicLogoCloud {...BasicLogoCloud.PreviewProps} />
+<BasicLogoCloud {...BasicLogoCloud.PreviewProps} variant="with-title" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                    | Default        | Description                         |
+| --------- | ----------------------- | -------------- | ----------------------------------- |
+| `variant` | `BasicLogoCloudVariant` | `"full"`       | Selects the Mailviews content state |
+| `theme`   | Renderer theme          | `defaultTheme` | Renderer theme configuration        |

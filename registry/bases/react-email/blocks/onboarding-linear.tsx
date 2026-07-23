@@ -56,7 +56,6 @@ export const OnboardingLinear = ({
               subheading={`Track issues, manage sprints, and ship faster.`}
               ctaLabel="Open Linear"
               ctaHref={ctaHref}
-              align="left"
             />
 
             <ContentGridSection type="title" title="Issue Tracking" />

@@ -1,9 +1,13 @@
 import { BoxedOrderSummaryTotalBottom } from "@/registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-bottom";
+import type { BoxedOrderSummaryTotalBottomProps } from "@/registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-bottom";
 
-export default function BoxedOrderSummaryTotalBottomDemo() {
+export default function BoxedOrderSummaryTotalBottomDemo({
+  variant,
+}: Pick<BoxedOrderSummaryTotalBottomProps, "variant">) {
   return (
     <BoxedOrderSummaryTotalBottom
       {...BoxedOrderSummaryTotalBottom.PreviewProps}
+      variant={variant ?? BoxedOrderSummaryTotalBottom.PreviewProps.variant}
     />
   );
 }

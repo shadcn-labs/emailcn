@@ -1,90 +1,63 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
+import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  containerResponsiveStyles,
+  ContainerSection,
+} from "@/registry/bases/mjml-react/ui/ui-elements/containers/container-shared";
+import type { ContainerMobile } from "@/registry/bases/mjml-react/ui/ui-elements/containers/container-shared";
 
 export interface ContainerProps {
+  align?: "center" | "left" | "right";
+  children?: ReactNode;
+  content?: ReactNode;
+  maxWidth?: string;
+  mobile?: ContainerMobile;
   theme?: EmailThemeTokens;
-  content?: string;
-  mobile?: "gutters" | "flush";
-  align?: "left" | "center" | "right";
 }
 
-const ContainerSection = ({
-  content,
-  theme,
-  mobile,
-  align,
-}: {
-  content: string;
-  theme: EmailThemeTokens;
-  mobile: NonNullable<ContainerProps["mobile"]>;
-  align: NonNullable<ContainerProps["align"]>;
-}) => (
-  <MjmlWrapper padding="0">
-    <MjmlSection
-      padding={mobile === "flush" ? "0" : `0 ${theme.spacingBase ?? "16px"}`}
-    >
-      <MjmlColumn>
-        <MjmlText
-          align={align}
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          {content}
-        </MjmlText>
-      </MjmlColumn>
-    </MjmlSection>
-  </MjmlWrapper>
-);
+export { ContainerSection };
 
 export const Container = ({
   theme = defaultTheme,
-  content = "Container content.",
-  mobile = "gutters",
-  align = "center",
-}: ContainerProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>Container</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <ContainerSection
-        content={content}
-        theme={theme}
-        mobile={mobile}
-        align={align}
-      />
-    </MjmlBody>
-  </Mjml>
-);
+  ...props
+}: ContainerProps) => {
+  const mobile = props.mobile ?? "gutters";
+
+  return (
+    <Mjml>
+      <MjmlHead>
+        <MjmlPreview>
+          {mobile === "flush" ? "Flush on mobile" : "With gutters on mobile"}
+        </MjmlPreview>
+        <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+        <MjmlStyle>{containerResponsiveStyles}</MjmlStyle>
+      </MjmlHead>
+      <MjmlBody width={theme.containerWidth}>
+        <MjmlWrapper padding="0">
+          <MjmlRaw>
+            <ContainerSection {...props} mobile={mobile} />
+          </MjmlRaw>
+        </MjmlWrapper>
+      </MjmlBody>
+    </Mjml>
+  );
+};
 
 Container.PreviewProps = {
   align: "center",
-  content: "Container with padding on mobile for comfortable reading.",
+  maxWidth: "600px",
   mobile: "gutters",
   theme: defaultTheme,
 } satisfies ContainerProps;

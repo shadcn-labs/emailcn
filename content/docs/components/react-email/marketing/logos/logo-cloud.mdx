@@ -1,17 +1,101 @@
 ---
 title: "Logo Cloud"
-description: "Logo cloud with selectable boxed or outlined tiles for email templates"
+description: "Mailviews boxed and outlined logo clouds in every content arrangement"
 ---
 
-One `LogoCloud` component covers both tile looks. Switch with the `tone` prop.
+One `LogoCloud` component covers the boxed and outlined Mailviews families. Use `tone` for the tile treatment and `variant` for the content arrangement.
 
-## Boxed
+## Examples
 
-<ComponentPreview base="react-email" name="boxed-logo-cloud-demo" />
+### Boxed — Minimal
 
-## Outlined
+<ComponentPreview
+  base="react-email"
+  name="boxed-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
 
-<ComponentPreview base="react-email" name="outlined-logo-cloud-demo" />
+### Boxed — With Title
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### Boxed — With Description
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Boxed — Full
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
+
+### Boxed — Flush
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-logo-cloud-demo"
+  variant="flush"
+  hideCode
+/>
+
+### Outlined — Minimal
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### Outlined — With Title
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### Outlined — With Description
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Outlined — Full
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
+
+### Outlined — Flush
+
+<ComponentPreview
+  base="react-email"
+  name="outlined-logo-cloud-demo"
+  variant="flush"
+  hideCode
+/>
 
 ## Installation
 
@@ -48,13 +132,13 @@ import { LogoCloud } from "@/components/emails/marketing/logos/logo-cloud";
 ```
 
 ```tsx
-<LogoCloud {...LogoCloud.PreviewProps} tone="outlined" />
+<LogoCloud {...LogoCloud.PreviewProps} tone="outlined" variant="flush" />
 ```
 
 ## API Reference
 
-| Prop      | Type                                             | Default        | Description         |
-| --------- | ------------------------------------------------ | -------------- | ------------------- |
-| `tone`    | `"boxed" \| "outlined"`                          | `"boxed"`      | Logo tile style     |
-| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt        |
-| `theme`   | `TailwindConfig`                                 | `defaultTheme` | Email theme styling |
+| Prop      | Type               | Default        | Description                               |
+| --------- | ------------------ | -------------- | ----------------------------------------- |
+| `tone`    | `LogoCloudTone`    | `"boxed"`      | Selects boxed or outlined tiles           |
+| `variant` | `LogoCloudVariant` | `"full"`       | Selects the Mailviews content arrangement |
+| `theme`   | Renderer theme     | `defaultTheme` | Renderer theme configuration              |

@@ -1,7 +1,14 @@
 ---
-title: "2 Columns Blog with Images and Boxed Content"
-description: "2 Columns Blog with Images and Boxed Content — Blog email component."
+title: "2 Columns Blog With Boxed Content"
+description: "A Mailviews blog layout implemented with shared email-safe primitives."
 ---
+
+This public component retains its Mailviews content contract while reusing the
+same renderer-specific blog primitives as the rest of the family.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="react-email"
@@ -25,6 +32,19 @@ npx shadcn@latest add @emailcn/2-columns-blog-with-images-and-boxed-content
 <TabsContent value="manual">
 
 <Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy the shared blog primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/react-email/ui/marketing/blog/blog-shared.tsx"
+  base="react-email"
+  title="components/emails/marketing/blog/blog-shared.tsx"
+/>
+
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx"
@@ -50,6 +70,10 @@ import { TwoColumnsBlogWithImagesAndBoxedContent } from "@/components/emails/mar
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                      | Type             | Default         | Description                                     |
+| ------------------------- | ---------------- | --------------- | ----------------------------------------------- |
+| `theme`                   | `TailwindConfig` | `defaultTheme`  | Renderer theme configuration.                   |
+| `heading`                 | `string`         | Layout-specific | Optional section heading where supported.       |
+| `imageSrc*` / `imageAlt*` | `string`         | Example imagery | Post image sources and labels.                  |
+| `title*` / `excerpt*`     | `string`         | Example copy    | Post titles and supporting excerpts.            |
+| Metadata props            | `string`         | Layout-specific | Author, host, episode, badge, or date metadata. |

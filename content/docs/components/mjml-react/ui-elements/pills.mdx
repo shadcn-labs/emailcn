@@ -1,13 +1,18 @@
 ---
 title: "Pills"
-description: "Status pill and badge components for labels and indicators."
+description: "Exact Mailviews status pills for labels, categories, and state indicators."
 ---
 
-## Basic Pills with Status Colors
+The `BasicPillsStatusColors` component renders the complete Mailviews status
+set while allowing custom pill labels and colors through the `pills` prop.
+
+## Examples
+
+### Basic Pills with Status Colors
 
 <ComponentPreview base="mjml-react" name="basic-pills-status-colors-demo" />
 
-### Installation
+## Installation
 
 <CodeTabs>
 <TabsList>
@@ -24,35 +29,39 @@ npx shadcn@latest add @emailcn/basic-pills-with-status-colors
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
 
-```bash
-npm install @faire/mjml-react
-```
+<Step>Copy both component source files into your project.</Step>
 
-<Step>Copy the component source into your project.</Step>
-  <ComponentSource
-    src="registry/bases/mjml-react/ui/ui-elements/pills/basic-pills-with-status-colors.tsx"
-    base="mjml-react"
-    title="components/emails/ui-elements/pills/basic-pills-with-status-colors.tsx"
-  />
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/pills/basic-pills-with-status-colors.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/pills/basic-pills-with-status-colors.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/pills/basic-pills-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/pills/basic-pills-shared.tsx"
+/>
+
 </Steps>
 
 </TabsContent>
 </CodeTabs>
 
-### Usage
+## Usage
 
 ```tsx
-import { BasicPillsWithStatusColors } from "@/components/emails/ui-elements/pills/basic-pills-with-status-colors";
+import { BasicPillsStatusColors } from "@/components/emails/ui-elements/pills/basic-pills-with-status-colors";
 ```
 
 ```tsx
-<BasicPillsWithStatusColors {...BasicPillsWithStatusColors.PreviewProps} />
+<BasicPillsStatusColors {...BasicPillsStatusColors.PreviewProps} />
 ```
 
-### API Reference
+## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop    | Type                                                                                                | Default        | Description                         |
+| ------- | --------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `pills` | `{ label: string; variant: "default" \| "success" \| "error" \| "warning" \| "info" \| "brand" }[]` | Mailviews set  | Pill labels and status color styles |
+| `theme` | `EmailThemeTokens`                                                                                  | `defaultTheme` | Email theme and container width     |

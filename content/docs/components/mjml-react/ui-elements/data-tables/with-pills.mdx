@@ -1,7 +1,11 @@
 ---
 title: "With Pills"
-description: "With Pills — Data Tables email component."
+description: "A user table with semantic status pills."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="mjml-react" name="data-table-with-pills-demo" />
 
@@ -22,13 +26,20 @@ npx shadcn@latest add @emailcn/data-table-with-pills
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-with-pills.tsx"
     base="mjml-react"
@@ -51,6 +62,8 @@ import { DataTableWithPills } from "@/components/emails/ui-elements/data-tables/
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type               | Default                   | Description                   |
+| --------- | ------------------ | ------------------------- | ----------------------------- |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`            | Renderer theme configuration. |
+| `headers` | `string[]`         | Component-specific labels | Column labels.                |
+| `rows`    | `Status pill rows` | One active user row       | Table row data.               |

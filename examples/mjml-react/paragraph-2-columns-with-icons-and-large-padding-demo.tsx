@@ -10,9 +10,9 @@ export default function Paragraph2ColumnsWithIconsAndLargePaddingDemo() {
       padding="large"
       column1="Fast and reliable delivery for all your email campaigns."
       column2="Beautiful templates that work across every email client."
-      iconSrc1="https://api.dicebear.com/9.x/initials/png?seed=Fast&size=24"
+      iconSrc1="https://assets.mailviews.com/images/components/icon-check-brand.png"
       iconAlt1="Fast"
-      iconSrc2="https://api.dicebear.com/9.x/initials/png?seed=Reliable&size=24"
+      iconSrc2="https://assets.mailviews.com/images/components/icon-check-muted.png"
       iconAlt2="Reliable"
     />
   );

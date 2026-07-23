@@ -1,6 +1,6 @@
 ---
 title: "Overlayed Content"
-description: "Marketing hero variant for email templates"
+description: "A centered product hero with default and slanted lower edges"
 ---
 
 <ComponentPreview base="mjml-react" name="hero-with-overlayed-content-demo" />
@@ -22,13 +22,7 @@ npx shadcn@latest add @emailcn/hero-with-overlayed-content
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/hero/hero-with-overlayed-content.tsx"
     base="mjml-react"
@@ -49,8 +43,49 @@ import { HeroWithOverlayedContent } from "@/components/emails/marketing/hero/her
 <HeroWithOverlayedContent {...HeroWithOverlayedContent.PreviewProps} />
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-overlayed-content-demo"
+  variant="default"
+  hideCode
+/>
+
+### Slanted Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-overlayed-content-demo"
+  variant="slanted-left"
+  hideCode
+/>
+
+### Slanted Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-with-overlayed-content-demo"
+  variant="slanted-right"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                        | Type                                             | Default           | Description                                       |
+| ------------------------------------------- | ------------------------------------------------ | ----------------- | ------------------------------------------------- |
+| `theme`                                     | `EmailThemeTokens`                               | `defaultTheme`    | MJML React theme tokens                           |
+| `variant`                                   | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`       | Selects the flat or Mailviews slanted ending      |
+| `eyebrow`                                   | `string`                                         | `"Fresh Drop"`    | Accent label above the heading                    |
+| `headingAccent` / `heading`                 | `string`                                         | Mailviews copy    | Bold first word and light remaining product title |
+| `subheading`                                | `string`                                         | Mailviews copy    | Supporting availability line                      |
+| `description`                               | `string`                                         | Mailviews copy    | Centered product description                      |
+| `ctaLabel` / `ctaHref`                      | `string`                                         | Mailviews CTA     | Button label and destination                      |
+| `imageSrc` / `imageAlt`                     | `string`                                         | Mailviews imagery | Full hero background and label                    |
+| `logoSrc` / `logoAlt` / `logoHref`          | `string`                                         | Mono insignia     | Centered brand mark and destination               |
+| `pageBackgroundColor`                       | `string`                                         | `"#f1f5f9"`       | Email-canvas background                           |
+| `slantColor`                                | `string`                                         | `"#fffffe"`       | Triangular lower-edge color                       |
+| `textColor` / `accentColor`                 | `string`                                         | Mailviews colors  | Main and accent text colors                       |
+| `buttonBackgroundColor` / `buttonTextColor` | `string`                                         | Mailviews colors  | CTA colors                                        |

@@ -1,137 +1,326 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
+  MjmlRaw,
+  MjmlWrapper,
   MjmlStyle,
-  MjmlText,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type HeaderWithLogoAndFinanceStatsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type HeaderWithLogoAndFinanceStatsAlignment =
+  | "left"
+  | "center"
+  | "right";
+
+export interface HeaderFinanceStat {
+  alt: string;
+  change: string;
+  label: string;
+  positive: boolean;
+  src: string;
+}
 
 export interface HeaderWithLogoAndFinanceStatsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
   logoAlt?: string;
-  stat1?: string;
-  stat1Label?: string;
-  stat2?: string;
-  stat2Label?: string;
-  variant?: HeaderWithLogoAndFinanceStatsVariant;
+  logoHref?: string;
+  stats?: HeaderFinanceStat[];
+  alignment?: HeaderWithLogoAndFinanceStatsAlignment;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
 }
 
-const variantClass = (variant: HeaderWithLogoAndFinanceStatsVariant) =>
-  variant === "slanted-left"
-    ? "ec-skew-left"
-    : variant === "slanted-right"
-      ? "ec-skew-right"
-      : undefined;
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .header-finance-stack { display: block !important; width: 100% !important; }",
+  "  .header-finance-after { padding-top: 24px !important; }",
+  "  .header-finance-before { padding-bottom: 24px !important; }",
+  "  .header-finance-mobile-table { float: none !important; margin-left: 0 !important; }",
+  "  .header-finance-mobile-logo { text-align: left !important; }",
+  "  .header-finance-item { display: inline-block !important; }",
+  "}",
+  "@media only screen and (max-width: 430px) {",
+  "  .header-finance-item { line-height: 32px !important; }",
+  "  .header-finance-centered .header-finance-item { margin-left: 6px !important; margin-right: 6px !important; }",
+  "}",
+].join("\n");
+
+const defaultStats: HeaderFinanceStat[] = [
+  {
+    alt: "BTC",
+    change: "+23.5%",
+    label: "BTC",
+    positive: true,
+    src: "https://assets.mailviews.com/images/components/btc-logo.png",
+  },
+  {
+    alt: "ETH",
+    change: "-13.2%",
+    label: "ETH",
+    positive: false,
+    src: "https://assets.mailviews.com/images/components/eth-logo.png",
+  },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  pageBackgroundColor: "#f1f5f9",
+  stats: defaultStats,
+};
+
+type SectionProps = Omit<HeaderWithLogoAndFinanceStatsProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const Logo = ({ props }: { props: ResolvedProps }) => (
+  <a href={props.logoHref}>
+    <img
+      alt={props.logoAlt}
+      src={props.logoSrc}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={55}
+    />
+  </a>
+);
+
+const FinanceStats = ({
+  align,
+  centered = false,
+  props,
+}: {
+  align?: "center" | "right";
+  centered?: boolean;
+  props: ResolvedProps;
+}) => {
+  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
+  if (align === "center") {
+    tableStyle = { marginLeft: "auto", marginRight: "auto" };
+  } else if (align === "right") {
+    tableStyle = { marginLeft: "auto" };
+  }
+
+  return (
+    <table
+      align={align}
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      className={
+        centered ? "header-finance-centered" : "header-finance-mobile-table"
+      }
+      role="presentation"
+      style={tableStyle}
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              fontFamily,
+              fontSize: "16px",
+              lineHeight: "24px",
+            }}
+          >
+            {props.stats.slice(0, 2).map((stat, index) => (
+              <span
+                className="header-finance-item"
+                key={stat.label + stat.change}
+                style={{ marginRight: index === 0 ? "12px" : undefined }}
+              >
+                <img
+                  alt={stat.alt}
+                  src={stat.src}
+                  style={{
+                    marginRight: "6px",
+                    maxWidth: "100%",
+                    verticalAlign: "text-bottom",
+                  }}
+                  width={20}
+                />
+                <span style={{ marginRight: "8px" }}>{stat.label}</span>
+                <span
+                  style={{
+                    backgroundColor: stat.positive ? "#dcfce7" : "#fee2e2",
+                    border: "1px solid",
+                    borderColor: stat.positive ? "#bbf7d0" : "#fecaca",
+                    borderRadius: "9999px",
+                    boxShadow: "0 1px 2px 0 rgba(0,0,0,0.05)",
+                    color: stat.positive ? "#16a34a" : "#dc2626",
+                    display: "inline-block",
+                    fontFamily,
+                    fontSize: "12px",
+                    fontWeight: 500,
+                    lineHeight: "16px",
+                    padding: "2px 8px",
+                  }}
+                >
+                  {stat.change}
+                </span>
+              </span>
+            ))}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HeaderWithLogoAndFinanceStatsSection = (props: SectionProps) => {
+  const alignment = props.alignment ?? "left";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  let content;
+  if (alignment === "center") {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <div style={{ textAlign: "center" }}>
+                <Logo props={resolved} />
+              </div>
+              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              <FinanceStats align="center" centered props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  } else if (alignment === "right") {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td className="header-finance-stack header-finance-before">
+              <FinanceStats props={resolved} />
+            </td>
+            <td
+              className="header-finance-stack header-finance-mobile-logo"
+              style={{ textAlign: "right", width: "55px" }}
+            >
+              <Logo props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  } else {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td className="header-finance-stack" style={{ width: "55px" }}>
+              <Logo props={resolved} />
+            </td>
+            <td className="header-finance-stack header-finance-after">
+              <FinanceStats align="right" props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td style={{ maxWidth: "100%", width: "600px" }}>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: resolved.backgroundColor,
+                      padding: "24px",
+                    }}
+                  >
+                    {content}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
 
 export const HeaderWithLogoAndFinanceStats = ({
+  alignment = "left",
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  logoSrc = "https://static.photos/business/120x30/3",
-  logoAlt = "Logo",
-  stat1 = "$12,450",
-  stat1Label = "Balance",
-  stat2 = "+5.2%",
-  stat2Label = "Change",
-  variant = "default",
+  ...props
 }: HeaderWithLogoAndFinanceStatsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>Header</MjmlPreview>
-      <MjmlStyle>{`
-        .ec-skew-left > div { transform: skewX(-10deg); }
-        .ec-skew-right > div { transform: skewX(10deg); }
-      `}</MjmlStyle>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>BTC +23.5% ETH -13.2%</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
-      <MjmlSection
-        backgroundColor={theme.colorBackground}
-        cssClass={variantClass(variant)}
-        padding={`${theme.spacingBase ?? "24px"} 0`}
-      >
-        <MjmlColumn verticalAlign="middle" width="50%">
-          <MjmlImage
-            align="left"
-            alt={logoAlt}
-            height={30}
-            src={logoSrc}
-            width={120}
+      <MjmlWrapper padding="0">
+        <MjmlRaw>
+          <HeaderWithLogoAndFinanceStatsSection
+            {...props}
+            alignment={alignment}
+            pageBackgroundColor={pageBackgroundColor}
           />
-        </MjmlColumn>
-        <MjmlColumn verticalAlign="middle" width="25%">
-          <MjmlText
-            align="right"
-            color={theme.colorTextMuted}
-            fontSize={theme.fontSizeSm}
-            paddingBottom="0"
-          >
-            {stat1Label}
-          </MjmlText>
-          <MjmlText
-            align="right"
-            color={theme.colorText}
-            fontSize={theme.fontSizeSm}
-            fontWeight={theme.fontWeightBold}
-            paddingTop="0"
-          >
-            {stat1}
-          </MjmlText>
-        </MjmlColumn>
-        <MjmlColumn verticalAlign="middle" width="25%">
-          <MjmlText
-            align="right"
-            color={theme.colorTextMuted}
-            fontSize={theme.fontSizeSm}
-            paddingBottom="0"
-          >
-            {stat2Label}
-          </MjmlText>
-          <MjmlText
-            align="right"
-            color={theme.colorSuccess}
-            fontSize={theme.fontSizeSm}
-            fontWeight={theme.fontWeightBold}
-            paddingTop="0"
-          >
-            {stat2}
-          </MjmlText>
-        </MjmlColumn>
-      </MjmlSection>
+        </MjmlRaw>
+      </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 HeaderWithLogoAndFinanceStats.PreviewProps = {
-  logoAlt: "Logo",
-  logoSrc: "https://static.photos/business/120x30/4",
-  stat1: "$12,450",
-  stat1Label: "Balance",
-  stat2: "+5.2%",
-  stat2Label: "Change",
+  alignment: "left",
   theme: defaultTheme,
-  variant: "default",
 } satisfies HeaderWithLogoAndFinanceStatsProps;

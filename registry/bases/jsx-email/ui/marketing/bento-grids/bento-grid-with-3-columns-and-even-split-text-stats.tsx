@@ -1,257 +1,86 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 
-export type BentoGridWithImagesAndCaptionsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  ThreeColumnStatsSection,
+} from "./bento-grid-shared";
+import type {
+  BentoImagePlacementVariant,
+  MetricCardData,
+  StatCardData,
+} from "./bento-grid-shared";
 
-export interface BentoGridWithImagesAndCaptionsProps {
+type Stats = readonly [StatCardData, StatCardData, StatCardData];
+
+export interface BentoGridWith3ColumnsAndEvenSplitTextStatsProps {
+  imageAlt?: string;
+  imageSrc?: string;
+  metric?: MetricCardData;
+  stats?: Stats;
   theme?: EmailThemeTokens;
-  heading?: string;
-  subheading?: string;
-  imageSrc1?: string;
-  imageAlt1?: string;
-  caption1?: string;
-  imageSrc2?: string;
-  imageAlt2?: string;
-  caption2?: string;
-  imageSrc3?: string;
-  imageAlt3?: string;
-  caption3?: string;
-  variant?: BentoGridWithImagesAndCaptionsVariant;
+  variant?: BentoImagePlacementVariant;
 }
 
-const BentoGridWithImagesAndCaptionsSection = ({
-  caption1,
-  caption2,
-  caption3,
-  heading,
-  imageAlt1,
-  imageAlt2,
-  imageAlt3,
-  imageSrc1,
-  imageSrc2,
-  imageSrc3,
-  subheading,
-  theme,
-  variant,
-}: {
-  caption1: string;
-  caption2: string;
-  caption3: string;
-  heading: string;
-  imageAlt1: string;
-  imageAlt2: string;
-  imageAlt3: string;
-  imageSrc1: string;
-  imageSrc2: string;
-  imageSrc3: string;
-  subheading: string;
-  theme: EmailThemeTokens;
-  variant: BentoGridWithImagesAndCaptionsVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {heading ? (
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeHeading,
-              fontWeight: theme.fontWeightBold,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "24px",
-              textAlign: "center",
-            }}
-          >
-            {heading}
-          </Text>
-        ) : null}
-        {subheading ? (
-          <Text
-            style={{
-              color: theme.colorTextMuted,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeLg,
-              lineHeight: theme.lineHeightBase,
-              margin: 0,
-              paddingBottom: theme.spacingXl ?? "48px",
-              textAlign: "center",
-            }}
-          >
-            {subheading}
-          </Text>
-        ) : null}
-      </Column>
-      <Column
-        style={{ padding: "0 8px", verticalAlign: "top", width: "33.33%" }}
-      >
-        <Img
-          alt={imageAlt1}
-          src={imageSrc1}
-          width={260}
-          style={{
-            borderRadius: theme.borderRadius,
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            paddingBottom: theme.spacingBase ?? "24px",
-          }}
-        />
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase,
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-          }}
-        >
-          {caption1}
-        </Text>
-      </Column>
-      <Column
-        style={{ padding: "0 8px", verticalAlign: "top", width: "33.33%" }}
-      >
-        <Img
-          alt={imageAlt2}
-          src={imageSrc2}
-          width={260}
-          style={{
-            borderRadius: theme.borderRadius,
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            paddingBottom: theme.spacingBase ?? "24px",
-          }}
-        />
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase,
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-          }}
-        >
-          {caption2}
-        </Text>
-      </Column>
-      <Column
-        style={{ padding: "0 8px", verticalAlign: "top", width: "33.33%" }}
-      >
-        <Img
-          alt={imageAlt3}
-          src={imageSrc3}
-          width={260}
-          style={{
-            borderRadius: theme.borderRadius,
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            paddingBottom: theme.spacingBase ?? "24px",
-          }}
-        />
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase,
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-          }}
-        >
-          {caption3}
-        </Text>
-      </Column>
-    </Row>
-  </Section>
+const metric: MetricCardData = {
+  change: "10%",
+  comparison: "Compared to last month",
+  reportHref: "https://example.com",
+  reportLabel: "View report",
+  title: "API Calls",
+  value: "25k",
+};
+const stats: Stats = [
+  { label: "Engine v2", suffix: "faster", value: "75x" },
+  { label: "Cost reduction", suffix: "faster", value: "50%" },
+  { label: "Load time", suffix: "faster", value: "75x" },
+];
+
+export const BentoGridWith3ColumnsAndEvenSplitTextStatsSection = ({
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-5.jpg`,
+  metric: metricData = metric,
+  stats: statItems = stats,
+  variant = "image-top-right",
+}: Omit<BentoGridWith3ColumnsAndEvenSplitTextStatsProps, "theme">) => (
+  <ThreeColumnStatsSection
+    imageAlt={imageAlt}
+    imageSrc={imageSrc}
+    metric={metricData}
+    mode="text"
+    stats={statItems}
+    variant={variant}
+  />
 );
 
 export const BentoGridWith3ColumnsAndEvenSplitTextStats = ({
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-5.jpg`,
+  metric: metricData = metric,
+  stats: statItems = stats,
   theme = defaultTheme,
-  heading = "Our Work",
-  subheading = "A selection of our recent projects.",
-  imageSrc1 = "https://static.photos/technology/400x300/2",
-  imageAlt1 = "",
-  caption1 = "Project Alpha",
-  imageSrc2 = "https://static.photos/technology/400x300/3",
-  imageAlt2 = "",
-  caption2 = "Project Beta",
-  imageSrc3 = "https://static.photos/technology/400x300/4",
-  imageAlt3 = "",
-  caption3 = "Project Gamma",
-  variant = "default",
-}: BentoGridWithImagesAndCaptionsProps) => (
-  <Html>
-    <Head />
-    <Preview>bento grid captions</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorText,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BentoGridWithImagesAndCaptionsSection
-            caption1={caption1}
-            caption2={caption2}
-            caption3={caption3}
-            heading={heading}
-            imageAlt1={imageAlt1}
-            imageAlt2={imageAlt2}
-            imageAlt3={imageAlt3}
-            imageSrc1={imageSrc1}
-            imageSrc2={imageSrc2}
-            imageSrc3={imageSrc3}
-            subheading={subheading}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  variant = "image-top-right",
+}: BentoGridWith3ColumnsAndEvenSplitTextStatsProps) => (
+  <BentoEmailShell
+    preview="Bento grid with 3 columns and even split text stats"
+    theme={theme}
+  >
+    <BentoGridWith3ColumnsAndEvenSplitTextStatsSection
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      metric={metricData}
+      stats={statItems}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
 
 BentoGridWith3ColumnsAndEvenSplitTextStats.PreviewProps = {
-  caption1: "Project Alpha",
-  caption2: "Project Beta",
-  caption3: "Project Gamma",
-  heading: "Our Work",
-  imageAlt1: "Project Alpha",
-  imageAlt2: "Project Beta",
-  imageAlt3: "Project Gamma",
-  imageSrc1: "https://static.photos/technology/400x300/5",
-  imageSrc2: "https://static.photos/technology/400x300/6",
-  imageSrc3: "https://static.photos/technology/400x300/7",
-  subheading: "A selection of our recent projects.",
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/bento-5.jpg`,
+  metric,
+  stats,
   theme: defaultTheme,
-  variant: "default",
-} satisfies BentoGridWithImagesAndCaptionsProps;
+  variant: "image-top-right",
+} satisfies BentoGridWith3ColumnsAndEvenSplitTextStatsProps;

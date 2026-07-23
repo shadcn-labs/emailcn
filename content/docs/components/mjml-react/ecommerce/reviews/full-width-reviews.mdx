@@ -3,7 +3,153 @@ title: "Full Width Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-<ComponentPreview base="mjml-react" name="full-width-reviews-demo" />
+Full-width reviews keep a single review across the email width while changing the arrangement of its rating, divider, logo, avatar, and author details.
+
+## Examples
+
+### With Divider
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="with-divider"
+/>
+
+### Simple
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="simple"
+/>
+
+### Divider Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="divider-top"
+/>
+
+### With Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="with-logo"
+/>
+
+### Logo Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="logo-split"
+/>
+
+### Logo Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="logo-bottom"
+/>
+
+### Avatar Inline
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-inline"
+/>
+
+### Avatar Inline Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-inline-split"
+/>
+
+### Avatar Inline Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-inline-bottom"
+/>
+
+### Avatar Aside
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-aside"
+/>
+
+### Avatar Aside Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-aside-split"
+/>
+
+### Avatar Aside Reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-aside-reverse"
+/>
+
+### Centered With Avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="centered-with-avatar"
+/>
+
+### Centered Avatar Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="centered-avatar-split"
+/>
+
+### Centered Avatar Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="centered-avatar-bottom"
+/>
+
+### Avatar + Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-logo"
+/>
+
+### Avatar + Logo Split
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-logo-split"
+/>
+
+### Avatar + Logo Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-reviews-demo"
+  variant="avatar-logo-bottom"
+/>
 
 ## Installation
 
@@ -46,11 +192,12 @@ import { FullWidthReviews } from "@/components/emails/ecommerce/reviews/full-wid
 ```
 
 ```tsx
-<FullWidthReviews {...FullWidthReviews.PreviewProps} />
+<FullWidthReviews {...FullWidthReviews.PreviewProps} variant="with-divider" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                      | Default          | Description              |
+| --------- | ------------------------- | ---------------- | ------------------------ |
+| `variant` | `FullWidthReviewsVariant` | `"with-divider"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`        | `defaultTheme`   | Email theme styling      |

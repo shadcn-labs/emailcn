@@ -1,9 +1,57 @@
 ---
 title: "Grouped Overlapped Avatars"
-description: "UI Elements avatars variant for email templates"
+description: "Mailviews grouped avatars, available in every supported size."
 ---
 
-<ComponentPreview base="mjml-react" name="grouped-overlapped-avatars-demo" />
+## Examples
+
+### XS
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-demo"
+  variant="xs"
+/>
+
+### S
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-demo"
+  variant="sm"
+/>
+
+### M
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-demo"
+  variant="md"
+/>
+
+### L
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-demo"
+  variant="lg"
+/>
+
+### XL
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-demo"
+  variant="xl"
+/>
+
+### 2XL
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-demo"
+  variant="2xl"
+/>
 
 ## Installation
 
@@ -22,13 +70,13 @@ npx shadcn@latest add @emailcn/grouped-overlapped-avatars
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the shared avatar primitives into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/avatars/avatar-shared.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/avatars/avatar-shared.tsx"
+  />
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx"
     base="mjml-react"
@@ -46,11 +94,14 @@ import { GroupedOverlappedAvatars } from "@/components/emails/ui-elements/avatar
 ```
 
 ```tsx
-<GroupedOverlappedAvatars {...GroupedOverlappedAvatars.PreviewProps} />
+<GroupedOverlappedAvatars size="md" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                                            | Default        | Description                     |
+| ----------- | ----------------------------------------------- | -------------- | ------------------------------- |
+| `avatars`   | `AvatarItem[]`                                  | Four avatars   | Images displayed in the group   |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"`         | Avatar and overlap size         |
+| `plusCount` | `number`                                        | —              | Adds an optional trailing count |
+| `theme`     | Email theme type                                | `defaultTheme` | Email framework theme           |

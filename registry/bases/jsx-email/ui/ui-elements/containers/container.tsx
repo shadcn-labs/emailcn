@@ -1,96 +1,51 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container as EmailContainer,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Head, Html, Preview } from "jsx-email";
+import type { ReactNode } from "react";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  containerResponsiveStyles,
+  ContainerSection,
+} from "@/registry/bases/jsx-email/ui/ui-elements/containers/container-shared";
+import type { ContainerMobile } from "@/registry/bases/jsx-email/ui/ui-elements/containers/container-shared";
 
 export interface ContainerProps {
+  align?: "center" | "left" | "right";
+  children?: ReactNode;
+  content?: ReactNode;
+  maxWidth?: string;
+  mobile?: ContainerMobile;
   theme?: EmailThemeTokens;
-  content?: string;
-  mobile?: "gutters" | "flush";
-  align?: "left" | "center" | "right";
 }
 
-const ContainerSection = ({
-  content,
-  theme,
-  mobile,
-  align,
-}: {
-  content: string;
-  theme: EmailThemeTokens;
-  mobile: NonNullable<ContainerProps["mobile"]>;
-  align: NonNullable<ContainerProps["align"]>;
-}) => (
-  <Section style={{ padding: "0" }}>
-    <Section
-      style={{
-        padding: mobile === "flush" ? "0" : `0 ${theme.spacingBase ?? "16px"}`,
-      }}
-    >
-      <Row>
-        <Column>
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase ?? "14px",
-              margin: 0,
-              textAlign: align,
-            }}
-          >
-            {content}
-          </Text>
-        </Column>
-      </Row>
-    </Section>
-  </Section>
-);
+export { ContainerSection };
 
 export const Container = ({
-  theme = defaultTheme,
-  content = "Container content.",
-  mobile = "gutters",
-  align = "center",
-}: ContainerProps) => (
-  <Html>
-    <Head />
-    <Preview>Container</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <EmailContainer style={{ maxWidth: theme.containerWidth }}>
-        <ContainerSection
-          content={content}
-          theme={theme}
-          mobile={mobile}
-          align={align}
-        />
-      </EmailContainer>
-    </Body>
-  </Html>
-);
+  theme: _theme = defaultTheme,
+  ...props
+}: ContainerProps) => {
+  const mobile = props.mobile ?? "gutters";
+
+  return (
+    <Html>
+      <Head>
+        <DefaultFonts />
+        <style>{containerResponsiveStyles}</style>
+      </Head>
+      <Preview>
+        {mobile === "flush" ? "Flush on mobile" : "With gutters on mobile"}
+      </Preview>
+      <Body style={{ margin: 0 }}>
+        <ContainerSection {...props} mobile={mobile} />
+      </Body>
+    </Html>
+  );
+};
 
 Container.PreviewProps = {
   align: "center",
-  content: "Container with padding on mobile for comfortable reading.",
+  maxWidth: "600px",
   mobile: "gutters",
   theme: defaultTheme,
 } satisfies ContainerProps;

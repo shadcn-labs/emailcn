@@ -1,9 +1,41 @@
 ---
 title: "Horizontal Team Member Bios"
-description: "Marketing team variant for email templates"
+description: "Mailviews horizontal team member bios family"
 ---
 
-<ComponentPreview base="mjml-react" name="horizontal-team-member-bios-demo" />
+## Examples
+
+### Image Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="horizontal-team-member-bios-demo"
+  variant="image-left"
+/>
+
+### Image Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="horizontal-team-member-bios-demo"
+  variant="image-right"
+/>
+
+### Image Left Accent
+
+<ComponentPreview
+  base="mjml-react"
+  name="horizontal-team-member-bios-demo"
+  variant="image-left-accent"
+/>
+
+### Image Right Accent
+
+<ComponentPreview
+  base="mjml-react"
+  name="horizontal-team-member-bios-demo"
+  variant="image-right-accent"
+/>
 
 ## Installation
 
@@ -22,13 +54,7 @@ npx shadcn@latest add @emailcn/horizontal-team-member-bios
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/team/horizontal-team-member-bios.tsx"
     base="mjml-react"
@@ -43,14 +69,13 @@ npm install @faire/mjml-react
 
 ```tsx
 import { HorizontalTeamMemberBios } from "@/components/emails/marketing/team/horizontal-team-member-bios";
-```
 
-```tsx
-<HorizontalTeamMemberBios {...HorizontalTeamMemberBios.PreviewProps} />
+<HorizontalTeamMemberBios variant="image-left" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                           | Default        | Description              |
+| --------- | ------------------------------------------------------------------------------ | -------------- | ------------------------ |
+| `variant` | `"image-left" \| "image-right" \| "image-left-accent" \| "image-right-accent"` | `"image-left"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                             | `defaultTheme` | Email theme styling      |

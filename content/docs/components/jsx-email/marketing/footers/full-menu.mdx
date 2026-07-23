@@ -1,0 +1,74 @@
+---
+title: "Full Menu Footer"
+description: "Mailviews full-menu footer with oversized-logo and bordered variants"
+---
+
+Both layouts share the same seven-link menu, social links, address, and legal content. The `variant` changes the exact Mailviews logo treatment and content order.
+
+## Examples
+
+### Oversized Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-full-menu-demo"
+  variant="oversized-logo"
+  hideCode
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-full-menu-demo"
+  variant="bordered"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-full-menu
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/footers/footer-with-full-menu.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/footers/footer-with-full-menu.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithFullMenu } from "@/components/emails/marketing/footers/footer-with-full-menu";
+```
+
+```tsx
+<FooterWithFullMenu
+  {...FooterWithFullMenu.PreviewProps}
+  variant="oversized-logo"
+/>
+```
+
+## API Reference
+
+| Prop      | Type                             | Default            | Description                        |
+| --------- | -------------------------------- | ------------------ | ---------------------------------- |
+| `variant` | `"oversized-logo" \| "bordered"` | `"oversized-logo"` | Selects the exact Mailviews layout |
+| `theme`   | `EmailTheme`                     | `defaultTheme`     | Email theme styling                |

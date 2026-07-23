@@ -1,9 +1,65 @@
 ---
 title: "2 Column Team Cards"
-description: "2 Column Team Cards — Team email component."
+description: "Mailviews two-column team cards family"
 ---
 
-<ComponentPreview base="mjml-react" name="two-column-team-cards-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="default"
+/>
+
+### Boxed
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="boxed"
+/>
+
+### Accent
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="accent"
+/>
+
+### Boxed Alt
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="boxed-alt"
+/>
+
+### Accent Alt
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="accent-alt"
+/>
+
+### Rounded
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="rounded"
+/>
+
+### Rounded Accent
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-column-team-cards-demo"
+  variant="rounded-accent"
+/>
 
 ## Installation
 
@@ -22,13 +78,7 @@ npx shadcn@latest add @emailcn/2-column-team-cards
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/team/2-column-team-cards.tsx"
     base="mjml-react"
@@ -43,14 +93,13 @@ npm install @faire/mjml-react
 
 ```tsx
 import { TwoColumnTeamCards } from "@/components/emails/marketing/team/2-column-team-cards";
-```
 
-```tsx
-<TwoColumnTeamCards {...TwoColumnTeamCards.PreviewProps} />
+<TwoColumnTeamCards variant="default" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                               | Default        | Description              |
+| --------- | -------------------------------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "boxed" \| "accent" \| "boxed-alt" \| "accent-alt" \| "rounded" \| "rounded-accent"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                                 | `defaultTheme` | Email theme styling      |

@@ -1,6 +1,6 @@
 ---
 title: "2 Columns Image Grid"
-description: "2 Columns Image Grid — Images email component."
+description: "A two-column image grid with square, portrait, and bottom-overlay variants"
 ---
 
 <ComponentPreview base="jsx-email" name="two-columns-image-grid-demo" />
@@ -28,7 +28,7 @@ npx shadcn@latest add @emailcn/2-columns-image-grid
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/images/2-columns-image-grid.tsx"
     base="jsx-email"
@@ -49,8 +49,52 @@ import { TwoColumnsImageGrid } from "@/components/emails/marketing/images/2-colu
 <TwoColumnsImageGrid {...TwoColumnsImageGrid.PreviewProps} />
 ```
 
+## Examples
+
+### Square Images
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-image-grid-demo"
+  variant="square-images"
+  hideCode
+/>
+
+### Portrait Images
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-image-grid-demo"
+  variant="portrait-images"
+  hideCode
+/>
+
+### Square Overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-image-grid-demo"
+  variant="square-overlay"
+  hideCode
+/>
+
+### Portrait Overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-image-grid-demo"
+  variant="portrait-overlay"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                        | Type                         | Default           | Description                               |
+| --------------------------- | ---------------------------- | ----------------- | ----------------------------------------- |
+| `theme`                     | `EmailThemeTokens`           | `defaultTheme`    | JSX Email theme tokens                    |
+| `variant`                   | `TwoColumnsImageGridVariant` | `"square-images"` | Selects image ratio and overlay treatment |
+| `imageSrc1` / `imageSrc2`   | `string`                     | Mailviews images  | Grid image URLs                           |
+| `imageAlt1` / `imageAlt2`   | `string`                     | `""`              | Alternative text for plain-image variants |
+| `imageHref1` / `imageHref2` | `string`                     | Example URL       | Destinations for plain-image variants     |
+| `heading1` … `subtext2`     | `string`                     | Mailviews copy    | Copy used by overlay variants             |
+| Color props                 | `string`                     | Mailviews colors  | Canvas, surface, and overlay text colors  |

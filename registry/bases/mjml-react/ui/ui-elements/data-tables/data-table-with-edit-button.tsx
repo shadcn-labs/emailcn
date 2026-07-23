@@ -1,151 +1,57 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  DataTableEmailShell,
+  DataTableFrame,
+  DataTableLink,
+  DataTableText,
+} from "@/registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-shared";
 
 export interface DataTableEditButtonProps {
   theme?: EmailThemeTokens;
   headers?: string[];
-  rows?: { name: string; role: string; editHref?: string }[];
-  variant?: "default" | "slanted-left" | "slanted-right";
+  rows?: { editHref?: string; name: string; role: string }[];
 }
 
-const DataTableEditButtonSection = ({
-  headers,
-  rows,
-  theme,
-}: {
-  headers: string[];
-  rows: NonNullable<DataTableEditButtonProps["rows"]>;
-  theme: EmailThemeTokens;
-}) => {
-  const cellWidth = `${100 / headers.length}%`;
-  return (
-    <MjmlSection
-      border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-      borderRadius={theme.borderRadius}
-      padding="0"
-    >
-      <MjmlSection
-        backgroundColor={theme.colorBackgroundMuted}
-        padding={`${theme.spacingBase ?? "16px"} ${theme.spacingBase ?? "16px"}`}
-      >
-        {headers.map((h) => (
-          <MjmlColumn key={h} width={cellWidth}>
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              fontWeight={theme.fontWeightBold ?? "600"}
-              padding="0"
-            >
-              {h}
-            </MjmlText>
-          </MjmlColumn>
-        ))}
-      </MjmlSection>
-      {rows.map((row, ri) => (
-        <MjmlSection
-          key={ri}
-          padding={`${theme.spacingBase ?? "16px"} ${theme.spacingBase ?? "16px"}`}
-        >
-          <MjmlColumn width={cellWidth}>
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              padding="0"
-            >
-              {row.name}
-            </MjmlText>
-          </MjmlColumn>
-          <MjmlColumn width={cellWidth}>
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              padding="0"
-            >
-              {row.role}
-            </MjmlText>
-          </MjmlColumn>
-          <MjmlColumn width={cellWidth}>
-            {row.editHref ? (
-              <MjmlText
-                align="center"
-                color={theme.colorTextMuted}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeSm ?? "12px"}
-              >
-                <a
-                  href={row.editHref}
-                  style={{
-                    color: theme.colorPrimary,
-                    fontFamily: theme.fontFamily,
-                    textDecoration: "underline",
-                  }}
-                >
-                  Edit
-                </a>
-              </MjmlText>
-            ) : null}
-          </MjmlColumn>
-        </MjmlSection>
-      ))}
-    </MjmlSection>
-  );
-};
+export const DataTableEditButtonSection = ({
+  headers = ["Name", "Role", ""],
+  rows = [{ editHref: "#", name: "Alice", role: "Admin" }],
+}: Omit<DataTableEditButtonProps, "theme">) => (
+  <DataTableFrame
+    alignments={["left", "left", "right"]}
+    columnWidths={["40%", "40%", "20%"]}
+    headers={headers}
+    rows={rows.map((row) => [
+      { content: <DataTableText>{row.name}</DataTableText> },
+      { content: <DataTableText muted>{row.role}</DataTableText> },
+      {
+        content: row.editHref ? (
+          <DataTableLink href={row.editHref}>Edit</DataTableLink>
+        ) : null,
+      },
+    ])}
+  />
+);
 
 export const DataTableEditButton = ({
   theme = defaultTheme,
   headers = ["Name", "Role", ""],
   rows = [{ editHref: "#", name: "Alice", role: "Admin" }],
-  variant = "default",
 }: DataTableEditButtonProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>table-edit</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <DataTableEditButtonSection
-          headers={headers}
-          rows={rows}
-          theme={theme}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <DataTableEmailShell
+    preview="Team data table with edit actions"
+    theme={theme}
+  >
+    <DataTableEditButtonSection headers={headers} rows={rows} />
+  </DataTableEmailShell>
 );
 
 DataTableEditButton.PreviewProps = {
-  headers: ["User", "Dept", ""],
+  headers: ["User", "Department", ""],
   rows: [
-    { editHref: "#", name: "Alice Johnson", role: "Engineering" },
-    { editHref: "#", name: "Bob Smith", role: "Marketing" },
+    { editHref: "#edit-1", name: "Alice Johnson", role: "Engineering" },
+    { editHref: "#edit-2", name: "Bob Smith", role: "Marketing" },
+    { editHref: "#edit-3", name: "Carol Davis", role: "Design" },
   ],
   theme: defaultTheme,
-  variant: "default",
 } satisfies DataTableEditButtonProps;

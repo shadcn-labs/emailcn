@@ -1,9 +1,36 @@
 ---
 title: "Divider with Logo"
-description: "UI Elements spacing variant for email templates"
+description: "A horizontal divider with an inline brand logo."
 ---
 
-<ComponentPreview base="jsx-email" name="divider-with-logo-demo" />
+This semantic wrapper shares the exact divider frame with the other content
+dividers while keeping its own focused content props.
+
+## Examples
+
+### Center
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-logo-demo"
+  variant="center"
+/>
+
+### Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-logo-demo"
+  variant="left"
+/>
+
+### Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-logo-demo"
+  variant="right"
+/>
 
 ## Installation
 
@@ -25,18 +52,30 @@ npx shadcn@latest add @emailcn/divider-with-logo
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>Install the following dependency:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the component and shared sources into your project.</Step>
 
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-logo.tsx"
   base="jsx-email"
   title="components/emails/ui-elements/spacing/divider-with-logo.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/fonts/default.tsx"
+  base="jsx-email"
+  title="components/emails/fonts/default.tsx"
 />
 
 </Steps>
@@ -52,11 +91,14 @@ import { DividerWithLogo } from "@/components/emails/ui-elements/spacing/divider
 ```
 
 ```tsx
-<DividerWithLogo {...DividerWithLogo.PreviewProps} />
+<DividerWithLogo {...DividerWithLogo.PreviewProps} variant="left" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                            | Default        | Description             |
+| --------- | ------------------------------- | -------------- | ----------------------- |
+| `logoSrc` | `string`                        | `undefined`    | Logo image URL          |
+| `logoAlt` | `string`                        | `"Logo"`       | Logo alternative text   |
+| `variant` | `"center" \| "left" \| "right"` | `"center"`     | Inline content position |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling     |

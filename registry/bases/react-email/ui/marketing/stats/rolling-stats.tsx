@@ -1,144 +1,218 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type RollingStatsVariant = "default" | "slanted-left" | "slanted-right";
+export type RollingStatsVariant =
+  | "centered"
+  | "top-left"
+  | "bottom-left"
+  | "top-right"
+  | "bottom-right";
 
 export interface RollingStatsProps {
   theme?: TailwindConfig;
-  stat1?: string;
-  stat1Label?: string;
-  stat2?: string;
-  stat2Label?: string;
-  stat3?: string;
-  stat3Label?: string;
   variant?: RollingStatsVariant;
+  eyebrow?: string;
+  label?: string;
+  values?: [string, string, string];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  panelBackgroundColor?: string;
+  eyebrowColor?: string;
+  labelColor?: string;
+  firstValueColor?: string;
+  secondValueColor?: string;
+  accentColor?: string;
 }
 
-export const RollingStatsSection = ({
-  stat1 = "99.9%",
-  stat1Label = "Uptime",
-  stat2 = "10M+",
-  stat2Label = "Users",
-  stat3 = "150+",
-  stat3Label = "Countries",
-  variant = "default",
-}: Omit<RollingStatsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+const defaults = {
+  backgroundColor: "#fffffe",
+  eyebrow: "Mapped trails",
+  eyebrowColor: "#9ca3af",
+  firstValueColor: "#262626",
+  label: "Tracked by active users",
+  labelColor: "#fffffe",
+  pageBackgroundColor: "#f1f5f9",
+  panelBackgroundColor: "#030712",
+  secondValueColor: "#737373",
+};
+
+const accentColors: Record<RollingStatsVariant, string> = {
+  "bottom-left": "#c7d2fe",
+  "bottom-right": "#a7f3d0",
+  centered: "#e9d5ff",
+  "top-left": "#fde68a",
+  "top-right": "#fecdd3",
+};
+
+type SectionProps = Omit<RollingStatsProps, "theme">;
+type ResolvedProps = typeof defaults &
+  SectionProps & { accentColor: string; values: [string, string, string] };
+
+export const RollingStatsSection = (props: SectionProps) => {
+  const variant = props.variant ?? "centered";
+  const centered = variant === "centered";
+  const bottom = variant.startsWith("bottom-");
+  const resolved = {
+    ...defaults,
+    accentColor: accentColors[variant],
+    values: centered
+      ? (["3,117km", "3,118km", "3,119km"] as [string, string, string])
+      : (["14,598", "14,599", "14,600"] as [string, string, string]),
+    ...props,
+  } as ResolvedProps;
+  let align: "center" | "left" | "right" = "left";
+  let topSpace = "24px";
+  let bottomSpace = "92px";
+  if (centered) {
+    align = "center";
+    topSpace = "58px";
+    bottomSpace = "58px";
+  } else {
+    if (variant.endsWith("-right")) {
+      align = "right";
     }
-  };
+    if (bottom) {
+      topSpace = "92px";
+      bottomSpace = "24px";
+    }
+  }
+  const value = (text: string, color: string, first: boolean) => (
+    <p
+      style={{
+        color,
+        fontFamily,
+        fontSize: "72px",
+        fontWeight: 500,
+        lineHeight: "56px",
+        margin: first ? "12px 0 0" : 0,
+        textAlign: align,
+      }}
+    >
+      {text}
+    </p>
+  );
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        <Section className="rounded-lg bg-background-muted p-8">
-          <Row>
-            <Column className="w-1/3 border-r border-border pr-6 text-center align-top">
-              <Text className="m-0 text-2xl font-bold text-foreground">
-                {stat1}
-              </Text>
-              <Text className="mt-1 mb-0 text-xs uppercase tracking-wider text-foreground-muted">
-                {stat1Label}
-              </Text>
-            </Column>
-            <Column className="w-1/3 border-r border-border px-6 text-center align-top">
-              <Text className="m-0 text-2xl font-bold text-foreground">
-                {stat2}
-              </Text>
-              <Text className="mt-1 mb-0 text-xs uppercase tracking-wider text-foreground-muted">
-                {stat2Label}
-              </Text>
-            </Column>
-            <Column className="w-1/3 pl-6 text-center align-top">
-              <Text className="m-0 text-2xl font-bold text-foreground">
-                {stat3}
-              </Text>
-              <Text className="mt-1 mb-0 text-xs uppercase tracking-wider text-foreground-muted">
-                {stat3Label}
-              </Text>
-            </Column>
-          </Row>
-        </Section>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              textAlign: "left",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  <td
+                    style={{
+                      backgroundColor: resolved.panelBackgroundColor,
+                      borderRadius: "8px",
+                      padding: "0 24px",
+                    }}
+                  >
+                    <div style={{ lineHeight: topSpace }}>&zwj;</div>
+                    <p
+                      style={{
+                        color: resolved.eyebrowColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: align,
+                      }}
+                    >
+                      {resolved.eyebrow}
+                    </p>
+                    <p
+                      style={{
+                        color: resolved.labelColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: align,
+                      }}
+                    >
+                      {resolved.label}
+                    </p>
+                    {value(resolved.values[0], resolved.firstValueColor, true)}
+                    {value(
+                      resolved.values[1],
+                      resolved.secondValueColor,
+                      false
+                    )}
+                    {value(resolved.values[2], resolved.accentColor, false)}
+                    <div style={{ lineHeight: bottomSpace }}>&zwj;</div>
+                  </td>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const RollingStats = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  stat1 = "99.9%",
-  stat1Label = "Uptime",
-  stat2 = "10M+",
-  stat2Label = "Users",
-  stat3 = "150+",
-  stat3Label = "Countries",
-  variant = "default",
+  variant = "centered",
+  ...props
 }: RollingStatsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>Stats</Preview>
+    <Preview>3,119km mapped trails</Preview>
     <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <RollingStatsSection
-          stat1={stat1}
-          stat1Label={stat1Label}
-          stat2={stat2}
-          stat2Label={stat2Label}
-          stat3={stat3}
-          stat3Label={stat3Label}
-          variant={variant}
-        />
+      <Body
+        style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
+          <RollingStatsSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </Container>
       </Body>
     </Tailwind>
   </Html>
 );
 
 RollingStats.PreviewProps = {
-  stat1: "99.9%",
-  stat1Label: "Uptime",
-  stat2: "10M+",
-  stat2Label: "Users",
-  stat3: "150+",
-  stat3Label: "Countries",
   theme: defaultTheme,
-  variant: "default",
+  variant: "centered",
 } satisfies RollingStatsProps;

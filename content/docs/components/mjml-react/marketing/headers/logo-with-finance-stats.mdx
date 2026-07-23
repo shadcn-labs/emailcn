@@ -1,11 +1,37 @@
 ---
 title: "Logo with Finance Stats"
-description: "Marketing headers variant for email templates"
+description: "Mailviews logo and finance-stat header placements"
 ---
+
+All three Mailviews placements share one component through the `alignment` prop.
+
+## Examples
+
+### Left Logo
 
 <ComponentPreview
   base="mjml-react"
   name="header-with-logo-and-finance-stats-demo"
+  variant="left"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-finance-stats-demo"
+  variant="center"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-finance-stats-demo"
+  variant="right"
+  hideCode
 />
 
 ## Installation
@@ -25,13 +51,7 @@ npx shadcn@latest add @emailcn/header-with-logo-and-finance-stats
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-finance-stats.tsx"
     base="mjml-react"
@@ -51,11 +71,13 @@ import { HeaderWithLogoAndFinanceStats } from "@/components/emails/marketing/hea
 ```tsx
 <HeaderWithLogoAndFinanceStats
   {...HeaderWithLogoAndFinanceStats.PreviewProps}
+  alignment="center"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                                     | Default        | Description                              |
+| ----------- | ---------------------------------------- | -------------- | ---------------------------------------- |
+| `alignment` | `HeaderWithLogoAndFinanceStatsAlignment` | `"left"`       | Places the logo and finance stat content |
+| `theme`     | Renderer theme                           | `defaultTheme` | Renderer theme configuration             |

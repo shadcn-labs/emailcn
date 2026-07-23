@@ -1,286 +1,78 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
-  MjmlDivider,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  orderSummaryResponsiveStyles,
+  OrderSummaryTableSection,
+} from "@/registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-shared";
+import type {
+  BorderedCardOrderSummaryVariant,
+  OrderSummaryAlignment,
+} from "@/registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-shared";
 
 export interface BorderedOrderSummaryCardDetailsProps {
   theme?: EmailThemeTokens;
-  items?: { name: string; price: string; quantity: number }[];
-  subtotal?: string;
-  shipping?: string;
-  tax?: string;
-  total?: string;
-  cardLabel?: string;
-  cardNumber?: string;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: BorderedCardOrderSummaryVariant;
 }
 
-const BorderedOrderSummaryCardDetailsSection = ({
-  items,
-  subtotal,
-  shipping,
-  tax,
-  total,
-  cardLabel,
-  cardNumber,
-  theme,
-}: {
-  items: NonNullable<BorderedOrderSummaryCardDetailsProps["items"]>;
-  subtotal?: string;
-  shipping?: string;
-  tax?: string;
-  total?: string;
-  cardLabel?: string;
-  cardNumber?: string;
-  theme: EmailThemeTokens;
-}) => (
-  <MjmlWrapper
-    border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-    borderRadius={theme.borderRadius}
-    padding={theme.spacingBase ?? "16px"}
-  >
-    <MjmlSection
-      padding="0 0 12px"
-      borderBottom={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-    >
-      <MjmlColumn>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "12px"}
-          fontWeight={theme.fontWeightMedium ?? "500"}
-        >
-          Item
-        </MjmlText>
-      </MjmlColumn>
-      <MjmlColumn width="100px">
-        <MjmlText
-          align="right"
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm ?? "12px"}
-          fontWeight={theme.fontWeightMedium ?? "500"}
-        >
-          Price
-        </MjmlText>
-      </MjmlColumn>
-    </MjmlSection>
-    {items.map((item, i) => (
-      <MjmlSection
-        key={i}
-        padding="16px 0"
-        borderBottom={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-      >
-        <MjmlColumn>
-          <MjmlText
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase ?? "14px"}
-          >
-            {item.name}
-            <br />
-            <span
-              style={{
-                color: theme.colorTextMuted,
-                fontSize: theme.fontSizeSm ?? "12px",
-              }}
-            >
-              Qty: {item.quantity}
-            </span>
-          </MjmlText>
-        </MjmlColumn>
-        <MjmlColumn width="100px">
-          <MjmlText
-            align="right"
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase ?? "14px"}
-          >
-            {item.price}
-          </MjmlText>
-        </MjmlColumn>
-      </MjmlSection>
-    ))}
-    {cardLabel ? (
-      <MjmlSection padding="16px 0 0">
-        <MjmlColumn>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm ?? "12px"}
-          >
-            {cardLabel}
-          </MjmlText>
-        </MjmlColumn>
-        <MjmlColumn width="100px">
-          <MjmlText
-            align="right"
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm ?? "12px"}
-          >
-            {cardNumber}
-          </MjmlText>
-        </MjmlColumn>
-      </MjmlSection>
-    ) : null}
-    <MjmlDivider borderColor={theme.colorBorder} />
-    <MjmlSection padding="16px 0 0">
-      <MjmlColumn>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          Subtotal
-        </MjmlText>
-      </MjmlColumn>
-      <MjmlColumn width="100px">
-        <MjmlText
-          align="right"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          {subtotal}
-        </MjmlText>
-      </MjmlColumn>
-    </MjmlSection>
-    <MjmlSection padding="8px 0 0">
-      <MjmlColumn>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          Shipping
-        </MjmlText>
-      </MjmlColumn>
-      <MjmlColumn width="100px">
-        <MjmlText
-          align="right"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          {shipping}
-        </MjmlText>
-      </MjmlColumn>
-    </MjmlSection>
-    <MjmlSection padding="8px 0 0">
-      <MjmlColumn>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          Tax
-        </MjmlText>
-      </MjmlColumn>
-      <MjmlColumn width="100px">
-        <MjmlText
-          align="right"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
-        >
-          {tax}
-        </MjmlText>
-      </MjmlColumn>
-    </MjmlSection>
-    <MjmlDivider borderColor={theme.colorBorder} />
-    <MjmlSection padding="16px 0 0">
-      <MjmlColumn>
-        <MjmlText
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeLg ?? "16px"}
-          fontWeight={theme.fontWeightBold ?? "700"}
-        >
-          Total
-        </MjmlText>
-      </MjmlColumn>
-      <MjmlColumn width="100px">
-        <MjmlText
-          align="right"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeLg ?? "16px"}
-          fontWeight={theme.fontWeightBold ?? "700"}
-        >
-          {total}
-        </MjmlText>
-      </MjmlColumn>
-    </MjmlSection>
-  </MjmlWrapper>
+const getAlignment = (variant: string): OrderSummaryAlignment => {
+  if (variant.includes("right")) {
+    return "right";
+  }
+  if (variant.includes("centered")) {
+    return "centered";
+  }
+  if (variant.includes("justified")) {
+    return "justified";
+  }
+  return "left";
+};
+
+export const BorderedOrderSummaryCardDetailsSection = ({
+  variant = "bottom-left",
+}: Omit<BorderedOrderSummaryCardDetailsProps, "theme">) => (
+  <OrderSummaryTableSection
+    alignment={getAlignment(variant)}
+    cardDetails={true}
+    filled={variant.endsWith("filled")}
+    surface="bordered"
+    totalPosition={variant.startsWith("top") ? "top" : "bottom"}
+  />
 );
 
 export const BorderedOrderSummaryCardDetails = ({
   theme = defaultTheme,
-  items = [{ name: "Item", price: "$29.00", quantity: 1 }],
-  subtotal = "$29.00",
-  shipping = "$0.00",
-  tax = "$0.00",
-  total = "$29.00",
-  cardLabel = "Amex ending in",
-  cardNumber = "**** 5555",
-  variant = "default",
+  ...props
 }: BorderedOrderSummaryCardDetailsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>order-summary</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Order summary</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{orderSummaryResponsiveStyles}</MjmlStyle>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
+    <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <BorderedOrderSummaryCardDetailsSection
-          items={items}
-          subtotal={subtotal}
-          shipping={shipping}
-          tax={tax}
-          total={total}
-          cardLabel={cardLabel}
-          cardNumber={cardNumber}
-          theme={theme}
-        />
+        <MjmlRaw>
+          <div style={{ textAlign: "left" }}>
+            <BorderedOrderSummaryCardDetailsSection {...props} />
+          </div>
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 BorderedOrderSummaryCardDetails.PreviewProps = {
-  cardLabel: "Amex ending in",
-  cardNumber: "**** 5555",
-  items: [
-    { name: "Leather Backpack", price: "$89.00", quantity: 1 },
-    { name: "Wallet", price: "$39.00", quantity: 1 },
-  ],
-  shipping: "$5.00",
-  subtotal: "$128.00",
-  tax: "$10.24",
   theme: defaultTheme,
-  total: "$143.24",
-  variant: "default",
+  variant: "bottom-left",
 } satisfies BorderedOrderSummaryCardDetailsProps;

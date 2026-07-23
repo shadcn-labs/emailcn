@@ -1,6 +1,6 @@
 ---
 title: "Progress Bar Columns"
-description: "UI Elements progress-bars variant for email templates"
+description: "Mailviews-compatible progress bar component for email templates"
 ---
 
 <ComponentPreview base="mjml-react" name="progress-bar-columns-demo" />
@@ -8,7 +8,6 @@ description: "UI Elements progress-bars variant for email templates"
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,29 +19,25 @@ npx shadcn@latest add @emailcn/progress-bar-columns
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/ui-elements/progress-bars/progress-bar-columns.tsx"
-  base="mjml-react"
-  title="components/emails/ui-elements/progress-bars/progress-bar-columns.tsx"
-/>
-
+  <Step>
+    Copy the component and shared progress rendering source into your project.
+  </Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/progress-bars/progress-bar-columns.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/progress-bars/progress-bar-columns.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/progress-bars/progress-bar-shared.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/progress-bars/progress-bar-shared.tsx"
+  />
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -55,9 +50,66 @@ import { ProgressBarColumns } from "@/components/emails/ui-elements/progress-bar
 <ProgressBarColumns {...ProgressBarColumns.PreviewProps} />
 ```
 
+## Examples
+
+### With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-bar-columns-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Text
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-bar-columns-demo"
+  variant="with-text"
+  hideCode
+/>
+
+### Text Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-bar-columns-demo"
+  variant="text-top"
+  hideCode
+/>
+
+### With Title Padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-bar-columns-demo"
+  variant="with-title-padded"
+  hideCode
+/>
+
+### With Text Padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-bar-columns-demo"
+  variant="with-text-padded"
+  hideCode
+/>
+
+### Text Top Padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-bar-columns-demo"
+  variant="text-top-padded"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop       | Type         | Default        | Description         |
-| ---------- | ------------ | -------------- | ------------------- |
-| `progress` | `number`     | `0`            | Progress percentage |
-| `theme`    | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                          | Default                 | Description                                  |
+| --------- | --------------------------------------------- | ----------------------- | -------------------------------------------- |
+| `items`   | `readonly [ProgressBarItem, ProgressBarItem]` | Mailviews example items | Two responsive progress columns              |
+| `theme`   | `EmailTheme`                                  | `defaultTheme`          | Email theme configuration                    |
+| `variant` | `ProgressBarColumnsVariant`                   | `with-text`             | Selects content order and horizontal padding |

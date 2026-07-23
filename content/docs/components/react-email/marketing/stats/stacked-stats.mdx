@@ -1,9 +1,29 @@
 ---
 title: "Stacked Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews aligned stacked-stats family"
 ---
 
-<ComponentPreview base="react-email" name="stacked-stats-demo" />
+## Examples
+
+### Left
+
+<ComponentPreview base="react-email" name="stacked-stats-demo" variant="left" />
+
+### Center
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-stats-demo"
+  variant="center"
+/>
+
+### Right
+
+<ComponentPreview
+  base="react-email"
+  name="stacked-stats-demo"
+  variant="right"
+/>
 
 ## Installation
 
@@ -37,14 +57,13 @@ npx shadcn@latest add @emailcn/stacked-stats
 
 ```tsx
 import { StackedStats } from "@/components/emails/marketing/stats/stacked-stats";
-```
 
-```tsx
-<StackedStats {...StackedStats.PreviewProps} />
+<StackedStats variant="center" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                            | Default        | Description              |
+| --------- | ------------------------------- | -------------- | ------------------------ |
+| `variant` | `"left" \| "center" \| "right"` | `"left"`       | Mailviews layout variant |
+| `theme`   | `TailwindConfig`                | `defaultTheme` | Email theme styling      |

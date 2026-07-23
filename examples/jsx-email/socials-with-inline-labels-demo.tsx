@@ -1,5 +1,7 @@
-import { SocialsWithInlineLabels } from "@/registry/bases/jsx-email/ui/marketing/social/socials-with-inline-labels";
+import { SocialsWithLabels } from "@/registry/bases/jsx-email/ui/marketing/social/socials-with-labels";
 
 export default function SocialsWithInlineLabelsDemo() {
-  return <SocialsWithInlineLabels {...SocialsWithInlineLabels.PreviewProps} />;
+  return (
+    <SocialsWithLabels {...SocialsWithLabels.PreviewProps} variant="inline" />
+  );
 }

@@ -1,150 +1,374 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
 export type HeaderWithLogoAndMenuVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "menu-right"
+  | "menu-left"
+  | "menu-around"
+  | "stacked-left"
+  | "stacked-center"
+  | "stacked-right";
+
+export interface HeaderMenuLink {
+  href: string;
+  label: string;
+}
 
 export interface HeaderWithLogoAndMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
   logoAlt?: string;
-  link1?: string;
-  link1Href?: string;
-  link2?: string;
-  link2Href?: string;
-  link3?: string;
-  link3Href?: string;
-  link4?: string;
-  link4Href?: string;
+  logoHref?: string;
+  links?: HeaderMenuLink[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  textColor?: string;
   variant?: HeaderWithLogoAndMenuVariant;
 }
 
-export const HeaderWithLogoAndMenu = ({
-  theme = defaultTheme,
-  logoSrc = "https://static.photos/business/120x30/3",
-  logoAlt = "Logo",
-  link1 = "Features",
-  link1Href = "#",
-  link2 = "Pricing",
-  link2Href = "#",
-  link3 = "About",
-  link3Href = "#",
-  link4 = "Contact",
-  link4Href = "#",
-  variant = "default",
-}: HeaderWithLogoAndMenuProps) => {
-  const skew =
-    variant === "slanted-left"
-      ? "skewX(-10deg)"
-      : variant === "slanted-right"
-        ? "skewX(10deg)"
-        : undefined;
-  const unskew =
-    variant === "slanted-left"
-      ? "skewX(10deg)"
-      : variant === "slanted-right"
-        ? "skewX(-10deg)"
-        : undefined;
-  const links = [
-    { href: link1Href, label: link1 },
-    { href: link2Href, label: link2 },
-    { href: link3Href, label: link3 },
-    { href: link4Href, label: link4 },
-  ];
-  return (
-    <Html>
-      <Head />
-      <Preview>Header</Preview>
-      <Body
-        style={{
-          backgroundColor: theme.colorBackground,
-          fontFamily: theme.fontFamily,
-          margin: 0,
-        }}
-      >
-        <Section
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .header-menu-stack { display: block !important; width: 100% !important; }",
+  "  .header-menu-right-links { padding: 24px 0 0 !important; text-align: left !important; }",
+  "  .header-menu-right-link { margin-left: 0 !important; margin-right: 24px !important; }",
+  "  .header-menu-left-row { display: table !important; width: 100% !important; }",
+  "  .header-menu-left-links { display: table-footer-group !important; text-align: right !important; }",
+  "  .header-menu-left-logo { display: table-header-group !important; text-align: right !important; }",
+  "  .header-menu-left-links-inner { padding-top: 24px !important; }",
+  "  .header-menu-around-row { display: table !important; width: 100% !important; }",
+  "  .header-menu-around-desktop { display: none !important; }",
+  "  .header-menu-around-logo { display: table-header-group !important; width: 100% !important; }",
+  "  .header-menu-around-mobile { display: block !important; padding-top: 24px !important; width: 100% !important; }",
+  "}",
+].join("\n");
+
+const defaultLinks: HeaderMenuLink[] = [
+  { href: "https://example.com", label: "Home" },
+  { href: "https://example.com/about", label: "About us" },
+  { href: "https://example.com/shop", label: "Shop" },
+  { href: "https://example.com/faq", label: "FAQs" },
+  { href: "https://example.com/returns", label: "Returns" },
+  { href: "https://example.com/contact", label: "Contact us" },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  links: defaultLinks,
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#6b7280",
+};
+
+type SectionProps = Omit<HeaderWithLogoAndMenuProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const Logo = ({ props }: { props: ResolvedProps }) => (
+  <a href={props.logoHref}>
+    <img
+      alt={props.logoAlt}
+      src={props.logoSrc}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={55}
+    />
+  </a>
+);
+
+const MenuLinks = ({
+  links,
+  margin,
+  props,
+  responsiveClassName,
+}: {
+  links: HeaderMenuLink[];
+  margin: "left" | "right" | "around";
+  props: ResolvedProps;
+  responsiveClassName?: string;
+}) => (
+  <>
+    {links.map((link, index) => {
+      let marginLeft: string | undefined;
+      let marginRight: string | undefined;
+      if (margin === "left" && index > 0) {
+        marginLeft = "24px";
+      }
+      if (margin === "right") {
+        marginRight = "24px";
+      }
+      if (margin === "around") {
+        marginLeft = "12px";
+        marginRight = "12px";
+      }
+      return (
+        <a
+          className={responsiveClassName}
+          href={link.href}
+          key={link.href + link.label}
           style={{
-            backgroundColor: theme.colorBackground,
-            padding: "24px 0",
-            transform: skew,
+            color: props.textColor,
+            display: "inline-block",
+            fontFamily,
+            fontSize: "14px",
+            fontWeight: 500,
+            lineHeight: "32px",
+            marginLeft,
+            marginRight,
+            textDecoration: "none",
           }}
         >
-          <Container
-            style={{
-              margin: "0 auto",
-              maxWidth: theme.containerWidth,
-              transform: unskew,
-            }}
-          >
-            <Row>
-              <Column style={{ verticalAlign: "middle", width: "50%" }}>
-                <Img
-                  src={logoSrc}
-                  alt={logoAlt}
-                  width="120"
-                  height="30"
-                  style={{ height: "auto", objectFit: "contain" }}
-                />
-              </Column>
-              <Column
-                style={{
-                  textAlign: "right",
-                  verticalAlign: "middle",
-                  width: "50%",
-                }}
-              >
-                <Text style={{ margin: 0 }}>
-                  {links.map((link, index) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      style={{
-                        color: theme.colorTextMuted,
-                        fontSize: theme.fontSizeSm,
-                        marginLeft: index === 0 ? 0 : "16px",
-                        textDecoration: "none",
-                      }}
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </Text>
-              </Column>
-            </Row>
-          </Container>
-        </Section>
-      </Body>
-    </Html>
+          {link.label}
+        </a>
+      );
+    })}
+  </>
+);
+
+const MenuRight = ({ props }: { props: ResolvedProps }) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td className="header-menu-stack" style={{ width: "55px" }}>
+          <Logo props={props} />
+        </td>
+        <td
+          className="header-menu-stack header-menu-right-links"
+          style={{
+            fontSize: 0,
+            paddingLeft: "24px",
+            textAlign: "right",
+          }}
+        >
+          <MenuLinks
+            links={props.links}
+            margin="left"
+            props={props}
+            responsiveClassName="header-menu-right-link"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const MenuLeft = ({ props }: { props: ResolvedProps }) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    className="header-menu-left-row"
+    role="presentation"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="header-menu-left-links"
+          style={{ paddingRight: "24px", textAlign: "left" }}
+        >
+          <div className="header-menu-left-links-inner" style={{ fontSize: 0 }}>
+            <MenuLinks links={props.links} margin="left" props={props} />
+          </div>
+        </td>
+        <td
+          className="header-menu-left-logo"
+          style={{ textAlign: "right", width: "55px" }}
+        >
+          <Logo props={props} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const MenuAround = ({ props }: { props: ResolvedProps }) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    className="header-menu-around-row"
+    role="presentation"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="header-menu-around-desktop"
+          style={{ fontSize: 0, textAlign: "left" }}
+        >
+          <MenuLinks
+            links={props.links.slice(0, 3)}
+            margin="left"
+            props={props}
+          />
+        </td>
+        <td
+          className="header-menu-around-logo"
+          style={{ textAlign: "center", width: "55px" }}
+        >
+          <Logo props={props} />
+        </td>
+        <td
+          className="header-menu-around-mobile"
+          style={{ display: "none", fontSize: 0, textAlign: "center" }}
+        >
+          <MenuLinks links={props.links} margin="around" props={props} />
+        </td>
+        <td
+          className="header-menu-around-desktop"
+          style={{ fontSize: 0, textAlign: "right" }}
+        >
+          <MenuLinks
+            links={props.links.slice(3, 6)}
+            margin="left"
+            props={props}
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+);
+
+const StackedMenu = ({
+  alignment,
+  props,
+}: {
+  alignment: "left" | "center" | "right";
+  props: ResolvedProps;
+}) => {
+  let margin: "left" | "right" | "around" = "left";
+  if (alignment === "left") {
+    margin = "right";
+  } else if (alignment === "center") {
+    margin = "around";
+  }
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td style={{ textAlign: alignment }}>
+            <div>
+              <Logo props={props} />
+            </div>
+            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <div style={{ fontSize: 0 }}>
+              <MenuLinks links={props.links} margin={margin} props={props} />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
+export const HeaderWithLogoAndMenuSection = (props: SectionProps) => {
+  const variant = props.variant ?? "menu-right";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  let content;
+  if (variant === "menu-left") {
+    content = <MenuLeft props={resolved} />;
+  } else if (variant === "menu-around") {
+    content = <MenuAround props={resolved} />;
+  } else if (variant.startsWith("stacked-")) {
+    content = (
+      <StackedMenu
+        alignment={
+          variant.replace("stacked-", "") as "left" | "center" | "right"
+        }
+        props={resolved}
+      />
+    );
+  } else {
+    content = <MenuRight props={resolved} />;
+  }
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td style={{ maxWidth: "100%", width: "600px" }}>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: resolved.backgroundColor,
+                      padding: "24px",
+                    }}
+                  >
+                    {content}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HeaderWithLogoAndMenu = ({
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "menu-right",
+  ...props
+}: HeaderWithLogoAndMenuProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Home About us Shop FAQs Returns Contact us</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <HeaderWithLogoAndMenuSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
+    </Body>
+  </Html>
+);
+
 HeaderWithLogoAndMenu.PreviewProps = {
-  link1: "Features",
-  link1Href: "#",
-  link2: "Pricing",
-  link2Href: "#",
-  link3: "About",
-  link3Href: "#",
-  link4: "Contact",
-  link4Href: "#",
-  logoAlt: "Logo",
-  logoSrc: "https://static.photos/business/120x30/4",
   theme: defaultTheme,
-  variant: "default",
+  variant: "menu-right",
 } satisfies HeaderWithLogoAndMenuProps;

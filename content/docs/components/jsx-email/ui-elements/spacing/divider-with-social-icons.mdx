@@ -1,9 +1,36 @@
 ---
 title: "Divider with Social Icons"
-description: "UI Elements spacing variant for email templates"
+description: "A horizontal divider with inline social icons."
 ---
 
-<ComponentPreview base="jsx-email" name="divider-with-social-icons-demo" />
+This semantic wrapper shares the exact divider frame with the other content
+dividers while keeping its own focused content props.
+
+## Examples
+
+### Center
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-social-icons-demo"
+  variant="center"
+/>
+
+### Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-social-icons-demo"
+  variant="left"
+/>
+
+### Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="divider-with-social-icons-demo"
+  variant="right"
+/>
 
 ## Installation
 
@@ -25,18 +52,30 @@ npx shadcn@latest add @emailcn/divider-with-social-icons
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>Install the following dependency:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the component and shared sources into your project.</Step>
 
 <ComponentSource
   src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-social-icons.tsx"
   base="jsx-email"
   title="components/emails/ui-elements/spacing/divider-with-social-icons.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/jsx-email/fonts/default.tsx"
+  base="jsx-email"
+  title="components/emails/fonts/default.tsx"
 />
 
 </Steps>
@@ -52,11 +91,15 @@ import { DividerWithSocialIcons } from "@/components/emails/ui-elements/spacing/
 ```
 
 ```tsx
-<DividerWithSocialIcons {...DividerWithSocialIcons.PreviewProps} />
+<DividerWithSocialIcons
+  {...DividerWithSocialIcons.PreviewProps}
+  variant="left"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                            | Default        | Description             |
+| --------- | ------------------------------- | -------------- | ----------------------- |
+| `variant` | `"center" \| "left" \| "right"` | `"center"`     | Inline content position |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling     |

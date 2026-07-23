@@ -1,7 +1,14 @@
 ---
-title: "Expanded FAQ with Offset Answers"
-description: "Marketing faq variant for email templates"
+title: "Expanded FAQ With Offset Answers"
+description: "An expanded FAQ with questions and answers in offset columns."
 ---
+
+This layout keeps its own public component because its content contract differs
+from the other FAQ treatments. Common email-safe rendering is shared internally.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="mjml-react"
@@ -25,13 +32,20 @@ npx shadcn@latest add @emailcn/expanded-faq-with-offset-answers
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared FAQ primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/faq/faq-shared.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/faq/faq-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/faq/expanded-faq-with-offset-answers.tsx"
     base="mjml-react"
@@ -54,6 +68,9 @@ import { ExpandedFaqWithOffsetAnswers } from "@/components/emails/marketing/faq/
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop            | Type               | Default                        | Description                            |
+| --------------- | ------------------ | ------------------------------ | -------------------------------------- |
+| `theme`         | `EmailThemeTokens` | `defaultTheme`                 | Renderer theme configuration.          |
+| `heading`       | `string`           | `"Frequently asked questions"` | Section heading.                       |
+| `q1`, `q2`, ... | `string`           | Mailviews example copy         | Question labels.                       |
+| `a1`, `a2`, ... | `string`           | Mailviews example copy         | Answers when the layout displays them. |

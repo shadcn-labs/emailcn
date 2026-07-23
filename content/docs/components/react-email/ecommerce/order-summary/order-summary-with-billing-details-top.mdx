@@ -1,11 +1,74 @@
 ---
-title: "Order Summary with Billing Details (Top)"
-description: "Order Summary with Billing Details (Top) — Order Summary email component."
+title: "Order Summary with Billing Details and Payment Method Top"
+description: "Order Summary with Billing Details and Payment Method Top with every Mailviews layout variant."
 ---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Basic
 
 <ComponentPreview
   base="react-email"
-  name="boxed-order-summary-card-details-total-top-demo"
+  name="order-summary-billing-top-demo"
+  variant="basic"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="bordered"
+/>
+
+### Basic with Payment
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="basic-with-payment"
+/>
+
+### Bordered with Payment
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="bordered-with-payment"
+/>
+
+### Basic with Notes
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="basic-with-notes"
+/>
+
+### Bordered with Notes
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="bordered-with-notes"
+/>
+
+### Basic Full Details
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="basic-full-details"
+/>
+
+### Bordered Full Details
+
+<ComponentPreview
+  base="react-email"
+  name="order-summary-billing-top-demo"
+  variant="bordered-full-details"
 />
 
 ## Installation
@@ -39,17 +102,19 @@ npx shadcn@latest add @emailcn/order-summary-with-billing-details-and-payment-me
 ## Usage
 
 ```tsx
-import { OrderSummaryWithBillingDetailsTop } from "@/components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top";
+import { OrderSummaryBillingTop } from "@/components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top";
 ```
 
 ```tsx
-<OrderSummaryWithBillingDetailsTop
-  {...OrderSummaryWithBillingDetailsTop.PreviewProps}
+<OrderSummaryBillingTop
+  {...OrderSummaryBillingTop.PreviewProps}
+  variant="basic-with-payment"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                                         | Default                | Description              |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------ |
+| `variant` | `"basic" \| "bordered" \| "basic-with-payment" \| "bordered-with-payment" \| "basic-with-notes" \| "bordered-with-notes" \| "basic-full-details" \| "bordered-full-details"` | `"basic-with-payment"` | Mailviews layout variant |
+| `theme`   | `TailwindConfig`                                                                                                                                                             | `defaultTheme`         | Email theme styling      |

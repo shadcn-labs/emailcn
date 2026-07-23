@@ -1,147 +1,96 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlImage,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+  BlogHeading,
+} from "@/registry/bases/mjml-react/ui/marketing/blog/blog-shared";
 
-export type BlogWithCtaVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogWithCtaProps {
+export interface TwoColumnsBlogWithImagesAndBoxedContentProps {
   theme?: EmailThemeTokens;
-  posts?: { imageUrl?: string; title: string; description: string }[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: BlogWithCtaVariant;
+  heading?: string;
+  imageAlt1?: string;
+  imageAlt2?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  title1?: string;
+  title2?: string;
+  excerpt1?: string;
+  excerpt2?: string;
 }
-const BlogWithCtaSection = ({
-  ctaHref,
-  ctaLabel,
-  posts,
-  theme,
-  variant,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  posts: BlogWithCtaProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogWithCtaVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    {(posts ?? []).slice(0, 2).map((post, i) => (
-      <MjmlColumn
-        key={post.title + i}
-        width="50%"
-        padding={theme.spacingBase ?? "16px"}
-        verticalAlign="top"
-      >
-        {post.imageUrl ? (
-          <MjmlImage
-            alt={post.title}
-            borderRadius={theme.borderRadius}
-            src={post.imageUrl}
-            width={260}
-            paddingBottom={theme.spacingBase ?? "16px"}
-          />
-        ) : null}
-        <MjmlText
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeLg}
-          fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "8px"}
-        >
-          {post.title}
-        </MjmlText>
-        <MjmlText
-          color={theme.colorTextMuted}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        >
-          {post.description}
-        </MjmlText>
-      </MjmlColumn>
-    ))}
-    {ctaLabel && ctaHref ? (
-      <MjmlColumn>
-        <MjmlText
-          align="center"
-          color={theme.colorPrimary}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm}
-          fontWeight={theme.fontWeightMedium}
-        >
-          <a href={ctaHref} style={{ color: theme.colorPrimary }}>
-            {ctaLabel}
-          </a>
-        </MjmlText>
-      </MjmlColumn>
-    ) : null}
-  </MjmlSection>
-);
+
+export const TwoColumnsBlogWithImagesAndBoxedContentSection = ({
+  heading = "Latest posts",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+}: Omit<TwoColumnsBlogWithImagesAndBoxedContentProps, "theme">) => {
+  const posts = [
+    {
+      excerpt: excerpt1,
+      imageAlt: imageAlt1,
+      imageSrc: imageSrc1,
+      title: title1,
+    },
+    {
+      excerpt: excerpt2,
+      imageAlt: imageAlt2,
+      imageSrc: imageSrc2,
+      title: title2,
+    },
+  ];
+
+  return (
+    <>
+      {heading ? <BlogHeading>{heading}</BlogHeading> : null}
+      <BlogContent layout="two-column-boxed" posts={posts} />
+    </>
+  );
+};
+
 export const TwoColumnsBlogWithImagesAndBoxedContent = ({
   theme = defaultTheme,
-  posts = [{ description: "Description.", title: "Post Title" }],
-  ctaLabel = "Read More",
-  ctaHref = "#",
-  variant = "default",
-}: BlogWithCtaProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>blog with cta</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BlogWithCtaSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          posts={posts}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  heading = "Latest posts",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+}: TwoColumnsBlogWithImagesAndBoxedContentProps) => (
+  <BlogEmailShell preview={heading} theme={theme}>
+    <TwoColumnsBlogWithImagesAndBoxedContentSection
+      heading={heading}
+      imageAlt1={imageAlt1}
+      imageAlt2={imageAlt2}
+      imageSrc1={imageSrc1}
+      imageSrc2={imageSrc2}
+      title1={title1}
+      title2={title2}
+      excerpt1={excerpt1}
+      excerpt2={excerpt2}
+    />
+  </BlogEmailShell>
 );
+
 TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
-  ctaHref: "https://example.com/blog",
-  ctaLabel: "View All Posts",
-  posts: [
-    {
-      description: "Learn how to build better emails.",
-      imageUrl: "https://static.photos/travel/400x250/2",
-      title: "Getting Started",
-    },
-    {
-      description: "Tips for responsive design.",
-      imageUrl: "https://static.photos/travel/400x250/3",
-      title: "Design Tips",
-    },
-  ],
+  excerpt1: "Practical ideas for clearer, more useful email experiences.",
+  excerpt2: "How small systems help teams publish consistently.",
+  heading: "Latest posts",
+  imageAlt1: "Mountain landscape",
+  imageAlt2: "Coastal landscape",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogWithCtaProps;
+  title1: "Designing emails people enjoy",
+  title2: "A better content workflow",
+} satisfies TwoColumnsBlogWithImagesAndBoxedContentProps;

@@ -3,7 +3,75 @@ title: "Split Cards"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="react-email" name="split-cards-demo" />
+## Examples
+
+### Muted
+
+<ComponentPreview base="react-email" name="split-cards-demo" variant="muted" />
+
+### Muted Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="muted-reverse"
+/>
+
+### Boxed
+
+<ComponentPreview base="react-email" name="split-cards-demo" variant="boxed" />
+
+### Boxed Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="boxed-reverse"
+/>
+
+### Accent
+
+<ComponentPreview base="react-email" name="split-cards-demo" variant="accent" />
+
+### Accent Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="accent-reverse"
+/>
+
+### Image Top
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="image-top"
+/>
+
+### Image Top Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="image-top-reverse"
+/>
+
+### Image Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="image-bottom"
+/>
+
+### Image Bottom Reverse
+
+<ComponentPreview
+  base="react-email"
+  name="split-cards-demo"
+  variant="image-bottom-reverse"
+/>
 
 ## Installation
 
@@ -45,6 +113,7 @@ import { SplitCards } from "@/components/emails/marketing/timelines/split-cards"
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                                         | Default        | Description                    |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------ |
+| `variant` | `"muted" \| "muted-reverse" \| "boxed" \| "boxed-reverse" \| "accent" \| "accent-reverse" \| "image-top" \| "image-top-reverse" \| "image-bottom" \| "image-bottom-reverse"` | `"muted"`      | Mailviews split-card treatment |
+| `theme`   | `TailwindConfig`                                                                                                                                                             | `defaultTheme` | Email theme styling            |

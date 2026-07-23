@@ -1,6 +1,6 @@
 ---
 title: "Background Image"
-description: "Marketing cta variant for email templates"
+description: "A background-image CTA with flush, boxed-overlay, and padded-card variants"
 ---
 
 <ComponentPreview base="jsx-email" name="cta-with-background-image-demo" />
@@ -42,15 +42,50 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { CtaWithBackgroundImage } from "@/components/emails/marketing/cta/cta-with-background-image";
+import { CTAWithBackgroundImage } from "@/components/emails/marketing/cta/cta-with-background-image";
 ```
 
 ```tsx
-<CtaWithBackgroundImage {...CtaWithBackgroundImage.PreviewProps} />
+<CTAWithBackgroundImage {...CTAWithBackgroundImage.PreviewProps} />
 ```
+
+## Examples
+
+### Flush
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-background-image-demo"
+  variant="flush"
+  hideCode
+/>
+
+### Boxed
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-background-image-demo"
+  variant="boxed"
+  hideCode
+/>
+
+### Padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-background-image-demo"
+  variant="padded"
+  hideCode
+/>
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                     | Type                             | Default          | Description                                       |
+| ---------------------------------------- | -------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`                                  | `EmailThemeTokens`               | `defaultTheme`   | JSX Email theme tokens                            |
+| `variant`                                | `"flush" \| "boxed" \| "padded"` | `"flush"`        | Selects the exact Mailviews layout and copy       |
+| `heading` / `subtext` / `emphasis`       | `string`                         | Variant content  | CTA copy; `emphasis` renders bold inline text     |
+| `ctaLabel` / `ctaHref`                   | `string`                         | Variant CTA      | Primary action label and destination              |
+| `secondaryCtaLabel` / `secondaryCtaHref` | `string`                         | Variant CTA      | Secondary action label and destination            |
+| `backgroundSrc`                          | `string`                         | Variant image    | Background image URL                              |
+| Color props                              | `string`                         | Mailviews colors | Canvas, surface, overlay, text, and button colors |

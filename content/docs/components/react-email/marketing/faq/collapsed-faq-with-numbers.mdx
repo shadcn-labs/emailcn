@@ -1,7 +1,14 @@
 ---
-title: "Collapsed FAQ with Numbers"
-description: "Marketing faq variant for email templates"
+title: "Collapsed FAQ With Numbers"
+description: "A numbered collapsed FAQ list with toggle indicators."
 ---
+
+This layout keeps its own public component because its content contract differs
+from the other FAQ treatments. Common email-safe rendering is shared internally.
+
+## Examples
+
+### Default
 
 <ComponentPreview base="react-email" name="collapsed-faq-with-numbers-demo" />
 
@@ -22,6 +29,19 @@ npx shadcn@latest add @emailcn/collapsed-faq-with-numbers
 <TabsContent value="manual">
 
 <Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy the shared FAQ primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/react-email/ui/marketing/faq/faq-shared.tsx"
+  base="react-email"
+  title="components/emails/marketing/faq/faq-shared.tsx"
+/>
+
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-numbers.tsx"
@@ -45,6 +65,9 @@ import { CollapsedFaqWithNumbers } from "@/components/emails/marketing/faq/colla
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop            | Type             | Default                        | Description                            |
+| --------------- | ---------------- | ------------------------------ | -------------------------------------- |
+| `theme`         | `TailwindConfig` | `defaultTheme`                 | Renderer theme configuration.          |
+| `heading`       | `string`         | `"Frequently asked questions"` | Section heading.                       |
+| `q1`, `q2`, ... | `string`         | Mailviews example copy         | Question labels.                       |
+| `a1`, `a2`, ... | `string`         | Mailviews example copy         | Answers when the layout displays them. |

@@ -1,190 +1,89 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 
-export type BentoGridProductVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-export interface BentoGridProductProps {
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  TwoThirdsStatsSection,
+} from "./bento-grid-shared";
+import type {
+  BentoImagePlacementVariant,
+  FeatureCardData,
+  MiniMetricData,
+  StatCardData,
+} from "./bento-grid-shared";
+
+export interface TwoThirdsBentoGridWithStatsProps {
+  feature?: FeatureCardData;
+  imageAlt?: string;
+  imageSrc?: string;
+  metric?: MiniMetricData;
+  stat?: StatCardData;
   theme?: EmailThemeTokens;
-  heading?: string;
-  products?: {
-    imageUrl: string;
-    imageAlt: string;
-    name: string;
-    price: string;
-  }[];
-  variant?: BentoGridProductVariant;
+  variant?: BentoImagePlacementVariant;
 }
-const BentoGridProductSection = ({
-  heading,
-  products,
-  theme,
-  variant,
-}: {
-  heading: string;
-  products: BentoGridProductProps["products"];
-  theme: EmailThemeTokens;
-  variant: BentoGridProductVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      {heading ? (
-        <Column>
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeHeading,
-              fontWeight: theme.fontWeightBold,
-              margin: 0,
-              paddingBottom: theme.spacingXl ?? "48px",
-              textAlign: "center",
-            }}
-          >
-            {heading}
-          </Text>
-        </Column>
-      ) : null}
-      {(products ?? []).slice(0, 3).map((p, i) => (
-        <Column
-          key={p.name + i}
-          style={{ padding: "8px", verticalAlign: "top", width: "33.33%" }}
-        >
-          <Img
-            alt={p.imageAlt}
-            src={p.imageUrl}
-            width={190}
-            style={{
-              borderRadius: theme.borderRadius,
-              display: "block",
-              margin: "0 auto",
-              maxWidth: "100%",
-              paddingBottom: theme.spacingBase ?? "12px",
-            }}
-          />
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              paddingBottom: theme.spacingBase ?? "4px",
-              textAlign: "center",
-            }}
-          >
-            {p.name}
-          </Text>
-          <Text
-            style={{
-              color: theme.colorPrimary,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm,
-              fontWeight: theme.fontWeightMedium,
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
-            {p.price}
-          </Text>
-        </Column>
-      ))}
-    </Row>
-  </Section>
+
+const feature: FeatureCardData = {
+  description: "API response times under 100ms, 99.99% uptime guaranteed.",
+  title: "Low latency. High reliability.",
+};
+const metric: MiniMetricData = {
+  change: "25%",
+  period: "/month",
+  title: "API Calls",
+  value: "55k",
+};
+const stat: StatCardData = {
+  label: "Engine v2",
+  suffix: "faster",
+  value: "75x",
+};
+
+export const TwoThirdsBentoGridWithStatsSection = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
+  variant = "image-top-right",
+}: Omit<TwoThirdsBentoGridWithStatsProps, "theme">) => (
+  <TwoThirdsStatsSection
+    feature={featureData}
+    imageAlt={imageAlt}
+    imageSrc={imageSrc}
+    metric={metricData}
+    stat={statData}
+    variant={variant}
+  />
 );
+
 export const TwoThirdsBentoGridWithStats = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
   theme = defaultTheme,
-  heading = "Products",
-  products = [
-    {
-      imageAlt: "Product 1",
-      imageUrl: "https://static.photos/technology/300x300/2",
-      name: "Product One",
-      price: "$29",
-    },
-    {
-      imageAlt: "Product 2",
-      imageUrl: "https://static.photos/technology/300x300/3",
-      name: "Product Two",
-      price: "$49",
-    },
-    {
-      imageAlt: "Product 3",
-      imageUrl: "https://static.photos/technology/300x300/4",
-      name: "Product Three",
-      price: "$79",
-    },
-  ],
-  variant = "default",
-}: BentoGridProductProps) => (
-  <Html>
-    <Head />
-    <Preview>bento product</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BentoGridProductSection
-            heading={heading}
-            products={products}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  variant = "image-top-right",
+}: TwoThirdsBentoGridWithStatsProps) => (
+  <BentoEmailShell preview="Two thirds bento grid with stats" theme={theme}>
+    <TwoThirdsBentoGridWithStatsSection
+      feature={featureData}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      metric={metricData}
+      stat={statData}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
+
 TwoThirdsBentoGridWithStats.PreviewProps = {
-  heading: "Featured Products",
-  products: [
-    {
-      imageAlt: "Widget",
-      imageUrl: "https://static.photos/technology/300x300/5",
-      name: "Premium Widget",
-      price: "$39",
-    },
-    {
-      imageAlt: "Gadget",
-      imageUrl: "https://static.photos/technology/300x300/6",
-      name: "Super Gadget",
-      price: "$59",
-    },
-    {
-      imageAlt: "Tool",
-      imageUrl: "https://static.photos/technology/300x300/7",
-      name: "Pro Tool",
-      price: "$99",
-    },
-  ],
+  feature,
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+  metric,
+  stat,
   theme: defaultTheme,
-  variant: "default",
-} satisfies BentoGridProductProps;
+  variant: "image-top-right",
+} satisfies TwoThirdsBentoGridWithStatsProps;

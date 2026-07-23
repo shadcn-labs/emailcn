@@ -1,5 +1,12 @@
+import type { DividerVariant } from "@/registry/bases/react-email/ui/ui-elements/spacing/divider-shared";
 import { DividerWithButton } from "@/registry/bases/react-email/ui/ui-elements/spacing/divider-with-button";
 
-export default function DividerWithButtonDemo() {
-  return <DividerWithButton {...DividerWithButton.PreviewProps} />;
+export default function DividerWithButtonDemo({
+  variant = "center",
+}: {
+  variant?: DividerVariant;
+}) {
+  return (
+    <DividerWithButton {...DividerWithButton.PreviewProps} variant={variant} />
+  );
 }

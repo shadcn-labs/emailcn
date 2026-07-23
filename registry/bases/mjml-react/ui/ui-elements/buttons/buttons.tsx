@@ -1,149 +1,52 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlButton,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
+import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  buttonsResponsiveStyles,
+  ButtonsSection,
+} from "@/registry/bases/mjml-react/ui/ui-elements/buttons/buttons-shared";
+import type {
+  ButtonsVariant,
+  ButtonSize,
+} from "@/registry/bases/mjml-react/ui/ui-elements/buttons/buttons-shared";
 
 export interface ButtonsProps {
-  theme?: EmailThemeTokens;
-  label?: string;
+  align?: "center" | "left" | "right";
   href?: string;
-  icon?: string;
-  variant?: "primary" | "secondary" | "text";
-  align?: "left" | "center" | "right";
+  icon?: ReactNode;
+  iconPosition?: "leading" | "trailing";
+  label?: string;
+  size?: ButtonSize | "all";
+  theme?: EmailThemeTokens;
+  variant?: ButtonsVariant;
 }
 
-const ButtonsSection = ({
-  label,
-  href,
-  icon,
-  theme,
-  variant,
-  align,
-}: {
-  label: string;
-  href: string;
-  icon?: string;
-  theme: EmailThemeTokens;
-  variant: NonNullable<ButtonsProps["variant"]>;
-  align: NonNullable<ButtonsProps["align"]>;
-}) => {
-  const buttonStyle =
-    variant === "secondary"
-      ? {
-          backgroundColor: theme.button.secondary.backgroundColor,
-          border: theme.button.secondary.border,
-          borderRadius: theme.button.secondary.borderRadius,
-          color: theme.button.secondary.color,
-          innerPadding: `${theme.button.secondary.paddingY ?? "12px"} ${theme.button.secondary.paddingX ?? "24px"}`,
-        }
-      : {
-          backgroundColor: theme.colorPrimary,
-          border: undefined,
-          borderRadius: theme.borderRadius,
-          color: theme.colorPrimaryForeground ?? "#ffffff",
-          innerPadding: `${theme.spacingBase ?? "16px"} ${theme.spacingLg ?? "24px"}`,
-        };
+export { ButtonsSection };
+export type { ButtonsVariant, ButtonSize };
 
-  return (
-    <MjmlSection padding={`${theme.spacingBase ?? "24px"} 0`}>
-      <MjmlColumn>
-        {variant === "text" ? (
-          <MjmlText
-            align={align}
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase ?? "14px"}
-          >
-            <a
-              href={href}
-              style={{
-                color: theme.colorPrimary,
-                fontFamily: theme.fontFamily,
-                textDecoration: "underline",
-              }}
-            >
-              {icon ? `${icon} ${label}` : label}
-            </a>
-          </MjmlText>
-        ) : (
-          <>
-            {icon ? (
-              <MjmlText
-                align={align}
-                color={theme.colorTextMuted}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeBase ?? "14px"}
-                paddingBottom={theme.spacingBase ?? "16px"}
-              >
-                {icon}
-              </MjmlText>
-            ) : null}
-            <MjmlButton
-              align={align}
-              backgroundColor={buttonStyle.backgroundColor}
-              border={buttonStyle.border}
-              borderRadius={buttonStyle.borderRadius}
-              color={buttonStyle.color}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              fontWeight={theme.fontWeightMedium ?? "500"}
-              href={href}
-              innerPadding={buttonStyle.innerPadding}
-            >
-              {label}
-            </MjmlButton>
-          </>
-        )}
-      </MjmlColumn>
-    </MjmlSection>
-  );
-};
-
-export const Buttons = ({
-  theme = defaultTheme,
-  label = "Click Here",
-  href = "#",
-  icon,
-  variant = "primary",
-  align = "center",
-}: ButtonsProps) => (
+export const Buttons = ({ theme = defaultTheme, ...props }: ButtonsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>{label}</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Buttons</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{buttonsResponsiveStyles}</MjmlStyle>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
+    <MjmlBody width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <ButtonsSection
-          label={label}
-          href={href}
-          icon={icon}
-          theme={theme}
-          variant={variant}
-          align={align}
-        />
+        <MjmlRaw>
+          <ButtonsSection {...props} />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
@@ -152,7 +55,7 @@ export const Buttons = ({
 Buttons.PreviewProps = {
   align: "center",
   href: "https://example.com",
-  label: "Get Started",
+  size: "all",
   theme: defaultTheme,
   variant: "primary",
 } satisfies ButtonsProps;

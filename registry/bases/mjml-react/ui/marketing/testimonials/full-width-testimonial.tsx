@@ -1,120 +1,284 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type TestimonialDarkVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-export interface TestimonialDarkProps {
+export type FullWidthTestimonialVariant = "default" | "overlapping-avatar";
+
+export interface FullWidthTestimonialProps {
   theme?: EmailThemeTokens;
-  name?: string;
-  role?: string;
+  variant?: FullWidthTestimonialVariant;
   quote?: string;
-  variant?: TestimonialDarkVariant;
+  author?: string;
+  role?: string;
+  avatarSrc?: string;
+  logoSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
 }
-const TestimonialDarkSection = ({
-  name,
-  quote,
-  role,
-  theme,
-  variant,
-}: {
-  name: string;
-  quote: string;
-  role: string;
-  theme: EmailThemeTokens;
-  variant: TestimonialDarkVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorText}
-    borderRadius={theme.borderRadius}
-    padding={theme.spacingXl ?? "24px"}
-  >
-    <MjmlColumn>
-      <MjmlText
-        align="center"
-        color={theme.colorBackground}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg}
-        fontStyle="italic"
-        lineHeight={theme.lineHeightBase}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      >
-        &ldquo;{quote}&rdquo;
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorBackground}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "4px"}
-      >
-        {name}
-      </MjmlText>
-      <MjmlText
-        align="center"
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeSm}
-      >
-        {role}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
-);
-export const FullWidthTestimonial = ({
-  theme = defaultTheme,
-  name = "John Doe",
-  role = "CEO, Acme",
-  quote = "This product has transformed how we work.",
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .full-testimonial-card { padding-left: 24px !important; padding-right: 24px !important; }",
+  "}",
+].join("\n");
+
+export const FullWidthTestimonialSection = ({
   variant = "default",
-}: TestimonialDarkProps) => (
+  quote = "“After migrating to Mailviews, we increased efficiency by 40% across our transactional and marketing email development pipeline.”",
+  author = "Ella Roustek",
+  role = "Operations Manager",
+  avatarSrc = "https://assets.mailviews.com/images/components/testimonials/user-2.jpg",
+  logoSrc,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  cardBackgroundColor = "#f8fafc",
+}: Omit<FullWidthTestimonialProps, "theme">) => {
+  const overlapping = variant === "overlapping-avatar";
+  const resolvedLogoSrc =
+    logoSrc ??
+    (overlapping
+      ? "https://assets.mailviews.com/images/components/testimonials/logo-accentic.png"
+      : "https://assets.mailviews.com/images/components/testimonials/logo-monarch.png");
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "left" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    {overlapping ? (
+                      <table
+                        border={0}
+                        cellPadding={0}
+                        cellSpacing={0}
+                        role="presentation"
+                        width="100%"
+                      >
+                        <tbody>
+                          <tr>
+                            <td
+                              className="full-testimonial-card"
+                              style={{
+                                backgroundColor: cardBackgroundColor,
+                                borderRadius: "8px",
+                                padding: "48px 44px 24px",
+                              }}
+                            >
+                              <h2
+                                style={{
+                                  color: "#030712",
+                                  fontFamily,
+                                  fontSize: "18px",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  margin: 0,
+                                }}
+                              >
+                                {quote}
+                              </h2>
+                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                              <img
+                                alt=""
+                                src={resolvedLogoSrc}
+                                style={{
+                                  maxWidth: "100%",
+                                  verticalAlign: "middle",
+                                }}
+                                width={106}
+                              />
+                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                              <p
+                                style={{
+                                  color: "#030712",
+                                  fontFamily,
+                                  fontSize: "16px",
+                                  fontWeight: 600,
+                                  lineHeight: "24px",
+                                  margin: 0,
+                                }}
+                              >
+                                {author}, <br />{" "}
+                                <span style={{ color: "#4b5563" }}>{role}</span>
+                              </p>
+                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                              <div style={{ maxHeight: "8px" }}>
+                                <img
+                                  alt=""
+                                  src={avatarSrc}
+                                  style={{
+                                    borderRadius: "9999px",
+                                    maxWidth: "100%",
+                                    verticalAlign: "middle",
+                                  }}
+                                  width={64}
+                                />
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    ) : (
+                      <table
+                        border={0}
+                        cellPadding={0}
+                        cellSpacing={0}
+                        role="presentation"
+                        width="100%"
+                      >
+                        <tbody>
+                          <tr>
+                            <td>
+                              <img
+                                alt=""
+                                src={resolvedLogoSrc}
+                                style={{
+                                  maxWidth: "100%",
+                                  verticalAlign: "middle",
+                                }}
+                                width={145}
+                              />
+                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                              <h2
+                                style={{
+                                  color: "#030712",
+                                  fontFamily,
+                                  fontSize: "18px",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  margin: 0,
+                                }}
+                              >
+                                {quote}
+                              </h2>
+                              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                              <table
+                                border={0}
+                                cellPadding={0}
+                                cellSpacing={0}
+                                role="presentation"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td style={{ width: "64px" }}>
+                                      <img
+                                        alt=""
+                                        src={avatarSrc}
+                                        style={{
+                                          borderRadius: "9999px",
+                                          maxWidth: "100%",
+                                          verticalAlign: "middle",
+                                        }}
+                                        width={64}
+                                      />
+                                    </td>
+                                    <td style={{ width: "12px" }}>&zwj;</td>
+                                    <td>
+                                      <p
+                                        style={{
+                                          color: "#030712",
+                                          fontFamily,
+                                          fontSize: "16px",
+                                          fontWeight: 600,
+                                          lineHeight: "24px",
+                                          margin: 0,
+                                        }}
+                                      >
+                                        {author}, <br />{" "}
+                                        <span style={{ color: "#4b5563" }}>
+                                          {role}
+                                        </span>
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const FullWidthTestimonial = ({
+  pageBackgroundColor = "#f1f5f9",
+  theme = defaultTheme,
+  variant = "default",
+  ...props
+}: FullWidthTestimonialProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>testimonial dark</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
+    <MjmlPreview>Customer testimonial</MjmlPreview>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <TestimonialDarkSection
-          name={name}
-          quote={quote}
-          role={role}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <FullWidthTestimonialSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
+
 FullWidthTestimonial.PreviewProps = {
-  name: "Sarah Smith",
-  quote: "This tool has been a game-changer for our team productivity.",
-  role: "Product Manager, TechCorp",
   theme: defaultTheme,
   variant: "default",
-} satisfies TestimonialDarkProps;
+} satisfies FullWidthTestimonialProps;

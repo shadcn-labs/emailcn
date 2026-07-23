@@ -1,35 +1,62 @@
 ---
 title: "Grid"
-description: "Responsive grid layouts for multi-column email content."
+description: "Responsive one-to-four-column grid layouts for email content."
 ---
 
-One `Grid` component renders every layout. Pick a column arrangement with the
-`layout` prop and pass content through the `cells` array. Each entry in `cells`
-fills the next column.
+The six Mailviews grid components share the same markup and content model. This
+version keeps one `Grid` component and exposes the column ratios through the
+`variant` prop. Text alignment stays independent so it does not multiply the
+layout API.
 
-## One Column
+## Examples
+
+### One column
 
 <ComponentPreview base="mjml-react" name="one-column-grid-demo" />
 
-## Two Columns
+### Two columns
 
 <ComponentPreview base="mjml-react" name="two-columns-grid-demo" />
 
-## Three Columns
+### Three columns
 
 <ComponentPreview base="mjml-react" name="three-columns-grid-demo" />
 
-## Four Columns
+### Four columns
 
 <ComponentPreview base="mjml-react" name="four-columns-grid-demo" />
 
-## 1-3 Split
+### One-three split
 
 <ComponentPreview base="mjml-react" name="one-three-split-grid-demo" />
 
-## 3-1 Split
+### Three-one split
 
 <ComponentPreview base="mjml-react" name="three-one-split-grid-demo" />
+
+### Center aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-grid-demo"
+  variant="center"
+/>
+
+### Left aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-grid-demo"
+  variant="left"
+/>
+
+### Right aligned
+
+<ComponentPreview
+  base="mjml-react"
+  name="two-columns-grid-demo"
+  variant="right"
+/>
 
 ## Installation
 
@@ -51,7 +78,7 @@ npx shadcn@latest add @emailcn/grid
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>Install the following dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
@@ -78,15 +105,22 @@ import { Grid } from "@/components/emails/ui-elements/grids/grid";
 ```
 
 ```tsx
-<Grid layout="2" cells={["Left column", "Right column"]} />
-<Grid layout="1-3" cells={["Sidebar", "Main content area"]} />
+<Grid
+  variant="two-columns"
+  cells={["Left column", "Right column"]}
+/>
+<Grid
+  variant="one-three-split"
+  align="left"
+  cells={["Sidebar", "Main content area"]}
+/>
 ```
 
 ## API Reference
 
-| Prop     | Type                                         | Default        | Description                       |
-| -------- | -------------------------------------------- | -------------- | --------------------------------- |
-| `layout` | `"1" \| "2" \| "3" \| "4" \| "1-3" \| "3-1"` | `"2"`          | Column arrangement / widths       |
-| `cells`  | `string[]`                                   | `[]`           | Content for each column, in order |
-| `align`  | `"left" \| "center" \| "right"`              | `"center"`     | Text alignment within columns     |
-| `theme`  | `EmailThemeTokens`                             | `defaultTheme` | Email theme styling               |
+| Prop      | Type                                                                                                           | Default         | Description                       |
+| --------- | -------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------- |
+| `variant` | `"one-column" \| "two-columns" \| "three-columns" \| "four-columns" \| "one-three-split" \| "three-one-split"` | `"two-columns"` | Column arrangement and widths     |
+| `cells`   | `string[]`                                                                                                     | `[]`            | Content for each column, in order |
+| `align`   | `"left" \| "center" \| "right"`                                                                                | `"center"`      | Text alignment within columns     |
+| `theme`   | `EmailThemeTokens`                                                                                             | `defaultTheme`  | Email theme styling               |

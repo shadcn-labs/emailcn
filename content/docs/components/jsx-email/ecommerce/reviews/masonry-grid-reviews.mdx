@@ -3,7 +3,129 @@ title: "Masonry Grid Reviews"
 description: "Ecommerce reviews variant for email templates"
 ---
 
-<ComponentPreview base="jsx-email" name="masonry-grid-reviews-demo" />
+Masonry reviews pair one featured review with two supporting review columns. All Mailviews treatments remain variants of that same responsive structure.
+
+## Examples
+
+### With Divider
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="with-divider"
+/>
+
+### Simple
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="simple"
+/>
+
+### Divider Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="divider-top"
+/>
+
+### With Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="with-logo"
+/>
+
+### Logo Split
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="logo-split"
+/>
+
+### Logo Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="logo-bottom"
+/>
+
+### Avatar Inline
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="avatar-inline"
+/>
+
+### Avatar Inline Split
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="avatar-inline-split"
+/>
+
+### Avatar Inline Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="avatar-inline-bottom"
+/>
+
+### Centered With Avatar
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="centered-with-avatar"
+/>
+
+### Centered Avatar Split
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="centered-avatar-split"
+/>
+
+### Centered Avatar Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="centered-avatar-bottom"
+/>
+
+### Avatar + Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="avatar-logo"
+/>
+
+### Avatar + Logo Split
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="avatar-logo-split"
+/>
+
+### Avatar + Logo Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-grid-reviews-demo"
+  variant="avatar-logo-bottom"
+/>
 
 ## Installation
 
@@ -46,11 +168,15 @@ import { MasonryGridReviews } from "@/components/emails/ecommerce/reviews/masonr
 ```
 
 ```tsx
-<MasonryGridReviews {...MasonryGridReviews.PreviewProps} />
+<MasonryGridReviews
+  {...MasonryGridReviews.PreviewProps}
+  variant="with-divider"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type               | Default          | Description              |
+| --------- | ------------------ | ---------------- | ------------------------ |
+| `variant` | `ReviewsVariant`   | `"with-divider"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`   | Email theme styling      |

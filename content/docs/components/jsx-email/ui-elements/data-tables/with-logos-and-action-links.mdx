@@ -1,7 +1,11 @@
 ---
 title: "With Logos and Action Links"
-description: "With Logos and Action Links — Data Tables email component."
+description: "An integrations table with logos and action links."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="jsx-email" name="data-table-logos-actions-demo" />
 
@@ -22,13 +26,20 @@ npx shadcn@latest add @emailcn/data-table-with-logos-and-action-links
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="jsx-email"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx"
     base="jsx-email"
@@ -42,17 +53,17 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { DataTableWithLogosAndActionLinks } from "@/components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links";
+import { DataTableLogosActions } from "@/components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links";
 ```
 
 ```tsx
-<DataTableWithLogosAndActionLinks
-  {...DataTableWithLogosAndActionLinks.PreviewProps}
-/>
+<DataTableLogosActions {...DataTableLogosActions.PreviewProps} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                   | Default                   | Description                   |
+| --------- | ---------------------- | ------------------------- | ----------------------------- |
+| `theme`   | `EmailThemeTokens`     | `defaultTheme`            | Renderer theme configuration. |
+| `headers` | `string[]`             | Component-specific labels | Column labels.                |
+| `rows`    | `Logo and action rows` | One integration row       | Table row data.               |

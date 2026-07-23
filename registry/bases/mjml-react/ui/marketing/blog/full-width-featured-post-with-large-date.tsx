@@ -1,121 +1,74 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/blog/blog-shared";
 
-export type BlogListVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogListProps {
+export interface FullWidthFeaturedPostWithLargeDateProps {
   theme?: EmailThemeTokens;
-  posts?: { title: string; description: string; date?: string }[];
-  variant?: BlogListVariant;
+  date?: string;
+  excerpt?: string;
+  imageAlt?: string;
+  imageSrc?: string;
+  month?: string;
+  title?: string;
 }
-const BlogListSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogListProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogListVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {(posts ?? []).slice(0, 4).map((post, i) => (
-        <MjmlSection
-          key={post.title + i}
-          padding={`${theme.spacingBase ?? "16px"} 0`}
-        >
-          {post.date ? (
-            <MjmlText
-              color={theme.colorTextSubtle}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeSm}
-              paddingBottom={theme.spacingBase ?? "4px"}
-            >
-              {post.date}
-            </MjmlText>
-          ) : null}
-          <MjmlText
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeLg}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "4px"}
-          >
-            {post.title}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          >
-            {post.description}
-          </MjmlText>
-        </MjmlSection>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
-);
+
+export const FullWidthFeaturedPostWithLargeDateSection = ({
+  date = "15",
+  excerpt = "A compelling excerpt from the featured article.",
+  imageAlt = "Editorial feature",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width-4.jpg",
+  month = "MAR",
+  title = "Featured article",
+}: Omit<FullWidthFeaturedPostWithLargeDateProps, "theme">) => {
+  const posts = [
+    {
+      date,
+      excerpt,
+      imageAlt,
+      imageSrc,
+      month,
+      title,
+    },
+  ];
+
+  return (
+    <>
+      <BlogContent layout="featured-date-full" posts={posts} />
+    </>
+  );
+};
+
 export const FullWidthFeaturedPostWithLargeDate = ({
   theme = defaultTheme,
-  posts = [{ description: "Description.", title: "Post Title" }],
-  variant = "default",
-}: BlogListProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>blog list</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BlogListSection posts={posts} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  date = "15",
+  excerpt = "A compelling excerpt from the featured article.",
+  imageAlt = "Editorial feature",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/full-width-4.jpg",
+  month = "MAR",
+  title = "Featured article",
+}: FullWidthFeaturedPostWithLargeDateProps) => (
+  <BlogEmailShell preview={title} theme={theme}>
+    <FullWidthFeaturedPostWithLargeDateSection
+      date={date}
+      excerpt={excerpt}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      month={month}
+      title={title}
+    />
+  </BlogEmailShell>
 );
+
 FullWidthFeaturedPostWithLargeDate.PreviewProps = {
-  posts: [
-    {
-      date: "May 12",
-      description: "A comprehensive guide to building email components.",
-      title: "Getting Started Guide",
-    },
-    {
-      date: "May 10",
-      description: "Tips for designing emails that convert.",
-      title: "Design Best Practices",
-    },
-    {
-      date: "May 8",
-      description: "Advanced techniques for power users.",
-      title: "Advanced Tips",
-    },
-  ],
+  date: "15",
+  excerpt: "A compelling excerpt from the featured article.",
+  imageAlt: "Editorial feature",
+  imageSrc:
+    "https://assets.mailviews.com/images/components/image-grids/full-width-4.jpg",
+  month: "MAR",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogListProps;
+  title: "Featured article",
+} satisfies FullWidthFeaturedPostWithLargeDateProps;

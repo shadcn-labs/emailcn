@@ -1,152 +1,313 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type HeaderWithLogoAndFinanceStatsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type HeaderWithLogoAndFinanceStatsAlignment =
+  | "left"
+  | "center"
+  | "right";
+
+export interface HeaderFinanceStat {
+  alt: string;
+  change: string;
+  label: string;
+  positive: boolean;
+  src: string;
+}
 
 export interface HeaderWithLogoAndFinanceStatsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
   logoAlt?: string;
-  stat1?: string;
-  stat1Label?: string;
-  stat2?: string;
-  stat2Label?: string;
-  variant?: HeaderWithLogoAndFinanceStatsVariant;
+  logoHref?: string;
+  stats?: HeaderFinanceStat[];
+  alignment?: HeaderWithLogoAndFinanceStatsAlignment;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
 }
 
-export const HeaderWithLogoAndFinanceStats = ({
-  theme = defaultTheme,
-  logoSrc = "https://static.photos/business/120x30/3",
-  logoAlt = "Logo",
-  stat1 = "$12,450",
-  stat1Label = "Balance",
-  stat2 = "+5.2%",
-  stat2Label = "Change",
-  variant = "default",
-}: HeaderWithLogoAndFinanceStatsProps) => {
-  const skew =
-    variant === "slanted-left"
-      ? "skewX(-10deg)"
-      : variant === "slanted-right"
-        ? "skewX(10deg)"
-        : undefined;
-  const unskew =
-    variant === "slanted-left"
-      ? "skewX(10deg)"
-      : variant === "slanted-right"
-        ? "skewX(-10deg)"
-        : undefined;
-  const labelStyle = {
-    color: theme.colorTextMuted,
-    fontSize: theme.fontSizeSm,
-    margin: 0,
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .header-finance-stack { display: block !important; width: 100% !important; }",
+  "  .header-finance-after { padding-top: 24px !important; }",
+  "  .header-finance-before { padding-bottom: 24px !important; }",
+  "  .header-finance-mobile-table { float: none !important; margin-left: 0 !important; }",
+  "  .header-finance-mobile-logo { text-align: left !important; }",
+  "  .header-finance-item { display: inline-block !important; }",
+  "}",
+  "@media only screen and (max-width: 430px) {",
+  "  .header-finance-item { line-height: 32px !important; }",
+  "  .header-finance-centered .header-finance-item { margin-left: 6px !important; margin-right: 6px !important; }",
+  "}",
+].join("\n");
+
+const defaultStats: HeaderFinanceStat[] = [
+  {
+    alt: "BTC",
+    change: "+23.5%",
+    label: "BTC",
+    positive: true,
+    src: "https://assets.mailviews.com/images/components/btc-logo.png",
+  },
+  {
+    alt: "ETH",
+    change: "-13.2%",
+    label: "ETH",
+    positive: false,
+    src: "https://assets.mailviews.com/images/components/eth-logo.png",
+  },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  pageBackgroundColor: "#f1f5f9",
+  stats: defaultStats,
+};
+
+type SectionProps = Omit<HeaderWithLogoAndFinanceStatsProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const Logo = ({ props }: { props: ResolvedProps }) => (
+  <a href={props.logoHref}>
+    <img
+      alt={props.logoAlt}
+      src={props.logoSrc}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={55}
+    />
+  </a>
+);
+
+const FinanceStats = ({
+  align,
+  centered = false,
+  props,
+}: {
+  align?: "center" | "right";
+  centered?: boolean;
+  props: ResolvedProps;
+}) => {
+  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
+  if (align === "center") {
+    tableStyle = { marginLeft: "auto", marginRight: "auto" };
+  } else if (align === "right") {
+    tableStyle = { marginLeft: "auto" };
+  }
+
   return (
-    <Html>
-      <Head />
-      <Preview>Header</Preview>
-      <Body
-        style={{
-          backgroundColor: theme.colorBackground,
-          fontFamily: theme.fontFamily,
-          margin: 0,
-        }}
-      >
-        <Section
-          style={{
-            backgroundColor: theme.colorBackground,
-            padding: "24px 0",
-            transform: skew,
-          }}
-        >
-          <Container
+    <table
+      align={align}
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      className={
+        centered ? "header-finance-centered" : "header-finance-mobile-table"
+      }
+      role="presentation"
+      style={tableStyle}
+    >
+      <tbody>
+        <tr>
+          <td
             style={{
-              margin: "0 auto",
-              maxWidth: theme.containerWidth,
-              transform: unskew,
+              fontFamily,
+              fontSize: "16px",
+              lineHeight: "24px",
             }}
           >
-            <Row>
-              <Column style={{ verticalAlign: "middle", width: "50%" }}>
-                <Img
-                  src={logoSrc}
-                  alt={logoAlt}
-                  width="120"
-                  height="30"
-                  style={{ height: "auto", objectFit: "contain" }}
+            {props.stats.slice(0, 2).map((stat, index) => (
+              <span
+                className="header-finance-item"
+                key={stat.label + stat.change}
+                style={{ marginRight: index === 0 ? "12px" : undefined }}
+              >
+                <img
+                  alt={stat.alt}
+                  src={stat.src}
+                  style={{
+                    marginRight: "6px",
+                    maxWidth: "100%",
+                    verticalAlign: "text-bottom",
+                  }}
+                  width={20}
                 />
-              </Column>
-              <Column
-                style={{
-                  paddingRight: "24px",
-                  textAlign: "right",
-                  verticalAlign: "middle",
-                  width: "25%",
-                }}
-              >
-                <Text style={labelStyle}>{stat1Label}</Text>
-                <Text
+                <span style={{ marginRight: "8px" }}>{stat.label}</span>
+                <span
                   style={{
-                    color: theme.colorText,
-                    fontSize: theme.fontSizeSm,
-                    fontWeight: theme.fontWeightBold,
-                    margin: 0,
+                    backgroundColor: stat.positive ? "#dcfce7" : "#fee2e2",
+                    border: "1px solid",
+                    borderColor: stat.positive ? "#bbf7d0" : "#fecaca",
+                    borderRadius: "9999px",
+                    boxShadow: "0 1px 2px 0 rgba(0,0,0,0.05)",
+                    color: stat.positive ? "#16a34a" : "#dc2626",
+                    display: "inline-block",
+                    fontFamily,
+                    fontSize: "12px",
+                    fontWeight: 500,
+                    lineHeight: "16px",
+                    padding: "2px 8px",
                   }}
                 >
-                  {stat1}
-                </Text>
-              </Column>
-              <Column
-                style={{
-                  textAlign: "right",
-                  verticalAlign: "middle",
-                  width: "25%",
-                }}
-              >
-                <Text style={labelStyle}>{stat2Label}</Text>
-                <Text
-                  style={{
-                    color: theme.colorSuccess,
-                    fontSize: theme.fontSizeSm,
-                    fontWeight: theme.fontWeightBold,
-                    margin: 0,
-                  }}
-                >
-                  {stat2}
-                </Text>
-              </Column>
-            </Row>
-          </Container>
-        </Section>
-      </Body>
-    </Html>
+                  {stat.change}
+                </span>
+              </span>
+            ))}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
+export const HeaderWithLogoAndFinanceStatsSection = (props: SectionProps) => {
+  const alignment = props.alignment ?? "left";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  let content;
+  if (alignment === "center") {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <div style={{ textAlign: "center" }}>
+                <Logo props={resolved} />
+              </div>
+              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              <FinanceStats align="center" centered props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  } else if (alignment === "right") {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td className="header-finance-stack header-finance-before">
+              <FinanceStats props={resolved} />
+            </td>
+            <td
+              className="header-finance-stack header-finance-mobile-logo"
+              style={{ textAlign: "right", width: "55px" }}
+            >
+              <Logo props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  } else {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td className="header-finance-stack" style={{ width: "55px" }}>
+              <Logo props={resolved} />
+            </td>
+            <td className="header-finance-stack header-finance-after">
+              <FinanceStats align="right" props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td style={{ maxWidth: "100%", width: "600px" }}>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: resolved.backgroundColor,
+                      padding: "24px",
+                    }}
+                  >
+                    {content}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HeaderWithLogoAndFinanceStats = ({
+  alignment = "left",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  ...props
+}: HeaderWithLogoAndFinanceStatsProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>BTC +23.5% ETH -13.2%</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <HeaderWithLogoAndFinanceStatsSection
+        {...props}
+        alignment={alignment}
+        pageBackgroundColor={pageBackgroundColor}
+      />
+    </Body>
+  </Html>
+);
+
 HeaderWithLogoAndFinanceStats.PreviewProps = {
-  logoAlt: "Logo",
-  logoSrc: "https://static.photos/business/120x30/4",
-  stat1: "$12,450",
-  stat1Label: "Balance",
-  stat2: "+5.2%",
-  stat2Label: "Change",
+  alignment: "left",
   theme: defaultTheme,
-  variant: "default",
 } satisfies HeaderWithLogoAndFinanceStatsProps;

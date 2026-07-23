@@ -1,6 +1,6 @@
 ---
 title: "Block with Bleed"
-description: "Marketing hero variant for email templates"
+description: "A full-bleed landscape hero with eight exact Mailviews block placements"
 ---
 
 <ComponentPreview base="react-email" name="hero-block-with-bleed-demo" />
@@ -43,8 +43,91 @@ import { HeroBlockWithBleed } from "@/components/emails/marketing/hero/hero-bloc
 <HeroBlockWithBleed {...HeroBlockWithBleed.PreviewProps} />
 ```
 
+## Examples
+
+### Left Centered
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="left-centered"
+  hideCode
+/>
+
+### Left Top
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="left-top"
+  hideCode
+/>
+
+### Left Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="left-bottom"
+  hideCode
+/>
+
+### Left Flush Vertical
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="left-flush-vertical"
+  hideCode
+/>
+
+### Right Centered
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="right-centered"
+  hideCode
+/>
+
+### Right Top
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="right-top"
+  hideCode
+/>
+
+### Right Bottom
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="right-bottom"
+  hideCode
+/>
+
+### Right Flush Vertical
+
+<ComponentPreview
+  base="react-email"
+  name="hero-block-with-bleed-demo"
+  variant="right-flush-vertical"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                                       | Type                        | Default           | Description                                       |
+| ---------------------------------------------------------- | --------------------------- | ----------------- | ------------------------------------------------- |
+| `theme`                                                    | `TailwindConfig`            | `defaultTheme`    | React Email Tailwind configuration                |
+| `variant`                                                  | `HeroBlockWithBleedVariant` | `"left-centered"` | Selects side and vertical placement               |
+| `eyebrow` / `heading` / `subheading`                       | `string`                    | Mailviews copy    | Main conservation copy                            |
+| `description`                                              | `string`                    | Mailviews copy    | Supporting paragraph                              |
+| `ctaLabel` / `ctaHref`                                     | `string`                    | Mailviews CTA     | Button label and destination                      |
+| `backgroundImageSrc` / `imageAlt`                          | `string`                    | Landscape imagery | Full-bleed background and accessible label        |
+| `logoSrc` / `logoAlt` / `logoHref`                         | `string`                    | Light logo        | Brand logo used by centered and bottom placements |
+| `pageBackgroundColor` / `backgroundColor` / `overlayColor` | `string`                    | Mailviews colors  | Canvas, fallback, and translucent block colors    |
+| `textColor`                                                | `string`                    | `"#f9fafb"`       | Hero copy color                                   |
+| `buttonBackgroundColor` / `buttonTextColor`                | `string`                    | Mailviews colors  | CTA colors                                        |

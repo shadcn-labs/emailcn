@@ -1,7 +1,11 @@
 ---
 title: "Line Divider"
-description: "UI Elements spacing variant for email templates"
+description: "A simple horizontal rule with consistent email-safe spacing."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="react-email" name="line-divider-demo" />
 
@@ -25,12 +29,24 @@ npx shadcn@latest add @emailcn/line-divider
 
 <Steps>
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the component and shared sources into your project.</Step>
 
 <ComponentSource
   src="registry/bases/react-email/ui/ui-elements/spacing/line-divider.tsx"
   base="react-email"
   title="components/emails/ui-elements/spacing/line-divider.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/react-email/fonts/default.tsx"
+  base="react-email"
+  title="components/emails/fonts/default.tsx"
 />
 
 </Steps>
@@ -46,11 +62,11 @@ import { LineDivider } from "@/components/emails/ui-elements/spacing/line-divide
 ```
 
 ```tsx
-<LineDivider {...LineDivider.PreviewProps} />
+<LineDivider />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop    | Type             | Default        | Description         |
+| ------- | ---------------- | -------------- | ------------------- |
+| `theme` | `TailwindConfig` | `defaultTheme` | Email theme styling |

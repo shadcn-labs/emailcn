@@ -1,118 +1,47 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  DataTableEmailShell,
+  DataTableFrame,
+  DataTableText,
+} from "@/registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-shared";
 
 export interface DataTableBasicProps {
   theme?: EmailThemeTokens;
   headers?: string[];
   rows?: string[][];
-  variant?: "default" | "slanted-left" | "slanted-right";
 }
 
-const DataTableBasicSection = ({
-  headers,
-  rows,
-  theme,
-}: {
-  headers: string[];
-  rows: string[][];
-  theme: EmailThemeTokens;
-}) => {
-  const cellWidth = headers.length > 0 ? `${100 / headers.length}%` : "100%";
-  return (
-    <MjmlSection
-      border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-      borderRadius={theme.borderRadius}
-      padding="0"
-    >
-      <MjmlSection
-        backgroundColor={theme.colorBackgroundMuted}
-        padding={`${theme.spacingBase ?? "16px"} ${theme.spacingBase ?? "16px"}`}
-      >
-        {headers.map((h) => (
-          <MjmlColumn key={h} width={cellWidth}>
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              fontWeight={theme.fontWeightBold ?? "600"}
-              padding="0"
-            >
-              {h}
-            </MjmlText>
-          </MjmlColumn>
-        ))}
-      </MjmlSection>
-      {rows.map((row, ri) => (
-        <MjmlSection
-          key={ri}
-          padding={`${theme.spacingBase ?? "16px"} ${theme.spacingBase ?? "16px"}`}
-        >
-          {headers.map((_, ci) => (
-            <MjmlColumn key={ci} width={cellWidth}>
-              <MjmlText
-                color={theme.colorText}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeBase ?? "14px"}
-                padding="0"
-              >
-                {row[ci] ?? ""}
-              </MjmlText>
-            </MjmlColumn>
-          ))}
-        </MjmlSection>
-      ))}
-    </MjmlSection>
-  );
-};
+export const DataTableBasicSection = ({
+  headers = ["Column 1", "Column 2"],
+  rows = [["Row 1 Data", "Row 1 Data"]],
+}: Omit<DataTableBasicProps, "theme">) => (
+  <DataTableFrame
+    headers={headers}
+    rows={rows.map((row) =>
+      headers.map((_, index) => ({
+        content: <DataTableText>{row[index] ?? ""}</DataTableText>,
+      }))
+    )}
+  />
+);
 
 export const DataTableBasic = ({
   theme = defaultTheme,
-  headers = ["Name", "Status"],
-  rows = [["Alice", "Active"]],
-  variant = "default",
+  headers = ["Column 1", "Column 2"],
+  rows = [["Row 1 Data", "Row 1 Data"]],
 }: DataTableBasicProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>data-table</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <DataTableBasicSection headers={headers} rows={rows} theme={theme} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  <DataTableEmailShell preview="Product data table" theme={theme}>
+    <DataTableBasicSection headers={headers} rows={rows} />
+  </DataTableEmailShell>
 );
 
 DataTableBasic.PreviewProps = {
-  headers: ["Product", "Price", "Qty"],
+  headers: ["Product", "Price", "Quantity"],
   rows: [
-    ["Widget A", "$29", "2"],
-    ["Widget B", "$49", "1"],
+    ["Widget A", "$29.00", "2"],
+    ["Widget B", "$49.00", "1"],
+    ["Widget C", "$19.00", "4"],
   ],
   theme: defaultTheme,
-  variant: "default",
 } satisfies DataTableBasicProps;

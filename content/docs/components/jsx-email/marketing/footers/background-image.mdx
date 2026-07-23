@@ -1,0 +1,205 @@
+---
+title: "Background Image Footer"
+description: "Nine Mailviews background-image footer families consolidated into layout and logo-position variants"
+---
+
+These Mailviews footers share the same image CTA shell, menu primitives, social links, and legal content. Use `variant` for the content structure and `logoPosition` when that layout has mirrored logo placement.
+
+## Examples
+
+### Content Top, Image Bottom — Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-content-left-logo"
+  hideCode
+  height={760}
+/>
+
+### Content Top, Image Bottom — Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-content-right-logo"
+  hideCode
+  height={760}
+/>
+
+### 2-Column Menu, Image Bottom — Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-2-column-menu-left-logo"
+  hideCode
+  height={760}
+/>
+
+### 2-Column Menu, Image Bottom — Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-2-column-menu-right-logo"
+  hideCode
+  height={760}
+/>
+
+### 3-Column Menu, Image Bottom — Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-3-column-menu-left-logo"
+  hideCode
+  height={760}
+/>
+
+### 3-Column Menu, Image Bottom — Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-3-column-menu-right-logo"
+  hideCode
+  height={760}
+/>
+
+### Centered Content, Image Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="bottom-image-centered"
+  hideCode
+  height={760}
+/>
+
+### Image Top, Content Bottom — Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-content-left-logo"
+  hideCode
+  height={900}
+/>
+
+### Image Top, Content Bottom — Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-content-right-logo"
+  hideCode
+  height={900}
+/>
+
+### Image Top, 3-Column Menu — Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-3-column-menu-left-logo"
+  hideCode
+  height={900}
+/>
+
+### Image Top, 3-Column Menu — Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-3-column-menu-right-logo"
+  hideCode
+  height={900}
+/>
+
+### Image Top, Address — Left Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-address-left-logo"
+  hideCode
+  height={900}
+/>
+
+### Image Top, Address — Right Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-address-right-logo"
+  hideCode
+  height={900}
+/>
+
+### Image Top, Centered Content
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-centered"
+  hideCode
+  height={900}
+/>
+
+### Image Top, Logo Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="footer-with-background-image-demo"
+  variant="top-image-logo-bottom"
+  hideCode
+  height={900}
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-background-image
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/footers/footer-with-background-image.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/footers/footer-with-background-image.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithBackgroundImage } from "@/components/emails/marketing/footers/footer-with-background-image";
+```
+
+```tsx
+<FooterWithBackgroundImage
+  {...FooterWithBackgroundImage.PreviewProps}
+  variant="top-image-content"
+  logoPosition="left"
+/>
+```
+
+## API Reference
+
+| Prop           | Type                               | Default                  | Description                         |
+| -------------- | ---------------------------------- | ------------------------ | ----------------------------------- |
+| `variant`      | `FooterWithBackgroundImageVariant` | `"bottom-image-content"` | Selects the Mailviews content shell |
+| `logoPosition` | `"left" \| "right"`                | `"left"`                 | Mirrors supported layouts           |
+| `theme`        | `EmailTheme`                       | default theme            | Email theme styling                 |

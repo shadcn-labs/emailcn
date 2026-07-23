@@ -1,23 +1,14 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Text,
-} from "jsx-email";
-import type { CSSProperties } from "react";
+import { Body, Container, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
 export type BoxedCTAWithBackgroundImageVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "flush-light"
+  | "padded-light"
+  | "flush-dark"
+  | "padded-dark";
 
 export interface BoxedCTAWithBackgroundImageProps {
   theme?: EmailThemeTokens;
@@ -25,153 +16,259 @@ export interface BoxedCTAWithBackgroundImageProps {
   subtext?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  backgroundSrc?: string;
-  backgroundAlt?: string;
+  backgroundImageSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: BoxedCTAWithBackgroundImageVariant;
 }
 
-const skewStyle = (
-  variant: BoxedCTAWithBackgroundImageVariant
-): CSSProperties => {
-  switch (variant) {
-    case "slanted-left": {
-      return { transform: "skewX(-10deg)" };
-    }
-    case "slanted-right": {
-      return { transform: "skewX(10deg)" };
-    }
-    default: {
-      return {};
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .boxed-cta-background-side {
+      width: 24px !important;
     }
   }
+
+  .boxed-cta-background-button:hover {
+    background-color: #4338ca !important;
+  }
+`;
+
+const variantStyles = {
+  "flush-dark": {
+    backgroundColor: "#030712",
+    cardBackgroundColor: "#030712",
+    headingColor: "#fffffe",
+    padded: false,
+    textColor: "#d1d5db",
+  },
+  "flush-light": {
+    backgroundColor: "#fffffe",
+    cardBackgroundColor: "#fffffe",
+    headingColor: "#030712",
+    padded: false,
+    textColor: "#4b5563",
+  },
+  "padded-dark": {
+    backgroundColor: "#030712",
+    cardBackgroundColor: "#030712",
+    headingColor: "#fffffe",
+    padded: true,
+    textColor: "#d1d5db",
+  },
+  "padded-light": {
+    backgroundColor: "#fffffe",
+    cardBackgroundColor: "#fffffe",
+    headingColor: "#030712",
+    padded: true,
+    textColor: "#4b5563",
+  },
+} satisfies Record<
+  BoxedCTAWithBackgroundImageVariant,
+  {
+    backgroundColor: string;
+    cardBackgroundColor: string;
+    headingColor: string;
+    padded: boolean;
+    textColor: string;
+  }
+>;
+
+const defaultSectionStyles = {
+  backgroundImageSrc:
+    "https://assets.mailviews.com/images/components/cta/cta-bg-glow.png",
+  buttonBackgroundColor: "#4f46e5",
+  buttonTextColor: "#f8fafc",
+  ctaHref: "https://example.com/",
+  ctaLabel: "Activate account",
+  heading: "Welcome to Your Workspace",
+  pageBackgroundColor: "#f1f5f9",
+  subtext:
+    "Your account is ready. Confirm your email to activate access, connect your tools, and start building smarter with our platform.",
 };
 
-const unskewStyle = (
-  variant: BoxedCTAWithBackgroundImageVariant
-): CSSProperties => {
-  switch (variant) {
-    case "slanted-left": {
-      return { transform: "skewX(10deg)" };
-    }
-    case "slanted-right": {
-      return { transform: "skewX(-10deg)" };
-    }
-    default: {
-      return {};
-    }
-  }
+type SectionProps = Omit<BoxedCTAWithBackgroundImageProps, "theme">;
+
+export const BoxedCTAWithBackgroundImageSection = (props: SectionProps) => {
+  const variant = props.variant ?? "flush-light";
+  const resolved = {
+    ...defaultSectionStyles,
+    ...variantStyles[variant],
+    ...props,
+  };
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              backgroundImage: `url('${resolved.backgroundImageSrc}')`,
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              maxWidth: "100%",
+              paddingBottom: resolved.padded ? "80px" : 0,
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    className="boxed-cta-background-side"
+                    style={{ width: "44px" }}
+                  >
+                    &zwj;
+                  </td>
+                  <td>
+                    <div style={{ lineHeight: "80px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style={{
+                              backgroundColor: resolved.cardBackgroundColor,
+                              borderRadius: "4px",
+                              padding: "0 44px",
+                              textAlign: "center",
+                            }}
+                          >
+                            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                            <h2
+                              style={{
+                                color: resolved.headingColor,
+                                fontFamily,
+                                fontSize: "24px",
+                                fontWeight: 600,
+                                lineHeight: "32px",
+                                margin: 0,
+                                textAlign: "center",
+                              }}
+                            >
+                              {resolved.heading}
+                            </h2>
+                            <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                            <p
+                              style={{
+                                color: resolved.textColor,
+                                fontFamily,
+                                fontSize: "16px",
+                                fontWeight: 300,
+                                lineHeight: "24px",
+                                margin: 0,
+                                textAlign: "center",
+                              }}
+                            >
+                              {resolved.subtext}
+                            </p>
+                            <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                            <a
+                              className="boxed-cta-background-button"
+                              href={resolved.ctaHref}
+                              style={{
+                                backgroundColor: resolved.buttonBackgroundColor,
+                                borderRadius: "8px",
+                                color: resolved.buttonTextColor,
+                                display: "inline-block",
+                                fontFamily,
+                                fontSize: "16px",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                padding: "10px 22px",
+                                textAlign: "center",
+                                textDecoration: "none",
+                              }}
+                            >
+                              {resolved.ctaLabel}
+                            </a>
+                            {resolved.padded ? (
+                              <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                            ) : null}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td
+                    className="boxed-cta-background-side"
+                    style={{ width: "44px" }}
+                  >
+                    &zwj;
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
 };
 
 export const BoxedCTAWithBackgroundImage = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  heading = "Special Offer",
-  subtext = "Limited time deal just for you.",
-  ctaLabel = "Get Deal",
-  ctaHref = "#",
-  backgroundSrc = "https://static.photos/city/600x300/3",
-  backgroundAlt = "",
-  variant = "default",
+  variant = "flush-light",
+  ...props
 }: BoxedCTAWithBackgroundImageProps) => (
   <Html>
-    <Head />
-    <Preview>{heading}</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>{props.heading ?? defaultSectionStyles.heading}</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        fontFamily: theme.fontFamily,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ margin: "0 auto", maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "64px 0", ...skewStyle(variant) }}>
-          <Section style={{ ...unskewStyle(variant) }}>
-            <Section
-              style={{
-                border: `2px solid ${theme.colorBorder}`,
-                borderRadius: theme.borderRadiusLg,
-                padding: "32px",
-              }}
-            >
-              <Section
-                style={{
-                  borderRadius: theme.borderRadiusLg,
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <Img
-                  src={backgroundSrc}
-                  alt={backgroundAlt}
-                  width="600"
-                  height="300"
-                  style={{ height: "auto", objectFit: "cover", width: "100%" }}
-                />
-                <Section
-                  style={{
-                    backgroundColor: "rgba(0, 0, 0, 0.6)",
-                    bottom: 0,
-                    left: 0,
-                    padding: "32px",
-                    position: "absolute",
-                    right: 0,
-                    textAlign: "center",
-                    top: 0,
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: "#ffffff",
-                      fontSize: theme.fontSizeHeading,
-                      fontWeight: theme.fontWeightBold,
-                      lineHeight: 1.375,
-                      margin: 0,
-                    }}
-                  >
-                    {heading}
-                  </Text>
-                  <Text
-                    style={{
-                      color: "rgba(255, 255, 255, 0.8)",
-                      fontSize: theme.fontSizeBase,
-                      margin: "12px 0 24px",
-                    }}
-                  >
-                    {subtext}
-                  </Text>
-                  {ctaLabel && ctaHref ? (
-                    <a
-                      href={ctaHref}
-                      style={{
-                        backgroundColor: theme.colorPrimary,
-                        borderRadius: theme.borderRadius,
-                        color: theme.colorPrimaryForeground,
-                        display: "inline-block",
-                        fontSize: theme.fontSizeBase,
-                        fontWeight: theme.fontWeightMedium,
-                        padding: "12px 32px",
-                        textDecoration: "none",
-                      }}
-                    >
-                      {ctaLabel}
-                    </a>
-                  ) : null}
-                </Section>
-              </Section>
-            </Section>
-          </Section>
-        </Section>
+      <Container
+        style={{
+          margin: "0 auto",
+          maxWidth: theme.containerWidth,
+          width: theme.containerWidth,
+        }}
+      >
+        <BoxedCTAWithBackgroundImageSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 BoxedCTAWithBackgroundImage.PreviewProps = {
-  backgroundAlt: "Background",
-  backgroundSrc: "https://static.photos/city/600x300/4",
-  ctaHref: "https://example.com",
-  ctaLabel: "Get Deal",
-  heading: "Special Offer",
-  subtext: "Limited time deal just for you.",
   theme: defaultTheme,
-  variant: "default",
+  variant: "flush-light",
 } satisfies BoxedCTAWithBackgroundImageProps;

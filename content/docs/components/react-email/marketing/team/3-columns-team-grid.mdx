@@ -1,9 +1,41 @@
 ---
 title: "3 Columns Team Grid"
-description: "3 Columns Team Grid — Team email component."
+description: "Mailviews three-column team grid family"
 ---
 
-<ComponentPreview base="react-email" name="three-columns-team-grid-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-team-grid-demo"
+  variant="default"
+/>
+
+### With Accent
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-team-grid-demo"
+  variant="with-accent"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-team-grid-demo"
+  variant="bordered"
+/>
+
+### With Hero
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-team-grid-demo"
+  variant="with-hero"
+/>
 
 ## Installation
 
@@ -37,14 +69,13 @@ npx shadcn@latest add @emailcn/3-columns-team-grid
 
 ```tsx
 import { ThreeColumnsTeamGrid } from "@/components/emails/marketing/team/3-columns-team-grid";
-```
 
-```tsx
-<ThreeColumnsTeamGrid {...ThreeColumnsTeamGrid.PreviewProps} />
+<ThreeColumnsTeamGrid variant="default" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                      | Default        | Description              |
+| --------- | --------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "with-accent" \| "bordered" \| "with-hero"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `TailwindConfig`                                          | `defaultTheme` | Email theme styling      |

@@ -856,6 +856,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-even-split-image-stats",
@@ -878,6 +883,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -902,6 +912,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-flush-images",
@@ -924,6 +939,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -948,6 +968,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-even-split-and-image-stats",
@@ -970,6 +995,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -994,6 +1024,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-even-split-and-two-thirds",
@@ -1016,6 +1051,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1040,6 +1080,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-images-and-details",
@@ -1063,6 +1108,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-two-rows-and-3-column-second-row",
@@ -1085,6 +1135,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
           "target": "components/emails/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],

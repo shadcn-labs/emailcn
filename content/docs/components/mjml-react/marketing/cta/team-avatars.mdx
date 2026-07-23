@@ -1,6 +1,6 @@
 ---
 title: "Team Avatars"
-description: "Marketing cta variant for email templates"
+description: "A people-focused CTA with grouped, top-aligned, and single-avatar variants"
 ---
 
 <ComponentPreview base="mjml-react" name="cta-with-team-avatars-demo" />
@@ -42,15 +42,50 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { CtaWithTeamAvatars } from "@/components/emails/marketing/cta/cta-with-team-avatars";
+import { CTAWithTeamAvatars } from "@/components/emails/marketing/cta/cta-with-team-avatars";
 ```
 
 ```tsx
-<CtaWithTeamAvatars {...CtaWithTeamAvatars.PreviewProps} />
+<CTAWithTeamAvatars {...CTAWithTeamAvatars.PreviewProps} />
 ```
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="cta-with-team-avatars-demo"
+  variant="default"
+  hideCode
+/>
+
+### Avatars Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="cta-with-team-avatars-demo"
+  variant="avatars-top"
+  hideCode
+/>
+
+### Single Avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="cta-with-team-avatars-demo"
+  variant="single-avatar"
+  hideCode
+/>
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                     | Type                                            | Default           | Description                                             |
+| ---------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------------------- |
+| `theme`                                  | `EmailThemeTokens`                              | `defaultTheme`    | MJML React theme tokens                                 |
+| `variant`                                | `"default" \| "avatars-top" \| "single-avatar"` | `"default"`       | Selects the exact Mailviews layout and copy             |
+| `heading` / `subtext`                    | `string`                                        | Variant copy      | CTA heading and supporting text                         |
+| `ctaLabel` / `ctaHref`                   | `string`                                        | Variant CTA       | Primary action label and destination                    |
+| `secondaryCtaLabel` / `secondaryCtaHref` | `string`                                        | Single-avatar CTA | Optional secondary action                               |
+| Avatar props                             | `string`                                        | Mailviews avatars | Four avatar URLs and alternative-text values            |
+| Color props                              | `string`                                        | Mailviews colors  | Canvas, surface, avatar border, text, and button colors |

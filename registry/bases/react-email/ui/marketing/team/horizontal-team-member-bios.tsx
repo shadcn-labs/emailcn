@@ -1,29 +1,19 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
+import { Body, Head, Html, Preview, Tailwind } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
 export type HorizontalTeamMemberBiosVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "image-left"
+  | "image-right"
+  | "image-left-accent"
+  | "image-right-accent";
 
 export interface HorizontalTeamMemberBiosProps {
   theme?: TailwindConfig;
-  heading?: string;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -34,201 +24,293 @@ export interface HorizontalTeamMemberBiosProps {
   name2?: string;
   role2?: string;
   bio2?: string;
-  avatarSrc3?: string;
-  avatarAlt3?: string;
-  name3?: string;
-  role3?: string;
-  bio3?: string;
   variant?: HorizontalTeamMemberBiosVariant;
 }
 
-export const HorizontalTeamMemberBiosSection = ({
-  heading = "Our Team",
-  avatarSrc1 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-1&size=80",
-  avatarAlt1 = "",
-  name1 = "Jane Doe",
-  role1 = "CEO",
-  bio1 = "Visionary leader.",
-  avatarSrc2 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-2&size=80",
-  avatarAlt2 = "",
-  name2 = "John Smith",
-  role2 = "CTO",
-  bio2 = "Tech genius.",
-  avatarSrc3 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-3&size=80",
-  avatarAlt3 = "",
-  name3 = "Alice Brown",
-  role3 = "Designer",
-  bio3 = "Creative mind.",
-  variant = "default",
-}: Omit<HorizontalTeamMemberBiosProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .horizontal-team-stack { display: block !important; width: 100% !important; }
+    .horizontal-team-gap { line-height: 24px !important; }
+    .horizontal-team-image { max-width: 144px !important; }
+    .horizontal-team-center { text-align: center !important; }
+    .horizontal-team-social { margin-left: auto !important; margin-right: auto !important; }
+  }
+`;
+
+const SocialLinks = ({
+  accent,
+  lastIcon,
+}: {
+  accent: boolean;
+  lastIcon: "instagram" | "linkedin";
+}) => {
+  const suffix = accent ? "light" : "dark";
+  const icons = ["facebook", "x", lastIcon] as const;
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      className="horizontal-team-social"
+      role="presentation"
+    >
+      <tbody>
+        <tr>
+          {icons.map((icon, index) => (
+            <Fragment key={icon}>
+              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
+              <td style={{ width: "16px" }}>
+                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <img
+                    alt=""
+                    src={`https://assets.mailviews.com/images/components/icon-${icon}-${suffix}.png`}
+                    width="16"
+                  />
+                </a>
+              </td>
+            </Fragment>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+const GapCell = () => (
+  <td
+    className="horizontal-team-stack horizontal-team-gap"
+    style={{ lineHeight: 0, width: "24px" }}
+  >
+    &zwj;
+  </td>
+);
+
+interface HorizontalCardProps {
+  accent: boolean;
+  avatarAlt: string;
+  avatarSrc: string;
+  bio: string;
+  imageLeft: boolean;
+  lastIcon: "instagram" | "linkedin";
+  name: string;
+  role: string;
+}
+
+const HorizontalCard = ({
+  accent,
+  avatarAlt,
+  avatarSrc,
+  bio,
+  imageLeft,
+  lastIcon,
+  name,
+  role,
+}: HorizontalCardProps) => {
+  const ImageCell = () => (
+    <td
+      className="horizontal-team-stack"
+      style={{ textAlign: "center", verticalAlign: "top", width: "164px" }}
+    >
+      <img
+        alt={avatarAlt}
+        className="horizontal-team-image"
+        src={avatarSrc}
+        style={{
+          borderRadius: "9999px",
+          maxWidth: "100%",
+          verticalAlign: "middle",
+        }}
+        width="164"
+      />
+    </td>
+  );
+  const ContentCell = () => (
+    <td
+      className="horizontal-team-stack"
+      style={{
+        padding: imageLeft ? "12px 0" : 0,
+        verticalAlign: "top",
+      }}
+    >
+      <h3
+        className="horizontal-team-center"
+        style={{
+          color: accent ? "#fffffe" : "#030712",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 600,
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {name}
+      </h3>
+      <p
+        className="horizontal-team-center"
+        style={{
+          color: accent ? "#d1d5db" : "#4b5563",
+          fontFamily,
+          fontSize: "14px",
+          lineHeight: "20px",
+          margin: 0,
+        }}
+      >
+        {role}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <p
+        className="horizontal-team-center"
+        style={{
+          color: accent ? "#9ca3af" : "#4b5563",
+          fontFamily,
+          fontSize: "16px",
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {bio}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <SocialLinks accent={accent} lastIcon={lastIcon} />
+    </td>
+  );
 
   return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-2xl font-bold text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/3 pr-4 align-top">
-            <Section className="text-center">
-              <Img
-                src={avatarSrc1}
-                alt={avatarAlt1}
-                width="80"
-                height="80"
-                className="mx-auto mb-3 h-auto rounded-full object-cover"
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ width: "100%" }}
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              backgroundColor: accent ? "#030712" : "#f9fafb",
+              borderRadius: "8px",
+              padding: "24px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              style={{ width: "100%" }}
+            >
+              <tbody>
+                <tr>
+                  {imageLeft ? (
+                    <>
+                      <ImageCell />
+                      <GapCell />
+                      <ContentCell />
+                    </>
+                  ) : (
+                    <>
+                      <ContentCell />
+                      <GapCell />
+                      <ImageCell />
+                    </>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HorizontalTeamMemberBiosSection = ({
+  avatarAlt1 = "",
+  avatarAlt2 = "",
+  avatarSrc1 = "https://assets.mailviews.com/images/components/teams/member-1-md.jpg",
+  avatarSrc2 = "https://assets.mailviews.com/images/components/teams/member-2-md.jpg",
+  bio1 = "Imagination is more important than knowledge. For knowledge is limited.",
+  bio2 = "Imagination is more important than knowledge. For knowledge is limited.",
+  name1 = "Jason Adam",
+  name2 = "Henrik Petersson",
+  role1 = "Senior Developer",
+  role2 = "Senior UX/UI designer",
+  variant = "image-left",
+}: Omit<HorizontalTeamMemberBiosProps, "theme">) => {
+  const imageLeft = variant === "image-left" || variant === "image-left-accent";
+  const accent = variant.endsWith("-accent");
+  return (
+    <>
+      <style>{responsiveStyles}</style>
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td>&zwj;</td>
+            <td
+              style={{
+                backgroundColor: "#fffffe",
+                maxWidth: "100%",
+                padding: "44px 24px",
+                width: "600px",
+              }}
+            >
+              <HorizontalCard
+                accent={accent}
+                avatarAlt={avatarAlt1}
+                avatarSrc={avatarSrc1}
+                bio={bio1}
+                imageLeft={imageLeft}
+                lastIcon="linkedin"
+                name={name1}
+                role={role1}
               />
-              <Text className="m-0 mb-1 text-base font-medium text-foreground">
-                {name1}
-              </Text>
-              <Text className="m-0 mb-2 text-xs text-primary">{role1}</Text>
-              <Text className="m-0 text-xs leading-snug text-foreground-muted">
-                {bio1}
-              </Text>
-            </Section>
-          </Column>
-          <Column className="w-1/3 px-4 align-top">
-            <Section className="text-center">
-              <Img
-                src={avatarSrc2}
-                alt={avatarAlt2}
-                width="80"
-                height="80"
-                className="mx-auto mb-3 h-auto rounded-full object-cover"
+              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              <HorizontalCard
+                accent={accent}
+                avatarAlt={avatarAlt2}
+                avatarSrc={avatarSrc2}
+                bio={bio2}
+                imageLeft={imageLeft}
+                lastIcon="instagram"
+                name={name2}
+                role={role2}
               />
-              <Text className="m-0 mb-1 text-base font-medium text-foreground">
-                {name2}
-              </Text>
-              <Text className="m-0 mb-2 text-xs text-primary">{role2}</Text>
-              <Text className="m-0 text-xs leading-snug text-foreground-muted">
-                {bio2}
-              </Text>
-            </Section>
-          </Column>
-          <Column className="w-1/3 pl-4 align-top">
-            <Section className="text-center">
-              <Img
-                src={avatarSrc3}
-                alt={avatarAlt3}
-                width="80"
-                height="80"
-                className="mx-auto mb-3 h-auto rounded-full object-cover"
-              />
-              <Text className="m-0 mb-1 text-base font-medium text-foreground">
-                {name3}
-              </Text>
-              <Text className="m-0 mb-2 text-xs text-primary">{role3}</Text>
-              <Text className="m-0 text-xs leading-snug text-foreground-muted">
-                {bio3}
-              </Text>
-            </Section>
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+            </td>
+            <td>&zwj;</td>
+          </tr>
+        </tbody>
+      </table>
+    </>
   );
 };
 
 export const HorizontalTeamMemberBios = ({
   theme = defaultTheme,
-  heading = "Our Team",
-  avatarSrc1 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-4&size=80",
-  avatarAlt1 = "",
-  name1 = "Jane Doe",
-  role1 = "CEO",
-  bio1 = "Visionary leader.",
-  avatarSrc2 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-5&size=80",
-  avatarAlt2 = "",
-  name2 = "John Smith",
-  role2 = "CTO",
-  bio2 = "Tech genius.",
-  avatarSrc3 = "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-6&size=80",
-  avatarAlt3 = "",
-  name3 = "Alice Brown",
-  role3 = "Designer",
-  bio3 = "Creative mind.",
-  variant = "default",
+  ...props
 }: HorizontalTeamMemberBiosProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>{heading}</Preview>
+    <Preview>Meet the team</Preview>
     <Tailwind config={theme}>
       <Body className="m-0 bg-background font-sans">
-        <HorizontalTeamMemberBiosSection
-          avatarAlt1={avatarAlt1}
-          avatarAlt2={avatarAlt2}
-          avatarAlt3={avatarAlt3}
-          avatarSrc1={avatarSrc1}
-          avatarSrc2={avatarSrc2}
-          avatarSrc3={avatarSrc3}
-          bio1={bio1}
-          bio2={bio2}
-          bio3={bio3}
-          heading={heading}
-          name1={name1}
-          name2={name2}
-          name3={name3}
-          role1={role1}
-          role2={role2}
-          role3={role3}
-          variant={variant}
-        />
+        <HorizontalTeamMemberBiosSection {...props} />
       </Body>
     </Tailwind>
   </Html>
 );
 
 HorizontalTeamMemberBios.PreviewProps = {
-  avatarAlt1: "Jane Doe",
-  avatarAlt2: "John Smith",
-  avatarAlt3: "Alice Brown",
-  avatarSrc1:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-7&size=80",
-  avatarSrc2:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-8&size=80",
-  avatarSrc3:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=email-preview-registry-bases-react-email-ui-marketing-team-horizontal-team-member-bios-tsx-9&size=80",
-  bio1: "Visionary leader with 15+ years of experience.",
-  bio2: "Tech genius building scalable solutions.",
-  bio3: "Creative mind behind our award-winning designs.",
-  heading: "Our Team",
-  name1: "Jane Doe",
-  name2: "John Smith",
-  name3: "Alice Brown",
-  role1: "CEO",
-  role2: "CTO",
-  role3: "Designer",
   theme: defaultTheme,
-  variant: "default",
+  variant: "image-left",
 } satisfies HorizontalTeamMemberBiosProps;

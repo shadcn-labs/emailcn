@@ -1,9 +1,65 @@
 ---
 title: "Logo with Menu"
-description: "Marketing headers variant for email templates"
+description: "All six Mailviews logo-and-menu header layouts"
 ---
 
-<ComponentPreview base="jsx-email" name="header-with-logo-and-menu-demo" />
+All Mailviews menu placements are variants of one component.
+
+## Examples
+
+### Menu Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-menu-demo"
+  variant="menu-right"
+  hideCode
+/>
+
+### Menu Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-menu-demo"
+  variant="menu-left"
+  hideCode
+/>
+
+### Menu Around
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-menu-demo"
+  variant="menu-around"
+  hideCode
+/>
+
+### Stacked Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-menu-demo"
+  variant="stacked-left"
+  hideCode
+/>
+
+### Stacked Center
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-menu-demo"
+  variant="stacked-center"
+  hideCode
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="header-with-logo-and-menu-demo"
+  variant="stacked-right"
+  hideCode
+/>
 
 ## Installation
 
@@ -22,13 +78,7 @@ npx shadcn@latest add @emailcn/header-with-logo-and-menu
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-menu.tsx"
     base="jsx-email"
@@ -46,11 +96,15 @@ import { HeaderWithLogoAndMenu } from "@/components/emails/marketing/headers/hea
 ```
 
 ```tsx
-<HeaderWithLogoAndMenu {...HeaderWithLogoAndMenu.PreviewProps} />
+<HeaderWithLogoAndMenu
+  {...HeaderWithLogoAndMenu.PreviewProps}
+  variant="menu-around"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                           | Default        | Description                       |
+| --------- | ------------------------------ | -------------- | --------------------------------- |
+| `variant` | `HeaderWithLogoAndMenuVariant` | `"menu-right"` | Selects the Mailviews menu layout |
+| `theme`   | Renderer theme                 | `defaultTheme` | Renderer theme configuration      |

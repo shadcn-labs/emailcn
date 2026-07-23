@@ -1,107 +1,62 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/blog/blog-shared";
 
-export type BlogDarkVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogDarkProps {
+export interface BlogPostHorizontalBoxedProps {
   theme?: EmailThemeTokens;
-  posts?: { title: string; description: string }[];
-  variant?: BlogDarkVariant;
+  excerpt?: string;
+  imageAlt?: string;
+  imageSrc?: string;
+  title?: string;
 }
-const BlogDarkSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogDarkProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogDarkVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorText}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {(posts ?? []).slice(0, 2).map((post, i) => (
-        <MjmlSection
-          key={post.title + i}
-          padding={`${theme.spacingBase ?? "16px"} 0`}
-        >
-          <MjmlText
-            color={theme.colorBackground}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeLg}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "4px"}
-          >
-            {post.title}
-          </MjmlText>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          >
-            {post.description}
-          </MjmlText>
-        </MjmlSection>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
-);
+
+export const BlogPostHorizontalBoxedSection = ({
+  excerpt = "A concise summary of the ideas explored in this article.",
+  imageAlt = "Mountain landscape",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  title = "A practical guide to better email",
+}: Omit<BlogPostHorizontalBoxedProps, "theme">) => {
+  const posts = [
+    {
+      excerpt,
+      imageAlt,
+      imageSrc,
+      title,
+    },
+  ];
+
+  return (
+    <>
+      <BlogContent layout="horizontal-boxed" posts={posts} />
+    </>
+  );
+};
+
 export const BlogPostHorizontalBoxed = ({
   theme = defaultTheme,
-  posts = [
-    { description: "Description 1", title: "Post 1" },
-    { description: "Description 2", title: "Post 2" },
-  ],
-  variant = "default",
-}: BlogDarkProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>blog dark</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BlogDarkSection posts={posts} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  excerpt = "A concise summary of the ideas explored in this article.",
+  imageAlt = "Mountain landscape",
+  imageSrc = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  title = "A practical guide to better email",
+}: BlogPostHorizontalBoxedProps) => (
+  <BlogEmailShell preview={title} theme={theme}>
+    <BlogPostHorizontalBoxedSection
+      excerpt={excerpt}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      title={title}
+    />
+  </BlogEmailShell>
 );
+
 BlogPostHorizontalBoxed.PreviewProps = {
-  posts: [
-    {
-      description: "A comprehensive guide to building email components.",
-      title: "Getting Started Guide",
-    },
-    {
-      description: "Tips for designing emails that convert.",
-      title: "Design Best Practices",
-    },
-  ],
+  excerpt: "A concise summary of the ideas explored in this article.",
+  imageAlt: "Mountain landscape",
+  imageSrc:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogDarkProps;
+  title: "A practical guide to better email",
+} satisfies BlogPostHorizontalBoxedProps;

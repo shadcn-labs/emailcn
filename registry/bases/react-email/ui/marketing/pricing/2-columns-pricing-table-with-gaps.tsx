@@ -1,259 +1,288 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type TwoColumnsPricingTableWithGapsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export interface ProductPricingPlan {
+  ctaHref: string;
+  ctaLabel: string;
+  leasePrice: string;
+  name: string;
+  purchasePrice: string;
+}
 
 export interface TwoColumnsPricingTableWithGapsProps {
   theme?: TailwindConfig;
-  heading?: string;
-  plan1?: string;
-  price1?: string;
-  period1?: string;
-  desc1?: string;
-  feature1_1?: string;
-  feature1_2?: string;
-  feature1_3?: string;
-  ctaLabel1?: string;
-  ctaHref1?: string;
-  plan2?: string;
-  price2?: string;
-  period2?: string;
-  desc2?: string;
-  feature2_1?: string;
-  feature2_2?: string;
-  feature2_3?: string;
-  ctaLabel2?: string;
-  ctaHref2?: string;
-  variant?: TwoColumnsPricingTableWithGapsVariant;
+  plans?: ProductPricingPlan[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  buttonBackgroundColor?: string;
 }
 
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .product-pricing-column { display: block !important; padding-left: 0 !important; width: 100% !important; }",
+  "  .product-pricing-column + .product-pricing-column { padding-top: 44px !important; }",
+  "}",
+].join("\n");
+
+const defaultPlans: ProductPricingPlan[] = [
+  {
+    ctaHref: "https://example.com",
+    ctaLabel: "View details",
+    leasePrice: "$499",
+    name: "Model X",
+    purchasePrice: "$142,400",
+  },
+  {
+    ctaHref: "https://example.com",
+    ctaLabel: "View details",
+    leasePrice: "$199",
+    name: "Model Y",
+    purchasePrice: "$52,400",
+  },
+];
+
+const PriceBlock = ({
+  label,
+  price,
+  period,
+  backgroundColor,
+  rounded,
+}: {
+  label: string;
+  price: string;
+  period?: string;
+  backgroundColor: string;
+  rounded?: "top" | "bottom";
+}) => (
+  <div
+    style={{
+      backgroundColor,
+      borderBottomLeftRadius: rounded === "bottom" ? "8px" : undefined,
+      borderBottomRightRadius: rounded === "bottom" ? "8px" : undefined,
+      borderTopLeftRadius: rounded === "top" ? "8px" : undefined,
+      borderTopRightRadius: rounded === "top" ? "8px" : undefined,
+      textAlign: "center",
+    }}
+  >
+    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+    <p
+      style={{
+        color: "#4b5563",
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: "24px",
+        margin: 0,
+        textAlign: "center",
+      }}
+    >
+      {label}
+    </p>
+    <p
+      style={{
+        color: "#030712",
+        fontFamily,
+        fontSize: "30px",
+        fontWeight: 600,
+        lineHeight: "36px",
+        margin: "8px 0 0",
+        textAlign: "center",
+      }}
+    >
+      {price}{" "}
+      {period ? (
+        <span
+          style={{
+            color: "#6b7280",
+            fontSize: "14px",
+            fontWeight: 400,
+            lineHeight: "20px",
+          }}
+        >
+          {period}
+        </span>
+      ) : null}
+    </p>
+    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+  </div>
+);
+
+const ProductCard = ({
+  plan,
+  cardBackgroundColor,
+  buttonBackgroundColor,
+}: {
+  plan: ProductPricingPlan;
+  cardBackgroundColor: string;
+  buttonBackgroundColor: string;
+}) => (
+  <>
+    <div
+      style={{
+        backgroundColor: cardBackgroundColor,
+        borderTopLeftRadius: "8px",
+        borderTopRightRadius: "8px",
+        textAlign: "center",
+      }}
+    >
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <p
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "24px",
+          fontWeight: 600,
+          lineHeight: "32px",
+          margin: 0,
+          textAlign: "center",
+        }}
+      >
+        {plan.name}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+    </div>
+    <div style={{ lineHeight: "4px" }}>&zwj;</div>
+    <PriceBlock
+      backgroundColor={cardBackgroundColor}
+      label="Leasing starting at"
+      period="/Month"
+      price={plan.leasePrice}
+    />
+    <div style={{ lineHeight: "4px" }}>&zwj;</div>
+    <PriceBlock
+      backgroundColor={cardBackgroundColor}
+      label="Purchase starting at"
+      price={plan.purchasePrice}
+      rounded="bottom"
+    />
+    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+    <a
+      href={plan.ctaHref}
+      style={{
+        backgroundColor: buttonBackgroundColor,
+        borderRadius: "8px",
+        color: "#f8fafc",
+        display: "block",
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: 1,
+        padding: "10px 18px",
+        textAlign: "center",
+        textDecoration: "none",
+      }}
+    >
+      {plan.ctaLabel}
+    </a>
+  </>
+);
+
 export const TwoColumnsPricingTableWithGapsSection = ({
-  heading = "Plans",
-  plan1 = "Starter",
-  price1 = "$9",
-  period1 = "/month",
-  desc1 = "For individuals.",
-  feature1_1 = "1,000 emails",
-  feature1_2 = "Basic templates",
-  feature1_3 = "Email support",
-  ctaLabel1 = "Get Started",
-  ctaHref1 = "#",
-  plan2 = "Pro",
-  price2 = "$29",
-  period2 = "/month",
-  desc2 = "For teams.",
-  feature2_1 = "Unlimited emails",
-  feature2_2 = "Custom templates",
-  feature2_3 = "Priority support",
-  ctaLabel2 = "Subscribe",
-  ctaHref2 = "#",
-  variant = "default",
-}: Omit<TwoColumnsPricingTableWithGapsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  return (
-    <Section className={`bg-background py-16 ${getVariantClass()}`}>
-      <Container className={`mx-auto max-w-container ${getUnskewClass()}`}>
-        {heading ? (
-          <Text className="m-0 mb-8 text-center text-2xl font-bold text-foreground">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          <Column className="w-1/2 pr-6 align-top">
-            <Section className="rounded-lg bg-background-muted p-8 text-center">
-              <Text className="m-0 mb-3 text-lg font-bold text-foreground">
-                {plan1}
-              </Text>
-              <Text className="m-0 mb-2 text-3xl font-bold text-foreground">
-                {price1}
-                <span className="text-sm font-normal text-foreground-muted">
-                  {period1}
-                </span>
-              </Text>
-              <Text className="m-0 mb-4 text-sm text-foreground-muted">
-                {desc1}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature1_1}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature1_2}
-              </Text>
-              <Text className="m-0 mb-6 text-sm text-foreground">
-                &bull; {feature1_3}
-              </Text>
-              {ctaLabel1 && ctaHref1 ? (
-                <Button
-                  href={ctaHref1}
-                  className="inline-block rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-fg no-underline"
-                >
-                  {ctaLabel1}
-                </Button>
-              ) : null}
-            </Section>
-          </Column>
-          <Column className="w-1/2 pl-6 align-top">
-            <Section className="rounded-lg bg-background-muted p-8 text-center">
-              <Text className="m-0 mb-3 text-lg font-bold text-foreground">
-                {plan2}
-              </Text>
-              <Text className="m-0 mb-2 text-3xl font-bold text-foreground">
-                {price2}
-                <span className="text-sm font-normal text-foreground-muted">
-                  {period2}
-                </span>
-              </Text>
-              <Text className="m-0 mb-4 text-sm text-foreground-muted">
-                {desc2}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature2_1}
-              </Text>
-              <Text className="m-0 mb-1 text-sm text-foreground">
-                &bull; {feature2_2}
-              </Text>
-              <Text className="m-0 mb-6 text-sm text-foreground">
-                &bull; {feature2_3}
-              </Text>
-              {ctaLabel2 && ctaHref2 ? (
-                <Button
-                  href={ctaHref2}
-                  className="inline-block rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-fg no-underline"
-                >
-                  {ctaLabel2}
-                </Button>
-              ) : null}
-            </Section>
-          </Column>
-        </Row>
-      </Container>
-    </Section>
-  );
-};
+  plans = defaultPlans,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  cardBackgroundColor = "#f9fafb",
+  buttonBackgroundColor = "#030712",
+}: Omit<TwoColumnsPricingTableWithGapsProps, "theme">) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ backgroundColor: pageBackgroundColor }}
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td>&zwj;</td>
+        <td
+          style={{
+            backgroundColor,
+            maxWidth: "100%",
+            paddingBottom: "44px",
+            width: "600px",
+          }}
+        >
+          <table
+            border={0}
+            cellPadding={0}
+            cellSpacing={0}
+            role="presentation"
+            width="100%"
+          >
+            <tbody>
+              <tr>
+                <td style={{ padding: "0 24px" }}>
+                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                  <table
+                    border={0}
+                    cellPadding={0}
+                    cellSpacing={0}
+                    role="presentation"
+                    width="100%"
+                  >
+                    <tbody>
+                      <tr>
+                        {plans.map((plan, index) => (
+                          <td
+                            className="product-pricing-column"
+                            key={plan.name}
+                            style={{
+                              paddingLeft: index > 0 ? "16px" : undefined,
+                              verticalAlign: "top",
+                              width: "268px",
+                            }}
+                          >
+                            <ProductCard
+                              buttonBackgroundColor={buttonBackgroundColor}
+                              cardBackgroundColor={cardBackgroundColor}
+                              plan={plan}
+                            />
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>&zwj;</td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 export const TwoColumnsPricingTableWithGaps = ({
-  theme = defaultTheme,
-  heading = "Plans",
-  plan1 = "Starter",
-  price1 = "$9",
-  period1 = "/month",
-  desc1 = "For individuals.",
-  feature1_1 = "1,000 emails",
-  feature1_2 = "Basic templates",
-  feature1_3 = "Email support",
-  ctaLabel1 = "Get Started",
-  ctaHref1 = "#",
-  plan2 = "Pro",
-  price2 = "$29",
-  period2 = "/month",
-  desc2 = "For teams.",
-  feature2_1 = "Unlimited emails",
-  feature2_2 = "Custom templates",
-  feature2_3 = "Priority support",
-  ctaLabel2 = "Subscribe",
-  ctaHref2 = "#",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  ...props
 }: TwoColumnsPricingTableWithGapsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <TwoColumnsPricingTableWithGapsSection
-          ctaHref1={ctaHref1}
-          ctaHref2={ctaHref2}
-          ctaLabel1={ctaLabel1}
-          ctaLabel2={ctaLabel2}
-          desc1={desc1}
-          desc2={desc2}
-          feature1_1={feature1_1}
-          feature1_2={feature1_2}
-          feature1_3={feature1_3}
-          feature2_1={feature2_1}
-          feature2_2={feature2_2}
-          feature2_3={feature2_3}
-          heading={heading}
-          period1={period1}
-          period2={period2}
-          plan1={plan1}
-          plan2={plan2}
-          price1={price1}
-          price2={price2}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Model pricing</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <TwoColumnsPricingTableWithGapsSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+      />
+    </Body>
   </Html>
 );
 
 TwoColumnsPricingTableWithGaps.PreviewProps = {
-  ctaHref1: "https://example.com",
-  ctaHref2: "https://example.com",
-  ctaLabel1: "Get Started",
-  ctaLabel2: "Subscribe",
-  desc1: "Perfect for individuals getting started.",
-  desc2: "Best for teams and growing businesses.",
-  feature1_1: "1,000 emails/month",
-  feature1_2: "Basic templates",
-  feature1_3: "Email support",
-  feature2_1: "Unlimited emails",
-  feature2_2: "Custom templates",
-  feature2_3: "Priority support",
-  heading: "Plans",
-  period1: "/month",
-  period2: "/month",
-  plan1: "Starter",
-  plan2: "Pro",
-  price1: "$9",
-  price2: "$29",
   theme: defaultTheme,
-  variant: "default",
 } satisfies TwoColumnsPricingTableWithGapsProps;

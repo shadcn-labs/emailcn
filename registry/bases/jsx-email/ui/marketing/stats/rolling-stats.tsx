@@ -1,132 +1,216 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type StatsFourColumnVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type RollingStatsVariant =
+  | "centered"
+  | "top-left"
+  | "bottom-left"
+  | "top-right"
+  | "bottom-right";
 
-export interface StatsFourColumnProps {
+export interface RollingStatsProps {
   theme?: EmailThemeTokens;
-  stats?: { value: string; label: string }[];
-  variant?: StatsFourColumnVariant;
+  variant?: RollingStatsVariant;
+  eyebrow?: string;
+  label?: string;
+  values?: [string, string, string];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  panelBackgroundColor?: string;
+  eyebrowColor?: string;
+  labelColor?: string;
+  firstValueColor?: string;
+  secondValueColor?: string;
+  accentColor?: string;
 }
 
-const StatsFourColumnSection = ({
-  stats,
-  theme,
-  variant,
-}: {
-  stats: StatsFourColumnProps["stats"];
-  theme: EmailThemeTokens;
-  variant: StatsFourColumnVariant;
-}) => {
-  const items = (stats ?? []).slice(0, 4);
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  return (
-    <Section
+const defaults = {
+  backgroundColor: "#fffffe",
+  eyebrow: "Mapped trails",
+  eyebrowColor: "#9ca3af",
+  firstValueColor: "#262626",
+  label: "Tracked by active users",
+  labelColor: "#fffffe",
+  pageBackgroundColor: "#f1f5f9",
+  panelBackgroundColor: "#030712",
+  secondValueColor: "#737373",
+};
+
+const accentColors: Record<RollingStatsVariant, string> = {
+  "bottom-left": "#c7d2fe",
+  "bottom-right": "#a7f3d0",
+  centered: "#e9d5ff",
+  "top-left": "#fde68a",
+  "top-right": "#fecdd3",
+};
+
+type SectionProps = Omit<RollingStatsProps, "theme">;
+type ResolvedProps = typeof defaults &
+  SectionProps & { accentColor: string; values: [string, string, string] };
+
+export const RollingStatsSection = (props: SectionProps) => {
+  const variant = props.variant ?? "centered";
+  const centered = variant === "centered";
+  const bottom = variant.startsWith("bottom-");
+  const resolved = {
+    ...defaults,
+    accentColor: accentColors[variant],
+    values: centered
+      ? (["3,117km", "3,118km", "3,119km"] as [string, string, string])
+      : (["14,598", "14,599", "14,600"] as [string, string, string]),
+    ...props,
+  } as ResolvedProps;
+  let align: "center" | "left" | "right" = "left";
+  let topSpace = "24px";
+  let bottomSpace = "92px";
+  if (centered) {
+    align = "center";
+    topSpace = "58px";
+    bottomSpace = "58px";
+  } else {
+    if (variant.endsWith("-right")) {
+      align = "right";
+    }
+    if (bottom) {
+      topSpace = "92px";
+      bottomSpace = "24px";
+    }
+  }
+  const value = (text: string, color: string, first: boolean) => (
+    <p
       style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
+        color,
+        fontFamily,
+        fontSize: "72px",
+        fontWeight: 500,
+        lineHeight: "56px",
+        margin: first ? "12px 0 0" : 0,
+        textAlign: align,
       }}
     >
-      <Row>
-        {items.map((stat, i) => (
-          <Column
-            key={stat.label + i}
+      {text}
+    </p>
+  );
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
             style={{
-              padding: theme.spacingBase ?? "24px",
-              verticalAlign: "top",
-              width: "25%",
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              textAlign: "left",
+              width: "600px",
             }}
           >
-            <Text
-              style={{
-                color: theme.colorText,
-                fontFamily: theme.fontFamily,
-                fontSize: "24px",
-                fontWeight: theme.fontWeightBold,
-                margin: 0,
-                paddingBottom: theme.spacingBase ?? "4px",
-                textAlign: "center",
-              }}
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
             >
-              {stat.value}
-            </Text>
-            <Text
-              style={{
-                color: theme.colorTextMuted,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeSm ?? "11px",
-                margin: 0,
-                textAlign: "center",
-              }}
-            >
-              {stat.label}
-            </Text>
-          </Column>
-        ))}
-      </Row>
-    </Section>
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  <td
+                    style={{
+                      backgroundColor: resolved.panelBackgroundColor,
+                      borderRadius: "8px",
+                      padding: "0 24px",
+                    }}
+                  >
+                    <div style={{ lineHeight: topSpace }}>&zwj;</div>
+                    <p
+                      style={{
+                        color: resolved.eyebrowColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: align,
+                      }}
+                    >
+                      {resolved.eyebrow}
+                    </p>
+                    <p
+                      style={{
+                        color: resolved.labelColor,
+                        fontFamily,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: align,
+                      }}
+                    >
+                      {resolved.label}
+                    </p>
+                    {value(resolved.values[0], resolved.firstValueColor, true)}
+                    {value(
+                      resolved.values[1],
+                      resolved.secondValueColor,
+                      false
+                    )}
+                    {value(resolved.values[2], resolved.accentColor, false)}
+                    <div style={{ lineHeight: bottomSpace }}>&zwj;</div>
+                  </td>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const RollingStats = ({
-  theme = defaultTheme,
-  stats = [
-    { label: "Users", value: "10K+" },
-    { label: "Downloads", value: "50K+" },
-    { label: "Countries", value: "120+" },
-    { label: "Reviews", value: "5K+" },
-  ],
-  variant = "default",
-}: StatsFourColumnProps) => (
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "centered",
+  ...props
+}: RollingStatsProps) => (
   <Html>
-    <Head />
-    <Preview>stats 4-col</Preview>
+    <Head>
+      <DefaultFonts />
+    </Head>
+    <Preview>3,119km mapped trails</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <StatsFourColumnSection
-            stats={stats}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <RollingStatsSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 RollingStats.PreviewProps = {
-  stats: [
-    { label: "Active Users", value: "50K+" },
-    { label: "Countries", value: "120+" },
-    { label: "Reviews", value: "10K+" },
-    { label: "Years", value: "5+" },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies StatsFourColumnProps;
+  variant: "centered",
+} satisfies RollingStatsProps;

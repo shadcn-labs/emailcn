@@ -1,6 +1,6 @@
 ---
 title: "Overlay Gradient"
-description: "Marketing hero variant for email templates"
+description: "A Yosemite product hero with split, unified, and logo variants"
 ---
 
 <ComponentPreview base="jsx-email" name="hero-with-overlay-gradient-demo" />
@@ -49,8 +49,55 @@ import { HeroWithOverlayGradient } from "@/components/emails/marketing/hero/hero
 <HeroWithOverlayGradient {...HeroWithOverlayGradient.PreviewProps} />
 ```
 
+## Examples
+
+### Split With Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlay-gradient-demo"
+  variant="split-with-logo"
+  hideCode
+/>
+
+### Split No Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlay-gradient-demo"
+  variant="split-no-logo"
+  hideCode
+/>
+
+### Unified With Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlay-gradient-demo"
+  variant="unified-with-logo"
+  hideCode
+/>
+
+### Unified No Logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-with-overlay-gradient-demo"
+  variant="unified-no-logo"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                                       | Type                             | Default             | Description                                   |
+| ---------------------------------------------------------- | -------------------------------- | ------------------- | --------------------------------------------- |
+| `theme`                                                    | `EmailThemeTokens`               | `defaultTheme`      | JSX Email theme tokens                        |
+| `variant`                                                  | `HeroWithOverlayGradientVariant` | `"split-with-logo"` | Selects copy grouping and logo visibility     |
+| `eyebrow` / `heading` / `subheading`                       | `string`                         | Mailviews copy      | Product title copy                            |
+| `price` / `description`                                    | `string`                         | Mailviews copy      | Price and supporting product description      |
+| `ctaLabel` / `ctaHref`                                     | `string`                         | Mailviews CTA       | Button label and destination                  |
+| `backgroundImageSrc` / `imageAlt`                          | `string`                         | Yosemite imagery    | Full-bleed background and accessible label    |
+| `logoSrc` / `logoAlt` / `logoHref`                         | `string`                         | Light logo          | Optional brand logo and destination           |
+| `pageBackgroundColor` / `backgroundColor` / `overlayColor` | `string`                         | Mailviews colors    | Canvas, fallback, and gradient surface colors |
+| `textColor`                                                | `string`                         | `"#f9fafb"`         | Hero copy color                               |
+| `buttonBackgroundColor` / `buttonTextColor`                | `string`                         | Mailviews colors    | CTA colors                                    |

@@ -1,11 +1,37 @@
 ---
 title: "Social Icons and Address"
-description: "Marketing footers variant for email templates"
+description: "Mailviews social and address footers with side-logo and centered variants"
 ---
+
+The social, address, and legal content stays grouped while the layout switches between mirrored side-logo and centered Mailviews treatments.
+
+## Examples
+
+### Left Logo
 
 <ComponentPreview
   base="mjml-react"
   name="footer-with-social-icons-and-address-demo"
+  variant="left-logo"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-social-icons-and-address-demo"
+  variant="right-logo"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="footer-with-social-icons-and-address-demo"
+  variant="centered"
+  hideCode
 />
 
 ## Installation
@@ -56,6 +82,7 @@ import { FooterWithSocialIconsAndAddress } from "@/components/emails/marketing/f
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                        | Default        | Description                        |
+| --------- | ------------------------------------------- | -------------- | ---------------------------------- |
+| `variant` | `"left-logo" \| "right-logo" \| "centered"` | `"left-logo"`  | Selects the exact Mailviews layout |
+| `theme`   | `EmailTheme`                                | `defaultTheme` | Email theme styling                |

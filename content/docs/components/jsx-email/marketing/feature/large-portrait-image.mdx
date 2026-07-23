@@ -1,6 +1,6 @@
 ---
-title: "Large Portrait Image"
-description: "Marketing feature variant for email templates"
+title: "Feature with Large Portrait Image"
+description: "A portrait feature with logo and content placement variants"
 ---
 
 <ComponentPreview
@@ -25,13 +25,7 @@ npx shadcn@latest add @emailcn/feature-with-large-portrait-image
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/feature/feature-with-large-portrait-image.tsx"
     base="jsx-email"
@@ -54,8 +48,85 @@ import { FeatureWithLargePortraitImage } from "@/components/emails/marketing/fea
 />
 ```
 
+## Examples
+
+### Logo Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="logo-top-right"
+  hideCode
+/>
+
+### Logo Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="logo-top-left"
+  hideCode
+/>
+
+### Logo Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="logo-bottom-left"
+  hideCode
+/>
+
+### Logo Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="logo-bottom-right"
+  hideCode
+/>
+
+### Content Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="content-bottom-left"
+  hideCode
+/>
+
+### Content Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="content-bottom-right"
+  hideCode
+/>
+
+### Content Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="content-top-left"
+  hideCode
+/>
+
+### Content Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-large-portrait-image-demo"
+  variant="content-top-right"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                                   | Default           | Description                                          |
+| ------------- | -------------------------------------- | ----------------- | ---------------------------------------------------- |
+| `theme`       | Renderer theme                         | `defaultTheme`    | Renderer theme configuration                         |
+| `variant`     | `FeatureWithLargePortraitImageVariant` | `"logo-top-left"` | Selects the Mailviews media, copy, and column layout |
+| Content props | `string`                               | Mailviews data    | Heading, body, action, logo, and portrait image data |
+| Color props   | `string`                               | Mailviews colors  | Canvas, surface, logo panel, copy, and action colors |

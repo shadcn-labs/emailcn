@@ -1,162 +1,26 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export interface GroupedOverlappedAvatarsPlusCountProps {
-  theme?: EmailThemeTokens;
-  avatars?: { url?: string; name: string }[];
-  plusCount?: number;
-  variant?: "default" | "slanted-left" | "slanted-right";
-}
+import {
+  GroupedOverlappedAvatars,
+  GroupedOverlappedAvatarsSection,
+} from "./grouped-overlapped-avatars";
+import type { GroupedOverlappedAvatarsProps } from "./grouped-overlapped-avatars";
 
-const GroupedOverlappedAvatarsPlusCountSection = ({
-  avatars,
-  plusCount,
-  theme,
-}: {
-  avatars: NonNullable<GroupedOverlappedAvatarsPlusCountProps["avatars"]>;
-  plusCount: number;
-  theme: EmailThemeTokens;
-}) => (
-  <Section style={{ padding: `${theme.spacingBase ?? "24px"} 0` }}>
-    <Row>
-      {avatars.slice(0, 3).map((avatar, i) => (
-        <Column
-          key={avatar.name}
-          style={{ padding: i > 0 ? "0 0 0 -12px" : "0", width: "40px" }}
-        >
-          {avatar.url ? (
-            <Img
-              alt={avatar.name}
-              height={36}
-              src={avatar.url}
-              width={36}
-              style={{
-                borderRadius: "999px",
-                display: "block",
-                margin: "0 auto",
-                maxWidth: "100%",
-              }}
-            />
-          ) : (
-            <Text
-              style={{
-                fontFamily: theme.fontFamily,
-                fontSize: "14px",
-                margin: 0,
-              }}
-            >
-              <span
-                style={{
-                  backgroundColor: theme.colorPrimary,
-                  border: `Twopx solid ${theme.colorBackground}`,
-                  borderRadius: "999px",
-                  color: theme.colorPrimaryForeground ?? "#ffffff",
-                  display: "inline-block",
-                  height: 36,
-                  lineHeight: "36px",
-                  textAlign: "center",
-                  width: 36,
-                }}
-              >
-                {avatar.name.charAt(0)}
-              </span>
-            </Text>
-          )}
-        </Column>
-      ))}
-      {plusCount > 0 ? (
-        <Column style={{ padding: "0 0 0 -12px", width: "40px" }}>
-          <Text
-            style={{
-              fontFamily: theme.fontFamily,
-              fontSize: "12px",
-              margin: 0,
-            }}
-          >
-            <span
-              style={{
-                backgroundColor: theme.colorBackgroundMuted,
-                border: `Twopx solid ${theme.colorBackground}`,
-                borderRadius: "999px",
-                color: theme.colorTextMuted,
-                display: "inline-block",
-                height: 36,
-                lineHeight: "36px",
-                textAlign: "center",
-                width: 36,
-              }}
-            >
-              +{plusCount}
-            </span>
-          </Text>
-        </Column>
-      ) : null}
-    </Row>
-  </Section>
-);
+export type GroupedOverlappedAvatarsPlusCountProps =
+  GroupedOverlappedAvatarsProps;
+
+export const GroupedOverlappedAvatarsPlusCountSection =
+  GroupedOverlappedAvatarsSection;
 
 export const GroupedOverlappedAvatarsPlusCount = ({
-  theme = defaultTheme,
-  avatars = [{ name: "A" }, { name: "B" }, { name: "C" }],
   plusCount = 5,
-  variant = "default",
+  ...props
 }: GroupedOverlappedAvatarsPlusCountProps) => (
-  <Html>
-    <Head />
-    <Preview>grouped-plus</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <GroupedOverlappedAvatarsPlusCountSection
-            avatars={avatars}
-            plusCount={plusCount}
-            theme={theme}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  <GroupedOverlappedAvatars plusCount={plusCount} {...props} />
 );
 
 GroupedOverlappedAvatarsPlusCount.PreviewProps = {
-  avatars: [
-    {
-      name: "A",
-      url: "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128",
-    },
-    {
-      name: "B",
-      url: "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128",
-    },
-    {
-      name: "C",
-      url: "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-3&size=128",
-    },
-  ],
-  plusCount: 12,
+  plusCount: 5,
+  size: "md",
   theme: defaultTheme,
-  variant: "default",
 } satisfies GroupedOverlappedAvatarsPlusCountProps;

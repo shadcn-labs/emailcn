@@ -1,91 +1,63 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Head,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
+import {
+  FullWidthProgressContent,
+  ProgressEmailShell,
+} from "./progress-bar-shared";
+import type { ProgressBarContentVariant } from "./progress-bar-shared";
+
 export interface FullWidthProgressBarProps {
+  description?: string;
   theme?: TailwindConfig;
+  title?: string;
   value?: number;
-  label?: string;
-  showLabel?: boolean;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: ProgressBarContentVariant;
 }
 
-export const FullWidthProgressBarSection = ({
-  value = 50,
-  label,
-  showLabel = true,
-  variant = "default",
-}: Omit<FullWidthProgressBarProps, "theme">) => {
-  const textAlign =
-    variant === "slanted-left"
-      ? "text-left"
-      : variant === "slanted-right"
-        ? "text-right"
-        : "text-center";
+const defaultDescription =
+  "Automate your workflows across tools with no code required. From CRM syncs to AI-powered triggers, FlowSync keeps your operations moving seamlessly.";
 
-  return (
-    <Section className="py-4">
-      {label ? (
-        <Text className={`mb-2 text-sm text-foreground ${textAlign}`}>
-          {label}
-        </Text>
-      ) : null}
-      <Section className="rounded-full bg-foreground-muted/10">
-        <Section
-          style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
-          className="rounded-full bg-primary py-2"
-        >
-          {showLabel ? (
-            <Text className="m-0 text-center text-xs font-medium text-primary-fg">
-              {value}%
-            </Text>
-          ) : null}
-        </Section>
-      </Section>
-    </Section>
-  );
-};
+export const FullWidthProgressBarSection = ({
+  description = defaultDescription,
+  title = "FlowSync",
+  value,
+  variant = "text-top",
+}: Omit<FullWidthProgressBarProps, "theme">) => (
+  <FullWidthProgressContent
+    description={description}
+    title={title}
+    value={value ?? (variant === "text-top" ? 42 : 33)}
+    variant={variant}
+  />
+);
 
 export const FullWidthProgressBar = ({
+  description = defaultDescription,
   theme = defaultTheme,
-  value = 50,
-  label,
-  showLabel = true,
-  variant = "default",
+  title = "FlowSync",
+  value,
+  variant = "text-top",
 }: FullWidthProgressBarProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>{`Progress ${value}%`}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <FullWidthProgressBarSection
-          label={label}
-          showLabel={showLabel}
-          value={value}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <ProgressEmailShell
+    horizontalPadding={64}
+    preview="Full width progress bar"
+    theme={theme}
+    topSpacer={30}
+  >
+    <FullWidthProgressBarSection
+      description={description}
+      title={title}
+      value={value}
+      variant={variant}
+    />
+  </ProgressEmailShell>
 );
 
 FullWidthProgressBar.PreviewProps = {
-  label: "Completion",
-  showLabel: true,
+  description: defaultDescription,
   theme: defaultTheme,
-  value: 65,
-  variant: "default",
+  title: "FlowSync",
+  variant: "text-top",
 } satisfies FullWidthProgressBarProps;

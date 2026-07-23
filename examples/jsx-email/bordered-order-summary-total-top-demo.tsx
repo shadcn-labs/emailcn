@@ -1,9 +1,13 @@
 import { BorderedOrderSummaryTotalTop } from "@/registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top";
+import type { BorderedOrderSummaryTotalTopProps } from "@/registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top";
 
-export default function BorderedOrderSummaryTotalTopDemo() {
+export default function BorderedOrderSummaryTotalTopDemo({
+  variant,
+}: Pick<BorderedOrderSummaryTotalTopProps, "variant">) {
   return (
     <BorderedOrderSummaryTotalTop
       {...BorderedOrderSummaryTotalTop.PreviewProps}
+      variant={variant ?? BorderedOrderSummaryTotalTop.PreviewProps.variant}
     />
   );
 }

@@ -1,127 +1,374 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable @next/next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type ImageGridVariant = "default" | "slanted-left" | "slanted-right";
+export type TwoColumnsImageGridVariant =
+  | "square-images"
+  | "portrait-images"
+  | "square-overlay"
+  | "portrait-overlay";
 
-export interface ImageGridProps {
+export interface TwoColumnsImageGridProps {
   theme?: EmailThemeTokens;
-  images?: { src: string; alt: string }[];
-  columns?: 2 | 3;
-  variant?: ImageGridVariant;
+  imageSrc1?: string;
+  imageAlt1?: string;
+  imageHref1?: string;
+  heading1?: string;
+  subtext1?: string;
+  imageSrc2?: string;
+  imageAlt2?: string;
+  imageHref2?: string;
+  heading2?: string;
+  subtext2?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  variant?: TwoColumnsImageGridVariant;
 }
 
-const ImageGridSection = ({
-  columns,
-  images,
-  theme,
-  variant,
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 430px) {
+    .two-grid-plain-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .two-grid-plain-gap {
+      line-height: 24px !important;
+    }
+  }
+
+  @media only screen and (max-width: 599px) {
+    .two-grid-overlay-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .two-grid-overlay-gap {
+      line-height: 24px !important;
+    }
+
+    .two-grid-portrait-overlay-spacer {
+      line-height: 384px !important;
+    }
+  }
+`;
+
+const variantContent = {
+  "portrait-images": {
+    imageSrc1:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait.jpg",
+    imageSrc2:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait-2.jpg",
+    overlay: false,
+    portrait: true,
+  },
+  "portrait-overlay": {
+    imageSrc1:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait.jpg",
+    imageSrc2:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-portrait-2.jpg",
+    overlay: true,
+    portrait: true,
+  },
+  "square-images": {
+    imageSrc1:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-square.jpg",
+    imageSrc2:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-square-2.jpg",
+    overlay: false,
+    portrait: false,
+  },
+  "square-overlay": {
+    imageSrc1:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-square.jpg",
+    imageSrc2:
+      "https://assets.mailviews.com/images/components/image-grids/2-col-square-2.jpg",
+    overlay: true,
+    portrait: false,
+  },
+} satisfies Record<
+  TwoColumnsImageGridVariant,
+  { imageSrc1: string; imageSrc2: string; overlay: boolean; portrait: boolean }
+>;
+
+const defaultSectionStyles = {
+  backgroundColor: "#fffffe",
+  heading1: "The Ordinary.",
+  heading2: "Fleurs.7",
+  headingColor: "#fffffe",
+  imageAlt1: "",
+  imageAlt2: "",
+  imageHref1: "https://example.com",
+  imageHref2: "https://example.com",
+  pageBackgroundColor: "#f1f5f9",
+  subtext1: "Salicylic Serum",
+  subtext2: "Moisturizing Mist",
+  textColor: "#fffffe",
+};
+
+type SectionProps = Omit<TwoColumnsImageGridProps, "theme">;
+type ResolvedProps = typeof defaultSectionStyles &
+  (typeof variantContent)[TwoColumnsImageGridVariant];
+
+const OverlayCard = ({
+  heading,
+  headingColor,
+  imageSrc,
+  portrait,
+  subtext,
+  textColor,
 }: {
-  columns: 2 | 3;
-  images: ImageGridProps["images"];
-  theme: EmailThemeTokens;
-  variant: ImageGridVariant;
-}) => {
-  const slice = (images ?? []).slice(0, columns);
-  const widthPct = `${100 / columns}%`;
+  heading: string;
+  headingColor: string;
+  imageSrc: string;
+  portrait: boolean;
+  subtext: string;
+  textColor: string;
+}) => (
+  <div
+    style={{
+      backgroundImage: `url('${imageSrc}')`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      borderRadius: "4px",
+      maxWidth: "100%",
+    }}
+  >
+    <div
+      className={portrait ? "two-grid-portrait-overlay-spacer" : undefined}
+      style={{ lineHeight: portrait ? "304px" : "172px" }}
+    >
+      &zwj;
+    </div>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              background: "linear-gradient(to bottom, transparent, #000001)",
+              borderBottomLeftRadius: "4px",
+              borderBottomRightRadius: "4px",
+              padding: "16px",
+              textAlign: "left",
+            }}
+          >
+            <h4
+              style={{
+                color: headingColor,
+                fontFamily,
+                fontSize: "24px",
+                fontWeight: 700,
+                lineHeight: "32px",
+                margin: 0,
+              }}
+            >
+              {heading}
+            </h4>
+            <p
+              style={{
+                color: textColor,
+                fontFamily,
+                fontSize: "20px",
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              {subtext}
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
+
+const GridItem = ({
+  alt,
+  heading,
+  headingColor,
+  href,
+  overlay,
+  portrait,
+  src,
+  subtext,
+  textColor,
+}: {
+  alt: string;
+  heading: string;
+  headingColor: string;
+  href: string;
+  overlay: boolean;
+  portrait: boolean;
+  src: string;
+  subtext: string;
+  textColor: string;
+}) =>
+  overlay ? (
+    <OverlayCard
+      heading={heading}
+      headingColor={headingColor}
+      imageSrc={src}
+      portrait={portrait}
+      subtext={subtext}
+      textColor={textColor}
+    />
+  ) : (
+    <a href={href}>
+      <img
+        alt={alt}
+        src={src}
+        style={{
+          borderRadius: "4px",
+          maxWidth: "100%",
+          verticalAlign: "middle",
+        }}
+        width="264"
+      />
+    </a>
+  );
+
+export const TwoColumnsImageGridSection = (props: SectionProps) => {
+  const variant = props.variant ?? "square-images";
+  const resolved = {
+    ...defaultSectionStyles,
+    ...variantContent[variant],
+    ...props,
+  } as ResolvedProps;
+  const stackClass = resolved.overlay
+    ? "two-grid-overlay-stack"
+    : "two-grid-plain-stack";
+  const gapClass = resolved.overlay
+    ? "two-grid-overlay-gap"
+    : "two-grid-plain-gap";
 
   return (
-    <MjmlSection
-      backgroundColor={theme.colorBackground}
-      padding={`${theme.spacingXl ?? "48px"} 0`}
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
     >
-      {slice.length > 0 ? (
-        slice.map((img) => (
-          <MjmlColumn
-            key={img.src}
-            width={widthPct}
-            padding={theme.spacingBase ?? "24px"}
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "24px",
+              width: "600px",
+            }}
           >
-            <MjmlImage
-              alt={img.alt}
-              borderRadius={theme.borderRadius}
-              src={img.src}
-              width={260}
-            />
-          </MjmlColumn>
-        ))
-      ) : (
-        <MjmlColumn>
-          <MjmlText
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-          >
-            No images to display.
-          </MjmlText>
-        </MjmlColumn>
-      )}
-    </MjmlSection>
+            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  <td className={stackClass} style={{ width: "264px" }}>
+                    <GridItem
+                      alt={resolved.imageAlt1}
+                      heading={resolved.heading1}
+                      headingColor={resolved.headingColor}
+                      href={resolved.imageHref1}
+                      overlay={resolved.overlay}
+                      portrait={resolved.portrait}
+                      src={resolved.imageSrc1}
+                      subtext={resolved.subtext1}
+                      textColor={resolved.textColor}
+                    />
+                  </td>
+                  <td
+                    className={`${stackClass} ${gapClass}`}
+                    style={{ width: "24px" }}
+                  >
+                    &zwj;
+                  </td>
+                  <td className={stackClass} style={{ width: "264px" }}>
+                    <GridItem
+                      alt={resolved.imageAlt2}
+                      heading={resolved.heading2}
+                      headingColor={resolved.headingColor}
+                      href={resolved.imageHref2}
+                      overlay={resolved.overlay}
+                      portrait={resolved.portrait}
+                      src={resolved.imageSrc2}
+                      subtext={resolved.subtext2}
+                      textColor={resolved.textColor}
+                    />
+                  </td>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const TwoColumnsImageGrid = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  images = [
-    { alt: "Image 1", src: "https://static.photos/technology/400x300/2" },
-    { alt: "Image 2", src: "https://static.photos/technology/400x300/3" },
-  ],
-  columns = 2,
-  variant = "default",
-}: ImageGridProps) => (
+  variant = "square-images",
+  ...props
+}: TwoColumnsImageGridProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>image grid</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Two columns image grid</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <ImageGridSection
-          columns={columns}
-          images={images}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <TwoColumnsImageGridSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 TwoColumnsImageGrid.PreviewProps = {
-  columns: 2,
-  images: [
-    {
-      alt: "Screenshot 1",
-      src: "https://static.photos/technology/400x300/4",
-    },
-    {
-      alt: "Screenshot 2",
-      src: "https://static.photos/technology/400x300/5",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies ImageGridProps;
+  variant: "square-images",
+} satisfies TwoColumnsImageGridProps;

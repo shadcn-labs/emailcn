@@ -1,11 +1,42 @@
 ---
 title: "Bordered Order Summary with Total Top"
-description: "Ecommerce order-summary variant for email templates"
+description: "Bordered Order Summary with Total Top with every Mailviews layout variant."
 ---
+
+This public component matches the corresponding Mailviews family. Its alignment, fill, border, and detail changes are variants backed by the shared Order Summary layout core.
+
+## Examples
+
+### Left Aligned
 
 <ComponentPreview
   base="jsx-email"
-  name="bordered-order-summary-total-bottom-demo"
+  name="bordered-order-summary-total-top-demo"
+  variant="left-aligned"
+/>
+
+### Right Aligned
+
+<ComponentPreview
+  base="jsx-email"
+  name="bordered-order-summary-total-top-demo"
+  variant="right-aligned"
+/>
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="bordered-order-summary-total-top-demo"
+  variant="centered"
+/>
+
+### Justified
+
+<ComponentPreview
+  base="jsx-email"
+  name="bordered-order-summary-total-top-demo"
+  variant="justified"
 />
 
 ## Installation
@@ -25,13 +56,7 @@ npx shadcn@latest add @emailcn/bordered-order-summary-with-total-top
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx"
     base="jsx-email"
@@ -45,17 +70,19 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { BorderedOrderSummaryWithTotalTop } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top";
+import { BorderedOrderSummaryTotalTop } from "@/components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top";
 ```
 
 ```tsx
-<BorderedOrderSummaryWithTotalTop
-  {...BorderedOrderSummaryWithTotalTop.PreviewProps}
+<BorderedOrderSummaryTotalTop
+  {...BorderedOrderSummaryTotalTop.PreviewProps}
+  variant="left-aligned"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                             | Default          | Description              |
+| --------- | ---------------------------------------------------------------- | ---------------- | ------------------------ |
+| `variant` | `"left-aligned" \| "right-aligned" \| "centered" \| "justified"` | `"left-aligned"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                               | `defaultTheme`   | Email theme styling      |

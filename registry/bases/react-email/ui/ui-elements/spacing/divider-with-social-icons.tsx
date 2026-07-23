@@ -1,67 +1,47 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Text } from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
+import {
+  DividerFrame,
+  SpacingEmailShell,
+  dividerTextStyle,
+} from "./divider-shared";
+import type { DividerVariant } from "./divider-shared";
 
 export interface DividerWithSocialIconsProps {
   theme?: TailwindConfig;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: DividerVariant;
 }
 
 export const DividerWithSocialIconsSection = ({
-  variant = "default",
-}: Omit<DividerWithSocialIconsProps, "theme">) => {
-  const textAlign =
-    variant === "slanted-left"
-      ? "text-left"
-      : variant === "slanted-right"
-        ? "text-right"
-        : "text-center";
-
-  return (
-    <Section className="py-6">
-      <div className="flex items-center">
-        <Hr className="flex-1 border-border" />
-        <Text
-          className={`mx-4 m-0 text-lg tracking-[8px] whitespace-nowrap ${textAlign}`}
-        >
-          {"\u24D0 \u24B6 \u24C8 \u24CE"}
-        </Text>
-        <Hr className="flex-1 border-border" />
-      </div>
-    </Section>
-  );
-};
+  variant = "center",
+}: Omit<DividerWithSocialIconsProps, "theme">) => (
+  <DividerFrame variant={variant}>
+    <Text
+      style={{
+        ...dividerTextStyle,
+        fontSize: "18px",
+        letterSpacing: "8px",
+        lineHeight: "28px",
+      }}
+    >
+      {"ⓐ Ⓐ Ⓢ Ⓨ"}
+    </Text>
+  </DividerFrame>
+);
 
 export const DividerWithSocialIcons = ({
   theme = defaultTheme,
-  variant = "default",
+  variant = "center",
 }: DividerWithSocialIconsProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>—</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <DividerWithSocialIconsSection variant={variant} />
-      </Body>
-    </Tailwind>
-  </Html>
+  <SpacingEmailShell preview="Divider with social icons" theme={theme}>
+    <DividerWithSocialIconsSection variant={variant} />
+  </SpacingEmailShell>
 );
 
 DividerWithSocialIcons.PreviewProps = {
   theme: defaultTheme,
-  variant: "default",
+  variant: "center",
 } satisfies DividerWithSocialIconsProps;

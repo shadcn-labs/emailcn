@@ -1,9 +1,65 @@
 ---
 title: "Featured Brands Logo Grid"
-description: "Marketing logos variant for email templates"
+description: "Mailviews featured-brand grid with tile and placement variants"
 ---
 
-<ComponentPreview base="mjml-react" name="featured-brands-logo-grid-demo" />
+The Mailviews outlined and boxed families share the same geometry. Use `tone` for the tile treatment and `alignment` to place the featured brand.
+
+## Examples
+
+### Outlined — Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-brands-logo-grid-demo"
+  variant="outlined-left"
+  hideCode
+/>
+
+### Outlined — Center
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-brands-logo-grid-demo"
+  variant="outlined-center"
+  hideCode
+/>
+
+### Outlined — Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-brands-logo-grid-demo"
+  variant="outlined-right"
+  hideCode
+/>
+
+### Boxed — Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-brands-logo-grid-demo"
+  variant="boxed-left"
+  hideCode
+/>
+
+### Boxed — Center
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-brands-logo-grid-demo"
+  variant="boxed-center"
+  hideCode
+/>
+
+### Boxed — Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-brands-logo-grid-demo"
+  variant="boxed-right"
+  hideCode
+/>
 
 ## Installation
 
@@ -22,13 +78,7 @@ npx shadcn@latest add @emailcn/featured-brands-logo-grid
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/logos/featured-brands-logo-grid.tsx"
     base="mjml-react"
@@ -46,11 +96,17 @@ import { FeaturedBrandsLogoGrid } from "@/components/emails/marketing/logos/feat
 ```
 
 ```tsx
-<FeaturedBrandsLogoGrid {...FeaturedBrandsLogoGrid.PreviewProps} />
+<FeaturedBrandsLogoGrid
+  {...FeaturedBrandsLogoGrid.PreviewProps}
+  alignment="center"
+  tone="boxed"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                              | Default        | Description                                 |
+| ----------- | --------------------------------- | -------------- | ------------------------------------------- |
+| `tone`      | `FeaturedBrandsLogoGridTone`      | `"outlined"`   | Selects outlined or boxed tiles             |
+| `alignment` | `FeaturedBrandsLogoGridAlignment` | `"left"`       | Places the featured brand left/center/right |
+| `theme`     | Renderer theme                    | `defaultTheme` | Renderer theme configuration                |

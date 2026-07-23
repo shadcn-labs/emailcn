@@ -1,9 +1,51 @@
 ---
-title: "Single Image with Details"
-description: "Ecommerce product-detail variant for email templates"
+title: "Single Image Product Detail with Details"
+description: "Single Image Product Detail with Details with every Mailviews layout variant."
 ---
 
-<ComponentPreview base="jsx-email" name="feature-with-product-image-demo" />
+This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+
+## Examples
+
+### Rating Bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-bottom"
+/>
+
+### Rating Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-top"
+/>
+
+### Header Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="header-top"
+/>
+
+### Rating Aside
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-aside"
+/>
+
+### Rating Aside Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-image-product-detail-demo"
+  variant="rating-aside-top"
+/>
 
 ## Installation
 
@@ -22,13 +64,7 @@ npx shadcn@latest add @emailcn/single-image-product-detail-with-details
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx"
     base="jsx-email"
@@ -42,17 +78,19 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { SingleImageProductDetailWithDetails } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
+import { SingleImageProductDetail } from "@/components/emails/ecommerce/product-detail/single-image-product-detail-with-details";
 ```
 
 ```tsx
-<SingleImageProductDetailWithDetails
-  {...SingleImageProductDetailWithDetails.PreviewProps}
+<SingleImageProductDetail
+  {...SingleImageProductDetail.PreviewProps}
+  variant="rating-bottom"
 />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                      | Default           | Description              |
+| --------- | ----------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
+| `variant` | `"rating-bottom" \| "rating-top" \| "header-top" \| "rating-aside" \| "rating-aside-top"` | `"rating-bottom"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                        | `defaultTheme`    | Email theme styling      |

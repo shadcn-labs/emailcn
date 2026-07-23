@@ -1,7 +1,14 @@
 ---
-title: "Collapsed FAQ with Expanded Section and Icons"
-description: "Marketing faq variant for email templates"
+title: "Collapsed FAQ With Expanded Section And Icons"
+description: "An icon-led FAQ list with the first answer expanded."
 ---
+
+This layout keeps its own public component because its content contract differs
+from the other FAQ treatments. Common email-safe rendering is shared internally.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="jsx-email"
@@ -25,13 +32,20 @@ npx shadcn@latest add @emailcn/collapsed-faq-with-expanded-section-and-icons
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared FAQ primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/faq/faq-shared.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/faq/faq-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx"
     base="jsx-email"
@@ -56,6 +70,9 @@ import { CollapsedFaqWithExpandedSectionAndIcons } from "@/components/emails/mar
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop            | Type               | Default                        | Description                            |
+| --------------- | ------------------ | ------------------------------ | -------------------------------------- |
+| `theme`         | `EmailThemeTokens` | `defaultTheme`                 | Renderer theme configuration.          |
+| `heading`       | `string`           | `"Frequently asked questions"` | Section heading.                       |
+| `q1`, `q2`, ... | `string`           | Mailviews example copy         | Question labels.                       |
+| `a1`, `a2`, ... | `string`           | Mailviews example copy         | Answers when the layout displays them. |

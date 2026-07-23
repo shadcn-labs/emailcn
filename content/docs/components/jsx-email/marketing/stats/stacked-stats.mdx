@@ -1,9 +1,21 @@
 ---
 title: "Stacked Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews aligned stacked-stats family"
 ---
 
-<ComponentPreview base="jsx-email" name="stacked-stats-demo" />
+## Examples
+
+### Left
+
+<ComponentPreview base="jsx-email" name="stacked-stats-demo" variant="left" />
+
+### Center
+
+<ComponentPreview base="jsx-email" name="stacked-stats-demo" variant="center" />
+
+### Right
+
+<ComponentPreview base="jsx-email" name="stacked-stats-demo" variant="right" />
 
 ## Installation
 
@@ -22,13 +34,7 @@ npx shadcn@latest add @emailcn/stacked-stats
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/stats/stacked-stats.tsx"
     base="jsx-email"
@@ -43,14 +49,13 @@ npm install jsx-email
 
 ```tsx
 import { StackedStats } from "@/components/emails/marketing/stats/stacked-stats";
-```
 
-```tsx
-<StackedStats {...StackedStats.PreviewProps} />
+<StackedStats variant="center" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                            | Default        | Description              |
+| --------- | ------------------------------- | -------------- | ------------------------ |
+| `variant` | `"left" \| "center" \| "right"` | `"left"`       | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling      |

@@ -1,11 +1,48 @@
 ---
 title: "Single Stat with Background Image"
-description: "Marketing stats variant for email templates"
+description: "Mailviews positioned single-stat family"
 ---
+
+## Examples
+
+### Centered
 
 <ComponentPreview
   base="jsx-email"
   name="single-stat-with-background-image-demo"
+  variant="centered"
+/>
+
+### Top left
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-stat-with-background-image-demo"
+  variant="top-left"
+/>
+
+### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-stat-with-background-image-demo"
+  variant="bottom-left"
+/>
+
+### Top right
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-stat-with-background-image-demo"
+  variant="top-right"
+/>
+
+### Bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="single-stat-with-background-image-demo"
+  variant="bottom-right"
 />
 
 ## Installation
@@ -25,13 +62,7 @@ npx shadcn@latest add @emailcn/single-stat-with-background-image
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/stats/single-stat-with-background-image.tsx"
     base="jsx-email"
@@ -46,16 +77,13 @@ npm install jsx-email
 
 ```tsx
 import { SingleStatWithBackgroundImage } from "@/components/emails/marketing/stats/single-stat-with-background-image";
-```
 
-```tsx
-<SingleStatWithBackgroundImage
-  {...SingleStatWithBackgroundImage.PreviewProps}
-/>
+<SingleStatWithBackgroundImage variant="top-left" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                         | Default        | Description              |
+| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling      |

@@ -1,5 +1,15 @@
 import { StackedTimeline } from "@/registry/bases/mjml-react/ui/marketing/timelines/stacked-timeline";
+import type { StackedTimelineVariant } from "@/registry/bases/mjml-react/ui/marketing/timelines/stacked-timeline";
 
-export default function StackedTimelineDemo() {
-  return <StackedTimeline {...StackedTimeline.PreviewProps} />;
+export default function StackedTimelineDemo({
+  variant,
+}: {
+  variant?: StackedTimelineVariant;
+}) {
+  return (
+    <StackedTimeline
+      {...StackedTimeline.PreviewProps}
+      variant={variant ?? StackedTimeline.PreviewProps.variant}
+    />
+  );
 }

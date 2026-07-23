@@ -1,144 +1,384 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FeatureLeftImageVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type FeatureWithLargePortraitImageVariant =
+  | "logo-top-right"
+  | "logo-top-left"
+  | "logo-bottom-left"
+  | "logo-bottom-right"
+  | "content-bottom-left"
+  | "content-bottom-right"
+  | "content-top-left"
+  | "content-top-right";
 
-export interface FeatureLeftImageProps {
+export interface FeatureWithLargePortraitImageProps {
   theme?: EmailThemeTokens;
-  imageSrc?: string;
-  imageAlt?: string;
   heading?: string;
   body?: string;
-  variant?: FeatureLeftImageVariant;
+  portraitImageSrc?: string;
+  portraitImageAlt?: string;
+  secondaryImageSrc?: string;
+  secondaryImageAlt?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+  arrowIconSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  logoBackgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  linkColor?: string;
+  variant?: FeatureWithLargePortraitImageVariant;
 }
 
-const FeatureLeftImageSection = ({
-  body,
-  heading,
-  imageAlt,
-  imageSrc,
-  theme,
-  variant,
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .feature-portrait-stack { display: block !important; width: 100% !important; }
+    .feature-portrait-image { width: 100% !important; }
+    .feature-portrait-hide-mobile { display: none !important; }
+    .feature-portrait-gap { line-height: 24px !important; }
+  }
+`;
+
+const sharedDefaults = {
+  arrowIconSrc:
+    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+  backgroundColor: "#fffffe",
+  buttonHref: "https://example.com",
+  buttonLabel: "Discover more",
+  headingColor: "#030712",
+  linkColor: "#4f46e5",
+  logoAlt: "Visa",
+  logoBackgroundColor: "#f3f4f6",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/feature/logo-north-face.png",
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+};
+
+const logoDefaults = {
+  body: "Find advanced outerwear engineered to handle wind, rain, and sudden shifts in the elements.",
+  heading: "Explore without limits.",
+  portraitImageAlt: "Product Image",
+  portraitImageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-3-lg-1.jpg",
+  secondaryImageAlt: "Product Image 2",
+  secondaryImageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-3-sm-1.jpg",
+};
+
+const contentDefaults = {
+  body: "Experience cutting-edge performance, from dual-frequency GPS to pro-grade health insights.",
+  heading: "Innovation on your wrist.",
+  portraitImageAlt: "Product Image 1",
+  portraitImageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-3-lg-2.jpg",
+  secondaryImageAlt: "Product Image 2",
+  secondaryImageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-3-sm-1.jpg",
+};
+
+const contentTopRightDefaults = {
+  portraitImageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-3-lg-3.jpg",
+  secondaryImageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-3-sm-2.jpg",
+};
+
+type SectionProps = Omit<FeatureWithLargePortraitImageProps, "theme">;
+type ResolvedProps = typeof sharedDefaults &
+  typeof contentDefaults &
+  SectionProps;
+
+const ResponsiveImage = ({
+  alt,
+  src,
+  width,
 }: {
-  body: string;
-  heading: string;
-  imageAlt: string;
-  imageSrc: string;
-  theme: EmailThemeTokens;
-  variant: FeatureLeftImageVariant;
+  alt: string;
+  src: string;
+  width: number;
 }) => (
-  <Section
+  <Img
+    alt={alt}
+    className="feature-portrait-image"
+    src={src}
     style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
+      borderRadius: "4px",
+      display: "inline",
+      maxWidth: "100%",
+      verticalAlign: "middle",
     }}
-  >
-    <Row>
-      <Column
-        style={{ padding: "0 12px", verticalAlign: "middle", width: "40%" }}
-      >
-        <Img
-          alt={imageAlt}
-          src={imageSrc}
-          width={220}
-          style={{
-            borderRadius: theme.borderRadius,
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-          }}
-        />
-      </Column>
-      <Column
-        style={{ padding: "0 12px", verticalAlign: "middle", width: "60%" }}
-      >
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeXl ?? "20px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase ?? "14px",
-            lineHeight: theme.lineHeightBase,
-            margin: 0,
-          }}
-        >
-          {body}
-        </Text>
-      </Column>
-    </Row>
-  </Section>
+    width={width}
+  />
 );
 
-export const FeatureWithLargePortraitImage = ({
-  theme = defaultTheme,
-  imageSrc = "https://static.photos/technology/400x300/2",
-  imageAlt = "feature",
-  heading = "Feature Title",
-  body = "Description of the feature shown on the left side.",
-  variant = "default",
-}: FeatureLeftImageProps) => (
-  <Html>
-    <Head />
-    <Preview>feature left image</Preview>
-    <Body
+const LogoPanel = ({ props }: { props: ResolvedProps }) => (
+  <div
+    style={{
+      backgroundColor: props.logoBackgroundColor,
+      borderRadius: "4px",
+      lineHeight: "205px",
+      textAlign: "center",
+    }}
+  >
+    <Img
+      alt={props.logoAlt}
+      src={props.logoSrc}
+      style={{ display: "inline", maxWidth: "100%", verticalAlign: "middle" }}
+      width={139}
+    />
+  </div>
+);
+
+const SecondaryImage = ({ props }: { props: ResolvedProps }) => (
+  <div style={{ textAlign: "center" }}>
+    <ResponsiveImage
+      alt={props.secondaryImageAlt}
+      src={props.secondaryImageSrc}
+      width={205}
+    />
+  </div>
+);
+
+const FeatureCopy = ({
+  contentVariant,
+  props,
+}: {
+  contentVariant: boolean;
+  props: ResolvedProps;
+}) => (
+  <>
+    <h2
       style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
+        color: props.headingColor,
+        fontFamily,
+        fontSize: "20px",
+        fontWeight: 600,
+        lineHeight: "28px",
         margin: 0,
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FeatureLeftImageSection
-            body={body}
-            heading={heading}
-            imageAlt={imageAlt}
-            imageSrc={imageSrc}
-            theme={theme}
-            variant={variant}
+      {contentVariant && props.heading === contentDefaults.heading ? (
+        <>
+          Innovation on <br className="feature-portrait-hide-mobile" /> your
+          wrist.
+        </>
+      ) : (
+        props.heading
+      )}
+    </h2>
+    <p
+      style={{
+        color: props.textColor,
+        fontFamily,
+        fontSize: "14px",
+        fontWeight: 300,
+        lineHeight: "20px",
+        margin: "12px 0 0",
+      }}
+    >
+      {props.body}
+    </p>
+    <div style={{ lineHeight: "12px" }}>&zwj;</div>
+    <div>
+      <a
+        href={props.buttonHref}
+        style={{
+          borderRadius: "8px",
+          color: props.linkColor,
+          display: "inline-block",
+          fontFamily,
+          fontSize: "14px",
+          fontWeight: 500,
+          lineHeight: "20px",
+          padding: 0,
+          textDecoration: "none",
+        }}
+      >
+        <span style={{ marginRight: "8px" }}>{props.buttonLabel}</span>
+        <span>
+          <Img
+            alt=""
+            src={props.arrowIconSrc}
+            style={{
+              display: "inline",
+              maxWidth: "100%",
+              verticalAlign: "baseline",
+            }}
+            width={16}
           />
-        </Section>
+        </span>
+      </a>
+    </div>
+  </>
+);
+
+const ContentColumn = ({
+  contentVariant,
+  mediaAfter,
+  mediaKind,
+  props,
+}: {
+  contentVariant: boolean;
+  mediaAfter: boolean;
+  mediaKind: "logo" | "secondary";
+  props: ResolvedProps;
+}) => {
+  const media =
+    mediaKind === "logo" ? (
+      <LogoPanel props={props} />
+    ) : (
+      <SecondaryImage props={props} />
+    );
+  return (
+    <td
+      className="feature-portrait-stack"
+      style={{ textAlign: "left", verticalAlign: "top", width: "205px" }}
+    >
+      {mediaAfter ? null : <div style={{ marginBottom: "24px" }}>{media}</div>}
+      <FeatureCopy contentVariant={contentVariant} props={props} />
+      {mediaAfter ? <div style={{ marginTop: "24px" }}>{media}</div> : null}
+    </td>
+  );
+};
+
+const PortraitColumn = ({ props }: { props: ResolvedProps }) => (
+  <td
+    className="feature-portrait-stack"
+    style={{ verticalAlign: "top", width: "323px" }}
+  >
+    <ResponsiveImage
+      alt={props.portraitImageAlt}
+      src={props.portraitImageSrc}
+      width={323}
+    />
+  </td>
+);
+
+export const FeatureWithLargePortraitImageSection = (props: SectionProps) => {
+  const variant = props.variant ?? "logo-top-left";
+  const contentVariant = variant.startsWith("content-");
+  const variantDefaults = contentVariant ? contentDefaults : logoDefaults;
+  const resolved = {
+    ...sharedDefaults,
+    ...variantDefaults,
+    ...(variant.startsWith("content-top-") ? contentTopRightDefaults : {}),
+    ...props,
+  } as ResolvedProps;
+  const portraitLeft = variant.endsWith("-right");
+  const mediaAfter =
+    variant.startsWith("logo-bottom-") || variant.startsWith("content-top-");
+  const content = (
+    <ContentColumn
+      contentVariant={contentVariant}
+      mediaAfter={mediaAfter}
+      mediaKind={contentVariant ? "secondary" : "logo"}
+      props={resolved}
+    />
+  );
+  const portrait = <PortraitColumn props={resolved} />;
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          {portraitLeft ? portrait : content}
+                          <td
+                            className="feature-portrait-stack feature-portrait-gap"
+                            style={{ width: "24px" }}
+                          >
+                            &zwj;
+                          </td>
+                          {portraitLeft ? content : portrait}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const FeatureWithLargePortraitImage = ({
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "logo-top-left",
+  ...props
+}: FeatureWithLargePortraitImageProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Explore without limits.</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <FeatureWithLargePortraitImageSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 FeatureWithLargePortraitImage.PreviewProps = {
-  body: "Image displayed on the left with supporting text on the right.",
-  heading: "Feature with Left Image",
-  imageAlt: "feature",
-  imageSrc: "https://static.photos/technology/400x300/3",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FeatureLeftImageProps;
+  variant: "logo-top-left",
+} satisfies FeatureWithLargePortraitImageProps;

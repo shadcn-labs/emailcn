@@ -1,9 +1,10 @@
-import { SocialsWithStackedTileLabels } from "@/registry/bases/react-email/ui/marketing/social/socials-with-stacked-tile-labels";
+import { SocialsWithTileLabels } from "@/registry/bases/react-email/ui/marketing/social/socials-with-tile-labels";
 
 export default function SocialsWithStackedTileLabelsDemo() {
   return (
-    <SocialsWithStackedTileLabels
-      {...SocialsWithStackedTileLabels.PreviewProps}
+    <SocialsWithTileLabels
+      {...SocialsWithTileLabels.PreviewProps}
+      variant="stacked"
     />
   );
 }

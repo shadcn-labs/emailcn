@@ -1,7 +1,11 @@
 ---
 title: "With Progress Bar"
-description: "With Progress Bar — Data Tables email component."
+description: "A projects table with inline progress bars."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="mjml-react" name="data-table-with-progress-demo" />
 
@@ -22,13 +26,20 @@ npx shadcn@latest add @emailcn/data-table-with-progress-bar
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx"
     base="mjml-react"
@@ -42,15 +53,17 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { DataTableWithProgressBar } from "@/components/emails/ui-elements/data-tables/data-table-with-progress-bar";
+import { DataTableWithProgress } from "@/components/emails/ui-elements/data-tables/data-table-with-progress-bar";
 ```
 
 ```tsx
-<DataTableWithProgressBar {...DataTableWithProgressBar.PreviewProps} />
+<DataTableWithProgress {...DataTableWithProgress.PreviewProps} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type               | Default                   | Description                   |
+| --------- | ------------------ | ------------------------- | ----------------------------- |
+| `theme`   | `EmailThemeTokens` | `defaultTheme`            | Renderer theme configuration. |
+| `headers` | `string[]`         | Component-specific labels | Column labels.                |
+| `rows`    | `Progress rows`    | One progress row          | Table row data.               |

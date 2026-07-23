@@ -1,13 +1,77 @@
 ---
 title: "Product Lists"
-description: "Product list layouts for showcasing multiple products in a single email section."
+description: "Product List with Rows with every Mailviews layout variant."
 ---
 
-## Product List with Rows
+The Mailviews Product Lists catalog contains one public family. Its content and review-placement changes are typed variants backed by one shared row layout.
 
-<ComponentPreview base="jsx-email" name="product-list-with-rows-demo" />
+## Examples
 
-### Installation
+### Basic
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="basic"
+/>
+
+### Reviews Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="reviews-top"
+/>
+
+### With Description
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="with-description"
+/>
+
+### With Intro
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="with-intro"
+/>
+
+### With Details
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="with-details"
+/>
+
+### Details Reviews Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="details-reviews-top"
+/>
+
+### Full Details
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="full-details"
+/>
+
+### Full Reviews Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-rows-demo"
+  variant="full-reviews-top"
+/>
+
+## Installation
 
 <CodeTabs>
 <TabsList>
@@ -24,13 +88,7 @@ npx shadcn@latest add @emailcn/product-list-with-rows
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/ecommerce/product-lists/product-list-with-rows.tsx"
     base="jsx-email"
@@ -41,18 +99,19 @@ npm install jsx-email
 </TabsContent>
 </CodeTabs>
 
-### Usage
+## Usage
 
 ```tsx
 import { ProductListWithRows } from "@/components/emails/ecommerce/product-lists/product-list-with-rows";
 ```
 
 ```tsx
-<ProductListWithRows {...ProductListWithRows.PreviewProps} />
+<ProductListWithRows {...ProductListWithRows.PreviewProps} variant="basic" />
 ```
 
-### API Reference
+## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                | Default        | Description              |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"basic" \| "reviews-top" \| "with-description" \| "with-intro" \| "with-details" \| "details-reviews-top" \| "full-details" \| "full-reviews-top"` | `"basic"`      | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                                                                                  | `defaultTheme` | Email theme styling      |

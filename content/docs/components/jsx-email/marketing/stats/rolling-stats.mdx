@@ -1,9 +1,49 @@
 ---
 title: "Rolling Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews positioned rolling-stats family"
 ---
 
-<ComponentPreview base="jsx-email" name="rolling-stats-demo" />
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="centered"
+/>
+
+### Top left
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="top-left"
+/>
+
+### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="bottom-left"
+/>
+
+### Top right
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="top-right"
+/>
+
+### Bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="rolling-stats-demo"
+  variant="bottom-right"
+/>
 
 ## Installation
 
@@ -22,13 +62,7 @@ npx shadcn@latest add @emailcn/rolling-stats
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/stats/rolling-stats.tsx"
     base="jsx-email"
@@ -43,14 +77,13 @@ npm install jsx-email
 
 ```tsx
 import { RollingStats } from "@/components/emails/marketing/stats/rolling-stats";
-```
 
-```tsx
-<RollingStats {...RollingStats.PreviewProps} />
+<RollingStats variant="top-left" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                         | Default        | Description              |
+| --------- | ---------------------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"centered" \| "top-left" \| "bottom-left" \| "top-right" \| "bottom-right"` | `"centered"`   | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                           | `defaultTheme` | Email theme styling      |

@@ -1,182 +1,61 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  reviewsResponsiveStyles,
+  ReviewsSection,
+} from "@/registry/bases/mjml-react/ui/ecommerce/reviews/reviews-shared";
+import type {
+  ReviewItem,
+  ReviewsVariant,
+} from "@/registry/bases/mjml-react/ui/ecommerce/reviews/reviews-shared";
 
 export interface TwoColumnsReviewsProps {
+  reviews?: ReviewItem[];
   theme?: EmailThemeTokens;
-  reviews?: {
-    avatarUrl?: string;
-    name: string;
-    rating: number;
-    text: string;
-    date?: string;
-  }[];
-  variant?: "default" | "slanted-left" | "slanted-right";
+  variant?: ReviewsVariant;
 }
 
-const StarRating = ({
-  rating,
-  theme,
-}: {
-  rating: number;
-  theme: EmailThemeTokens;
-}) => {
-  const stars = "\u2605".repeat(Math.min(rating, 5));
-  const empty = "\u2606".repeat(Math.max(0, 5 - Math.min(rating, 5)));
-  return (
-    <MjmlText
-      color={theme.colorPrimary}
-      fontFamily={theme.fontFamily}
-      fontSize={theme.fontSizeLg ?? "16px"}
-      paddingBottom={theme.spacingBase ?? "16px"}
-    >
-      {stars}
-      {empty ? (
-        <span style={{ color: theme.colorBorder ?? "#e5e7eb" }}>{empty}</span>
-      ) : null}
-    </MjmlText>
-  );
-};
-
-const TwoColumnsReviewsSection = ({
+export const TwoColumnsReviewsSection = ({
   reviews,
-  theme,
-}: {
-  reviews: NonNullable<TwoColumnsReviewsProps["reviews"]>;
-  theme: EmailThemeTokens;
-}) => {
-  const rows: (typeof reviews)[] = [];
-  for (let i = 0; i < reviews.length; i += 2) {
-    rows.push(reviews.slice(i, i + 2));
-  }
-
-  return (
-    <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-      {rows.map((row, ri) => (
-        <MjmlSection key={ri} padding={`0 0 ${theme.spacingLg ?? "24px"}`}>
-          {row.map((review) => (
-            <MjmlColumn
-              key={review.name}
-              width="50%"
-              paddingRight={theme.spacingBase ?? "16px"}
-              verticalAlign="top"
-              backgroundColor={theme.colorBackgroundMuted}
-              border={`1px solid ${theme.colorBorder ?? "#e5e7eb"}`}
-              borderRadius={theme.borderRadius}
-              padding={theme.spacingLg ?? "24px"}
-            >
-              <StarRating rating={review.rating} theme={theme} />
-              <MjmlText
-                color={theme.colorText}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeBase ?? "14px"}
-                lineHeight={theme.lineHeightBase}
-                paddingBottom={theme.spacingBase ?? "16px"}
-              >
-                &ldquo;{review.text}&rdquo;
-              </MjmlText>
-              <MjmlText
-                color={theme.colorText}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeBase ?? "14px"}
-                fontWeight={theme.fontWeightMedium ?? "500"}
-              >
-                {review.name}
-              </MjmlText>
-              {review.date ? (
-                <MjmlText
-                  color={theme.colorTextMuted}
-                  fontFamily={theme.fontFamily}
-                  fontSize={theme.fontSizeSm ?? "12px"}
-                >
-                  {review.date}
-                </MjmlText>
-              ) : null}
-            </MjmlColumn>
-          ))}
-        </MjmlSection>
-      ))}
-    </MjmlSection>
-  );
-};
+  variant = "with-divider",
+}: Omit<TwoColumnsReviewsProps, "theme">) => (
+  <ReviewsSection layout="two-columns" reviews={reviews} variant={variant} />
+);
 
 export const TwoColumnsReviews = ({
   theme = defaultTheme,
-  reviews = [
-    { name: "A", rating: 5, text: "Great!" },
-    { name: "B", rating: 4, text: "Nice!" },
-  ],
-  variant = "default",
+  ...props
 }: TwoColumnsReviewsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>two-col-reviews</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Customer reviews</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{reviewsResponsiveStyles}</MjmlStyle>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <TwoColumnsReviewsSection reviews={reviews} theme={theme} />
+    <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
+      <MjmlWrapper padding="0">
+        <MjmlRaw>
+          <div style={{ textAlign: "left" }}>
+            <TwoColumnsReviewsSection {...props} />
+          </div>
+        </MjmlRaw>
+      </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
 
 TwoColumnsReviews.PreviewProps = {
-  reviews: [
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-1&size=128",
-      date: "March 2026",
-      name: "Alex Johnson",
-      rating: 5,
-      text: "Absolutely love this product!",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-2&size=128",
-      date: "Feb 2026",
-      name: "Maria Garcia",
-      rating: 4,
-      text: "Great value for the price.",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-3&size=128",
-      date: "Jan 2026",
-      name: "David Kim",
-      rating: 5,
-      text: "Best purchase this year!",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=ex-avatar-4&size=128",
-      date: "Dec 2025",
-      name: "Sarah Chen",
-      rating: 4,
-      text: "Solid product with excellent support.",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
+  variant: "with-divider",
 } satisfies TwoColumnsReviewsProps;

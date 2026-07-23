@@ -56,7 +56,6 @@ export const OnboardingVercel = ({
               subheading={`You're now part of the fastest-growing platform for frontend developers.`}
               ctaLabel="Deploy your first project"
               ctaHref={ctaHref}
-              align="left"
             />
 
             <ContentGridSection type="title" title="Global Edge" />

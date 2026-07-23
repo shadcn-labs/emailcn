@@ -1,209 +1,392 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable @next/next/no-img-element, complexity */
+import { Body, Container, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
 export type HeroWithOverlappedContentVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "basic"
+  | "reversed"
+  | "basic-with-gradient"
+  | "reversed-with-gradient";
 
 export interface HeroWithOverlappedContentProps {
   theme?: EmailThemeTokens;
+  eyebrow?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  imageSrc?: string;
+  backgroundImageSrc?: string;
   imageAlt?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
   contentBackgroundColor?: string;
-  contentTextColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroWithOverlappedContentVariant;
 }
 
-const OverlappedContentCta = ({
-  ctaHref,
-  ctaLabel,
-  theme,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  theme: EmailThemeTokens;
-}) => (
-  <Button
-    href={ctaHref}
-    align="center"
-    width={160}
-    height={40}
-    style={{
-      backgroundColor: theme.colorPrimary,
-      borderRadius: theme.borderRadius,
-      color: theme.colorPrimaryForeground,
-      display: "inline-block",
-      fontFamily: theme.fontFamily,
-      fontSize: theme.fontSizeSm,
-      fontWeight: theme.fontWeightMedium,
-      height: "auto",
-      padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-      textDecoration: "none",
-      width: "auto",
-    }}
-  >
-    {ctaLabel}
-  </Button>
-);
-
-const HeroWithOverlappedContentSection = ({
-  contentBackgroundColor,
-  contentTextColor,
-  ctaHref,
-  ctaLabel,
-  heading,
-  imageAlt,
-  imageSrc,
-  subheading,
-  theme,
-  variant,
-}: {
+interface VariantPreset {
+  backgroundImageSrc: string;
+  backgroundPosition: "bottom" | "top";
+  backgroundSize: string;
   contentBackgroundColor: string;
-  contentTextColor: string;
-  ctaHref?: string;
-  ctaLabel?: string;
+  description: string;
+  eyebrow: string;
   heading: string;
   imageAlt: string;
-  imageSrc: string;
+  reversedSpacer: number;
   subheading: string;
-  theme: EmailThemeTokens;
-  variant: HeroWithOverlappedContentVariant;
-}) => (
-  <Section style={{ backgroundColor: theme.colorBackground, padding: "0" }}>
-    <Row>
-      <Column style={{ padding: "0" }}>
-        <Img
-          alt={imageAlt}
-          src={imageSrc}
-          width="100%"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            padding: "0",
-          }}
+  textColor: string;
+}
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+const assetRoot = "https://assets.mailviews.com/images/components";
+
+const variantPresets: Record<HeroWithOverlappedContentVariant, VariantPreset> =
+  {
+    basic: {
+      backgroundImageSrc: `${assetRoot}/hero/overlapped-content-bg-1.jpg`,
+      backgroundPosition: "top",
+      backgroundSize: "600px 630px",
+      contentBackgroundColor: "#fffffe",
+      description:
+        "Every vein tells a story of adaptation and survival. Explore the microscopic architecture of leaves — where biology, design, and evolution converge in perfect symmetry.",
+      eyebrow: "NATURE COLLECTION",
+      heading: "Geometry of life",
+      imageAlt: "Microscopic geometry of a leaf",
+      reversedSpacer: 0,
+      subheading: "Edition No.5",
+      textColor: "#030712",
+    },
+    "basic-with-gradient": {
+      backgroundImageSrc: `${assetRoot}/hero/overlapped-content-bg-3.jpg`,
+      backgroundPosition: "top",
+      backgroundSize: "600px 630px",
+      contentBackgroundColor:
+        "linear-gradient(to top, #fffffe 50%, rgba(255, 255, 255, 0))",
+      description:
+        "Vast golden sands meet rugged mountain peaks — where silence speaks louder than words. Explore landscapes shaped by time, and uncover the raw beauty of the desert wilderness waiting to be found.",
+      eyebrow: "Morocco",
+      heading: "Into the dunes",
+      imageAlt: "Golden dunes and mountain peaks in Morocco",
+      reversedSpacer: 0,
+      subheading: "Edition No.5",
+      textColor: "#030712",
+    },
+    reversed: {
+      backgroundImageSrc: `${assetRoot}/hero/overlapped-content-bg-2.jpg`,
+      backgroundPosition: "bottom",
+      backgroundSize: "600px 687px",
+      contentBackgroundColor: "#fffffe",
+      description:
+        "Delve into the intricate world of fungi — the unseen architects of ecosystems. Explore how mycelial networks sustain life, recycle nutrients, and reveal the complexity of Earth’s natural systems.",
+      eyebrow: "Microbiology in Motion",
+      heading: "Nature’s hidden networks",
+      imageAlt: "Fungal network in a forest",
+      reversedSpacer: 200,
+      subheading: "Edition No.5",
+      textColor: "#030712",
+    },
+    "reversed-with-gradient": {
+      backgroundImageSrc: `${assetRoot}/hero/overlapped-content-bg-4.jpg`,
+      backgroundPosition: "bottom",
+      backgroundSize: "600px 687px",
+      contentBackgroundColor:
+        "linear-gradient(to bottom, #030712 32%, rgba(3, 7, 18, 0))",
+      description:
+        "Step into a world of untouched beauty and icy grandeur. From towering glaciers to vast, silent expanses, explore the last great wilderness on Earth. Begin your Antarctic adventure today.",
+      eyebrow: "Journey to the edge of the earth",
+      heading: "Antarctica",
+      imageAlt: "Glacial wilderness in Antarctica",
+      reversedSpacer: 288,
+      subheading: "Edition No.5",
+      textColor: "#f9fafb",
+    },
+  };
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-overlapped-content-side {
+      width: 28px !important;
+    }
+  }
+
+  .hero-overlapped-content-cta:hover {
+    background-color: #4338ca !important;
+  }
+`;
+
+type SectionProps = Omit<HeroWithOverlappedContentProps, "theme">;
+
+export const HeroWithOverlappedContentSection = ({
+  backgroundImageSrc,
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#fffffe",
+  contentBackgroundColor,
+  ctaHref = "https://example.com",
+  ctaLabel = "Discover now",
+  description,
+  eyebrow,
+  heading,
+  imageAlt,
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  pageBackgroundColor = "#f1f5f9",
+  subheading,
+  textColor,
+  variant = "basic",
+}: SectionProps) => {
+  const preset = variantPresets[variant];
+  const isReversed = variant.startsWith("reversed");
+  const hasGradient = variant.endsWith("with-gradient");
+  const resolvedContentBackground =
+    contentBackgroundColor ?? preset.contentBackgroundColor;
+  const resolvedTextColor = textColor ?? preset.textColor;
+
+  const content = (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              backgroundColor: hasGradient
+                ? undefined
+                : resolvedContentBackground,
+              backgroundImage: hasGradient
+                ? resolvedContentBackground
+                : undefined,
+              padding: "44px 24px",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                color: resolvedTextColor,
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 200,
+                lineHeight: "24px",
+                margin: 0,
+              }}
+            >
+              {eyebrow ?? preset.eyebrow}
+            </p>
+            <h1
+              style={{
+                color: resolvedTextColor,
+                fontFamily,
+                fontSize: "48px",
+                fontWeight: 500,
+                margin: 0,
+              }}
+            >
+              {heading ?? preset.heading}
+            </h1>
+            <p
+              style={{
+                color: resolvedTextColor,
+                fontFamily,
+                fontSize: "18px",
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              {subheading ?? preset.subheading}
+            </p>
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <p
+              style={{
+                color: resolvedTextColor,
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 300,
+                lineHeight: "24px",
+                margin: 0,
+              }}
+            >
+              {description ?? preset.description}
+            </p>
+            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            {ctaLabel && ctaHref ? (
+              <a
+                className="hero-overlapped-content-cta"
+                href={ctaHref}
+                style={{
+                  backgroundColor: buttonBackgroundColor,
+                  borderRadius: "8px",
+                  color: buttonTextColor,
+                  display: "inline-block",
+                  fontFamily,
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: 1,
+                  padding: "14px 20px",
+                  textDecoration: "none",
+                }}
+              >
+                <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+                <img
+                  alt=""
+                  src={`${assetRoot}/icon-arrow-right.png`}
+                  style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+                  width="12"
+                />
+              </a>
+            ) : null}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+
+  const logo = (
+    <div style={{ textAlign: "center" }}>
+      <a href={logoHref}>
+        <img
+          alt={logoAlt}
+          src={logoSrc}
+          style={{ maxWidth: "100%", verticalAlign: "middle" }}
+          width="165"
         />
-      </Column>
-      <Column
-        style={{
-          backgroundColor: contentBackgroundColor,
-          padding: "32px",
-          paddingTop: "24px",
-        }}
-      >
-        <Text
-          style={{
-            color: contentTextColor,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase,
-            textAlign: "center",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: contentTextColor,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeLg,
-            lineHeight: theme.lineHeightBase,
-            margin: 0,
-            paddingBottom: theme.spacingLg,
-            textAlign: "center",
-          }}
-        >
-          {subheading}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <OverlappedContentCta
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            theme={theme}
-          />
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
+      </a>
+    </div>
+  );
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            aria-label={imageAlt ?? preset.imageAlt}
+            role="img"
+            style={{
+              backgroundColor: pageBackgroundColor,
+              backgroundImage: `url(${backgroundImageSrc ?? preset.backgroundImageSrc})`,
+              backgroundPosition: preset.backgroundPosition,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: preset.backgroundSize,
+              maxWidth: "100%",
+              position: "relative",
+              width: "600px",
+            }}
+          >
+            {isReversed ? null : (
+              <div style={{ lineHeight: "48px" }}>&zwj;</div>
+            )}
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    className="hero-overlapped-content-side"
+                    style={{ width: "48px" }}
+                  >
+                    &zwj;
+                  </td>
+                  <td>
+                    {isReversed ? (
+                      <>
+                        {content}
+                        <div
+                          style={{ lineHeight: `${preset.reversedSpacer}px` }}
+                        >
+                          &zwj;
+                        </div>
+                        {logo}
+                        <div style={{ lineHeight: "48px" }}>&zwj;</div>
+                      </>
+                    ) : (
+                      <>
+                        {logo}
+                        <div style={{ lineHeight: "212px" }}>&zwj;</div>
+                        {content}
+                        <div style={{ lineHeight: "40px" }}>&zwj;</div>
+                      </>
+                    )}
+                  </td>
+                  <td
+                    className="hero-overlapped-content-side"
+                    style={{ width: "48px" }}
+                  >
+                    &zwj;
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
 
 export const HeroWithOverlappedContent = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  heading = "Overlapped Content",
-  subheading = "A content box overlaps the image below with a distinct background.",
-  ctaLabel = "Read More",
-  ctaHref = "#",
-  imageSrc = "https://static.photos/business/600x250/2",
-  imageAlt = "top image",
-  contentBackgroundColor = "#ffffff",
-  contentTextColor = "#111827",
-  variant = "default",
-}: HeroWithOverlappedContentProps) => (
-  <Html>
-    <Head />
-    <Preview>hero overlapped content</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorText,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
+  variant = "basic",
+  ...props
+}: HeroWithOverlappedContentProps) => {
+  const preset = variantPresets[variant];
+
+  return (
+    <Html>
+      <Head>
+        <DefaultFonts />
+        <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+      </Head>
+      <Preview>{props.heading ?? preset.heading}</Preview>
+      <Body
+        style={{
+          backgroundColor: pageBackgroundColor,
+          color: theme.colorText,
+          fontFamily,
+          margin: 0,
+        }}
+      >
+        <Container
+          style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+        >
           <HeroWithOverlappedContentSection
-            contentBackgroundColor={contentBackgroundColor}
-            contentTextColor={contentTextColor}
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            heading={heading}
-            imageAlt={imageAlt}
-            imageSrc={imageSrc}
-            subheading={subheading}
-            theme={theme}
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
             variant={variant}
           />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
-);
+        </Container>
+      </Body>
+    </Html>
+  );
+};
 
 HeroWithOverlappedContent.PreviewProps = {
-  contentBackgroundColor: "#ffffff",
-  contentTextColor: "#111827",
-  ctaHref: "https://example.com",
-  ctaLabel: "Get Started",
-  heading: "Hero with Overlapped Content",
-  imageAlt: "top image",
-  imageSrc: "https://static.photos/business/600x250/3",
-  subheading:
-    "An image at the top with a content box that visually overlaps it using padding adjustments.",
   theme: defaultTheme,
-  variant: "default",
+  variant: "basic",
 } satisfies HeroWithOverlappedContentProps;

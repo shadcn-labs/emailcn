@@ -1,0 +1,59 @@
+---
+title: "Large Title and Buttons Footer"
+description: "Mailviews footer with large title, paired buttons, assistance, and legal content"
+---
+
+This component reproduces the single Mailviews large-title footer layout.
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="footer-with-large-title-and-buttons-demo"
+  hideCode
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList><TabsTrigger value="cli">Command</TabsTrigger><TabsTrigger value="manual">Manual</TabsTrigger></TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/footer-with-large-title-and-buttons
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/footers/footer-with-large-title-and-buttons.tsx"
+    base="react-email"
+    title="components/emails/marketing/footers/footer-with-large-title-and-buttons.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FooterWithLargeTitleAndButtons } from "@/components/emails/marketing/footers/footer-with-large-title-and-buttons";
+```
+
+```tsx
+<FooterWithLargeTitleAndButtons
+  {...FooterWithLargeTitleAndButtons.PreviewProps}
+/>
+```
+
+## API Reference
+
+| Prop    | Type         | Default       | Description         |
+| ------- | ------------ | ------------- | ------------------- |
+| `theme` | `EmailTheme` | default theme | Email theme styling |

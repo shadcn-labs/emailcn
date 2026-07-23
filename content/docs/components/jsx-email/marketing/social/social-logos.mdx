@@ -1,38 +1,50 @@
 ---
 title: "Social Logos"
-description: "Social icon row with selectable tile shapes for email templates"
+description: "Social logo tiles with all eight Mailviews layout variants"
 ---
 
-One `SocialLogos` component covers every tile style. Switch the look with the
-`tile` prop, and tilt the row with the `variant` prop.
+`SocialLogos` combines the eight Mailviews tile layouts because they share the
+same content and differ only in framing, fill, and border radius.
 
-## Square
+## Examples
+
+### Square tiles
 
 <ComponentPreview base="jsx-email" name="square-tiles-social-logos-demo" />
 
-## Circle
-
-<ComponentPreview base="jsx-email" name="circle-tiles-social-logos-demo" />
-
-## Pill
-
-<ComponentPreview base="jsx-email" name="pill-box-social-logos-demo" />
-
-## Squared Box
+### Squared box
 
 <ComponentPreview base="jsx-email" name="squared-box-social-logos-demo" />
 
-## Outlined Box
+### Circle tiles
+
+<ComponentPreview base="jsx-email" name="circle-tiles-social-logos-demo" />
+
+### Pill box
+
+<ComponentPreview base="jsx-email" name="pill-box-social-logos-demo" />
+
+### Outlined square tiles
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-square-tiles-social-logos-demo"
+/>
+
+### Outlined circle tiles
+
+<ComponentPreview
+  base="jsx-email"
+  name="outlined-circle-tiles-social-logos-demo"
+/>
+
+### Outlined box
 
 <ComponentPreview base="jsx-email" name="outlined-box-social-logos-demo" />
 
-## Outlined Pill
+### Outlined pill box
 
 <ComponentPreview base="jsx-email" name="outlined-pill-box-social-logos-demo" />
-
-## Outlined Square
-
-<ComponentPreview base="jsx-email" name="outlined-square-tiles-social-logos-demo" />
 
 ## Installation
 
@@ -51,13 +63,7 @@ npx shadcn@latest add @emailcn/social-logos
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/social/social-logos.tsx"
     base="jsx-email"
@@ -72,17 +78,16 @@ npm install jsx-email
 
 ```tsx
 import { SocialLogos } from "@/components/emails/marketing/social/social-logos";
-```
 
-```tsx
-<SocialLogos {...SocialLogos.PreviewProps} tile="circle" />
-<SocialLogos {...SocialLogos.PreviewProps} tile="outlined-pill" variant="slanted-left" />
+<SocialLogos variant="outlined-circle-tiles" />;
 ```
 
 ## API Reference
 
-| Prop      | Type                                                                                                  | Default     | Description                |
-| --------- | ----------------------------------------------------------------------------------------------------- | ----------- | -------------------------- |
-| `tile`    | `"square" \| "circle" \| "pill" \| "squared-box" \| "outlined-box" \| "outlined-pill" \| "outlined-square"` | `"square"`  | Tile shape around each icon |
-| `variant` | `"default" \| "slanted-left" \| "slanted-right"`                                                      | `"default"` | Row tilt                   |
-| `theme`   | `EmailThemeTokens`                                                                                      | `defaultTheme` | Email theme styling     |
+| Prop          | Type                                                                                                                                                             | Default             | Description                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------------- |
+| `variant`     | `"square-tiles" \| "squared-box" \| "circle-tiles" \| "pill-box" \| "outlined-square-tiles" \| "outlined-circle-tiles" \| "outlined-box" \| "outlined-pill-box"` | `"square-tiles"`    | Mailviews tile layout        |
+| `items`       | `SocialLogoItem[]`                                                                                                                                               | Mailviews icons     | Social links and icon assets |
+| `title`       | `string`                                                                                                                                                         | `"Connect with us"` | Section title                |
+| `description` | `string`                                                                                                                                                         | Mailviews copy      | Supporting text              |
+| `theme`       | `EmailThemeTokens`                                                                                                                                               | `defaultTheme`      | Email theme configuration    |

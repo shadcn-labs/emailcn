@@ -1,180 +1,278 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type SocialLogosVariant = "default" | "slanted-left" | "slanted-right";
-
-export type SocialLogosTile =
-  | "square"
-  | "circle"
-  | "pill"
+export type SocialLogosVariant =
+  | "square-tiles"
   | "squared-box"
+  | "circle-tiles"
+  | "pill-box"
+  | "outlined-square-tiles"
+  | "outlined-circle-tiles"
   | "outlined-box"
-  | "outlined-pill"
-  | "outlined-square";
+  | "outlined-pill-box";
+
+export interface SocialLogoItem {
+  alt: string;
+  href: string;
+  src: string;
+}
 
 export interface SocialLogosProps {
   theme?: TailwindConfig;
-  socialSrc1?: string;
-  socialAlt1?: string;
-  socialSrc2?: string;
-  socialAlt2?: string;
-  socialSrc3?: string;
-  socialAlt3?: string;
-  socialSrc4?: string;
-  socialAlt4?: string;
+  title?: string;
+  description?: string;
+  items?: SocialLogoItem[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
   variant?: SocialLogosVariant;
-  tile?: SocialLogosTile;
 }
 
-const TILE_CLASSES = {
-  circle: "inline-block rounded-full bg-background-muted p-3",
-  "outlined-box": "inline-block border border-border p-3",
-  "outlined-pill": "inline-block rounded-full border border-border px-4 py-3",
-  "outlined-square": "inline-block rounded-lg border border-border p-3",
-  pill: "inline-block rounded-full bg-background-muted px-4 py-3",
-  square: "inline-block rounded-lg bg-background-muted p-3",
-  "squared-box": "inline-block rounded bg-background-muted p-3",
-} as const;
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .social-logo-item { display: inline-block !important; padding: 0 8px 16px !important; }",
+  "  .social-logo-group-item { display: inline-block !important; }",
+  "  .social-logo-content { padding-left: 24px !important; padding-right: 24px !important; }",
+  "  .social-logo-description-gap { line-height: 20px !important; }",
+  "}",
+].join("\n");
+
+const defaultItems: SocialLogoItem[] = [
+  {
+    alt: "LinkedIn",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-linkedin.png",
+  },
+  {
+    alt: "X",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-x.png",
+  },
+  {
+    alt: "YouTube",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-youtube.png",
+  },
+  {
+    alt: "Instagram",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-instagram.png",
+  },
+  {
+    alt: "Discord",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-discord.png",
+  },
+];
+
+const individualVariants = new Set<SocialLogosVariant>([
+  "square-tiles",
+  "circle-tiles",
+  "outlined-square-tiles",
+  "outlined-circle-tiles",
+]);
+
+const variantStyle = (variant: SocialLogosVariant) => {
+  const outlined = variant.startsWith("outlined");
+  const rounded = variant.includes("circle") || variant.includes("pill");
+
+  return {
+    backgroundColor: outlined ? undefined : "#f3f4f6",
+    border: outlined ? "1px solid #d1d5db" : undefined,
+    borderRadius: rounded ? "9999px" : "4px",
+  };
+};
 
 export const SocialLogosSection = ({
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-1&size=24",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-2&size=24",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-3&size=24",
-  socialAlt3 = "Instagram",
-  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-4&size=24",
-  socialAlt4 = "LinkedIn",
-  variant = "default",
-  tile = "square",
+  title = "Connect with us",
+  description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
+  items = defaultItems,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  variant = "square-tiles",
 }: Omit<SocialLogosProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+  const individual = individualVariants.has(variant);
+  const decoration = variantStyle(variant);
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
-
-  const tileClass = TILE_CLASSES[tile];
-
-  const socials = [
-    { alt: socialAlt1, src: socialSrc1 },
-    { alt: socialAlt2, src: socialSrc2 },
-    { alt: socialAlt3, src: socialSrc3 },
-    { alt: socialAlt4, src: socialSrc4 },
-  ];
+  const itemLink = (item: SocialLogoItem) => (
+    <a
+      href={item.href}
+      style={{
+        ...(individual ? decoration : {}),
+        color: "#6b7280",
+        display: "inline-block",
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: "24px",
+        padding: "20px",
+        textAlign: "center",
+        textDecoration: "none",
+      }}
+    >
+      <img
+        alt={item.alt}
+        src={item.src}
+        style={{ maxWidth: "100%", verticalAlign: "middle" }}
+        width={24}
+      />
+    </a>
+  );
 
   return (
-    <Section className={`bg-background py-8 ${getVariantClass()}`}>
-      <Section
-        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}
-      >
-        <Row>
-          {socials.map((social) => (
-            <Column key={social.alt} className="px-3 text-center align-middle">
-              <Section className={tileClass}>
-                <Img
-                  src={social.src}
-                  alt={social.alt}
-                  width="24"
-                  height="24"
-                  className="h-auto object-contain"
-                />
-              </Section>
-            </Column>
-          ))}
-        </Row>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "44px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    className="social-logo-content"
+                    style={{ padding: "0 64px", textAlign: "center" }}
+                  >
+                    <h2
+                      style={{
+                        color: "#030712",
+                        fontFamily,
+                        fontSize: "20px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {title}
+                    </h2>
+                    <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                    <table
+                      align="center"
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={
+                        individual
+                          ? { marginLeft: "auto", marginRight: "auto" }
+                          : {
+                              ...decoration,
+                              marginLeft: "auto",
+                              marginRight: "auto",
+                            }
+                      }
+                    >
+                      <tbody>
+                        <tr>
+                          {individual ? null : (
+                            <td style={{ width: "8px" }}>&zwj;</td>
+                          )}
+                          {items.map((item, index) => (
+                            <td
+                              className={
+                                individual
+                                  ? "social-logo-item"
+                                  : "social-logo-group-item"
+                              }
+                              key={`${item.alt}-${item.href}`}
+                              style={
+                                individual && index > 0
+                                  ? { paddingLeft: "16px" }
+                                  : undefined
+                              }
+                            >
+                              {itemLink(item)}
+                            </td>
+                          ))}
+                          {individual ? null : (
+                            <td style={{ width: "8px" }}>&zwj;</td>
+                          )}
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div
+                      className="social-logo-description-gap"
+                      style={{ lineHeight: "36px" }}
+                    >
+                      &zwj;
+                    </div>
+                    <p
+                      style={{
+                        color: "#4b5563",
+                        fontFamily,
+                        fontSize: "16px",
+                        fontWeight: 300,
+                        lineHeight: "24px",
+                        margin: 0,
+                        textAlign: "center",
+                      }}
+                    >
+                      {description}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const SocialLogos = ({
-  theme = defaultTheme,
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-5&size=24",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-6&size=24",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-7&size=24",
-  socialAlt3 = "Instagram",
-  socialSrc4 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-8&size=24",
-  socialAlt4 = "LinkedIn",
-  variant = "default",
-  tile = "square",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "square-tiles",
+  ...props
 }: SocialLogosProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>Social</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <SocialLogosSection
-          socialAlt1={socialAlt1}
-          socialAlt2={socialAlt2}
-          socialAlt3={socialAlt3}
-          socialAlt4={socialAlt4}
-          socialSrc1={socialSrc1}
-          socialSrc2={socialSrc2}
-          socialSrc3={socialSrc3}
-          socialSrc4={socialSrc4}
-          tile={tile}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Connect with us</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <SocialLogosSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
+    </Body>
   </Html>
 );
 
 SocialLogos.PreviewProps = {
-  socialAlt1: "Twitter",
-  socialAlt2: "Facebook",
-  socialAlt3: "Instagram",
-  socialAlt4: "LinkedIn",
-  socialSrc1:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-9&size=24",
-  socialSrc2:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-10&size=24",
-  socialSrc3:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-11&size=24",
-  socialSrc4:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-social-social-logos-tsx-12&size=24",
   theme: defaultTheme,
-  tile: "square",
-  variant: "default",
+  variant: "square-tiles",
 } satisfies SocialLogosProps;

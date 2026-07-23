@@ -1,103 +1,209 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type SocialLinksFeaturedVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-
-export interface SocialLinksFeaturedProps {
-  theme?: EmailThemeTokens;
-  links?: { platform: string; href: string }[];
-  variant?: SocialLinksFeaturedVariant;
+export interface SimpleSocialLogoItem {
+  alt: string;
+  href: string;
+  src: string;
 }
 
-const SocialLinksFeaturedSection = ({
-  links,
-  theme,
-  variant,
-}: {
-  links: SocialLinksFeaturedProps["links"];
-  theme: EmailThemeTokens;
-  variant: SocialLinksFeaturedVariant;
-}) => (
-  <MjmlSection backgroundColor={theme.colorBackground} padding="24px 0">
-    <MjmlColumn>
-      {(links ?? []).map((l) => (
-        <MjmlText
-          key={l.platform}
-          align="center"
-          color={theme.colorPrimary}
-          fontFamily={theme.fontFamily}
-          fontSize="14px"
-          fontWeight={theme.fontWeightMedium}
-          padding="0 16px"
+export interface SimpleSocialLogosRowProps {
+  theme?: EmailThemeTokens;
+  title?: string;
+  description?: string;
+  items?: SimpleSocialLogoItem[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+}
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 430px) {",
+  "  .simple-social-content { padding-left: 24px !important; padding-right: 24px !important; }",
+  "}",
+].join("\n");
+
+const defaultItems: SimpleSocialLogoItem[] = [
+  {
+    alt: "LinkedIn",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-linkedin.png",
+  },
+  {
+    alt: "X",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-x.png",
+  },
+  {
+    alt: "YouTube",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-youtube.png",
+  },
+  {
+    alt: "Instagram",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-instagram.png",
+  },
+  {
+    alt: "Discord",
+    href: "https://example.com",
+    src: "https://assets.mailviews.com/images/components/social/icon-discord.png",
+  },
+];
+
+export const SimpleSocialLogosRowSection = ({
+  title = "Connect with us",
+  description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
+  items = defaultItems,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+}: Omit<SimpleSocialLogosRowProps, "theme">) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ backgroundColor: pageBackgroundColor }}
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td>&zwj;</td>
+        <td
+          style={{
+            backgroundColor,
+            maxWidth: "100%",
+            paddingBottom: "44px",
+            width: "600px",
+          }}
         >
-          <a
-            href={l.href}
-            style={{ color: theme.colorPrimary, textDecoration: "none" }}
+          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+          <table
+            border={0}
+            cellPadding={0}
+            cellSpacing={0}
+            role="presentation"
+            width="100%"
           >
-            {l.platform}
-          </a>
-        </MjmlText>
-      ))}
-    </MjmlColumn>
-  </MjmlSection>
+            <tbody>
+              <tr>
+                <td
+                  className="simple-social-content"
+                  style={{ padding: "0 64px", textAlign: "center" }}
+                >
+                  <h2
+                    style={{
+                      color: "#030712",
+                      fontFamily,
+                      fontSize: "20px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                      textAlign: "center",
+                    }}
+                  >
+                    {title}
+                  </h2>
+                  <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                  <table
+                    align="center"
+                    border={0}
+                    cellPadding={0}
+                    cellSpacing={0}
+                    role="presentation"
+                    style={{ marginLeft: "auto", marginRight: "auto" }}
+                  >
+                    <tbody>
+                      <tr>
+                        {items.map((item, index) => (
+                          <td
+                            key={`${item.alt}-${item.href}`}
+                            style={
+                              index > 0 ? { paddingLeft: "16px" } : undefined
+                            }
+                          >
+                            <a href={item.href}>
+                              <img
+                                alt={item.alt}
+                                src={item.src}
+                                style={{
+                                  maxWidth: "100%",
+                                  verticalAlign: "middle",
+                                }}
+                                width={24}
+                              />
+                            </a>
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                  <p
+                    style={{
+                      color: "#4b5563",
+                      fontFamily,
+                      fontSize: "16px",
+                      fontWeight: 300,
+                      lineHeight: "24px",
+                      margin: 0,
+                      textAlign: "center",
+                    }}
+                  >
+                    {description}
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>&zwj;</td>
+      </tr>
+    </tbody>
+  </table>
 );
 
 export const SimpleSocialLogosRow = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  links = [
-    { href: "https://twitter.com", platform: "Twitter" },
-    { href: "https://github.com", platform: "GitHub" },
-  ],
-  variant = "default",
-}: SocialLinksFeaturedProps) => (
+  ...props
+}: SimpleSocialLogosRowProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>social featured</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
+    <MjmlPreview>Connect with us</MjmlPreview>
     <MjmlBody
-      backgroundColor={theme.colorBackground}
+      backgroundColor={pageBackgroundColor}
       width={theme.containerWidth}
     >
       <MjmlWrapper padding="0">
-        <SocialLinksFeaturedSection
-          links={links}
-          theme={theme}
-          variant={variant}
-        />
+        <MjmlRaw>
+          <SimpleSocialLogosRowSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+          />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
+
 SimpleSocialLogosRow.PreviewProps = {
-  links: [
-    { href: "https://twitter.com", platform: "Twitter" },
-    { href: "https://github.com", platform: "GitHub" },
-    { href: "https://linkedin.com", platform: "LinkedIn" },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies SocialLinksFeaturedProps;
+} satisfies SimpleSocialLogosRowProps;

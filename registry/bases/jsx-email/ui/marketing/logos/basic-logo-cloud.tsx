@@ -1,117 +1,243 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-} from "jsx-email";
+import { Body, Head, Html, Preview } from "jsx-email";
+/* eslint-disable next/no-img-element */
+import { Fragment } from "react";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type LogosBasicVariant = "default" | "slanted-left" | "slanted-right";
+export type BasicLogoCloudVariant =
+  | "minimal"
+  | "with-title"
+  | "with-description"
+  | "full";
 
-export interface LogosBasicProps {
+export interface BasicLogoCloudProps {
   theme?: EmailThemeTokens;
-  logos?: { src: string; alt: string; width?: number }[];
-  variant?: LogosBasicVariant;
+  title?: string;
+  description?: string;
+  logos?: { alt: string; src: string; width: number }[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  titleColor?: string;
+  textColor?: string;
+  variant?: BasicLogoCloudVariant;
 }
 
-const LogosBasicSection = ({
-  logos,
-  theme,
-  variant,
-}: {
-  logos: LogosBasicProps["logos"];
-  theme: EmailThemeTokens;
-  variant: LogosBasicVariant;
-}) => {
-  const items = logos ?? [];
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .basic-logo-item {
+      display: inline-block !important;
+      padding: 0 12px 12px !important;
+    }
+    .basic-logo-gap {
+      display: none !important;
+      width: 24px !important;
+    }
+    .basic-logo-description-gap { line-height: 20px !important; }
+  }
+`;
+
+const defaultLogos = [
+  {
+    alt: "Stripe",
+    src: "https://assets.mailviews.com/images/components/logos/logo-stripe.png",
+    width: 57,
+  },
+  {
+    alt: "Apple Pay",
+    src: "https://assets.mailviews.com/images/components/logos/logo-apple-pay.png",
+    width: 60,
+  },
+  {
+    alt: "Mastercard",
+    src: "https://assets.mailviews.com/images/components/logos/logo-mastercard.png",
+    width: 40,
+  },
+  {
+    alt: "Visa",
+    src: "https://assets.mailviews.com/images/components/logos/logo-visa.png",
+    width: 50,
+  },
+  {
+    alt: "Klarna",
+    src: "https://assets.mailviews.com/images/components/logos/logo-klarna.png",
+    width: 70,
+  },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  description:
+    "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
+  logos: defaultLogos,
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+  title: "Supported payment services",
+  titleColor: "#030712",
+};
+
+type SectionProps = Omit<BasicLogoCloudProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+export const BasicLogoCloudSection = (props: SectionProps) => {
+  const variant = props.variant ?? "full";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const logos = resolved.logos.slice(0, 5);
+  const showTitle = variant === "with-title" || variant === "full";
+  const showDescription = variant === "with-description" || variant === "full";
 
   return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
-      }}
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
     >
-      <Row>
-        {items.slice(0, 4).map((logo, i) => (
-          <Column
-            key={logo.alt + i}
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
             style={{
-              padding: theme.spacingBase ?? "24px",
-              verticalAlign: "middle",
-              width: `${100 / Math.min(items.length, 4)}%`,
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
             }}
           >
-            <Img
-              alt={logo.alt}
-              src={logo.src}
-              width={logo.width ?? 120}
-              style={{ display: "block", margin: "0 auto", maxWidth: "100%" }}
-            />
-          </Column>
-        ))}
-      </Row>
-    </Section>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign: "center" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    {showTitle ? (
+                      <>
+                        <h3
+                          style={{
+                            color: resolved.titleColor,
+                            fontFamily,
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                        >
+                          {resolved.title}
+                        </h3>
+                        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      </>
+                    ) : null}
+                    <table
+                      align="center"
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={{ margin: "0 auto" }}
+                    >
+                      <tbody>
+                        <tr>
+                          {logos.map((logo, index) => (
+                            <Fragment key={logo.alt + logo.src}>
+                              {index > 0 ? (
+                                <td
+                                  className="basic-logo-gap"
+                                  style={{ width: "36px" }}
+                                >
+                                  &zwj;
+                                </td>
+                              ) : null}
+                              <td
+                                className="basic-logo-item"
+                                style={{ textAlign: "center" }}
+                              >
+                                <img
+                                  alt={logo.alt}
+                                  src={logo.src}
+                                  style={{
+                                    maxWidth: "100%",
+                                    verticalAlign: "middle",
+                                  }}
+                                  width={logo.width}
+                                />
+                              </td>
+                            </Fragment>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                    {showDescription ? (
+                      <>
+                        <div
+                          className="basic-logo-description-gap"
+                          style={{ lineHeight: "36px" }}
+                        >
+                          &zwj;
+                        </div>
+                        <p
+                          style={{
+                            color: resolved.textColor,
+                            fontFamily,
+                            fontSize: "16px",
+                            fontWeight: 300,
+                            lineHeight: "24px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                        >
+                          {resolved.description}
+                        </p>
+                      </>
+                    ) : null}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const BasicLogoCloud = ({
-  theme = defaultTheme,
-  logos = [
-    { alt: "Company 1", src: "https://static.photos/business/120x40/2" },
-    { alt: "Company 2", src: "https://static.photos/business/120x40/3" },
-    { alt: "Company 3", src: "https://static.photos/business/120x40/4" },
-  ],
-  variant = "default",
-}: LogosBasicProps) => (
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "full",
+  ...props
+}: BasicLogoCloudProps) => (
   <Html>
-    <Head />
-    <Preview>logos basic</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Supported payment services</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <LogosBasicSection logos={logos} theme={theme} variant={variant} />
-        </Section>
-      </Container>
+      <BasicLogoCloudSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        variant={variant}
+      />
     </Body>
   </Html>
 );
 
 BasicLogoCloud.PreviewProps = {
-  logos: [
-    {
-      alt: "Acme Corp",
-      src: "https://static.photos/business/120x40/5",
-      width: 120,
-    },
-    {
-      alt: "TechCo",
-      src: "https://static.photos/business/120x40/6",
-      width: 120,
-    },
-    {
-      alt: "Global Inc",
-      src: "https://static.photos/business/120x40/7",
-      width: 120,
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies LogosBasicProps;
+  variant: "full",
+} satisfies BasicLogoCloudProps;

@@ -1,6 +1,6 @@
 ---
 title: "Split Full Bleed"
-description: "Marketing hero variant for email templates"
+description: "A full-bleed product hero with image-left and image-right layouts"
 ---
 
 <ComponentPreview base="jsx-email" name="hero-split-full-bleed-demo" />
@@ -49,8 +49,41 @@ import { HeroSplitFullBleed } from "@/components/emails/marketing/hero/hero-spli
 <HeroSplitFullBleed {...HeroSplitFullBleed.PreviewProps} />
 ```
 
+## Examples
+
+### Image Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-full-bleed-demo"
+  variant="image-left"
+  hideCode
+/>
+
+### Image Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="hero-split-full-bleed-demo"
+  variant="image-right"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                    | Type                            | Default           | Description                                      |
+| ----------------------- | ------------------------------- | ----------------- | ------------------------------------------------ |
+| `theme`                 | `EmailThemeTokens`              | `defaultTheme`    | JSX Email theme tokens                           |
+| `variant`               | `"image-left" \| "image-right"` | `"image-left"`    | Places the full-bleed image on the selected side |
+| `eyebrow`               | `string`                        | `"Coffee"`        | Small label above the heading                    |
+| `heading`               | `string`                        | `"Sarina"`        | Main product heading                             |
+| `subheading`            | `string`                        | `"Americano…"`    | Supporting line below the heading                |
+| `description`           | `string`                        | Mailviews copy    | Product description                              |
+| `price`                 | `string`                        | `"From $14.99"`   | Bold price line; pass an empty string to hide it |
+| `ctaLabel` / `ctaHref`  | `string`                        | Mailviews CTA     | Button label and destination                     |
+| `imageSrc` / `imageAlt` | `string`                        | Mailviews imagery | Full-bleed background image and accessible label |
+| `logoSrc` / `logoAlt`   | `string`                        | Mailviews logo    | Logo displayed over the image                    |
+| `textBackgroundColor`   | `string`                        | `"#fffffe"`       | Text-panel background                            |
+| `pageBackgroundColor`   | `string`                        | `"#f1f5f9"`       | Email-canvas background                          |
+| `buttonBackgroundColor` | `string`                        | `"#4f46e5"`       | CTA background                                   |
+| `buttonTextColor`       | `string`                        | `"#fffffe"`       | CTA text color                                   |

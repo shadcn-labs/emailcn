@@ -28,6 +28,7 @@ import JxBoxedOrderSummaryCardDetailsTotalBottomDemo from "./jsx-email/boxed-ord
 import JxBoxedOrderSummaryCardDetailsTotalTopDemo from "./jsx-email/boxed-order-summary-card-details-total-top-demo";
 import JxBoxedOrderSummaryTotalBottomDemo from "./jsx-email/boxed-order-summary-total-bottom-demo";
 import JxBoxedOrderSummaryTotalTopDemo from "./jsx-email/boxed-order-summary-total-top-demo";
+import JxButtonsDemo from "./jsx-email/buttons-demo";
 import JxCardCouponsDemo from "./jsx-email/card-coupons-demo";
 import JxCardsTimelineDemo from "./jsx-email/cards-timeline-demo";
 import JxCategoryPreviewCardsDemo from "./jsx-email/category-preview-cards-demo";
@@ -73,13 +74,19 @@ import JxFeatureWithProductImageDemo from "./jsx-email/feature-with-product-imag
 import JxFeaturedBlogPostDemo from "./jsx-email/featured-blog-post-demo";
 import JxFeaturedBrandsLogoGridDemo from "./jsx-email/featured-brands-logo-grid-demo";
 import JxFeaturedPostWithLargeDateDemo from "./jsx-email/featured-post-with-large-date-demo";
-import JxFooterCenteredWithBorderedFullMenuDemo from "./jsx-email/footer-centered-with-bordered-full-menu-demo";
 import JxFooterCenteredWithMenuAndSocialsDemo from "./jsx-email/footer-centered-with-menu-and-socials-demo";
+import JxFooterWith2ColumnMenuAndDividerDemo from "./jsx-email/footer-with-2-column-menu-and-divider-demo";
 import JxFooterWith2ColumnMenuDemo from "./jsx-email/footer-with-2-column-menu-demo";
 import JxFooterWith3ColMenuDemo from "./jsx-email/footer-with-3-col-menu-demo";
+import JxFooterWithAppStoreButtonsDemo from "./jsx-email/footer-with-app-store-buttons-demo";
+import JxFooterWithBackgroundImageDemo from "./jsx-email/footer-with-background-image-demo";
+import JxFooterWithCompanyLocationsDemo from "./jsx-email/footer-with-company-locations-demo";
 import JxFooterWithContentAndCtaDemo from "./jsx-email/footer-with-content-and-cta-demo";
+import JxFooterWithFullMenuDemo from "./jsx-email/footer-with-full-menu-demo";
+import JxFooterWithLargeTitleAndButtonsDemo from "./jsx-email/footer-with-large-title-and-buttons-demo";
 import JxFooterWithLegalTextDemo from "./jsx-email/footer-with-legal-text-demo";
-import JxFooterWithOversizedLogoAndFullMenuDemo from "./jsx-email/footer-with-oversized-logo-and-full-menu-demo";
+import JxFooterWithMenuAndFullWidthCtaDemo from "./jsx-email/footer-with-menu-and-full-width-cta-demo";
+import JxFooterWithOverlappedCtaDemo from "./jsx-email/footer-with-overlapped-cta-demo";
 import JxFooterWithSocialIconsAndAddressDemo from "./jsx-email/footer-with-social-icons-and-address-demo";
 import JxFooterWithTextMenuAndSocialsDemo from "./jsx-email/footer-with-text-menu-and-socials-demo";
 import JxFourColumnsGridDemo from "./jsx-email/four-columns-grid-demo";
@@ -95,13 +102,11 @@ import JxGridStatsWithAccentColumnDemo from "./jsx-email/grid-stats-with-accent-
 import JxGridStatsWithBorderDemo from "./jsx-email/grid-stats-with-border-demo";
 import JxGroupedOverlappedAvatarsDemo from "./jsx-email/grouped-overlapped-avatars-demo";
 import JxGroupedOverlappedAvatarsPlusCountDemo from "./jsx-email/grouped-overlapped-avatars-plus-count-demo";
-import JxHeaderLogoWithLinksDemo from "./jsx-email/header-logo-with-links-demo";
 import JxHeaderWithLogoAndBadgeDemo from "./jsx-email/header-with-logo-and-badge-demo";
 import JxHeaderWithLogoAndFinanceStatsDemo from "./jsx-email/header-with-logo-and-finance-stats-demo";
 import JxHeaderWithLogoAndMenuDemo from "./jsx-email/header-with-logo-and-menu-demo";
 import JxHeaderWithLogoAndSocialIconsDemo from "./jsx-email/header-with-logo-and-social-icons-demo";
-import JxHeaderWithLogoAndTextDemo from "./jsx-email/header-with-logo-and-text-demo";
-import JxHeaderWithUserDetailsAndAvatarDemo from "./jsx-email/header-with-user-details-and-avatar-demo";
+import JxHeaderWithLogoDemo from "./jsx-email/header-with-logo-demo";
 import JxHeaderWithUserDetailsDemo from "./jsx-email/header-with-user-details-demo";
 import JxHeroAlignedOverlayDemo from "./jsx-email/hero-aligned-overlay-demo";
 import JxHeroBlockOverlayDemo from "./jsx-email/hero-block-overlay-demo";
@@ -126,6 +131,7 @@ import JxOneThreeSplitGridDemo from "./jsx-email/one-three-split-grid-demo";
 import JxOrderSummaryBillingInlineDemo from "./jsx-email/order-summary-billing-inline-demo";
 import JxOrderSummaryBillingTopDemo from "./jsx-email/order-summary-billing-top-demo";
 import JxOutlinedBoxSocialLogosDemo from "./jsx-email/outlined-box-social-logos-demo";
+import JxOutlinedCircleTilesSocialLogosDemo from "./jsx-email/outlined-circle-tiles-social-logos-demo";
 import JxOutlinedGridStatsDemo from "./jsx-email/outlined-grid-stats-demo";
 import JxOutlinedLogoCloudDemo from "./jsx-email/outlined-logo-cloud-demo";
 import JxOutlinedPillBoxSocialLogosDemo from "./jsx-email/outlined-pill-box-social-logos-demo";
@@ -228,6 +234,7 @@ import MjBoxedOrderSummaryCardDetailsTotalBottomDemo from "./mjml-react/boxed-or
 import MjBoxedOrderSummaryCardDetailsTotalTopDemo from "./mjml-react/boxed-order-summary-card-details-total-top-demo";
 import MjBoxedOrderSummaryTotalBottomDemo from "./mjml-react/boxed-order-summary-total-bottom-demo";
 import MjBoxedOrderSummaryTotalTopDemo from "./mjml-react/boxed-order-summary-total-top-demo";
+import MjButtonsDemo from "./mjml-react/buttons-demo";
 import MjCardCouponsDemo from "./mjml-react/card-coupons-demo";
 import MjCardsTimelineDemo from "./mjml-react/cards-timeline-demo";
 import MjCategoryPreviewCardsDemo from "./mjml-react/category-preview-cards-demo";
@@ -273,13 +280,19 @@ import MjFeatureWithProductImageDemo from "./mjml-react/feature-with-product-ima
 import MjFeaturedBlogPostDemo from "./mjml-react/featured-blog-post-demo";
 import MjFeaturedBrandsLogoGridDemo from "./mjml-react/featured-brands-logo-grid-demo";
 import MjFeaturedPostWithLargeDateDemo from "./mjml-react/featured-post-with-large-date-demo";
-import MjFooterCenteredWithBorderedFullMenuDemo from "./mjml-react/footer-centered-with-bordered-full-menu-demo";
 import MjFooterCenteredWithMenuAndSocialsDemo from "./mjml-react/footer-centered-with-menu-and-socials-demo";
+import MjFooterWith2ColumnMenuAndDividerDemo from "./mjml-react/footer-with-2-column-menu-and-divider-demo";
 import MjFooterWith2ColumnMenuDemo from "./mjml-react/footer-with-2-column-menu-demo";
 import MjFooterWith3ColMenuDemo from "./mjml-react/footer-with-3-col-menu-demo";
+import MjFooterWithAppStoreButtonsDemo from "./mjml-react/footer-with-app-store-buttons-demo";
+import MjFooterWithBackgroundImageDemo from "./mjml-react/footer-with-background-image-demo";
+import MjFooterWithCompanyLocationsDemo from "./mjml-react/footer-with-company-locations-demo";
 import MjFooterWithContentAndCtaDemo from "./mjml-react/footer-with-content-and-cta-demo";
+import MjFooterWithFullMenuDemo from "./mjml-react/footer-with-full-menu-demo";
+import MjFooterWithLargeTitleAndButtonsDemo from "./mjml-react/footer-with-large-title-and-buttons-demo";
 import MjFooterWithLegalTextDemo from "./mjml-react/footer-with-legal-text-demo";
-import MjFooterWithOversizedLogoAndFullMenuDemo from "./mjml-react/footer-with-oversized-logo-and-full-menu-demo";
+import MjFooterWithMenuAndFullWidthCtaDemo from "./mjml-react/footer-with-menu-and-full-width-cta-demo";
+import MjFooterWithOverlappedCtaDemo from "./mjml-react/footer-with-overlapped-cta-demo";
 import MjFooterWithSocialIconsAndAddressDemo from "./mjml-react/footer-with-social-icons-and-address-demo";
 import MjFooterWithTextMenuAndSocialsDemo from "./mjml-react/footer-with-text-menu-and-socials-demo";
 import MjFourColumnsGridDemo from "./mjml-react/four-columns-grid-demo";
@@ -295,13 +308,11 @@ import MjGridStatsWithAccentColumnDemo from "./mjml-react/grid-stats-with-accent
 import MjGridStatsWithBorderDemo from "./mjml-react/grid-stats-with-border-demo";
 import MjGroupedOverlappedAvatarsDemo from "./mjml-react/grouped-overlapped-avatars-demo";
 import MjGroupedOverlappedAvatarsPlusCountDemo from "./mjml-react/grouped-overlapped-avatars-plus-count-demo";
-import MjHeaderLogoWithLinksDemo from "./mjml-react/header-logo-with-links-demo";
 import MjHeaderWithLogoAndBadgeDemo from "./mjml-react/header-with-logo-and-badge-demo";
 import MjHeaderWithLogoAndFinanceStatsDemo from "./mjml-react/header-with-logo-and-finance-stats-demo";
 import MjHeaderWithLogoAndMenuDemo from "./mjml-react/header-with-logo-and-menu-demo";
 import MjHeaderWithLogoAndSocialIconsDemo from "./mjml-react/header-with-logo-and-social-icons-demo";
-import MjHeaderWithLogoAndTextDemo from "./mjml-react/header-with-logo-and-text-demo";
-import MjHeaderWithUserDetailsAndAvatarDemo from "./mjml-react/header-with-user-details-and-avatar-demo";
+import MjHeaderWithLogoDemo from "./mjml-react/header-with-logo-demo";
 import MjHeaderWithUserDetailsDemo from "./mjml-react/header-with-user-details-demo";
 import MjHeroAlignedOverlayDemo from "./mjml-react/hero-aligned-overlay-demo";
 import MjHeroBlockOverlayDemo from "./mjml-react/hero-block-overlay-demo";
@@ -326,6 +337,7 @@ import MjOneThreeSplitGridDemo from "./mjml-react/one-three-split-grid-demo";
 import MjOrderSummaryBillingInlineDemo from "./mjml-react/order-summary-billing-inline-demo";
 import MjOrderSummaryBillingTopDemo from "./mjml-react/order-summary-billing-top-demo";
 import MjOutlinedBoxSocialLogosDemo from "./mjml-react/outlined-box-social-logos-demo";
+import MjOutlinedCircleTilesSocialLogosDemo from "./mjml-react/outlined-circle-tiles-social-logos-demo";
 import MjOutlinedGridStatsDemo from "./mjml-react/outlined-grid-stats-demo";
 import MjOutlinedLogoCloudDemo from "./mjml-react/outlined-logo-cloud-demo";
 import MjOutlinedPillBoxSocialLogosDemo from "./mjml-react/outlined-pill-box-social-logos-demo";
@@ -428,6 +440,7 @@ import ReBoxedOrderSummaryCardDetailsTotalBottomDemo from "./react-email/boxed-o
 import ReBoxedOrderSummaryCardDetailsTotalTopDemo from "./react-email/boxed-order-summary-card-details-total-top-demo";
 import ReBoxedOrderSummaryTotalBottomDemo from "./react-email/boxed-order-summary-total-bottom-demo";
 import ReBoxedOrderSummaryTotalTopDemo from "./react-email/boxed-order-summary-total-top-demo";
+import ReButtonsDemo from "./react-email/buttons-demo";
 import ReCardCouponsDemo from "./react-email/card-coupons-demo";
 import ReCardsTimelineDemo from "./react-email/cards-timeline-demo";
 import ReCategoryPreviewCardsDemo from "./react-email/category-preview-cards-demo";
@@ -476,13 +489,19 @@ import ReFeatureWithProductImageDemo from "./react-email/feature-with-product-im
 import ReFeaturedBlogPostDemo from "./react-email/featured-blog-post-demo";
 import ReFeaturedBrandsLogoGridDemo from "./react-email/featured-brands-logo-grid-demo";
 import ReFeaturedPostWithLargeDateDemo from "./react-email/featured-post-with-large-date-demo";
-import ReFooterCenteredWithBorderedFullMenuDemo from "./react-email/footer-centered-with-bordered-full-menu-demo";
 import ReFooterCenteredWithMenuAndSocialsDemo from "./react-email/footer-centered-with-menu-and-socials-demo";
+import ReFooterWith2ColumnMenuAndDividerDemo from "./react-email/footer-with-2-column-menu-and-divider-demo";
 import ReFooterWith2ColumnMenuDemo from "./react-email/footer-with-2-column-menu-demo";
 import ReFooterWith3ColMenuDemo from "./react-email/footer-with-3-col-menu-demo";
+import ReFooterWithAppStoreButtonsDemo from "./react-email/footer-with-app-store-buttons-demo";
+import ReFooterWithBackgroundImageDemo from "./react-email/footer-with-background-image-demo";
+import ReFooterWithCompanyLocationsDemo from "./react-email/footer-with-company-locations-demo";
 import ReFooterWithContentAndCtaDemo from "./react-email/footer-with-content-and-cta-demo";
+import ReFooterWithFullMenuDemo from "./react-email/footer-with-full-menu-demo";
+import ReFooterWithLargeTitleAndButtonsDemo from "./react-email/footer-with-large-title-and-buttons-demo";
 import ReFooterWithLegalTextDemo from "./react-email/footer-with-legal-text-demo";
-import ReFooterWithOversizedLogoAndFullMenuDemo from "./react-email/footer-with-oversized-logo-and-full-menu-demo";
+import ReFooterWithMenuAndFullWidthCtaDemo from "./react-email/footer-with-menu-and-full-width-cta-demo";
+import ReFooterWithOverlappedCtaDemo from "./react-email/footer-with-overlapped-cta-demo";
 import ReFooterWithSocialIconsAndAddressDemo from "./react-email/footer-with-social-icons-and-address-demo";
 import ReFooterWithTextMenuAndSocialsDemo from "./react-email/footer-with-text-menu-and-socials-demo";
 import ReFourColumnsGridDemo from "./react-email/four-columns-grid-demo";
@@ -502,9 +521,7 @@ import ReHeaderWithLogoAndBadgeDemo from "./react-email/header-with-logo-and-bad
 import ReHeaderWithLogoAndFinanceStatsDemo from "./react-email/header-with-logo-and-finance-stats-demo";
 import ReHeaderWithLogoAndMenuDemo from "./react-email/header-with-logo-and-menu-demo";
 import ReHeaderWithLogoAndSocialIconsDemo from "./react-email/header-with-logo-and-social-icons-demo";
-import ReHeaderWithLogoAndTextDemo from "./react-email/header-with-logo-and-text-demo";
 import ReHeaderWithLogoDemo from "./react-email/header-with-logo-demo";
-import ReHeaderWithUserDetailsAndAvatarDemo from "./react-email/header-with-user-details-and-avatar-demo";
 import ReHeaderWithUserDetailsDemo from "./react-email/header-with-user-details-demo";
 import ReHeroAlignedOverlayDemo from "./react-email/hero-aligned-overlay-demo";
 import ReHeroBlockOverlayDemo from "./react-email/hero-block-overlay-demo";
@@ -529,6 +546,7 @@ import ReOneThreeSplitGridDemo from "./react-email/one-three-split-grid-demo";
 import ReOrderSummaryBillingInlineDemo from "./react-email/order-summary-billing-inline-demo";
 import ReOrderSummaryBillingTopDemo from "./react-email/order-summary-billing-top-demo";
 import ReOutlinedBoxSocialLogosDemo from "./react-email/outlined-box-social-logos-demo";
+import ReOutlinedCircleTilesSocialLogosDemo from "./react-email/outlined-circle-tiles-social-logos-demo";
 import ReOutlinedGridStatsDemo from "./react-email/outlined-grid-stats-demo";
 import ReOutlinedLogoCloudDemo from "./react-email/outlined-logo-cloud-demo";
 import ReOutlinedPillBoxSocialLogosDemo from "./react-email/outlined-pill-box-social-logos-demo";
@@ -657,6 +675,7 @@ export const demos: Record<
       JxBoxedOrderSummaryCardDetailsTotalTopDemo,
     "boxed-order-summary-total-bottom-demo": JxBoxedOrderSummaryTotalBottomDemo,
     "boxed-order-summary-total-top-demo": JxBoxedOrderSummaryTotalTopDemo,
+    "buttons-demo": JxButtonsDemo,
     "card-coupons-demo": JxCardCouponsDemo,
     "cards-timeline-demo": JxCardsTimelineDemo,
     "category-preview-cards-demo": JxCategoryPreviewCardsDemo,
@@ -707,16 +726,23 @@ export const demos: Record<
     "featured-blog-post-demo": JxFeaturedBlogPostDemo,
     "featured-brands-logo-grid-demo": JxFeaturedBrandsLogoGridDemo,
     "featured-post-with-large-date-demo": JxFeaturedPostWithLargeDateDemo,
-    "footer-centered-with-bordered-full-menu-demo":
-      JxFooterCenteredWithBorderedFullMenuDemo,
     "footer-centered-with-menu-and-socials-demo":
       JxFooterCenteredWithMenuAndSocialsDemo,
+    "footer-with-2-column-menu-and-divider-demo":
+      JxFooterWith2ColumnMenuAndDividerDemo,
     "footer-with-2-column-menu-demo": JxFooterWith2ColumnMenuDemo,
     "footer-with-3-col-menu-demo": JxFooterWith3ColMenuDemo,
+    "footer-with-app-store-buttons-demo": JxFooterWithAppStoreButtonsDemo,
+    "footer-with-background-image-demo": JxFooterWithBackgroundImageDemo,
+    "footer-with-company-locations-demo": JxFooterWithCompanyLocationsDemo,
     "footer-with-content-and-cta-demo": JxFooterWithContentAndCtaDemo,
+    "footer-with-full-menu-demo": JxFooterWithFullMenuDemo,
+    "footer-with-large-title-and-buttons-demo":
+      JxFooterWithLargeTitleAndButtonsDemo,
     "footer-with-legal-text-demo": JxFooterWithLegalTextDemo,
-    "footer-with-oversized-logo-and-full-menu-demo":
-      JxFooterWithOversizedLogoAndFullMenuDemo,
+    "footer-with-menu-and-full-width-cta-demo":
+      JxFooterWithMenuAndFullWidthCtaDemo,
+    "footer-with-overlapped-cta-demo": JxFooterWithOverlappedCtaDemo,
     "footer-with-social-icons-and-address-demo":
       JxFooterWithSocialIconsAndAddressDemo,
     "footer-with-text-menu-and-socials-demo":
@@ -737,16 +763,13 @@ export const demos: Record<
     "grouped-overlapped-avatars-demo": JxGroupedOverlappedAvatarsDemo,
     "grouped-overlapped-avatars-plus-count-demo":
       JxGroupedOverlappedAvatarsPlusCountDemo,
-    "header-logo-with-links-demo": JxHeaderLogoWithLinksDemo,
     "header-with-logo-and-badge-demo": JxHeaderWithLogoAndBadgeDemo,
     "header-with-logo-and-finance-stats-demo":
       JxHeaderWithLogoAndFinanceStatsDemo,
     "header-with-logo-and-menu-demo": JxHeaderWithLogoAndMenuDemo,
     "header-with-logo-and-social-icons-demo":
       JxHeaderWithLogoAndSocialIconsDemo,
-    "header-with-logo-and-text-demo": JxHeaderWithLogoAndTextDemo,
-    "header-with-user-details-and-avatar-demo":
-      JxHeaderWithUserDetailsAndAvatarDemo,
+    "header-with-logo-demo": JxHeaderWithLogoDemo,
     "header-with-user-details-demo": JxHeaderWithUserDetailsDemo,
     "hero-aligned-overlay-demo": JxHeroAlignedOverlayDemo,
     "hero-block-overlay-demo": JxHeroBlockOverlayDemo,
@@ -771,6 +794,8 @@ export const demos: Record<
     "order-summary-billing-inline-demo": JxOrderSummaryBillingInlineDemo,
     "order-summary-billing-top-demo": JxOrderSummaryBillingTopDemo,
     "outlined-box-social-logos-demo": JxOutlinedBoxSocialLogosDemo,
+    "outlined-circle-tiles-social-logos-demo":
+      JxOutlinedCircleTilesSocialLogosDemo,
     "outlined-grid-stats-demo": JxOutlinedGridStatsDemo,
     "outlined-logo-cloud-demo": JxOutlinedLogoCloudDemo,
     "outlined-pill-box-social-logos-demo": JxOutlinedPillBoxSocialLogosDemo,
@@ -909,6 +934,7 @@ export const demos: Record<
       MjBoxedOrderSummaryCardDetailsTotalTopDemo,
     "boxed-order-summary-total-bottom-demo": MjBoxedOrderSummaryTotalBottomDemo,
     "boxed-order-summary-total-top-demo": MjBoxedOrderSummaryTotalTopDemo,
+    "buttons-demo": MjButtonsDemo,
     "card-coupons-demo": MjCardCouponsDemo,
     "cards-timeline-demo": MjCardsTimelineDemo,
     "category-preview-cards-demo": MjCategoryPreviewCardsDemo,
@@ -959,16 +985,23 @@ export const demos: Record<
     "featured-blog-post-demo": MjFeaturedBlogPostDemo,
     "featured-brands-logo-grid-demo": MjFeaturedBrandsLogoGridDemo,
     "featured-post-with-large-date-demo": MjFeaturedPostWithLargeDateDemo,
-    "footer-centered-with-bordered-full-menu-demo":
-      MjFooterCenteredWithBorderedFullMenuDemo,
     "footer-centered-with-menu-and-socials-demo":
       MjFooterCenteredWithMenuAndSocialsDemo,
+    "footer-with-2-column-menu-and-divider-demo":
+      MjFooterWith2ColumnMenuAndDividerDemo,
     "footer-with-2-column-menu-demo": MjFooterWith2ColumnMenuDemo,
     "footer-with-3-col-menu-demo": MjFooterWith3ColMenuDemo,
+    "footer-with-app-store-buttons-demo": MjFooterWithAppStoreButtonsDemo,
+    "footer-with-background-image-demo": MjFooterWithBackgroundImageDemo,
+    "footer-with-company-locations-demo": MjFooterWithCompanyLocationsDemo,
     "footer-with-content-and-cta-demo": MjFooterWithContentAndCtaDemo,
+    "footer-with-full-menu-demo": MjFooterWithFullMenuDemo,
+    "footer-with-large-title-and-buttons-demo":
+      MjFooterWithLargeTitleAndButtonsDemo,
     "footer-with-legal-text-demo": MjFooterWithLegalTextDemo,
-    "footer-with-oversized-logo-and-full-menu-demo":
-      MjFooterWithOversizedLogoAndFullMenuDemo,
+    "footer-with-menu-and-full-width-cta-demo":
+      MjFooterWithMenuAndFullWidthCtaDemo,
+    "footer-with-overlapped-cta-demo": MjFooterWithOverlappedCtaDemo,
     "footer-with-social-icons-and-address-demo":
       MjFooterWithSocialIconsAndAddressDemo,
     "footer-with-text-menu-and-socials-demo":
@@ -989,16 +1022,13 @@ export const demos: Record<
     "grouped-overlapped-avatars-demo": MjGroupedOverlappedAvatarsDemo,
     "grouped-overlapped-avatars-plus-count-demo":
       MjGroupedOverlappedAvatarsPlusCountDemo,
-    "header-logo-with-links-demo": MjHeaderLogoWithLinksDemo,
     "header-with-logo-and-badge-demo": MjHeaderWithLogoAndBadgeDemo,
     "header-with-logo-and-finance-stats-demo":
       MjHeaderWithLogoAndFinanceStatsDemo,
     "header-with-logo-and-menu-demo": MjHeaderWithLogoAndMenuDemo,
     "header-with-logo-and-social-icons-demo":
       MjHeaderWithLogoAndSocialIconsDemo,
-    "header-with-logo-and-text-demo": MjHeaderWithLogoAndTextDemo,
-    "header-with-user-details-and-avatar-demo":
-      MjHeaderWithUserDetailsAndAvatarDemo,
+    "header-with-logo-demo": MjHeaderWithLogoDemo,
     "header-with-user-details-demo": MjHeaderWithUserDetailsDemo,
     "hero-aligned-overlay-demo": MjHeroAlignedOverlayDemo,
     "hero-block-overlay-demo": MjHeroBlockOverlayDemo,
@@ -1023,6 +1053,8 @@ export const demos: Record<
     "order-summary-billing-inline-demo": MjOrderSummaryBillingInlineDemo,
     "order-summary-billing-top-demo": MjOrderSummaryBillingTopDemo,
     "outlined-box-social-logos-demo": MjOutlinedBoxSocialLogosDemo,
+    "outlined-circle-tiles-social-logos-demo":
+      MjOutlinedCircleTilesSocialLogosDemo,
     "outlined-grid-stats-demo": MjOutlinedGridStatsDemo,
     "outlined-logo-cloud-demo": MjOutlinedLogoCloudDemo,
     "outlined-pill-box-social-logos-demo": MjOutlinedPillBoxSocialLogosDemo,
@@ -1161,6 +1193,7 @@ export const demos: Record<
       ReBoxedOrderSummaryCardDetailsTotalTopDemo,
     "boxed-order-summary-total-bottom-demo": ReBoxedOrderSummaryTotalBottomDemo,
     "boxed-order-summary-total-top-demo": ReBoxedOrderSummaryTotalTopDemo,
+    "buttons-demo": ReButtonsDemo,
     "card-coupons-demo": ReCardCouponsDemo,
     "cards-timeline-demo": ReCardsTimelineDemo,
     "category-preview-cards-demo": ReCategoryPreviewCardsDemo,
@@ -1214,16 +1247,23 @@ export const demos: Record<
     "featured-blog-post-demo": ReFeaturedBlogPostDemo,
     "featured-brands-logo-grid-demo": ReFeaturedBrandsLogoGridDemo,
     "featured-post-with-large-date-demo": ReFeaturedPostWithLargeDateDemo,
-    "footer-centered-with-bordered-full-menu-demo":
-      ReFooterCenteredWithBorderedFullMenuDemo,
     "footer-centered-with-menu-and-socials-demo":
       ReFooterCenteredWithMenuAndSocialsDemo,
+    "footer-with-2-column-menu-and-divider-demo":
+      ReFooterWith2ColumnMenuAndDividerDemo,
     "footer-with-2-column-menu-demo": ReFooterWith2ColumnMenuDemo,
     "footer-with-3-col-menu-demo": ReFooterWith3ColMenuDemo,
+    "footer-with-app-store-buttons-demo": ReFooterWithAppStoreButtonsDemo,
+    "footer-with-background-image-demo": ReFooterWithBackgroundImageDemo,
+    "footer-with-company-locations-demo": ReFooterWithCompanyLocationsDemo,
     "footer-with-content-and-cta-demo": ReFooterWithContentAndCtaDemo,
+    "footer-with-full-menu-demo": ReFooterWithFullMenuDemo,
+    "footer-with-large-title-and-buttons-demo":
+      ReFooterWithLargeTitleAndButtonsDemo,
     "footer-with-legal-text-demo": ReFooterWithLegalTextDemo,
-    "footer-with-oversized-logo-and-full-menu-demo":
-      ReFooterWithOversizedLogoAndFullMenuDemo,
+    "footer-with-menu-and-full-width-cta-demo":
+      ReFooterWithMenuAndFullWidthCtaDemo,
+    "footer-with-overlapped-cta-demo": ReFooterWithOverlappedCtaDemo,
     "footer-with-social-icons-and-address-demo":
       ReFooterWithSocialIconsAndAddressDemo,
     "footer-with-text-menu-and-socials-demo":
@@ -1250,10 +1290,7 @@ export const demos: Record<
     "header-with-logo-and-menu-demo": ReHeaderWithLogoAndMenuDemo,
     "header-with-logo-and-social-icons-demo":
       ReHeaderWithLogoAndSocialIconsDemo,
-    "header-with-logo-and-text-demo": ReHeaderWithLogoAndTextDemo,
     "header-with-logo-demo": ReHeaderWithLogoDemo,
-    "header-with-user-details-and-avatar-demo":
-      ReHeaderWithUserDetailsAndAvatarDemo,
     "header-with-user-details-demo": ReHeaderWithUserDetailsDemo,
     "hero-aligned-overlay-demo": ReHeroAlignedOverlayDemo,
     "hero-block-overlay-demo": ReHeroBlockOverlayDemo,
@@ -1278,6 +1315,8 @@ export const demos: Record<
     "order-summary-billing-inline-demo": ReOrderSummaryBillingInlineDemo,
     "order-summary-billing-top-demo": ReOrderSummaryBillingTopDemo,
     "outlined-box-social-logos-demo": ReOutlinedBoxSocialLogosDemo,
+    "outlined-circle-tiles-social-logos-demo":
+      ReOutlinedCircleTilesSocialLogosDemo,
     "outlined-grid-stats-demo": ReOutlinedGridStatsDemo,
     "outlined-logo-cloud-demo": ReOutlinedLogoCloudDemo,
     "outlined-pill-box-social-logos-demo": ReOutlinedPillBoxSocialLogosDemo,

@@ -1,5 +1,5 @@
 import { SocialLogos } from "@/registry/bases/mjml-react/ui/marketing/social/social-logos";
 
 export default function PillBoxSocialLogosDemo() {
-  return <SocialLogos {...SocialLogos.PreviewProps} tile="pill" />;
+  return <SocialLogos {...SocialLogos.PreviewProps} variant="pill-box" />;
 }

@@ -1,7 +1,14 @@
 ---
-title: "2 Columns Blog with Images and Text"
-description: "2 Columns Blog with Images and Text — Blog email component."
+title: "2 Columns Blog With Images And Text"
+description: "A Mailviews blog layout implemented with shared email-safe primitives."
 ---
+
+This public component retains its Mailviews content contract while reusing the
+same renderer-specific blog primitives as the rest of the family.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="jsx-email"
@@ -25,13 +32,20 @@ npx shadcn@latest add @emailcn/2-columns-blog-with-images-and-text
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared blog primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/jsx-email/ui/marketing/blog/blog-shared.tsx"
+  base="jsx-email"
+  title="components/emails/marketing/blog/blog-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/blog/2-columns-blog-with-images-and-text.tsx"
     base="jsx-email"
@@ -56,6 +70,10 @@ import { TwoColumnsBlogWithImagesAndText } from "@/components/emails/marketing/b
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                      | Type               | Default         | Description                                     |
+| ------------------------- | ------------------ | --------------- | ----------------------------------------------- |
+| `theme`                   | `EmailThemeTokens` | `defaultTheme`  | Renderer theme configuration.                   |
+| `heading`                 | `string`           | Layout-specific | Optional section heading where supported.       |
+| `imageSrc*` / `imageAlt*` | `string`           | Example imagery | Post image sources and labels.                  |
+| `title*` / `excerpt*`     | `string`           | Example copy    | Post titles and supporting excerpts.            |
+| Metadata props            | `string`           | Layout-specific | Author, host, episode, badge, or date metadata. |

@@ -1,150 +1,75 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlImage,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+} from "@/registry/bases/mjml-react/ui/marketing/blog/blog-shared";
 
-export type BlogHorizontalVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-
-export interface BlogHorizontalProps {
+export interface BlogPostHorizontalBoxedWithSplitImagesProps {
   theme?: EmailThemeTokens;
-  posts?: {
-    imageUrl?: string;
-    title: string;
-    description: string;
-    date?: string;
-  }[];
-  variant?: BlogHorizontalVariant;
+  excerpt?: string;
+  imageAlt1?: string;
+  imageAlt2?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  title?: string;
 }
 
-const BlogHorizontalSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogHorizontalProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogHorizontalVariant;
-}) => {
-  const items = posts ?? [];
+export const BlogPostHorizontalBoxedWithSplitImagesSection = ({
+  excerpt = "A thoughtful look at the places and ideas shaping our work.",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/bento-grids/bento-1.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/bento-grids/bento-2.jpg",
+  title = "Two perspectives, one story",
+}: Omit<BlogPostHorizontalBoxedWithSplitImagesProps, "theme">) => {
+  const posts = [
+    {
+      excerpt,
+      imageAlt: imageAlt1,
+      imageAlt2,
+      imageSrc: imageSrc1,
+      imageSrc2,
+      title,
+    },
+  ];
 
   return (
-    <MjmlSection
-      backgroundColor={theme.colorBackground}
-      padding={`${theme.spacingXl ?? "48px"} 0`}
-    >
-      {items.slice(0, 3).map((post, i) => (
-        <MjmlSection
-          key={post.title + i}
-          padding={`${theme.spacingBase ?? "24px"} 0`}
-        >
-          {post.imageUrl ? (
-            <MjmlColumn width="30%" padding="0 12px 0 0" verticalAlign="top">
-              <MjmlImage
-                alt={post.title}
-                borderRadius={theme.borderRadius}
-                src={post.imageUrl}
-                width={160}
-              />
-            </MjmlColumn>
-          ) : null}
-          <MjmlColumn
-            width={post.imageUrl ? "70%" : "100%"}
-            verticalAlign="top"
-          >
-            {post.date ? (
-              <MjmlText
-                color={theme.colorTextSubtle}
-                fontFamily={theme.fontFamily}
-                fontSize={theme.fontSizeSm ?? "12px"}
-                paddingBottom={theme.spacingBase ?? "8px"}
-              >
-                {post.date}
-              </MjmlText>
-            ) : null}
-            <MjmlText
-              color={theme.colorText}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeLg ?? "16px"}
-              fontWeight={theme.fontWeightMedium}
-              paddingBottom={theme.spacingBase ?? "8px"}
-            >
-              {post.title}
-            </MjmlText>
-            <MjmlText
-              color={theme.colorTextMuted}
-              fontFamily={theme.fontFamily}
-              fontSize={theme.fontSizeBase ?? "14px"}
-              lineHeight={theme.lineHeightBase}
-            >
-              {post.description}
-            </MjmlText>
-          </MjmlColumn>
-        </MjmlSection>
-      ))}
-    </MjmlSection>
+    <>
+      <BlogContent layout="horizontal-split-images" posts={posts} />
+    </>
   );
 };
 
 export const BlogPostHorizontalBoxedWithSplitImages = ({
   theme = defaultTheme,
-  posts = [
-    { description: "Description of the blog post.", title: "Blog Post Title" },
-  ],
-  variant = "default",
-}: BlogHorizontalProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>blog horizontal</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BlogHorizontalSection posts={posts} theme={theme} variant={variant} />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  excerpt = "A thoughtful look at the places and ideas shaping our work.",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/bento-grids/bento-1.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/bento-grids/bento-2.jpg",
+  title = "Two perspectives, one story",
+}: BlogPostHorizontalBoxedWithSplitImagesProps) => (
+  <BlogEmailShell preview={title} theme={theme}>
+    <BlogPostHorizontalBoxedWithSplitImagesSection
+      excerpt={excerpt}
+      imageAlt1={imageAlt1}
+      imageAlt2={imageAlt2}
+      imageSrc1={imageSrc1}
+      imageSrc2={imageSrc2}
+      title={title}
+    />
+  </BlogEmailShell>
 );
 
 BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
-  posts: [
-    {
-      date: "May 12, 2026",
-      description: "A comprehensive guide to building email components.",
-      imageUrl: "https://static.photos/travel/200x150/2",
-      title: "Complete Guide",
-    },
-    {
-      date: "May 10, 2026",
-      description: "Tips for designing emails that convert.",
-      imageUrl: "https://static.photos/travel/200x150/3",
-      title: "Design Tips",
-    },
-  ],
+  excerpt: "A thoughtful look at the places and ideas shaping our work.",
+  imageAlt1: "Mountain landscape",
+  imageAlt2: "Coastal landscape",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/bento-grids/bento-1.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/bento-grids/bento-2.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogHorizontalProps;
+  title: "Two perspectives, one story",
+} satisfies BlogPostHorizontalBoxedWithSplitImagesProps;

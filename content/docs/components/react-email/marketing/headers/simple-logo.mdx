@@ -1,9 +1,65 @@
 ---
-title: "Simple Logo"
-description: "Marketing headers variant for email templates"
+title: "Logo Header"
+description: "Mailviews simple-logo and logo-with-text headers in one component"
 ---
 
-<ComponentPreview base="react-email" name="header-with-logo-demo" />
+The Mailviews simple-logo and logo-with-text families share one `HeaderWithLogo` API. Use `variant` for content and `alignment` for placement.
+
+## Examples
+
+### Minimal — Centered
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-demo"
+  variant="minimal-center"
+  hideCode
+/>
+
+### Minimal — Left Logo
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-demo"
+  variant="minimal-left"
+  hideCode
+/>
+
+### Minimal — Right Logo
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-demo"
+  variant="minimal-right"
+  hideCode
+/>
+
+### With Text — Centered
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-demo"
+  variant="with-text-center"
+  hideCode
+/>
+
+### With Text — Left Logo
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-demo"
+  variant="with-text-left"
+  hideCode
+/>
+
+### With Text — Right Logo
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-demo"
+  variant="with-text-right"
+  hideCode
+/>
 
 ## Installation
 
@@ -40,11 +96,17 @@ import { HeaderWithLogo } from "@/components/emails/marketing/headers/header-wit
 ```
 
 ```tsx
-<HeaderWithLogo {...HeaderWithLogo.PreviewProps} />
+<HeaderWithLogo
+  {...HeaderWithLogo.PreviewProps}
+  alignment="right"
+  variant="with-text"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                      | Default        | Description                       |
+| ----------- | ------------------------- | -------------- | --------------------------------- |
+| `variant`   | `HeaderWithLogoVariant`   | `"minimal"`    | Selects minimal or text content   |
+| `alignment` | `HeaderWithLogoAlignment` | `"center"`     | Places the logo left/center/right |
+| `theme`     | Renderer theme            | `defaultTheme` | Renderer theme configuration      |

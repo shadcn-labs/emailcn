@@ -1,12 +1,9 @@
 ---
 title: "Full Width Image with Overlay"
-description: "Marketing images variant for email templates"
+description: "A full-width image with bottom overlay copy and Mailviews edge-treatment variants"
 ---
 
-<ComponentPreview
-  base="mjml-react"
-  name="full-width-image-with-overlay-demo"
-/>
+<ComponentPreview base="mjml-react" name="full-width-image-with-overlay-demo" />
 
 ## Installation
 
@@ -31,7 +28,7 @@ npx shadcn@latest add @emailcn/full-width-image-with-overlay
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/images/full-width-image-with-overlay.tsx"
     base="mjml-react"
@@ -52,8 +49,151 @@ import { FullWidthImageWithOverlay } from "@/components/emails/marketing/images/
 <FullWidthImageWithOverlay {...FullWidthImageWithOverlay.PreviewProps} />
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="default"
+  hideCode
+/>
+
+### Top Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="top-padding"
+  hideCode
+/>
+
+### Top Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="top-right"
+  hideCode
+/>
+
+### Top Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="top-left"
+  hideCode
+/>
+
+### Top and Sides
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="top-sides"
+  hideCode
+/>
+
+### Right Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="right-padding"
+  hideCode
+/>
+
+### Right Alternative
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="right-alt"
+  hideCode
+/>
+
+### Bottom Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-padding"
+  hideCode
+/>
+
+### Bottom Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-right"
+  hideCode
+/>
+
+### Bottom Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-left"
+  hideCode
+/>
+
+### Bottom and Sides
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-sides"
+  hideCode
+/>
+
+### Left Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="left-padding"
+  hideCode
+/>
+
+### Left Alternative
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="left-alt"
+  hideCode
+/>
+
+### Sides Padding
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="sides-padding"
+  hideCode
+/>
+
+### Sides Alternative
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-with-overlay-demo"
+  variant="sides-alt"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                         | Type                               | Default         | Description                                     |
+| ---------------------------- | ---------------------------------- | --------------- | ----------------------------------------------- |
+| `theme`                      | `EmailThemeTokens`                 | `defaultTheme`  | MJML React theme tokens                         |
+| `variant`                    | `FullWidthImageWithOverlayVariant` | `"default"`     | Selects the exact Mailviews edge treatment      |
+| `imageSrc`                   | `string`                           | Mailviews image | Background image URL                            |
+| `heading` / `subtext`        | `string`                           | Mailviews copy  | Bottom overlay heading and supporting text      |
+| `headingColor` / `textColor` | `string`                           | `"#fffffe"`     | Overlay copy colors                             |
+| `pageBackgroundColor`        | `string`                           | `"#f1f5f9"`     | Canvas and cutout color                         |
+| `spacerBackgroundColor`      | `string`                           | `"#fffffe"`     | Color used for padding and side spacer surfaces |

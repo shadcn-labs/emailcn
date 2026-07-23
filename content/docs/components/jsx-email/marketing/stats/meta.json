@@ -3,7 +3,6 @@
   "pages": [
     "grid-stats",
     "simple-stats",
-    "simple-grid-stats",
     "milestone-stats",
     "overlay-stats",
     "rolling-stats",

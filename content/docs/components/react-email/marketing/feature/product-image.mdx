@@ -1,6 +1,6 @@
 ---
-title: "Product Image"
-description: "Marketing feature variant for email templates"
+title: "Feature with Product Image"
+description: "A product feature with left and right image variants"
 ---
 
 <ComponentPreview base="react-email" name="feature-with-product-image-demo" />
@@ -43,8 +43,31 @@ import { FeatureWithProductImage } from "@/components/emails/marketing/feature/f
 <FeatureWithProductImage {...FeatureWithProductImage.PreviewProps} />
 ```
 
+## Examples
+
+### Image Left
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-product-image-demo"
+  variant="image-left"
+  hideCode
+/>
+
+### Image Right
+
+<ComponentPreview
+  base="react-email"
+  name="feature-with-product-image-demo"
+  variant="image-right"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                             | Default          | Description                                       |
+| ------------- | -------------------------------- | ---------------- | ------------------------------------------------- |
+| `theme`       | Renderer theme                   | `defaultTheme`   | Renderer theme configuration                      |
+| `variant`     | `FeatureWithProductImageVariant` | `"image-left"`   | Places the product image before or after the copy |
+| Content props | `string`                         | Mailviews data   | Heading, body, button, image, and arrow content   |
+| Color props   | `string`                         | Mailviews colors | Canvas, surface, copy, and link colors            |

@@ -1,0 +1,63 @@
+---
+title: "Socials With Labels"
+description: "Mailviews social links with stacked or inline labels"
+---
+
+The stacked and inline layouts use one content model, so they are variants of
+`SocialsWithLabels`.
+
+## Examples
+
+### Stacked
+
+<ComponentPreview base="jsx-email" name="socials-with-labels-stacked-demo" />
+
+### Inline
+
+<ComponentPreview base="jsx-email" name="socials-with-inline-labels-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/socials-with-labels
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/social/socials-with-labels.tsx"
+    base="jsx-email"
+    title="components/emails/marketing/social/socials-with-labels.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialsWithLabels } from "@/components/emails/marketing/social/socials-with-labels";
+
+<SocialsWithLabels variant="inline" />;
+```
+
+## API Reference
+
+| Prop          | Type                    | Default             | Description                 |
+| ------------- | ----------------------- | ------------------- | --------------------------- |
+| `variant`     | `"stacked" \| "inline"` | `"stacked"`         | Label arrangement           |
+| `items`       | `LabeledSocialItem[]`   | Mailviews icons     | Social links, labels, icons |
+| `title`       | `string`                | `"Connect with us"` | Section title               |
+| `description` | `string`                | Mailviews copy      | Supporting text             |
+| `theme`       | `EmailThemeTokens`      | `defaultTheme`      | Email theme configuration   |

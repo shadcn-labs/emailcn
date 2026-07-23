@@ -1,7 +1,14 @@
 ---
-title: "Boxed FAQ with Numbers and Alternating Background"
-description: "Marketing faq variant for email templates"
+title: "Boxed FAQ With Alternating Backgrounds"
+description: "Numbered FAQ cards with alternating neutral backgrounds."
 ---
+
+This layout keeps its own public component because its content contract differs
+from the other FAQ treatments. Common email-safe rendering is shared internally.
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="mjml-react"
@@ -25,13 +32,20 @@ npx shadcn@latest add @emailcn/boxed-faq-with-numbers-and-alternating-background
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>Install the renderer dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the shared FAQ primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/mjml-react/ui/marketing/faq/faq-shared.tsx"
+  base="mjml-react"
+  title="components/emails/marketing/faq/faq-shared.tsx"
+/>
+
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx"
     base="mjml-react"
@@ -56,6 +70,9 @@ import { BoxedFaqWithNumbersAndAlternatingBackgroundColors } from "@/components/
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop            | Type               | Default                        | Description                            |
+| --------------- | ------------------ | ------------------------------ | -------------------------------------- |
+| `theme`         | `EmailThemeTokens` | `defaultTheme`                 | Renderer theme configuration.          |
+| `heading`       | `string`           | `"Frequently asked questions"` | Section heading.                       |
+| `q1`, `q2`, ... | `string`           | Mailviews example copy         | Question labels.                       |
+| `a1`, `a2`, ... | `string`           | Mailviews example copy         | Answers when the layout displays them. |

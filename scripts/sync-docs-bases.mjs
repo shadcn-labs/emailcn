@@ -27,20 +27,21 @@ const walk = (d) =>
 const TARGETS = [
   {
     base: "mjml-react",
-    title: "MJML React",
-    dependency: "npm install @faire/mjml-react",
     // The mjml/jsx demo for header-with-logo is registered under a legacy key.
     demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
+    dependency: "npm install @faire/mjml-react",
+    title: "MJML React",
   },
   {
     base: "jsx-email",
-    title: "JSX Email",
-    dependency: "npm install jsx-email",
     demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
+    dependency: "npm install jsx-email",
+    title: "JSX Email",
   },
 ];
 
-const COPY_SOURCE_STEP = "<Step>Copy the component source into your project.</Step>";
+const COPY_SOURCE_STEP =
+  "<Step>Copy the component source into your project.</Step>";
 
 const injectDependencyStep = (text, dependency) => {
   if (!text.includes(COPY_SOURCE_STEP)) {
@@ -93,7 +94,7 @@ const generate = (target) => {
       destPath,
       isMeta ? transformMeta(raw, target) : transformMdx(raw, target)
     );
-    files++;
+    files += 1;
   }
   console.log(`${target.base}: ${files} files generated from ${SRC_BASE}`);
 };

@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Body,
   Column,
@@ -10,53 +9,64 @@ import {
   Section,
   Text,
 } from "jsx-email";
+import type { CSSProperties } from "react";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-const LAYOUT_WIDTHS = {
-  "1": ["100%"],
-  "1-3": ["25%", "75%"],
-  "2": ["50%", "50%"],
-  "3": ["33.33%", "33.33%", "33.33%"],
-  "3-1": ["75%", "25%"],
-  "4": ["25%", "25%", "25%", "25%"],
-} as const;
+export type GridVariant =
+  | "one-column"
+  | "two-columns"
+  | "three-columns"
+  | "four-columns"
+  | "one-three-split"
+  | "three-one-split";
+
+export type GridAlign = "center" | "left" | "right";
+
+const GRID_WIDTHS: Record<GridVariant, readonly string[]> = {
+  "four-columns": ["25%", "25%", "25%", "25%"],
+  "one-column": ["100%"],
+  "one-three-split": ["25%", "75%"],
+  "three-columns": ["33.33%", "33.33%", "33.33%"],
+  "three-one-split": ["75%", "25%"],
+  "two-columns": ["50%", "50%"],
+};
+
+const textStyle: CSSProperties = {
+  color: "#111827",
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontSize: "16px",
+  fontWeight: 400,
+  letterSpacing: "-0.048px",
+  lineHeight: "24px",
+  margin: 0,
+};
 
 export interface GridProps {
-  theme?: EmailThemeTokens;
+  align?: GridAlign;
   cells?: string[];
-  layout?: keyof typeof LAYOUT_WIDTHS;
-  align?: "left" | "center" | "right";
+  theme?: EmailThemeTokens;
+  variant?: GridVariant;
 }
 
-const GridSection = ({
-  cells,
-  theme,
-  layout,
-  align,
-}: {
-  cells: string[];
-  theme: EmailThemeTokens;
-  layout: NonNullable<GridProps["layout"]>;
-  align: NonNullable<GridProps["align"]>;
-}) => (
-  <Section style={{ padding: `${theme.spacingXl ?? "24px"} 0` }}>
+export const GridSection = ({
+  align = "center",
+  cells = [],
+  variant = "two-columns",
+}: Omit<GridProps, "theme">) => (
+  <Section style={{ padding: "48px 0" }}>
     <Row>
-      {LAYOUT_WIDTHS[layout].map((width, index) => (
+      {GRID_WIDTHS[variant].map((width, index) => (
         <Column
+          className="grid-column"
           key={`${width}-${index}`}
-          style={{ padding: theme.spacingBase ?? "16px", width }}
+          style={{ padding: "12px", verticalAlign: "top", width }}
+          width={width}
         >
-          <Text
-            style={{
-              color: theme.colorText,
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeBase ?? "14px",
-              margin: 0,
-              textAlign: align,
-            }}
-          >
+          <Text style={{ ...textStyle, textAlign: align }}>
             {cells[index] ?? ""}
           </Text>
         </Column>
@@ -66,33 +76,28 @@ const GridSection = ({
 );
 
 export const Grid = ({
-  theme = defaultTheme,
-  cells = [],
-  layout = "2",
   align = "center",
+  cells = [],
+  theme = defaultTheme,
+  variant = "two-columns",
 }: GridProps) => (
   <Html>
-    <Head />
+    <Head>
+      <DefaultFonts />
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @media only screen and (max-width: 599px) {
+              .grid-column { display: block !important; width: 100% !important; }
+            }
+          `,
+        }}
+      />
+    </Head>
     <Preview>Grid</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <GridSection
-            cells={cells}
-            theme={theme}
-            layout={layout}
-            align={align}
-          />
-        </Section>
+    <Body style={{ backgroundColor: theme.colorBackground, margin: 0 }}>
+      <Container style={{ margin: "0 auto", maxWidth: theme.containerWidth }}>
+        <GridSection align={align} cells={cells} variant={variant} />
       </Container>
     </Body>
   </Html>
@@ -100,7 +105,10 @@ export const Grid = ({
 
 Grid.PreviewProps = {
   align: "center",
-  cells: ["Feature one", "Feature two"],
-  layout: "2",
+  cells: [
+    "Feature one description with key benefits.",
+    "Feature two description with key benefits.",
+  ],
   theme: defaultTheme,
+  variant: "two-columns",
 } satisfies GridProps;

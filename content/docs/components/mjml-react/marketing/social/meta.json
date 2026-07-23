@@ -3,9 +3,7 @@
   "pages": [
     "social-logos",
     "simple-social-logos-row",
-    "socials-with-inline-labels",
-    "socials-with-inline-tile-labels",
-    "socials-with-labels-stacked",
-    "socials-with-stacked-tile-labels"
+    "socials-with-labels",
+    "socials-with-tile-labels"
   ]
 }

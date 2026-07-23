@@ -1,9 +1,38 @@
 ---
-title: "Logo with Badge"
-description: "Marketing headers variant for email templates"
+title: "Logo with Shipping Message"
+description: "Mailviews logo and shipping-message header placements"
 ---
 
-<ComponentPreview base="mjml-react" name="header-with-logo-and-badge-demo" />
+All three Mailviews placements share one component through the `alignment` prop.
+
+## Examples
+
+### Left Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-badge-demo"
+  variant="left"
+  hideCode
+/>
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-badge-demo"
+  variant="center"
+  hideCode
+/>
+
+### Right Logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-badge-demo"
+  variant="right"
+  hideCode
+/>
 
 ## Installation
 
@@ -22,13 +51,7 @@ npx shadcn@latest add @emailcn/header-with-logo-and-badge
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-badge.tsx"
     base="mjml-react"
@@ -46,11 +69,15 @@ import { HeaderWithLogoAndBadge } from "@/components/emails/marketing/headers/he
 ```
 
 ```tsx
-<HeaderWithLogoAndBadge {...HeaderWithLogoAndBadge.PreviewProps} />
+<HeaderWithLogoAndBadge
+  {...HeaderWithLogoAndBadge.PreviewProps}
+  alignment="center"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                              | Default        | Description                                  |
+| ----------- | --------------------------------- | -------------- | -------------------------------------------- |
+| `alignment` | `HeaderWithLogoAndBadgeAlignment` | `"left"`       | Places the logo and shipping message content |
+| `theme`     | Renderer theme                    | `defaultTheme` | Renderer theme configuration                 |

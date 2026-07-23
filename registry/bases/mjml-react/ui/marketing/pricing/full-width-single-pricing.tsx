@@ -1,168 +1,294 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlButton,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
+  MjmlRaw,
   MjmlStyle,
-  MjmlText,
+  MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type FullWidthSinglePricingVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export interface PricingFeature {
+  label: string;
+  muted?: boolean;
+}
 
 export interface FullWidthSinglePricingProps {
   theme?: EmailThemeTokens;
-  heading?: string;
+  name?: string;
   price?: string;
+  currency?: string;
   period?: string;
   description?: string;
-  feature1?: string;
-  feature2?: string;
-  feature3?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: FullWidthSinglePricingVariant;
+  features?: PricingFeature[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  cardBackgroundColor?: string;
+  brandColor?: string;
 }
 
-const variantClass = (variant: FullWidthSinglePricingVariant) =>
-  variant === "slanted-left"
-    ? "ec-skew-left"
-    : variant === "slanted-right"
-      ? "ec-skew-right"
-      : undefined;
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = [
+  "@media only screen and (max-width: 599px) {",
+  "  .single-pricing-break { display: none !important; }",
+  "}",
+].join("\n");
+
+const defaultFeatures: PricingFeature[] = [
+  { label: "Visual email editor" },
+  { label: "Transactional & marketing templates" },
+  { label: "Team collaboration (up to 3 users)", muted: true },
+  { label: "Version control & previews", muted: true },
+];
+
+export const FullWidthSinglePricingSection = ({
+  name = "Takeoff",
+  price = "$19",
+  currency = "USD",
+  period = "/Month",
+  description = "Everything you need to design, build, and ship emails faster.",
+  features = defaultFeatures,
+  pageBackgroundColor = "#f1f5f9",
+  backgroundColor = "#fffffe",
+  cardBackgroundColor = "#f9fafb",
+  brandColor = "#4f46e5",
+}: Omit<FullWidthSinglePricingProps, "theme">) => (
+  <table
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={{ backgroundColor: pageBackgroundColor }}
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td>&zwj;</td>
+        <td
+          style={{
+            backgroundColor,
+            maxWidth: "100%",
+            paddingBottom: "44px",
+            width: "600px",
+          }}
+        >
+          <table
+            border={0}
+            cellPadding={0}
+            cellSpacing={0}
+            role="presentation"
+            width="100%"
+          >
+            <tbody>
+              <tr>
+                <td style={{ padding: "0 24px" }}>
+                  <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                  <table
+                    border={0}
+                    cellPadding={0}
+                    cellSpacing={0}
+                    role="presentation"
+                    width="100%"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          style={{
+                            backgroundColor: cardBackgroundColor,
+                            borderRadius: "8px",
+                            padding: "24px",
+                          }}
+                        >
+                          <p
+                            style={{
+                              color: brandColor,
+                              fontFamily,
+                              fontSize: "24px",
+                              fontWeight: 600,
+                              lineHeight: "32px",
+                              margin: 0,
+                            }}
+                          >
+                            {name}
+                          </p>
+                          <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                          <table
+                            border={0}
+                            cellPadding={0}
+                            cellSpacing={0}
+                            role="presentation"
+                          >
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <p
+                                    style={{
+                                      color: "#030712",
+                                      fontFamily,
+                                      fontSize: "60px",
+                                      fontWeight: 600,
+                                      lineHeight: 1,
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {price}
+                                  </p>
+                                </td>
+                                <td style={{ width: "8px" }}>&zwj;</td>
+                                <td>
+                                  <p
+                                    style={{
+                                      color: "#374151",
+                                      fontFamily,
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {currency}
+                                  </p>
+                                  <p
+                                    style={{
+                                      color: "#6b7280",
+                                      fontFamily,
+                                      fontSize: "14px",
+                                      lineHeight: "20px",
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {period}
+                                  </p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div style={{ lineHeight: "16px" }}>&zwj;</div>
+                          <p
+                            style={{
+                              color: "#030712",
+                              fontFamily,
+                              fontSize: "18px",
+                              fontWeight: 500,
+                              lineHeight: "28px",
+                              margin: 0,
+                            }}
+                          >
+                            {description ===
+                            "Everything you need to design, build, and ship emails faster." ? (
+                              <>
+                                Everything you need to design, build,{" "}
+                                <br className="single-pricing-break" /> and ship
+                                emails faster.
+                              </>
+                            ) : (
+                              description
+                            )}
+                          </p>
+                          <div style={{ lineHeight: "36px" }}>&zwj;</div>
+                          <table
+                            border={0}
+                            cellPadding={0}
+                            cellSpacing={0}
+                            role="presentation"
+                          >
+                            <tbody>
+                              {features.map((feature, index) => (
+                                <tr key={feature.label}>
+                                  <td
+                                    style={{
+                                      lineHeight: "24px",
+                                      verticalAlign: "top",
+                                      width: "16px",
+                                    }}
+                                  >
+                                    <img
+                                      alt=""
+                                      src={`https://assets.mailviews.com/images/components/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                                      style={{
+                                        maxWidth: "100%",
+                                        verticalAlign: "middle",
+                                      }}
+                                      width={16}
+                                    />
+                                  </td>
+                                  <td style={{ width: "12px" }}>&zwj;</td>
+                                  <td
+                                    style={{
+                                      paddingBottom:
+                                        index < features.length - 1
+                                          ? "16px"
+                                          : 0,
+                                      verticalAlign: "top",
+                                    }}
+                                  >
+                                    <p
+                                      style={{
+                                        color: feature.muted
+                                          ? "#9ca3af"
+                                          : "#4b5563",
+                                        fontFamily,
+                                        fontSize: "16px",
+                                        lineHeight: "24px",
+                                        margin: 0,
+                                      }}
+                                    >
+                                      {feature.label}
+                                    </p>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>&zwj;</td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 export const FullWidthSinglePricing = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  heading = "Pro Plan",
-  price = "$29",
-  period = "/month",
-  description = "Everything you need to grow.",
-  feature1 = "Unlimited emails",
-  feature2 = "Custom templates",
-  feature3 = "Priority support",
-  ctaLabel = "Subscribe",
-  ctaHref = "#",
-  variant = "default",
-}: FullWidthSinglePricingProps) => {
-  const features = [feature1, feature2, feature3];
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>{heading}</MjmlPreview>
-        <MjmlStyle>{`
-          .ec-skew-left > div { transform: skewX(-10deg); }
-          .ec-skew-right > div { transform: skewX(10deg); }
-        `}</MjmlStyle>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
+  ...props
+}: FullWidthSinglePricingProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
+    </MjmlHead>
+    <MjmlPreview>Takeoff pricing</MjmlPreview>
+    <MjmlBody
+      backgroundColor={pageBackgroundColor}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <MjmlRaw>
+          <FullWidthSinglePricingSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
           />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlSection
-          backgroundColor={theme.colorBackground}
-          cssClass={variantClass(variant)}
-          padding="64px 0"
-        >
-          <MjmlColumn
-            border={`1px solid ${theme.colorBorder}`}
-            borderRadius={theme.borderRadiusLg ?? theme.borderRadius}
-            padding="32px"
-          >
-            <MjmlText
-              align="center"
-              color={theme.colorText}
-              fontSize={theme.fontSizeXl}
-              fontWeight={theme.fontWeightBold}
-              paddingBottom="16px"
-            >
-              {heading}
-            </MjmlText>
-            <MjmlText
-              align="center"
-              color={theme.colorText}
-              fontSize={theme.fontSizeXl}
-              fontWeight={theme.fontWeightBold}
-              paddingBottom="8px"
-            >
-              {price}
-            </MjmlText>
-            <MjmlText
-              align="center"
-              color={theme.colorTextMuted}
-              fontSize={theme.fontSizeBase}
-              paddingBottom="16px"
-            >
-              {period}
-            </MjmlText>
-            <MjmlText
-              align="center"
-              color={theme.colorTextMuted}
-              fontSize={theme.fontSizeSm}
-              paddingBottom="24px"
-            >
-              {description}
-            </MjmlText>
-            {features.map((feature) => (
-              <MjmlText
-                key={feature}
-                align="center"
-                color={theme.colorText}
-                fontSize={theme.fontSizeSm}
-                paddingBottom="8px"
-              >
-                &bull; {feature}
-              </MjmlText>
-            ))}
-            {ctaLabel && ctaHref ? (
-              <MjmlButton
-                align="center"
-                backgroundColor={theme.colorPrimary}
-                borderRadius={theme.borderRadius}
-                color={theme.colorPrimaryForeground ?? "#ffffff"}
-                fontSize={theme.fontSizeBase}
-                fontWeight={theme.fontWeightMedium}
-                href={ctaHref}
-                innerPadding="12px 32px"
-                paddingTop="16px"
-              >
-                {ctaLabel}
-              </MjmlButton>
-            ) : null}
-          </MjmlColumn>
-        </MjmlSection>
-      </MjmlBody>
-    </Mjml>
-  );
-};
+        </MjmlRaw>
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
 
 FullWidthSinglePricing.PreviewProps = {
-  ctaHref: "https://example.com",
-  ctaLabel: "Subscribe",
-  description: "Everything you need to grow.",
-  feature1: "Unlimited emails",
-  feature2: "Custom templates",
-  feature3: "Priority support",
-  heading: "Pro Plan",
-  period: "/month",
-  price: "$29",
   theme: defaultTheme,
-  variant: "default",
 } satisfies FullWidthSinglePricingProps;

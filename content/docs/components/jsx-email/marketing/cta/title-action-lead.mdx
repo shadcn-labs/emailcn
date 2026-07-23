@@ -1,12 +1,9 @@
 ---
 title: "Title & Action Lead"
-description: "Marketing cta variant for email templates"
+description: "A focused call to action with lead, secondary-button, and minimal variants"
 ---
 
-<ComponentPreview
-  base="jsx-email"
-  name="cta-with-title-and-action-lead-demo"
-/>
+<ComponentPreview base="jsx-email" name="cta-with-title-and-action-lead-demo" />
 
 ## Installation
 
@@ -45,15 +42,53 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { CtaWithTitleAndActionLead } from "@/components/emails/marketing/cta/cta-with-title-and-action-lead";
+import { CTAWithTitleAndActionLead } from "@/components/emails/marketing/cta/cta-with-title-and-action-lead";
 ```
 
 ```tsx
-<CtaWithTitleAndActionLead {...CtaWithTitleAndActionLead.PreviewProps} />
+<CTAWithTitleAndActionLead {...CTAWithTitleAndActionLead.PreviewProps} />
 ```
+
+## Examples
+
+### Title and Lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-title-and-action-lead-demo"
+  variant="title-and-lead"
+  hideCode
+/>
+
+### Secondary Button
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-title-and-action-lead-demo"
+  variant="secondary-button"
+  hideCode
+/>
+
+### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="cta-with-title-and-action-lead-demo"
+  variant="minimal"
+  hideCode
+/>
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                                                                         | Type                               | Default             | Description                            |
+| -------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------- | -------------------------------------- |
+| `theme`                                                                                      | `EmailThemeTokens`                 | `defaultTheme`      | JSX Email theme tokens                 |
+| `variant`                                                                                    | `CTAWithTitleAndActionLeadVariant` | `"title-and-lead"`  | Selects the exact Mailviews CTA layout |
+| `heading` / `subtext`                                                                        | `string`                           | Mailviews copy      | Lead heading and supporting text       |
+| `ctaLabel` / `ctaHref`                                                                       | `string`                           | Variant CTA         | Primary button label and destination   |
+| `secondaryCtaLabel` / `secondaryCtaHref`                                                     | `string`                           | Mailviews secondary | Optional secondary action              |
+| `signoff`                                                                                    | `string`                           | Mailviews signoff   | Copy beneath the minimal CTA           |
+| `pageBackgroundColor` / `backgroundColor`                                                    | `string`                           | Mailviews colors    | Canvas and CTA surface colors          |
+| `headingColor` / `textColor`                                                                 | `string`                           | Mailviews colors    | Heading and supporting text colors     |
+| `primaryButtonBackgroundColor` / `primaryButtonTextColor`                                    | `string`                           | Mailviews colors    | Primary button colors                  |
+| `secondaryButtonBackgroundColor` / `secondaryButtonTextColor` / `secondaryButtonBorderColor` | `string`                           | Mailviews colors    | Secondary button colors and border     |

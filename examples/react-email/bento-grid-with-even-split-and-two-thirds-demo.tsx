@@ -1,9 +1,18 @@
+import type { ComponentProps } from "react";
+
 import { BentoGridWithEvenSplitAndTwoThirds } from "@/registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds";
 
-export default function BentoGridWithEvenSplitAndTwoThirdsDemo() {
+export default function BentoGridWithEvenSplitAndTwoThirdsDemo({
+  variant,
+}: {
+  variant?: ComponentProps<
+    typeof BentoGridWithEvenSplitAndTwoThirds
+  >["variant"];
+}) {
   return (
     <BentoGridWithEvenSplitAndTwoThirds
       {...BentoGridWithEvenSplitAndTwoThirds.PreviewProps}
+      variant={variant}
     />
   );
 }

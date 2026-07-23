@@ -1,100 +1,42 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
+import {
+  defaultAvatars,
+  GroupedOverlappedAvatarsSection,
+} from "./avatar-shared";
+import type { AvatarItem, AvatarSize } from "./avatar-shared";
+
 export interface GroupedOverlappedAvatarsProps {
+  avatars?: AvatarItem[];
+  plusCount?: number;
+  size?: AvatarSize;
   theme?: TailwindConfig;
-  avatars?: { url?: string; name: string }[];
-  variant?: "default" | "slanted-left" | "slanted-right";
 }
 
-export const GroupedOverlappedAvatarsSection = ({
-  avatars = [{ name: "A" }, { name: "B" }, { name: "C" }],
-  variant = "default",
-}: Omit<GroupedOverlappedAvatarsProps, "theme">) => {
-  const textAlign =
-    variant === "slanted-left"
-      ? "text-left"
-      : variant === "slanted-right"
-        ? "text-right"
-        : "text-center";
-
-  return (
-    <Section className={`py-4 ${textAlign}`}>
-      <Row>
-        {avatars.slice(0, 4).map((avatar, index) => (
-          <Column
-            key={`${avatar.name}-${index}`}
-            style={{ marginLeft: index > 0 ? -12 : 0, width: 40 }}
-            className="align-middle"
-          >
-            {avatar.url ? (
-              <Img
-                src={avatar.url}
-                alt={avatar.name}
-                height={40}
-                width={40}
-                className="rounded-full border-2 border-background object-cover"
-              />
-            ) : (
-              <Text className="m-0 h-10 w-10 rounded-full border-2 border-background bg-primary text-center text-sm leading-[36px] text-primary-fg">
-                {avatar.name.charAt(0)}
-              </Text>
-            )}
-          </Column>
-        ))}
-      </Row>
-    </Section>
-  );
-};
+export { GroupedOverlappedAvatarsSection };
+export type { AvatarItem, AvatarSize };
 
 export const GroupedOverlappedAvatars = ({
-  theme = defaultTheme,
-  avatars = [{ name: "A" }, { name: "B" }, { name: "C" }],
-  variant = "default",
+  theme: _theme = defaultTheme,
+  ...props
 }: GroupedOverlappedAvatarsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>Team</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <GroupedOverlappedAvatarsSection avatars={avatars} variant={variant} />
-      </Body>
-    </Tailwind>
+    <Preview>Grouped overlapped avatars</Preview>
+    <Body style={{ backgroundColor: "#f1f5f9", margin: 0 }}>
+      <GroupedOverlappedAvatarsSection {...props} />
+    </Body>
   </Html>
 );
 
 GroupedOverlappedAvatars.PreviewProps = {
-  avatars: [
-    {
-      name: "Alice",
-      url: "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-    },
-    {
-      name: "Bob",
-      url: "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-2&size=128",
-    },
-    {
-      name: "Charlie",
-      url: "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-3&size=128",
-    },
-  ],
+  avatars: defaultAvatars,
+  size: "md",
   theme: defaultTheme,
-  variant: "default",
 } satisfies GroupedOverlappedAvatarsProps;

@@ -1,6 +1,6 @@
 ---
 title: "Block Overlay"
-description: "Marketing hero variant for email templates"
+description: "A full-bleed image hero with eight exact Mailviews overlay placements"
 ---
 
 <ComponentPreview base="mjml-react" name="hero-block-overlay-demo" />
@@ -49,8 +49,91 @@ import { HeroBlockOverlay } from "@/components/emails/marketing/hero/hero-block-
 <HeroBlockOverlay {...HeroBlockOverlay.PreviewProps} />
 ```
 
+## Examples
+
+### Left Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="left-centered"
+  hideCode
+/>
+
+### Left Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="left-top"
+  hideCode
+/>
+
+### Left Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="left-bottom"
+  hideCode
+/>
+
+### Left Flush Vertical
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="left-flush-vertical"
+  hideCode
+/>
+
+### Right Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="right-centered"
+  hideCode
+/>
+
+### Right Top
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="right-top"
+  hideCode
+/>
+
+### Right Bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="right-bottom"
+  hideCode
+/>
+
+### Right Flush Vertical
+
+<ComponentPreview
+  base="mjml-react"
+  name="hero-block-overlay-demo"
+  variant="right-flush-vertical"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                                                       | Type                      | Default           | Description                                      |
+| ---------------------------------------------------------- | ------------------------- | ----------------- | ------------------------------------------------ |
+| `theme`                                                    | `EmailThemeTokens`        | `defaultTheme`    | MJML React theme tokens                          |
+| `variant`                                                  | `HeroBlockOverlayVariant` | `"left-centered"` | Selects overlay side and vertical placement      |
+| `eyebrow` / `heading` / `subheading`                       | `string`                  | Mailviews copy    | Main SumUp copy                                  |
+| `description`                                              | `string`                  | Mailviews copy    | Supporting paragraph                             |
+| `ctaLabel` / `ctaHref`                                     | `string`                  | Mailviews CTA     | Button label and destination                     |
+| `backgroundImageSrc` / `imageAlt`                          | `string`                  | SumUp imagery     | Full-bleed background and accessible label       |
+| `logoSrc` / `logoAlt` / `logoHref`                         | `string`                  | Light logo        | Logo used by centered and bottom placements      |
+| `pageBackgroundColor` / `backgroundColor` / `overlayColor` | `string`                  | Mailviews colors  | Canvas, fallback, and translucent overlay colors |
+| `textColor`                                                | `string`                  | `"#f9fafb"`       | Hero copy color                                  |
+| `buttonBackgroundColor` / `buttonTextColor`                | `string`                  | Mailviews colors  | CTA colors                                       |

@@ -1,130 +1,428 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-} from "jsx-email";
+import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
+import { Fragment } from "react";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type ImageGalleryVariant = "default" | "slanted-left" | "slanted-right";
+export type ThreeColumnsImageGridVariant =
+  | "square-images"
+  | "portrait-images"
+  | "square-overlay"
+  | "portrait-overlay";
 
-export interface ImageGalleryProps {
+export interface ThreeColumnsImageGridProps {
   theme?: EmailThemeTokens;
-  images?: { src: string; alt: string }[];
-  variant?: ImageGalleryVariant;
+  imageSrc1?: string;
+  imageAlt1?: string;
+  imageHref1?: string;
+  heading1?: string;
+  subtext1?: string;
+  imageSrc2?: string;
+  imageAlt2?: string;
+  imageHref2?: string;
+  heading2?: string;
+  subtext2?: string;
+  imageSrc3?: string;
+  imageAlt3?: string;
+  imageHref3?: string;
+  heading3?: string;
+  subtext3?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  variant?: ThreeColumnsImageGridVariant;
 }
 
-const ImageGallerySection = ({
-  images,
-  theme,
-  variant,
-}: {
-  images: ImageGalleryProps["images"];
-  theme: EmailThemeTokens;
-  variant: ImageGalleryVariant;
-}) => {
-  const rows: { src: string; alt: string }[][] = [];
-  const imgs = images ?? [];
-  for (let i = 0; i < imgs.length; i += 2) {
-    rows.push(imgs.slice(i, i + 2));
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 430px) {
+    .three-grid-plain-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .three-grid-plain-gap {
+      line-height: 24px !important;
+    }
   }
 
-  return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
-      }}
+  @media only screen and (max-width: 599px) {
+    .three-grid-overlay-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .three-grid-overlay-gap {
+      line-height: 24px !important;
+    }
+
+    .three-grid-square-overlay-spacer {
+      line-height: 256px !important;
+    }
+
+    .three-grid-portrait-overlay-spacer {
+      line-height: 428px !important;
+    }
+
+    .three-grid-overlay-heading {
+      font-size: 24px !important;
+      line-height: 32px !important;
+    }
+
+    .three-grid-overlay-text {
+      font-size: 20px !important;
+      line-height: 28px !important;
+    }
+  }
+`;
+
+const squareImages = [
+  "https://assets.mailviews.com/images/components/image-grids/3-col-square.jpg",
+  "https://assets.mailviews.com/images/components/image-grids/3-col-square-2.jpg",
+  "https://assets.mailviews.com/images/components/image-grids/3-col-square-3.jpg",
+] as const;
+
+const portraitImages = [
+  "https://assets.mailviews.com/images/components/image-grids/3-col-portrait.jpg",
+  "https://assets.mailviews.com/images/components/image-grids/3-col-portrait-2.jpg",
+  "https://assets.mailviews.com/images/components/image-grids/3-col-portrait-3.jpg",
+] as const;
+
+const variantContent = {
+  "portrait-images": {
+    headings: ["Boarding Pass", "L’Atelier", "Cultivate"],
+    imageSources: portraitImages,
+    overlay: false,
+    portrait: true,
+    subtexts: ["Smooth & Balanced", "Rich & Nutty", "Light & Bright"],
+  },
+  "portrait-overlay": {
+    headings: ["Boarding Pass", "Cultivate", "L’Atelier"],
+    imageSources: [portraitImages[0], portraitImages[2], portraitImages[1]],
+    overlay: true,
+    portrait: true,
+    subtexts: ["Smooth & Balanced", "Light & Bright", "Rich & Nutty"],
+  },
+  "square-images": {
+    headings: ["Aqua Retreat", "Ocean Spa", "Sand Stroll"],
+    imageSources: squareImages,
+    overlay: false,
+    portrait: false,
+    subtexts: ["Private pools", "Relax & restore", "Beach freedom"],
+  },
+  "square-overlay": {
+    headings: ["Aqua Retreat", "Ocean Spa", "Sand Stroll"],
+    imageSources: squareImages,
+    overlay: true,
+    portrait: false,
+    subtexts: ["Private pools", "Relax & restore", "Beach freedom"],
+  },
+} satisfies Record<
+  ThreeColumnsImageGridVariant,
+  {
+    headings: readonly [string, string, string];
+    imageSources: readonly [string, string, string];
+    overlay: boolean;
+    portrait: boolean;
+    subtexts: readonly [string, string, string];
+  }
+>;
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  headingColor: "#fffffe",
+  imageAlt1: "",
+  imageAlt2: "",
+  imageAlt3: "",
+  imageHref1: "https://example.com",
+  imageHref2: "https://example.com",
+  imageHref3: "https://example.com",
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#fffffe",
+};
+
+type SectionProps = Omit<ThreeColumnsImageGridProps, "theme">;
+type ResolvedProps = typeof defaults &
+  (typeof variantContent)[ThreeColumnsImageGridVariant] &
+  SectionProps;
+
+const OverlayCard = ({
+  heading,
+  headingColor,
+  imageSrc,
+  portrait,
+  subtext,
+  textColor,
+}: {
+  heading: string;
+  headingColor: string;
+  imageSrc: string;
+  portrait: boolean;
+  subtext: string;
+  textColor: string;
+}) => (
+  <div
+    style={{
+      backgroundImage: `url('${imageSrc}')`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      borderRadius: "4px",
+      maxWidth: "100%",
+    }}
+  >
+    <div
+      className={
+        portrait
+          ? "three-grid-portrait-overlay-spacer"
+          : "three-grid-square-overlay-spacer"
+      }
+      style={{ lineHeight: portrait ? "160px" : "76px" }}
     >
-      <Row>
-        {rows.map((row, rowIndex) =>
-          row.map((img) => (
-            <Column
-              key={`${img.src}-${rowIndex}`}
-              style={{ padding: "8px", width: "50%" }}
+      &zwj;
+    </div>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            style={{
+              background: "linear-gradient(to bottom, transparent, #000001)",
+              borderBottomLeftRadius: "4px",
+              borderBottomRightRadius: "4px",
+              padding: "16px",
+              textAlign: "left",
+            }}
+          >
+            <h4
+              className="three-grid-overlay-heading"
+              style={{
+                color: headingColor,
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 700,
+                lineHeight: "24px",
+                margin: 0,
+              }}
             >
-              <Img
-                alt={img.alt}
-                src={img.src}
-                width={280}
-                style={{
-                  borderRadius: theme.borderRadius,
-                  display: "block",
-                  margin: "0 auto",
-                  maxWidth: "100%",
-                }}
-              />
-            </Column>
-          ))
-        )}
-      </Row>
-    </Section>
+              {heading}
+            </h4>
+            <p
+              className="three-grid-overlay-text"
+              style={{
+                color: textColor,
+                fontFamily,
+                fontSize: "14px",
+                lineHeight: "20px",
+                margin: 0,
+              }}
+            >
+              {subtext}
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
+
+const GridItem = ({
+  alt,
+  heading,
+  headingColor,
+  href,
+  overlay,
+  portrait,
+  src,
+  subtext,
+  textColor,
+}: {
+  alt: string;
+  heading: string;
+  headingColor: string;
+  href: string;
+  overlay: boolean;
+  portrait: boolean;
+  src: string;
+  subtext: string;
+  textColor: string;
+}) =>
+  overlay ? (
+    <OverlayCard
+      heading={heading}
+      headingColor={headingColor}
+      imageSrc={src}
+      portrait={portrait}
+      subtext={subtext}
+      textColor={textColor}
+    />
+  ) : (
+    <a href={href}>
+      <Img
+        alt={alt}
+        src={src}
+        style={{
+          borderRadius: "4px",
+          maxWidth: "100%",
+          verticalAlign: "middle",
+        }}
+        width="168"
+      />
+    </a>
+  );
+
+export const ThreeColumnsImageGridSection = (props: SectionProps) => {
+  const variant = props.variant ?? "square-images";
+  const variantDefaults = variantContent[variant];
+  const resolved = {
+    ...defaults,
+    ...variantDefaults,
+    heading1: variantDefaults.headings[0],
+    heading2: variantDefaults.headings[1],
+    heading3: variantDefaults.headings[2],
+    imageSrc1: variantDefaults.imageSources[0],
+    imageSrc2: variantDefaults.imageSources[1],
+    imageSrc3: variantDefaults.imageSources[2],
+    subtext1: variantDefaults.subtexts[0],
+    subtext2: variantDefaults.subtexts[1],
+    subtext3: variantDefaults.subtexts[2],
+    ...props,
+  } as ResolvedProps;
+  const stackClass = resolved.overlay
+    ? "three-grid-overlay-stack"
+    : "three-grid-plain-stack";
+  const gapClass = resolved.overlay
+    ? "three-grid-overlay-gap"
+    : "three-grid-plain-gap";
+  const items = [
+    {
+      alt: resolved.imageAlt1,
+      heading: resolved.heading1 ?? variantDefaults.headings[0],
+      href: resolved.imageHref1,
+      src: resolved.imageSrc1 ?? variantDefaults.imageSources[0],
+      subtext: resolved.subtext1 ?? variantDefaults.subtexts[0],
+    },
+    {
+      alt: resolved.imageAlt2,
+      heading: resolved.heading2 ?? variantDefaults.headings[1],
+      href: resolved.imageHref2,
+      src: resolved.imageSrc2 ?? variantDefaults.imageSources[1],
+      subtext: resolved.subtext2 ?? variantDefaults.subtexts[1],
+    },
+    {
+      alt: resolved.imageAlt3,
+      heading: resolved.heading3 ?? variantDefaults.headings[2],
+      href: resolved.imageHref3,
+      src: resolved.imageSrc3 ?? variantDefaults.imageSources[2],
+      subtext: resolved.subtext3 ?? variantDefaults.subtexts[2],
+    },
+  ];
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "24px",
+              width: "600px",
+            }}
+          >
+            <div style={{ lineHeight: "24px" }}>&zwj;</div>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ width: "24px" }}>&zwj;</td>
+                  {items.map((item, index) => (
+                    <Fragment key={item.src}>
+                      <td className={stackClass} style={{ width: "168px" }}>
+                        <GridItem
+                          {...item}
+                          headingColor={resolved.headingColor}
+                          overlay={resolved.overlay}
+                          portrait={resolved.portrait}
+                          textColor={resolved.textColor}
+                        />
+                      </td>
+                      <td
+                        className={
+                          index < 2 ? `${stackClass} ${gapClass}` : undefined
+                        }
+                        style={{ width: "24px" }}
+                      >
+                        &zwj;
+                      </td>
+                    </Fragment>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const ThreeColumnsImageGrid = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  images = [
-    { alt: "Gallery 1", src: "https://static.photos/technology/400x300/2" },
-    { alt: "Gallery 2", src: "https://static.photos/technology/400x300/3" },
-    { alt: "Gallery 3", src: "https://static.photos/technology/400x300/4" },
-    { alt: "Gallery 4", src: "https://static.photos/technology/400x300/5" },
-  ],
-  variant = "default",
-}: ImageGalleryProps) => (
+  variant = "square-images",
+  ...props
+}: ThreeColumnsImageGridProps) => (
   <Html>
-    <Head />
-    <Preview>image gallery</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Three columns image grid</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <ImageGallerySection
-            images={images}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
+      <Container
+        style={{
+          margin: "0 auto",
+          maxWidth: theme.containerWidth,
+          width: theme.containerWidth,
+        }}
+      >
+        <ThreeColumnsImageGridSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 ThreeColumnsImageGrid.PreviewProps = {
-  images: [
-    {
-      alt: "Product Shot 1",
-      src: "https://static.photos/technology/400x300/6",
-    },
-    {
-      alt: "Product Shot 2",
-      src: "https://static.photos/technology/400x300/7",
-    },
-    {
-      alt: "Product Shot 3",
-      src: "https://static.photos/technology/400x300/8",
-    },
-    {
-      alt: "Product Shot 4",
-      src: "https://static.photos/technology/400x300/9",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies ImageGalleryProps;
+  variant: "square-images",
+} satisfies ThreeColumnsImageGridProps;

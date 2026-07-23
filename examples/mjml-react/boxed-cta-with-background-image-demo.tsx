@@ -1,9 +1,15 @@
-import { BoxedCtaWithBackgroundImage } from "@/registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image";
+import { BoxedCTAWithBackgroundImage } from "@/registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image";
+import type { BoxedCTAWithBackgroundImageVariant } from "@/registry/bases/mjml-react/ui/marketing/cta/boxed-cta-with-background-image";
 
-export default function BoxedCtaWithBackgroundImageDemo() {
+export default function BoxedCTAWithBackgroundImageDemo({
+  variant,
+}: {
+  variant?: BoxedCTAWithBackgroundImageVariant;
+}) {
   return (
-    <BoxedCtaWithBackgroundImage
-      {...BoxedCtaWithBackgroundImage.PreviewProps}
+    <BoxedCTAWithBackgroundImage
+      {...BoxedCTAWithBackgroundImage.PreviewProps}
+      variant={variant ?? BoxedCTAWithBackgroundImage.PreviewProps.variant}
     />
   );
 }

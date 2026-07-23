@@ -419,6 +419,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx",
           "target": "components/emails/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bordered-order-summary-with-card-details",
@@ -441,6 +446,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx",
           "target": "components/emails/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -465,6 +475,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx",
           "target": "components/emails/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bordered-order-summary-with-total-top",
@@ -487,6 +502,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx",
           "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -511,6 +531,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx",
           "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "boxed-order-summary-with-card-details-and-total-top",
@@ -533,6 +558,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-bottom.tsx",
           "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-total-bottom.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -557,6 +587,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx",
           "target": "components/emails/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "boxed-order-summary-with-total-top",
@@ -579,6 +614,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx",
           "target": "components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -603,6 +643,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx",
           "target": "components/emails/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
+          "target": "components/emails/ecommerce/order-summary/order-summary-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "order-summary-with-billing-details-and-payment-method-top",
@@ -625,6 +670,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx",
           "target": "components/emails/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/emails/ecommerce/product-detail/product-detail-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -649,6 +699,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx",
           "target": "components/emails/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/emails/ecommerce/product-detail/product-detail-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "product-detail-with-three-images-and-details",
@@ -671,6 +726,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx",
           "target": "components/emails/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/emails/ecommerce/product-detail/product-detail-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -695,6 +755,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx",
           "target": "components/emails/ecommerce/product-detail/single-image-product-detail-with-details.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/emails/ecommerce/product-detail/product-detail-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "single-image-product-detail-with-details",
@@ -717,6 +782,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/product-detail/split-product-detail.tsx",
           "target": "components/emails/ecommerce/product-detail/split-product-detail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/emails/ecommerce/product-detail/product-detail-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -741,6 +811,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows.tsx",
           "target": "components/emails/ecommerce/product-lists/product-list-with-rows.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows-shared.tsx",
+          "target": "components/emails/ecommerce/product-lists/product-list-with-rows-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "product-list-with-rows",
@@ -763,6 +838,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/reviews/full-width-reviews.tsx",
           "target": "components/emails/ecommerce/reviews/full-width-reviews.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/reviews/reviews-shared.tsx",
+          "target": "components/emails/ecommerce/reviews/reviews-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -787,6 +867,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/reviews/masonry-grid-reviews.tsx",
           "target": "components/emails/ecommerce/reviews/masonry-grid-reviews.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/reviews/reviews-shared.tsx",
+          "target": "components/emails/ecommerce/reviews/reviews-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "masonry-grid-reviews",
@@ -809,6 +894,11 @@
         {
           "path": "registry/bases/react-email/ui/ecommerce/reviews/two-columns-reviews.tsx",
           "target": "components/emails/ecommerce/reviews/two-columns-reviews.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/reviews/reviews-shared.tsx",
+          "target": "components/emails/ecommerce/reviews/reviews-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -833,6 +923,11 @@
           "path": "registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx",
           "target": "components/emails/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart-shared.tsx",
+          "target": "components/emails/ecommerce/shopping-cart/shopping-cart-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "shopping-cart-with-row-items",
@@ -855,6 +950,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-image-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -879,6 +979,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-even-split-text-stats.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-even-split-text-stats",
@@ -901,6 +1006,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-flush-images.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -925,6 +1035,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-3-columns-and-padded-images.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-3-columns-and-padded-images",
@@ -947,6 +1062,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-image-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -971,6 +1091,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-text-stats.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-even-split-and-text-stats",
@@ -993,6 +1118,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-even-split-and-two-thirds.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1017,6 +1147,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-images-and-captions.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-images-and-captions",
@@ -1039,6 +1174,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-images-and-details.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1063,6 +1203,11 @@
           "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "target": "components/emails/marketing/bento-grids/bento-grid-with-two-rows-and-3-column-second-row.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "bento-grid-with-two-rows-and-3-column-second-row",
@@ -1085,6 +1230,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
           "target": "components/emails/marketing/bento-grids/two-thirds-bento-grid-with-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
+          "target": "components/emails/marketing/bento-grids/bento-grid-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1109,6 +1259,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx",
           "target": "components/emails/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "2-columns-blog-with-images-and-boxed-content",
@@ -1131,6 +1286,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images-and-text.tsx",
           "target": "components/emails/marketing/blog/2-columns-blog-with-images-and-text.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1155,6 +1315,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-blog-with-images.tsx",
           "target": "components/emails/marketing/blog/2-columns-blog-with-images.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "2-columns-blog-with-images",
@@ -1177,6 +1342,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx",
           "target": "components/emails/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1201,6 +1371,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/blog-post-horizontal-boxed-with-split-images.tsx",
           "target": "components/emails/marketing/blog/blog-post-horizontal-boxed-with-split-images.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "blog-post-horizontal-boxed-with-split-images",
@@ -1223,6 +1398,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/blog/blog-post-horizontal-boxed.tsx",
           "target": "components/emails/marketing/blog/blog-post-horizontal-boxed.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1247,6 +1427,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/blog-with-images-and-2-columns-masonry.tsx",
           "target": "components/emails/marketing/blog/blog-with-images-and-2-columns-masonry.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "blog-with-images-and-2-columns-masonry",
@@ -1269,6 +1454,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/blog/featured-blog-post.tsx",
           "target": "components/emails/marketing/blog/featured-blog-post.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1293,6 +1483,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/featured-post-with-large-date.tsx",
           "target": "components/emails/marketing/blog/featured-post-with-large-date.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "featured-post-with-large-date",
@@ -1315,6 +1510,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/blog/full-width-featured-post-with-large-date.tsx",
           "target": "components/emails/marketing/blog/full-width-featured-post-with-large-date.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1339,6 +1539,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/podcast-blog-split.tsx",
           "target": "components/emails/marketing/blog/podcast-blog-split.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "podcast-blog-split",
@@ -1362,6 +1567,11 @@
           "path": "registry/bases/react-email/ui/marketing/blog/podcast-full-width.tsx",
           "target": "components/emails/marketing/blog/podcast-full-width.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "podcast-full-width",
@@ -1384,6 +1594,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/blog/single-post-horizontal.tsx",
           "target": "components/emails/marketing/blog/single-post-horizontal.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/blog/blog-shared.tsx",
+          "target": "components/emails/marketing/blog/blog-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1661,6 +1876,11 @@
           "path": "registry/bases/react-email/ui/marketing/faq/boxed-faq-with-numbered-questions.tsx",
           "target": "components/emails/marketing/faq/boxed-faq-with-numbered-questions.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "boxed-faq-with-numbered-questions",
@@ -1683,6 +1903,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
           "target": "components/emails/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1707,6 +1932,11 @@
           "path": "registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx",
           "target": "components/emails/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "collapsed-faq-with-expanded-section-and-icons",
@@ -1729,6 +1959,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-inline-cta.tsx",
           "target": "components/emails/marketing/faq/collapsed-faq-with-inline-cta.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1753,6 +1988,11 @@
           "path": "registry/bases/react-email/ui/marketing/faq/collapsed-faq-with-numbers.tsx",
           "target": "components/emails/marketing/faq/collapsed-faq-with-numbers.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "collapsed-faq-with-numbers",
@@ -1776,6 +2016,11 @@
           "path": "registry/bases/react-email/ui/marketing/faq/expanded-faq-with-numbers.tsx",
           "target": "components/emails/marketing/faq/expanded-faq-with-numbers.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "expanded-faq-with-numbers",
@@ -1798,6 +2043,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/faq/expanded-faq-with-offset-answers.tsx",
           "target": "components/emails/marketing/faq/expanded-faq-with-offset-answers.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/faq/faq-shared.tsx",
+          "target": "components/emails/marketing/faq/faq-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -1931,16 +2181,177 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing footers variant for email templates",
+      "description": "Mailviews full-menu footers with oversized-logo and bordered variants",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/footer-centered-with-bordered-full-menu.tsx",
-          "target": "components/emails/marketing/footers/footer-centered-with-bordered-full-menu.tsx",
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-full-menu.tsx",
+          "target": "components/emails/marketing/footers/footer-with-full-menu.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "footer-centered-with-bordered-full-menu",
-      "title": "Footer Centered With Bordered Full Menu",
+      "name": "footer-with-full-menu",
+      "title": "Footer With Full Menu",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Mailviews company-locations footer with stacked and grid variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-company-locations.tsx",
+          "target": "components/emails/marketing/footers/footer-with-company-locations.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-company-locations",
+      "title": "Footer With Company Locations",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Mailviews two-column menu footer with divider and mirrored logo variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-2-column-menu-and-divider.tsx",
+          "target": "components/emails/marketing/footers/footer-with-2-column-menu-and-divider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-2-column-menu-and-divider",
+      "title": "Footer With 2 Column Menu And Divider",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Mailviews footer with menu, full-width CTA, socials, and legal content",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-menu-and-full-width-cta.tsx",
+          "target": "components/emails/marketing/footers/footer-with-menu-and-full-width-cta.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-menu-and-full-width-cta",
+      "title": "Footer With Menu And Full Width Cta",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Mailviews app-store footer with centered, two-column, and title variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-app-store-buttons.tsx",
+          "target": "components/emails/marketing/footers/footer-with-app-store-buttons.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-app-store-buttons",
+      "title": "Footer With App Store Buttons",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Mailviews footer with large title, paired buttons, assistance, and legal content",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-large-title-and-buttons.tsx",
+          "target": "components/emails/marketing/footers/footer-with-large-title-and-buttons.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-large-title-and-buttons",
+      "title": "Footer With Large Title And Buttons",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Nine Mailviews background-image footer families consolidated into layout variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-background-image.tsx",
+          "target": "components/emails/marketing/footers/footer-with-background-image.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-background-image",
+      "title": "Footer With Background Image",
+      "type": "registry:component",
+      "dependencies": [
+        "react-email"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Seven Mailviews overlapped-CTA footer families consolidated into layout variants",
+      "files": [
+        {
+          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-overlapped-cta.tsx",
+          "target": "components/emails/marketing/footers/footer-with-overlapped-cta.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-with-overlapped-cta",
+      "title": "Footer With Overlapped Cta",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2056,29 +2467,6 @@
       ],
       "name": "footer-with-legal-text",
       "title": "Footer With Legal Text",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
-          "target": "components/emails/marketing/footers/footer-with-oversized-logo-and-full-menu.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-oversized-logo-and-full-menu",
-      "title": "Footer With Oversized Logo And Full Menu",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -2256,29 +2644,6 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-text.tsx",
-          "target": "components/emails/marketing/headers/header-with-logo-and-text.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "header-with-logo-and-text",
-      "title": "Header With Logo And Text",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing headers variant for email templates",
-      "files": [
-        {
           "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo.tsx",
           "target": "components/emails/marketing/headers/header-with-logo.tsx",
           "type": "registry:component"
@@ -2286,29 +2651,6 @@
       ],
       "name": "header-with-logo",
       "title": "Header With Logo",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing headers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-user-details-and-avatar.tsx",
-          "target": "components/emails/marketing/headers/header-with-user-details-and-avatar.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "header-with-user-details-and-avatar",
-      "title": "Header With User Details And Avatar",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3035,7 +3377,7 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Simple centered social logo row",
       "files": [
         {
           "path": "registry/bases/react-email/ui/marketing/social/simple-social-logos-row.tsx",
@@ -3081,16 +3423,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Social links with stacked and inline label variants",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-inline-labels.tsx",
-          "target": "components/emails/marketing/social/socials-with-inline-labels.tsx",
+          "path": "registry/bases/react-email/ui/marketing/social/socials-with-labels.tsx",
+          "target": "components/emails/marketing/social/socials-with-labels.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "socials-with-inline-labels",
-      "title": "Socials With Inline Labels",
+      "name": "socials-with-labels",
+      "title": "Socials With Labels",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3104,62 +3446,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing social variant for email templates",
+      "description": "Social tiles with stacked and inline label variants",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-inline-tile-labels.tsx",
-          "target": "components/emails/marketing/social/socials-with-inline-tile-labels.tsx",
+          "path": "registry/bases/react-email/ui/marketing/social/socials-with-tile-labels.tsx",
+          "target": "components/emails/marketing/social/socials-with-tile-labels.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "socials-with-inline-tile-labels",
-      "title": "Socials With Inline Tile Labels",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-labels-stacked.tsx",
-          "target": "components/emails/marketing/social/socials-with-labels-stacked.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "socials-with-labels-stacked",
-      "title": "Socials With Labels Stacked",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing social variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/social/socials-with-stacked-tile-labels.tsx",
-          "target": "components/emails/marketing/social/socials-with-stacked-tile-labels.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "socials-with-stacked-tile-labels",
-      "title": "Socials With Stacked Tile Labels",
+      "name": "socials-with-tile-labels",
+      "title": "Socials With Tile Labels",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3252,29 +3548,6 @@
       ],
       "name": "rolling-stats",
       "title": "Rolling Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/stats/simple-grid-stats.tsx",
-          "target": "components/emails/marketing/stats/simple-grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "simple-grid-stats",
-      "title": "Simple Grid Stats",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3475,36 +3748,13 @@
       "description": "Marketing testimonials variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/centered-testimonial-with-cta.tsx",
-          "target": "components/emails/marketing/testimonials/centered-testimonial-with-cta.tsx",
+          "path": "registry/bases/react-email/ui/marketing/testimonials/testimonial-with-cta.tsx",
+          "target": "components/emails/marketing/testimonials/testimonial-with-cta.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "centered-testimonial-with-cta",
-      "title": "Centered Testimonial With Cta",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing testimonials variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx",
-          "target": "components/emails/marketing/testimonials/full-width-testimonial-with-overlapping-avatar.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "full-width-testimonial-with-overlapping-avatar",
-      "title": "Full Width Testimonial With Overlapping Avatar",
+      "name": "testimonial-with-cta",
+      "title": "Testimonial With CTA",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3528,29 +3778,6 @@
       ],
       "name": "full-width-testimonial",
       "title": "Full Width Testimonial",
-      "type": "registry:component",
-      "dependencies": [
-        "react-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing testimonials variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/split-testimonial-with-cta.tsx",
-          "target": "components/emails/marketing/testimonials/split-testimonial-with-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "split-testimonial-with-cta",
-      "title": "Split Testimonial With Cta",
       "type": "registry:component",
       "dependencies": [
         "react-email"
@@ -3592,6 +3819,11 @@
         {
           "path": "registry/bases/react-email/ui/marketing/timelines/changelog-boxed.tsx",
           "target": "components/emails/marketing/timelines/changelog-boxed.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/marketing/timelines/changelog.tsx",
+          "target": "components/emails/marketing/timelines/changelog.tsx",
           "type": "registry:component"
         }
       ],
@@ -3708,6 +3940,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-with-details.tsx",
           "target": "components/emails/ui-elements/avatars/avatar-with-details.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-shared.tsx",
+          "target": "components/emails/ui-elements/avatars/avatar-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "avatar-with-details",
@@ -3730,6 +3967,16 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx",
           "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx",
+          "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-shared.tsx",
+          "target": "components/emails/ui-elements/avatars/avatar-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -3754,6 +4001,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx",
           "target": "components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-shared.tsx",
+          "target": "components/emails/ui-elements/avatars/avatar-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "grouped-overlapped-avatars",
@@ -3776,6 +4028,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/buttons/buttons.tsx",
           "target": "components/emails/ui-elements/buttons/buttons.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/buttons/buttons-shared.tsx",
+          "target": "components/emails/ui-elements/buttons/buttons-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -3800,6 +4057,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/containers/container.tsx",
           "target": "components/emails/ui-elements/containers/container.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/containers/container-shared.tsx",
+          "target": "components/emails/ui-elements/containers/container-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "container",
@@ -3822,6 +4084,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-basic.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-basic.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -3846,6 +4113,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-with-4-columns.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "data-table-with-4-columns",
@@ -3868,6 +4140,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -3892,6 +4169,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-edit-button.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-with-edit-button.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "data-table-with-edit-button",
@@ -3914,6 +4196,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -3938,6 +4225,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-pills.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-with-pills.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "data-table-with-pills",
@@ -3960,6 +4252,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx",
           "target": "components/emails/ui-elements/data-tables/data-table-with-progress-bar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx",
+          "target": "components/emails/ui-elements/data-tables/data-table-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -4007,6 +4304,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/pills/basic-pills-with-status-colors.tsx",
           "target": "components/emails/ui-elements/pills/basic-pills-with-status-colors.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/pills/basic-pills-shared.tsx",
+          "target": "components/emails/ui-elements/pills/basic-pills-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "basic-pills-with-status-colors",
@@ -4029,6 +4331,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/progress-bars/full-width-progress-bar.tsx",
           "target": "components/emails/ui-elements/progress-bars/full-width-progress-bar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-shared.tsx",
+          "target": "components/emails/ui-elements/progress-bars/progress-bar-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -4053,6 +4360,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-columns.tsx",
           "target": "components/emails/ui-elements/progress-bars/progress-bar-columns.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-shared.tsx",
+          "target": "components/emails/ui-elements/progress-bars/progress-bar-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "progress-bar-columns",
@@ -4075,6 +4387,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-group.tsx",
           "target": "components/emails/ui-elements/progress-bars/progress-bar-group.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress-bar-shared.tsx",
+          "target": "components/emails/ui-elements/progress-bars/progress-bar-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -4099,6 +4416,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-button.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-button.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "divider-with-button",
@@ -4121,6 +4443,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-file-type.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-file-type.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -4145,6 +4472,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon-and-button.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-icon-and-button.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "divider-with-icon-and-button",
@@ -4167,6 +4499,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-icon.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-icon.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -4191,6 +4528,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-logo.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-logo.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "divider-with-logo",
@@ -4213,6 +4555,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-social-icons.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-social-icons.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
           "type": "registry:component"
         }
       ],
@@ -4237,6 +4584,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-with-title.tsx",
           "target": "components/emails/ui-elements/spacing/divider-with-title.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "divider-with-title",
@@ -4260,6 +4612,11 @@
           "path": "registry/bases/react-email/ui/ui-elements/spacing/line-divider.tsx",
           "target": "components/emails/ui-elements/spacing/line-divider.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
+          "type": "registry:component"
         }
       ],
       "name": "line-divider",
@@ -4282,6 +4639,11 @@
         {
           "path": "registry/bases/react-email/ui/ui-elements/spacing/vertical-spacer.tsx",
           "target": "components/emails/ui-elements/spacing/vertical-spacer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider-shared.tsx",
+          "target": "components/emails/ui-elements/spacing/divider-shared.tsx",
           "type": "registry:component"
         }
       ],

@@ -3,7 +3,71 @@ title: "Category Preview with Rows"
 description: "Ecommerce category-previews variant for email templates"
 ---
 
-<ComponentPreview base="mjml-react" name="category-preview-rows-demo" />
+## Examples
+
+### Basic
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="basic"
+/>
+
+### With Header
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="with-header"
+/>
+
+### With Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="with-description"
+/>
+
+### Header + Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="header-description"
+/>
+
+### With Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="with-details"
+/>
+
+### Header + Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="header-details"
+/>
+
+### Full Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="full-details"
+/>
+
+### Header + Full Details
+
+<ComponentPreview
+  base="mjml-react"
+  name="category-preview-rows-demo"
+  variant="header-full-details"
+/>
 
 ## Installation
 
@@ -51,6 +115,7 @@ import { CategoryPreviewWithRows } from "@/components/emails/ecommerce/category-
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                      | Default         | Description                       |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------- |
+| `variant` | `"basic" \| "with-header" \| "with-description" \| "header-description" \| "with-details" \| "header-details" \| "full-details" \| "header-full-details"` | `"with-header"` | Mailviews content-density variant |
+| `theme`   | `EmailThemeTokens`                                                                                                                                        | `defaultTheme`  | Email theme styling               |

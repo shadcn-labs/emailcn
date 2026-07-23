@@ -1,6 +1,6 @@
 ---
 title: "3 Columns Masonry Image Grid"
-description: "3 Columns Masonry Image Grid — Images email component."
+description: "A narrow two-image stack beside a wide image, with side and overlay variants"
 ---
 
 <ComponentPreview
@@ -46,8 +46,50 @@ import { ThreeColumnsMasonryImageGrid } from "@/components/emails/marketing/imag
 <ThreeColumnsMasonryImageGrid {...ThreeColumnsMasonryImageGrid.PreviewProps} />
 ```
 
+## Examples
+
+### Stacked Left
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-left"
+  hideCode
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-right"
+  hideCode
+/>
+
+### Stacked Left Overlay
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-left-overlay"
+  hideCode
+/>
+
+### Stacked Right Overlay
+
+<ComponentPreview
+  base="react-email"
+  name="three-columns-masonry-image-grid-demo"
+  variant="stacked-right-overlay"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                | Type                                  | Default          | Description                              |
+| ------------------- | ------------------------------------- | ---------------- | ---------------------------------------- |
+| `theme`             | Renderer theme                        | `defaultTheme`   | Renderer theme configuration             |
+| `variant`           | `ThreeColumnsMasonryImageGridVariant` | `"stacked-left"` | Selects stack side and overlay mode      |
+| Stacked image props | `string`                              | Mailviews data   | Two stacked images, links, and copy      |
+| Wide image props    | `string`                              | Mailviews data   | Wide image, link, alternative text, copy |
+| Color props         | `string`                              | Mailviews colors | Canvas, surface, and overlay text colors |

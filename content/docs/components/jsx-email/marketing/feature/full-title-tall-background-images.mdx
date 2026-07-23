@@ -54,8 +54,49 @@ import { FeatureWithFullTitleAndTallBackgroundImages } from "@/components/emails
 />
 ```
 
+## Examples
+
+### Logo Bottom Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-full-title-and-tall-background-images-demo"
+  variant="logo-bottom-left"
+  hideCode
+/>
+
+### Logo Bottom Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-full-title-and-tall-background-images-demo"
+  variant="logo-bottom-right"
+  hideCode
+/>
+
+### Logo Top Left
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-full-title-and-tall-background-images-demo"
+  variant="logo-top-left"
+  hideCode
+/>
+
+### Logo Top Right
+
+<ComponentPreview
+  base="jsx-email"
+  name="feature-with-full-title-and-tall-background-images-demo"
+  variant="logo-top-right"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                                                 | Default              | Description                                         |
+| ------------- | ---------------------------------------------------- | -------------------- | --------------------------------------------------- |
+| `theme`       | Renderer theme                                       | `defaultTheme`       | Renderer theme configuration                        |
+| `variant`     | `FeatureWithFullTitleAndTallBackgroundImagesVariant` | `"logo-bottom-left"` | Selects logo placement and left/right column order  |
+| Content props | `string`                                             | Mailviews data       | Heading, body, action, logo, and background imagery |
+| Color props   | `string`                                             | Mailviews colors     | Canvas, surface, image, logo, copy, and link colors |

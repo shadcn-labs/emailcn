@@ -3,7 +3,55 @@ title: "Changelog"
 description: "Marketing timelines variant for email templates"
 ---
 
-<ComponentPreview base="react-email" name="changelog-demo" />
+## Examples
+
+### Muted Left
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-demo"
+  variant="muted-left"
+/>
+
+### Muted Right
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-demo"
+  variant="muted-right"
+/>
+
+### Basic Left
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-demo"
+  variant="basic-left"
+/>
+
+### Basic Right
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-demo"
+  variant="basic-right"
+/>
+
+### Accent Left
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-demo"
+  variant="accent-left"
+/>
+
+### Accent Right
+
+<ComponentPreview
+  base="react-email"
+  name="changelog-demo"
+  variant="accent-right"
+/>
 
 ## Installation
 
@@ -45,6 +93,7 @@ import { Changelog } from "@/components/emails/marketing/timelines/changelog";
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                | Default        | Description                  |
+| --------- | --------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
+| `variant` | `"muted-left" \| "muted-right" \| "basic-left" \| "basic-right" \| "accent-left" \| "accent-right"` | `"muted-left"` | Timeline state and alignment |
+| `theme`   | `TailwindConfig`                                                                                    | `defaultTheme` | Email theme styling          |

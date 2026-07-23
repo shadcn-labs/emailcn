@@ -1,11 +1,32 @@
 ---
 title: "2 Column Team Cards with Details"
-description: "2 Column Team Cards with Details — Team email component."
+description: "Mailviews two-column detailed team cards family"
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview
   base="jsx-email"
   name="two-column-team-cards-with-details-demo"
+  variant="default"
+/>
+
+### Boxed
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-column-team-cards-with-details-demo"
+  variant="boxed"
+/>
+
+### Accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-column-team-cards-with-details-demo"
+  variant="accent"
 />
 
 ## Installation
@@ -25,13 +46,7 @@ npx shadcn@latest add @emailcn/2-column-team-cards-with-details
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/team/2-column-team-cards-with-details.tsx"
     base="jsx-email"
@@ -46,16 +61,13 @@ npm install jsx-email
 
 ```tsx
 import { TwoColumnTeamCardsWithDetails } from "@/components/emails/marketing/team/2-column-team-cards-with-details";
-```
 
-```tsx
-<TwoColumnTeamCardsWithDetails
-  {...TwoColumnTeamCardsWithDetails.PreviewProps}
-/>
+<TwoColumnTeamCardsWithDetails variant="default" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                               | Default        | Description              |
+| --------- | ---------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "boxed" \| "accent"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                 | `defaultTheme` | Email theme styling      |

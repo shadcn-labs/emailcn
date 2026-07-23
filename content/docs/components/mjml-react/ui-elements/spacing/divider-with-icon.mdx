@@ -1,9 +1,36 @@
 ---
 title: "Divider with Icon"
-description: "UI Elements spacing variant for email templates"
+description: "A horizontal divider with an inline icon."
 ---
 
-<ComponentPreview base="mjml-react" name="divider-with-icon-demo" />
+This semantic wrapper shares the exact divider frame with the other content
+dividers while keeping its own focused content props.
+
+## Examples
+
+### Center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-with-icon-demo"
+  variant="center"
+/>
+
+### Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-with-icon-demo"
+  variant="left"
+/>
+
+### Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-with-icon-demo"
+  variant="right"
+/>
 
 ## Installation
 
@@ -25,18 +52,24 @@ npx shadcn@latest add @emailcn/divider-with-icon
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>Install the following dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the component and shared sources into your project.</Step>
 
 <ComponentSource
   src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-with-icon.tsx"
   base="mjml-react"
   title="components/emails/ui-elements/spacing/divider-with-icon.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
 />
 
 </Steps>
@@ -52,11 +85,13 @@ import { DividerWithIcon } from "@/components/emails/ui-elements/spacing/divider
 ```
 
 ```tsx
-<DividerWithIcon {...DividerWithIcon.PreviewProps} />
+<DividerWithIcon {...DividerWithIcon.PreviewProps} variant="left" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                            | Default        | Description             |
+| --------- | ------------------------------- | -------------- | ----------------------- |
+| `icon`    | `string`                        | `"✨"`         | Displayed icon          |
+| `variant` | `"center" \| "left" \| "right"` | `"center"`     | Inline content position |
+| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling     |

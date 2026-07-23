@@ -1,9 +1,20 @@
 ---
-title: "Full Width"
-description: "Marketing testimonials variant for email templates"
+title: "Full Width Testimonial"
+description: "Mailviews full-width testimonial with optional overlapping avatar"
 ---
 
+## Examples
+
+### Default
+
 <ComponentPreview base="jsx-email" name="full-width-testimonial-demo" />
+
+### Overlapping avatar
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-testimonial-with-overlapping-avatar-demo"
+/>
 
 ## Installation
 
@@ -22,13 +33,7 @@ npx shadcn@latest add @emailcn/full-width-testimonial
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/testimonials/full-width-testimonial.tsx"
     base="jsx-email"
@@ -43,14 +48,14 @@ npm install jsx-email
 
 ```tsx
 import { FullWidthTestimonial } from "@/components/emails/marketing/testimonials/full-width-testimonial";
-```
 
-```tsx
-<FullWidthTestimonial {...FullWidthTestimonial.PreviewProps} />
+<FullWidthTestimonial variant="overlapping-avatar" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                | Default        | Description         |
+| --------- | ----------------------------------- | -------------- | ------------------- |
+| `variant` | `"default" \| "overlapping-avatar"` | `"default"`    | Avatar arrangement  |
+| `quote`   | `string`                            | Mailviews copy | Testimonial copy    |
+| `theme`   | `EmailThemeTokens`                  | `defaultTheme` | Email theme styling |

@@ -1,9 +1,47 @@
 ---
 title: "Basic Logo Cloud"
-description: "Marketing logos variant for email templates"
+description: "Mailviews logo cloud with optional title and description"
 ---
 
-<ComponentPreview base="mjml-react" name="basic-logo-cloud-demo" />
+The four Mailviews arrangements share one component. Select the content treatment with `variant`.
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="mjml-react"
+  name="basic-logo-cloud-demo"
+  variant="full"
+  hideCode
+/>
 
 ## Installation
 
@@ -22,13 +60,7 @@ npx shadcn@latest add @emailcn/basic-logo-cloud
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/logos/basic-logo-cloud.tsx"
     base="mjml-react"
@@ -46,11 +78,12 @@ import { BasicLogoCloud } from "@/components/emails/marketing/logos/basic-logo-c
 ```
 
 ```tsx
-<BasicLogoCloud {...BasicLogoCloud.PreviewProps} />
+<BasicLogoCloud {...BasicLogoCloud.PreviewProps} variant="with-title" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                    | Default        | Description                         |
+| --------- | ----------------------- | -------------- | ----------------------------------- |
+| `variant` | `BasicLogoCloudVariant` | `"full"`       | Selects the Mailviews content state |
+| `theme`   | Renderer theme          | `defaultTheme` | Renderer theme configuration        |

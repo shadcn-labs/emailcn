@@ -1,9 +1,10 @@
-import { FullWidthTestimonialWithOverlappingAvatar } from "@/registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial-with-overlapping-avatar";
+import { FullWidthTestimonial } from "@/registry/bases/react-email/ui/marketing/testimonials/full-width-testimonial";
 
 export default function FullWidthTestimonialWithOverlappingAvatarDemo() {
   return (
-    <FullWidthTestimonialWithOverlappingAvatar
-      {...FullWidthTestimonialWithOverlappingAvatar.PreviewProps}
+    <FullWidthTestimonial
+      {...FullWidthTestimonial.PreviewProps}
+      variant="overlapping-avatar"
     />
   );
 }

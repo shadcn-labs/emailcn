@@ -1,6 +1,6 @@
 ---
 title: "Shifted Images"
-description: "Marketing cta variant for email templates"
+description: "An image-led CTA with flush-side, alternating-offset, and collage variants"
 ---
 
 <ComponentPreview base="react-email" name="cta-with-shifted-images-demo" />
@@ -36,15 +36,59 @@ npx shadcn@latest add @emailcn/cta-with-shifted-images
 ## Usage
 
 ```tsx
-import { CtaWithShiftedImages } from "@/components/emails/marketing/cta/cta-with-shifted-images";
+import { CTAWithShiftedImages } from "@/components/emails/marketing/cta/cta-with-shifted-images";
 ```
 
 ```tsx
-<CtaWithShiftedImages {...CtaWithShiftedImages.PreviewProps} />
+<CTAWithShiftedImages {...CTAWithShiftedImages.PreviewProps} />
 ```
+
+## Examples
+
+### Flush Side Images
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-shifted-images-demo"
+  variant="flush-side-images"
+  hideCode
+/>
+
+### Images Offset
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-shifted-images-demo"
+  variant="images-offset"
+  hideCode
+/>
+
+### Images Offset Alt
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-shifted-images-demo"
+  variant="images-offset-alt"
+  hideCode
+/>
+
+### Collage
+
+<ComponentPreview
+  base="react-email"
+  name="cta-with-shifted-images-demo"
+  variant="collage"
+  hideCode
+/>
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                      | Type                          | Default               | Description                                   |
+| ------------------------- | ----------------------------- | --------------------- | --------------------------------------------- |
+| `theme`                   | `TailwindConfig`              | `defaultTheme`        | React Email Tailwind configuration            |
+| `variant`                 | `CTAWithShiftedImagesVariant` | `"flush-side-images"` | Selects the exact Mailviews layout and assets |
+| `heading` / `subtext`     | `string`                      | Variant copy          | CTA heading and supporting text               |
+| `ctaLabel` / `ctaHref`    | `string`                      | Mailviews CTA         | Primary action label and destination          |
+| `imageSrc1` … `imageSrc4` | `string`                      | Variant images        | Image URLs used by the selected composition   |
+| `imageAlt1` … `imageAlt4` | `string`                      | `""`                  | Alternative text for each image               |
+| Color props               | `string`                      | Mailviews colors      | Canvas, surface, text, and button colors      |

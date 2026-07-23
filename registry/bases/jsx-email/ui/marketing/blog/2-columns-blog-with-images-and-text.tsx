@@ -1,175 +1,96 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+  BlogHeading,
+} from "@/registry/bases/jsx-email/ui/marketing/blog/blog-shared";
 
-export type BlogCardVariant = "default" | "slanted-left" | "slanted-right";
-
-export interface BlogCardProps {
+export interface TwoColumnsBlogWithImagesAndTextProps {
   theme?: EmailThemeTokens;
-  posts?: {
-    imageUrl?: string;
-    title: string;
-    description: string;
-    date?: string;
-    href?: string;
-  }[];
-  columns?: 1 | 2;
-  variant?: BlogCardVariant;
+  heading?: string;
+  imageAlt1?: string;
+  imageAlt2?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  title1?: string;
+  title2?: string;
+  excerpt1?: string;
+  excerpt2?: string;
 }
 
-const BlogCardSection = ({
-  columns,
-  posts,
-  theme,
-  variant,
-}: {
-  columns: 1 | 2;
-  posts: BlogCardProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogCardVariant;
-}) => {
-  const colWidth = columns === 2 ? "50%" : "100%";
-  const items = (posts ?? []).slice(0, columns);
+export const TwoColumnsBlogWithImagesAndTextSection = ({
+  heading = "Latest posts",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+}: Omit<TwoColumnsBlogWithImagesAndTextProps, "theme">) => {
+  const posts = [
+    {
+      excerpt: excerpt1,
+      imageAlt: imageAlt1,
+      imageSrc: imageSrc1,
+      title: title1,
+    },
+    {
+      excerpt: excerpt2,
+      imageAlt: imageAlt2,
+      imageSrc: imageSrc2,
+      title: title2,
+    },
+  ];
 
   return (
-    <Section
-      style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
-      }}
-    >
-      <Row>
-        {items.map((post, i) => (
-          <Column
-            key={post.title + i}
-            style={{
-              padding: theme.spacingBase ?? "24px",
-              verticalAlign: "top",
-              width: colWidth,
-            }}
-          >
-            {post.imageUrl ? (
-              <Img
-                alt={post.title}
-                src={post.imageUrl}
-                width={260}
-                style={{
-                  borderRadius: theme.borderRadius,
-                  display: "block",
-                  margin: "0 auto",
-                  maxWidth: "100%",
-                  paddingBottom: theme.spacingBase ?? "24px",
-                }}
-              />
-            ) : null}
-            {post.date ? (
-              <Text
-                style={{
-                  color: theme.colorTextSubtle,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeSm ?? "12px",
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "8px",
-                }}
-              >
-                {post.date}
-              </Text>
-            ) : null}
-            <Text
-              style={{
-                color: theme.colorText,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeLg ?? "16px",
-                fontWeight: theme.fontWeightMedium,
-                margin: 0,
-                paddingBottom: theme.spacingBase ?? "8px",
-              }}
-            >
-              {post.title}
-            </Text>
-            <Text
-              style={{
-                color: theme.colorTextMuted,
-                fontFamily: theme.fontFamily,
-                fontSize: theme.fontSizeBase ?? "14px",
-                lineHeight: theme.lineHeightBase,
-                margin: 0,
-              }}
-            >
-              {post.description}
-            </Text>
-          </Column>
-        ))}
-      </Row>
-    </Section>
+    <>
+      {heading ? <BlogHeading>{heading}</BlogHeading> : null}
+      <BlogContent layout="two-column-images-text" posts={posts} />
+    </>
   );
 };
 
 export const TwoColumnsBlogWithImagesAndText = ({
   theme = defaultTheme,
-  posts = [
-    { description: "Description of the blog post.", title: "Blog Post Title" },
-  ],
-  columns = 2,
-  variant = "default",
-}: BlogCardProps) => (
-  <Html>
-    <Head />
-    <Preview>blog card</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BlogCardSection
-            columns={columns}
-            posts={posts}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  heading = "Latest posts",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+}: TwoColumnsBlogWithImagesAndTextProps) => (
+  <BlogEmailShell preview={heading} theme={theme}>
+    <TwoColumnsBlogWithImagesAndTextSection
+      heading={heading}
+      imageAlt1={imageAlt1}
+      imageAlt2={imageAlt2}
+      imageSrc1={imageSrc1}
+      imageSrc2={imageSrc2}
+      title1={title1}
+      title2={title2}
+      excerpt1={excerpt1}
+      excerpt2={excerpt2}
+    />
+  </BlogEmailShell>
 );
 
 TwoColumnsBlogWithImagesAndText.PreviewProps = {
-  columns: 2,
-  posts: [
-    {
-      date: "May 12, 2026",
-      description:
-        "Learn how to build beautiful emails with our new component library.",
-      imageUrl: "https://static.photos/travel/400x250/2",
-      title: "Getting Started with Email Components",
-    },
-    {
-      date: "May 10, 2026",
-      description: "Tips and tricks for designing responsive email layouts.",
-      imageUrl: "https://static.photos/travel/400x250/3",
-      title: "Responsive Email Design Best Practices",
-    },
-  ],
+  excerpt1: "Practical ideas for clearer, more useful email experiences.",
+  excerpt2: "How small systems help teams publish consistently.",
+  heading: "Latest posts",
+  imageAlt1: "Mountain landscape",
+  imageAlt2: "Coastal landscape",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogCardProps;
+  title1: "Designing emails people enjoy",
+  title2: "A better content workflow",
+} satisfies TwoColumnsBlogWithImagesAndTextProps;

@@ -1,175 +1,89 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlImage,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
-
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type BentoGridProductVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
-export interface BentoGridProductProps {
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  TwoThirdsStatsSection,
+} from "./bento-grid-shared";
+import type {
+  BentoImagePlacementVariant,
+  FeatureCardData,
+  MiniMetricData,
+  StatCardData,
+} from "./bento-grid-shared";
+
+export interface TwoThirdsBentoGridWithStatsProps {
+  feature?: FeatureCardData;
+  imageAlt?: string;
+  imageSrc?: string;
+  metric?: MiniMetricData;
+  stat?: StatCardData;
   theme?: EmailThemeTokens;
-  heading?: string;
-  products?: {
-    imageUrl: string;
-    imageAlt: string;
-    name: string;
-    price: string;
-  }[];
-  variant?: BentoGridProductVariant;
+  variant?: BentoImagePlacementVariant;
 }
-const BentoGridProductSection = ({
-  heading,
-  products,
-  theme,
-  variant,
-}: {
-  heading: string;
-  products: BentoGridProductProps["products"];
-  theme: EmailThemeTokens;
-  variant: BentoGridProductVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    {heading ? (
-      <MjmlColumn>
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeHeading}
-          fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingXl ?? "48px"}
-        >
-          {heading}
-        </MjmlText>
-      </MjmlColumn>
-    ) : null}
-    {(products ?? []).slice(0, 3).map((p, i) => (
-      <MjmlColumn
-        key={p.name + i}
-        width="33.33%"
-        padding="8px"
-        verticalAlign="top"
-      >
-        <MjmlImage
-          alt={p.imageAlt}
-          borderRadius={theme.borderRadius}
-          src={p.imageUrl}
-          width={190}
-          paddingBottom={theme.spacingBase ?? "12px"}
-        />
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase}
-          fontWeight={theme.fontWeightMedium}
-          paddingBottom={theme.spacingBase ?? "4px"}
-        >
-          {p.name}
-        </MjmlText>
-        <MjmlText
-          align="center"
-          color={theme.colorPrimary}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm}
-          fontWeight={theme.fontWeightMedium}
-        >
-          {p.price}
-        </MjmlText>
-      </MjmlColumn>
-    ))}
-  </MjmlSection>
+
+const feature: FeatureCardData = {
+  description: "API response times under 100ms, 99.99% uptime guaranteed.",
+  title: "Low latency. High reliability.",
+};
+const metric: MiniMetricData = {
+  change: "25%",
+  period: "/month",
+  title: "API Calls",
+  value: "55k",
+};
+const stat: StatCardData = {
+  label: "Engine v2",
+  suffix: "faster",
+  value: "75x",
+};
+
+export const TwoThirdsBentoGridWithStatsSection = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
+  variant = "image-top-right",
+}: Omit<TwoThirdsBentoGridWithStatsProps, "theme">) => (
+  <TwoThirdsStatsSection
+    feature={featureData}
+    imageAlt={imageAlt}
+    imageSrc={imageSrc}
+    metric={metricData}
+    stat={statData}
+    variant={variant}
+  />
 );
+
 export const TwoThirdsBentoGridWithStats = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
   theme = defaultTheme,
-  heading = "Products",
-  products = [
-    {
-      imageAlt: "Product 1",
-      imageUrl: "https://static.photos/technology/300x300/2",
-      name: "Product One",
-      price: "$29",
-    },
-    {
-      imageAlt: "Product 2",
-      imageUrl: "https://static.photos/technology/300x300/3",
-      name: "Product Two",
-      price: "$49",
-    },
-    {
-      imageAlt: "Product 3",
-      imageUrl: "https://static.photos/technology/300x300/4",
-      name: "Product Three",
-      price: "$79",
-    },
-  ],
-  variant = "default",
-}: BentoGridProductProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>bento product</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BentoGridProductSection
-          heading={heading}
-          products={products}
-          theme={theme}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  variant = "image-top-right",
+}: TwoThirdsBentoGridWithStatsProps) => (
+  <BentoEmailShell preview="Two thirds bento grid with stats" theme={theme}>
+    <TwoThirdsBentoGridWithStatsSection
+      feature={featureData}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      metric={metricData}
+      stat={statData}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
+
 TwoThirdsBentoGridWithStats.PreviewProps = {
-  heading: "Featured Products",
-  products: [
-    {
-      imageAlt: "Widget",
-      imageUrl: "https://static.photos/technology/300x300/5",
-      name: "Premium Widget",
-      price: "$39",
-    },
-    {
-      imageAlt: "Gadget",
-      imageUrl: "https://static.photos/technology/300x300/6",
-      name: "Super Gadget",
-      price: "$59",
-    },
-    {
-      imageAlt: "Tool",
-      imageUrl: "https://static.photos/technology/300x300/7",
-      name: "Pro Tool",
-      price: "$99",
-    },
-  ],
+  feature,
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+  metric,
+  stat,
   theme: defaultTheme,
-  variant: "default",
-} satisfies BentoGridProductProps;
+  variant: "image-top-right",
+} satisfies TwoThirdsBentoGridWithStatsProps;

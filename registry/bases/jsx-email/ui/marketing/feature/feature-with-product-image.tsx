@@ -1,144 +1,244 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FeatureRightImageVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type FeatureWithProductImageVariant = "image-left" | "image-right";
 
-export interface FeatureRightImageProps {
+export interface FeatureWithProductImageProps {
   theme?: EmailThemeTokens;
-  imageSrc?: string;
-  imageAlt?: string;
   heading?: string;
   body?: string;
-  variant?: FeatureRightImageVariant;
+  imageSrc?: string;
+  imageAlt?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+  arrowIconSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  linkColor?: string;
+  variant?: FeatureWithProductImageVariant;
 }
 
-const FeatureRightImageSection = ({
-  body,
-  heading,
-  imageAlt,
-  imageSrc,
-  theme,
-  variant,
-}: {
-  body: string;
-  heading: string;
-  imageAlt: string;
-  imageSrc: string;
-  theme: EmailThemeTokens;
-  variant: FeatureRightImageVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .feature-product-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .feature-product-image {
+      width: 100% !important;
+    }
+
+    .feature-product-gap {
+      line-height: 24px !important;
+    }
+  }
+`;
+
+const defaults = {
+  arrowIconSrc:
+    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+  backgroundColor: "#fffffe",
+  body: "Discover tools that make accepting payments faster, easier, and more reliable, wherever you serve customers.",
+  buttonHref: "https://example.com",
+  buttonLabel: "Discover more",
+  heading: "Powering every payment.",
+  headingColor: "#030712",
+  imageAlt: "Product Image",
+  imageSrc:
+    "https://assets.mailviews.com/images/components/feature/feature-1.jpg",
+  linkColor: "#4f46e5",
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+};
+
+type SectionProps = Omit<FeatureWithProductImageProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const ProductImage = ({ props }: { props: ResolvedProps }) => (
+  <td
+    className="feature-product-stack"
+    style={{ verticalAlign: "top", width: "188px" }}
   >
-    <Row>
-      <Column
-        style={{ padding: "0 12px", verticalAlign: "middle", width: "60%" }}
-      >
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeXl ?? "20px",
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "16px",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeBase ?? "14px",
-            lineHeight: theme.lineHeightBase,
-            margin: 0,
-          }}
-        >
-          {body}
-        </Text>
-      </Column>
-      <Column
-        style={{ padding: "0 12px", verticalAlign: "middle", width: "40%" }}
-      >
-        <Img
-          alt={imageAlt}
-          src={imageSrc}
-          width={220}
-          style={{
-            borderRadius: theme.borderRadius,
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-          }}
-        />
-      </Column>
-    </Row>
-  </Section>
+    <Img
+      alt={props.imageAlt}
+      className="feature-product-image"
+      src={props.imageSrc}
+      style={{ borderRadius: "4px", maxWidth: "100%", verticalAlign: "middle" }}
+      width={188}
+    />
+  </td>
 );
 
-export const FeatureWithProductImage = ({
-  theme = defaultTheme,
-  imageSrc = "https://static.photos/technology/400x300/2",
-  imageAlt = "feature",
-  heading = "Feature Title",
-  body = "Description of the feature shown on the right side.",
-  variant = "default",
-}: FeatureRightImageProps) => (
-  <Html>
-    <Head />
-    <Preview>feature right image</Preview>
-    <Body
+const ProductCopy = ({ props }: { props: ResolvedProps }) => (
+  <td
+    className="feature-product-stack"
+    style={{ textAlign: "left", verticalAlign: "top" }}
+  >
+    <h2
       style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
+        color: props.headingColor,
+        fontFamily,
+        fontSize: "24px",
+        fontWeight: 600,
+        lineHeight: "32px",
         margin: 0,
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FeatureRightImageSection
-            body={body}
-            heading={heading}
-            imageAlt={imageAlt}
-            imageSrc={imageSrc}
-            theme={theme}
-            variant={variant}
+      {props.heading}
+    </h2>
+    <p
+      style={{
+        color: props.textColor,
+        fontFamily,
+        fontSize: "16px",
+        fontWeight: 300,
+        lineHeight: "24px",
+        margin: "16px 0 0",
+      }}
+    >
+      {props.body}
+    </p>
+    <div style={{ lineHeight: "16px" }}>&zwj;</div>
+    <div>
+      <a
+        href={props.buttonHref}
+        style={{
+          borderRadius: "8px",
+          color: props.linkColor,
+          display: "inline-block",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 500,
+          lineHeight: 1,
+          padding: "6px 0",
+          textDecoration: "none",
+        }}
+      >
+        <span style={{ marginRight: "8px" }}>{props.buttonLabel}</span>
+        <span>
+          <Img
+            alt=""
+            src={props.arrowIconSrc}
+            style={{
+              display: "inline",
+              maxWidth: "100%",
+              verticalAlign: "baseline",
+            }}
+            width={16}
           />
-        </Section>
+        </span>
+      </a>
+    </div>
+  </td>
+);
+
+export const FeatureWithProductImageSection = (props: SectionProps) => {
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const imageLeft = (props.variant ?? "image-left") === "image-left";
+  const image = <ProductImage props={resolved} />;
+  const copy = <ProductCopy props={resolved} />;
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          {imageLeft ? image : copy}
+                          <td
+                            className="feature-product-stack feature-product-gap"
+                            style={{ width: "24px" }}
+                          >
+                            &zwj;
+                          </td>
+                          {imageLeft ? copy : image}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const FeatureWithProductImage = ({
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "image-left",
+  ...props
+}: FeatureWithProductImageProps) => (
+  <Html>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Powering every payment.</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <FeatureWithProductImageSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 FeatureWithProductImage.PreviewProps = {
-  body: "Image displayed on the right with supporting text on the left.",
-  heading: "Feature with Right Image",
-  imageAlt: "feature",
-  imageSrc: "https://static.photos/technology/400x300/3",
   theme: defaultTheme,
-  variant: "default",
-} satisfies FeatureRightImageProps;
+  variant: "image-left",
+} satisfies FeatureWithProductImageProps;

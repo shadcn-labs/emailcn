@@ -1,9 +1,41 @@
 ---
 title: "2 Columns Compact"
-description: "2 Columns Compact — Team email component."
+description: "Mailviews compact two-column team family"
 ---
 
-<ComponentPreview base="jsx-email" name="two-columns-compact-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-compact-demo"
+  variant="default"
+/>
+
+### Border Top
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-compact-demo"
+  variant="border-top"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-compact-demo"
+  variant="bordered"
+/>
+
+### Accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="two-columns-compact-demo"
+  variant="accent"
+/>
 
 ## Installation
 
@@ -22,13 +54,7 @@ npx shadcn@latest add @emailcn/2-columns-compact
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/team/2-columns-compact.tsx"
     base="jsx-email"
@@ -43,14 +69,13 @@ npm install jsx-email
 
 ```tsx
 import { TwoColumnsCompact } from "@/components/emails/marketing/team/2-columns-compact";
-```
 
-```tsx
-<TwoColumnsCompact {...TwoColumnsCompact.PreviewProps} />
+<TwoColumnsCompact variant="default" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                  | Default        | Description              |
+| --------- | ----------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "border-top" \| "bordered" \| "accent"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                    | `defaultTheme` | Email theme styling      |

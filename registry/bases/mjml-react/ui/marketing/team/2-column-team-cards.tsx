@@ -1,134 +1,399 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
-  MjmlSection,
-  MjmlText,
+  MjmlRaw,
+  MjmlStyle,
   MjmlWrapper,
 } from "@faire/mjml-react";
+/* eslint-disable @next/next/no-img-element */
+import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-export type TeamCardVariant = "default" | "slanted-left" | "slanted-right";
-export interface TeamCardProps {
+export type TwoColumnTeamCardsVariant =
+  | "default"
+  | "boxed"
+  | "accent"
+  | "boxed-alt"
+  | "accent-alt"
+  | "rounded"
+  | "rounded-accent";
+
+export interface TwoColumnTeamCardsProps {
   theme?: EmailThemeTokens;
-  members?: { avatarUrl?: string; name: string; role: string }[];
-  variant?: TeamCardVariant;
+  avatarSrc1?: string;
+  avatarAlt1?: string;
+  name1?: string;
+  role1?: string;
+  avatarSrc2?: string;
+  avatarAlt2?: string;
+  name2?: string;
+  role2?: string;
+  variant?: TwoColumnTeamCardsVariant;
 }
-const TeamCardSection = ({
-  members,
-  theme,
-  variant,
+
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .team-stack { display: block !important; width: 100% !important; }
+    .team-gap { line-height: 24px !important; }
+    .team-round-image { max-width: 144px !important; }
+  }
+`;
+
+const socialIcons = {
+  dark: {
+    facebook:
+      "https://assets.mailviews.com/images/components/icon-facebook-dark.png",
+    instagram:
+      "https://assets.mailviews.com/images/components/icon-instagram-dark.png",
+    linkedin:
+      "https://assets.mailviews.com/images/components/icon-linkedin-dark.png",
+    x: "https://assets.mailviews.com/images/components/icon-x-dark.png",
+  },
+  light: {
+    facebook:
+      "https://assets.mailviews.com/images/components/icon-facebook-light.png",
+    instagram:
+      "https://assets.mailviews.com/images/components/icon-instagram-light.png",
+    linkedin:
+      "https://assets.mailviews.com/images/components/icon-linkedin-light.png",
+    x: "https://assets.mailviews.com/images/components/icon-x-light.png",
+  },
+};
+
+const SocialLinks = ({
+  accent,
+  lastIcon,
 }: {
-  members: TeamCardProps["members"];
-  theme: EmailThemeTokens;
-  variant: TeamCardVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    {(members ?? []).slice(0, 3).map((m, i) => (
-      <MjmlColumn
-        key={m.name + i}
-        width="33.33%"
-        padding={theme.spacingBase ?? "16px"}
-        verticalAlign="top"
+  accent: boolean;
+  lastIcon: "instagram" | "linkedin";
+}) => {
+  const icons = accent ? socialIcons.light : socialIcons.dark;
+  const links = ["facebook", "x", lastIcon] as const;
+  return (
+    <table
+      align={lastIcon === "linkedin" ? undefined : undefined}
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+    >
+      <tbody>
+        <tr>
+          {links.map((icon, index) => (
+            <Fragment key={icon}>
+              {index > 0 ? <td style={{ width: "16px" }}>&zwj;</td> : null}
+              <td style={{ width: "16px" }}>
+                <a href={`https://${icon === "x" ? "x" : icon}.com`}>
+                  <img alt="" src={icons[icon]} width="16" />
+                </a>
+              </td>
+            </Fragment>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+interface TeamCardProps {
+  accent: boolean;
+  avatarAlt: string;
+  avatarSrc: string;
+  lastIcon: "instagram" | "linkedin";
+  name: string;
+  role: string;
+  variant: TwoColumnTeamCardsVariant;
+}
+
+const TeamCard = ({
+  accent,
+  avatarAlt,
+  avatarSrc,
+  lastIcon,
+  name,
+  role,
+  variant,
+}: TeamCardProps) => {
+  const rounded = variant === "rounded" || variant === "rounded-accent";
+  const boxed = variant !== "default";
+  const alt = variant === "boxed-alt" || variant === "accent-alt";
+  const cardBackground = accent ? "#030712" : "#f9fafb";
+  const content = (
+    <>
+      <h3
+        style={{
+          color: accent ? "#fffffe" : "#030712",
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 600,
+          lineHeight: "24px",
+          margin: 0,
+          textAlign: rounded ? "center" : "left",
+        }}
       >
-        <MjmlSection
-          backgroundColor={theme.colorBackgroundMuted}
-          border={`1px solid ${theme.colorBorder}`}
-          borderRadius={theme.borderRadius}
-          padding={theme.spacingBase ?? "16px"}
+        {name}
+      </h3>
+      <p
+        style={{
+          color: accent ? "#d1d5db" : "#4b5563",
+          fontFamily,
+          fontSize: "14px",
+          lineHeight: "20px",
+          margin: 0,
+          textAlign: rounded ? "center" : "left",
+        }}
+      >
+        {role}
+      </p>
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      <table
+        align={rounded ? "center" : undefined}
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <SocialLinks accent={accent} lastIcon={lastIcon} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
+
+  if (rounded) {
+    return (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td
+              style={{
+                backgroundColor: cardBackground,
+                borderRadius: "8px",
+                padding: "16px 24px 24px",
+              }}
+            >
+              <div style={{ textAlign: "center" }}>
+                <img
+                  alt={avatarAlt}
+                  className="team-round-image"
+                  src={avatarSrc}
+                  style={{
+                    borderRadius: "9999px",
+                    maxWidth: "100%",
+                    verticalAlign: "middle",
+                  }}
+                  width="188"
+                />
+              </div>
+              <div style={{ lineHeight: "16px" }}>&zwj;</div>
+              {content}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+
+  if (boxed) {
+    return (
+      <>
+        <div
+          style={{
+            backgroundColor: cardBackground,
+            borderRadius: "8px 8px 0 0",
+          }}
         >
-          {m.avatarUrl ? (
-            <MjmlImage
-              align="center"
-              alt={m.name}
-              borderRadius="50%"
-              src={m.avatarUrl}
-              width={64}
-              height={64}
-              paddingBottom={theme.spacingBase ?? "12px"}
-            />
-          ) : null}
-          <MjmlText
-            align="center"
-            color={theme.colorText}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeBase}
-            fontWeight={theme.fontWeightMedium}
-            paddingBottom={theme.spacingBase ?? "4px"}
-          >
-            {m.name}
-          </MjmlText>
-          <MjmlText
-            align="center"
-            color={theme.colorTextMuted}
-            fontFamily={theme.fontFamily}
-            fontSize={theme.fontSizeSm}
-          >
-            {m.role}
-          </MjmlText>
-        </MjmlSection>
-      </MjmlColumn>
-    ))}
-  </MjmlSection>
-);
+          <img
+            alt={avatarAlt}
+            src={avatarSrc}
+            style={{
+              borderRadius: alt ? "8px 8px 0 0" : "8px",
+              maxWidth: "100%",
+              verticalAlign: "middle",
+            }}
+            width="264"
+          />
+        </div>
+        <table
+          border={0}
+          cellPadding={0}
+          cellSpacing={0}
+          role="presentation"
+          style={{ width: "100%" }}
+        >
+          <tbody>
+            <tr>
+              <td
+                style={{
+                  backgroundColor: cardBackground,
+                  borderRadius: "0 0 8px 8px",
+                  padding: "16px 24px 24px",
+                }}
+              >
+                {content}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <img
+        alt={avatarAlt}
+        src={avatarSrc}
+        style={{
+          borderRadius: "8px",
+          maxWidth: "100%",
+          verticalAlign: "middle",
+        }}
+        width="264"
+      />
+      <div style={{ lineHeight: "16px" }}>&zwj;</div>
+      {content}
+    </>
+  );
+};
+
+export const TwoColumnTeamCardsSection = ({
+  avatarAlt1 = "",
+  avatarAlt2 = "",
+  avatarSrc1,
+  avatarSrc2,
+  name1 = "Jason Adam",
+  name2 = "Henrik Petersson",
+  role1 = "Senior Developer",
+  role2 = "Senior UX/UI designer",
+  variant = "default",
+}: Omit<TwoColumnTeamCardsProps, "theme">) => {
+  const rounded = variant === "rounded" || variant === "rounded-accent";
+  const accent =
+    variant === "accent" ||
+    variant === "accent-alt" ||
+    variant === "rounded-accent";
+  return (
+    <>
+      <style>{responsiveStyles}</style>
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        style={{ backgroundColor: "#f1f5f9", width: "100%" }}
+      >
+        <tbody>
+          <tr>
+            <td>&zwj;</td>
+            <td
+              style={{
+                backgroundColor: "#fffffe",
+                maxWidth: "100%",
+                padding: "44px 24px",
+                width: "600px",
+              }}
+            >
+              <table
+                border={0}
+                cellPadding={0}
+                cellSpacing={0}
+                role="presentation"
+                style={{ width: "100%" }}
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      className="team-stack"
+                      style={{ verticalAlign: "top", width: "264px" }}
+                    >
+                      <TeamCard
+                        accent={accent}
+                        avatarAlt={avatarAlt1}
+                        avatarSrc={
+                          avatarSrc1 ??
+                          `https://assets.mailviews.com/images/components/teams/member-1-${rounded ? "md" : "lg"}.jpg`
+                        }
+                        lastIcon="linkedin"
+                        name={name1}
+                        role={role1}
+                        variant={variant}
+                      />
+                    </td>
+                    <td
+                      className="team-stack team-gap"
+                      style={{ lineHeight: 0, width: "24px" }}
+                    >
+                      &zwj;
+                    </td>
+                    <td
+                      className="team-stack"
+                      style={{ verticalAlign: "top", width: "264px" }}
+                    >
+                      <TeamCard
+                        accent={accent}
+                        avatarAlt={avatarAlt2}
+                        avatarSrc={
+                          avatarSrc2 ??
+                          `https://assets.mailviews.com/images/components/teams/member-2-${rounded ? "md" : "lg"}.jpg`
+                        }
+                        lastIcon="instagram"
+                        name={name2}
+                        role={role2}
+                        variant={variant}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>&zwj;</td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
+};
+
 export const TwoColumnTeamCards = ({
   theme = defaultTheme,
-  members = [{ name: "John Doe", role: "CEO" }],
-  variant = "default",
-}: TeamCardProps) => (
+  ...props
+}: TwoColumnTeamCardsProps) => (
   <Mjml>
     <MjmlHead>
-      <MjmlPreview>team card</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
+      <MjmlPreview>Meet the team</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{responsiveStyles}</MjmlStyle>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
+    <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">
-        <TeamCardSection members={members} theme={theme} variant={variant} />
+        <MjmlRaw>
+          <TwoColumnTeamCardsSection {...props} />
+        </MjmlRaw>
       </MjmlWrapper>
     </MjmlBody>
   </Mjml>
 );
+
 TwoColumnTeamCards.PreviewProps = {
-  members: [
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-1&size=64",
-      name: "Alex Johnson",
-      role: "CEO",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-2&size=64",
-      name: "Maria Garcia",
-      role: "CTO",
-    },
-    {
-      avatarUrl:
-        "https://api.dicebear.com/9.x/lorelei/png?seed=preview-registry%2Fbases%2Fmjml-react%2Fui%2Fmarketing%2Fteam%2F2-column-team-cards.tsx-64-3&size=64",
-      name: "David Kim",
-      role: "Design Lead",
-    },
-  ],
   theme: defaultTheme,
   variant: "default",
-} satisfies TeamCardProps;
+} satisfies TwoColumnTeamCardsProps;

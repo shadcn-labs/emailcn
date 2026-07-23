@@ -1,9 +1,41 @@
 ---
 title: "3 Columns Team Grid"
-description: "3 Columns Team Grid — Team email component."
+description: "Mailviews three-column team grid family"
 ---
 
-<ComponentPreview base="mjml-react" name="three-columns-team-grid-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-team-grid-demo"
+  variant="default"
+/>
+
+### With Accent
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-team-grid-demo"
+  variant="with-accent"
+/>
+
+### Bordered
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-team-grid-demo"
+  variant="bordered"
+/>
+
+### With Hero
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-team-grid-demo"
+  variant="with-hero"
+/>
 
 ## Installation
 
@@ -22,13 +54,7 @@ npx shadcn@latest add @emailcn/3-columns-team-grid
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/team/3-columns-team-grid.tsx"
     base="mjml-react"
@@ -43,14 +69,13 @@ npm install @faire/mjml-react
 
 ```tsx
 import { ThreeColumnsTeamGrid } from "@/components/emails/marketing/team/3-columns-team-grid";
-```
 
-```tsx
-<ThreeColumnsTeamGrid {...ThreeColumnsTeamGrid.PreviewProps} />
+<ThreeColumnsTeamGrid variant="default" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                      | Default        | Description              |
+| --------- | --------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "with-accent" \| "bordered" \| "with-hero"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                        | `defaultTheme` | Email theme styling      |

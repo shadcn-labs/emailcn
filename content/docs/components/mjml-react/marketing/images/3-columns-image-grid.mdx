@@ -1,6 +1,6 @@
 ---
 title: "3 Columns Image Grid"
-description: "3 Columns Image Grid — Images email component."
+description: "A three-column square or portrait image grid with optional overlays"
 ---
 
 <ComponentPreview base="mjml-react" name="three-columns-image-grid-demo" />
@@ -22,13 +22,7 @@ npx shadcn@latest add @emailcn/3-columns-image-grid
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/images/3-columns-image-grid.tsx"
     base="mjml-react"
@@ -49,8 +43,49 @@ import { ThreeColumnsImageGrid } from "@/components/emails/marketing/images/3-co
 <ThreeColumnsImageGrid {...ThreeColumnsImageGrid.PreviewProps} />
 ```
 
+## Examples
+
+### Square Images
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-image-grid-demo"
+  variant="square-images"
+  hideCode
+/>
+
+### Portrait Images
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-image-grid-demo"
+  variant="portrait-images"
+  hideCode
+/>
+
+### Square Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-image-grid-demo"
+  variant="square-overlay"
+  hideCode
+/>
+
+### Portrait Overlay
+
+<ComponentPreview
+  base="mjml-react"
+  name="three-columns-image-grid-demo"
+  variant="portrait-overlay"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                           | Default           | Description                                   |
+| ----------- | ------------------------------ | ----------------- | --------------------------------------------- |
+| `theme`     | Renderer theme                 | `defaultTheme`    | Renderer theme configuration                  |
+| `variant`   | `ThreeColumnsImageGridVariant` | `"square-images"` | Selects shape and overlay mode                |
+| Image props | `string`                       | Mailviews data    | Three image links, alternative text, and copy |
+| Color props | `string`                       | Mailviews colors  | Canvas, surface, and overlay text colors      |

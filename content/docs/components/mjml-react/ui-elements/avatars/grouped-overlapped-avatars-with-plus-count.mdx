@@ -1,9 +1,57 @@
 ---
 title: "Grouped Overlapped Avatars with Plus Count"
-description: "UI Elements avatars variant for email templates"
+description: "Mailviews grouped avatars with a trailing count, available in every supported size."
 ---
 
-<ComponentPreview base="mjml-react" name="grouped-overlapped-avatars-demo" />
+## Examples
+
+### XS
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="xs"
+/>
+
+### S
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="sm"
+/>
+
+### M
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="md"
+/>
+
+### L
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="lg"
+/>
+
+### XL
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="xl"
+/>
+
+### 2XL
+
+<ComponentPreview
+  base="mjml-react"
+  name="grouped-overlapped-avatars-plus-count-demo"
+  variant="2xl"
+/>
 
 ## Installation
 
@@ -22,13 +70,19 @@ npx shadcn@latest add @emailcn/grouped-overlapped-avatars-with-plus-count
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the shared avatar primitives into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/avatars/avatar-shared.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/avatars/avatar-shared.tsx"
+  />
+  <Step>Copy the canonical grouped avatar component into your project.</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+    base="mjml-react"
+    title="components/emails/ui-elements/avatars/grouped-overlapped-avatars.tsx"
+  />
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx"
     base="mjml-react"
@@ -42,17 +96,18 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { GroupedOverlappedAvatarsWithPlusCount } from "@/components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count";
+import { GroupedOverlappedAvatarsPlusCount } from "@/components/emails/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count";
 ```
 
 ```tsx
-<GroupedOverlappedAvatarsWithPlusCount
-  {...GroupedOverlappedAvatarsWithPlusCount.PreviewProps}
-/>
+<GroupedOverlappedAvatarsPlusCount size="md" plusCount={5} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop        | Type                                            | Default        | Description                    |
+| ----------- | ----------------------------------------------- | -------------- | ------------------------------ |
+| `avatars`   | `AvatarItem[]`                                  | Four avatars   | Images displayed in the group  |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"`         | Avatar and overlap size        |
+| `plusCount` | `number`                                        | `5`            | Number shown after the avatars |
+| `theme`     | Email theme type                                | `defaultTheme` | Email framework theme          |

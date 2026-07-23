@@ -1,9 +1,37 @@
 ---
 title: "Overlay Stats"
-description: "Marketing stats variant for email templates"
+description: "Mailviews background-image stats family"
 ---
 
-<ComponentPreview base="mjml-react" name="overlay-stats-demo" />
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="mjml-react"
+  name="overlay-stats-demo"
+  variant="default"
+/>
+
+### 3 columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="overlay-stats-demo"
+  variant="three-columns"
+/>
+
+### Bento
+
+<ComponentPreview base="mjml-react" name="overlay-stats-demo" variant="bento" />
+
+### Bento reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="overlay-stats-demo"
+  variant="bento-reversed"
+/>
 
 ## Installation
 
@@ -22,13 +50,7 @@ npx shadcn@latest add @emailcn/overlay-stats
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/stats/overlay-stats.tsx"
     base="mjml-react"
@@ -43,14 +65,13 @@ npm install @faire/mjml-react
 
 ```tsx
 import { OverlayStats } from "@/components/emails/marketing/stats/overlay-stats";
-```
 
-```tsx
-<OverlayStats {...OverlayStats.PreviewProps} />
+<OverlayStats variant="three-columns" />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                          | Default        | Description              |
+| --------- | ------------------------------------------------------------- | -------------- | ------------------------ |
+| `variant` | `"default" \| "three-columns" \| "bento" \| "bento-reversed"` | `"default"`    | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                            | `defaultTheme` | Email theme styling      |

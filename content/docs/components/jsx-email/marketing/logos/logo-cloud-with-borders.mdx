@@ -1,9 +1,56 @@
 ---
 title: "Logo Cloud with Borders"
-description: "Marketing logos variant for email templates"
+description: "Mailviews divided logo cloud in every content arrangement"
 ---
 
-<ComponentPreview base="jsx-email" name="logo-cloud-with-borders-demo" />
+All five Mailviews border arrangements are variants of one component.
+
+## Examples
+
+### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="logo-cloud-with-borders-demo"
+  variant="minimal"
+  hideCode
+/>
+
+### With Title
+
+<ComponentPreview
+  base="jsx-email"
+  name="logo-cloud-with-borders-demo"
+  variant="with-title"
+  hideCode
+/>
+
+### With Description
+
+<ComponentPreview
+  base="jsx-email"
+  name="logo-cloud-with-borders-demo"
+  variant="with-description"
+  hideCode
+/>
+
+### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="logo-cloud-with-borders-demo"
+  variant="full"
+  hideCode
+/>
+
+### Flush
+
+<ComponentPreview
+  base="jsx-email"
+  name="logo-cloud-with-borders-demo"
+  variant="flush"
+  hideCode
+/>
 
 ## Installation
 
@@ -22,13 +69,7 @@ npx shadcn@latest add @emailcn/logo-cloud-with-borders
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/logos/logo-cloud-with-borders.tsx"
     base="jsx-email"
@@ -46,11 +87,12 @@ import { LogoCloudWithBorders } from "@/components/emails/marketing/logos/logo-c
 ```
 
 ```tsx
-<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} />
+<LogoCloudWithBorders {...LogoCloudWithBorders.PreviewProps} variant="flush" />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                          | Default        | Description                               |
+| --------- | ----------------------------- | -------------- | ----------------------------------------- |
+| `variant` | `LogoCloudWithBordersVariant` | `"full"`       | Selects the Mailviews content arrangement |
+| `theme`   | Renderer theme                | `defaultTheme` | Renderer theme configuration              |

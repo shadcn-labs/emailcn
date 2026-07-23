@@ -1,6 +1,6 @@
 ---
 title: "Full Width Image with Overlay"
-description: "Marketing images variant for email templates"
+description: "A full-width image with bottom overlay copy and Mailviews edge-treatment variants"
 ---
 
 <ComponentPreview
@@ -46,8 +46,151 @@ import { FullWidthImageWithOverlay } from "@/components/emails/marketing/images/
 <FullWidthImageWithOverlay {...FullWidthImageWithOverlay.PreviewProps} />
 ```
 
+## Examples
+
+### Default
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="default"
+  hideCode
+/>
+
+### Top Padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="top-padding"
+  hideCode
+/>
+
+### Top Right
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="top-right"
+  hideCode
+/>
+
+### Top Left
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="top-left"
+  hideCode
+/>
+
+### Top and Sides
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="top-sides"
+  hideCode
+/>
+
+### Right Padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="right-padding"
+  hideCode
+/>
+
+### Right Alternative
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="right-alt"
+  hideCode
+/>
+
+### Bottom Padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-padding"
+  hideCode
+/>
+
+### Bottom Right
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-right"
+  hideCode
+/>
+
+### Bottom Left
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-left"
+  hideCode
+/>
+
+### Bottom and Sides
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="bottom-sides"
+  hideCode
+/>
+
+### Left Padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="left-padding"
+  hideCode
+/>
+
+### Left Alternative
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="left-alt"
+  hideCode
+/>
+
+### Sides Padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="sides-padding"
+  hideCode
+/>
+
+### Sides Alternative
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-with-overlay-demo"
+  variant="sides-alt"
+  hideCode
+/>
+
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                         | Type                               | Default         | Description                                     |
+| ---------------------------- | ---------------------------------- | --------------- | ----------------------------------------------- |
+| `theme`                      | `TailwindConfig`                   | `defaultTheme`  | React Email Tailwind configuration              |
+| `variant`                    | `FullWidthImageWithOverlayVariant` | `"default"`     | Selects the exact Mailviews edge treatment      |
+| `imageSrc`                   | `string`                           | Mailviews image | Background image URL                            |
+| `heading` / `subtext`        | `string`                           | Mailviews copy  | Bottom overlay heading and supporting text      |
+| `headingColor` / `textColor` | `string`                           | `"#fffffe"`     | Overlay copy colors                             |
+| `pageBackgroundColor`        | `string`                           | `"#f1f5f9"`     | Canvas and cutout color                         |
+| `spacerBackgroundColor`      | `string`                           | `"#fffffe"`     | Color used for padding and side spacer surfaces |

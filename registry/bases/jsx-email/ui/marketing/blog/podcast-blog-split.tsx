@@ -1,135 +1,73 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+} from "@/registry/bases/jsx-email/ui/marketing/blog/blog-shared";
 
-export type BlogMinimalVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogMinimalProps {
+export interface PodcastBlogSplitProps {
   theme?: EmailThemeTokens;
-  posts?: { title: string; description: string; date?: string }[];
-  variant?: BlogMinimalVariant;
+  episode?: string;
+  excerpt?: string;
+  host?: string;
+  imageAlt?: string;
+  imageSrc?: string;
+  title?: string;
 }
-const BlogMinimalSection = ({
-  posts,
-  theme,
-  variant,
-}: {
-  posts: BlogMinimalProps["posts"];
-  theme: EmailThemeTokens;
-  variant: BlogMinimalVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackground,
-      padding: `${theme.spacingXl ?? "48px"} 0`,
-    }}
-  >
-    <Row>
-      <Column>
-        {(posts ?? []).slice(0, 3).map((post, i) => (
-          <Section
-            key={post.title + i}
-            style={{ padding: `${theme.spacingBase ?? "12px"} 0` }}
-          >
-            <Row>
-              <Text
-                style={{
-                  color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeSm,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "4px",
-                }}
-              >
-                {post.date}
-              </Text>
-              <Text
-                style={{
-                  color: theme.colorText,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeBase,
-                  fontWeight: theme.fontWeightMedium,
-                  margin: 0,
-                  paddingBottom: theme.spacingBase ?? "4px",
-                }}
-              >
-                {post.title}
-              </Text>
-              <Text
-                style={{
-                  color: theme.colorTextMuted,
-                  fontFamily: theme.fontFamily,
-                  fontSize: theme.fontSizeSm,
-                  lineHeight: theme.lineHeightBase,
-                  margin: 0,
-                }}
-              >
-                {post.description}
-              </Text>
-            </Row>
-          </Section>
-        ))}
-      </Column>
-    </Row>
-  </Section>
-);
+
+export const PodcastBlogSplitSection = ({
+  episode = "Episode 42",
+  excerpt = "A conversation about emerging email trends and technologies.",
+  host = "Jane Smith",
+  imageAlt = "Podcast studio",
+  imageSrc = "https://assets.mailviews.com/images/components/hero/mosaic-1.jpg",
+  title = "The future of email",
+}: Omit<PodcastBlogSplitProps, "theme">) => {
+  const posts = [
+    {
+      episode,
+      excerpt,
+      host,
+      imageAlt,
+      imageSrc,
+      title,
+    },
+  ];
+
+  return (
+    <>
+      <BlogContent layout="podcast-split" posts={posts} />
+    </>
+  );
+};
+
 export const PodcastBlogSplit = ({
   theme = defaultTheme,
-  posts = [
-    { date: "May 12", description: "Description.", title: "Post Title" },
-  ],
-  variant = "default",
-}: BlogMinimalProps) => (
-  <Html>
-    <Head />
-    <Preview>blog minimal</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BlogMinimalSection posts={posts} theme={theme} variant={variant} />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  episode = "Episode 42",
+  excerpt = "A conversation about emerging email trends and technologies.",
+  host = "Jane Smith",
+  imageAlt = "Podcast studio",
+  imageSrc = "https://assets.mailviews.com/images/components/hero/mosaic-1.jpg",
+  title = "The future of email",
+}: PodcastBlogSplitProps) => (
+  <BlogEmailShell preview={title} theme={theme}>
+    <PodcastBlogSplitSection
+      episode={episode}
+      excerpt={excerpt}
+      host={host}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      title={title}
+    />
+  </BlogEmailShell>
 );
+
 PodcastBlogSplit.PreviewProps = {
-  posts: [
-    {
-      date: "May 12",
-      description: "A comprehensive guide to building email components.",
-      title: "Getting Started",
-    },
-    {
-      date: "May 10",
-      description: "Tips for designing responsive emails.",
-      title: "Design Tips",
-    },
-    {
-      date: "May 8",
-      description: "Advanced techniques for power users.",
-      title: "Advanced Tips",
-    },
-  ],
+  episode: "Episode 42",
+  excerpt: "A conversation about emerging email trends and technologies.",
+  host: "Jane Smith",
+  imageAlt: "Podcast studio",
+  imageSrc: "https://assets.mailviews.com/images/components/hero/mosaic-1.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogMinimalProps;
+  title: "The future of email",
+} satisfies PodcastBlogSplitProps;

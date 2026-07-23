@@ -1,7 +1,11 @@
 ---
 title: "Top Large Image"
-description: "Marketing cta variant for email templates"
+description: "A centered CTA with a large leading image, supporting copy, and primary action"
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="jsx-email" name="cta-with-top-large-image-demo" />
 
@@ -42,15 +46,19 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { CtaWithTopLargeImage } from "@/components/emails/marketing/cta/cta-with-top-large-image";
+import { CTAWithTopLargeImage } from "@/components/emails/marketing/cta/cta-with-top-large-image";
 ```
 
 ```tsx
-<CtaWithTopLargeImage {...CtaWithTopLargeImage.PreviewProps} />
+<CTAWithTopLargeImage {...CTAWithTopLargeImage.PreviewProps} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop                    | Type               | Default          | Description                              |
+| ----------------------- | ------------------ | ---------------- | ---------------------------------------- |
+| `theme`                 | `EmailThemeTokens` | `defaultTheme`   | JSX Email theme tokens                   |
+| `heading` / `subtext`   | `string`           | Mailviews copy   | CTA heading and supporting text          |
+| `ctaLabel` / `ctaHref`  | `string`           | Mailviews CTA    | Primary action label and destination     |
+| `imageSrc` / `imageAlt` | `string`           | Mailviews image  | Leading image URL and alternative text   |
+| Color props             | `string`           | Mailviews colors | Canvas, surface, text, and button colors |

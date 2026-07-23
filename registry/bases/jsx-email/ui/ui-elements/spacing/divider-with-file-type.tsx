@@ -1,130 +1,57 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Hr,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Text } from "jsx-email";
 
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
+import {
+  DividerFrame,
+  SpacingEmailShell,
+  dividerColors,
+  dividerTextStyle,
+} from "./divider-shared";
+import type { DividerVariant } from "./divider-shared";
+
 export interface DividerWithFileTypeProps {
-  theme?: EmailThemeTokens;
   fileType?: string;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  theme?: EmailThemeTokens;
+  variant?: DividerVariant;
 }
 
-const DividerWithFileTypeSection = ({
-  fileType,
-  theme,
-  variant,
-}: {
-  fileType: string;
-  theme: EmailThemeTokens;
-  variant: NonNullable<DividerWithFileTypeProps["variant"]>;
-}) => {
-  const alignText =
-    variant === "slanted-left"
-      ? "left"
-      : variant === "slanted-right"
-        ? "right"
-        : "center";
-  return (
-    <Section style={{ padding: `${theme.spacingBase ?? "16px"} 0` }}>
-      <Row>
-        <Column>
-          <Hr
-            style={{
-              borderBottomWidth: 0,
-              borderLeftWidth: 0,
-              borderRightWidth: 0,
-              borderTopColor: theme.colorBorder,
-              borderTopStyle: "solid",
-              marginBottom: theme.spacingBase ?? "16px",
-              width: "100%",
-            }}
-          />
-          <Section
-            style={{
-              backgroundColor: theme.colorBackgroundMuted,
-              borderRadius: theme.borderRadius,
-              padding: "4px 12px",
-            }}
-          >
-            <Row>
-              <Column>
-                <Text
-                  style={{
-                    color: theme.colorTextMuted,
-                    fontFamily: theme.fontFamily,
-                    fontSize: theme.fontSizeSm ?? "12px",
-                    fontWeight: theme.fontWeightMedium ?? "500",
-                    margin: 0,
-                    textAlign: alignText,
-                  }}
-                >
-                  {fileType}
-                </Text>
-              </Column>
-            </Row>
-          </Section>
-          <Hr
-            style={{
-              borderBottomWidth: 0,
-              borderLeftWidth: 0,
-              borderRightWidth: 0,
-              borderTopColor: theme.colorBorder,
-              borderTopStyle: "solid",
-              marginTop: theme.spacingBase ?? "16px",
-              width: "100%",
-            }}
-          />
-        </Column>
-      </Row>
-    </Section>
-  );
-};
-
-export const DividerWithFileType = ({
-  theme = defaultTheme,
+export const DividerWithFileTypeSection = ({
   fileType = "PDF",
-  variant = "default",
-}: DividerWithFileTypeProps) => (
-  <Html>
-    <Head />
-    <Preview>divider-file</Preview>
-    <Body
+  variant = "center",
+}: Omit<DividerWithFileTypeProps, "theme">) => (
+  <DividerFrame variant={variant}>
+    <Text
       style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
+        ...dividerTextStyle,
+        backgroundColor: dividerColors.mutedBackground,
+        borderRadius: "4px",
+        color: dividerColors.muted,
+        display: "inline-block",
+        fontSize: "12px",
+        fontWeight: 500,
+        lineHeight: "18px",
+        padding: "4px 8px",
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <DividerWithFileTypeSection
-            fileType={fileType}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+      {fileType}
+    </Text>
+  </DividerFrame>
+);
+
+export const DividerWithFileType = ({
+  fileType = "PDF",
+  theme = defaultTheme,
+  variant = "center",
+}: DividerWithFileTypeProps) => (
+  <SpacingEmailShell preview={fileType} theme={theme}>
+    <DividerWithFileTypeSection fileType={fileType} variant={variant} />
+  </SpacingEmailShell>
 );
 
 DividerWithFileType.PreviewProps = {
   fileType: "PDF",
   theme: defaultTheme,
-  variant: "default",
+  variant: "center",
 } satisfies DividerWithFileTypeProps;

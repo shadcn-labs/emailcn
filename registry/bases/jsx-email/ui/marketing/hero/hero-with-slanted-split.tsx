@@ -1,214 +1,477 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+/* eslint-disable @next/next/no-img-element, complexity */
+import { Body, Container, Head, Html, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
 export type HeroWithSlantedSplitVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "left-slanted-down"
+  | "left-slanted-up"
+  | "right-slanted-down"
+  | "right-slanted-up";
 
 export interface HeroWithSlantedSplitProps {
   theme?: EmailThemeTokens;
+  eyebrow?: string;
   heading?: string;
   subheading?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
   imageSrc?: string;
   imageAlt?: string;
-  textBackgroundColor?: string;
-  decorativeColor?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  pageBackgroundColor?: string;
+  imageBackgroundColor?: string;
+  contentBackgroundColor?: string;
+  textColor?: string;
+  buttonBackgroundColor?: string;
+  buttonTextColor?: string;
   variant?: HeroWithSlantedSplitVariant;
 }
 
-const SlantedSplitCta = ({
-  ctaHref,
-  ctaLabel,
-  theme,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  theme: EmailThemeTokens;
-}) => (
-  <Button
-    href={ctaHref}
-    align="left"
-    width={160}
-    height={40}
-    style={{
-      backgroundColor: theme.colorPrimary,
-      borderRadius: theme.borderRadius,
-      color: theme.colorPrimaryForeground,
-      display: "inline-block",
-      fontFamily: theme.fontFamily,
-      fontSize: theme.fontSizeSm,
-      fontWeight: theme.fontWeightMedium,
-      height: "auto",
-      padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-      textDecoration: "none",
-      width: "auto",
-    }}
-  >
-    {ctaLabel}
-  </Button>
-);
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+const assetRoot = "https://assets.mailviews.com/images/components";
 
-const HeroWithSlantedSplitSection = ({
-  ctaHref,
-  ctaLabel,
-  decorativeColor,
-  heading,
-  imageAlt,
-  imageSrc,
-  subheading,
-  textBackgroundColor,
-  theme,
-  variant,
-}: {
-  ctaHref?: string;
-  ctaLabel?: string;
-  decorativeColor: string;
-  heading: string;
-  imageAlt: string;
-  imageSrc: string;
-  subheading: string;
-  textBackgroundColor: string;
-  theme: EmailThemeTokens;
-  variant: HeroWithSlantedSplitVariant;
-}) => (
-  <Section style={{ backgroundColor: textBackgroundColor, padding: "0" }}>
-    <Row>
-      <Column
-        style={{ padding: "32px", verticalAlign: "middle", width: "50%" }}
-      >
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeHeading,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase,
-            textAlign: "left",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorTextMuted,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeLg,
-            lineHeight: theme.lineHeightBase,
-            margin: 0,
-            paddingBottom: theme.spacingLg,
-            textAlign: "left",
-          }}
-        >
-          {subheading}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <SlantedSplitCta
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            theme={theme}
-          />
-        ) : null}
-      </Column>
-      <Column style={{ padding: "0", verticalAlign: "middle", width: "50%" }}>
-        <Img
-          alt={imageAlt}
-          src={imageSrc}
-          width="100%"
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "100%",
-            padding: "0",
-          }}
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .hero-slanted-split-stack-left {
+      display: block !important;
+    }
+
+    .hero-slanted-split-content-right {
+      display: table-footer-group !important;
+    }
+
+    .hero-slanted-split-image-right {
+      display: table-header-group !important;
+    }
+
+    .hero-slanted-split-image-cell {
+      width: 100% !important;
+    }
+
+    .hero-slanted-split-image-core {
+      width: 100vw !important;
+    }
+
+    .hero-slanted-split-slant-cell {
+      max-width: 100% !important;
+    }
+
+    .hero-slanted-split-triangle {
+      border-bottom-width: 388px !important;
+      border-top-width: 388px !important;
+    }
+
+    .hero-slanted-split-content-left,
+    .hero-slanted-split-content-inner-right {
+      padding: 44px 24px !important;
+    }
+  }
+
+  .hero-slanted-split-cta:hover {
+    background-color: #4338ca !important;
+  }
+`;
+
+type SectionProps = Omit<HeroWithSlantedSplitProps, "theme">;
+
+export const HeroWithSlantedSplitSection = ({
+  buttonBackgroundColor = "#4f46e5",
+  buttonTextColor = "#fffffe",
+  contentBackgroundColor = "#fffffe",
+  ctaHref = "https://example.com",
+  ctaLabel = "Discover now",
+  description = "Celebrating creativity, community, and culture in every edition. Bob Cut brings stories to life through design and narrative — a modern take on the timeless power of print.",
+  eyebrow = "Independent Publishing",
+  heading = "Bob Cut",
+  imageAlt = "Independent publishing photography",
+  imageBackgroundColor = "#030712",
+  imageSrc = `${assetRoot}/hero/split-slanted-bg.jpg`,
+  logoAlt = "Mailviews",
+  logoHref = "https://example.com",
+  logoSrc = `${assetRoot}/mailviews-logo-light.png`,
+  pageBackgroundColor = "#f1f5f9",
+  subheading = "January Edition",
+  textColor = "#030712",
+  variant = "left-slanted-down",
+}: SectionProps) => {
+  const isLeft = variant.startsWith("left-");
+  const slantsDown = variant.endsWith("-down");
+
+  const logo = (
+    <div style={{ textAlign: "center" }}>
+      <a href={logoHref}>
+        <img
+          alt={logoAlt}
+          src={logoSrc}
+          style={{ maxWidth: "100%", verticalAlign: "middle" }}
+          width="165"
         />
-      </Column>
-      {variant !== "default" ? (
-        <Column style={{ padding: "0" }}>
-          <Section
-            style={{ backgroundColor: decorativeColor, padding: "4px 0" }}
+      </a>
+    </div>
+  );
+
+  const imageCore = (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            aria-label={imageAlt || undefined}
+            role={imageAlt ? "img" : undefined}
+            style={{
+              backgroundColor: imageBackgroundColor,
+              backgroundImage: `url(${imageSrc})`,
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
           >
-            <Row></Row>
-          </Section>
-        </Column>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              style={{ tableLayout: "fixed" }}
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  {isLeft ? (
+                    <>
+                      <td
+                        style={{
+                          verticalAlign: slantsDown ? "top" : "bottom",
+                        }}
+                      >
+                        <table
+                          border={0}
+                          cellPadding={0}
+                          cellSpacing={0}
+                          className="hero-slanted-split-image-core"
+                          role="presentation"
+                          style={{ width: "256px" }}
+                        >
+                          <tbody>
+                            <tr>
+                              <td>
+                                {slantsDown ? (
+                                  <>
+                                    <div style={{ lineHeight: "44px" }}>
+                                      &zwj;
+                                    </div>
+                                    {logo}
+                                  </>
+                                ) : (
+                                  <>
+                                    {logo}
+                                    <div style={{ lineHeight: "44px" }}>
+                                      &zwj;
+                                    </div>
+                                  </>
+                                )}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td
+                        className="hero-slanted-split-slant-cell"
+                        style={{ position: "relative", width: "120px" }}
+                      >
+                        <div
+                          className="hero-slanted-split-triangle"
+                          style={{
+                            borderBottom: slantsDown
+                              ? `600px solid ${contentBackgroundColor}`
+                              : undefined,
+                            borderLeft: "120px solid transparent",
+                            borderTop: slantsDown
+                              ? undefined
+                              : `600px solid ${contentBackgroundColor}`,
+                            height: 0,
+                            width: 0,
+                          }}
+                        />
+                      </td>
+                    </>
+                  ) : (
+                    <>
+                      <td
+                        className="hero-slanted-split-slant-cell"
+                        style={{ position: "relative", width: 0 }}
+                      >
+                        <div
+                          className="hero-slanted-split-triangle"
+                          style={{
+                            borderLeft: slantsDown
+                              ? `120px solid ${contentBackgroundColor}`
+                              : undefined,
+                            borderRight: slantsDown
+                              ? undefined
+                              : "120px solid transparent",
+                            borderTop: slantsDown
+                              ? "600px solid transparent"
+                              : `600px solid ${contentBackgroundColor}`,
+                            height: 0,
+                            left: "-1px",
+                            position: "relative",
+                            width: 0,
+                          }}
+                        />
+                      </td>
+                      <td
+                        style={{
+                          verticalAlign: slantsDown ? "top" : "bottom",
+                        }}
+                      >
+                        <table
+                          border={0}
+                          cellPadding={0}
+                          cellSpacing={0}
+                          className="hero-slanted-split-image-core"
+                          role="presentation"
+                          style={{ width: "256px" }}
+                        >
+                          <tbody>
+                            <tr>
+                              <td>
+                                {slantsDown ? (
+                                  <>
+                                    <div style={{ lineHeight: "44px" }}>
+                                      &zwj;
+                                    </div>
+                                    {logo}
+                                  </>
+                                ) : (
+                                  <>
+                                    {logo}
+                                    <div style={{ lineHeight: "44px" }}>
+                                      &zwj;
+                                    </div>
+                                  </>
+                                )}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+
+  const copy = (
+    <>
+      <p
+        style={{
+          color: textColor,
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 200,
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {eyebrow}
+      </p>
+      <h1
+        style={{
+          color: textColor,
+          fontFamily,
+          fontSize: "48px",
+          fontWeight: 500,
+          margin: 0,
+        }}
+      >
+        {heading}
+      </h1>
+      <p
+        style={{
+          color: textColor,
+          fontFamily,
+          fontSize: "18px",
+          lineHeight: "28px",
+          margin: 0,
+        }}
+      >
+        {subheading}
+      </p>
+      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+      <p
+        style={{
+          color: textColor,
+          fontFamily,
+          fontSize: "16px",
+          fontWeight: 300,
+          lineHeight: "24px",
+          margin: 0,
+        }}
+      >
+        {description}
+      </p>
+      <div style={{ lineHeight: "24px" }}>&zwj;</div>
+      {ctaLabel && ctaHref ? (
+        <a
+          className="hero-slanted-split-cta"
+          href={ctaHref}
+          style={{
+            backgroundColor: buttonBackgroundColor,
+            borderRadius: "8px",
+            color: buttonTextColor,
+            display: "inline-block",
+            fontFamily,
+            fontSize: "16px",
+            fontWeight: 500,
+            lineHeight: 1,
+            padding: "14px 20px",
+            textDecoration: "none",
+          }}
+        >
+          <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
+          <img
+            alt=""
+            src={`${assetRoot}/icon-arrow-right.png`}
+            style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+            width="12"
+          />
+        </a>
       ) : null}
-    </Row>
-  </Section>
-);
+    </>
+  );
+
+  const contentCell = isLeft ? (
+    <td
+      className="hero-slanted-split-stack-left hero-slanted-split-content-left"
+      style={{
+        backgroundColor: contentBackgroundColor,
+        padding: "44px 44px 44px 24px",
+        textAlign: "left",
+      }}
+    >
+      {copy}
+    </td>
+  ) : (
+    <td
+      className="hero-slanted-split-content-right"
+      style={{
+        backgroundColor: contentBackgroundColor,
+        padding: "44px 24px 44px 44px",
+        textAlign: "left",
+      }}
+    >
+      <div className="hero-slanted-split-content-inner-right">{copy}</div>
+    </td>
+  );
+
+  const imageCell = (
+    <td
+      className={
+        isLeft
+          ? "hero-slanted-split-stack-left hero-slanted-split-image-cell"
+          : "hero-slanted-split-image-right hero-slanted-split-image-cell"
+      }
+      style={{ width: "256px" }}
+    >
+      {imageCore}
+    </td>
+  );
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td style={{ maxWidth: "100%", width: "600px" }}>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  {isLeft ? (
+                    <>
+                      {imageCell}
+                      {contentCell}
+                    </>
+                  ) : (
+                    <>
+                      {contentCell}
+                      {imageCell}
+                    </>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+};
 
 export const HeroWithSlantedSplit = ({
+  pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
-  heading = "Slanted Split",
-  subheading = "Split layout with an angled decorative divider.",
-  ctaLabel = "Discover",
-  ctaHref = "#",
-  imageSrc = "https://static.photos/city/600x400/2",
-  imageAlt = "angled split",
-  textBackgroundColor = "#f9fafb",
-  decorativeColor = "#111827",
-  variant = "default",
+  variant = "left-slanted-down",
+  ...props
 }: HeroWithSlantedSplitProps) => (
   <Html>
-    <Head />
-    <Preview>hero slanted split</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>{props.heading ?? "Bob Cut"}</Preview>
     <Body
       style={{
-        backgroundColor: theme.colorBackground,
+        backgroundColor: pageBackgroundColor,
         color: theme.colorText,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
+        fontFamily,
         margin: 0,
       }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <HeroWithSlantedSplitSection
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            decorativeColor={decorativeColor}
-            heading={heading}
-            imageAlt={imageAlt}
-            imageSrc={imageSrc}
-            subheading={subheading}
-            textBackgroundColor={textBackgroundColor}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <HeroWithSlantedSplitSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 HeroWithSlantedSplit.PreviewProps = {
-  ctaHref: "https://example.com",
-  ctaLabel: "Learn More",
-  decorativeColor: "#111827",
-  heading: "Hero with Slanted Split",
-  imageAlt: "angled split",
-  imageSrc: "https://static.photos/city/600x400/3",
-  subheading:
-    "A split layout with an angled decorative divider accent between text and image panels.",
-  textBackgroundColor: "#f9fafb",
   theme: defaultTheme,
-  variant: "default",
+  variant: "left-slanted-down",
 } satisfies HeroWithSlantedSplitProps;

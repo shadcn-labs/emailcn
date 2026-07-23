@@ -1,7 +1,11 @@
 ---
 title: "Simple Social Logos Row"
-description: "Marketing social variant for email templates"
+description: "Mailviews social logo row with centered title and supporting copy"
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="jsx-email" name="simple-social-logos-row-demo" />
 
@@ -22,13 +26,7 @@ npx shadcn@latest add @emailcn/simple-social-logos-row
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install jsx-email
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/jsx-email/ui/marketing/social/simple-social-logos-row.tsx"
     base="jsx-email"
@@ -43,14 +41,15 @@ npm install jsx-email
 
 ```tsx
 import { SimpleSocialLogosRow } from "@/components/emails/marketing/social/simple-social-logos-row";
-```
 
-```tsx
-<SimpleSocialLogosRow {...SimpleSocialLogosRow.PreviewProps} />
+<SimpleSocialLogosRow />;
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop          | Type                     | Default             | Description                  |
+| ------------- | ------------------------ | ------------------- | ---------------------------- |
+| `items`       | `SimpleSocialLogoItem[]` | Mailviews icons     | Social links and icon assets |
+| `title`       | `string`                 | `"Connect with us"` | Section title                |
+| `description` | `string`                 | Mailviews copy      | Supporting text              |
+| `theme`       | `EmailThemeTokens`       | `defaultTheme`      | Email theme configuration    |

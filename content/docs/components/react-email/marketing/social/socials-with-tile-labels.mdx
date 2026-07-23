@@ -1,0 +1,69 @@
+---
+title: "Socials With Tile Labels"
+description: "Mailviews social tiles with stacked or inline labels"
+---
+
+Both layouts share the same tiled link structure and are exposed as variants
+of `SocialsWithTileLabels`.
+
+## Examples
+
+### Stacked
+
+<ComponentPreview
+  base="react-email"
+  name="socials-with-stacked-tile-labels-demo"
+/>
+
+### Inline
+
+<ComponentPreview
+  base="react-email"
+  name="socials-with-inline-tile-labels-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/socials-with-tile-labels
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>Copy the component source into your project.</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/social/socials-with-tile-labels.tsx"
+    base="react-email"
+    title="components/emails/marketing/social/socials-with-tile-labels.tsx"
+  />
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialsWithTileLabels } from "@/components/emails/marketing/social/socials-with-tile-labels";
+
+<SocialsWithTileLabels variant="inline" />;
+```
+
+## API Reference
+
+| Prop          | Type                    | Default             | Description                 |
+| ------------- | ----------------------- | ------------------- | --------------------------- |
+| `variant`     | `"stacked" \| "inline"` | `"stacked"`         | Label arrangement           |
+| `items`       | `TiledSocialItem[]`     | Mailviews icons     | Social links, labels, icons |
+| `title`       | `string`                | `"Connect with us"` | Section title               |
+| `description` | `string`                | Mailviews copy      | Supporting text             |
+| `theme`       | `TailwindConfig`        | `defaultTheme`      | Email theme configuration   |

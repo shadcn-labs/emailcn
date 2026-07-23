@@ -1,59 +1,70 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
 import {
   Mjml,
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
+  MjmlBreakpoint,
   MjmlColumn,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
   MjmlText,
-  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
-const LAYOUT_WIDTHS = {
-  "1": ["100%"],
-  "1-3": ["25%", "75%"],
-  "2": ["50%", "50%"],
-  "3": ["33.33%", "33.33%", "33.33%"],
-  "3-1": ["75%", "25%"],
-  "4": ["25%", "25%", "25%", "25%"],
-} as const;
+export type GridVariant =
+  | "one-column"
+  | "two-columns"
+  | "three-columns"
+  | "four-columns"
+  | "one-three-split"
+  | "three-one-split";
+
+export type GridAlign = "center" | "left" | "right";
+
+const GRID_WIDTHS: Record<GridVariant, readonly string[]> = {
+  "four-columns": ["25%", "25%", "25%", "25%"],
+  "one-column": ["100%"],
+  "one-three-split": ["25%", "75%"],
+  "three-columns": ["33.33%", "33.33%", "33.33%"],
+  "three-one-split": ["75%", "25%"],
+  "two-columns": ["50%", "50%"],
+};
+
+const fontFamily =
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 export interface GridProps {
-  theme?: EmailThemeTokens;
+  align?: GridAlign;
   cells?: string[];
-  layout?: keyof typeof LAYOUT_WIDTHS;
-  align?: "left" | "center" | "right";
+  theme?: EmailThemeTokens;
+  variant?: GridVariant;
 }
 
-const GridSection = ({
-  cells,
-  theme,
-  layout,
-  align,
-}: {
-  cells: string[];
-  theme: EmailThemeTokens;
-  layout: NonNullable<GridProps["layout"]>;
-  align: NonNullable<GridProps["align"]>;
-}) => (
-  <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-    {LAYOUT_WIDTHS[layout].map((width, index) => (
+export const GridSection = ({
+  align = "center",
+  cells = [],
+  variant = "two-columns",
+}: Omit<GridProps, "theme">) => (
+  <MjmlSection padding="48px 0">
+    {GRID_WIDTHS[variant].map((width, index) => (
       <MjmlColumn
         key={`${width}-${index}`}
-        padding={theme.spacingBase ?? "16px"}
+        padding="12px"
+        verticalAlign="top"
         width={width}
       >
         <MjmlText
           align={align}
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeBase ?? "14px"}
+          color="#111827"
+          fontFamily={fontFamily}
+          fontSize="16px"
+          fontWeight="400"
+          letterSpacing="-0.048px"
+          lineHeight="24px"
+          padding="0"
         >
           {cells[index] ?? ""}
         </MjmlText>
@@ -63,41 +74,31 @@ const GridSection = ({
 );
 
 export const Grid = ({
-  theme = defaultTheme,
-  cells = [],
-  layout = "2",
   align = "center",
+  cells = [],
+  theme = defaultTheme,
+  variant = "two-columns",
 }: GridProps) => (
   <Mjml>
     <MjmlHead>
       <MjmlPreview>Grid</MjmlPreview>
+      <MjmlBreakpoint width="600px" />
       <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
+        <MjmlAll color="#111827" fontFamily={fontFamily} />
       </MjmlAttributes>
     </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <GridSection
-          cells={cells}
-          theme={theme}
-          layout={layout}
-          align={align}
-        />
-      </MjmlWrapper>
+    <MjmlBody backgroundColor="#ffffff" width={theme.containerWidth}>
+      <GridSection align={align} cells={cells} variant={variant} />
     </MjmlBody>
   </Mjml>
 );
 
 Grid.PreviewProps = {
   align: "center",
-  cells: ["Feature one", "Feature two"],
-  layout: "2",
+  cells: [
+    "Feature one description with key benefits.",
+    "Feature two description with key benefits.",
+  ],
   theme: defaultTheme,
+  variant: "two-columns",
 } satisfies GridProps;

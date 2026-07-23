@@ -1,7 +1,11 @@
 ---
 title: "With Change Indicator Pills"
-description: "With Change Indicator Pills — Data Tables email component."
+description: "A metrics table with positive and negative change pills."
 ---
+
+## Examples
+
+### Default
 
 <ComponentPreview base="react-email" name="data-table-change-indicator-demo" />
 
@@ -22,6 +26,19 @@ npx shadcn@latest add @emailcn/data-table-with-change-indicator-pills
 <TabsContent value="manual">
 
 <Steps>
+  <Step>Install the renderer dependency:</Step>
+
+```bash
+npm install react-email
+```
+
+<Step>Copy the shared table primitives into your project.</Step>
+<ComponentSource
+  src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-shared.tsx"
+  base="react-email"
+  title="components/emails/ui-elements/data-tables/data-table-shared.tsx"
+/>
+
   <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/react-email/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx"
@@ -36,17 +53,17 @@ npx shadcn@latest add @emailcn/data-table-with-change-indicator-pills
 ## Usage
 
 ```tsx
-import { DataTableWithChangeIndicatorPills } from "@/components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills";
+import { DataTableChangeIndicator } from "@/components/emails/ui-elements/data-tables/data-table-with-change-indicator-pills";
 ```
 
 ```tsx
-<DataTableWithChangeIndicatorPills
-  {...DataTableWithChangeIndicatorPills.PreviewProps}
-/>
+<DataTableChangeIndicator {...DataTableChangeIndicator.PreviewProps} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                    | Default                   | Description                   |
+| --------- | ----------------------- | ------------------------- | ----------------------------- |
+| `theme`   | `TailwindConfig`        | `defaultTheme`            | Renderer theme configuration. |
+| `headers` | `string[]`              | Component-specific labels | Column labels.                |
+| `rows`    | `Change indicator rows` | One revenue metric        | Table row data.               |

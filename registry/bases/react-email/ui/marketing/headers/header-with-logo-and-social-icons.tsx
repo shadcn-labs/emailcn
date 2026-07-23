@@ -1,166 +1,256 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Fragment } from "react";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type HeaderWithLogoAndSocialIconsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+export type HeaderWithLogoAndSocialIconsAlignment = "left" | "center" | "right";
+
+export interface HeaderSocialLink {
+  alt: string;
+  href: string;
+  src: string;
+}
 
 export interface HeaderWithLogoAndSocialIconsProps {
   theme?: TailwindConfig;
   logoSrc?: string;
   logoAlt?: string;
-  socialSrc1?: string;
-  socialAlt1?: string;
-  socialSrc2?: string;
-  socialAlt2?: string;
-  socialSrc3?: string;
-  socialAlt3?: string;
-  variant?: HeaderWithLogoAndSocialIconsVariant;
+  logoHref?: string;
+  socials?: HeaderSocialLink[];
+  alignment?: HeaderWithLogoAndSocialIconsAlignment;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
 }
 
-export const HeaderWithLogoAndSocialIconsSection = ({
-  logoSrc = "https://static.photos/business/120x30/2",
-  logoAlt = "Logo",
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-2&size=24",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-3&size=24",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-4&size=24",
-  socialAlt3 = "LinkedIn",
-  variant = "default",
-}: Omit<HeaderWithLogoAndSocialIconsProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
-    }
-  };
+const defaultSocials: HeaderSocialLink[] = [
+  {
+    alt: "GitHub",
+    href: "https://github.com",
+    src: "https://assets.mailviews.com/images/components/icon-github.png",
+  },
+  {
+    alt: "LinkedIn",
+    href: "https://linkedin.com",
+    src: "https://assets.mailviews.com/images/components/icon-linkedin.png",
+  },
+  {
+    alt: "X",
+    href: "https://x.com",
+    src: "https://assets.mailviews.com/images/components/icon-x.png",
+  },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  pageBackgroundColor: "#f1f5f9",
+  socials: defaultSocials,
+};
+
+type SectionProps = Omit<HeaderWithLogoAndSocialIconsProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const Logo = ({ props }: { props: ResolvedProps }) => (
+  <a href={props.logoHref}>
+    <img
+      alt={props.logoAlt}
+      src={props.logoSrc}
+      style={{ maxWidth: "100%", verticalAlign: "middle" }}
+      width={55}
+    />
+  </a>
+);
+
+const Socials = ({
+  align,
+  props,
+}: {
+  align?: "center" | "right";
+  props: ResolvedProps;
+}) => {
+  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
+  if (align === "center") {
+    tableStyle = { marginLeft: "auto", marginRight: "auto" };
+  } else if (align === "right") {
+    tableStyle = { marginLeft: "auto" };
+  }
 
   return (
-    <Section className={`bg-background py-6 ${getVariantClass()}`}>
-      <Section className={`max-w-container mx-auto ${getUnskewClass()}`}>
-        <Row>
-          <Column className="w-1/2 align-middle">
-            <Img
-              src={logoSrc}
-              alt={logoAlt}
-              width="120"
-              height="30"
-              className="h-auto object-contain"
-            />
-          </Column>
-          <Column className="w-1/2 align-middle text-right">
-            <Img
-              src={socialSrc1}
-              alt={socialAlt1}
-              width="24"
-              height="24"
-              className="inline-block ml-3 h-auto object-contain"
-            />
-            <Img
-              src={socialSrc2}
-              alt={socialAlt2}
-              width="24"
-              height="24"
-              className="inline-block ml-3 h-auto object-contain"
-            />
-            <Img
-              src={socialSrc3}
-              alt={socialAlt3}
-              width="24"
-              height="24"
-              className="inline-block ml-3 h-auto object-contain"
-            />
-          </Column>
-        </Row>
-      </Section>
-    </Section>
+    <table
+      align={align}
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={tableStyle}
+    >
+      <tbody>
+        <tr>
+          {props.socials.slice(0, 3).map((social, index) => (
+            <Fragment key={social.alt + social.href}>
+              {index > 0 ? <td style={{ width: "24px" }}>&zwj;</td> : null}
+              <td>
+                <a href={social.href}>
+                  <img
+                    alt={social.alt}
+                    src={social.src}
+                    style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                    width={20}
+                  />
+                </a>
+              </td>
+            </Fragment>
+          ))}
+        </tr>
+      </tbody>
+    </table>
+  );
+};
+
+export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
+  const alignment = props.alignment ?? "left";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  let content;
+  if (alignment === "center") {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <div style={{ textAlign: "center" }}>
+                <Logo props={resolved} />
+              </div>
+              <div style={{ lineHeight: "24px" }}>&zwj;</div>
+              <Socials align="center" props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  } else if (alignment === "right") {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <Socials props={resolved} />
+            </td>
+            <td style={{ textAlign: "right", width: "55px" }}>
+              <Logo props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  } else {
+    content = (
+      <table
+        border={0}
+        cellPadding={0}
+        cellSpacing={0}
+        role="presentation"
+        width="100%"
+      >
+        <tbody>
+          <tr>
+            <td style={{ width: "55px" }}>
+              <Logo props={resolved} />
+            </td>
+            <td>
+              <Socials align="right" props={resolved} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td style={{ maxWidth: "100%", width: "600px" }}>
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      backgroundColor: resolved.backgroundColor,
+                      padding: "24px",
+                    }}
+                  >
+                    {content}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const HeaderWithLogoAndSocialIcons = ({
-  theme = defaultTheme,
-  logoSrc = "https://static.photos/business/120x30/6",
-  logoAlt = "Logo",
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-6&size=24",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-7&size=24",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-8&size=24",
-  socialAlt3 = "LinkedIn",
-  variant = "default",
+  alignment = "left",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  ...props
 }: HeaderWithLogoAndSocialIconsProps) => (
   <Html>
     <Head>
       <DefaultFonts />
     </Head>
-    <Preview>Header</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <HeaderWithLogoAndSocialIconsSection
-          logoAlt={logoAlt}
-          logoSrc={logoSrc}
-          socialAlt1={socialAlt1}
-          socialAlt2={socialAlt2}
-          socialAlt3={socialAlt3}
-          socialSrc1={socialSrc1}
-          socialSrc2={socialSrc2}
-          socialSrc3={socialSrc3}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Maizzle on GitHub, LinkedIn, and X</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <HeaderWithLogoAndSocialIconsSection
+        {...props}
+        alignment={alignment}
+        pageBackgroundColor={pageBackgroundColor}
+      />
+    </Body>
   </Html>
 );
 
 HeaderWithLogoAndSocialIcons.PreviewProps = {
-  logoAlt: "Logo",
-  logoSrc: "https://static.photos/business/120x30/10",
-  socialAlt1: "Twitter",
-  socialAlt2: "Facebook",
-  socialAlt3: "LinkedIn",
-  socialSrc1:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-10&size=24",
-  socialSrc2:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-11&size=24",
-  socialSrc3:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-react-email-ui-marketing-headers-header-with-logo-and-social-icons-tsx-12&size=24",
+  alignment: "left",
   theme: defaultTheme,
-  variant: "default",
 } satisfies HeaderWithLogoAndSocialIconsProps;

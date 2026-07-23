@@ -1,9 +1,21 @@
 ---
 title: "Vertical Spacer"
-description: "UI Elements spacing variant for email templates"
+description: "An email-safe vertical spacer with a configurable pixel height."
 ---
 
-<ComponentPreview base="mjml-react" name="vertical-spacer-demo" />
+## Examples
+
+### 24 pixels
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" variant="24" />
+
+### 48 pixels
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" variant="48" />
+
+### 64 pixels
+
+<ComponentPreview base="mjml-react" name="vertical-spacer-demo" variant="64" />
 
 ## Installation
 
@@ -25,18 +37,24 @@ npx shadcn@latest add @emailcn/vertical-spacer
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>Install the following dependency:</Step>
 
 ```bash
 npm install @faire/mjml-react
 ```
 
-<Step>Copy the component source into your project.</Step>
+<Step>Copy the component and shared sources into your project.</Step>
 
 <ComponentSource
   src="registry/bases/mjml-react/ui/ui-elements/spacing/vertical-spacer.tsx"
   base="mjml-react"
   title="components/emails/ui-elements/spacing/vertical-spacer.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/mjml-react/ui/ui-elements/spacing/divider-shared.tsx"
+  base="mjml-react"
+  title="components/emails/ui-elements/spacing/divider-shared.tsx"
 />
 
 </Steps>
@@ -52,11 +70,12 @@ import { VerticalSpacer } from "@/components/emails/ui-elements/spacing/vertical
 ```
 
 ```tsx
-<VerticalSpacer {...VerticalSpacer.PreviewProps} />
+<VerticalSpacer height={48} />
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop     | Type               | Default        | Description             |
+| -------- | ------------------ | -------------- | ----------------------- |
+| `height` | `number`           | `24`           | Spacer height in pixels |
+| `theme`  | `EmailThemeTokens` | `defaultTheme` | Email theme styling     |

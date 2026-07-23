@@ -1,147 +1,123 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Button,
-  Column,
-  Container,
-  Head,
-  Html,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
-
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import {
+  BlogContent,
+  BlogEmailShell,
+  BlogHeading,
+} from "@/registry/bases/jsx-email/ui/marketing/blog/blog-shared";
 
-export type BlogCtaBannerVariant = "default" | "slanted-left" | "slanted-right";
-export interface BlogCtaBannerProps {
+export interface TwoColumnsMasonryBlogWithBoxedContentProps {
   theme?: EmailThemeTokens;
   heading?: string;
-  description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: BlogCtaBannerVariant;
+  imageAlt1?: string;
+  imageAlt2?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  title1?: string;
+  title2?: string;
+  excerpt1?: string;
+  excerpt2?: string;
+  imageAlt3?: string;
+  imageSrc3?: string;
+  title3?: string;
+  excerpt3?: string;
 }
-const BlogCtaBannerSection = ({
-  ctaHref,
-  ctaLabel,
-  description,
-  heading,
-  theme,
-  variant,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  description: string;
-  heading: string;
-  theme: EmailThemeTokens;
-  variant: BlogCtaBannerVariant;
-}) => (
-  <Section
-    style={{
-      backgroundColor: theme.colorBackgroundMuted,
-      borderRadius: theme.borderRadius,
-      padding: theme.spacingXl ?? "24px",
-    }}
-  >
-    <Row>
-      <Column>
-        <Text
-          style={{
-            color: theme.colorPrimary,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeSm,
-            fontWeight: theme.fontWeightBold,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "8px",
-            textAlign: "center",
-          }}
-        >
-          {heading}
-        </Text>
-        <Text
-          style={{
-            color: theme.colorText,
-            fontFamily: theme.fontFamily,
-            fontSize: theme.fontSizeLg,
-            fontWeight: theme.fontWeightMedium,
-            margin: 0,
-            paddingBottom: theme.spacingBase ?? "8px",
-            textAlign: "center",
-          }}
-        >
-          {description}
-        </Text>
-        {ctaLabel && ctaHref ? (
-          <Button
-            href={ctaHref}
-            align="center"
-            width={160}
-            height={40}
-            style={{
-              backgroundColor: theme.colorPrimary,
-              borderRadius: theme.borderRadius,
-              color: theme.colorPrimaryForeground,
-              display: "inline-block",
-              fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizeSm,
-              fontWeight: theme.fontWeightMedium,
-              height: "auto",
-              padding: `${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`,
-              textDecoration: "none",
-              width: "auto",
-            }}
-          >
-            {ctaLabel}
-          </Button>
-        ) : null}
-      </Column>
-    </Row>
-  </Section>
-);
+
+export const TwoColumnsMasonryBlogWithBoxedContentSection = ({
+  heading = "From the blog",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+  imageAlt3 = "Modern city",
+  imageSrc3 = "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
+  title3 = "What we learned this month",
+  excerpt3 = "Notes, experiments, and lessons from our latest work.",
+}: Omit<TwoColumnsMasonryBlogWithBoxedContentProps, "theme">) => {
+  const posts = [
+    {
+      excerpt: excerpt1,
+      imageAlt: imageAlt1,
+      imageSrc: imageSrc1,
+      title: title1,
+    },
+    {
+      excerpt: excerpt2,
+      imageAlt: imageAlt2,
+      imageSrc: imageSrc2,
+      title: title2,
+    },
+    {
+      excerpt: excerpt3,
+      imageAlt: imageAlt3,
+      imageSrc: imageSrc3,
+      title: title3,
+    },
+  ];
+
+  return (
+    <>
+      {heading ? <BlogHeading>{heading}</BlogHeading> : null}
+      <BlogContent layout="masonry-boxed" posts={posts} />
+    </>
+  );
+};
+
 export const TwoColumnsMasonryBlogWithBoxedContent = ({
   theme = defaultTheme,
-  heading = "Subscribe",
-  description = "Get the latest posts delivered to your inbox.",
-  ctaLabel = "Subscribe Now",
-  ctaHref = "#",
-  variant = "default",
-}: BlogCtaBannerProps) => (
-  <Html>
-    <Head />
-    <Preview>blog cta banner</Preview>
-    <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
-    >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <BlogCtaBannerSection
-            ctaHref={ctaHref}
-            ctaLabel={ctaLabel}
-            description={description}
-            heading={heading}
-            theme={theme}
-            variant={variant}
-          />
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+  heading = "From the blog",
+  imageAlt1 = "Mountain landscape",
+  imageAlt2 = "Coastal landscape",
+  imageSrc1 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2 = "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  title1 = "Designing emails people enjoy",
+  title2 = "A better content workflow",
+  excerpt1 = "Practical ideas for clearer, more useful email experiences.",
+  excerpt2 = "How small systems help teams publish consistently.",
+  imageAlt3 = "Modern city",
+  imageSrc3 = "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
+  title3 = "What we learned this month",
+  excerpt3 = "Notes, experiments, and lessons from our latest work.",
+}: TwoColumnsMasonryBlogWithBoxedContentProps) => (
+  <BlogEmailShell preview={heading} theme={theme}>
+    <TwoColumnsMasonryBlogWithBoxedContentSection
+      heading={heading}
+      imageAlt1={imageAlt1}
+      imageAlt2={imageAlt2}
+      imageSrc1={imageSrc1}
+      imageSrc2={imageSrc2}
+      title1={title1}
+      title2={title2}
+      excerpt1={excerpt1}
+      excerpt2={excerpt2}
+      imageAlt3={imageAlt3}
+      imageSrc3={imageSrc3}
+      title3={title3}
+      excerpt3={excerpt3}
+    />
+  </BlogEmailShell>
 );
+
 TwoColumnsMasonryBlogWithBoxedContent.PreviewProps = {
-  ctaHref: "https://example.com/subscribe",
-  ctaLabel: "Subscribe Now",
-  description: "Get the latest posts delivered to your inbox every week.",
-  heading: "NEWSLETTER",
+  excerpt1: "Practical ideas for clearer, more useful email experiences.",
+  excerpt2: "How small systems help teams publish consistently.",
+  excerpt3: "Notes, experiments, and lessons from our latest work.",
+  heading: "From the blog",
+  imageAlt1: "Mountain landscape",
+  imageAlt2: "Coastal landscape",
+  imageAlt3: "Modern city",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/image-grids/2-col-landscape-2.jpg",
+  imageSrc3:
+    "https://assets.mailviews.com/images/components/image-grids/3-col-masonry.jpg",
   theme: defaultTheme,
-  variant: "default",
-} satisfies BlogCtaBannerProps;
+  title1: "Designing emails people enjoy",
+  title2: "A better content workflow",
+  title3: "What we learned this month",
+} satisfies TwoColumnsMasonryBlogWithBoxedContentProps;

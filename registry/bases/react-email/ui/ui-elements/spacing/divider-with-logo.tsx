@@ -1,79 +1,59 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Head,
-  Hr,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Tailwind,
-} from "react-email";
+import { Img } from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
+import { DividerFrame, SpacingEmailShell } from "./divider-shared";
+import type { DividerVariant } from "./divider-shared";
+
 export interface DividerWithLogoProps {
-  theme?: TailwindConfig;
-  logoSrc?: string;
   logoAlt?: string;
-  variant?: "default" | "slanted-left" | "slanted-right";
+  logoSrc?: string;
+  theme?: TailwindConfig;
+  variant?: DividerVariant;
 }
 
 export const DividerWithLogoSection = ({
-  logoSrc,
   logoAlt = "Logo",
-  variant = "default",
-}: Omit<DividerWithLogoProps, "theme">) => {
-  const alignClass =
-    variant === "slanted-left"
-      ? "text-left"
-      : variant === "slanted-right"
-        ? "text-right"
-        : "text-center";
-
-  return (
-    <Section className="py-6">
-      <div className="flex items-center">
-        <Hr className="flex-1 border-border" />
-        <div className={`mx-4 ${alignClass}`}>
-          {logoSrc ? (
-            <Img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
-          ) : null}
-        </div>
-        <Hr className="flex-1 border-border" />
-      </div>
-    </Section>
-  );
-};
+  logoSrc,
+  variant = "center",
+}: Omit<DividerWithLogoProps, "theme">) => (
+  <DividerFrame variant={variant}>
+    {logoSrc ? (
+      <Img
+        alt={logoAlt}
+        height={32}
+        src={logoSrc}
+        width={128}
+        style={{
+          display: "block",
+          height: "32px",
+          objectFit: "contain",
+          width: "128px",
+        }}
+      />
+    ) : null}
+  </DividerFrame>
+);
 
 export const DividerWithLogo = ({
-  theme = defaultTheme,
-  logoSrc,
   logoAlt = "Logo",
-  variant = "default",
+  logoSrc,
+  theme = defaultTheme,
+  variant = "center",
 }: DividerWithLogoProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>—</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <DividerWithLogoSection
-          logoSrc={logoSrc}
-          logoAlt={logoAlt}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
-  </Html>
+  <SpacingEmailShell preview="Divider with logo" theme={theme}>
+    <DividerWithLogoSection
+      logoAlt={logoAlt}
+      logoSrc={logoSrc}
+      variant={variant}
+    />
+  </SpacingEmailShell>
 );
 
 DividerWithLogo.PreviewProps = {
-  logoAlt: "Brand Logo",
-  logoSrc: "https://static.photos/business/320x80/2",
+  logoAlt: "Mailviews",
+  logoSrc: "https://assets.mailviews.com/images/components/mailviews-logo.png",
   theme: defaultTheme,
-  variant: "default",
+  variant: "center",
 } satisfies DividerWithLogoProps;

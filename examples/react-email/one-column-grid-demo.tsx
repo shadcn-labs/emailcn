@@ -1,11 +1,17 @@
 import { Grid } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
+import type { GridAlign } from "@/registry/bases/react-email/ui/ui-elements/grids/grid";
 
-export default function OneColumnGridDemo() {
+export default function OneColumnGridDemo({
+  variant = "center",
+}: {
+  variant?: GridAlign;
+}) {
   return (
     <Grid
       {...Grid.PreviewProps}
-      cells={["Full width content spanning the entire row."]}
-      layout="1"
+      align={variant}
+      cells={["Single column full-width layout for headers or hero sections."]}
+      variant="one-column"
     />
   );
 }

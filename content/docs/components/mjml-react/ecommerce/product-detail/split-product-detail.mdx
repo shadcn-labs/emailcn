@@ -1,9 +1,75 @@
 ---
 title: "Split Product Detail"
-description: "Ecommerce product-detail variant for email templates"
+description: "Split Product Detail with every Mailviews layout variant."
 ---
 
-<ComponentPreview base="mjml-react" name="split-product-detail-demo" />
+This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
+
+## Examples
+
+### Stacked Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="stacked-left"
+/>
+
+### Stacked Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="stacked-right"
+/>
+
+### Image Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="image-left"
+/>
+
+### Image Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="image-right"
+/>
+
+### Rating Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="rating-left"
+/>
+
+### Rating Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="rating-right"
+/>
+
+### Bleed Left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="bleed-left"
+/>
+
+### Bleed Right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-demo"
+  variant="bleed-right"
+/>
 
 ## Installation
 
@@ -22,13 +88,7 @@ npx shadcn@latest add @emailcn/split-product-detail
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
-
-```bash
-npm install @faire/mjml-react
-```
-
-<Step>Copy the component source into your project.</Step>
+  <Step>Copy the component source into your project.</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/ecommerce/product-detail/split-product-detail.tsx"
     base="mjml-react"
@@ -46,11 +106,15 @@ import { SplitProductDetail } from "@/components/emails/ecommerce/product-detail
 ```
 
 ```tsx
-<SplitProductDetail {...SplitProductDetail.PreviewProps} />
+<SplitProductDetail
+  {...SplitProductDetail.PreviewProps}
+  variant="stacked-left"
+/>
 ```
 
 ## API Reference
 
-| Prop    | Type         | Default        | Description         |
-| ------- | ------------ | -------------- | ------------------- |
-| `theme` | `EmailTheme` | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                     | Default          | Description              |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ |
+| `variant` | `"stacked-left" \| "stacked-right" \| "image-left" \| "image-right" \| "rating-left" \| "rating-right" \| "bleed-left" \| "bleed-right"` | `"stacked-left"` | Mailviews layout variant |
+| `theme`   | `EmailThemeTokens`                                                                                                                       | `defaultTheme`   | Email theme styling      |

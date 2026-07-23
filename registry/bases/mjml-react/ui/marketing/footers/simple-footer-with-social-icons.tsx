@@ -1,119 +1,262 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
+/* eslint-disable next/no-img-element */
 import {
   Mjml,
-  MjmlAll,
-  MjmlAttributes,
   MjmlBody,
-  MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlSection,
-  MjmlStyle,
-  MjmlText,
+  MjmlRaw,
+  MjmlWrapper,
 } from "@faire/mjml-react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
 
 export type SimpleFooterWithSocialIconsVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+  | "left-aligned"
+  | "centered"
+  | "right-aligned";
+
+export interface SimpleFooterSocial {
+  href: string;
+  iconSrc: string;
+  label: string;
+}
 
 export interface SimpleFooterWithSocialIconsProps {
   theme?: EmailThemeTokens;
-  socialSrc1?: string;
-  socialAlt1?: string;
-  socialSrc2?: string;
-  socialAlt2?: string;
-  socialSrc3?: string;
-  socialAlt3?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  socials?: SimpleFooterSocial[];
+  unsubscribeHref?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  mutedTextColor?: string;
   variant?: SimpleFooterWithSocialIconsVariant;
 }
 
-const variantClass = (variant: SimpleFooterWithSocialIconsVariant) =>
-  variant === "slanted-left"
-    ? "ec-skew-left"
-    : variant === "slanted-right"
-      ? "ec-skew-right"
-      : undefined;
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-export const SimpleFooterWithSocialIcons = ({
-  theme = defaultTheme,
-  socialSrc1 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-simple-footer-with-social-icons-tsx-4&size=20",
-  socialAlt1 = "Twitter",
-  socialSrc2 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-simple-footer-with-social-icons-tsx-5&size=20",
-  socialAlt2 = "Facebook",
-  socialSrc3 = "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-simple-footer-with-social-icons-tsx-6&size=20",
-  socialAlt3 = "LinkedIn",
-  variant = "default",
-}: SimpleFooterWithSocialIconsProps) => {
-  const socials = [
-    { alt: socialAlt1, src: socialSrc1 },
-    { alt: socialAlt2, src: socialSrc2 },
-    { alt: socialAlt3, src: socialSrc3 },
-  ];
+const defaults = {
+  backgroundColor: "#fffffe",
+  logoAlt: "Maizzle",
+  logoHref: "https://example.com",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/maizzle-insignia.png",
+  mutedTextColor: "#d1d5db",
+  pageBackgroundColor: "#f1f5f9",
+  socials: [
+    {
+      href: "https://facebook.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-facebook.png",
+      label: "Facebook",
+    },
+    {
+      href: "https://github.com",
+      iconSrc: "https://assets.mailviews.com/images/components/icon-github.png",
+      label: "GitHub",
+    },
+    {
+      href: "https://linkedin.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-linkedin.png",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://youtube.com",
+      iconSrc:
+        "https://assets.mailviews.com/images/components/icon-youtube.png",
+      label: "YouTube",
+    },
+    {
+      href: "https://x.com",
+      iconSrc: "https://assets.mailviews.com/images/components/icon-x.png",
+      label: "X",
+    },
+  ],
+  unsubscribeHref: "https://example.com/unsub",
+};
+
+type SectionProps = Omit<SimpleFooterWithSocialIconsProps, "theme">;
+type ResolvedProps = typeof defaults &
+  SectionProps & { variant: SimpleFooterWithSocialIconsVariant };
+
+export const SimpleFooterWithSocialIconsSection = (props: SectionProps) => {
+  const resolved = {
+    ...defaults,
+    ...props,
+    variant: props.variant ?? "left-aligned",
+  } as ResolvedProps;
+  const textAlign = {
+    centered: "center",
+    "left-aligned": "left",
+    "right-aligned": "right",
+  }[resolved.variant] as "center" | "left" | "right";
+  const tableAlign = {
+    centered: "center",
+    "left-aligned": undefined,
+    "right-aligned": "right",
+  }[resolved.variant] as "center" | "right" | undefined;
+  const tableStyle = {
+    centered: { marginLeft: "auto", marginRight: "auto" },
+    "left-aligned": undefined,
+    "right-aligned": { marginLeft: "auto" },
+  }[resolved.variant];
+
   return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Footer</MjmlPreview>
-        <MjmlStyle>{`
-          .ec-skew-left > div { transform: skewX(-10deg); }
-          .ec-skew-right > div { transform: skewX(10deg); }
-        `}</MjmlStyle>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlSection
-          backgroundColor={theme.colorBackground}
-          cssClass={variantClass(variant)}
-          padding="32px 0"
-        >
-          <MjmlColumn>
-            <MjmlText align="center">
-              {socials.map((social) => (
-                <img
-                  key={social.alt}
-                  alt={social.alt}
-                  src={social.src}
-                  width="20"
-                  height="20"
-                  style={{
-                    display: "inline-block",
-                    height: "auto",
-                    margin: "0 12px",
-                    objectFit: "contain",
-                    verticalAlign: "middle",
-                  }}
-                />
-              ))}
-            </MjmlText>
-          </MjmlColumn>
-        </MjmlSection>
-      </MjmlBody>
-    </Mjml>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              padding: "44px 0 24px",
+              width: "600px",
+            }}
+          >
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
+            >
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px", textAlign }}>
+                    <div>
+                      <a href={resolved.logoHref}>
+                        <img
+                          alt={resolved.logoAlt}
+                          src={resolved.logoSrc}
+                          style={{ maxWidth: "100%", verticalAlign: "middle" }}
+                          width={64}
+                        />
+                      </a>
+                    </div>
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <table
+                      align={tableAlign}
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      style={tableStyle}
+                    >
+                      <tbody>
+                        <tr>
+                          {resolved.socials.map((social, index) => (
+                            <td
+                              key={social.href}
+                              style={
+                                index === resolved.socials.length - 1
+                                  ? undefined
+                                  : { paddingRight: "24px" }
+                              }
+                            >
+                              <a href={social.href}>
+                                <img
+                                  alt={social.label}
+                                  src={social.iconSrc}
+                                  style={{
+                                    maxWidth: "100%",
+                                    verticalAlign: "middle",
+                                  }}
+                                  width={20}
+                                />
+                              </a>
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div style={{ lineHeight: "24px" }}>&zwj;</div>
+                    <div>
+                      <p
+                        style={{
+                          color: resolved.mutedTextColor,
+                          fontFamily,
+                          fontSize: "16px",
+                          lineHeight: "24px",
+                          margin: "0 0 8px",
+                        }}
+                      >
+                        © 2026 Mailviews. All rights reserved.
+                      </p>
+                      <p
+                        style={{
+                          color: resolved.mutedTextColor,
+                          fontFamily,
+                          fontSize: "16px",
+                          lineHeight: "24px",
+                          margin: 0,
+                        }}
+                      >
+                        No longer want to receive emails?{" "}
+                        <a
+                          href={resolved.unsubscribeHref}
+                          style={{
+                            color: resolved.mutedTextColor,
+                            textDecoration: "underline",
+                          }}
+                        >
+                          Unsubscribe
+                        </a>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
+export const SimpleFooterWithSocialIcons = ({
+  pageBackgroundColor = "#f1f5f9",
+  theme = defaultTheme,
+  variant = "left-aligned",
+  ...props
+}: SimpleFooterWithSocialIconsProps) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>Simple footer with social icons</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={pageBackgroundColor}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">
+        <MjmlRaw>
+          <SimpleFooterWithSocialIconsSection
+            {...props}
+            pageBackgroundColor={pageBackgroundColor}
+            variant={variant}
+          />
+        </MjmlRaw>
+      </MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
+
 SimpleFooterWithSocialIcons.PreviewProps = {
-  socialAlt1: "Twitter",
-  socialAlt2: "Facebook",
-  socialAlt3: "LinkedIn",
-  socialSrc1:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-simple-footer-with-social-icons-tsx-7&size=20",
-  socialSrc2:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-simple-footer-with-social-icons-tsx-8&size=20",
-  socialSrc3:
-    "https://api.dicebear.com/9.x/initials/png?seed=glyph-registry-bases-mjml-react-ui-marketing-footers-simple-footer-with-social-icons-tsx-9&size=20",
   theme: defaultTheme,
-  variant: "default",
+  variant: "left-aligned",
 } satisfies SimpleFooterWithSocialIconsProps;

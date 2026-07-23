@@ -1,73 +1,50 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Container as EmailContainer,
-  Head,
-  Html,
-  Preview,
-  Section,
-  Tailwind,
-} from "react-email";
+import type { ReactNode } from "react";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+import {
+  containerResponsiveStyles,
+  ContainerSection,
+} from "@/registry/bases/react-email/ui/ui-elements/containers/container-shared";
+import type { ContainerMobile } from "@/registry/bases/react-email/ui/ui-elements/containers/container-shared";
 
 export interface ContainerProps {
-  theme?: TailwindConfig;
-  children?: React.ReactNode;
+  align?: "center" | "left" | "right";
+  children?: ReactNode;
+  content?: ReactNode;
   maxWidth?: string;
-  mobile?: "gutters" | "flush";
-  align?: "left" | "center" | "right";
+  mobile?: ContainerMobile;
+  theme?: TailwindConfig;
 }
 
-export const ContainerSection = ({
-  children,
-  maxWidth = "600px",
-  mobile = "gutters",
-  align = "center",
-}: Omit<ContainerProps, "theme">) => {
-  const alignClass =
-    align === "left"
-      ? "text-left"
-      : align === "right"
-        ? "text-right"
-        : "text-center";
+export { ContainerSection };
+
+export const Container = ({
+  theme: _theme = defaultTheme,
+  ...props
+}: ContainerProps) => {
+  const mobile = props.mobile ?? "gutters";
 
   return (
-    <Section className={mobile === "flush" ? "px-0" : "px-4"}>
-      <EmailContainer style={{ maxWidth }} className={`mx-auto ${alignClass}`}>
-        {children}
-      </EmailContainer>
-    </Section>
+    <Html>
+      <Head>
+        <DefaultFonts />
+        <style>{containerResponsiveStyles}</style>
+      </Head>
+      <Preview>
+        {mobile === "flush" ? "Flush on mobile" : "With gutters on mobile"}
+      </Preview>
+      <Body style={{ margin: 0 }}>
+        <ContainerSection {...props} mobile={mobile} />
+      </Body>
+    </Html>
   );
 };
 
-export const Container = ({
-  theme = defaultTheme,
-  children,
-  maxWidth = "600px",
-  mobile = "gutters",
-  align = "center",
-}: ContainerProps) => (
-  <Html>
-    <Head>
-      <DefaultFonts />
-    </Head>
-    <Preview>Container</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <ContainerSection maxWidth={maxWidth} mobile={mobile} align={align}>
-          {children}
-        </ContainerSection>
-      </Body>
-    </Tailwind>
-  </Html>
-);
-
 Container.PreviewProps = {
   align: "center",
-  children: undefined,
   maxWidth: "600px",
   mobile: "gutters",
   theme: defaultTheme,

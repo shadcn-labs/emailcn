@@ -1,226 +1,94 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlImage,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-  MjmlButton,
-} from "@faire/mjml-react";
-
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 
-export type BentoGridWithCtaVariant =
-  | "default"
-  | "slanted-left"
-  | "slanted-right";
+import {
+  BENTO_ASSET_ROOT,
+  BentoEmailShell,
+  EvenSplitStatsSection,
+} from "./bento-grid-shared";
+import type {
+  BentoImagePlacementVariant,
+  FeatureCardData,
+  MetricCardData,
+  StatCardData,
+} from "./bento-grid-shared";
 
-export interface BentoGridWithCtaProps {
+export interface BentoGridWithEvenSplitAndImageStatsProps {
+  feature?: FeatureCardData;
+  imageAlt?: string;
+  imageSrc?: string;
+  metric?: MetricCardData;
+  stat?: StatCardData;
   theme?: EmailThemeTokens;
-  heading?: string;
-  imageSrc1?: string;
-  imageAlt1?: string;
-  title1?: string;
-  desc1?: string;
-  imageSrc2?: string;
-  imageAlt2?: string;
-  title2?: string;
-  desc2?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  variant?: BentoGridWithCtaVariant;
+  variant?: BentoImagePlacementVariant;
 }
 
-const BentoGridWithCtaSection = ({
-  ctaHref,
-  ctaLabel,
-  desc1,
-  desc2,
-  heading,
-  imageAlt1,
-  imageAlt2,
-  imageSrc1,
-  imageSrc2,
-  theme,
-  title1,
-  title2,
-  variant,
-}: {
-  ctaHref: string;
-  ctaLabel: string;
-  desc1: string;
-  desc2: string;
-  heading: string;
-  imageAlt1: string;
-  imageAlt2: string;
-  imageSrc1: string;
-  imageSrc2: string;
-  theme: EmailThemeTokens;
-  title1: string;
-  title2: string;
-  variant: BentoGridWithCtaVariant;
-}) => (
-  <MjmlSection
-    backgroundColor={theme.colorBackground}
-    padding={`${theme.spacingXl ?? "48px"} 0`}
-  >
-    <MjmlColumn>
-      {heading ? (
-        <MjmlText
-          align="center"
-          color={theme.colorText}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeHeading}
-          fontWeight={theme.fontWeightBold}
-          paddingBottom={theme.spacingXl ?? "48px"}
-        >
-          {heading}
-        </MjmlText>
-      ) : null}
-    </MjmlColumn>
-    <MjmlColumn width="50%" padding="8px" verticalAlign="top">
-      <MjmlImage
-        alt={imageAlt1}
-        borderRadius={theme.borderRadius}
-        src={imageSrc1}
-        width={280}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      />
-      <MjmlText
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "8px"}
-      >
-        {title1}
-      </MjmlText>
-      <MjmlText
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase}
-        lineHeight={theme.lineHeightBase}
-        paddingBottom={theme.spacingBase ?? "8px"}
-      >
-        {desc1}
-      </MjmlText>
-    </MjmlColumn>
-    <MjmlColumn width="50%" padding="8px" verticalAlign="top">
-      <MjmlImage
-        alt={imageAlt2}
-        borderRadius={theme.borderRadius}
-        src={imageSrc2}
-        width={280}
-        paddingBottom={theme.spacingBase ?? "16px"}
-      />
-      <MjmlText
-        color={theme.colorText}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeLg}
-        fontWeight={theme.fontWeightMedium}
-        paddingBottom={theme.spacingBase ?? "8px"}
-      >
-        {title2}
-      </MjmlText>
-      <MjmlText
-        color={theme.colorTextMuted}
-        fontFamily={theme.fontFamily}
-        fontSize={theme.fontSizeBase}
-        lineHeight={theme.lineHeightBase}
-        paddingBottom={theme.spacingBase ?? "8px"}
-      >
-        {desc2}
-      </MjmlText>
-    </MjmlColumn>
-    {ctaLabel && ctaHref ? (
-      <MjmlColumn>
-        <MjmlButton
-          align="center"
-          backgroundColor={theme.colorPrimary}
-          borderRadius={theme.borderRadius}
-          color={theme.colorPrimaryForeground}
-          fontFamily={theme.fontFamily}
-          fontSize={theme.fontSizeSm}
-          fontWeight={theme.fontWeightMedium}
-          href={ctaHref}
-          innerPadding={`${theme.button.primary.paddingY} ${theme.button.primary.paddingX}`}
-        >
-          {ctaLabel}
-        </MjmlButton>
-      </MjmlColumn>
-    ) : null}
-  </MjmlSection>
+const feature: FeatureCardData = {
+  description: "API response times under 100ms, 99.99% uptime guaranteed.",
+  title: "Low latency. High reliability.",
+};
+const metric: MetricCardData = {
+  change: "10% increase",
+  reportHref: "https://example.com",
+  reportLabel: "View report",
+  title: "API Calls",
+  value: "25,000",
+};
+const stat: StatCardData = {
+  label: "Engine v2",
+  suffix: "faster",
+  value: "75x",
+};
+
+export const BentoGridWithEvenSplitAndImageStatsSection = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-3.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
+  variant = "image-top-right",
+}: Omit<BentoGridWithEvenSplitAndImageStatsProps, "theme">) => (
+  <EvenSplitStatsSection
+    feature={featureData}
+    imageAlt={imageAlt}
+    imageSrc={imageSrc}
+    metric={metricData}
+    mode="image"
+    stat={statData}
+    variant={variant}
+  />
 );
 
 export const BentoGridWithEvenSplitAndImageStats = ({
+  feature: featureData = feature,
+  imageAlt = "",
+  imageSrc = `${BENTO_ASSET_ROOT}/bento-3.jpg`,
+  metric: metricData = metric,
+  stat: statData = stat,
   theme = defaultTheme,
-  heading = "Features",
-  imageSrc1 = "https://static.photos/technology/400x250/2",
-  imageAlt1 = "",
-  title1 = "Feature One",
-  desc1 = "Description for feature one.",
-  imageSrc2 = "https://static.photos/technology/400x250/3",
-  imageAlt2 = "",
-  title2 = "Feature Two",
-  desc2 = "Description for feature two.",
-  ctaLabel = "View All",
-  ctaHref = "#",
-  variant = "default",
-}: BentoGridWithCtaProps) => (
-  <Mjml>
-    <MjmlHead>
-      <MjmlPreview>bento grid cta</MjmlPreview>
-      <MjmlAttributes>
-        <MjmlAll color={theme.colorTextMuted} fontFamily={theme.fontFamily} />
-        <MjmlText
-          fontSize={theme.fontSizeBase}
-          lineHeight={theme.lineHeightBase}
-        />
-      </MjmlAttributes>
-    </MjmlHead>
-    <MjmlBody
-      backgroundColor={theme.colorBackground}
-      width={theme.containerWidth}
-    >
-      <MjmlWrapper padding="0">
-        <BentoGridWithCtaSection
-          ctaHref={ctaHref}
-          ctaLabel={ctaLabel}
-          desc1={desc1}
-          desc2={desc2}
-          heading={heading}
-          imageAlt1={imageAlt1}
-          imageAlt2={imageAlt2}
-          imageSrc1={imageSrc1}
-          imageSrc2={imageSrc2}
-          theme={theme}
-          title1={title1}
-          title2={title2}
-          variant={variant}
-        />
-      </MjmlWrapper>
-    </MjmlBody>
-  </Mjml>
+  variant = "image-top-right",
+}: BentoGridWithEvenSplitAndImageStatsProps) => (
+  <BentoEmailShell
+    preview="Bento grid with even split and image stats"
+    theme={theme}
+  >
+    <BentoGridWithEvenSplitAndImageStatsSection
+      feature={featureData}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
+      metric={metricData}
+      stat={statData}
+      variant={variant}
+    />
+  </BentoEmailShell>
 );
+
 BentoGridWithEvenSplitAndImageStats.PreviewProps = {
-  ctaHref: "https://example.com",
-  ctaLabel: "View All Features",
-  desc1: "Powerful features to boost productivity.",
-  desc2: "Seamless integration with your tools.",
-  heading: "Key Features",
-  imageAlt1: "feature 1",
-  imageAlt2: "feature 2",
-  imageSrc1: "https://static.photos/technology/400x250/4",
-  imageSrc2: "https://static.photos/technology/400x250/5",
+  feature,
+  imageAlt: "",
+  imageSrc: `${BENTO_ASSET_ROOT}/bento-3.jpg`,
+  metric,
+  stat,
   theme: defaultTheme,
-  title1: "Productivity",
-  title2: "Integration",
-  variant: "default",
-} satisfies BentoGridWithCtaProps;
+  variant: "image-top-right",
+} satisfies BentoGridWithEvenSplitAndImageStatsProps;

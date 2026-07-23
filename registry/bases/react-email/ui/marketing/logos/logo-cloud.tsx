@@ -1,174 +1,370 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Tailwind,
-  Text,
-} from "react-email";
+/* eslint-disable next/no-img-element */
+import { Fragment } from "react";
+import { Body, Head, Html, Preview } from "react-email";
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 
-export type LogoCloudVariant = "default" | "slanted-left" | "slanted-right";
-
+export type LogoCloudVariant =
+  | "minimal"
+  | "with-title"
+  | "with-description"
+  | "full"
+  | "flush";
 export type LogoCloudTone = "boxed" | "outlined";
 
 export interface LogoCloudProps {
   theme?: TailwindConfig;
-  heading?: string;
-  logoSrc1?: string;
-  logoAlt1?: string;
-  logoSrc2?: string;
-  logoAlt2?: string;
-  logoSrc3?: string;
-  logoAlt3?: string;
-  logoSrc4?: string;
-  logoAlt4?: string;
+  title?: string;
+  description?: string;
+  logos?: { alt: string; src: string; width: number }[];
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  boxBackgroundColor?: string;
+  borderColor?: string;
+  titleColor?: string;
+  textColor?: string;
   variant?: LogoCloudVariant;
   tone?: LogoCloudTone;
 }
 
-const TONE_CLASSES = {
-  boxed: "rounded-lg bg-background-muted px-6 py-4",
-  outlined: "rounded-lg border border-border px-6 py-4",
-} as const;
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-export const LogoCloudSection = ({
-  heading = "Trusted by",
-  logoSrc1 = "https://static.photos/business/120x40/2",
-  logoAlt1 = "Logo 1",
-  logoSrc2 = "https://static.photos/business/120x40/3",
-  logoAlt2 = "Logo 2",
-  logoSrc3 = "https://static.photos/business/120x40/4",
-  logoAlt3 = "Logo 3",
-  logoSrc4 = "https://static.photos/business/120x40/5",
-  logoAlt4 = "Logo 4",
-  variant = "default",
-  tone = "boxed",
-}: Omit<LogoCloudProps, "theme">) => {
-  const getVariantClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[-10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[10deg]";
-      }
-      default: {
-        return "";
-      }
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .logo-cloud-item {
+      display: inline-block !important;
+      margin: 0 8px 16px !important;
     }
-  };
-
-  const getUnskewClass = () => {
-    switch (variant) {
-      case "slanted-left": {
-        return "skew-x-[10deg]";
-      }
-      case "slanted-right": {
-        return "skew-x-[-10deg]";
-      }
-      default: {
-        return "";
-      }
+    .logo-cloud-gap { display: none !important; }
+    .logo-cloud-description-gap { line-height: 20px !important; }
+    .logo-cloud-flush-item {
+      border: 1px solid #d1d5db !important;
+      border-radius: 4px !important;
     }
-  };
+  }
+`;
 
-  const toneClass = TONE_CLASSES[tone];
-  const logos = [
-    { alt: logoAlt1, src: logoSrc1 },
-    { alt: logoAlt2, src: logoSrc2 },
-    { alt: logoAlt3, src: logoSrc3 },
-    { alt: logoAlt4, src: logoSrc4 },
-  ];
+const defaultLogos = [
+  {
+    alt: "Stripe",
+    src: "https://assets.mailviews.com/images/components/logos/logo-stripe.png",
+    width: 57,
+  },
+  {
+    alt: "Apple Pay",
+    src: "https://assets.mailviews.com/images/components/logos/logo-apple-pay.png",
+    width: 60,
+  },
+  {
+    alt: "Mastercard",
+    src: "https://assets.mailviews.com/images/components/logos/logo-mastercard.png",
+    width: 40,
+  },
+  {
+    alt: "Visa",
+    src: "https://assets.mailviews.com/images/components/logos/logo-visa.png",
+    width: 50,
+  },
+  {
+    alt: "Klarna",
+    src: "https://assets.mailviews.com/images/components/logos/logo-klarna.png",
+    width: 70,
+  },
+];
+
+const defaults = {
+  backgroundColor: "#fffffe",
+  borderColor: "#d1d5db",
+  boxBackgroundColor: "#f3f4f6",
+  description:
+    "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
+  logos: defaultLogos,
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+  title: "Supported payment services",
+  titleColor: "#030712",
+};
+
+type SectionProps = Omit<LogoCloudProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+type Logo = (typeof defaultLogos)[number];
+
+const LogoItem = ({
+  flush,
+  index,
+  logo,
+  props,
+  tone,
+}: {
+  flush: boolean;
+  index: number;
+  logo: Logo;
+  props: ResolvedProps;
+  tone: LogoCloudTone;
+}) => {
+  const edgeWidth = index === 0 || index === 4 ? "100px" : "112px";
+  const outlinedFlush = tone === "outlined" && flush;
+  return (
+    <td
+      className={
+        outlinedFlush
+          ? "logo-cloud-item logo-cloud-flush-item"
+          : "logo-cloud-item"
+      }
+      style={{
+        backgroundColor:
+          tone === "boxed" ? props.boxBackgroundColor : undefined,
+        border:
+          tone === "outlined" ? `1px solid ${props.borderColor}` : undefined,
+        borderLeftWidth: outlinedFlush && index === 0 ? 0 : undefined,
+        borderRadius: tone === "outlined" ? "4px" : undefined,
+        borderRightWidth: outlinedFlush && index === 4 ? 0 : undefined,
+        lineHeight: "64px",
+        textAlign: "center",
+        width: flush ? edgeWidth : "112px",
+      }}
+    >
+      <img
+        alt={logo.alt}
+        src={logo.src}
+        style={{ maxWidth: "100%", verticalAlign: "middle" }}
+        width={logo.width}
+      />
+    </td>
+  );
+};
+
+const LogoRow = ({
+  flush = false,
+  logos,
+  props,
+  tone,
+}: {
+  flush?: boolean;
+  logos: Logo[];
+  props: ResolvedProps;
+  tone: LogoCloudTone;
+}) => (
+  <table
+    align={flush ? undefined : "center"}
+    border={0}
+    cellPadding={0}
+    cellSpacing={0}
+    role="presentation"
+    style={flush ? { width: "100%" } : { margin: "0 auto" }}
+  >
+    <tbody>
+      <tr>
+        {logos.map((logo, index) => (
+          <Fragment key={logo.alt + logo.src}>
+            {index > 0 ? (
+              <td className="logo-cloud-gap" style={{ width: "16px" }}>
+                &zwj;
+              </td>
+            ) : null}
+            <LogoItem
+              flush={flush}
+              index={index}
+              logo={logo}
+              props={props}
+              tone={tone}
+            />
+          </Fragment>
+        ))}
+      </tr>
+    </tbody>
+  </table>
+);
+
+const Title = ({ props }: { props: ResolvedProps }) => (
+  <h3
+    style={{
+      color: props.titleColor,
+      fontFamily,
+      fontSize: "20px",
+      fontWeight: 600,
+      lineHeight: "28px",
+      margin: 0,
+      textAlign: "center",
+    }}
+  >
+    {props.title}
+  </h3>
+);
+
+const Description = ({ props }: { props: ResolvedProps }) => (
+  <p
+    style={{
+      color: props.textColor,
+      fontFamily,
+      fontSize: "16px",
+      fontWeight: 300,
+      lineHeight: "24px",
+      margin: 0,
+      textAlign: "center",
+    }}
+  >
+    {props.description}
+  </p>
+);
+
+export const LogoCloudSection = (props: SectionProps) => {
+  const variant = props.variant ?? "full";
+  const tone = props.tone ?? "boxed";
+  const resolved = { ...defaults, ...props } as ResolvedProps;
+  const logos = resolved.logos.slice(0, 5) as Logo[];
+  const flush = variant === "flush";
+  const showTitle =
+    variant === "with-title" || variant === "full" || variant === "flush";
+  const showDescription =
+    variant === "with-description" || variant === "full" || variant === "flush";
+
+  const logoRows = flush ? (
+    <LogoRow flush logos={logos} props={resolved} tone={tone} />
+  ) : (
+    <>
+      <LogoRow logos={logos.slice(0, 3)} props={resolved} tone={tone} />
+      <div className="logo-cloud-gap" style={{ lineHeight: "16px" }}>
+        &zwj;
+      </div>
+      <LogoRow logos={logos.slice(3, 5)} props={resolved} tone={tone} />
+    </>
+  );
 
   return (
-    <Section className={`bg-background py-12 ${getVariantClass()}`}>
-      <Section
-        className={`max-w-container mx-auto text-center ${getUnskewClass()}`}
-      >
-        {heading ? (
-          <Text className="m-0 mb-8 text-sm uppercase tracking-wider text-foreground-muted">
-            {heading}
-          </Text>
-        ) : null}
-        <Row>
-          {logos.map((logo) => (
-            <Column key={logo.alt} className="w-1/4 px-2 align-middle">
-              <Section className={toneClass}>
-                <Img
-                  src={logo.src}
-                  alt={logo.alt}
-                  width="120"
-                  height="40"
-                  className="mx-auto h-auto object-contain"
-                />
-              </Section>
-            </Column>
-          ))}
-        </Row>
-      </Section>
-    </Section>
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            {flush ? (
+              <table
+                border={0}
+                cellPadding={0}
+                cellSpacing={0}
+                role="presentation"
+                width="100%"
+              >
+                <tbody>
+                  <tr>
+                    <td style={{ padding: "0 24px" }}>
+                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      {showTitle ? <Title props={resolved} /> : null}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {showTitle ? (
+                        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      ) : (
+                        <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      )}
+                      {logoRows}
+                    </td>
+                  </tr>
+                  {showDescription ? (
+                    <tr>
+                      <td style={{ padding: "0 24px" }}>
+                        <div
+                          className="logo-cloud-description-gap"
+                          style={{ lineHeight: "36px" }}
+                        >
+                          &zwj;
+                        </div>
+                        <Description props={resolved} />
+                      </td>
+                    </tr>
+                  ) : null}
+                </tbody>
+              </table>
+            ) : (
+              <table
+                border={0}
+                cellPadding={0}
+                cellSpacing={0}
+                role="presentation"
+                width="100%"
+              >
+                <tbody>
+                  <tr>
+                    <td style={{ padding: "0 24px", textAlign: "center" }}>
+                      <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                      {showTitle ? (
+                        <>
+                          <Title props={resolved} />
+                          <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                        </>
+                      ) : null}
+                      {logoRows}
+                      {showDescription ? (
+                        <>
+                          <div
+                            className="logo-cloud-description-gap"
+                            style={{ lineHeight: "36px" }}
+                          >
+                            &zwj;
+                          </div>
+                          <Description props={resolved} />
+                        </>
+                      ) : null}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const LogoCloud = ({
-  theme = defaultTheme,
-  heading = "Trusted by",
-  logoSrc1 = "https://static.photos/business/120x40/6",
-  logoAlt1 = "Logo 1",
-  logoSrc2 = "https://static.photos/business/120x40/7",
-  logoAlt2 = "Logo 2",
-  logoSrc3 = "https://static.photos/business/120x40/8",
-  logoAlt3 = "Logo 3",
-  logoSrc4 = "https://static.photos/business/120x40/9",
-  logoAlt4 = "Logo 4",
-  variant = "default",
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
   tone = "boxed",
+  variant = "full",
+  ...props
 }: LogoCloudProps) => (
   <Html>
     <Head>
       <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </Head>
-    <Preview>{heading}</Preview>
-    <Tailwind config={theme}>
-      <Body className="m-0 bg-background font-sans">
-        <LogoCloudSection
-          heading={heading}
-          logoAlt1={logoAlt1}
-          logoAlt2={logoAlt2}
-          logoAlt3={logoAlt3}
-          logoAlt4={logoAlt4}
-          logoSrc1={logoSrc1}
-          logoSrc2={logoSrc2}
-          logoSrc3={logoSrc3}
-          logoSrc4={logoSrc4}
-          tone={tone}
-          variant={variant}
-        />
-      </Body>
-    </Tailwind>
+    <Preview>Supported payment services</Preview>
+    <Body
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
+    >
+      <LogoCloudSection
+        {...props}
+        pageBackgroundColor={pageBackgroundColor}
+        tone={tone}
+        variant={variant}
+      />
+    </Body>
   </Html>
 );
 
 LogoCloud.PreviewProps = {
-  heading: "Trusted by",
-  logoAlt1: "Company 1",
-  logoAlt2: "Company 2",
-  logoAlt3: "Company 3",
-  logoAlt4: "Company 4",
-  logoSrc1: "https://static.photos/business/120x40/10",
-  logoSrc2: "https://static.photos/business/120x40/11",
-  logoSrc3: "https://static.photos/business/120x40/12",
-  logoSrc4: "https://static.photos/business/120x40/13",
   theme: defaultTheme,
   tone: "boxed",
-  variant: "default",
+  variant: "full",
 } satisfies LogoCloudProps;

@@ -1,25 +1,109 @@
 ---
 title: "Grid Stats"
-description: "Three-column stat grid with selectable tile tones for email templates"
+description: "Mailviews grid stats treatments with their real layout variants"
 ---
 
-One `GridStats` component covers every grid look. Switch with the `tone` prop.
+## Examples
 
-## Boxed
+### Simple
 
-<ComponentPreview base="react-email" name="boxed-grid-stats-demo" />
+<ComponentPreview base="react-email" name="simple-grid-stats-demo" />
 
-## Outlined
+### Outlined — 3 columns
 
-<ComponentPreview base="react-email" name="outlined-grid-stats-demo" />
+<ComponentPreview
+  base="react-email"
+  name="outlined-grid-stats-demo"
+  layout="three-columns"
+/>
 
-## Accent
+### Outlined — Bento
 
-<ComponentPreview base="react-email" name="grid-stats-with-accent-column-demo" />
+<ComponentPreview
+  base="react-email"
+  name="outlined-grid-stats-demo"
+  layout="bento"
+/>
 
-## Border
+### Outlined — Bento reversed
 
-<ComponentPreview base="react-email" name="grid-stats-with-border-demo" />
+<ComponentPreview
+  base="react-email"
+  name="outlined-grid-stats-demo"
+  layout="bento-reversed"
+/>
+
+### Bordered — 3 columns
+
+<ComponentPreview
+  base="react-email"
+  name="grid-stats-with-border-demo"
+  layout="three-columns"
+/>
+
+### Bordered — Bento
+
+<ComponentPreview
+  base="react-email"
+  name="grid-stats-with-border-demo"
+  layout="bento"
+/>
+
+### Bordered — Bento reversed
+
+<ComponentPreview
+  base="react-email"
+  name="grid-stats-with-border-demo"
+  layout="bento-reversed"
+/>
+
+### Boxed — 3 columns
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-grid-stats-demo"
+  layout="three-columns"
+/>
+
+### Boxed — Bento
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-grid-stats-demo"
+  layout="bento"
+/>
+
+### Boxed — Bento reversed
+
+<ComponentPreview
+  base="react-email"
+  name="boxed-grid-stats-demo"
+  layout="bento-reversed"
+/>
+
+### Accent column — 3 columns
+
+<ComponentPreview
+  base="react-email"
+  name="grid-stats-with-accent-column-demo"
+  layout="three-columns"
+/>
+
+### Accent column — Bento
+
+<ComponentPreview
+  base="react-email"
+  name="grid-stats-with-accent-column-demo"
+  layout="bento"
+/>
+
+### Accent column — Bento reversed
+
+<ComponentPreview
+  base="react-email"
+  name="grid-stats-with-accent-column-demo"
+  layout="bento-reversed"
+/>
 
 ## Installation
 
@@ -53,16 +137,14 @@ npx shadcn@latest add @emailcn/grid-stats
 
 ```tsx
 import { GridStats } from "@/components/emails/marketing/stats/grid-stats";
-```
 
-```tsx
-<GridStats {...GridStats.PreviewProps} tone="accent" />
+<GridStats variant="accent-column" layout="bento" />;
 ```
 
 ## API Reference
 
-| Prop      | Type                                             | Default        | Description         |
-| --------- | ------------------------------------------------ | -------------- | ------------------- |
-| `tone`    | `"boxed" \| "outlined" \| "accent" \| "border"`  | `"boxed"`      | Grid cell style     |
-| `variant` | `"default" \| "slanted-left" \| "slanted-right"` | `"default"`    | Section tilt        |
-| `theme`   | `TailwindConfig`                                 | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                 | Default           | Description                      |
+| --------- | -------------------------------------------------------------------- | ----------------- | -------------------------------- |
+| `variant` | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent-column"` | `"boxed"`         | Mailviews visual treatment       |
+| `layout`  | `"three-columns" \| "bento" \| "bento-reversed"`                     | `"three-columns"` | Layout used by styled treatments |
+| `theme`   | `TailwindConfig`                                                     | `defaultTheme`    | Email theme styling              |

@@ -1,164 +1,359 @@
-/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */
-import {
-  Body,
-  Column,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Row,
-  Section,
-  Text,
-} from "jsx-email";
+import { Body, Container, Head, Html, Img, Preview } from "jsx-email";
 
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
 
-export type FeatureCardsVariant = "default" | "slanted-left" | "slanted-right";
+export type FeatureWithDoubleTallBackgroundImagesVariant =
+  | "logo-top-right"
+  | "logo-top-left"
+  | "logo-bottom-left"
+  | "logo-bottom-right";
 
-export interface FeatureCardsProps {
+export interface FeatureWithDoubleTallBackgroundImagesProps {
   theme?: EmailThemeTokens;
-  cards?: {
-    imageSrc?: string;
-    imageAlt?: string;
-    heading: string;
-    body: string;
-  }[];
-  variant?: FeatureCardsVariant;
+  heading?: string;
+  body?: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+  arrowIconSrc?: string;
+  pageBackgroundColor?: string;
+  backgroundColor?: string;
+  imageBackgroundColor?: string;
+  logoBackgroundColor?: string;
+  headingColor?: string;
+  textColor?: string;
+  linkColor?: string;
+  variant?: FeatureWithDoubleTallBackgroundImagesVariant;
 }
 
-const FeatureCardsSection = ({
-  cards,
-  theme,
-  variant,
-}: {
-  cards: FeatureCardsProps["cards"];
-  theme: EmailThemeTokens;
-  variant: FeatureCardsVariant;
-}) => {
-  const items = cards ?? [];
+const fontFamily =
+  'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-  return (
-    <Section
+const responsiveStyles = `
+  @media only screen and (max-width: 599px) {
+    .feature-double-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .feature-double-gap {
+      line-height: 24px !important;
+    }
+  }
+
+  @media only screen and (max-width: 430px) {
+    .feature-double-image-stack {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .feature-double-image-gap {
+      line-height: 24px !important;
+    }
+  }
+`;
+
+const defaults = {
+  arrowIconSrc:
+    "https://assets.mailviews.com/images/components/icon-arrow-right-brand.png",
+  backgroundColor: "#fffffe",
+  body: "Premium footwear, outerwear, and lifestyle pieces chosen for quality, comfort, and everyday performance.",
+  buttonHref: "https://example.com",
+  buttonLabel: "Discover more",
+  heading: "Discover the Monarch Collection.",
+  headingColor: "#030712",
+  imageBackgroundColor: "#f3f4f6",
+  imageSrc1:
+    "https://assets.mailviews.com/images/components/feature/stripes-bg-1.jpg",
+  imageSrc2:
+    "https://assets.mailviews.com/images/components/feature/stripes-bg-2.jpg",
+  linkColor: "#4f46e5",
+  logoAlt: "Monarch",
+  logoBackgroundColor: "#030712",
+  logoSrc:
+    "https://assets.mailviews.com/images/components/feature/logo-stripes-1.png",
+  pageBackgroundColor: "#f1f5f9",
+  textColor: "#4b5563",
+};
+
+type SectionProps = Omit<FeatureWithDoubleTallBackgroundImagesProps, "theme">;
+type ResolvedProps = typeof defaults & SectionProps;
+
+const LogoPanel = ({ props }: { props: ResolvedProps }) => (
+  <div
+    style={{
+      backgroundColor: props.logoBackgroundColor,
+      borderRadius: "4px",
+      lineHeight: "205px",
+      textAlign: "center",
+    }}
+  >
+    <Img
+      alt={props.logoAlt}
+      src={props.logoSrc}
       style={{
-        backgroundColor: theme.colorBackground,
-        padding: `${theme.spacingXl ?? "48px"} 0`,
+        display: "inline",
+        maxWidth: "100%",
+        verticalAlign: "middle",
+      }}
+      width={139}
+    />
+  </div>
+);
+
+const FeatureCopy = ({ props }: { props: ResolvedProps }) => (
+  <>
+    <h2
+      style={{
+        color: props.headingColor,
+        fontFamily,
+        fontSize: "20px",
+        fontWeight: 600,
+        lineHeight: "28px",
+        margin: 0,
       }}
     >
-      <Row>
-        {items.slice(0, 3).map((card, i) => (
-          <Column
-            key={card.heading + i}
+      {props.heading}
+    </h2>
+    <p
+      style={{
+        color: props.textColor,
+        fontFamily,
+        fontSize: "14px",
+        fontWeight: 300,
+        lineHeight: "20px",
+        margin: "12px 0 0",
+      }}
+    >
+      {props.body}
+    </p>
+    <div style={{ lineHeight: "12px" }}>&zwj;</div>
+    <div>
+      <a
+        href={props.buttonHref}
+        style={{
+          borderRadius: "8px",
+          color: props.linkColor,
+          display: "inline-block",
+          fontFamily,
+          fontSize: "14px",
+          fontWeight: 500,
+          lineHeight: "20px",
+          padding: 0,
+          textDecoration: "none",
+        }}
+      >
+        <span style={{ marginRight: "8px" }}>{props.buttonLabel}</span>
+        <span>
+          <Img
+            alt=""
+            src={props.arrowIconSrc}
             style={{
-              padding: theme.spacingBase ?? "24px",
-              verticalAlign: "top",
-              width: `${100 / Math.min(items.length, 3)}%`,
+              display: "inline",
+              maxWidth: "100%",
+              verticalAlign: "baseline",
+            }}
+            width={16}
+          />
+        </span>
+      </a>
+    </div>
+  </>
+);
+
+const ContentColumn = ({
+  logoAfter,
+  props,
+}: {
+  logoAfter: boolean;
+  props: ResolvedProps;
+}) => (
+  <td
+    className="feature-double-stack"
+    style={{ textAlign: "left", verticalAlign: "top", width: "204px" }}
+  >
+    {logoAfter ? null : (
+      <div style={{ marginBottom: "24px" }}>
+        <LogoPanel props={props} />
+      </div>
+    )}
+    <FeatureCopy props={props} />
+    {logoAfter ? (
+      <div style={{ marginTop: "24px" }}>
+        <LogoPanel props={props} />
+      </div>
+    ) : null}
+  </td>
+);
+
+const BackgroundCard = ({
+  imageSrc,
+  props,
+}: {
+  imageSrc: string;
+  props: ResolvedProps;
+}) => (
+  <td
+    className="feature-double-image-stack"
+    style={{
+      backgroundColor: props.imageBackgroundColor,
+      backgroundImage: `url('${imageSrc}')`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      borderRadius: "4px",
+      textAlign: "center",
+      width: "150px",
+    }}
+  >
+    <div style={{ lineHeight: "410px" }}>&zwj;</div>
+  </td>
+);
+
+const ImagesColumn = ({ props }: { props: ResolvedProps }) => (
+  <td
+    className="feature-double-stack"
+    style={{ verticalAlign: "top", width: "324px" }}
+  >
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <BackgroundCard imageSrc={props.imageSrc1} props={props} />
+          <td
+            className="feature-double-image-stack feature-double-image-gap"
+            style={{ width: "24px" }}
+          >
+            &zwj;
+          </td>
+          <BackgroundCard imageSrc={props.imageSrc2} props={props} />
+        </tr>
+      </tbody>
+    </table>
+  </td>
+);
+
+export const FeatureWithDoubleTallBackgroundImagesSection = (
+  props: SectionProps
+) => {
+  const variant = props.variant ?? "logo-top-left";
+  const contentRight = variant.endsWith("-right");
+  const logoAfter = variant.startsWith("logo-bottom-");
+  const resolved = {
+    ...defaults,
+    ...(contentRight
+      ? {
+          imageSrc2:
+            "https://assets.mailviews.com/images/components/feature/stripes-bg-3.jpg",
+        }
+      : {}),
+    ...props,
+  } as ResolvedProps;
+  const content = <ContentColumn logoAfter={logoAfter} props={resolved} />;
+  const images = <ImagesColumn props={resolved} />;
+
+  return (
+    <table
+      border={0}
+      cellPadding={0}
+      cellSpacing={0}
+      role="presentation"
+      style={{ backgroundColor: resolved.pageBackgroundColor }}
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td>&zwj;</td>
+          <td
+            style={{
+              backgroundColor: resolved.backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
             }}
           >
-            <Section
-              style={{
-                backgroundColor: theme.colorBackgroundMuted,
-                borderRadius: theme.borderRadius,
-                padding: theme.spacingBase ?? "24px",
-              }}
+            <table
+              border={0}
+              cellPadding={0}
+              cellSpacing={0}
+              role="presentation"
+              width="100%"
             >
-              <Row>
-                {card.imageSrc ? (
-                  <Img
-                    alt={card.imageAlt ?? card.heading}
-                    src={card.imageSrc}
-                    width={200}
-                    style={{
-                      borderRadius: theme.borderRadius,
-                      display: "block",
-                      margin: "0 auto",
-                      maxWidth: "100%",
-                      paddingBottom: theme.spacingBase ?? "24px",
-                    }}
-                  />
-                ) : null}
-                <Text
-                  style={{
-                    color: theme.colorText,
-                    fontFamily: theme.fontFamily,
-                    fontSize: theme.fontSizeLg ?? "16px",
-                    fontWeight: theme.fontWeightMedium,
-                    margin: 0,
-                    paddingBottom: theme.spacingBase ?? "16px",
-                  }}
-                >
-                  {card.heading}
-                </Text>
-                <Text
-                  style={{
-                    color: theme.colorTextMuted,
-                    fontFamily: theme.fontFamily,
-                    fontSize: theme.fontSizeBase ?? "14px",
-                    lineHeight: theme.lineHeightBase,
-                    margin: 0,
-                  }}
-                >
-                  {card.body}
-                </Text>
-              </Row>
-            </Section>
-          </Column>
-        ))}
-      </Row>
-    </Section>
+              <tbody>
+                <tr>
+                  <td style={{ padding: "0 24px" }}>
+                    <div style={{ lineHeight: "44px" }}>&zwj;</div>
+                    <table
+                      border={0}
+                      cellPadding={0}
+                      cellSpacing={0}
+                      role="presentation"
+                      width="100%"
+                    >
+                      <tbody>
+                        <tr>
+                          {contentRight ? images : content}
+                          <td
+                            className="feature-double-stack feature-double-gap"
+                            style={{ width: "24px" }}
+                          >
+                            &zwj;
+                          </td>
+                          {contentRight ? content : images}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>&zwj;</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
 export const FeatureWithDoubleTallBackgroundImages = ({
-  theme = defaultTheme,
-  cards = [
-    { body: "Description for feature 1.", heading: "Feature 1" },
-    { body: "Description for feature 2.", heading: "Feature 2" },
-    { body: "Description for feature 3.", heading: "Feature 3" },
-  ],
-  variant = "default",
-}: FeatureCardsProps) => (
+  pageBackgroundColor = "#f1f5f9",
+  theme: _theme = defaultTheme,
+  variant = "logo-top-left",
+  ...props
+}: FeatureWithDoubleTallBackgroundImagesProps) => (
   <Html>
-    <Head />
-    <Preview>feature cards</Preview>
+    <Head>
+      <DefaultFonts />
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+    </Head>
+    <Preview>Discover the Monarch Collection.</Preview>
     <Body
-      style={{
-        backgroundColor: theme.colorBackground,
-        color: theme.colorTextMuted,
-        fontFamily: theme.fontFamily,
-        fontSize: theme.fontSizeBase,
-        lineHeight: theme.lineHeightBase,
-        margin: 0,
-      }}
+      style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
     >
-      <Container style={{ maxWidth: theme.containerWidth }}>
-        <Section style={{ padding: "0" }}>
-          <FeatureCardsSection cards={cards} theme={theme} variant={variant} />
-        </Section>
+      <Container
+        style={{ margin: "0 auto", maxWidth: "600px", width: "600px" }}
+      >
+        <FeatureWithDoubleTallBackgroundImagesSection
+          {...props}
+          pageBackgroundColor={pageBackgroundColor}
+          variant={variant}
+        />
       </Container>
     </Body>
   </Html>
 );
 
 FeatureWithDoubleTallBackgroundImages.PreviewProps = {
-  cards: [
-    {
-      body: "Intuitive interface designed for teams of all sizes.",
-      heading: "Easy to Use",
-      imageSrc: "https://static.photos/technology/200x150/2",
-    },
-    {
-      body: "Seamlessly integrates with your existing tools.",
-      heading: "Integrations",
-      imageSrc: "https://static.photos/technology/200x150/3",
-    },
-    {
-      body: "Real-time analytics to track your performance.",
-      heading: "Analytics",
-      imageSrc: "https://static.photos/technology/200x150/4",
-    },
-  ],
   theme: defaultTheme,
-  variant: "default",
-} satisfies FeatureCardsProps;
+  variant: "logo-top-left",
+} satisfies FeatureWithDoubleTallBackgroundImagesProps;
