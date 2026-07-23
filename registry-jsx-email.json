@@ -3845,6 +3845,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/avatar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
@@ -3868,6 +3869,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/grouped-overlapped-avatars.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -3890,6 +3892,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/avatar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
@@ -4249,6 +4252,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4271,6 +4275,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4293,6 +4298,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4361,6 +4367,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4383,6 +4390,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4405,6 +4413,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4427,6 +4436,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4449,6 +4459,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4471,6 +4482,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4493,6 +4505,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4515,6 +4528,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4537,6 +4551,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },

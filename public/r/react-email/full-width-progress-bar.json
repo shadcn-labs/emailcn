@@ -7,6 +7,7 @@
     "react-email"
   ],
   "registryDependencies": [
+    "https://emailcn.vercel.app/r/react-email/progress-bar-shared.json",
     "https://emailcn.vercel.app/r/react-email/theme-default.json"
   ],
   "files": [

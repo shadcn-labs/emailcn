@@ -5,7 +5,7 @@
   "description": "Buttons Shared email component",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "files": [
     {

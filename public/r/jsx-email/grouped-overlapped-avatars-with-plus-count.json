@@ -7,6 +7,7 @@
     "jsx-email"
   ],
   "registryDependencies": [
+    "https://emailcn.vercel.app/r/jsx-email/grouped-overlapped-avatars.json",
     "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
   ],
   "files": [

@@ -5,10 +5,10 @@
   "description": "Twitch-style OTP verification code email",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+    "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
     "https://emailcn.vercel.app/r/mjml-react/theme-twitch.json"
   ],
   "files": [

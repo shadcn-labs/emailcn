@@ -5,11 +5,11 @@
   "description": "Apple-style receipt email",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/mjml-react/theme-apple.json",
-    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+    "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
+    "https://emailcn.vercel.app/r/mjml-react/theme-apple.json"
   ],
   "files": [
     {

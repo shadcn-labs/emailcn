@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-shared",
+  "title": "Feature Shared",
+  "description": "Feature Shared email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/feature/feature-shared.tsx",
+      "content": "import {\n  Mjml,\n  MjmlBody,\n  MjmlButton,\n  MjmlFont,\n  MjmlHead,\n  MjmlPreview,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\nimport type { ReactNode } from \"react\";\n\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nconst fontFamily =\n  'Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif';\n\nexport const FeatureEmailShell = ({\n  children,\n  pageBackgroundColor,\n  preview,\n  theme,\n}: {\n  children: ReactNode;\n  pageBackgroundColor: string;\n  preview: string;\n  theme: EmailThemeTokens;\n}) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>{preview}</MjmlPreview>\n      <MjmlFont href=\"https://rsms.me/inter/inter.css\" name=\"Inter\" />\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={pageBackgroundColor}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">{children}</MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nexport const FeatureCopy = ({\n  align = \"left\",\n  body,\n  buttonHref,\n  buttonLabel,\n  heading,\n  headingColor,\n  linkColor,\n  textColor,\n}: {\n  align?: \"center\" | \"left\" | \"right\";\n  body: string;\n  buttonHref: string;\n  buttonLabel: string;\n  heading: string;\n  headingColor: string;\n  linkColor: string;\n  textColor: string;\n}) => (\n  <>\n    {heading ? (\n      <MjmlText\n        align={align}\n        color={headingColor}\n        fontFamily={fontFamily}\n        fontSize=\"24px\"\n        fontWeight=\"600\"\n        lineHeight=\"32px\"\n        padding=\"0\"\n      >\n        {heading}\n      </MjmlText>\n    ) : null}\n    <MjmlText\n      align={align}\n      color={textColor}\n      fontFamily={fontFamily}\n      fontSize=\"16px\"\n      fontWeight=\"300\"\n      lineHeight=\"24px\"\n      padding={heading ? \"16px 0 0\" : \"0\"}\n    >\n      {body}\n    </MjmlText>\n    <MjmlButton\n      align={align}\n      backgroundColor=\"transparent\"\n      color={linkColor}\n      fontFamily={fontFamily}\n      fontSize=\"16px\"\n      fontWeight=\"500\"\n      href={buttonHref}\n      innerPadding=\"6px 0\"\n      padding=\"16px 0 0\"\n    >\n      {buttonLabel} →\n    </MjmlButton>\n  </>\n);\n",
+      "type": "registry:component",
+      "target": "components/email/feature-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

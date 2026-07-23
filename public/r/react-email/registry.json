@@ -3884,6 +3884,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/avatar-shared.json",
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
@@ -3907,6 +3908,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/grouped-overlapped-avatars.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -3929,6 +3931,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/avatar-shared.json",
         "https://emailcn.vercel.app/r/react-email/default-fonts.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
@@ -4287,6 +4290,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4309,6 +4313,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4331,6 +4336,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4397,6 +4403,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4419,6 +4426,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4441,6 +4449,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4463,6 +4472,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4485,6 +4495,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4507,6 +4518,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4529,6 +4541,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4551,6 +4564,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },
@@ -4573,6 +4587,7 @@
         "react-email"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/react-email/divider-shared.json",
         "https://emailcn.vercel.app/r/react-email/theme-default.json"
       ]
     },

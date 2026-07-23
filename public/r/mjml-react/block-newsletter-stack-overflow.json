@@ -5,10 +5,10 @@
   "description": "Stack Overflow-style newsletter with orange accent",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+    "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
     "https://emailcn.vercel.app/r/mjml-react/theme-stack-overflow.json"
   ],
   "files": [

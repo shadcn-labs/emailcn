@@ -5,9 +5,10 @@
   "description": "UI Elements progress-bars variant for email templates",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/progress-bar-shared.json",
     "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
   ],
   "files": [

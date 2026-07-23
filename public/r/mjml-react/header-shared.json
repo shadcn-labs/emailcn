@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-shared",
+  "title": "Header Shared",
+  "description": "Header Shared email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/headers/header-shared.tsx",
+      "content": "import {\n  Mjml,\n  MjmlBody,\n  MjmlFont,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\nimport type { ReactNode } from \"react\";\n\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nexport const HeaderEmailShell = ({\n  children,\n  pageBackgroundColor,\n  preview,\n  theme,\n}: {\n  children: ReactNode;\n  pageBackgroundColor: string;\n  preview: string;\n  theme: EmailThemeTokens;\n}) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>{preview}</MjmlPreview>\n      <MjmlFont href=\"https://rsms.me/inter/inter.css\" name=\"Inter\" />\n    </MjmlHead>\n    <MjmlBody\n      backgroundColor={pageBackgroundColor}\n      width={theme.containerWidth}\n    >\n      <MjmlWrapper padding=\"0\">{children}</MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nexport const HeaderLogo = ({\n  align = \"left\",\n  alt,\n  href,\n  src,\n}: {\n  align?: \"center\" | \"left\" | \"right\";\n  alt: string;\n  href: string;\n  src: string;\n}) => (\n  <MjmlImage\n    align={align}\n    alt={alt}\n    href={href}\n    padding=\"0\"\n    src={src}\n    width=\"55px\"\n  />\n);\n",
+      "type": "registry:component",
+      "target": "components/email/header-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

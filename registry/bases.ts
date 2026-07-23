@@ -16,7 +16,7 @@ export const BASES = [
   },
   {
     ...mjmlReactRegistryBase,
-    dependencies: ["@faire/mjml-react", "mjml-browser"],
+    dependencies: ["@faire/mjml-react", "mjml"],
     description:
       "Author MJML markup with React components (@faire/mjml-react) and compile to HTML.",
     meta: {

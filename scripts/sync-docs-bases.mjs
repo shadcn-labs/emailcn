@@ -29,7 +29,7 @@ const TARGETS = [
     base: "mjml-react",
     // The mjml/jsx demo for header-with-logo is registered under a legacy key.
     demoRenames: { "header-with-logo-demo": "header-logo-with-links-demo" },
-    dependency: "npm install @faire/mjml-react",
+    dependency: "npm install @faire/mjml-react mjml",
     title: "MJML React",
   },
   {

@@ -5,7 +5,7 @@
   "description": "Data Table With 4 Columns email component",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
     "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",

@@ -5,7 +5,7 @@
   "description": "Marketing testimonials variant for email templates",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
     "https://emailcn.vercel.app/r/mjml-react/theme-default.json"

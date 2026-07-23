@@ -253,7 +253,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -276,7 +276,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -299,7 +299,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -323,7 +323,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -347,7 +347,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -371,7 +371,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -395,7 +395,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -419,7 +419,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -443,7 +443,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -467,7 +467,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -487,7 +487,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -511,7 +511,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/order-summary-shared.json",
@@ -535,7 +535,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -555,7 +555,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/product-detail-shared.json",
@@ -579,7 +579,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/product-detail-shared.json",
@@ -603,7 +603,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/product-detail-shared.json",
@@ -627,7 +627,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/product-detail-shared.json",
@@ -651,7 +651,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/product-detail-shared.json",
@@ -675,7 +675,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -695,7 +695,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/product-list-with-rows-shared.json",
@@ -719,7 +719,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/reviews-shared.json",
@@ -743,7 +743,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/reviews-shared.json",
@@ -767,7 +767,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -787,7 +787,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/reviews-shared.json",
@@ -811,7 +811,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -831,7 +831,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/shopping-cart-shared.json",
@@ -1131,7 +1131,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1155,7 +1155,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1179,7 +1179,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1203,7 +1203,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1227,7 +1227,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1251,7 +1251,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1275,7 +1275,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1298,7 +1298,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1322,7 +1322,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1346,7 +1346,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1370,7 +1370,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1394,7 +1394,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1418,7 +1418,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1442,7 +1442,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/blog-shared.json",
@@ -1466,7 +1466,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1489,7 +1489,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1512,7 +1512,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1535,7 +1535,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1558,7 +1558,31 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Cta Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/cta/cta-shared.tsx",
+          "target": "components/email/cta-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "cta-shared",
+      "title": "Cta Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1581,9 +1605,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1604,9 +1629,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1627,9 +1653,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1650,9 +1677,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1673,9 +1701,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1696,9 +1725,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/cta-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1719,7 +1749,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1743,7 +1773,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1767,7 +1797,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1791,7 +1821,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1815,7 +1845,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1839,7 +1869,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1863,7 +1893,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/faq-shared.json",
@@ -1887,7 +1917,30 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Feature Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/feature/feature-shared.tsx",
+          "target": "components/email/feature-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "feature-shared",
+      "title": "Feature Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -1910,9 +1963,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/feature-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1933,9 +1987,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/feature-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1956,9 +2011,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/feature-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -1979,9 +2035,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/feature-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2002,9 +2059,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/feature-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2025,7 +2083,31 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Footer Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/footers/footer-shared.tsx",
+          "target": "components/email/footer-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "footer-shared",
+      "title": "Footer Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -2048,9 +2130,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2071,9 +2154,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2094,9 +2178,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2117,9 +2202,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2140,9 +2226,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2163,9 +2250,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2186,9 +2274,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2209,9 +2298,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2232,9 +2322,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2255,9 +2346,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2278,9 +2370,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2301,9 +2394,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2324,9 +2418,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2347,9 +2442,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2370,7 +2466,31 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Header Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/headers/header-shared.tsx",
+          "target": "components/email/header-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "header-shared",
+      "title": "Header Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -2393,9 +2513,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/header-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2416,9 +2537,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/header-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2439,9 +2561,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/header-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2462,9 +2585,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/header-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2485,9 +2609,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/header-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2508,9 +2633,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/header-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2531,9 +2657,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2554,9 +2681,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2577,9 +2705,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2600,7 +2729,31 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Hero Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/hero/hero-shared.tsx",
+          "target": "components/email/hero-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "hero-shared",
+      "title": "Hero Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -2623,9 +2776,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2646,7 +2800,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -2669,9 +2823,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2692,9 +2847,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2715,9 +2871,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2738,9 +2895,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2761,9 +2919,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2784,9 +2943,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/hero-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2807,9 +2967,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2830,7 +2991,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -2853,9 +3014,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2876,9 +3038,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2899,9 +3062,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2922,9 +3086,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2945,9 +3110,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2968,9 +3134,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/image-grid-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -2991,7 +3158,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3014,7 +3181,30 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Image Grid Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/images/image-grid-shared.tsx",
+          "target": "components/email/image-grid-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "image-grid-shared",
+      "title": "Image Grid Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3037,7 +3227,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3060,7 +3250,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3083,7 +3273,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3106,7 +3296,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3129,7 +3319,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3152,7 +3342,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3175,7 +3365,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3198,7 +3388,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3221,7 +3411,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3244,7 +3434,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3267,7 +3457,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3290,7 +3480,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3313,7 +3503,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3336,7 +3526,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3359,7 +3549,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3382,7 +3572,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3405,7 +3595,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3428,7 +3618,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3451,7 +3641,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3474,9 +3664,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/team-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3497,9 +3688,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/team-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3520,9 +3712,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/team-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3543,9 +3736,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/team-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3566,7 +3760,31 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/team-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Team Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/ui/marketing/team/team-shared.tsx",
+          "target": "components/email/team-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "team-shared",
+      "title": "Team Shared",
+      "type": "registry:component",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3589,7 +3807,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3612,7 +3830,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3635,7 +3853,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3658,7 +3876,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/changelog.json",
@@ -3682,7 +3900,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3705,7 +3923,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3728,7 +3946,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3751,7 +3969,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3774,7 +3992,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -3794,9 +4012,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/avatar-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3817,9 +4036,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/grouped-overlapped-avatars.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3840,9 +4060,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/avatar-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -3863,7 +4084,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -3883,7 +4104,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/buttons-shared.json",
@@ -3907,7 +4128,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -3927,7 +4148,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/container-shared.json",
@@ -3951,7 +4172,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -3975,7 +4196,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -3998,7 +4219,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -4022,7 +4243,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -4046,7 +4267,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -4070,7 +4291,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -4094,7 +4315,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -4118,7 +4339,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/data-table-shared.json",
@@ -4142,7 +4363,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -4165,7 +4386,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ]
     },
     {
@@ -4185,7 +4406,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/basic-pills-shared.json",
@@ -4209,9 +4430,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4232,9 +4454,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4255,9 +4478,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/progress-bar-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4278,7 +4502,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -4301,7 +4525,7 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -4324,9 +4548,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4347,9 +4572,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4370,9 +4596,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4393,9 +4620,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4416,9 +4644,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4439,9 +4668,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4462,9 +4692,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4485,9 +4716,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4508,9 +4740,10 @@
       "type": "registry:component",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/divider-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4531,7 +4764,7 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
@@ -4554,7 +4787,7 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
@@ -4578,7 +4811,7 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
@@ -4602,9 +4835,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4625,10 +4859,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-twitch.json"
       ]
     },
@@ -4649,9 +4883,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4672,10 +4907,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-dropbox.json"
       ]
     },
@@ -4696,11 +4931,34 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-notion.json"
+      ]
+    },
+    {
+      "categories": [
+        "email-component"
+      ],
+      "description": "Block Shared email component",
+      "files": [
+        {
+          "path": "registry/bases/mjml-react/blocks/block-shared.tsx",
+          "target": "components/email/block-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "name": "block-block-shared",
+      "title": "Block Shared",
+      "type": "registry:block",
+      "dependencies": [
+        "@faire/mjml-react",
+        "mjml"
+      ],
+      "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4720,9 +4978,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4743,10 +5002,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-vercel.json"
       ]
     },
@@ -4767,9 +5026,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4790,10 +5050,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-stack-overflow.json"
       ]
     },
@@ -4814,11 +5074,11 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json"
       ]
     },
     {
@@ -4838,9 +5098,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4861,10 +5122,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-linear.json"
       ]
     },
@@ -4885,10 +5146,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-slack.json"
       ]
     },
@@ -4909,9 +5170,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -4932,10 +5194,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-linear.json"
       ]
     },
@@ -4956,10 +5218,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-vercel.json"
       ]
     },
@@ -4980,11 +5242,11 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-apple.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
+        "https://emailcn.vercel.app/r/mjml-react/theme-apple.json"
       ]
     },
     {
@@ -5004,9 +5266,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
       ]
     },
@@ -5027,10 +5290,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-nike.json"
       ]
     },
@@ -5051,10 +5314,10 @@
       "type": "registry:block",
       "dependencies": [
         "@faire/mjml-react",
-        "mjml-browser"
+        "mjml"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
+        "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
         "https://emailcn.vercel.app/r/mjml-react/theme-stripe.json"
       ]
     }

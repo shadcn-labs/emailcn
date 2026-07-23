@@ -5,7 +5,7 @@
   "description": "Ecommerce product-lists variant for email templates",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
     "https://emailcn.vercel.app/r/mjml-react/product-list-with-rows-shared.json",

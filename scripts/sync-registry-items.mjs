@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus, no-nested-ternary, complexity, prefer-destructuring, no-inline-comments, unicorn/no-array-reduce */
 // Regenerates the per-style registry files (registry-<style>.json) from the
 // base file trees. The three styles (react-email, mjml-react, jsx-email)
 // share identical item names; the style only changes which registry file an
@@ -21,7 +20,7 @@ const BASES = [
     themeDeps: ["react-email"],
   },
   {
-    deps: ["@faire/mjml-react", "mjml-browser"],
+    deps: ["@faire/mjml-react", "mjml"],
     label: "MJML",
     name: "mjml-react",
     themeDeps: [],
@@ -62,18 +61,21 @@ const titleCase = (stem) =>
     .map((s) => (s ? s[0].toUpperCase() + s.slice(1) : s))
     .join(" ");
 
-const walk = (d) =>
-  fs.existsSync(d)
-    ? fs
-        .readdirSync(d, { withFileTypes: true })
-        .flatMap((e) =>
-          e.isDirectory()
-            ? walk(path.join(d, e.name))
-            : /\.(tsx|ts)$/.test(e.name)
-              ? [path.join(d, e.name)]
-              : []
-        )
-    : [];
+const walk = (directory) => {
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      return walk(entryPath);
+    }
+    if (/\.(tsx|ts)$/.test(entry.name)) {
+      return [entryPath];
+    }
+    return [];
+  });
+};
 
 /** file path within a base -> registry item name (identical across styles) */
 const itemNameFor = (relPath) => {
@@ -87,7 +89,8 @@ const itemNameFor = (relPath) => {
   if (relPath.startsWith("blocks/")) {
     return `block-${stem}`;
   }
-  return stem; // ui
+  // UI components retain their file stem.
+  return stem;
 };
 
 const targetFor = (relPath) => {
@@ -96,6 +99,18 @@ const targetFor = (relPath) => {
     return `components/email/theme-${stem}.ts`;
   }
   return `components/email/${path.basename(relPath)}`;
+};
+
+const resolveRelativeSource = (absPath, importPath) => {
+  const resolved = path.resolve(path.dirname(absPath), importPath);
+  const candidates = [
+    resolved,
+    `${resolved}.ts`,
+    `${resolved}.tsx`,
+    path.join(resolved, "index.ts"),
+    path.join(resolved, "index.tsx"),
+  ];
+  return candidates.find((candidate) => fs.existsSync(candidate));
 };
 
 const registryDepsFor = (base, absPath) => {
@@ -111,7 +126,72 @@ const registryDepsFor = (base, absPath) => {
       rel ?? `${m[1]}${m[1].startsWith("themes/") ? ".ts" : ".tsx"}`;
     deps.add(`${REGISTRY_URL}/${base.name}/${itemNameFor(relPath)}.json`);
   }
+
+  const baseDir = path.join(ROOT, "registry/bases", base.name);
+  const relativeImportRe = /(?:from\s+|import\s+)["'](\.{1,2}\/[\w./-]+)["']/g;
+  for (const match of src.matchAll(relativeImportRe)) {
+    const dependencyPath = resolveRelativeSource(absPath, match[1]);
+    if (!dependencyPath || dependencyPath === absPath) {
+      continue;
+    }
+    const relPath = path.relative(baseDir, dependencyPath);
+    if (relPath.startsWith("..")) {
+      continue;
+    }
+    deps.add(
+      `${REGISTRY_URL}/${base.name}/${itemNameFor(relPath.split(path.sep).join("/"))}.json`
+    );
+  }
+
   return [...deps].toSorted();
+};
+
+const kindFor = (relPath) => {
+  if (relPath.startsWith("themes/")) {
+    return "theme";
+  }
+  if (relPath.startsWith("fonts/")) {
+    return "font";
+  }
+  if (relPath.startsWith("blocks/")) {
+    return "block";
+  }
+  return "component";
+};
+
+const registryTypeFor = (kind) => {
+  if (kind === "block") {
+    return "registry:block";
+  }
+  if (kind === "theme" || kind === "font") {
+    return "registry:file";
+  }
+  return "registry:component";
+};
+
+const categoriesFor = (kind) => {
+  if (kind === "theme") {
+    return ["theme"];
+  }
+  if (kind === "font") {
+    return ["email-font"];
+  }
+  return ["email-component"];
+};
+
+const metadataFor = (base, kind, stem, existing, reCounterpart) => {
+  let title = existing?.title ?? reCounterpart?.title;
+  let description = existing?.description ?? reCounterpart?.description;
+  if (kind === "theme") {
+    title = `${titleCase(stem)} Email Theme (${base.label})`;
+    description = `${titleCase(stem)} email theme tokens for ${base.label} templates`;
+  } else if (!title) {
+    title = titleCase(stem);
+    description = `${titleCase(stem)} email component`;
+  } else if (kind === "font" && base.name !== "react-email") {
+    description = (description ?? "").replace("React Email", base.label);
+  }
+  return { description, title };
 };
 
 const buildItem = (base, relPath) => {
@@ -122,36 +202,19 @@ const buildItem = (base, relPath) => {
     `registry/bases/react-email/${relPath}`
   );
   const stem = path.basename(relPath).replace(/\.(tsx|ts)$/, "");
-
-  const isTheme = relPath.startsWith("themes/");
-  const isFont = relPath.startsWith("fonts/");
-  const isBlock = relPath.startsWith("blocks/");
-
-  let title = existing?.title ?? reCounterpart?.title;
-  let description = existing?.description ?? reCounterpart?.description;
-  if (isTheme) {
-    // per-style flavor in theme titles/descriptions
-    title = `${titleCase(stem)} Email Theme (${base.label})`;
-    description = `${titleCase(stem)} email theme tokens for ${base.label} templates`;
-  } else if (!title) {
-    title = titleCase(stem);
-    description = `${titleCase(stem)} email component`;
-  } else if (isFont && base.name !== "react-email") {
-    description = (description ?? "").replace("React Email", base.label);
-  }
-
+  const kind = kindFor(relPath);
+  const { description, title } = metadataFor(
+    base,
+    kind,
+    stem,
+    existing,
+    reCounterpart
+  );
   const categories =
-    existing?.categories ??
-    reCounterpart?.categories ??
-    (isTheme ? ["theme"] : isFont ? ["email-font"] : ["email-component"]);
-
-  const type = isBlock
-    ? "registry:block"
-    : isTheme || isFont
-      ? "registry:file"
-      : "registry:component";
-
-  const fileType = isTheme || isFont ? "registry:file" : "registry:component";
+    existing?.categories ?? reCounterpart?.categories ?? categoriesFor(kind);
+  const type = registryTypeFor(kind);
+  const fileType =
+    kind === "theme" || kind === "font" ? type : "registry:component";
 
   const item = {
     categories,
@@ -168,7 +231,7 @@ const buildItem = (base, relPath) => {
     type,
   };
 
-  const deps = isTheme ? base.themeDeps : base.deps;
+  const deps = kind === "theme" ? base.themeDeps : base.deps;
   if (deps.length > 0) {
     item.dependencies = deps;
   }

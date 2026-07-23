@@ -5,7 +5,7 @@
   "description": "Ecommerce reviews variant for email templates",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
     "https://emailcn.vercel.app/r/mjml-react/reviews-shared.json",

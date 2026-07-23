@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "team-shared",
+  "title": "Team Shared",
+  "description": "Team Shared email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/marketing/team/team-shared.tsx",
+      "content": "import {\n  Mjml,\n  MjmlBody,\n  MjmlFont,\n  MjmlHead,\n  MjmlImage,\n  MjmlPreview,\n  MjmlSocial,\n  MjmlSocialElement,\n  MjmlText,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\nimport type { ReactNode } from \"react\";\n\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\nconst fontFamily =\n  'Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif';\n\nexport const TeamEmailShell = ({\n  children,\n  theme,\n}: {\n  children: ReactNode;\n  theme: EmailThemeTokens;\n}) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>Meet the team</MjmlPreview>\n      <MjmlFont href=\"https://rsms.me/inter/inter.css\" name=\"Inter\" />\n    </MjmlHead>\n    <MjmlBody backgroundColor=\"#f1f5f9\" width={theme.containerWidth}>\n      <MjmlWrapper padding=\"0\">{children}</MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nexport const TeamMemberContent = ({\n  accent,\n  avatarAlt,\n  avatarSrc,\n  bio,\n  email,\n  imageWidth = 264,\n  imageAfter = false,\n  name,\n  role,\n  rounded = false,\n}: {\n  accent: boolean;\n  avatarAlt: string;\n  avatarSrc: string;\n  bio?: string;\n  email?: string;\n  imageWidth?: number;\n  imageAfter?: boolean;\n  name: string;\n  role: string;\n  rounded?: boolean;\n}) => {\n  const image = (\n    <MjmlImage\n      align=\"center\"\n      alt={avatarAlt}\n      borderRadius={rounded ? \"9999px\" : \"8px\"}\n      padding=\"0\"\n      src={avatarSrc}\n      width={`${imageWidth}px`}\n    />\n  );\n\n  return (\n    <>\n      {imageAfter ? null : image}\n      <MjmlText\n        align={rounded ? \"center\" : \"left\"}\n        color={accent ? \"#fffffe\" : \"#030712\"}\n        fontFamily={fontFamily}\n        fontSize=\"16px\"\n        fontWeight=\"600\"\n        lineHeight=\"24px\"\n        padding=\"16px 0 0\"\n      >\n        {name}\n      </MjmlText>\n      <MjmlText\n        align={rounded ? \"center\" : \"left\"}\n        color={accent ? \"#d1d5db\" : \"#4b5563\"}\n        fontFamily={fontFamily}\n        fontSize=\"14px\"\n        lineHeight=\"20px\"\n        padding=\"0\"\n      >\n        {role}\n      </MjmlText>\n      {bio ? (\n        <MjmlText\n          align={rounded ? \"center\" : \"left\"}\n          color={accent ? \"#9ca3af\" : \"#4b5563\"}\n          fontFamily={fontFamily}\n          fontSize=\"16px\"\n          lineHeight=\"24px\"\n          padding=\"16px 0 0\"\n        >\n          {bio}\n        </MjmlText>\n      ) : null}\n      {email ? (\n        <MjmlText\n          align={rounded ? \"center\" : \"left\"}\n          color={accent ? \"#a5b4fc\" : \"#4f46e5\"}\n          fontFamily={fontFamily}\n          fontSize=\"14px\"\n          fontWeight=\"500\"\n          lineHeight=\"20px\"\n          padding=\"16px 0 0\"\n        >\n          {email}\n        </MjmlText>\n      ) : null}\n      <MjmlSocial\n        align={rounded ? \"center\" : \"left\"}\n        iconSize=\"16px\"\n        padding=\"16px 0 0\"\n      >\n        {[\"facebook\", \"x\", \"linkedin\"].map((network) => (\n          <MjmlSocialElement\n            href={`https://${network}.com`}\n            key={network}\n            name={network}\n          />\n        ))}\n      </MjmlSocial>\n      {imageAfter ? image : null}\n    </>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/email/team-shared.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

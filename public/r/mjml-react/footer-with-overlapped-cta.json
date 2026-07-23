@@ -5,9 +5,10 @@
   "description": "Seven overlapped-CTA footer families consolidated into layout variants",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/footer-shared.json",
     "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
   ],
   "files": [

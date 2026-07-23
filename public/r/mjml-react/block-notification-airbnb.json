@@ -5,11 +5,11 @@
   "description": "Airbnb review request notification",
   "dependencies": [
     "@faire/mjml-react",
-    "mjml-browser"
+    "mjml"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json",
-    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+    "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
+    "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json"
   ],
   "files": [
     {
