@@ -3,7 +3,6 @@ import Link from "next/link";
 import { isComponentsFolder } from "@/lib/docs";
 import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
 import {
-  childFolders,
   findChildFolder,
   getFolderEntries,
   getFolderPages,
@@ -46,42 +45,18 @@ const ComponentGrid = ({
   </div>
 );
 
-const CategoryGrid = ({
-  className,
-  categories,
-}: {
-  className?: string;
-  categories: PageTreeFolder[];
-}) => (
-  <div className={cn("flex flex-col gap-10", className)}>
-    {categories.map((cat) => {
-      const pages = getFolderEntries(cat);
-      if (pages.length === 0) {
-        return null;
-      }
-
-      return (
-        <div key={cat.$id}>
-          <h3 className="font-heading mb-4 text-lg font-medium tracking-tight">
-            {cat.name}
-          </h3>
-          <ComponentGrid pages={pages} />
-        </div>
-      );
-    })}
-  </div>
-);
-
 export const ComponentsList = ({
   folderName = "Components",
   category,
   subcategory,
+  directOnly = false,
   base = DEFAULT_BASE,
   className,
 }: {
   folderName?: string;
   category?: string;
   subcategory?: string;
+  directOnly?: boolean;
   base?: string;
   className?: string;
 }) => {
@@ -99,33 +74,38 @@ export const ComponentsList = ({
     return <ComponentGrid className={className} pages={fallback} />;
   }
 
+  if (!category) {
+    return null;
+  }
+
   const baseFolder = findChildFolder(folder, base);
-  if (!baseFolder) {
+  const categoryFolder = baseFolder
+    ? findChildFolder(baseFolder, category)
+    : undefined;
+  if (!categoryFolder) {
     return null;
   }
 
-  if (category) {
-    const categoryFolder = findChildFolder(baseFolder, category);
-    if (!categoryFolder) {
-      return null;
-    }
-
-    const target = subcategory
-      ? findChildFolder(categoryFolder, subcategory)
-      : categoryFolder;
-    if (!target) {
-      return null;
-    }
-
-    return (
-      <ComponentGrid className={className} pages={getFolderEntries(target)} />
+  if (directOnly) {
+    const pages = categoryFolder.children.filter(
+      (child): child is PageTreePage => child.type === "page"
     );
+    return <ComponentGrid className={className} pages={pages} />;
   }
 
-  const categories = childFolders(baseFolder);
-  if (categories.length === 0) {
+  if (!subcategory) {
     return null;
   }
 
-  return <CategoryGrid className={className} categories={categories} />;
+  const subcategoryFolder = findChildFolder(categoryFolder, subcategory);
+  if (!subcategoryFolder) {
+    return null;
+  }
+
+  return (
+    <ComponentGrid
+      className={className}
+      pages={getFolderEntries(subcategoryFolder)}
+    />
+  );
 };
