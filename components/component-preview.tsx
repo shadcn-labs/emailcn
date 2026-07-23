@@ -10,6 +10,7 @@ import type { ComponentType } from "react";
 import { ComponentPreviewClient } from "@/components/component-preview-client";
 import { ComponentSource } from "@/components/component-source";
 import { demos } from "@/examples/__index__";
+import { getEmailHtmlForColorMode } from "@/lib/email-color-mode";
 import type { BaseName } from "@/registry/bases";
 
 interface ComponentPreviewProps {
@@ -38,6 +39,7 @@ export const ComponentPreview = async ({
   const Demo = demos[base][name];
 
   let html = "";
+  let darkHtml = "";
   let plainText: string | null = null;
 
   try {
@@ -65,11 +67,14 @@ export const ComponentPreview = async ({
       });
       ({ html } = result);
     }
+    darkHtml = getEmailHtmlForColorMode(html, "dark");
+    html = getEmailHtmlForColorMode(html, "light");
   } catch (error) {
     html = `<div style="padding: 40px; text-align: center; color: #666;">
       <p>Preview unavailable</p>
       <pre style="font-size: 12px; color: #999;">${error instanceof Error ? error.message : "Unknown error"}</pre>
     </div>`;
+    darkHtml = html;
   }
 
   const sourceName = name.replace(/-demo$/, "");
@@ -78,6 +83,7 @@ export const ComponentPreview = async ({
     <>
       <ComponentPreviewClient
         className={className}
+        darkHtml={darkHtml}
         height={height}
         hideNav={hideNav}
         html={html}

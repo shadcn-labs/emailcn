@@ -1,6 +1,7 @@
 "use client";
 
 import { DownloadIcon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -73,6 +74,7 @@ const CodeTab = ({
 };
 
 interface ComponentPreviewClientProps {
+  darkHtml: string;
   html: string;
   plainText: string | null;
   title?: string;
@@ -82,6 +84,7 @@ interface ComponentPreviewClientProps {
 }
 
 export const ComponentPreviewClient = ({
+  darkHtml,
   html,
   plainText,
   title,
@@ -90,6 +93,9 @@ export const ComponentPreviewClient = ({
   height = 640,
 }: ComponentPreviewClientProps) => {
   const [activeTab, setActiveTab] = useState("preview");
+  const { resolvedTheme } = useTheme();
+  const colorMode = resolvedTheme === "dark" ? "dark" : "light";
+  const resolvedHtml = colorMode === "dark" ? darkHtml : html;
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
@@ -104,7 +110,7 @@ export const ComponentPreviewClient = ({
               <TabsTrigger className="h-6 px-2.5 text-xs" value="preview">
                 Preview
               </TabsTrigger>
-              {html ? (
+              {resolvedHtml ? (
                 <TabsTrigger className="h-6 px-2.5 text-xs" value="html">
                   HTML
                 </TabsTrigger>
@@ -119,14 +125,16 @@ export const ComponentPreviewClient = ({
         )}
         <TabsContent className="m-0 rounded-xl border bg-card" value="preview">
           <iframe
-            className="w-full bg-white rounded-xl"
+            className="bg-background w-full rounded-xl"
             height={height}
             sandbox=""
-            srcDoc={html}
+            srcDoc={resolvedHtml}
             title={title}
           />
         </TabsContent>
-        {html ? <CodeTab language="html" code={html} value="html" /> : null}
+        {resolvedHtml ? (
+          <CodeTab language="html" code={resolvedHtml} value="html" />
+        ) : null}
         {plainText ? (
           <CodeTab language="text" code={plainText} value="text" />
         ) : null}
