@@ -1,4 +1,5 @@
 import { BentoStatsGrid } from "@/registry/bases/mjml-react/components/marketing/bento-grids/bento-stats-grid";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function BentoStatsGridDemo() {
   return (
@@ -6,6 +7,7 @@ export default function BentoStatsGridDemo() {
       variant="even-split"
       style="chart"
       placement="image-top-right"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

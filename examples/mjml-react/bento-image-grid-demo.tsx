@@ -1,4 +1,5 @@
 import { BentoImageGrid } from "@/registry/bases/mjml-react/components/marketing/bento-grids/bento-image-grid";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function BentoImageGridDemo() {
   return (
@@ -6,6 +7,7 @@ export default function BentoImageGridDemo() {
       variant="alternating"
       style="captions"
       placement="captions-top"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

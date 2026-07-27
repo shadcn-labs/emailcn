@@ -1,5 +1,12 @@
 import { HeaderWithLogo } from "@/registry/bases/jsx-email/components/marketing/headers/header-with-logo";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function HeaderWithLogoDemo() {
-  return <HeaderWithLogo alignment="left" variant="minimal" />;
+  return (
+    <HeaderWithLogo
+      alignment="left"
+      variant="minimal"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
+    />
+  );
 }

@@ -1,5 +1,12 @@
 import { CallToAction } from "@/registry/bases/react-email/components/marketing/cta/call-to-action";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function CallToActionDemo() {
-  return <CallToAction />;
+  return (
+    <CallToAction
+      description="A focused launch message paired with one clear next step."
+      heading="Turn product updates into momentum"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
+    />
+  );
 }

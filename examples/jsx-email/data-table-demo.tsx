@@ -1,4 +1,5 @@
 import { DataTable } from "@/registry/bases/jsx-email/components/ui-elements/data-tables/data-table";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function DataTableDemo() {
   return (
@@ -11,6 +12,7 @@ export default function DataTableDemo() {
         { name: "Ada", status: "Active" },
         { name: "Linus", status: "Pending" },
       ]}
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

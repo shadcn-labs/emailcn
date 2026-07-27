@@ -1,4 +1,5 @@
 import { NavigationFooter } from "@/registry/bases/mjml-react/components/marketing/footers/navigation-footer";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function NavigationFooterDemo() {
   return (
@@ -6,7 +7,7 @@ export default function NavigationFooterDemo() {
       columns={2}
       alignment="left"
       logoPosition="left"
-      divider={false}
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

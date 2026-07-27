@@ -1,4 +1,5 @@
 import { Testimonial } from "@/registry/bases/jsx-email/components/marketing/testimonials/testimonial";
+import { defaultTheme } from "@/registry/themes/default";
 
 export default function TestimonialDemo() {
   return (
@@ -6,7 +7,7 @@ export default function TestimonialDemo() {
       layout="full-width"
       alignment="left"
       appearance="plain"
-      avatarTreatment="inline"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }
