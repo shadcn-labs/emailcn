@@ -77,13 +77,13 @@ import { Faq } from "@/components/email/faq";
 
 ## API Reference
 
-| Prop             | Type                                             | Default           | Description                                |
-| ---------------- | ------------------------------------------------ | ----------------- | ------------------------------------------ |
-| `theme`          | `Parameters<typeof __BoxedNumbered>[0]["theme"]` | Component default | Renderer theme configuration.              |
-| `heading`        | `string`                                         | Component default | Configures the component's heading.        |
-| `items`          | `FaqItem[]`                                      | Component default | Configures the component's items.          |
-| `layout`         | `"boxed" \| "collapsed" \| "expanded"`           | Component default | Configures the component's layout.         |
-| `marker`         | `"none" \| "number" \| "icon"`                   | Component default | Configures the component's marker.         |
-| `alternating`    | `boolean`                                        | Component default | Configures the component's alternating.    |
-| `answerPosition` | `"stacked" \| "offset"`                          | Component default | Configures the component's answerposition. |
-| `action`         | `FaqAction`                                      | Component default | Configures the component's action.         |
+| Prop             | Type                                                                                 | Default                        | Description                                |
+| ---------------- | ------------------------------------------------------------------------------------ | ------------------------------ | ------------------------------------------ |
+| `theme`          | `EmailThemeTokens`                                                                   | `defaultTheme`                 | Renderer theme configuration.              |
+| `heading`        | `string`                                                                             | `"Frequently asked questions"` | Configures the component's heading.        |
+| `items`          | `Array<{ question: string; answer?: string; icon?: { alt?: string; src: string } }>` | -                              | Configures the component's items.          |
+| `layout`         | `"boxed" \| "collapsed" \| "expanded"`                                               | `"boxed"`                      | Configures the component's layout.         |
+| `marker`         | `"number" \| "none" \| "icon"`                                                       | `"number"`                     | Configures the component's marker.         |
+| `alternating`    | `boolean`                                                                            | `false`                        | Configures the component's alternating.    |
+| `answerPosition` | `"stacked" \| "offset"`                                                              | `"stacked"`                    | Configures the component's answerposition. |
+| `action`         | `{ href: string; label: string; text?: string }`                                     | -                              | Configures the component's action.         |

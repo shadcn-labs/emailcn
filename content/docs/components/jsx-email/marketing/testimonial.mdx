@@ -76,17 +76,21 @@ import { Testimonial } from "@/components/email/testimonial";
   name="testimonial-centered-cta-example-demo"
 />
 
+### Split
+
+<ComponentPreview base="jsx-email" name="testimonial-split-example-demo" />
+
 ## API Reference
 
-| Prop              | Type                                                    | Default           | Description                                 |
-| ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __FullWidthTestimonial>[0]["theme"]` | Component default | Renderer theme configuration.               |
-| `quote`           | `string`                                                | Component default | Configures the component's quote.           |
-| `author`          | `string`                                                | Component default | Configures the component's author.          |
-| `role`            | `string`                                                | Component default | Configures the component's role.            |
-| `company`         | `string`                                                | Component default | Configures the component's company.         |
-| `avatar`          | `{ src: string; alt?: string }`                         | Component default | Configures the component's avatar.          |
-| `logo`            | `{ src: string; alt?: string }`                         | Component default | Configures the component's logo.            |
-| `layout`          | `"full-width" \| "centered" \| "split"`                 | Component default | Configures the component's layout.          |
-| `avatarTreatment` | `"inline" \| "overlapping"`                             | Component default | Configures the component's avatartreatment. |
-| `action`          | `{ href: string; label: string }`                       | Component default | Configures the component's action.          |
+| Prop              | Type                                    | Default                                                                                                                             | Description                                 |
+| ----------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`                      | `defaultTheme`                                                                                                                      | Renderer theme configuration.               |
+| `quote`           | `string`                                | `"“After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.”"` | Configures the component's quote.           |
+| `author`          | `string`                                | -                                                                                                                                   | Configures the component's author.          |
+| `role`            | `string`                                | -                                                                                                                                   | Configures the component's role.            |
+| `company`         | `string`                                | `"Monarch"`                                                                                                                         | Configures the component's company.         |
+| `avatar`          | `{ src: string; alt?: string }`         | -                                                                                                                                   | Configures the component's avatar.          |
+| `logo`            | `{ src: string; alt?: string }`         | -                                                                                                                                   | Configures the component's logo.            |
+| `layout`          | `"full-width" \| "centered" \| "split"` | `"full-width"`                                                                                                                      | Configures the component's layout.          |
+| `avatarTreatment` | `"inline" \| "overlapping"`             | `"inline"`                                                                                                                          | Configures the component's avatartreatment. |
+| `action`          | `{ href: string; label: string }`       | -                                                                                                                                   | Configures the component's action.          |

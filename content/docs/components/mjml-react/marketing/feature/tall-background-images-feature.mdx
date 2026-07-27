@@ -76,13 +76,13 @@ import { TallBackgroundImagesFeature } from "@/components/email/tall-background-
 
 ## API Reference
 
-| Prop           | Type                                                             | Default           | Description                              |
-| -------------- | ---------------------------------------------------------------- | ----------------- | ---------------------------------------- |
-| `theme`        | `Parameters<typeof __TallFeatureSplit>[0]["theme"]`              | Component default | Renderer theme configuration.            |
-| `heading`      | `string`                                                         | Component default | Configures the component's heading.      |
-| `body`         | `string`                                                         | Component default | Configures the component's body.         |
-| `images`       | `[{ src: string; alt?: string }, { src: string; alt?: string }]` | Component default | Configures the component's images.       |
-| `logo`         | `{ src: string; alt?: string }`                                  | Component default | Configures the component's logo.         |
-| `action`       | `{ href: string; label: string; iconSrc?: string }`              | Component default | Configures the component's action.       |
-| `logoPosition` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"`   | Component default | Configures the component's logoposition. |
-| `titleWidth`   | `"split" \| "full"`                                              | Component default | Configures the component's titlewidth.   |
+| Prop           | Type                                                             | Default        | Description                              |
+| -------------- | ---------------------------------------------------------------- | -------------- | ---------------------------------------- |
+| `theme`        | `EmailThemeTokens`                                               | `defaultTheme` | Renderer theme configuration.            |
+| `heading`      | `string`                                                         | -              | Configures the component's heading.      |
+| `body`         | `string`                                                         | -              | Configures the component's body.         |
+| `images`       | `[{ src: string; alt?: string }, { src: string; alt?: string }]` | -              | Configures the component's images.       |
+| `logo`         | `{ src: string; alt?: string }`                                  | -              | Configures the component's logo.         |
+| `action`       | `{ href: string; label: string; iconSrc?: string }`              | -              | Configures the component's action.       |
+| `logoPosition` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"`   | `"top-left"`   | Configures the component's logoposition. |
+| `titleWidth`   | `"split" \| "full"`                                              | `"split"`      | Configures the component's titlewidth.   |

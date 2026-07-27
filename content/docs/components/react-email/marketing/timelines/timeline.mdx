@@ -79,11 +79,11 @@ import { Timeline } from "@/components/email/timeline";
 
 ## API Reference
 
-| Prop         | Type                                         | Default           | Description                            |
-| ------------ | -------------------------------------------- | ----------------- | -------------------------------------- |
-| `theme`      | `Parameters<typeof __Changelog>[0]["theme"]` | Component default | Renderer theme configuration.          |
-| `items`      | `TimelineItem[]`                             | Component default | Configures the component's items.      |
-| `layout`     | `"line" \| "boxed" \| "cards" \| "split"`    | Component default | Configures the component's layout.     |
-| `alignment`  | `"left" \| "right"`                          | Component default | Configures the component's alignment.  |
-| `appearance` | `"muted" \| "basic" \| "accent"`             | Component default | Configures the component's appearance. |
-| `reverse`    | `boolean`                                    | Component default | Configures the component's reverse.    |
+| Prop         | Type                                                                                                                                                                                                             | Default        | Description                            |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------------- |
+| `theme`      | `TailwindConfig`                                                                                                                                                                                                 | `defaultTheme` | Renderer theme configuration.          |
+| `items`      | `Array<{ index?: string; label?: string; date?: string; version?: string; category?: string; badge?: string; title: string; description?: string; image?: { src: string; alt?: string }; completed?: boolean }>` | -              | Configures the component's items.      |
+| `layout`     | `"line" \| "boxed" \| "cards" \| "split"`                                                                                                                                                                        | `"line"`       | Configures the component's layout.     |
+| `alignment`  | `"left" \| "right"`                                                                                                                                                                                              | `"left"`       | Configures the component's alignment.  |
+| `appearance` | `"muted" \| "basic" \| "accent"`                                                                                                                                                                                 | `"basic"`      | Configures the component's appearance. |
+| `reverse`    | `boolean`                                                                                                                                                                                                        | `false`        | Configures the component's reverse.    |

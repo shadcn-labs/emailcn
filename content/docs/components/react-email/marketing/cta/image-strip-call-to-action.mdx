@@ -78,12 +78,12 @@ import { ImageStripCallToAction } from "@/components/email/image-strip-call-to-a
 
 ## API Reference
 
-| Prop          | Type                                   | Default           | Description                             |
-| ------------- | -------------------------------------- | ----------------- | --------------------------------------- |
-| `theme`       | `Parameters<typeof __Cta>[0]["theme"]` | Component default | Renderer theme configuration.           |
-| `heading`     | `string`                               | Component default | Configures the component's heading.     |
-| `description` | `string`                               | Component default | Configures the component's description. |
-| `action`      | `{ href: string; label: string }`      | Component default | Configures the component's action.      |
-| `images`      | `Array<{ src: string; alt?: string }>` | Component default | Configures the component's images.      |
-| `placement`   | `"left" \| "right"`                    | Component default | Configures the component's placement.   |
-| `width`       | `"boxed" \| "full"`                    | Component default | Configures the component's width.       |
+| Prop          | Type                                   | Default                | Description                             |
+| ------------- | -------------------------------------- | ---------------------- | --------------------------------------- |
+| `theme`       | `TailwindConfig`                       | `defaultTheme`         | Renderer theme configuration.           |
+| `heading`     | `string`                               | `"Join the Adventure"` | Configures the component's heading.     |
+| `description` | `string`                               | -                      | Configures the component's description. |
+| `action`      | `{ href: string; label: string }`      | -                      | Configures the component's action.      |
+| `images`      | `Array<{ src: string; alt?: string }>` | -                      | Configures the component's images.      |
+| `placement`   | `"left" \| "right"`                    | `"right"`              | Configures the component's placement.   |
+| `width`       | `"boxed" \| "full"`                    | `"boxed"`              | Configures the component's width.       |

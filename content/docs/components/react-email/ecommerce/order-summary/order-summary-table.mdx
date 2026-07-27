@@ -78,11 +78,11 @@ import { OrderSummaryTable } from "@/components/email/order-summary-table";
 
 ## API Reference
 
-| Prop            | Type                                              | Default           | Description                                     |
-| --------------- | ------------------------------------------------- | ----------------- | ----------------------------------------------- |
-| `theme`         | `Parameters<typeof __BorderedBottom>[0]["theme"]` | Component default | Renderer theme configuration.                   |
-| `alignment`     | `"left" \| "center" \| "right" \| "justified"`    | `"left"`          | Aligns the order-summary values.                |
-| `appearance`    | `"bordered" \| "boxed"`                           | `"bordered"`      | Selects the bordered or boxed presentation.     |
-| `filled`        | `boolean`                                         | `false`           | Uses the filled table treatment when supported. |
-| `totalPosition` | `"top" \| "bottom"`                               | `"bottom"`        | Places the order total above or below rows.     |
-| `cardDetails`   | `boolean`                                         | `false`           | Shows the card-details treatment.               |
+| Prop            | Type                                           | Default        | Description                                     |
+| --------------- | ---------------------------------------------- | -------------- | ----------------------------------------------- |
+| `theme`         | `TailwindConfig`                               | `defaultTheme` | Renderer theme configuration.                   |
+| `alignment`     | `"left" \| "center" \| "right" \| "justified"` | `"left"`       | Aligns the order-summary values.                |
+| `appearance`    | `"bordered" \| "boxed"`                        | `"bordered"`   | Selects the bordered or boxed presentation.     |
+| `filled`        | `boolean`                                      | `false`        | Uses the filled table treatment when supported. |
+| `totalPosition` | `"top" \| "bottom"`                            | `"bottom"`     | Places the order total above or below rows.     |
+| `cardDetails`   | `boolean`                                      | `false`        | Shows the card-details treatment.               |

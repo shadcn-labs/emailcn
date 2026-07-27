@@ -78,14 +78,14 @@ import { PortraitFeature } from "@/components/email/portrait-feature";
 
 ## API Reference
 
-| Prop              | Type                                                | Default           | Description                                 |
-| ----------------- | --------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __Feature>[0]["theme"]`          | Component default | Renderer theme configuration.               |
-| `heading`         | `string`                                            | Component default | Configures the component's heading.         |
-| `body`            | `string`                                            | Component default | Configures the component's body.            |
-| `primaryImage`    | `{ src: string; alt?: string }`                     | Component default | Configures the component's primaryimage.    |
-| `secondaryImage`  | `{ src: string; alt?: string }`                     | Component default | Configures the component's secondaryimage.  |
-| `logo`            | `{ src: string; alt?: string }`                     | Component default | Configures the component's logo.            |
-| `action`          | `{ href: string; label: string; iconSrc?: string }` | Component default | Configures the component's action.          |
-| `placement`       | `"left" \| "right"`                                 | Component default | Configures the component's placement.       |
-| `contentPosition` | `"top" \| "bottom"`                                 | Component default | Configures the component's contentposition. |
+| Prop              | Type                                                | Default        | Description                                 |
+| ----------------- | --------------------------------------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`                                  | `defaultTheme` | Renderer theme configuration.               |
+| `heading`         | `string`                                            | -              | Configures the component's heading.         |
+| `body`            | `string`                                            | -              | Configures the component's body.            |
+| `primaryImage`    | `{ src: string; alt?: string }`                     | -              | Configures the component's primaryimage.    |
+| `secondaryImage`  | `{ src: string; alt?: string }`                     | -              | Configures the component's secondaryimage.  |
+| `logo`            | `{ src: string; alt?: string }`                     | -              | Configures the component's logo.            |
+| `action`          | `{ href: string; label: string; iconSrc?: string }` | -              | Configures the component's action.          |
+| `placement`       | `"left" \| "right"`                                 | `"right"`      | Configures the component's placement.       |
+| `contentPosition` | `"top" \| "bottom"`                                 | -              | Configures the component's contentposition. |

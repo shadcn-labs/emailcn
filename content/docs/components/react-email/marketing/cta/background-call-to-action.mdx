@@ -78,14 +78,14 @@ import { BackgroundCallToAction } from "@/components/email/background-call-to-ac
 
 ## API Reference
 
-| Prop              | Type                                             | Default           | Description                                 |
-| ----------------- | ------------------------------------------------ | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __BackgroundCta>[0]["theme"]` | Component default | Renderer theme configuration.               |
-| `heading`         | `string`                                         | Component default | Configures the component's heading.         |
-| `description`     | `string`                                         | Component default | Configures the component's description.     |
-| `emphasis`        | `string`                                         | Component default | Configures the component's emphasis.        |
-| `actions`         | `Array<{ href: string; label: string }>`         | Component default | Configures the component's actions.         |
-| `backgroundImage` | `{ src: string; alt?: string }`                  | Component default | Configures the component's backgroundimage. |
-| `width`           | `"flush" \| "boxed" \| "padded"`                 | Component default | Configures the component's width.           |
-| `contentCard`     | `boolean`                                        | Component default | Configures the component's contentcard.     |
-| `appearance`      | `"light" \| "dark"`                              | Component default | Configures the component's appearance.      |
+| Prop              | Type                                     | Default                       | Description                                 |
+| ----------------- | ---------------------------------------- | ----------------------------- | ------------------------------------------- |
+| `theme`           | `TailwindConfig`                         | `defaultTheme`                | Renderer theme configuration.               |
+| `heading`         | `string`                                 | `"Welcome to Your Workspace"` | Configures the component's heading.         |
+| `description`     | `string`                                 | -                             | Configures the component's description.     |
+| `emphasis`        | `string`                                 | -                             | Configures the component's emphasis.        |
+| `actions`         | `Array<{ href: string; label: string }>` | -                             | Configures the component's actions.         |
+| `backgroundImage` | `{ src: string; alt?: string }`          | -                             | Configures the component's backgroundimage. |
+| `width`           | `"flush" \| "boxed" \| "padded"`         | `"flush"`                     | Configures the component's width.           |
+| `contentCard`     | `boolean`                                | `false`                       | Configures the component's contentcard.     |
+| `appearance`      | `"light" \| "dark"`                      | `"light"`                     | Configures the component's appearance.      |

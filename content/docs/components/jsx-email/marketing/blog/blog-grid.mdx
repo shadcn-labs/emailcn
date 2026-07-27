@@ -75,10 +75,10 @@ import { BlogGrid } from "@/components/email/blog-grid";
 
 ## API Reference
 
-| Prop      | Type                                         | Default           | Description                         |
-| --------- | -------------------------------------------- | ----------------- | ----------------------------------- |
-| `theme`   | `Parameters<typeof __GridImage>[0]["theme"]` | Component default | Renderer theme configuration.       |
-| `heading` | `string`                                     | Component default | Configures the component's heading. |
-| `posts`   | `BlogPost[]`                                 | Component default | Configures the component's posts.   |
-| `masonry` | `boolean`                                    | `false`           | Uses the masonry layout.            |
-| `content` | `"image" \| "image-text" \| "boxed"`         | `"image"`         | Selects the post-card treatment.    |
+| Prop      | Type                                                                                                                                                                                 | Default        | Description                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------------------------------- |
+| `theme`   | `EmailThemeTokens`                                                                                                                                                                   | `defaultTheme` | Renderer theme configuration.       |
+| `heading` | `string`                                                                                                                                                                             | -              | Configures the component's heading. |
+| `posts`   | `Array<{ title: string; excerpt?: string; image?: { alt?: string; src: string }; author?: string; badge?: string; date?: string; month?: string; episode?: string; host?: string }>` | -              | Configures the component's posts.   |
+| `masonry` | `boolean`                                                                                                                                                                            | `false`        | Uses the masonry layout.            |
+| `content` | `"image" \| "image-text" \| "boxed"`                                                                                                                                                 | `"image"`      | Selects the post-card treatment.    |

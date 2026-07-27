@@ -70,10 +70,33 @@ import { Divider } from "@/components/email/divider";
 
 <ComponentPreview base="react-email" name="divider-with-button-example-demo" />
 
+### With file
+
+<ComponentPreview base="react-email" name="divider-with-file-example-demo" />
+
+### With icon
+
+<ComponentPreview base="react-email" name="divider-with-icon-example-demo" />
+
+### With logo
+
+<ComponentPreview base="react-email" name="divider-with-logo-example-demo" />
+
+### With social links
+
+<ComponentPreview base="react-email" name="divider-with-socials-example-demo" />
+
+### With icon button
+
+<ComponentPreview
+  base="react-email"
+  name="divider-with-icon-button-example-demo"
+/>
+
 ## API Reference
 
-| Prop      | Type                                           | Default           | Description                         |
-| --------- | ---------------------------------------------- | ----------------- | ----------------------------------- |
-| `theme`   | `Parameters<typeof __LineDivider>[0]["theme"]` | Component default | Renderer theme configuration.       |
-| `align`   | `"left" \| "center" \| "right"`                | Component default | Configures the component's align.   |
-| `content` | `DividerContent`                               | Component default | Configures the component's content. |
+| Prop      | Type                                                                                                                                                                                                                                                                                                                                           | Default        | Description                         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `TailwindConfig`                                                                                                                                                                                                                                                                                                                               | `defaultTheme` | Renderer theme configuration.       |
+| `align`   | `"left" \| "center" \| "right"`                                                                                                                                                                                                                                                                                                                | `"center"`     | Configures the component's align.   |
+| `content` | `{ type: "title"; title: string } \| { type: "file"; fileType: string } \| { type: "icon"; src: string } \| { type: "logo"; image: { src: string; alt?: string } } \| { type: "socials" } \| { type: "button"; action: { href: string; label: string } } \| { type: "icon-button"; iconSrc: string; action: { href: string; label: string } }` | -              | Configures the component's content. |

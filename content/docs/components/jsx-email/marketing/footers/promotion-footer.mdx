@@ -85,15 +85,15 @@ import { PromotionFooter } from "@/components/email/promotion-footer";
 
 ## API Reference
 
-| Prop              | Type                                                     | Default           | Description                                 |
-| ----------------- | -------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __ContentCtaFooter>[0]["theme"]`      | Component default | Renderer theme configuration.               |
-| `brand`           | `FooterBrand`                                            | Component default | Configures the component's brand.           |
-| `heading`         | `string`                                                 | Component default | Configures the component's heading.         |
-| `description`     | `string`                                                 | Component default | Configures the component's description.     |
-| `actions`         | `Array<{ href: string; label: string }>`                 | Component default | Configures the component's actions.         |
-| `legal`           | `FooterLegal`                                            | Component default | Configures the component's legal.           |
-| `placement`       | `"inline" \| "full-width" \| "overlap" \| "large-title"` | Component default | Configures the component's placement.       |
-| `menuColumns`     | `0 \| 2 \| 3`                                            | Component default | Configures the component's menucolumns.     |
-| `alignment`       | `"left" \| "center" \| "right"`                          | Component default | Configures the component's alignment.       |
-| `backgroundImage` | `{ src: string; alt?: string }`                          | Component default | Configures the component's backgroundimage. |
+| Prop              | Type                                                                                        | Default                                                 | Description                                 |
+| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`                                                                          | `defaultTheme`                                          | Renderer theme configuration.               |
+| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                       | Configures the component's brand.           |
+| `heading`         | `string`                                                                                    | `"Start sending professionally\ndesigned emails today"` | Configures the component's heading.         |
+| `description`     | `string`                                                                                    | -                                                       | Configures the component's description.     |
+| `actions`         | `Array<{ href: string; label: string }>`                                                    | -                                                       | Configures the component's actions.         |
+| `legal`           | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }` | -                                                       | Configures the component's legal.           |
+| `placement`       | `"inline" \| "full-width" \| "overlap" \| "large-title"`                                    | `"inline"`                                              | Configures the component's placement.       |
+| `menuColumns`     | `0 \| 2 \| 3`                                                                               | `0`                                                     | Configures the component's menucolumns.     |
+| `alignment`       | `"left" \| "center" \| "right"`                                                             | `"center"`                                              | Configures the component's alignment.       |
+| `backgroundImage` | `{ src: string; alt?: string }`                                                             | -                                                       | Configures the component's backgroundimage. |

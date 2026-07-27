@@ -69,16 +69,44 @@ import { HeaderWithLogoAndMenu } from "@/components/email/header-with-logo-and-m
   name="header-with-logo-and-menu-stacked-example-demo"
 />
 
+### Menu on the left
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-menu-left-example-demo"
+/>
+
+### Menu around the logo
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-menu-around-example-demo"
+/>
+
+### Stacked left
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-menu-stacked-left-example-demo"
+/>
+
+### Stacked right
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-menu-stacked-right-example-demo"
+/>
+
 ## API Reference
 
-| Prop                  | Type                           | Default           | Description                                     |
-| --------------------- | ------------------------------ | ----------------- | ----------------------------------------------- |
-| `theme`               | `TailwindConfig`               | Component default | Renderer theme configuration.                   |
-| `logoSrc`             | `string`                       | Component default | Configures the component's logosrc.             |
-| `logoAlt`             | `string`                       | Component default | Configures the component's logoalt.             |
-| `logoHref`            | `string`                       | Component default | Configures the component's logohref.            |
-| `links`               | `HeaderMenuLink[]`             | Component default | Configures the component's links.               |
-| `pageBackgroundColor` | `string`                       | Component default | Configures the component's pagebackgroundcolor. |
-| `backgroundColor`     | `string`                       | Component default | Configures the component's backgroundcolor.     |
-| `textColor`           | `string`                       | Component default | Configures the component's textcolor.           |
-| `variant`             | `HeaderWithLogoAndMenuVariant` | Component default | Configures the component's variant.             |
+| Prop                  | Type                                                                                                    | Default                                                              | Description                                     |
+| --------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------- |
+| `theme`               | `TailwindConfig`                                                                                        | `defaultTheme`                                                       | Renderer theme configuration.                   |
+| `logoSrc`             | `string`                                                                                                | `"https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"` | Configures the component's logosrc.             |
+| `logoAlt`             | `string`                                                                                                | `"Maizzle"`                                                          | Configures the component's logoalt.             |
+| `logoHref`            | `string`                                                                                                | `"https://example.com"`                                              | Configures the component's logohref.            |
+| `links`               | `Array<{ href: string; label: string }>`                                                                | Built-in links                                                       | Configures the component's links.               |
+| `pageBackgroundColor` | `string`                                                                                                | `"#f1f5f9"`                                                          | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                                                                                                | `"#fffffe"`                                                          | Configures the component's backgroundcolor.     |
+| `textColor`           | `string`                                                                                                | `"#6b7280"`                                                          | Configures the component's textcolor.           |
+| `variant`             | `"menu-right" \| "menu-left" \| "menu-around" \| "stacked-left" \| "stacked-center" \| "stacked-right"` | `"menu-right"`                                                       | Configures the component's variant.             |

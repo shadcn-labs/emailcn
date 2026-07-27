@@ -76,10 +76,35 @@ import { ShoppingCart } from "@/components/email/shopping-cart";
   name="shopping-cart-full-details-example-demo"
 />
 
+### Alternate
+
+<ComponentPreview
+  base="jsx-email"
+  name="shopping-cart-alternate-example-demo"
+/>
+
+### Details alternate
+
+<ComponentPreview
+  base="jsx-email"
+  name="shopping-cart-details-alternate-example-demo"
+/>
+
+### Full details standard
+
+<ComponentPreview
+  base="jsx-email"
+  name="shopping-cart-full-details-standard-example-demo"
+/>
+
+### With call to action
+
+<ComponentPreview base="jsx-email" name="shopping-cart-with-cta-example-demo" />
+
 ## API Reference
 
-| Prop      | Type                                            | Default           | Description                            |
-| --------- | ----------------------------------------------- | ----------------- | -------------------------------------- |
-| `theme`   | `Parameters<typeof __ShoppingCart>[0]["theme"]` | Component default | Renderer theme configuration.          |
-| `items`   | `ShoppingCartItem[]`                            | Component default | Supplies the cart items.               |
-| `variant` | `ShoppingCartVariant`                           | `"basic"`         | Selects the cart-row detail treatment. |
+| Prop      | Type                                                                                                                                                     | Default             | Description                            |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------- |
+| `theme`   | `EmailThemeTokens`                                                                                                                                       | `defaultTheme`      | Renderer theme configuration.          |
+| `items`   | `Array<{ colors?: string[]; description?: string; editHref?: string; imageUrl?: string; name: string; price: string; quantity: number; size?: string }>` | Built-in cart items | Supplies the cart items.               |
+| `variant` | `"basic" \| "basic-alt" \| "with-details" \| "details-alt" \| "full-details" \| "full-details-alt" \| "example-with-cta"`                                | `"basic"`           | Selects the cart-row detail treatment. |

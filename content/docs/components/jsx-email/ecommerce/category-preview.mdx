@@ -76,13 +76,20 @@ import { CategoryPreview } from "@/components/email/category-preview";
   name="category-preview-cards-with-prices-example-demo"
 />
 
+### Cards with descriptions
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-cards-with-descriptions-example-demo"
+/>
+
 ## API Reference
 
-| Prop          | Type                                                   | Default           | Description                             |
-| ------------- | ------------------------------------------------------ | ----------------- | --------------------------------------- |
-| `theme`       | `Parameters<typeof __CategoryCards>[0]["theme"]`       | Component default | Renderer theme configuration.           |
-| `layout`      | `"cards" \| "rows"`                                    | Component default | Configures the component's layout.      |
-| `detailLevel` | `"name" \| "description" \| "price" \| "full"`         | Component default | Configures the component's detaillevel. |
-| `header`      | `{     heading: string;     description?: string;   }` | Component default | Configures the component's header.      |
-| `items`       | `CategoryPreviewItem[]`                                | Component default | Configures the component's items.       |
-| `actionLabel` | `string`                                               | Component default | Configures the component's actionlabel. |
+| Prop          | Type                                                                                                  | Default        | Description                             |
+| ------------- | ----------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------- |
+| `theme`       | `EmailThemeTokens`                                                                                    | `defaultTheme` | Renderer theme configuration.           |
+| `layout`      | `"cards" \| "rows"`                                                                                   | `"cards"`      | Configures the component's layout.      |
+| `detailLevel` | `"name" \| "description" \| "price" \| "full"`                                                        | `"name"`       | Configures the component's detaillevel. |
+| `header`      | `{ heading: string; description?: string }`                                                           | -              | Configures the component's header.      |
+| `items`       | `Array<{ image: { src: string; alt?: string }; name: string; price?: string; description?: string }>` | -              | Configures the component's items.       |
+| `actionLabel` | `string`                                                                                              | -              | Configures the component's actionlabel. |

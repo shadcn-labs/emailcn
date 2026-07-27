@@ -78,12 +78,33 @@ import { FullWidthImage } from "@/components/email/full-width-image";
   name="full-width-image-content-overlay-example-demo"
 />
 
+### Bottom frame
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-bottom-frame-example-demo"
+/>
+
+### Left frame
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-left-frame-example-demo"
+/>
+
+### Right frame
+
+<ComponentPreview
+  base="mjml-react"
+  name="full-width-image-right-frame-example-demo"
+/>
+
 ## API Reference
 
-| Prop         | Type                                                                                 | Default           | Description                            |
-| ------------ | ------------------------------------------------------------------------------------ | ----------------- | -------------------------------------- |
-| `theme`      | `Parameters<typeof __FullWidthImage>[0]["theme"]`                                    | Component default | Renderer theme configuration.          |
-| `image`      | `GalleryImage`                                                                       | Component default | Configures the component's image.      |
-| `overlay`    | `boolean`                                                                            | Component default | Configures the component's overlay.    |
-| `frame`      | `\| "none"     \| "top"     \| "right"     \| "bottom"     \| "left"     \| "sides"` | Component default | Configures the component's frame.      |
-| `frameStyle` | `"padding" \| "split" \| "alternate"`                                                | Component default | Configures the component's framestyle. |
+| Prop         | Type                                                                               | Default        | Description                            |
+| ------------ | ---------------------------------------------------------------------------------- | -------------- | -------------------------------------- |
+| `theme`      | `EmailThemeTokens`                                                                 | `defaultTheme` | Renderer theme configuration.          |
+| `image`      | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }` | -              | Configures the component's image.      |
+| `overlay`    | `boolean`                                                                          | `false`        | Configures the component's overlay.    |
+| `frame`      | `"none" \| "top" \| "right" \| "bottom" \| "left" \| "sides"`                      | `"none"`       | Configures the component's frame.      |
+| `frameStyle` | `"padding" \| "split" \| "alternate"`                                              | `"padding"`    | Configures the component's framestyle. |

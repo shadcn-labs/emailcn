@@ -66,11 +66,11 @@ import { AvatarCallToAction } from "@/components/email/avatar-call-to-action";
 
 ## API Reference
 
-| Prop          | Type                                     | Default           | Description                             |
-| ------------- | ---------------------------------------- | ----------------- | --------------------------------------- |
-| `theme`       | `Parameters<typeof __Cta>[0]["theme"]`   | Component default | Renderer theme configuration.           |
-| `heading`     | `string`                                 | Component default | Configures the component's heading.     |
-| `description` | `string`                                 | Component default | Configures the component's description. |
-| `actions`     | `Array<{ href: string; label: string }>` | Component default | Configures the component's actions.     |
-| `avatars`     | `Array<{ src: string; alt?: string }>`   | Component default | Configures the component's avatars.     |
-| `placement`   | `"top" \| "inline"`                      | Component default | Configures the component's placement.   |
+| Prop          | Type                                     | Default        | Description                             |
+| ------------- | ---------------------------------------- | -------------- | --------------------------------------- |
+| `theme`       | `EmailThemeTokens`                       | `defaultTheme` | Renderer theme configuration.           |
+| `heading`     | `string`                                 | -              | Configures the component's heading.     |
+| `description` | `string`                                 | -              | Configures the component's description. |
+| `actions`     | `Array<{ href: string; label: string }>` | -              | Configures the component's actions.     |
+| `avatars`     | `Array<{ src: string; alt?: string }>`   | -              | Configures the component's avatars.     |
+| `placement`   | `"top" \| "inline"`                      | `"inline"`     | Configures the component's placement.   |

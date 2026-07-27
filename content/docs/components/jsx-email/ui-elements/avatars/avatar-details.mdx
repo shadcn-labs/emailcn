@@ -69,12 +69,19 @@ import { AvatarDetails } from "@/components/email/avatar-details";
   name="avatar-details-right-aligned-example-demo"
 />
 
+### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-details-centered-example-demo"
+/>
+
 ## API Reference
 
-| Prop     | Type                                      | Default           | Description                        |
-| -------- | ----------------------------------------- | ----------------- | ---------------------------------- |
-| `theme`  | `Parameters<typeof __Avatar>[0]["theme"]` | Component default | Renderer theme configuration.      |
-| `avatar` | `{ name: string; url?: string }`          | Component default | Configures the component's avatar. |
-| `name`   | `string`                                  | Component default | Configures the component's name.   |
-| `email`  | `string`                                  | Component default | Configures the component's email.  |
-| `align`  | `"left" \| "center" \| "right"`           | Component default | Configures the component's align.  |
+| Prop     | Type                             | Default        | Description                        |
+| -------- | -------------------------------- | -------------- | ---------------------------------- |
+| `theme`  | `EmailThemeTokens`               | `defaultTheme` | Renderer theme configuration.      |
+| `avatar` | `{ name: string; url?: string }` | -              | Configures the component's avatar. |
+| `name`   | `string`                         | -              | Configures the component's name.   |
+| `email`  | `string`                         | -              | Configures the component's email.  |
+| `align`  | `"left" \| "center" \| "right"`  | `"left"`       | Configures the component's align.  |

@@ -78,11 +78,11 @@ import { FeaturedImageGrid } from "@/components/email/featured-image-grid";
 
 ## API Reference
 
-| Prop              | Type                                                    | Default           | Description                                 |
-| ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __TwoColumnFeatureGrid>[0]["theme"]` | Component default | Renderer theme configuration.               |
-| `images`          | `GalleryImage[]`                                        | Component default | Configures the component's images.          |
-| `feature`         | `GalleryImage`                                          | Component default | Configures the component's feature.         |
-| `columns`         | `2 \| 3`                                                | Component default | Configures the component's columns.         |
-| `featurePosition` | `"top" \| "bottom"`                                     | Component default | Configures the component's featureposition. |
-| `overlay`         | `boolean`                                               | Component default | Configures the component's overlay.         |
+| Prop              | Type                                                                                      | Default        | Description                                 |
+| ----------------- | ----------------------------------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`                                                                        | `defaultTheme` | Renderer theme configuration.               |
+| `images`          | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.          |
+| `feature`         | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }`        | -              | Configures the component's feature.         |
+| `columns`         | `2 \| 3`                                                                                  | `2`            | Configures the component's columns.         |
+| `featurePosition` | `"top" \| "bottom"`                                                                       | `"top"`        | Configures the component's featureposition. |
+| `overlay`         | `boolean`                                                                                 | `false`        | Configures the component's overlay.         |

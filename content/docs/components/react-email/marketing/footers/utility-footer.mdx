@@ -82,16 +82,16 @@ import { UtilityFooter } from "@/components/email/utility-footer";
 
 ## API Reference
 
-| Prop              | Type                                                                         | Default           | Description                                 |
-| ----------------- | ---------------------------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __SimpleSocialFooter>[0]["theme"]`                        | Component default | Renderer theme configuration.               |
-| `brand`           | `FooterBrand`                                                                | Component default | Configures the component's brand.           |
-| `socials`         | `FooterSocial[]`                                                             | Component default | Configures the component's socials.         |
-| `legal`           | `FooterLegal`                                                                | Component default | Configures the component's legal.           |
-| `content`         | `"socials" \| "address" \| "legal" \| "locations" \| "app-stores"`           | Component default | Configures the component's content.         |
-| `locations`       | `FooterLocation[]`                                                           | Component default | Configures the component's locations.       |
-| `address`         | `string`                                                                     | Component default | Configures the component's address.         |
-| `title`           | `string`                                                                     | Component default | Configures the component's title.           |
-| `alignment`       | `"left" \| "center" \| "right"`                                              | Component default | Configures the component's alignment.       |
-| `columns`         | `1 \| 2`                                                                     | Component default | Configures the component's columns.         |
-| `backgroundImage` | `{     src: string;     alt?: string;     position?: "top" \| "bottom";   }` | Component default | Configures the component's backgroundimage. |
+| Prop              | Type                                                                                        | Default                                                             | Description                                 |
+| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------- |
+| `theme`           | `TailwindConfig`                                                                            | `defaultTheme`                                                      | Renderer theme configuration.               |
+| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                                   | Configures the component's brand.           |
+| `socials`         | `Array<{ iconSrc: string; label: string; href: string }>`                                   | -                                                                   | Configures the component's socials.         |
+| `legal`           | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }` | -                                                                   | Configures the component's legal.           |
+| `content`         | `"socials" \| "address" \| "legal" \| "locations" \| "app-stores"`                          | `"socials"`                                                         | Configures the component's content.         |
+| `locations`       | `Array<{ name: string; address: string }>`                                                  | -                                                                   | Configures the component's locations.       |
+| `address`         | `string`                                                                                    | `"© 2026 emailcn\nemailcn \| 155 Bdv Saint Germain \| 75505 Paris"` | Configures the component's address.         |
+| `title`           | `string`                                                                                    | `"Follow us"`                                                       | Configures the component's title.           |
+| `alignment`       | `"left" \| "center" \| "right"`                                                             | `"center"`                                                          | Configures the component's alignment.       |
+| `columns`         | `1 \| 2`                                                                                    | `1`                                                                 | Configures the component's columns.         |
+| `backgroundImage` | `{ src: string; alt?: string; position?: "top" \| "bottom" }`                               | -                                                                   | Configures the component's backgroundimage. |

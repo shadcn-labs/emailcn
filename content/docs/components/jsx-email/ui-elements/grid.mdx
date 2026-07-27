@@ -70,11 +70,23 @@ import { Grid } from "@/components/email/grid";
 
 <ComponentPreview base="jsx-email" name="grid-one-three-split-example-demo" />
 
+### One column
+
+<ComponentPreview base="jsx-email" name="grid-one-column-example-demo" />
+
+### Four columns
+
+<ComponentPreview base="jsx-email" name="grid-four-columns-example-demo" />
+
+### Three-one split
+
+<ComponentPreview base="jsx-email" name="grid-three-one-split-example-demo" />
+
 ## API Reference
 
-| Prop      | Type               | Default           | Description                         |
-| --------- | ------------------ | ----------------- | ----------------------------------- |
-| `align`   | `GridAlign`        | Component default | Configures the component's align.   |
-| `cells`   | `string[]`         | Component default | Configures the component's cells.   |
-| `theme`   | `EmailThemeTokens` | Component default | Renderer theme configuration.       |
-| `variant` | `GridVariant`      | Component default | Configures the component's variant. |
+| Prop      | Type                                                                                                           | Default         | Description                         |
+| --------- | -------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------- |
+| `align`   | `"center" \| "left" \| "right"`                                                                                | `"center"`      | Configures the component's align.   |
+| `cells`   | `string[]`                                                                                                     | -               | Configures the component's cells.   |
+| `theme`   | `EmailThemeTokens`                                                                                             | `defaultTheme`  | Renderer theme configuration.       |
+| `variant` | `"one-column" \| "two-columns" \| "three-columns" \| "four-columns" \| "one-three-split" \| "three-one-split"` | `"two-columns"` | Configures the component's variant. |

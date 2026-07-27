@@ -68,7 +68,7 @@ import { Pills } from "@/components/email/pills";
 
 ## API Reference
 
-| Prop    | Type                                     | Default           | Description                       |
-| ------- | ---------------------------------------- | ----------------- | --------------------------------- |
-| `theme` | `Parameters<typeof __Pills>[0]["theme"]` | Component default | Renderer theme configuration.     |
-| `pills` | `PillItem[]`                             | Component default | Configures the component's pills. |
+| Prop    | Type                                                                                                                 | Default        | Description                       |
+| ------- | -------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------- |
+| `theme` | `TailwindConfig`                                                                                                     | `defaultTheme` | Renderer theme configuration.     |
+| `pills` | `Array<{ label: string; status?: "brand" \| "danger" \| "default" \| "error" \| "info" \| "success" \| "warning" }>` | Built-in pills | Configures the component's pills. |

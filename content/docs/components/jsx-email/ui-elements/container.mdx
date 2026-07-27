@@ -71,10 +71,10 @@ import { Container } from "@/components/email/container";
 
 ## API Reference
 
-| Prop       | Type                                            | Default           | Description                          |
-| ---------- | ----------------------------------------------- | ----------------- | ------------------------------------ |
-| `theme`    | `Parameters<typeof __Container>[0]["theme"]`    | Component default | Renderer theme configuration.        |
-| `children` | `Parameters<typeof __Container>[0]["children"]` | Component default | Configures the component's children. |
-| `maxWidth` | `string`                                        | Component default | Configures the component's maxwidth. |
-| `align`    | `"left" \| "center" \| "right"`                 | Component default | Configures the component's align.    |
-| `mobile`   | `"flush" \| "gutters"`                          | Component default | Configures the component's mobile.   |
+| Prop       | Type                            | Default        | Description                          |
+| ---------- | ------------------------------- | -------------- | ------------------------------------ |
+| `theme`    | `EmailThemeTokens`              | `defaultTheme` | Renderer theme configuration.        |
+| `children` | `ReactNode`                     | -              | Configures the component's children. |
+| `maxWidth` | `string`                        | `"600px"`      | Configures the component's maxwidth. |
+| `align`    | `"left" \| "center" \| "right"` | `"center"`     | Configures the component's align.    |
+| `mobile`   | `"flush" \| "gutters"`          | `"gutters"`    | Configures the component's mobile.   |

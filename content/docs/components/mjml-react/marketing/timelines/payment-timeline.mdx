@@ -66,12 +66,12 @@ import { PaymentTimeline } from "@/components/email/payment-timeline";
 
 ## API Reference
 
-| Prop         | Type                     | Default           | Description                            |
-| ------------ | ------------------------ | ----------------- | -------------------------------------- |
-| `theme`      | `EmailThemeTokens`       | Component default | Renderer theme configuration.          |
-| `variant`    | `PaymentTimelineVariant` | Component default | Configures the component's variant.    |
-| `amount`     | `string`                 | Component default | Configures the component's amount.     |
-| `firstDate`  | `string`                 | Component default | Configures the component's firstdate.  |
-| `secondDate` | `string`                 | Component default | Configures the component's seconddate. |
-| `thirdDate`  | `string`                 | Component default | Configures the component's thirddate.  |
-| `fourthDate` | `string`                 | Component default | Configures the component's fourthdate. |
+| Prop         | Type                     | Default         | Description                            |
+| ------------ | ------------------------ | --------------- | -------------------------------------- |
+| `theme`      | `EmailThemeTokens`       | `defaultTheme`  | Renderer theme configuration.          |
+| `variant`    | `"3-steps" \| "4-steps"` | `"3-steps"`     | Configures the component's variant.    |
+| `amount`     | `string`                 | `"$9.99"`       | Configures the component's amount.     |
+| `firstDate`  | `string`                 | `"Paid: 17/11"` | Configures the component's firstdate.  |
+| `secondDate` | `string`                 | `"17/12"`       | Configures the component's seconddate. |
+| `thirdDate`  | `string`                 | `"17/01"`       | Configures the component's thirddate.  |
+| `fourthDate` | `string`                 | `"17/02"`       | Configures the component's fourthdate. |

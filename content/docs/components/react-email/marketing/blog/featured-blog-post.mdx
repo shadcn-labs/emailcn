@@ -78,9 +78,9 @@ import { FeaturedBlogPost } from "@/components/email/featured-blog-post";
 
 ## API Reference
 
-| Prop        | Type                                        | Default           | Description                           |
-| ----------- | ------------------------------------------- | ----------------- | ------------------------------------- |
-| `theme`     | `Parameters<typeof __Featured>[0]["theme"]` | Component default | Renderer theme configuration.         |
-| `post`      | `BlogPost`                                  | Component default | Configures the component's post.      |
-| `width`     | `"contained" \| "full"`                     | Component default | Configures the component's width.     |
-| `dateStyle` | `"none" \| "large"`                         | Component default | Configures the component's datestyle. |
+| Prop        | Type                                                                                                                                                                          | Default        | Description                           |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------- |
+| `theme`     | `TailwindConfig`                                                                                                                                                              | `defaultTheme` | Renderer theme configuration.         |
+| `post`      | `{ title: string; excerpt?: string; image?: { alt?: string; src: string }; author?: string; badge?: string; date?: string; month?: string; episode?: string; host?: string }` | -              | Configures the component's post.      |
+| `width`     | `"contained" \| "full"`                                                                                                                                                       | `"contained"`  | Configures the component's width.     |
+| `dateStyle` | `"none" \| "large"`                                                                                                                                                           | `"none"`       | Configures the component's datestyle. |

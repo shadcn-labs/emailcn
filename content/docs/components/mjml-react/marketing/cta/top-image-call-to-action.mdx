@@ -66,10 +66,10 @@ import { TopImageCallToAction } from "@/components/email/top-image-call-to-actio
 
 ## API Reference
 
-| Prop          | Type                                   | Default           | Description                             |
-| ------------- | -------------------------------------- | ----------------- | --------------------------------------- |
-| `theme`       | `Parameters<typeof __Cta>[0]["theme"]` | Component default | Renderer theme configuration.           |
-| `heading`     | `string`                               | Component default | Configures the component's heading.     |
-| `description` | `string`                               | Component default | Configures the component's description. |
-| `action`      | `{ href: string; label: string }`      | Component default | Configures the component's action.      |
-| `image`       | `{ src: string; alt?: string }`        | Component default | Configures the component's image.       |
+| Prop          | Type                              | Default                          | Description                             |
+| ------------- | --------------------------------- | -------------------------------- | --------------------------------------- |
+| `theme`       | `EmailThemeTokens`                | `defaultTheme`                   | Renderer theme configuration.           |
+| `heading`     | `string`                          | `"Built for the journey ahead."` | Configures the component's heading.     |
+| `description` | `string`                          | -                                | Configures the component's description. |
+| `action`      | `{ href: string; label: string }` | -                                | Configures the component's action.      |
+| `image`       | `{ src: string; alt?: string }`   | -                                | Configures the component's image.       |

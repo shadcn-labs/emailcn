@@ -78,10 +78,10 @@ import { ImageGrid } from "@/components/email/image-grid";
 
 ## API Reference
 
-| Prop      | Type                                             | Default           | Description                         |
-| --------- | ------------------------------------------------ | ----------------- | ----------------------------------- |
-| `theme`   | `Parameters<typeof __TwoColumnGrid>[0]["theme"]` | Component default | Renderer theme configuration.       |
-| `images`  | `GalleryImage[]`                                 | Component default | Configures the component's images.  |
-| `columns` | `2 \| 3`                                         | Component default | Configures the component's columns. |
-| `aspect`  | `"square" \| "portrait"`                         | Component default | Configures the component's aspect.  |
-| `overlay` | `boolean`                                        | Component default | Configures the component's overlay. |
+| Prop      | Type                                                                                      | Default        | Description                         |
+| --------- | ----------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailThemeTokens`                                                                        | `defaultTheme` | Renderer theme configuration.       |
+| `images`  | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.  |
+| `columns` | `2 \| 3`                                                                                  | `2`            | Configures the component's columns. |
+| `aspect`  | `"square" \| "portrait"`                                                                  | `"square"`     | Configures the component's aspect.  |
+| `overlay` | `boolean`                                                                                 | `false`        | Configures the component's overlay. |

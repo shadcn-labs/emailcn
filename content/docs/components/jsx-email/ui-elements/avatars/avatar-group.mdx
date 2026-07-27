@@ -69,12 +69,19 @@ import { AvatarGroup } from "@/components/email/avatar-group";
   name="avatar-group-overlapped-with-count-example-demo"
 />
 
+### Extra large
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-group-extra-large-example-demo"
+/>
+
 ## API Reference
 
-| Prop        | Type                                            | Default           | Description                           |
-| ----------- | ----------------------------------------------- | ----------------- | ------------------------------------- |
-| `theme`     | `Parameters<typeof __Avatar>[0]["theme"]`       | Component default | Renderer theme configuration.         |
-| `avatars`   | `AvatarItem[]`                                  | Component default | Configures the component's avatars.   |
-| `plusCount` | `number`                                        | Component default | Configures the component's pluscount. |
-| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | Component default | Configures the component's size.      |
-| `align`     | `"left" \| "center" \| "right"`                 | Component default | Configures the component's align.     |
+| Prop        | Type                                            | Default          | Description                           |
+| ----------- | ----------------------------------------------- | ---------------- | ------------------------------------- |
+| `theme`     | `EmailThemeTokens`                              | `defaultTheme`   | Renderer theme configuration.         |
+| `avatars`   | `Array<{ name: string; url?: string }>`         | Built-in avatars | Configures the component's avatars.   |
+| `plusCount` | `number`                                        | -                | Configures the component's pluscount. |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"`           | Configures the component's size.      |
+| `align`     | `"left" \| "center" \| "right"`                 | `"left"`         | Configures the component's align.     |

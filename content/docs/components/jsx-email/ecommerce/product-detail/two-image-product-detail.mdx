@@ -85,10 +85,10 @@ import { TwoImageProductDetail } from "@/components/email/two-image-product-deta
 
 ## API Reference
 
-| Prop             | Type                                                                          | Default           | Description                                |
-| ---------------- | ----------------------------------------------------------------------------- | ----------------- | ------------------------------------------ |
-| `theme`          | `Parameters<typeof __ProductDetail>[0]["theme"]`                              | Component default | Renderer theme configuration.              |
-| `product`        | `ProductDetails`                                                              | Component default | Configures the component's product.        |
-| `images`         | `[     { src: string; alt?: string },     { src: string; alt?: string },   ]` | Component default | Configures the component's images.         |
-| `ratingPosition` | `"top" \| "bottom" \| "aside"`                                                | Component default | Configures the component's ratingposition. |
-| `headerPosition` | `"default" \| "top"`                                                          | Component default | Configures the component's headerposition. |
+| Prop             | Type                                                                                                                                                     | Default        | Description                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------ |
+| `theme`          | `EmailThemeTokens`                                                                                                                                       | `defaultTheme` | Renderer theme configuration.              |
+| `product`        | `{ name?: string; price?: string; description?: string; features?: string[]; colors?: string[]; sizes?: string[]; ctaLabel?: string; ctaHref?: string }` | -              | Configures the component's product.        |
+| `images`         | `[{ src: string; alt?: string }, { src: string; alt?: string }]`                                                                                         | -              | Configures the component's images.         |
+| `ratingPosition` | `"top" \| "bottom" \| "aside"`                                                                                                                           | `"bottom"`     | Configures the component's ratingposition. |
+| `headerPosition` | `"top" \| "default"`                                                                                                                                     | `"default"`    | Configures the component's headerposition. |

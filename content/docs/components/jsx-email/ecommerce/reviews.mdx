@@ -76,13 +76,31 @@ import { Reviews } from "@/components/email/reviews";
   name="reviews-masonry-with-logos-example-demo"
 />
 
+### Centered avatar
+
+<ComponentPreview
+  base="jsx-email"
+  name="reviews-centered-avatar-example-demo"
+/>
+
+### Avatar with logo
+
+<ComponentPreview base="jsx-email" name="reviews-avatar-logo-example-demo" />
+
+### Reversed avatar aside
+
+<ComponentPreview
+  base="jsx-email"
+  name="reviews-avatar-aside-reversed-example-demo"
+/>
+
 ## API Reference
 
-| Prop       | Type                                                                                                                 | Default           | Description                          |
-| ---------- | -------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------ |
-| `theme`    | `Parameters<typeof __FullWidthReviews>[0]["theme"]`                                                                  | Component default | Renderer theme configuration.        |
-| `items`    | `ReviewItem[]`                                                                                                       | Component default | Configures the component's items.    |
-| `layout`   | `"full-width" \| "two-columns" \| "masonry"`                                                                         | Component default | Configures the component's layout.   |
-| `identity` | `\| "text"     \| "logo"     \| "avatar-inline"     \| "avatar-centered"     \| "avatar-logo"     \| "avatar-aside"` | Component default | Configures the component's identity. |
-| `divider`  | `"none" \| "top" \| "between" \| "bottom"`                                                                           | Component default | Configures the component's divider.  |
-| `reverse`  | `boolean`                                                                                                            | Component default | Configures the component's reverse.  |
+| Prop       | Type                                                                                                                                                                | Default        | Description                          |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------ |
+| `theme`    | `EmailThemeTokens`                                                                                                                                                  | `defaultTheme` | Renderer theme configuration.        |
+| `items`    | `Array<{ avatarUrl?: string; company?: string; date: string; logoAlt?: string; logoUrl?: string; logoWidth?: number; name: string; rating: number; text: string }>` | -              | Configures the component's items.    |
+| `layout`   | `"full-width" \| "two-columns" \| "masonry"`                                                                                                                        | `"full-width"` | Configures the component's layout.   |
+| `identity` | `"text" \| "logo" \| "avatar-inline" \| "avatar-centered" \| "avatar-logo" \| "avatar-aside"`                                                                       | `"text"`       | Configures the component's identity. |
+| `divider`  | `"none" \| "top" \| "between" \| "bottom"`                                                                                                                          | `"none"`       | Configures the component's divider.  |
+| `reverse`  | `boolean`                                                                                                                                                           | `false`        | Configures the component's reverse.  |

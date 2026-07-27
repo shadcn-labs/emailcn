@@ -78,9 +78,9 @@ import { HorizontalBlogPost } from "@/components/email/horizontal-blog-post";
 
 ## API Reference
 
-| Prop      | Type                                               | Default           | Description                         |
-| --------- | -------------------------------------------------- | ----------------- | ----------------------------------- |
-| `theme`   | `Parameters<typeof __HorizontalPlain>[0]["theme"]` | Component default | Renderer theme configuration.       |
-| `post`    | `BlogPost`                                         | Component default | Configures the component's post.    |
-| `surface` | `"plain" \| "boxed"`                               | Component default | Configures the component's surface. |
-| `media`   | `"single" \| "split"`                              | Component default | Configures the component's media.   |
+| Prop      | Type                                                                                                                                                                          | Default        | Description                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailThemeTokens`                                                                                                                                                            | `defaultTheme` | Renderer theme configuration.       |
+| `post`    | `{ title: string; excerpt?: string; image?: { alt?: string; src: string }; author?: string; badge?: string; date?: string; month?: string; episode?: string; host?: string }` | -              | Configures the component's post.    |
+| `surface` | `"plain" \| "boxed"`                                                                                                                                                          | `"plain"`      | Configures the component's surface. |
+| `media`   | `"single" \| "split"`                                                                                                                                                         | `"single"`     | Configures the component's media.   |

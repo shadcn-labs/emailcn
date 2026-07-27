@@ -71,25 +71,32 @@ import { CouponsWithCenteredText } from "@/components/email/coupons-with-centere
   name="coupons-with-centered-text-background-example-demo"
 />
 
+### Alternate
+
+<ComponentPreview
+  base="mjml-react"
+  name="coupons-with-centered-text-alternate-example-demo"
+/>
+
 ## API Reference
 
-| Prop                    | Type                             | Default           | Description                                       |
-| ----------------------- | -------------------------------- | ----------------- | ------------------------------------------------- |
-| `theme`                 | `EmailThemeTokens`               | Component default | Renderer theme configuration.                     |
-| `overline`              | `string`                         | Component default | Configures the component's overline.              |
-| `discount`              | `string`                         | Component default | Configures the component's discount.              |
-| `code`                  | `string`                         | Component default | Configures the component's code.                  |
-| `expiry`                | `string`                         | Component default | Configures the component's expiry.                |
-| `description`           | `string`                         | Component default | Configures the component's description.           |
-| `backgroundImageSrc`    | `string`                         | Component default | Configures the component's backgroundimagesrc.    |
-| `buttonLabel`           | `string`                         | Component default | Configures the component's buttonlabel.           |
-| `buttonHref`            | `string`                         | Component default | Configures the component's buttonhref.            |
-| `arrowIconSrc`          | `string`                         | Component default | Configures the component's arrowiconsrc.          |
-| `pageBackgroundColor`   | `string`                         | Component default | Configures the component's pagebackgroundcolor.   |
-| `backgroundColor`       | `string`                         | Component default | Configures the component's backgroundcolor.       |
-| `codeBackgroundColor`   | `string`                         | Component default | Configures the component's codebackgroundcolor.   |
-| `headingColor`          | `string`                         | Component default | Configures the component's headingcolor.          |
-| `textColor`             | `string`                         | Component default | Configures the component's textcolor.             |
-| `buttonBackgroundColor` | `string`                         | Component default | Configures the component's buttonbackgroundcolor. |
-| `buttonColor`           | `string`                         | Component default | Configures the component's buttoncolor.           |
-| `variant`               | `CouponsWithCenteredTextVariant` | Component default | Configures the component's variant.               |
+| Prop                    | Type                                                          | Default                                                                                                           | Description                                       |
+| ----------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `theme`                 | `EmailThemeTokens`                                            | `defaultTheme`                                                                                                    | Renderer theme configuration.                     |
+| `overline`              | `string`                                                      | `"Our biggest sale of the year"`                                                                                  | Configures the component's overline.              |
+| `discount`              | `string`                                                      | `"20% OFF"`                                                                                                       | Configures the component's discount.              |
+| `code`                  | `string`                                                      | `"WINTER20OFF"`                                                                                                   | Configures the component's code.                  |
+| `expiry`                | `string`                                                      | `"until 31/10/2025"`                                                                                              | Configures the component's expiry.                |
+| `description`           | `string`                                                      | `"Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order."` | Configures the component's description.           |
+| `backgroundImageSrc`    | `string`                                                      | `"https://emailcn.vercel.app/api/email-assets/coupons/pattern.png"`                                               | Configures the component's backgroundimagesrc.    |
+| `buttonLabel`           | `string`                                                      | `"Shop now"`                                                                                                      | Configures the component's buttonlabel.           |
+| `buttonHref`            | `string`                                                      | `"https://example.com"`                                                                                           | Configures the component's buttonhref.            |
+| `arrowIconSrc`          | `string`                                                      | `"https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"`                                              | Configures the component's arrowiconsrc.          |
+| `pageBackgroundColor`   | `string`                                                      | `"#f1f5f9"`                                                                                                       | Configures the component's pagebackgroundcolor.   |
+| `backgroundColor`       | `string`                                                      | `"#fffffe"`                                                                                                       | Configures the component's backgroundcolor.       |
+| `codeBackgroundColor`   | `string`                                                      | `"#f3f4f6"`                                                                                                       | Configures the component's codebackgroundcolor.   |
+| `headingColor`          | `string`                                                      | `"#030712"`                                                                                                       | Configures the component's headingcolor.          |
+| `textColor`             | `string`                                                      | `"#4b5563"`                                                                                                       | Configures the component's textcolor.             |
+| `buttonBackgroundColor` | `string`                                                      | `"#4f46e5"`                                                                                                       | Configures the component's buttonbackgroundcolor. |
+| `buttonColor`           | `string`                                                      | `"#fffffe"`                                                                                                       | Configures the component's buttoncolor.           |
+| `variant`               | `"impact" \| "inline" \| "impact-alt" \| "impact-background"` | `"impact"`                                                                                                        | Configures the component's variant.               |

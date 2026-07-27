@@ -76,13 +76,20 @@ import { CollageCallToAction } from "@/components/email/collage-call-to-action";
   name="collage-call-to-action-collage-example-demo"
 />
 
+### Shifted
+
+<ComponentPreview
+  base="react-email"
+  name="collage-call-to-action-shifted-example-demo"
+/>
+
 ## API Reference
 
-| Prop          | Type                                           | Default           | Description                             |
-| ------------- | ---------------------------------------------- | ----------------- | --------------------------------------- |
-| `theme`       | `Parameters<typeof __Cta>[0]["theme"]`         | Component default | Renderer theme configuration.           |
-| `heading`     | `string`                                       | Component default | Configures the component's heading.     |
-| `description` | `string`                                       | Component default | Configures the component's description. |
-| `action`      | `{ href: string; label: string }`              | Component default | Configures the component's action.      |
-| `images`      | `Array<{ src: string; alt?: string }>`         | Component default | Configures the component's images.      |
-| `treatment`   | `"offset" \| "shifted" \| "side" \| "collage"` | Component default | Configures the component's treatment.   |
+| Prop          | Type                                           | Default        | Description                             |
+| ------------- | ---------------------------------------------- | -------------- | --------------------------------------- |
+| `theme`       | `TailwindConfig`                               | `defaultTheme` | Renderer theme configuration.           |
+| `heading`     | `string`                                       | -              | Configures the component's heading.     |
+| `description` | `string`                                       | -              | Configures the component's description. |
+| `action`      | `{ href: string; label: string }`              | -              | Configures the component's action.      |
+| `images`      | `Array<{ src: string; alt?: string }>`         | -              | Configures the component's images.      |
+| `treatment`   | `"offset" \| "shifted" \| "side" \| "collage"` | `"side"`       | Configures the component's treatment.   |

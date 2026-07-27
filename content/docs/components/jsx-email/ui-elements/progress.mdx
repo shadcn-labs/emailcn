@@ -73,12 +73,16 @@ import { Progress } from "@/components/email/progress";
   name="progress-columns-with-descriptions-example-demo"
 />
 
+### Text on top
+
+<ComponentPreview base="jsx-email" name="progress-text-on-top-example-demo" />
+
 ## API Reference
 
-| Prop      | Type                                                  | Default           | Description                         |
-| --------- | ----------------------------------------------------- | ----------------- | ----------------------------------- |
-| `theme`   | `Parameters<typeof __ProgressFull>[0]["theme"]`       | Component default | Renderer theme configuration.       |
-| `items`   | `ProgressItem[]`                                      | Component default | Configures the component's items.   |
-| `layout`  | `"single" \| "group" \| "columns"`                    | Component default | Configures the component's layout.  |
-| `padding` | `"none" \| "padded"`                                  | Component default | Configures the component's padding. |
-| `content` | `"minimal" \| "title" \| "description" \| "text-top"` | Component default | Configures the component's content. |
+| Prop      | Type                                                                             | Default        | Description                         |
+| --------- | -------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailThemeTokens`                                                               | `defaultTheme` | Renderer theme configuration.       |
+| `items`   | `Array<{ title?: string; description?: string; value: number; color?: string }>` | Built-in items | Configures the component's items.   |
+| `layout`  | `"single" \| "group" \| "columns"`                                               | `"single"`     | Configures the component's layout.  |
+| `padding` | `"none" \| "padded"`                                                             | `"none"`       | Configures the component's padding. |
+| `content` | `"minimal" \| "title" \| "description" \| "text-top"`                            | `"minimal"`    | Configures the component's content. |

@@ -71,8 +71,8 @@ import { SubscriptionPricing } from "@/components/email/subscription-pricing";
 
 ## API Reference
 
-| Prop      | Type                                                | Default           | Description                         |
-| --------- | --------------------------------------------------- | ----------------- | ----------------------------------- |
-| `theme`   | `Parameters<typeof __TwoColumnPricing>[0]["theme"]` | Component default | Renderer theme configuration.       |
-| `plans`   | `SubscriptionPlan[]`                                | Component default | Configures the component's plans.   |
-| `columns` | `1 \| 2`                                            | Component default | Configures the component's columns. |
+| Prop      | Type                                                                                                                                                                                              | Default        | Description                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `TailwindConfig`                                                                                                                                                                                  | `defaultTheme` | Renderer theme configuration.       |
+| `plans`   | `Array<{ name: string; description?: string; price: string; currency?: string; period?: string; features?: Array<{ label: string; muted?: boolean }>; action: { href: string; label: string } }>` | Built-in plans | Configures the component's plans.   |
+| `columns` | `1 \| 2`                                                                                                                                                                                          | `2`            | Configures the component's columns. |

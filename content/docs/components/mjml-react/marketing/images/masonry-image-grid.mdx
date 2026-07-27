@@ -73,12 +73,12 @@ import { MasonryImageGrid } from "@/components/email/masonry-image-grid";
 
 ## API Reference
 
-| Prop            | Type                                                     | Default           | Description                               |
-| --------------- | -------------------------------------------------------- | ----------------- | ----------------------------------------- |
-| `theme`         | `Parameters<typeof __TwoColumnMasonryThree>[0]["theme"]` | Component default | Renderer theme configuration.             |
-| `images`        | `GalleryImage[]`                                         | Component default | Configures the component's images.        |
-| `feature`       | `GalleryImage`                                           | Component default | Configures the component's feature.       |
-| `columns`       | `2 \| 3`                                                 | Component default | Configures the component's columns.       |
-| `stackPosition` | `"left" \| "right"`                                      | Component default | Configures the component's stackposition. |
-| `reverse`       | `boolean`                                                | Component default | Configures the component's reverse.       |
-| `overlay`       | `boolean`                                                | Component default | Configures the component's overlay.       |
+| Prop            | Type                                                                                      | Default        | Description                               |
+| --------------- | ----------------------------------------------------------------------------------------- | -------------- | ----------------------------------------- |
+| `theme`         | `EmailThemeTokens`                                                                        | `defaultTheme` | Renderer theme configuration.             |
+| `images`        | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.        |
+| `feature`       | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }`        | -              | Configures the component's feature.       |
+| `columns`       | `2 \| 3`                                                                                  | `2`            | Configures the component's columns.       |
+| `stackPosition` | `"left" \| "right"`                                                                       | `"left"`       | Configures the component's stackposition. |
+| `reverse`       | `boolean`                                                                                 | `false`        | Configures the component's reverse.       |
+| `overlay`       | `boolean`                                                                                 | `false`        | Configures the component's overlay.       |

@@ -71,13 +71,27 @@ import { SpotlightStats } from "@/components/email/spotlight-stats";
   name="spotlight-stats-bottom-right-example-demo"
 />
 
+### Top right
+
+<ComponentPreview
+  base="mjml-react"
+  name="spotlight-stats-top-right-example-demo"
+/>
+
+### Bottom left
+
+<ComponentPreview
+  base="mjml-react"
+  name="spotlight-stats-bottom-left-example-demo"
+/>
+
 ## API Reference
 
-| Prop              | Type                                                                                          | Default           | Description                                 |
-| ----------------- | --------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __RollingStats>[0]["theme"]`                                               | Component default | Renderer theme configuration.               |
-| `eyebrow`         | `string`                                                                                      | Component default | Configures the component's eyebrow.         |
-| `label`           | `string`                                                                                      | Component default | Configures the component's label.           |
-| `values`          | `string[]`                                                                                    | Component default | Configures the component's values.          |
-| `position`        | `\| "center"     \| "top-left"     \| "top-right"     \| "bottom-left"     \| "bottom-right"` | Component default | Configures the component's position.        |
-| `backgroundImage` | `{ src: string; alt?: string }`                                                               | Component default | Configures the component's backgroundimage. |
+| Prop              | Type                                                                       | Default                     | Description                                 |
+| ----------------- | -------------------------------------------------------------------------- | --------------------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`                                                         | `defaultTheme`              | Renderer theme configuration.               |
+| `eyebrow`         | `string`                                                                   | `"Mapped trails"`           | Configures the component's eyebrow.         |
+| `label`           | `string`                                                                   | `"Tracked by active users"` | Configures the component's label.           |
+| `values`          | `string[]`                                                                 | -                           | Configures the component's values.          |
+| `position`        | `"center" \| "top-left" \| "top-right" \| "bottom-left" \| "bottom-right"` | `"center"`                  | Configures the component's position.        |
+| `backgroundImage` | `{ src: string; alt?: string }`                                            | -                           | Configures the component's backgroundimage. |

@@ -69,13 +69,13 @@ import { HeaderWithLogoAndFinanceStats } from "@/components/email/header-with-lo
 
 ## API Reference
 
-| Prop                  | Type                                     | Default           | Description                                     |
-| --------------------- | ---------------------------------------- | ----------------- | ----------------------------------------------- |
-| `theme`               | `EmailThemeTokens`                       | Component default | Renderer theme configuration.                   |
-| `logoSrc`             | `string`                                 | Component default | Configures the component's logosrc.             |
-| `logoAlt`             | `string`                                 | Component default | Configures the component's logoalt.             |
-| `logoHref`            | `string`                                 | Component default | Configures the component's logohref.            |
-| `stats`               | `HeaderFinanceStat[]`                    | Component default | Configures the component's stats.               |
-| `alignment`           | `HeaderWithLogoAndFinanceStatsAlignment` | Component default | Configures the component's alignment.           |
-| `pageBackgroundColor` | `string`                                 | Component default | Configures the component's pagebackgroundcolor. |
-| `backgroundColor`     | `string`                                 | Component default | Configures the component's backgroundcolor.     |
+| Prop                  | Type                                                                                    | Default                                                              | Description                                     |
+| --------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------- |
+| `theme`               | `EmailThemeTokens`                                                                      | `defaultTheme`                                                       | Renderer theme configuration.                   |
+| `logoSrc`             | `string`                                                                                | `"https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"` | Configures the component's logosrc.             |
+| `logoAlt`             | `string`                                                                                | `"Maizzle"`                                                          | Configures the component's logoalt.             |
+| `logoHref`            | `string`                                                                                | `"https://example.com"`                                              | Configures the component's logohref.            |
+| `stats`               | `Array<{ alt: string; change: string; label: string; positive: boolean; src: string }>` | Built-in stats                                                       | Configures the component's stats.               |
+| `alignment`           | `"left" \| "center" \| "right"`                                                         | `"left"`                                                             | Configures the component's alignment.           |
+| `pageBackgroundColor` | `string`                                                                                | `"#f1f5f9"`                                                          | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                                                                                | `"#fffffe"`                                                          | Configures the component's backgroundcolor.     |

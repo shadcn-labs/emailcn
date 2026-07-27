@@ -71,8 +71,8 @@ import { PodcastBlog } from "@/components/email/podcast-blog";
 
 ## API Reference
 
-| Prop    | Type                                            | Default           | Description                       |
-| ------- | ----------------------------------------------- | ----------------- | --------------------------------- |
-| `theme` | `Parameters<typeof __PodcastSplit>[0]["theme"]` | Component default | Renderer theme configuration.     |
-| `post`  | `BlogPost`                                      | Component default | Configures the component's post.  |
-| `width` | `"split" \| "full"`                             | Component default | Configures the component's width. |
+| Prop    | Type                                                                                                                                                                          | Default        | Description                       |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------- |
+| `theme` | `TailwindConfig`                                                                                                                                                              | `defaultTheme` | Renderer theme configuration.     |
+| `post`  | `{ title: string; excerpt?: string; image?: { alt?: string; src: string }; author?: string; badge?: string; date?: string; month?: string; episode?: string; host?: string }` | -              | Configures the component's post.  |
+| `width` | `"split" \| "full"`                                                                                                                                                           | `"split"`      | Configures the component's width. |

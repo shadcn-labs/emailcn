@@ -71,7 +71,7 @@ import { PurchasePricing } from "@/components/email/purchase-pricing";
 
 ## API Reference
 
-| Prop    | Type                                               | Default           | Description                       |
-| ------- | -------------------------------------------------- | ----------------- | --------------------------------- |
-| `theme` | `Parameters<typeof __PurchasePricing>[0]["theme"]` | Component default | Renderer theme configuration.     |
-| `plans` | `PurchasePlan[]`                                   | Component default | Configures the component's plans. |
+| Prop    | Type                                                                                                           | Default        | Description                       |
+| ------- | -------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------- |
+| `theme` | `TailwindConfig`                                                                                               | `defaultTheme` | Renderer theme configuration.     |
+| `plans` | `Array<{ name: string; leasePrice?: string; purchasePrice: string; action: { href: string; label: string } }>` | Built-in plans | Configures the component's plans. |

@@ -73,16 +73,27 @@ import { SocialLinks } from "@/components/email/social-links";
 
 <ComponentPreview base="jsx-email" name="social-links-tiles-example-demo" />
 
+### Outlined box
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-outlined-box-example-demo"
+/>
+
+### Pill
+
+<ComponentPreview base="jsx-email" name="social-links-pill-example-demo" />
+
 ## API Reference
 
-| Prop           | Type                                             | Default           | Description                              |
-| -------------- | ------------------------------------------------ | ----------------- | ---------------------------------------- |
-| `theme`        | `Parameters<typeof __SimpleSocials>[0]["theme"]` | Component default | Renderer theme configuration.            |
-| `title`        | `string`                                         | Component default | Configures the component's title.        |
-| `description`  | `string`                                         | Component default | Configures the component's description.  |
-| `items`        | `SocialLink[]`                                   | Component default | Configures the component's items.        |
-| `presentation` | `"icons" \| "labels"`                            | Component default | Configures the component's presentation. |
-| `container`    | `"none" \| "tile" \| "box" \| "pill"`            | Component default | Configures the component's container.    |
-| `shape`        | `"square" \| "circle"`                           | Component default | Configures the component's shape.        |
-| `outlined`     | `boolean`                                        | Component default | Configures the component's outlined.     |
-| `direction`    | `"inline" \| "stacked"`                          | Component default | Configures the component's direction.    |
+| Prop           | Type                                                                           | Default                                                                                                           | Description                              |
+| -------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `theme`        | `EmailThemeTokens`                                                             | `defaultTheme`                                                                                                    | Renderer theme configuration.            |
+| `title`        | `string`                                                                       | `"Connect with us"`                                                                                               | Configures the component's title.        |
+| `description`  | `string`                                                                       | `"Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments."` | Configures the component's description.  |
+| `items`        | `Array<{ label?: string; href: string; icon: { alt?: string; src: string } }>` | Built-in items                                                                                                    | Configures the component's items.        |
+| `presentation` | `"icons" \| "labels"`                                                          | `"icons"`                                                                                                         | Configures the component's presentation. |
+| `container`    | `"none" \| "tile" \| "box" \| "pill"`                                          | `"none"`                                                                                                          | Configures the component's container.    |
+| `shape`        | `"square" \| "circle"`                                                         | `"square"`                                                                                                        | Configures the component's shape.        |
+| `outlined`     | `boolean`                                                                      | `false`                                                                                                           | Configures the component's outlined.     |
+| `direction`    | `"inline" \| "stacked"`                                                        | `"inline"`                                                                                                        | Configures the component's direction.    |

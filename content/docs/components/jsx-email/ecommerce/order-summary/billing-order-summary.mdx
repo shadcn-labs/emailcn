@@ -78,10 +78,10 @@ import { BillingOrderSummary } from "@/components/email/billing-order-summary";
 
 ## API Reference
 
-| Prop              | Type                                          | Default           | Description                                 |
-| ----------------- | --------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __BillingTop>[0]["theme"]` | Component default | Renderer theme configuration.               |
-| `payment`         | `boolean`                                     | `false`           | Shows the payment-method treatment.         |
-| `notes`           | `boolean`                                     | `false`           | Shows the notes treatment.                  |
-| `billingPosition` | `"top" \| "inline"`                           | `"top"`           | Positions billing details above or inline.  |
-| `appearance`      | `"plain" \| "bordered"`                       | `"plain"`         | Selects the plain or bordered presentation. |
+| Prop              | Type                    | Default        | Description                                 |
+| ----------------- | ----------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`      | `defaultTheme` | Renderer theme configuration.               |
+| `payment`         | `boolean`               | -              | Shows the payment-method treatment.         |
+| `notes`           | `boolean`               | -              | Shows the notes treatment.                  |
+| `billingPosition` | `"top" \| "inline"`     | `"top"`        | Positions billing details above or inline.  |
+| `appearance`      | `"plain" \| "bordered"` | `"plain"`      | Selects the plain or bordered presentation. |

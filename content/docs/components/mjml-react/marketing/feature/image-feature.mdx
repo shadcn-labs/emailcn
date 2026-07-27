@@ -66,11 +66,11 @@ import { ImageFeature } from "@/components/email/image-feature";
 
 ## API Reference
 
-| Prop        | Type                                                | Default           | Description                           |
-| ----------- | --------------------------------------------------- | ----------------- | ------------------------------------- |
-| `theme`     | `Parameters<typeof __Feature>[0]["theme"]`          | Component default | Renderer theme configuration.         |
-| `heading`   | `string`                                            | Component default | Configures the component's heading.   |
-| `body`      | `string`                                            | Component default | Configures the component's body.      |
-| `image`     | `{ src: string; alt?: string }`                     | Component default | Configures the component's image.     |
-| `action`    | `{ href: string; label: string; iconSrc?: string }` | Component default | Configures the component's action.    |
-| `placement` | `"left" \| "right"`                                 | Component default | Configures the component's placement. |
+| Prop        | Type                                                | Default                                                                                                          | Description                           |
+| ----------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `theme`     | `EmailThemeTokens`                                  | `defaultTheme`                                                                                                   | Renderer theme configuration.         |
+| `heading`   | `string`                                            | `"Powering every payment."`                                                                                      | Configures the component's heading.   |
+| `body`      | `string`                                            | `"Discover tools that make accepting payments faster, easier, and more reliable, wherever you serve customers."` | Configures the component's body.      |
+| `image`     | `{ src: string; alt?: string }`                     | -                                                                                                                | Configures the component's image.     |
+| `action`    | `{ href: string; label: string; iconSrc?: string }` | -                                                                                                                | Configures the component's action.    |
+| `placement` | `"left" \| "right"`                                 | `"right"`                                                                                                        | Configures the component's placement. |

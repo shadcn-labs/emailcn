@@ -85,16 +85,16 @@ import { NavigationFooter } from "@/components/email/navigation-footer";
 
 ## API Reference
 
-| Prop            | Type                                               | Default           | Description                               |
-| --------------- | -------------------------------------------------- | ----------------- | ----------------------------------------- |
-| `theme`         | `Parameters<typeof __TwoColumnFooter>[0]["theme"]` | Component default | Renderer theme configuration.             |
-| `brand`         | `FooterBrand`                                      | Component default | Configures the component's brand.         |
-| `description`   | `string`                                           | Component default | Configures the component's description.   |
-| `menus`         | `FooterMenu[]`                                     | Component default | Configures the component's menus.         |
-| `socials`       | `FooterSocial[]`                                   | Component default | Configures the component's socials.       |
-| `legal`         | `FooterLegal`                                      | Component default | Configures the component's legal.         |
-| `columns`       | `1 \| 2 \| 3`                                      | Component default | Configures the component's columns.       |
-| `alignment`     | `"left" \| "center" \| "right"`                    | Component default | Configures the component's alignment.     |
-| `logoPosition`  | `"left" \| "right" \| "top" \| "bottom"`           | Component default | Configures the component's logoposition.  |
-| `divider`       | `boolean`                                          | Component default | Configures the component's divider.       |
-| `oversizedLogo` | `boolean`                                          | Component default | Configures the component's oversizedlogo. |
+| Prop            | Type                                                                                        | Default                                                                                                               | Description                               |
+| --------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `theme`         | `EmailThemeTokens`                                                                          | `defaultTheme`                                                                                                        | Renderer theme configuration.             |
+| `brand`         | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                                                                                     | Configures the component's brand.         |
+| `description`   | `string`                                                                                    | `"Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed."` | Configures the component's description.   |
+| `menus`         | `Array<{ heading?: string; links: Array<{ label: string; href: string }> }>`                | -                                                                                                                     | Configures the component's menus.         |
+| `socials`       | `Array<{ iconSrc: string; label: string; href: string }>`                                   | -                                                                                                                     | Configures the component's socials.       |
+| `legal`         | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }` | -                                                                                                                     | Configures the component's legal.         |
+| `columns`       | `1 \| 2 \| 3`                                                                               | `2`                                                                                                                   | Configures the component's columns.       |
+| `alignment`     | `"left" \| "center" \| "right"`                                                             | `"left"`                                                                                                              | Configures the component's alignment.     |
+| `logoPosition`  | `"left" \| "right" \| "top" \| "bottom"`                                                    | `"left"`                                                                                                              | Configures the component's logoposition.  |
+| `divider`       | `boolean`                                                                                   | `false`                                                                                                               | Configures the component's divider.       |
+| `oversizedLogo` | `boolean`                                                                                   | `false`                                                                                                               | Configures the component's oversizedlogo. |

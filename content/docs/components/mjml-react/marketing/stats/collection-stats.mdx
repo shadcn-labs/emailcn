@@ -73,12 +73,12 @@ import { CollectionStats } from "@/components/email/collection-stats";
 
 ## API Reference
 
-| Prop              | Type                                                          | Default           | Description                                 |
-| ----------------- | ------------------------------------------------------------- | ----------------- | ------------------------------------------- |
-| `theme`           | `Parameters<typeof __SimpleStats>[0]["theme"]`                | Component default | Renderer theme configuration.               |
-| `items`           | `CollectionStatItem[]`                                        | Component default | Configures the component's items.           |
-| `featured`        | `CollectionStatItem`                                          | Component default | Configures the component's featured.        |
-| `layout`          | `"row" \| "three-columns" \| "bento"`                         | Component default | Configures the component's layout.          |
-| `reverse`         | `boolean`                                                     | Component default | Configures the component's reverse.         |
-| `appearance`      | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent"` | Component default | Configures the component's appearance.      |
-| `backgroundImage` | `{ src: string; alt?: string }`                               | Component default | Configures the component's backgroundimage. |
+| Prop              | Type                                                            | Default        | Description                                 |
+| ----------------- | --------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailThemeTokens`                                              | `defaultTheme` | Renderer theme configuration.               |
+| `items`           | `Array<{ label: string; value: string; description?: string }>` | -              | Configures the component's items.           |
+| `featured`        | `{ label: string; value: string; description?: string }`        | -              | Configures the component's featured.        |
+| `layout`          | `"row" \| "three-columns" \| "bento"`                           | `"row"`        | Configures the component's layout.          |
+| `reverse`         | `boolean`                                                       | `false`        | Configures the component's reverse.         |
+| `appearance`      | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent"`   | `"simple"`     | Configures the component's appearance.      |
+| `backgroundImage` | `{ src: string; alt?: string }`                                 | -              | Configures the component's backgroundimage. |

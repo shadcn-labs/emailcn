@@ -73,28 +73,39 @@ import { CardCoupons } from "@/components/email/card-coupons";
   name="card-coupons-background-image-example-demo"
 />
 
+### Overlay
+
+<ComponentPreview base="react-email" name="card-coupons-overlay-example-demo" />
+
+### Background image header
+
+<ComponentPreview
+  base="react-email"
+  name="card-coupons-background-image-header-example-demo"
+/>
+
 ## API Reference
 
-| Prop                    | Type                 | Default           | Description                                       |
-| ----------------------- | -------------------- | ----------------- | ------------------------------------------------- |
-| `theme`                 | `TailwindConfig`     | Component default | Renderer theme configuration.                     |
-| `heading`               | `string`             | Component default | Configures the component's heading.               |
-| `recipient`             | `string`             | Component default | Configures the component's recipient.             |
-| `code`                  | `string`             | Component default | Configures the component's code.                  |
-| `description`           | `string`             | Component default | Configures the component's description.           |
-| `logoSrc`               | `string`             | Component default | Configures the component's logosrc.               |
-| `logoAlt`               | `string`             | Component default | Configures the component's logoalt.               |
-| `backgroundImageSrc`    | `string`             | Component default | Configures the component's backgroundimagesrc.    |
-| `buttonLabel`           | `string`             | Component default | Configures the component's buttonlabel.           |
-| `buttonHref`            | `string`             | Component default | Configures the component's buttonhref.            |
-| `arrowIconSrc`          | `string`             | Component default | Configures the component's arrowiconsrc.          |
-| `pageBackgroundColor`   | `string`             | Component default | Configures the component's pagebackgroundcolor.   |
-| `backgroundColor`       | `string`             | Component default | Configures the component's backgroundcolor.       |
-| `cardBackgroundColor`   | `string`             | Component default | Configures the component's cardbackgroundcolor.   |
-| `codeBackgroundColor`   | `string`             | Component default | Configures the component's codebackgroundcolor.   |
-| `headingColor`          | `string`             | Component default | Configures the component's headingcolor.          |
-| `textColor`             | `string`             | Component default | Configures the component's textcolor.             |
-| `mutedTextColor`        | `string`             | Component default | Configures the component's mutedtextcolor.        |
-| `buttonBackgroundColor` | `string`             | Component default | Configures the component's buttonbackgroundcolor. |
-| `buttonColor`           | `string`             | Component default | Configures the component's buttoncolor.           |
-| `variant`               | `CardCouponsVariant` | Component default | Configures the component's variant.               |
+| Prop                    | Type                                                                                                      | Default                                                                                                           | Description                                       |
+| ----------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `theme`                 | `TailwindConfig`                                                                                          | `defaultTheme`                                                                                                    | Renderer theme configuration.                     |
+| `heading`               | `string`                                                                                                  | -                                                                                                                 | Configures the component's heading.               |
+| `recipient`             | `string`                                                                                                  | `"Jenna Adams"`                                                                                                   | Configures the component's recipient.             |
+| `code`                  | `string`                                                                                                  | `"WINTER20OFF"`                                                                                                   | Configures the component's code.                  |
+| `description`           | `string`                                                                                                  | `"Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order."` | Configures the component's description.           |
+| `logoSrc`               | `string`                                                                                                  | -                                                                                                                 | Configures the component's logosrc.               |
+| `logoAlt`               | `string`                                                                                                  | `"Maizzle"`                                                                                                       | Configures the component's logoalt.               |
+| `backgroundImageSrc`    | `string`                                                                                                  | -                                                                                                                 | Configures the component's backgroundimagesrc.    |
+| `buttonLabel`           | `string`                                                                                                  | `"Shop now"`                                                                                                      | Configures the component's buttonlabel.           |
+| `buttonHref`            | `string`                                                                                                  | `"https://example.com"`                                                                                           | Configures the component's buttonhref.            |
+| `arrowIconSrc`          | `string`                                                                                                  | `"https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"`                                              | Configures the component's arrowiconsrc.          |
+| `pageBackgroundColor`   | `string`                                                                                                  | `"#f1f5f9"`                                                                                                       | Configures the component's pagebackgroundcolor.   |
+| `backgroundColor`       | `string`                                                                                                  | `"#fffffe"`                                                                                                       | Configures the component's backgroundcolor.       |
+| `cardBackgroundColor`   | `string`                                                                                                  | `"#1f2937"`                                                                                                       | Configures the component's cardbackgroundcolor.   |
+| `codeBackgroundColor`   | `string`                                                                                                  | `"#f3f4f6"`                                                                                                       | Configures the component's codebackgroundcolor.   |
+| `headingColor`          | `string`                                                                                                  | `"#fffffe"`                                                                                                       | Configures the component's headingcolor.          |
+| `textColor`             | `string`                                                                                                  | `"#4b5563"`                                                                                                       | Configures the component's textcolor.             |
+| `mutedTextColor`        | `string`                                                                                                  | `"#9ca3af"`                                                                                                       | Configures the component's mutedtextcolor.        |
+| `buttonBackgroundColor` | `string`                                                                                                  | `"#4f46e5"`                                                                                                       | Configures the component's buttonbackgroundcolor. |
+| `buttonColor`           | `string`                                                                                                  | `"#fffffe"`                                                                                                       | Configures the component's buttoncolor.           |
+| `variant`               | `"with-name" \| "with-pattern" \| "with-overlay" \| "with-background-image" \| "background-image-header"` | `"with-overlay"`                                                                                                  | Configures the component's variant.               |

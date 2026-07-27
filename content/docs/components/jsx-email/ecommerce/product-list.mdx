@@ -76,10 +76,45 @@ import { ProductList } from "@/components/email/product-list";
   name="product-list-full-details-example-demo"
 />
 
+### Reviews at the top
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-reviews-at-top-example-demo"
+/>
+
+### With intro
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-intro-example-demo"
+/>
+
+### With details
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-with-details-example-demo"
+/>
+
+### Details with reviews at the top
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-details-reviews-at-top-example-demo"
+/>
+
+### Full details with reviews at the top
+
+<ComponentPreview
+  base="jsx-email"
+  name="product-list-full-reviews-at-top-example-demo"
+/>
+
 ## API Reference
 
-| Prop       | Type                                           | Default           | Description                               |
-| ---------- | ---------------------------------------------- | ----------------- | ----------------------------------------- |
-| `theme`    | `Parameters<typeof __ProductList>[0]["theme"]` | Component default | Renderer theme configuration.             |
-| `products` | `ProductListItem[]`                            | Component default | Supplies the products displayed in rows.  |
-| `variant`  | `ProductListVariant`                           | `"basic"`         | Selects the product-row detail treatment. |
+| Prop       | Type                                                                                                                                                        | Default           | Description                               |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `theme`    | `EmailThemeTokens`                                                                                                                                          | `defaultTheme`    | Renderer theme configuration.             |
+| `products` | `Array<{ imageUrl?: string; name: string; price: string; quantity?: number; description?: string; details?: string; reviewCount?: number; href?: string }>` | Built-in products | Supplies the products displayed in rows.  |
+| `variant`  | `"basic" \| "reviews-top" \| "with-description" \| "with-intro" \| "with-details" \| "details-reviews-top" \| "full-details" \| "full-reviews-top"`         | `"basic"`         | Selects the product-row detail treatment. |

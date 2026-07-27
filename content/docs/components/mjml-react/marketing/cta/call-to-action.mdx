@@ -73,10 +73,10 @@ import { CallToAction } from "@/components/email/call-to-action";
 
 ## API Reference
 
-| Prop          | Type                                     | Default           | Description                             |
-| ------------- | ---------------------------------------- | ----------------- | --------------------------------------- |
-| `theme`       | `Parameters<typeof __Cta>[0]["theme"]`   | Component default | Renderer theme configuration.           |
-| `heading`     | `string`                                 | Component default | Configures the component's heading.     |
-| `description` | `string`                                 | Component default | Configures the component's description. |
-| `signoff`     | `string`                                 | Component default | Shows the title-and-lead treatment.     |
-| `actions`     | `Array<{ href: string; label: string }>` | Component default | Configures up to two actions.           |
+| Prop          | Type                                     | Default                         | Description                             |
+| ------------- | ---------------------------------------- | ------------------------------- | --------------------------------------- |
+| `theme`       | `EmailThemeTokens`                       | `defaultTheme`                  | Renderer theme configuration.           |
+| `heading`     | `string`                                 | `"Confirm your email"`          | Configures the component's heading.     |
+| `description` | `string`                                 | -                               | Configures the component's description. |
+| `signoff`     | `string`                                 | `"Thank you, the emailcn Team"` | Shows the title-and-lead treatment.     |
+| `actions`     | `Array<{ href: string; label: string }>` | -                               | Configures up to two actions.           |

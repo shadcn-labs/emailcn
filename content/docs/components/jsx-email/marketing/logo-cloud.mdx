@@ -82,13 +82,13 @@ import { LogoCloud } from "@/components/email/logo-cloud";
 
 ## API Reference
 
-| Prop            | Type                                              | Default           | Description                               |
-| --------------- | ------------------------------------------------- | ----------------- | ----------------------------------------- |
-| `theme`         | `Parameters<typeof __BasicLogoCloud>[0]["theme"]` | Component default | Renderer theme configuration.             |
-| `title`         | `string`                                          | Component default | Configures the component's title.         |
-| `description`   | `string`                                          | Component default | Configures the component's description.   |
-| `logos`         | `LogoItem[]`                                      | Component default | Configures the component's logos.         |
-| `layout`        | `"cloud" \| "grid" \| "featured"`                 | Component default | Configures the component's layout.        |
-| `appearance`    | `"plain" \| "boxed" \| "outlined" \| "bordered"`  | Component default | Configures the component's appearance.    |
-| `alignment`     | `"left" \| "center" \| "right"`                   | Component default | Configures the component's alignment.     |
-| `featuredIndex` | `number`                                          | Component default | Configures the component's featuredindex. |
+| Prop            | Type                                                 | Default                                                                                                          | Description                               |
+| --------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `theme`         | `EmailThemeTokens`                                   | `defaultTheme`                                                                                                   | Renderer theme configuration.             |
+| `title`         | `string`                                             | -                                                                                                                | Configures the component's title.         |
+| `description`   | `string`                                             | `"We created a personal account for you. Please confirm your e-mail address and use our service to the maximum"` | Configures the component's description.   |
+| `logos`         | `Array<{ alt: string; src: string; width: number }>` | Built-in logos                                                                                                   | Configures the component's logos.         |
+| `layout`        | `"cloud" \| "grid" \| "featured"`                    | `"cloud"`                                                                                                        | Configures the component's layout.        |
+| `appearance`    | `"plain" \| "boxed" \| "outlined" \| "bordered"`     | `"plain"`                                                                                                        | Configures the component's appearance.    |
+| `alignment`     | `"left" \| "center" \| "right"`                      | `"center"`                                                                                                       | Configures the component's alignment.     |
+| `featuredIndex` | `number`                                             | `0`                                                                                                              | Configures the component's featuredindex. |

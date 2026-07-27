@@ -85,10 +85,10 @@ import { SplitProductDetail } from "@/components/email/split-product-detail";
 
 ## API Reference
 
-| Prop        | Type                                             | Default           | Description                           |
-| ----------- | ------------------------------------------------ | ----------------- | ------------------------------------- |
-| `theme`     | `Parameters<typeof __ProductDetail>[0]["theme"]` | Component default | Renderer theme configuration.         |
-| `product`   | `ProductDetails`                                 | Component default | Configures the component's product.   |
-| `images`    | `Array<{ src: string; alt?: string }>`           | Component default | Configures the component's images.    |
-| `treatment` | `"stacked" \| "side" \| "rating" \| "bleed"`     | Component default | Configures the component's treatment. |
-| `placement` | `"left" \| "right"`                              | Component default | Configures the component's placement. |
+| Prop        | Type                                                                                                                                                     | Default        | Description                           |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------- |
+| `theme`     | `EmailThemeTokens`                                                                                                                                       | `defaultTheme` | Renderer theme configuration.         |
+| `product`   | `{ name?: string; price?: string; description?: string; features?: string[]; colors?: string[]; sizes?: string[]; ctaLabel?: string; ctaHref?: string }` | -              | Configures the component's product.   |
+| `images`    | `Array<{ src: string; alt?: string }>`                                                                                                                   | -              | Configures the component's images.    |
+| `treatment` | `"stacked" \| "side" \| "rating" \| "bleed"`                                                                                                             | `"stacked"`    | Configures the component's treatment. |
+| `placement` | `"left" \| "right"`                                                                                                                                      | `"left"`       | Configures the component's placement. |

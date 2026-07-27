@@ -71,22 +71,22 @@ import { HeaderWithUserDetails } from "@/components/email/header-with-user-detai
 
 ## API Reference
 
-| Prop                    | Type                             | Default           | Description                                       |
-| ----------------------- | -------------------------------- | ----------------- | ------------------------------------------------- |
-| `theme`                 | `EmailThemeTokens`               | Component default | Renderer theme configuration.                     |
-| `logoSrc`               | `string`                         | Component default | Configures the component's logosrc.               |
-| `logoAlt`               | `string`                         | Component default | Configures the component's logoalt.               |
-| `logoHref`              | `string`                         | Component default | Configures the component's logohref.              |
-| `userName`              | `string`                         | Component default | Configures the component's username.              |
-| `userEmail`             | `string`                         | Component default | Configures the component's useremail.             |
-| `initials`              | `string`                         | Component default | Configures the component's initials.              |
-| `avatarSrc`             | `string`                         | Component default | Configures the component's avatarsrc.             |
-| `avatarAlt`             | `string`                         | Component default | Configures the component's avataralt.             |
-| `avatar`                | `HeaderWithUserDetailsAvatar`    | Component default | Configures the component's avatar.                |
-| `alignment`             | `HeaderWithUserDetailsAlignment` | Component default | Configures the component's alignment.             |
-| `pageBackgroundColor`   | `string`                         | Component default | Configures the component's pagebackgroundcolor.   |
-| `backgroundColor`       | `string`                         | Component default | Configures the component's backgroundcolor.       |
-| `avatarBackgroundColor` | `string`                         | Component default | Configures the component's avatarbackgroundcolor. |
-| `headingColor`          | `string`                         | Component default | Configures the component's headingcolor.          |
-| `textColor`             | `string`                         | Component default | Configures the component's textcolor.             |
-| `mutedTextColor`        | `string`                         | Component default | Configures the component's mutedtextcolor.        |
+| Prop                    | Type                    | Default                                                              | Description                                       |
+| ----------------------- | ----------------------- | -------------------------------------------------------------------- | ------------------------------------------------- |
+| `theme`                 | `EmailThemeTokens`      | `defaultTheme`                                                       | Renderer theme configuration.                     |
+| `logoSrc`               | `string`                | `"https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"` | Configures the component's logosrc.               |
+| `logoAlt`               | `string`                | `"Maizzle"`                                                          | Configures the component's logoalt.               |
+| `logoHref`              | `string`                | `"https://example.com"`                                              | Configures the component's logohref.              |
+| `userName`              | `string`                | -                                                                    | Configures the component's username.              |
+| `userEmail`             | `string`                | -                                                                    | Configures the component's useremail.             |
+| `initials`              | `string`                | `"JD"`                                                               | Configures the component's initials.              |
+| `avatarSrc`             | `string`                | -                                                                    | Configures the component's avatarsrc.             |
+| `avatarAlt`             | `string`                | `""`                                                                 | Configures the component's avataralt.             |
+| `avatar`                | `"initials" \| "image"` | `"initials"`                                                         | Configures the component's avatar.                |
+| `alignment`             | `"left" \| "right"`     | `"left"`                                                             | Configures the component's alignment.             |
+| `pageBackgroundColor`   | `string`                | `"#f1f5f9"`                                                          | Configures the component's pagebackgroundcolor.   |
+| `backgroundColor`       | `string`                | `"#fffffe"`                                                          | Configures the component's backgroundcolor.       |
+| `avatarBackgroundColor` | `string`                | `"#f3f4f6"`                                                          | Configures the component's avatarbackgroundcolor. |
+| `headingColor`          | `string`                | `"#030712"`                                                          | Configures the component's headingcolor.          |
+| `textColor`             | `string`                | `"#4b5563"`                                                          | Configures the component's textcolor.             |
+| `mutedTextColor`        | `string`                | `"#6b7280"`                                                          | Configures the component's mutedtextcolor.        |

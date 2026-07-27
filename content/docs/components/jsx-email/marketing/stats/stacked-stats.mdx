@@ -75,14 +75,14 @@ import { StackedStats } from "@/components/email/stacked-stats";
 
 ## API Reference
 
-| Prop                  | Type                                                        | Default           | Description                                     |
-| --------------------- | ----------------------------------------------------------- | ----------------- | ----------------------------------------------- |
-| `theme`               | `EmailThemeTokens`                                          | Component default | Renderer theme configuration.                   |
-| `variant`             | `StackedStatsVariant`                                       | Component default | Configures the component's variant.             |
-| `stats`               | `{ heading: string; value: string; description: string }[]` | Component default | Configures the component's stats.               |
-| `pageBackgroundColor` | `string`                                                    | Component default | Configures the component's pagebackgroundcolor. |
-| `backgroundColor`     | `string`                                                    | Component default | Configures the component's backgroundcolor.     |
-| `accentColor`         | `string`                                                    | Component default | Configures the component's accentcolor.         |
-| `headingColor`        | `string`                                                    | Component default | Configures the component's headingcolor.        |
-| `textColor`           | `string`                                                    | Component default | Configures the component's textcolor.           |
-| `dividerColor`        | `string`                                                    | Component default | Configures the component's dividercolor.        |
+| Prop                  | Type                                                             | Default        | Description                                     |
+| --------------------- | ---------------------------------------------------------------- | -------------- | ----------------------------------------------- |
+| `theme`               | `EmailThemeTokens`                                               | `defaultTheme` | Renderer theme configuration.                   |
+| `variant`             | `"left" \| "center" \| "right"`                                  | `"left"`       | Configures the component's variant.             |
+| `stats`               | `Array<{ heading: string; value: string; description: string }>` | -              | Configures the component's stats.               |
+| `pageBackgroundColor` | `string`                                                         | `"#f1f5f9"`    | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                                                         | `"#fffffe"`    | Configures the component's backgroundcolor.     |
+| `accentColor`         | `string`                                                         | `"#f97316"`    | Configures the component's accentcolor.         |
+| `headingColor`        | `string`                                                         | `"#030712"`    | Configures the component's headingcolor.        |
+| `textColor`           | `string`                                                         | `"#4b5563"`    | Configures the component's textcolor.           |
+| `dividerColor`        | `string`                                                         | `"#cbd5e1"`    | Configures the component's dividercolor.        |

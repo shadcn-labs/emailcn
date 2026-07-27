@@ -70,15 +70,27 @@ import { Button } from "@/components/email/button";
 
 <ComponentPreview base="react-email" name="button-text-example-demo" />
 
+### Size
+
+<ComponentPreview base="react-email" name="button-all-sizes-example-demo" />
+
+### Leading icon
+
+<ComponentPreview base="react-email" name="button-leading-icon-example-demo" />
+
+### Trailing icon
+
+<ComponentPreview base="react-email" name="button-trailing-icon-example-demo" />
+
 ## API Reference
 
-| Prop           | Type                                            | Default           | Description                              |
-| -------------- | ----------------------------------------------- | ----------------- | ---------------------------------------- |
-| `theme`        | `Parameters<typeof __Buttons>[0]["theme"]`      | Component default | Renderer theme configuration.            |
-| `label`        | `string`                                        | Component default | Configures the component's label.        |
-| `href`         | `string`                                        | Component default | Configures the component's href.         |
-| `variant`      | `"primary" \| "secondary" \| "text"`            | Component default | Configures the component's variant.      |
-| `size`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "all"` | Component default | Configures the component's size.         |
-| `icon`         | `Parameters<typeof __Buttons>[0]["icon"]`       | Component default | Configures the component's icon.         |
-| `iconPosition` | `"leading" \| "trailing"`                       | Component default | Configures the component's iconposition. |
-| `align`        | `"left" \| "center" \| "right"`                 | Component default | Configures the component's align.        |
+| Prop           | Type                                            | Default                         | Description                              |
+| -------------- | ----------------------------------------------- | ------------------------------- | ---------------------------------------- |
+| `theme`        | `TailwindConfig`                                | `defaultTheme`                  | Renderer theme configuration.            |
+| `label`        | `string`                                        | Variant-specific label          | Configures the component's label.        |
+| `href`         | `string`                                        | `"https://example.com"`         | Configures the component's href.         |
+| `variant`      | `"primary" \| "secondary" \| "text"`            | `"primary"`                     | Configures the component's variant.      |
+| `size`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "all"` | `"all"`                         | Configures the component's size.         |
+| `icon`         | `ReactNode`                                     | Built-in icon for icon variants | Configures the component's icon.         |
+| `iconPosition` | `"leading" \| "trailing"`                       | `"leading"`                     | Configures the component's iconposition. |
+| `align`        | `"left" \| "center" \| "right"`                 | `"center"`                      | Configures the component's align.        |
