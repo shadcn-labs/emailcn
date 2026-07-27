@@ -1,0 +1,101 @@
+---
+title: "Details"
+description: "Avatar Details rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="avatar-details-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/avatar-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/ui-elements/avatars/avatar-details.tsx"
+    base="jsx-email"
+    title="components/email/avatar-details.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AvatarDetails } from "@/components/email/avatar-details";
+```
+
+```tsx
+<AvatarDetails align="left" />
+```
+
+## Examples
+
+### Avatar with details
+
+#### left
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-details-align-left-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-details-align-center-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="jsx-email"
+  name="avatar-details-align-right-example-demo"
+/>
+
+## API Reference
+
+| Prop     | Type                             | Default        | Description                        |
+| -------- | -------------------------------- | -------------- | ---------------------------------- |
+| `theme`  | `EmailTheme`                     | `defaultTheme` | Renderer theme configuration.      |
+| `avatar` | `{ name: string; url?: string }` | -              | Configures the component's avatar. |
+| `name`   | `string`                         | -              | Configures the component's name.   |
+| `email`  | `string`                         | -              | Configures the component's email.  |
+| `align`  | `"left" \| "center" \| "right"`  | `"left"`       | Configures the component's align.  |

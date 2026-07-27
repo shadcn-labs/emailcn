@@ -16,8 +16,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;
@@ -448,7 +449,7 @@ export const OnboardingDefault = ({
 OnboardingDefault.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Acme",
-  _senderAvatarUrl: "https://example.com/avatar.jpg",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "The team",
   _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",

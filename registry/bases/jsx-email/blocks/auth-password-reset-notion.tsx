@@ -12,8 +12,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { notionTheme } from "@/registry/bases/jsx-email/themes/notion";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { notionTheme } from "@/registry/themes/notion";
 
 interface Props {
   _logoUrl?: string;
@@ -121,7 +122,7 @@ export const AuthPasswordResetNotion = ({
 
 AuthPasswordResetNotion.PreviewProps = {
   _logoAlt: "Notion",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Notion",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

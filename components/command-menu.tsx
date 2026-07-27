@@ -87,28 +87,35 @@ const SUBCATEGORY_ICONS: Record<string, LucideIcon> = {
   avatars: CircleUserRoundIcon,
   "bento-grids": LayoutGridIcon,
   blog: NewspaperIcon,
-  "category-previews": PanelsTopLeftIcon,
   coupons: TicketPercentIcon,
   cta: MousePointerClickIcon,
-  "data-tables": Table2Icon,
-  faq: CircleHelpIcon,
   feature: SparklesIcon,
   footers: PanelBottomIcon,
   headers: PanelTopIcon,
   heroes: GalleryHorizontalEndIcon,
   images: ImagesIcon,
-  logos: ShapesIcon,
   "order-summary": ReceiptTextIcon,
   pricing: BadgeDollarSignIcon,
   "product-detail": PackageSearchIcon,
-  "progress-bars": ChartNoAxesGanttIcon,
-  reviews: MessageSquareQuoteIcon,
-  social: Share2Icon,
   spacing: BetweenHorizontalStartIcon,
   stats: ChartNoAxesColumnIncreasingIcon,
-  team: UsersIcon,
-  testimonials: MessagesSquareIcon,
   timelines: ListTreeIcon,
+};
+
+const COMPONENT_ICONS: Record<string, LucideIcon> = {
+  button: MousePointerClickIcon,
+  "category-preview": PanelsTopLeftIcon,
+  container: BetweenHorizontalStartIcon,
+  "data-table": Table2Icon,
+  faq: CircleHelpIcon,
+  grid: LayoutGridIcon,
+  "logo-cloud": ShapesIcon,
+  pills: TicketPercentIcon,
+  progress: ChartNoAxesGanttIcon,
+  reviews: MessageSquareQuoteIcon,
+  "social-links": Share2Icon,
+  team: UsersIcon,
+  testimonial: MessagesSquareIcon,
 };
 
 const parseDocPageUrl = (url: string): DocUrlKind => {
@@ -204,11 +211,11 @@ const DocPageLeadingIcon = ({
     );
   }
   if (parsed.kind === "component") {
-    const SubcategoryIcon = subcategory
+    const ComponentIcon = subcategory
       ? SUBCATEGORY_ICONS[subcategory]
-      : undefined;
-    if (SubcategoryIcon) {
-      return <SubcategoryIcon className="size-4 shrink-0 opacity-70" />;
+      : COMPONENT_ICONS[parsed.slug];
+    if (ComponentIcon) {
+      return <ComponentIcon className="size-4 shrink-0 opacity-70" />;
     }
     return <CircleDashedIcon />;
   }
@@ -325,12 +332,12 @@ export const CommandMenu = ({
   }, [tree, currentBase]);
 
   const handleDocPageHighlight = useCallback(
-    (item: { url: string; name?: string }) => {
+    (item: { url: string; name?: string; subcategory?: string }) => {
       setShowGoToPage(true);
       const parsed = parseDocPageUrl(item.url);
       if (parsed.kind === "theme") {
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/theme-${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/theme-${parsed.slug}`
         );
         return;
       }
@@ -340,21 +347,23 @@ export const CommandMenu = ({
       }
       if (parsed.kind === "component" || parsed.kind === "template") {
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/${parsed.slug}`
         );
         return;
       }
       setCopyPayload("");
     },
-    [packageManager]
+    [currentBase, packageManager]
   );
 
   const handleBlockHighlight = useCallback(
     (block: { name: string; description: string; categories: string[] }) => {
       setShowGoToPage(true);
-      setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
+      setCopyPayload(
+        `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/${block.name}`
+      );
     },
-    [packageManager]
+    [currentBase, packageManager]
   );
 
   const runCommand = useCallback((command: () => unknown) => {
@@ -387,7 +396,9 @@ export const CommandMenu = ({
         key={url}
         keywords={buildDocPageKeywords(parsed, url, breadcrumb)}
         value={[...breadcrumb, title].filter(Boolean).join(" ")}
-        onHighlight={() => handleDocPageHighlight({ name: title, url })}
+        onHighlight={() =>
+          handleDocPageHighlight({ name: title, subcategory, url })
+        }
         onSelect={() => runCommand(() => router.push(url))}
       >
         <DocPageLeadingIcon parsed={parsed} subcategory={subcategory} />

@@ -1,167 +1,50 @@
-import { BASE_NAMES } from "@/registry/bases";
-import type { BaseName } from "@/registry/bases";
-import { airbnbTheme as mjmlAirbnb } from "@/registry/bases/mjml-react/themes/airbnb";
-import { appleTheme as mjmlApple } from "@/registry/bases/mjml-react/themes/apple";
-import { defaultTheme as mjmlDefault } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import { dropboxTheme as mjmlDropbox } from "@/registry/bases/mjml-react/themes/dropbox";
-import { githubTheme as mjmlGithub } from "@/registry/bases/mjml-react/themes/github";
-import { linearTheme as mjmlLinear } from "@/registry/bases/mjml-react/themes/linear";
-import { nikeTheme as mjmlNike } from "@/registry/bases/mjml-react/themes/nike";
-import { notionTheme as mjmlNotion } from "@/registry/bases/mjml-react/themes/notion";
-import { raycastTheme as mjmlRaycast } from "@/registry/bases/mjml-react/themes/raycast";
-import { slackTheme as mjmlSlack } from "@/registry/bases/mjml-react/themes/slack";
-import { stackOverflowTheme as mjmlStackOverflow } from "@/registry/bases/mjml-react/themes/stack-overflow";
-import { stripeTheme as mjmlStripe } from "@/registry/bases/mjml-react/themes/stripe";
-import { twitchTheme as mjmlTwitch } from "@/registry/bases/mjml-react/themes/twitch";
-import { vercelTheme as mjmlVercel } from "@/registry/bases/mjml-react/themes/vercel";
+import { airbnbTheme } from "@/registry/themes/airbnb";
+import { appleTheme } from "@/registry/themes/apple";
+import { defaultTheme } from "@/registry/themes/default";
+import { dropboxTheme } from "@/registry/themes/dropbox";
+import { githubTheme } from "@/registry/themes/github";
+import { linearTheme } from "@/registry/themes/linear";
+import { nikeTheme } from "@/registry/themes/nike";
+import { notionTheme } from "@/registry/themes/notion";
+import { raycastTheme } from "@/registry/themes/raycast";
+import { slackTheme } from "@/registry/themes/slack";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
+import { stripeTheme } from "@/registry/themes/stripe";
+import { twitchTheme } from "@/registry/themes/twitch";
+import { vercelTheme } from "@/registry/themes/vercel";
 
-export interface RegistryThemeDefinition {
-  bases: readonly BaseName[];
-  description: string;
-  name: string;
-  theme: EmailThemeTokens;
-  title: string;
-  type: "registry:theme";
-}
+const THEMES_BY_NAME = {
+  airbnb: airbnbTheme,
+  apple: appleTheme,
+  default: defaultTheme,
+  dropbox: dropboxTheme,
+  github: githubTheme,
+  linear: linearTheme,
+  nike: nikeTheme,
+  notion: notionTheme,
+  raycast: raycastTheme,
+  slack: slackTheme,
+  "stack-overflow": stackOverflowTheme,
+  stripe: stripeTheme,
+  twitch: twitchTheme,
+  vercel: vercelTheme,
+};
 
-export const THEMES = [
-  {
-    bases: BASE_NAMES,
-    description: "Neutral grayscale palette suitable for transactional mail.",
-    name: "default",
-    theme: mjmlDefault,
-    title: "Default",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Warm Airbnb-inspired coral accent with clean sans type.",
-    name: "airbnb",
-    theme: mjmlAirbnb,
-    title: "Airbnb",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "GitHub-style green accent on crisp light backgrounds.",
-    name: "github",
-    theme: mjmlGithub,
-    title: "GitHub",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Linear-inspired indigo primary with tight UI spacing cues.",
-    name: "linear",
-    theme: mjmlLinear,
-    title: "Linear",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Notion-like blue-gray surfaces and approachable typography.",
-    name: "notion",
-    theme: mjmlNotion,
-    title: "Notion",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Bold Raycast reds on dark-forward contrast.",
-    name: "raycast",
-    theme: mjmlRaycast,
-    title: "Raycast",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Slack aubergine accent for product-style announcements.",
-    name: "slack",
-    theme: mjmlSlack,
-    title: "Slack",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Stripe violet primary for billing and receipts.",
-    name: "stripe",
-    theme: mjmlStripe,
-    title: "Stripe",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Twitch purple-forward theme for creator-facing mail.",
-    name: "twitch",
-    theme: mjmlTwitch,
-    title: "Twitch",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Minimal high-contrast base with monochrome primary.",
-    name: "vercel",
-    theme: mjmlVercel,
-    title: "Vercel",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description:
-      "Apple-inspired clean whites and subtle grays with blue accents.",
-    name: "apple",
-    theme: mjmlApple,
-    title: "Apple",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description:
-      "Dropbox blue primary for professional file-sharing communications.",
-    name: "dropbox",
-    theme: mjmlDropbox,
-    title: "Dropbox",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Nike's signature black-and-white minimal aesthetic.",
-    name: "nike",
-    theme: mjmlNike,
-    title: "Nike",
-    type: "registry:theme",
-  },
-  {
-    bases: BASE_NAMES,
-    description: "Stack Overflow orange for developer community newsletters.",
-    name: "stack-overflow",
-    theme: mjmlStackOverflow,
-    title: "Stack Overflow",
-    type: "registry:theme",
-  },
-] as const satisfies readonly RegistryThemeDefinition[];
+export const THEME_PRIMARY_BY_NAME = {
+  airbnb: THEMES_BY_NAME.airbnb.colorPrimary,
+  apple: THEMES_BY_NAME.apple.colorPrimary,
+  default: THEMES_BY_NAME.default.colorPrimary,
+  dropbox: THEMES_BY_NAME.dropbox.colorPrimary,
+  github: THEMES_BY_NAME.github.colorPrimary,
+  linear: THEMES_BY_NAME.linear.colorPrimary,
+  nike: THEMES_BY_NAME.nike.colorPrimary,
+  notion: THEMES_BY_NAME.notion.colorPrimary,
+  raycast: THEMES_BY_NAME.raycast.colorPrimary,
+  slack: THEMES_BY_NAME.slack.colorPrimary,
+  "stack-overflow": THEMES_BY_NAME["stack-overflow"].colorPrimary,
+  stripe: THEMES_BY_NAME.stripe.colorPrimary,
+  twitch: THEMES_BY_NAME.twitch.colorPrimary,
+  vercel: THEMES_BY_NAME.vercel.colorPrimary,
+} as const;
 
-export type RegistryTheme = (typeof THEMES)[number];
-export type RegistryThemeName = RegistryTheme["name"];
-
-export const THEME_NAMES = THEMES.map((theme) => theme.name) as [
-  RegistryThemeName,
-  ...RegistryThemeName[],
-];
-
-export const EMAIL_THEME_MAP = Object.fromEntries(
-  THEMES.map((entry) => [entry.name, entry.theme])
-) as Record<RegistryThemeName, EmailThemeTokens>;
-
-export const EMAIL_THEME_OPTIONS = THEMES.map((entry) => ({
-  label: entry.title,
-  value: entry.name,
-}));
-
-export const THEME_PRIMARY_BY_NAME = Object.fromEntries(
-  THEMES.map((entry) => [entry.name, entry.theme.colorPrimary])
-) as Record<RegistryThemeName, string>;
-
-export const getThemesForBase = (base: BaseName) =>
-  THEMES.filter((theme) => theme.bases.includes(base));
+export type RegistryThemeName = keyof typeof THEME_PRIMARY_BY_NAME;

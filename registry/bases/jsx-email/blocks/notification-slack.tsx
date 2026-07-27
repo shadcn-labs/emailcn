@@ -12,7 +12,8 @@ import {
   Text,
 } from "jsx-email";
 
-import { slackTheme } from "@/registry/bases/jsx-email/themes/slack";
+import { emailAsset } from "@/registry/email-assets";
+import { slackTheme } from "@/registry/themes/slack";
 
 interface Props {
   _logoUrl?: string;
@@ -126,8 +127,8 @@ export const NotificationSlack = ({
 
 NotificationSlack.PreviewProps = {
   _action: "invited you",
-  _actorAvatarUrl: "https://example.com/avatar.jpg",
-  _logoUrl: "https://example.com/logo.png",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Slack",
   _targetName: "workspace",
   actorName: "Sarah",

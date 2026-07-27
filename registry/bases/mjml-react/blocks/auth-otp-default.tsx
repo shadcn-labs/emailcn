@@ -1,7 +1,8 @@
 // Subject: Your verification code for {_productName}
 
 import { AuthOtpBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -27,7 +28,7 @@ export const AuthOtpDefault = ({
 
 AuthOtpDefault.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

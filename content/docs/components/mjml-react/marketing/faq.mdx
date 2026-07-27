@@ -1,0 +1,139 @@
+---
+title: "FAQ"
+description: "Faq rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="faq-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/faq
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/faq/faq.tsx"
+    base="mjml-react"
+    title="components/email/faq.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Faq } from "@/components/email/faq";
+```
+
+```tsx
+<Faq layout="boxed" marker="number" answerPosition="stacked" />
+```
+
+## Examples
+
+### Boxed FAQ with numbered questions
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-boxed-marker-number-answer-position-stacked-example-demo"
+/>
+
+### Boxed FAQ with numbers and alternating background colors
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-boxed-marker-number-alternating-example-demo"
+/>
+
+### Collapsed FAQ with expanded section and icons
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-collapsed-marker-icon-example-demo"
+/>
+
+### Collapsed FAQ with inline CTA
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-collapsed-marker-none-action-example-demo"
+/>
+
+### Collapsed FAQ with numbers
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-collapsed-marker-number-example-demo"
+/>
+
+### Expanded FAQ with numbers
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-expanded-marker-number-example-demo"
+/>
+
+### Expanded FAQ with offset answers
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="faq-layout-expanded-marker-none-answer-position-offset-example-demo"
+/>
+
+## API Reference
+
+| Prop             | Type                                                                                 | Default                        | Description                                |
+| ---------------- | ------------------------------------------------------------------------------------ | ------------------------------ | ------------------------------------------ |
+| `theme`          | `EmailTheme`                                                                         | `defaultTheme`                 | Renderer theme configuration.              |
+| `heading`        | `string`                                                                             | `"Frequently asked questions"` | Configures the component's heading.        |
+| `items`          | `Array<{ question: string; answer?: string; icon?: { alt?: string; src: string } }>` | -                              | Configures the component's items.          |
+| `layout`         | `"boxed" \| "collapsed" \| "expanded"`                                               | `"boxed"`                      | Configures the component's layout.         |
+| `marker`         | `"number" \| "none" \| "icon"`                                                       | `"number"`                     | Configures the component's marker.         |
+| `alternating`    | `boolean`                                                                            | `false`                        | Configures the component's alternating.    |
+| `answerPosition` | `"stacked" \| "offset"`                                                              | `"stacked"`                    | Configures the component's answerposition. |
+| `action`         | `{ href: string; label: string; text?: string }`                                     | -                              | Configures the component's action.         |

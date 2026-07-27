@@ -5,6 +5,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import { CopyButton } from "@/components/copy-button";
+import { EmailViewportToggle } from "@/components/email-viewport-toggle";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -12,8 +13,16 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import type { EmailViewport } from "@/hooks/use-viewport-toggle";
+import { useViewportToggle } from "@/hooks/use-viewport-toggle";
 import { trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
+
+const viewportWidths: Record<EmailViewport, string> = {
+  desktop: "100%",
+  mobile: "375px",
+  tablet: "768px",
+};
 
 const CodeTab = ({
   code,
@@ -75,31 +84,38 @@ const CodeTab = ({
 interface ComponentPreviewClientProps {
   html: string;
   plainText: string | null;
+  iframeTitle: string;
   title?: string;
   className?: string;
   hideNav?: boolean;
   height?: number;
+  showTitleBar?: boolean;
+  viewUrl?: string;
 }
 
 export const ComponentPreviewClient = ({
   html,
   plainText,
+  iframeTitle,
   title,
   className,
   hideNav = false,
   height = 640,
+  showTitleBar = false,
+  viewUrl,
 }: ComponentPreviewClientProps) => {
   const [activeTab, setActiveTab] = useState("preview");
+  const [viewport] = useViewportToggle();
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
-      {title ? (
+      {title && !showTitleBar ? (
         <h3 className="mb-3 text-base font-semibold tracking-tight">{title}</h3>
       ) : null}
 
       <Tabs className="mt-4" value={activeTab} onValueChange={setActiveTab}>
         {!hideNav && (
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex w-full items-center gap-2">
             <TabsList className="h-8">
               <TabsTrigger className="h-6 px-2.5 text-xs" value="preview">
                 Preview
@@ -115,16 +131,32 @@ export const ComponentPreviewClient = ({
                 </TabsTrigger>
               ) : null}
             </TabsList>
+            <EmailViewportToggle
+              className="ml-auto"
+              onViewportChange={() => setActiveTab("preview")}
+              viewUrl={viewUrl}
+            />
           </div>
         )}
-        <TabsContent className="m-0 rounded-xl border bg-card" value="preview">
-          <iframe
-            className="w-full bg-white rounded-xl"
-            height={height}
-            sandbox=""
-            srcDoc={html}
-            title={title}
-          />
+        <TabsContent
+          className="m-0 overflow-hidden rounded-xl border bg-card"
+          value="preview"
+        >
+          {showTitleBar && title ? (
+            <div className="flex h-10 items-center border-b px-4 text-sm font-medium">
+              {title}
+            </div>
+          ) : null}
+          <div className="bg-muted/40 flex justify-center overflow-x-auto">
+            <iframe
+              className="block max-w-full bg-transparent transition-[width] duration-200 ease-out"
+              height={height}
+              sandbox=""
+              srcDoc={html}
+              style={{ width: viewportWidths[viewport] }}
+              title={iframeTitle}
+            />
+          </div>
         </TabsContent>
         {html ? <CodeTab language="html" code={html} value="html" /> : null}
         {plainText ? (

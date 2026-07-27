@@ -1,0 +1,106 @@
+---
+title: "User Details"
+description: "Header With User Details rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="header-with-user-details-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/header-with-user-details
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/headers/header-with-user-details.tsx"
+    base="mjml-react"
+    title="components/email/header-with-user-details.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithUserDetails } from "@/components/email/header-with-user-details";
+```
+
+```tsx
+<HeaderWithUserDetails alignment="right" avatar="initials" />
+```
+
+## Examples
+
+### Image avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-image-avatar-example-demo"
+/>
+
+### Initials with right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-avatar-initials-alignment-right-example-demo"
+/>
+
+### Image avatar with right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-user-details-avatar-image-alignment-right-example-demo"
+/>
+
+## API Reference
+
+| Prop                    | Type                    | Default                                                                   | Description                                       |
+| ----------------------- | ----------------------- | ------------------------------------------------------------------------- | ------------------------------------------------- |
+| `theme`                 | `EmailTheme`            | `defaultTheme`                                                            | Renderer theme configuration.                     |
+| `logoSrc`               | `string`                | `"https://placehold.co/320x96/0F766E/FFFFFF.png?text=Maizzle%20Insignia"` | Configures the component's logosrc.               |
+| `logoAlt`               | `string`                | `"Maizzle"`                                                               | Configures the component's logoalt.               |
+| `logoHref`              | `string`                | `"https://example.com"`                                                   | Configures the component's logohref.              |
+| `userName`              | `string`                | -                                                                         | Configures the component's username.              |
+| `userEmail`             | `string`                | -                                                                         | Configures the component's useremail.             |
+| `initials`              | `string`                | `"JD"`                                                                    | Configures the component's initials.              |
+| `avatarSrc`             | `string`                | -                                                                         | Configures the component's avatarsrc.             |
+| `avatarAlt`             | `string`                | `""`                                                                      | Configures the component's avataralt.             |
+| `avatar`                | `"initials" \| "image"` | `"initials"`                                                              | Configures the component's avatar.                |
+| `alignment`             | `"left" \| "right"`     | `"left"`                                                                  | Configures the component's alignment.             |
+| `pageBackgroundColor`   | `string`                | `"#f1f5f9"`                                                               | Configures the component's pagebackgroundcolor.   |
+| `backgroundColor`       | `string`                | `"#fffffe"`                                                               | Configures the component's backgroundcolor.       |
+| `avatarBackgroundColor` | `string`                | `"#f3f4f6"`                                                               | Configures the component's avatarbackgroundcolor. |
+| `headingColor`          | `string`                | `"#030712"`                                                               | Configures the component's headingcolor.          |
+| `textColor`             | `string`                | `"#4b5563"`                                                               | Configures the component's textcolor.             |
+| `mutedTextColor`        | `string`                | `"#6b7280"`                                                               | Configures the component's mutedtextcolor.        |

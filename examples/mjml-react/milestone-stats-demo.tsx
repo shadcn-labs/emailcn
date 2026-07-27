@@ -1,15 +1,11 @@
-import { MilestoneStats } from "@/registry/bases/mjml-react/ui/marketing/stats/milestone-stats";
-import type { MilestoneStatsVariant } from "@/registry/bases/mjml-react/ui/marketing/stats/milestone-stats";
+import { MilestoneStats } from "@/registry/bases/mjml-react/components/marketing/stats/milestone-stats";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function MilestoneStatsDemo({
-  variant,
-}: {
-  variant?: MilestoneStatsVariant;
-}) {
+export default function MilestoneStatsDemo() {
   return (
     <MilestoneStats
-      {...MilestoneStats.PreviewProps}
-      variant={variant ?? MilestoneStats.PreviewProps.variant}
+      variant="default"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

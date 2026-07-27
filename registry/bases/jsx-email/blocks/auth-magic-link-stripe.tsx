@@ -12,8 +12,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { stripeTheme } from "@/registry/bases/jsx-email/themes/stripe";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { stripeTheme } from "@/registry/themes/stripe";
 
 interface Props {
   _logoUrl?: string;
@@ -122,7 +123,7 @@ export const AuthMagicLinkStripe = ({
 
 AuthMagicLinkStripe.PreviewProps = {
   _logoAlt: "Stripe",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stripe",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

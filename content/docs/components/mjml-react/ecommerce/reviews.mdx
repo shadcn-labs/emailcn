@@ -1,0 +1,416 @@
+---
+title: "Reviews"
+description: "Reviews rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ecommerce/reviews/reviews.tsx"
+    base="mjml-react"
+    title="components/email/reviews.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Reviews } from "@/components/email/reviews";
+```
+
+```tsx
+<Reviews layout="full-width" identity="text" divider="none" />
+```
+
+## Examples
+
+### Full-width reviews
+
+#### with divider
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-text-divider-between-example-demo"
+/>
+
+#### simple
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-text-divider-none-example-demo"
+/>
+
+#### divider top
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-text-divider-top-example-demo"
+/>
+
+#### with logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-logo-divider-none-example-demo"
+/>
+
+#### logo split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-logo-divider-between-example-demo"
+/>
+
+#### logo bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-logo-divider-bottom-example-demo"
+/>
+
+#### avatar inline
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-inline-divider-none-example-demo"
+/>
+
+#### avatar inline split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-inline-divider-between-example-demo"
+/>
+
+#### avatar inline bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-inline-divider-bottom-example-demo"
+/>
+
+#### centered with avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-centered-divider-none-example-demo"
+/>
+
+#### centered avatar split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-centered-divider-between-example-demo"
+/>
+
+#### centered avatar bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-centered-divider-bottom-example-demo"
+/>
+
+#### avatar logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-logo-divider-none-example-demo"
+/>
+
+#### avatar logo split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-logo-divider-between-example-demo"
+/>
+
+#### avatar logo bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-logo-divider-bottom-example-demo"
+/>
+
+#### avatar aside
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-aside-divider-none-example-demo"
+/>
+
+#### avatar aside split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-aside-divider-between-example-demo"
+/>
+
+#### avatar aside reverse
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-full-width-identity-avatar-aside-divider-none-reverse-example-demo"
+/>
+
+### Masonry grid reviews
+
+#### with divider
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-text-divider-between-example-demo"
+/>
+
+#### simple
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-text-divider-none-example-demo"
+/>
+
+#### divider top
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-text-divider-top-example-demo"
+/>
+
+#### with logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-logo-divider-none-example-demo"
+/>
+
+#### logo split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-logo-divider-between-example-demo"
+/>
+
+#### logo bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-logo-divider-bottom-example-demo"
+/>
+
+#### avatar inline
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-inline-divider-none-example-demo"
+/>
+
+#### avatar inline split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-inline-divider-between-example-demo"
+/>
+
+#### avatar inline bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-inline-divider-bottom-example-demo"
+/>
+
+#### centered with avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-centered-divider-none-example-demo"
+/>
+
+#### centered avatar split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-centered-divider-between-example-demo"
+/>
+
+#### centered avatar bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-centered-divider-bottom-example-demo"
+/>
+
+#### avatar logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-logo-divider-none-example-demo"
+/>
+
+#### avatar logo split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-logo-divider-between-example-demo"
+/>
+
+#### avatar logo bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-masonry-identity-avatar-logo-divider-bottom-example-demo"
+/>
+
+### Two-column reviews
+
+#### with divider
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-text-divider-between-example-demo"
+/>
+
+#### simple
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-text-divider-none-example-demo"
+/>
+
+#### divider top
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-text-divider-top-example-demo"
+/>
+
+#### with logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-logo-divider-none-example-demo"
+/>
+
+#### logo split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-logo-divider-between-example-demo"
+/>
+
+#### logo bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-logo-divider-bottom-example-demo"
+/>
+
+#### avatar inline
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-inline-divider-none-example-demo"
+/>
+
+#### avatar inline split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-inline-divider-between-example-demo"
+/>
+
+#### avatar inline bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-inline-divider-bottom-example-demo"
+/>
+
+#### centered with avatar
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-centered-divider-none-example-demo"
+/>
+
+#### centered avatar split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-centered-divider-between-example-demo"
+/>
+
+#### centered avatar bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-centered-divider-bottom-example-demo"
+/>
+
+#### avatar logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-logo-divider-none-example-demo"
+/>
+
+#### avatar logo split
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-logo-divider-between-example-demo"
+/>
+
+#### avatar logo bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="reviews-layout-two-columns-identity-avatar-logo-divider-bottom-example-demo"
+/>
+
+## API Reference
+
+| Prop       | Type                                                                                                                                                                | Default        | Description                          |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------ |
+| `theme`    | `EmailTheme`                                                                                                                                                        | `defaultTheme` | Renderer theme configuration.        |
+| `items`    | `Array<{ avatarUrl?: string; company?: string; date: string; logoAlt?: string; logoUrl?: string; logoWidth?: number; name: string; rating: number; text: string }>` | -              | Configures the component's items.    |
+| `layout`   | `"full-width" \| "two-columns" \| "masonry"`                                                                                                                        | `"full-width"` | Configures the component's layout.   |
+| `identity` | `"text" \| "logo" \| "avatar-inline" \| "avatar-centered" \| "avatar-logo" \| "avatar-aside"`                                                                       | `"text"`       | Configures the component's identity. |
+| `divider`  | `"none" \| "top" \| "between" \| "bottom"`                                                                                                                          | `"none"`       | Configures the component's divider.  |
+| `reverse`  | `boolean`                                                                                                                                                           | `false`        | Configures the component's reverse.  |

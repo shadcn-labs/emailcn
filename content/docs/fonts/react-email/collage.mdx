@@ -16,7 +16,7 @@ description: "Lightweight Inter font stack for clean, minimal email templates."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/collage-fonts
+npx shadcn@latest add @emailcn/react-email/collage-fonts
 ```
 
 </TabsContent>
@@ -24,22 +24,19 @@ npx shadcn@latest add @emailcn/collage-fonts
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install react-email
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/collage-fonts.tsx"
-  title="components/email/collage-fonts.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-collage.tsx"
+    base="react-email"
+    title="components/email/font-collage.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -49,7 +46,7 @@ npm install react-email
 ## Usage
 
 ```tsx
-import { CollageFonts } from "@/components/email/collage-fonts";
+import { CollageFonts } from "@/components/email/font-collage";
 
 export default function Email() {
   return (
@@ -65,9 +62,8 @@ export default function Email() {
 
 ## Font Details
 
-| Property     | Value                                                                                                              |
-| ------------ | ------------------------------------------------------------------------------------------------------------------ |
-| Primary Font | Inter                                                                                                              |
-| Fallback     | Arial, sans-serif                                                                                                  |
-| Weights      | 300, 400, 500                                                                                                      |
-| Source       | [Resend Matte demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/02-Matte/collage-fonts.tsx) |
+| Property     | Value             |
+| ------------ | ----------------- |
+| Primary Font | Inter             |
+| Fallback     | Arial, sans-serif |
+| Weights      | 300, 400, 500     |

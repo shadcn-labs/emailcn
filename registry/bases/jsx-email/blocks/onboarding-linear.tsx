@@ -16,9 +16,10 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import { linearTheme } from "@/registry/bases/jsx-email/themes/linear";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;
@@ -492,7 +493,7 @@ export const OnboardingLinear = ({
 OnboardingLinear.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Linear",
-  _senderAvatarUrl: "https://example.com/avatar.jpg",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Linear Team",
   _senderTitle: "Team",
   ctaHref: "https://linear.app",

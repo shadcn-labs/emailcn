@@ -1,15 +1,13 @@
-import { FullWidthImage } from "@/registry/bases/mjml-react/ui/marketing/images/full-width-image";
-import type { FullWidthImageVariant } from "@/registry/bases/mjml-react/ui/marketing/images/full-width-image";
+import { FullWidthImage } from "@/registry/bases/mjml-react/components/marketing/images/full-width-image";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function FullWidthImageDemo({
-  variant,
-}: {
-  variant?: FullWidthImageVariant;
-}) {
+export default function FullWidthImageDemo() {
   return (
     <FullWidthImage
-      {...FullWidthImage.PreviewProps}
-      variant={variant ?? FullWidthImage.PreviewProps.variant}
+      overlay={false}
+      frame="none"
+      frameStyle="padding"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

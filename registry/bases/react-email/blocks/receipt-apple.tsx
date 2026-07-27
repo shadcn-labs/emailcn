@@ -15,8 +15,10 @@ import {
   Link,
 } from "react-email";
 
-import { appleTheme } from "@/registry/bases/react-email/themes/apple";
-import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
+import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/components/ecommerce/product-lists/product-list";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
   name: string;
@@ -54,7 +56,7 @@ export const ReceiptApple = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -138,7 +140,7 @@ ReceiptApple.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://static.photos/technology/640x640/2",
+      imageUrl: emailAsset("products/product-1.jpg"),
       name: "iPhone 15 Pro",
       price: "$999.00",
       quantity: 1,

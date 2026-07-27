@@ -12,7 +12,9 @@ import {
   Text,
 } from "react-email";
 
-import { stripeTheme } from "@/registry/bases/react-email/themes/stripe";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { stripeTheme } from "@/registry/themes/stripe";
 
 interface Props {
   _logoUrl?: string;
@@ -34,7 +36,7 @@ export const AuthMagicLinkStripe = ({
     <Html>
       <Head />
       <Preview>Your login link</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -73,7 +75,7 @@ export const AuthMagicLinkStripe = ({
 
 AuthMagicLinkStripe.PreviewProps = {
   _logoAlt: "Stripe",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stripe",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

@@ -16,7 +16,7 @@ description: "Pre-built authentication email templates for various use cases."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/block-auth-otp-default
+npx shadcn@latest add @emailcn/jsx-email/block-auth-otp-default
 ```
 
 </TabsContent>
@@ -24,26 +24,34 @@ npx shadcn@latest add @emailcn/block-auth-otp-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/email/theme-default.ts"
-/>
-<ComponentSource
-  src="registry/bases/jsx-email/blocks/auth-otp-default.tsx"
-  title="components/email/auth-otp-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/blocks/auth-otp-default.tsx"
+    base="jsx-email"
+    title="components/email/auth-otp-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>

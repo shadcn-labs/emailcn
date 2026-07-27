@@ -1,0 +1,287 @@
+---
+title: "Utility"
+description: "Utility Footer rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="utility-footer-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/utility-footer
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/footers/utility-footer.tsx"
+    base="jsx-email"
+    title="components/email/utility-footer.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { UtilityFooter } from "@/components/email/utility-footer";
+```
+
+```tsx
+<UtilityFooter content="socials" alignment="center" columns={1} />
+```
+
+## Examples
+
+### Footer with app store buttons
+
+#### centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-app-stores-columns-1-example-demo"
+/>
+
+#### two columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-app-stores-columns-2-example-demo"
+/>
+
+#### with title
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-app-stores-columns-1-title-example-demo"
+/>
+
+### Footer with background image
+
+#### bottom image content left logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-content-logo-position-left-example-demo"
+/>
+
+#### bottom image 2-column menu left logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-2-column-menu-logo-position-left-example-demo"
+/>
+
+#### bottom image 2-column menu right logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-2-column-menu-logo-position-right-example-demo"
+/>
+
+#### bottom image 3-column menu left logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-3-column-menu-logo-position-left-example-demo"
+/>
+
+#### bottom image 3-column menu right logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-3-column-menu-logo-position-right-example-demo"
+/>
+
+#### bottom image centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-centered-logo-position-left-example-demo"
+/>
+
+#### bottom image content right logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-bottom-variant-bottom-image-content-logo-position-right-example-demo"
+/>
+
+#### top image 3-column menu left logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-3-column-menu-logo-position-left-example-demo"
+/>
+
+#### top image 3-column menu right logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-3-column-menu-logo-position-right-example-demo"
+/>
+
+#### top image address left logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-address-logo-position-left-example-demo"
+/>
+
+#### top image address right logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-address-logo-position-right-example-demo"
+/>
+
+#### top image centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-centered-logo-position-left-example-demo"
+/>
+
+#### top image content left logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-content-logo-position-left-example-demo"
+/>
+
+#### top image content right logo
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-content-logo-position-right-example-demo"
+/>
+
+#### top image logo bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-background-image-position-top-variant-top-image-logo-bottom-logo-position-left-example-demo"
+/>
+
+### Footer with company locations
+
+#### stacked
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-locations-columns-1-example-demo"
+/>
+
+#### grid
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-locations-columns-2-example-demo"
+/>
+
+### Footer with legal text
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-legal-example-demo"
+/>
+
+### Footer with social icons and address
+
+#### left
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-address-alignment-left-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-address-alignment-center-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-address-alignment-right-example-demo"
+/>
+
+### Simple footer with social icons
+
+#### left
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-socials-alignment-left-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-socials-alignment-center-columns-1-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="jsx-email"
+  name="utility-footer-content-socials-alignment-right-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                                                                                                                                                                                                                                                                                                                                                        | Default                                                             | Description                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------ |
+| `theme`           | `EmailTheme`                                                                                                                                                                                                                                                                                                                                                                                | `defaultTheme`                                                      | Renderer theme configuration.                    |
+| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                                                                                                                                                                                                                                    | -                                                                   | Configures the component's brand.                |
+| `socials`         | `Array<{ iconSrc: string; label: string; href: string }>`                                                                                                                                                                                                                                                                                                                                   | -                                                                   | Configures the component's socials.              |
+| `legal`           | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }`                                                                                                                                                                                                                                                                                                 | -                                                                   | Configures the component's legal.                |
+| `content`         | `"socials" \| "address" \| "legal" \| "locations" \| "app-stores"`                                                                                                                                                                                                                                                                                                                          | `"socials"`                                                         | Configures the component's content.              |
+| `locations`       | `Array<{ name: string; address: string }>`                                                                                                                                                                                                                                                                                                                                                  | -                                                                   | Configures the component's locations.            |
+| `address`         | `string`                                                                                                                                                                                                                                                                                                                                                                                    | `"© 2026 emailcn\nemailcn \| 155 Bdv Saint Germain \| 75505 Paris"` | Configures the component's address.              |
+| `title`           | `string`                                                                                                                                                                                                                                                                                                                                                                                    | `"Follow us"`                                                       | Configures the component's title.                |
+| `alignment`       | `"left" \| "center" \| "right"`                                                                                                                                                                                                                                                                                                                                                             | `"center"`                                                          | Configures the component's alignment.            |
+| `columns`         | `1 \| 2`                                                                                                                                                                                                                                                                                                                                                                                    | `1`                                                                 | Configures the component's columns.              |
+| `logoPosition`    | `"left" \| "right"`                                                                                                                                                                                                                                                                                                                                                                         | `"left"`                                                            | Positions the logo in supported layouts.         |
+| `backgroundImage` | `{ src: string; alt?: string; position?: "top" \| "bottom" }`                                                                                                                                                                                                                                                                                                                               | -                                                                   | Configures the component's backgroundimage.      |
+| `variant`         | `"centered" \| "two-columns" \| "with-title" \| "bottom-image-content" \| "bottom-image-2-column-menu" \| "bottom-image-3-column-menu" \| "bottom-image-centered" \| "top-image-content" \| "top-image-3-column-menu" \| "top-image-address" \| "top-image-centered" \| "top-image-logo-bottom" \| "stacked" \| "grid" \| "left-logo" \| "right-logo" \| "left-aligned" \| "right-aligned"` | Derived from the other props                                        | Selects an exact legacy composition when needed. |

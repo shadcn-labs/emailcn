@@ -11,12 +11,14 @@ import {
   Text,
 } from "react-email";
 
-import { linearTheme } from "@/registry/bases/react-email/themes/linear";
-import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
-import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
-import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
-import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu";
-import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
+import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-email/components/marketing/cta/call-to-action";
+import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/components/marketing/footers/navigation-footer";
+import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/components/marketing/headers/header-with-logo-and-menu";
+import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
   _firstName?: string;
@@ -46,7 +48,7 @@ export const OnboardingLinear = ({
       <Preview>
         Welcome to {_productName}, {_firstName}
       </Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <LogoHeaderSection logoAlt={_productName} />
@@ -58,7 +60,7 @@ export const OnboardingLinear = ({
               ctaHref={ctaHref}
             />
 
-            <ContentGridSection type="title" title="Issue Tracking" />
+            <ContentGridSection layout="title" title="Issue Tracking" />
 
             <CTABannerSection
               heading="Start tracking"
@@ -84,8 +86,7 @@ export const OnboardingLinear = ({
 OnboardingLinear.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Linear",
-  _senderAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Linear Team",
   _senderTitle: "Team",
   ctaHref: "https://linear.app",

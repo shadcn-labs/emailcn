@@ -1,15 +1,11 @@
-import { CouponsWithCenteredText } from "@/registry/bases/mjml-react/ui/marketing/coupons/coupons-with-centered-text";
-import type { CouponsWithCenteredTextVariant } from "@/registry/bases/mjml-react/ui/marketing/coupons/coupons-with-centered-text";
+import { CouponsWithCenteredText } from "@/registry/bases/mjml-react/components/marketing/coupons/coupons-with-centered-text";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function CouponsWithCenteredTextDemo({
-  variant,
-}: {
-  variant?: CouponsWithCenteredTextVariant;
-}) {
+export default function CouponsWithCenteredTextDemo() {
   return (
     <CouponsWithCenteredText
-      {...CouponsWithCenteredText.PreviewProps}
-      variant={variant ?? CouponsWithCenteredText.PreviewProps.variant}
+      variant="impact"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

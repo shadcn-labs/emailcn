@@ -1,0 +1,104 @@
+---
+title: "Collage"
+description: "Collage Call To Action rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="collage-call-to-action-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/collage-call-to-action
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/cta/collage-call-to-action.tsx"
+    base="mjml-react"
+    title="components/email/collage-call-to-action.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CollageCallToAction } from "@/components/email/collage-call-to-action";
+```
+
+```tsx
+<CollageCallToAction treatment="side" />
+```
+
+## Examples
+
+### CTA with shifted images
+
+#### side
+
+<ComponentPreview
+  base="mjml-react"
+  name="collage-call-to-action-treatment-side-example-demo"
+/>
+
+#### offset
+
+<ComponentPreview
+  base="mjml-react"
+  name="collage-call-to-action-treatment-offset-example-demo"
+/>
+
+#### shifted
+
+<ComponentPreview
+  base="mjml-react"
+  name="collage-call-to-action-treatment-shifted-example-demo"
+/>
+
+#### collage
+
+<ComponentPreview
+  base="mjml-react"
+  name="collage-call-to-action-treatment-collage-example-demo"
+/>
+
+## API Reference
+
+| Prop          | Type                                           | Default        | Description                             |
+| ------------- | ---------------------------------------------- | -------------- | --------------------------------------- |
+| `theme`       | `EmailTheme`                                   | `defaultTheme` | Renderer theme configuration.           |
+| `heading`     | `string`                                       | -              | Configures the component's heading.     |
+| `description` | `string`                                       | -              | Configures the component's description. |
+| `action`      | `{ href: string; label: string }`              | -              | Configures the component's action.      |
+| `images`      | `Array<{ src: string; alt?: string }>`         | -              | Configures the component's images.      |
+| `treatment`   | `"offset" \| "shifted" \| "side" \| "collage"` | `"side"`       | Configures the component's treatment.   |

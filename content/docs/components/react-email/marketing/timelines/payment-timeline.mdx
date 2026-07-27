@@ -1,6 +1,6 @@
 ---
-title: "Payment Timeline"
-description: "Marketing timelines variant for email templates"
+title: "Payment"
+description: "Payment Timeline rendered with email-safe, renderer-native components."
 ---
 
 <ComponentPreview base="react-email" name="payment-timeline-demo" />
@@ -15,19 +15,41 @@ description: "Marketing timelines variant for email templates"
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/payment-timeline
+npx shadcn@latest add @emailcn/react-email/payment-timeline
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email tailwindcss
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/ui/marketing/timelines/payment-timeline.tsx"
+    src="registry/bases/react-email/components/marketing/timelines/payment-timeline.tsx"
     base="react-email"
     title="components/email/payment-timeline.tsx"
   />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-default.tsx"
+    base="react-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -40,21 +62,26 @@ import { PaymentTimeline } from "@/components/email/payment-timeline";
 ```
 
 ```tsx
-<PaymentTimeline {...PaymentTimeline.PreviewProps} />
+<PaymentTimeline variant="3-steps" />
 ```
 
 ## Examples
 
-### 4 Steps
+### Four steps
 
 <ComponentPreview
   base="react-email"
-  name="payment-timeline-variant-4-steps-example-demo"
+  name="payment-timeline-four-steps-example-demo"
 />
 
 ## API Reference
 
-| Prop      | Type                     | Default        | Description                  |
-| --------- | ------------------------ | -------------- | ---------------------------- |
-| `variant` | `"3-steps" \| "4-steps"` | `"3-steps"`    | Number of payment milestones |
-| `theme`   | `TailwindConfig`         | `defaultTheme` | Email theme styling          |
+| Prop         | Type                     | Default         | Description                            |
+| ------------ | ------------------------ | --------------- | -------------------------------------- |
+| `theme`      | `EmailTheme`             | `defaultTheme`  | Renderer theme configuration.          |
+| `variant`    | `"3-steps" \| "4-steps"` | `"3-steps"`     | Configures the component's variant.    |
+| `amount`     | `string`                 | `"$9.99"`       | Configures the component's amount.     |
+| `firstDate`  | `string`                 | `"Paid: 17/11"` | Configures the component's firstdate.  |
+| `secondDate` | `string`                 | `"17/12"`       | Configures the component's seconddate. |
+| `thirdDate`  | `string`                 | `"17/01"`       | Configures the component's thirddate.  |
+| `fourthDate` | `string`                 | `"17/02"`       | Configures the component's fourthdate. |

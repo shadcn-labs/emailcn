@@ -16,9 +16,10 @@ import {
   Link,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { appleTheme } from "@/registry/bases/jsx-email/themes/apple";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { appleTheme } from "@/registry/themes/apple";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface ProductCardProps {
   imageUrl?: string;
@@ -305,7 +306,7 @@ ReceiptApple.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/iphone.jpg",
+      imageUrl: emailAsset("products/phone-1.jpg"),
       name: "iPhone 15 Pro",
       price: "$999.00",
       quantity: 1,

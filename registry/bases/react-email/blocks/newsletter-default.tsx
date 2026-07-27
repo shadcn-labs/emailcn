@@ -12,8 +12,10 @@ import {
   Text,
 } from "react-email";
 
-import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Article {
   title: string;
@@ -55,7 +57,7 @@ export const NewsletterDefault = ({
     <Html>
       <Head />
       <Preview>{preheader}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -67,7 +69,7 @@ export const NewsletterDefault = ({
               </Text>
             </Section>
 
-            <ContentGridSection type="title" title="Featured Articles" />
+            <ContentGridSection layout="title" title="Featured Articles" />
 
             <Section className="py-4">
               <Text className="mt-8 text-sm text-foreground-muted">
@@ -88,7 +90,7 @@ export const NewsletterDefault = ({
 
 NewsletterDefault.PreviewProps = {
   _logoAlt: "Newsletter",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme Newsletter",
   articles: [
     {

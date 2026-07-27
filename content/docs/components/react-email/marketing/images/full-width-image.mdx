@@ -1,6 +1,6 @@
 ---
-title: "Full Width Image"
-description: "A full-width image with edge-padding and cutout variants"
+title: "Full Width"
+description: "Full Width Image rendered with email-safe, renderer-native components."
 ---
 
 <ComponentPreview base="react-email" name="full-width-image-demo" />
@@ -15,19 +15,41 @@ description: "A full-width image with edge-padding and cutout variants"
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/full-width-image
+npx shadcn@latest add @emailcn/react-email/full-width-image
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email tailwindcss
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/ui/marketing/images/full-width-image.tsx"
+    src="registry/bases/react-email/components/marketing/images/full-width-image.tsx"
     base="react-email"
     title="components/email/full-width-image.tsx"
   />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-default.tsx"
+    base="react-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -40,115 +62,231 @@ import { FullWidthImage } from "@/components/email/full-width-image";
 ```
 
 ```tsx
-<FullWidthImage {...FullWidthImage.PreviewProps} />
+<FullWidthImage frame="none" frameStyle="padding" overlay={false} />
 ```
 
 ## Examples
 
-### Top Padding
+### Full-width image
+
+#### Default
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-top-padding-example-demo"
+  name="full-width-image-overlay-false-frame-none-frame-style-padding-example-demo"
 />
 
-### Top Right
+#### Top padding
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-top-right-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-padding-example-demo"
 />
 
-### Top Left
+#### Top right
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-top-left-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-alternate-example-demo"
 />
 
-### Top and Sides
+#### Top left
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-top-sides-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-split-example-demo"
 />
 
-### Right Padding
+#### Top + sides
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-right-padding-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-sides-example-demo"
 />
 
-### Right Alternative
+#### Right padding
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-right-alt-example-demo"
+  name="full-width-image-overlay-false-frame-right-frame-style-padding-example-demo"
 />
 
-### Bottom Padding
+#### Right alt
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-bottom-padding-example-demo"
+  name="full-width-image-overlay-false-frame-right-frame-style-alternate-example-demo"
 />
 
-### Bottom Right
+#### Bottom padding
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-bottom-right-example-demo"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-padding-example-demo"
 />
 
-### Bottom Left
+#### Bottom right
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-bottom-left-example-demo"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-alternate-example-demo"
 />
 
-### Bottom and Sides
+#### Bottom left
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-bottom-sides-example-demo"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-split-example-demo"
 />
 
-### Left Padding
+#### Bottom + sides
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-left-padding-example-demo"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-sides-example-demo"
 />
 
-### Left Alternative
+#### Left padding
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-left-alt-example-demo"
+  name="full-width-image-overlay-false-frame-left-frame-style-padding-example-demo"
 />
 
-### Sides Padding
+#### Left alt
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-sides-padding-example-demo"
+  name="full-width-image-overlay-false-frame-left-frame-style-alternate-example-demo"
 />
 
-### Sides Alternative
+#### Sides padding
 
 <ComponentPreview
   base="react-email"
-  name="full-width-image-variant-sides-alt-example-demo"
+  name="full-width-image-overlay-false-frame-sides-frame-style-padding-example-demo"
+/>
+
+#### Sides alt
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-false-frame-sides-frame-style-alternate-example-demo"
+/>
+
+### Full-width image with overlay
+
+#### Default
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-none-frame-style-padding-example-demo"
+/>
+
+#### Top padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-top-frame-style-padding-example-demo"
+/>
+
+#### Top right
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-top-frame-style-alternate-example-demo"
+/>
+
+#### Top left
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-top-frame-style-split-example-demo"
+/>
+
+#### Top + sides
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-top-frame-style-sides-example-demo"
+/>
+
+#### Right padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-right-frame-style-padding-example-demo"
+/>
+
+#### Right alt
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-right-frame-style-alternate-example-demo"
+/>
+
+#### Bottom padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-padding-example-demo"
+/>
+
+#### Bottom right
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-alternate-example-demo"
+/>
+
+#### Bottom left
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-split-example-demo"
+/>
+
+#### Bottom + sides
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-sides-example-demo"
+/>
+
+#### Left padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-left-frame-style-padding-example-demo"
+/>
+
+#### Left alt
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-left-frame-style-alternate-example-demo"
+/>
+
+#### Sides padding
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-sides-frame-style-padding-example-demo"
+/>
+
+#### Sides alt
+
+<ComponentPreview
+  base="react-email"
+  name="full-width-image-overlay-frame-sides-frame-style-alternate-example-demo"
 />
 
 ## API Reference
 
-| Prop                    | Type                    | Default        | Description                                     |
-| ----------------------- | ----------------------- | -------------- | ----------------------------------------------- |
-| `theme`                 | `TailwindConfig`        | `defaultTheme` | React Email Tailwind configuration              |
-| `variant`               | `FullWidthImageVariant` | `"default"`    | Selects the exact edge treatment                |
-| `imageSrc` / `imageAlt` | `string`                | image          | Image URL and alternative text                  |
-| `pageBackgroundColor`   | `string`                | `"#f1f5f9"`    | Canvas and cutout color                         |
-| `spacerBackgroundColor` | `string`                | `"#fffffe"`    | Color used for padding and side spacer surfaces |
+| Prop         | Type                                                                               | Default        | Description                            |
+| ------------ | ---------------------------------------------------------------------------------- | -------------- | -------------------------------------- |
+| `theme`      | `EmailTheme`                                                                       | `defaultTheme` | Renderer theme configuration.          |
+| `image`      | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }` | -              | Configures the component's image.      |
+| `overlay`    | `boolean`                                                                          | `false`        | Configures the component's overlay.    |
+| `frame`      | `"none" \| "top" \| "right" \| "bottom" \| "left" \| "sides"`                      | `"none"`       | Configures the component's frame.      |
+| `frameStyle` | `"padding" \| "split" \| "alternate" \| "sides"`                                   | `"padding"`    | Configures the component's framestyle. |

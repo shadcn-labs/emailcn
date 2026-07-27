@@ -1,12 +1,9 @@
 {
   "title": "Stats",
   "pages": [
-    "grid-stats",
-    "simple-stats",
+    "collection-stats",
+    "spotlight-stats",
     "milestone-stats",
-    "overlay-stats",
-    "rolling-stats",
-    "single-stat-with-background-image",
     "stacked-stats"
   ]
 }

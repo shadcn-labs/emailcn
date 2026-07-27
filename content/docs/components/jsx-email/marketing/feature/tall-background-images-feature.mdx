@@ -1,0 +1,141 @@
+---
+title: "Tall Background Images"
+description: "Tall Background Images Feature rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="tall-background-images-feature-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/tall-background-images-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/feature/tall-background-images-feature.tsx"
+    base="jsx-email"
+    title="components/email/tall-background-images-feature.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TallBackgroundImagesFeature } from "@/components/email/tall-background-images-feature";
+```
+
+```tsx
+<TallBackgroundImagesFeature logoPosition="top-left" titleWidth="split" />
+```
+
+## Examples
+
+### Feature with double tall background images
+
+#### logo top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-logo-position-top-left-title-width-split-example-demo"
+/>
+
+#### logo top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-split-logo-position-top-right-example-demo"
+/>
+
+#### logo bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-split-logo-position-bottom-left-example-demo"
+/>
+
+#### logo bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-split-logo-position-bottom-right-example-demo"
+/>
+
+### Feature with full title and tall background images
+
+#### logo top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-full-logo-position-top-left-example-demo"
+/>
+
+#### logo top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-full-logo-position-top-right-example-demo"
+/>
+
+#### logo bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-full-logo-position-bottom-left-example-demo"
+/>
+
+#### logo bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-title-width-full-logo-position-bottom-right-example-demo"
+/>
+
+## API Reference
+
+| Prop           | Type                                                             | Default        | Description                              |
+| -------------- | ---------------------------------------------------------------- | -------------- | ---------------------------------------- |
+| `theme`        | `EmailTheme`                                                     | `defaultTheme` | Renderer theme configuration.            |
+| `heading`      | `string`                                                         | -              | Configures the component's heading.      |
+| `body`         | `string`                                                         | -              | Configures the component's body.         |
+| `images`       | `[{ src: string; alt?: string }, { src: string; alt?: string }]` | -              | Configures the component's images.       |
+| `logo`         | `{ src: string; alt?: string }`                                  | -              | Configures the component's logo.         |
+| `action`       | `{ href: string; label: string; iconSrc?: string }`              | -              | Configures the component's action.       |
+| `logoPosition` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"`   | `"top-left"`   | Configures the component's logoposition. |
+| `titleWidth`   | `"split" \| "full"`                                              | `"split"`      | Configures the component's titlewidth.   |

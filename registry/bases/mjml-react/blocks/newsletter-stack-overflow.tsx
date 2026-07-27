@@ -1,7 +1,8 @@
 // Subject: {preheader}
 
 import { NewsletterBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { stackOverflowTheme } from "@/registry/bases/mjml-react/themes/stack-overflow";
+import { emailAsset } from "@/registry/email-assets";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface Article {
   title: string;
@@ -40,7 +41,7 @@ export const NewsletterStackOverflow = ({
 
 NewsletterStackOverflow.PreviewProps = {
   _logoAlt: "Stack Overflow",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stack Overflow",
   articles: [
     {

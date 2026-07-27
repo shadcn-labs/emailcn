@@ -1,0 +1,153 @@
+---
+title: "Spotlight"
+description: "Spotlight Stats rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="spotlight-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/react-email/spotlight-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email tailwindcss
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/components/marketing/stats/spotlight-stats.tsx"
+    base="react-email"
+    title="components/email/spotlight-stats.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-default.tsx"
+    base="react-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SpotlightStats } from "@/components/email/spotlight-stats";
+```
+
+```tsx
+<SpotlightStats position="center" />
+```
+
+## Examples
+
+### Rolling stats
+
+#### center
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-center-example-demo"
+/>
+
+#### top-left
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-top-left-example-demo"
+/>
+
+#### top-right
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-top-right-example-demo"
+/>
+
+#### bottom-left
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-bottom-left-example-demo"
+/>
+
+#### bottom-right
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-bottom-right-example-demo"
+/>
+
+### Single stat with background image
+
+#### center
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-center-background-image-example-demo"
+/>
+
+#### top-left
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-top-left-background-image-example-demo"
+/>
+
+#### top-right
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-top-right-background-image-example-demo"
+/>
+
+#### bottom-left
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-bottom-left-background-image-example-demo"
+/>
+
+#### bottom-right
+
+<ComponentPreview
+  base="react-email"
+  name="spotlight-stats-position-bottom-right-background-image-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                                       | Default                     | Description                                 |
+| ----------------- | -------------------------------------------------------------------------- | --------------------------- | ------------------------------------------- |
+| `theme`           | `EmailTheme`                                                               | `defaultTheme`              | Renderer theme configuration.               |
+| `eyebrow`         | `string`                                                                   | `"Mapped trails"`           | Configures the component's eyebrow.         |
+| `label`           | `string`                                                                   | `"Tracked by active users"` | Configures the component's label.           |
+| `values`          | `string[]`                                                                 | -                           | Configures the component's values.          |
+| `position`        | `"center" \| "top-left" \| "top-right" \| "bottom-left" \| "bottom-right"` | `"center"`                  | Configures the component's position.        |
+| `backgroundImage` | `{ src: string; alt?: string }`                                            | -                           | Configures the component's backgroundimage. |

@@ -1,0 +1,89 @@
+---
+title: "Container"
+description: "Container rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="container-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/container
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ui-elements/containers/container.tsx"
+    base="mjml-react"
+    title="components/email/container.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Container } from "@/components/email/container";
+```
+
+```tsx
+<Container mobile="gutters" align="left" />
+```
+
+## Examples
+
+### Container
+
+#### mobile gutters
+
+<ComponentPreview
+  base="mjml-react"
+  name="container-mobile-gutters-align-left-example-demo"
+/>
+
+#### flush on mobile
+
+<ComponentPreview
+  base="mjml-react"
+  name="container-mobile-flush-example-demo"
+/>
+
+## API Reference
+
+| Prop       | Type                            | Default        | Description                          |
+| ---------- | ------------------------------- | -------------- | ------------------------------------ |
+| `theme`    | `EmailTheme`                    | `defaultTheme` | Renderer theme configuration.        |
+| `children` | `ReactNode`                     | -              | Configures the component's children. |
+| `maxWidth` | `string`                        | `"600px"`      | Configures the component's maxwidth. |
+| `align`    | `"left" \| "center" \| "right"` | `"center"`     | Configures the component's align.    |
+| `mobile`   | `"flush" \| "gutters"`          | `"gutters"`    | Configures the component's mobile.   |

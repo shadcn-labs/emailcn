@@ -15,7 +15,7 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 
 export const BlockEmail = ({
   children,
@@ -24,7 +24,7 @@ export const BlockEmail = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -85,7 +85,7 @@ export const BlockHeading = ({
 }: {
   align?: "center" | "left" | "right";
   children: ReactNode;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockText
     align={align}
@@ -109,7 +109,7 @@ export const BlockParagraph = ({
   align?: "center" | "left" | "right";
   children: ReactNode;
   padding?: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockText
     align={align}
@@ -132,7 +132,7 @@ export const BlockAction = ({
   align?: "center" | "left" | "right";
   href: string;
   label: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <MjmlButton
     align={align}
@@ -155,7 +155,7 @@ export const BlockCode = ({
   theme,
 }: {
   code: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <MjmlSection
     backgroundColor={theme.colorBackgroundMuted}
@@ -182,7 +182,7 @@ export const BlockCard = ({
   theme,
 }: {
   children: ReactNode;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <MjmlSection
     backgroundColor={theme.colorBackgroundMuted}
@@ -199,7 +199,7 @@ export const BlockFooter = ({
   theme,
 }: {
   children: ReactNode;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <MjmlSection padding={`${theme.spacingLg} 0 ${theme.spacingBase}`}>
     <MjmlColumn>
@@ -245,7 +245,7 @@ export const AuthOtpBlock = ({
   expiresInMinutes: number;
   otpCode: string;
   productName: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockEmail preview="Your verification code" theme={theme}>
     <MjmlSection padding={`${theme.spacingXl} 0 ${theme.spacingBase}`}>
@@ -273,7 +273,7 @@ export const PasswordResetBlock = ({
   expiresInMinutes: number;
   productName: string;
   resetHref: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockEmail preview="Reset your password" theme={theme}>
     <MjmlSection padding={`${theme.spacingXl} 0 ${theme.spacingBase}`}>
@@ -305,7 +305,7 @@ export const InviteBlock = ({
   inviterAvatarUrl?: string;
   inviterName: string;
   teamName: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockEmail preview={`You’re invited to join ${teamName}`} theme={theme}>
     <MjmlSection padding={`${theme.spacingXl} 0 ${theme.spacingBase}`}>
@@ -366,7 +366,7 @@ export const NewsletterBlock = ({
   issueNumber: string;
   preheader: string;
   productName: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockEmail preview={preheader} theme={theme}>
     <MjmlSection padding={`${theme.spacingXl} 0 ${theme.spacingBase}`}>
@@ -471,7 +471,7 @@ export const NotificationBlock = ({
   issueNumber?: string;
   preview?: string;
   targetName?: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockEmail preview={preview} theme={theme}>
     <MjmlSection padding={`${theme.spacingXl} 0 ${theme.spacingBase}`}>
@@ -530,7 +530,7 @@ export const OnboardingBlock = ({
   firstName: string;
   productName: string;
   senderName: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <BlockEmail preview={`Welcome to ${productName}, ${firstName}`} theme={theme}>
     <MjmlSection padding={`${theme.spacingBase} 0`}>
@@ -624,7 +624,7 @@ const ReceiptTotalRow = ({
 }: {
   bold?: boolean;
   label: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
   value: string;
 }) => (
   <>
@@ -676,7 +676,7 @@ export const ReceiptBlock = ({
   supportHref: string;
   supportLabel?: string;
   tax: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
   total: string;
 }) => (
   <BlockEmail preview={`Your ${label.toLowerCase()}`} theme={theme}>

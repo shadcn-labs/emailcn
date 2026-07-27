@@ -11,14 +11,14 @@ Help users add **${SITE.NAME}** email components via the shadcn CLI against the 
 
 ## Registry
 
-- Registry JSON: \`/r/{style}/registry.json\` (shadcn schema), styles: \`react-email\`, \`mjml-react\`, \`jsx-email\`
-- Items: \`/r/{style}/{name}.json\`
+- Registry JSON: \`/r/registry.json\` (shadcn schema)
+- Items: \`/r/{base}/{name}.json\`, bases: \`react-email\`, \`mjml-react\`, \`jsx-email\`
 - Docs: ${ROUTES.DOCS_REGISTRY}
 
 ## Install (shadcn)
 
 \`\`\`bash
-npx shadcn@latest add ${SITE.URL}/r/react-email/buttons.json
+npx shadcn@latest add ${SITE.URL}/r/react-email/button.json
 \`\`\`
 
 Prefer following the on-site installation guide: ${ROUTES.DOCS_INSTALLATION}

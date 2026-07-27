@@ -1,15 +1,11 @@
-import { PaymentTimeline } from "@/registry/bases/mjml-react/ui/marketing/timelines/payment-timeline";
-import type { PaymentTimelineVariant } from "@/registry/bases/mjml-react/ui/marketing/timelines/payment-timeline";
+import { PaymentTimeline } from "@/registry/bases/mjml-react/components/marketing/timelines/payment-timeline";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function PaymentTimelineDemo({
-  variant,
-}: {
-  variant?: PaymentTimelineVariant;
-}) {
+export default function PaymentTimelineDemo() {
   return (
     <PaymentTimeline
-      {...PaymentTimeline.PreviewProps}
-      variant={variant ?? PaymentTimeline.PreviewProps.variant}
+      variant="3-steps"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

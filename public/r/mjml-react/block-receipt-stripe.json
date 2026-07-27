@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "block-receipt-stripe",
+  "name": "mjml-react/block-receipt-stripe",
   "title": "Receipt — Stripe (MJML)",
   "description": "Stripe-style invoice receipt email",
   "dependencies": [
@@ -8,7 +8,7 @@
     "mjml"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/mjml-react/block-block-shared.json",
+    "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
     "https://emailcn.vercel.app/r/mjml-react/theme-stripe.json"
   ],
   "files": [

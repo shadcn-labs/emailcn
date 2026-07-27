@@ -1,7 +1,8 @@
 // Subject: {_action} — {_targetName}
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -35,9 +36,8 @@ export const NotificationDefault = ({
 
 NotificationDefault.PreviewProps = {
   _action: "commented on your post",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Acme",
   _targetName: "New comment on your project",
   actorName: "Sarah",

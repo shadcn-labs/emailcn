@@ -1,0 +1,235 @@
+---
+title: "Stats Grid"
+description: "Bento Stats Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="bento-stats-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/bento-stats-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/bento-grids/bento-stats-grid.tsx"
+    base="jsx-email"
+    title="components/email/bento-stats-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoStatsGrid } from "@/components/email/bento-stats-grid";
+```
+
+```tsx
+<BentoStatsGrid
+  variant="even-split"
+  style="chart"
+  placement="image-top-right"
+/>
+```
+
+## Examples
+
+### Two-thirds bento grid with stats
+
+#### image-top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-right-style-compact-variant-two-thirds-example-demo"
+/>
+
+#### image-top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-left-style-compact-variant-two-thirds-example-demo"
+/>
+
+#### image-bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-right-style-compact-variant-two-thirds-example-demo"
+/>
+
+#### image-bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-left-style-compact-variant-two-thirds-example-demo"
+/>
+
+### Bento grid with even split and image stats
+
+#### image-top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-right-style-chart-variant-even-split-example-demo"
+/>
+
+#### image-top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-left-style-chart-variant-even-split-example-demo"
+/>
+
+#### image-bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-right-style-chart-variant-even-split-example-demo"
+/>
+
+#### image-bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-left-style-chart-variant-even-split-example-demo"
+/>
+
+### Bento grid with even split and text stats
+
+#### image-top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-right-style-text-variant-even-split-example-demo"
+/>
+
+#### image-top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-left-style-text-variant-even-split-example-demo"
+/>
+
+#### image-bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-right-style-text-variant-even-split-example-demo"
+/>
+
+#### image-bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-left-style-text-variant-even-split-example-demo"
+/>
+
+### Bento grid with 3 columns and even split image stats
+
+#### image-top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-right-style-chart-variant-three-column-example-demo"
+/>
+
+#### image-top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-left-style-chart-variant-three-column-example-demo"
+/>
+
+#### image-bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-right-style-chart-variant-three-column-example-demo"
+/>
+
+#### image-bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-left-style-chart-variant-three-column-example-demo"
+/>
+
+### Bento grid with 3 columns and even split text stats
+
+#### image-top-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-right-style-text-variant-three-column-example-demo"
+/>
+
+#### image-top-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-top-left-style-text-variant-three-column-example-demo"
+/>
+
+#### image-bottom-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-right-style-text-variant-three-column-example-demo"
+/>
+
+#### image-bottom-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-stats-grid-placement-image-bottom-left-style-text-variant-three-column-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Default                               | Description                                              |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------- |
+| `theme`     | `EmailTheme`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `defaultTheme`                        | Renderer theme configuration.                            |
+| `variant`   | `"two-thirds" \| "even-split" \| "three-column"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `"two-thirds"`                        | Selects the stats-grid layout.                           |
+| `style`     | `"compact" \| "chart" \| "text"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `"compact"`                           | Selects the metric-card treatment supported by layout.   |
+| `placement` | `"image-top-right" \| "image-top-left" \| "image-bottom-right" \| "image-bottom-left"`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `"image-top-right"`                   | Positions the image card in the selected layout.         |
+| `data`      | `{ feature: { description: string; title: string }; imageAlt: string; imageSrc: string; metric: { change: string; period: string; title: string; value: string }; stat: { label: string; suffix: string; value: string } } \| { feature: { description: string; title: string }; imageAlt: string; imageSrc: string; metric: { change: string; comparison?: string; reportHref: string; reportLabel: string; title: string; value: string }; stat: { label: string; suffix: string; value: string } } \| { imageAlt: string; imageSrc: string; metric: { change: string; comparison?: string; reportHref: string; reportLabel: string; title: string; value: string }; stats: [{ label: string; suffix: string; value: string }, { label: string; suffix: string; value: string }, { label: string; suffix: string; value: string }] }` | Built-in data for the selected layout | Replaces the stats data for the selected layout variant. |
+
+`BentoStatsGridProps` is a discriminated union. The selected `variant` narrows
+the supported `style` and `data` shape.

@@ -1,13 +1,12 @@
-import { SplitProductDetail } from "@/registry/bases/jsx-email/ui/ecommerce/product-detail/split-product-detail";
-import type { SplitProductDetailProps } from "@/registry/bases/jsx-email/ui/ecommerce/product-detail/split-product-detail";
+import { SplitProductDetail } from "@/registry/bases/jsx-email/components/ecommerce/product-detail/split-product-detail";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function SplitProductDetailDemo({
-  variant,
-}: Pick<SplitProductDetailProps, "variant">) {
+export default function SplitProductDetailDemo() {
   return (
     <SplitProductDetail
-      {...SplitProductDetail.PreviewProps}
-      variant={variant ?? SplitProductDetail.PreviewProps.variant}
+      treatment="stacked"
+      placement="left"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

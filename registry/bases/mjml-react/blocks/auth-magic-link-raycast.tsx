@@ -14,8 +14,9 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import { raycastTheme } from "@/registry/bases/mjml-react/themes/raycast";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { raycastTheme } from "@/registry/themes/raycast";
 
 interface Props {
   _logoUrl?: string;
@@ -31,7 +32,7 @@ export const AuthMagicLinkRaycast = ({
   expiresInMinutes = 30,
   _productName = "Raycast",
 }: Props) => {
-  const theme: EmailThemeTokens = raycastTheme;
+  const theme: EmailTheme = raycastTheme;
 
   return (
     <Mjml>
@@ -111,7 +112,7 @@ export const AuthMagicLinkRaycast = ({
 
 AuthMagicLinkRaycast.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

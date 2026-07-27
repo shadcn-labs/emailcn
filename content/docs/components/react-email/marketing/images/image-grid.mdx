@@ -1,0 +1,138 @@
+---
+title: "Grid"
+description: "Image Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/react-email/image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email tailwindcss
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/components/marketing/images/image-grid.tsx"
+    base="react-email"
+    title="components/email/image-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-default.tsx"
+    base="react-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageGrid } from "@/components/email/image-grid";
+```
+
+```tsx
+<ImageGrid columns={2} aspect="square" overlay={false} />
+```
+
+## Examples
+
+### 2-column image grid
+
+#### square
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-2-aspect-square-overlay-false-example-demo"
+/>
+
+#### square overlay
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-2-aspect-square-overlay-example-demo"
+/>
+
+#### portrait
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-2-aspect-portrait-overlay-false-example-demo"
+/>
+
+#### portrait overlay
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-2-aspect-portrait-overlay-example-demo"
+/>
+
+### 3-column image grid
+
+#### square
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-3-aspect-square-overlay-false-example-demo"
+/>
+
+#### square overlay
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-3-aspect-square-overlay-example-demo"
+/>
+
+#### portrait
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-3-aspect-portrait-overlay-false-example-demo"
+/>
+
+#### portrait overlay
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-columns-3-aspect-portrait-overlay-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                                                      | Default        | Description                         |
+| --------- | ----------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailTheme`                                                                              | `defaultTheme` | Renderer theme configuration.       |
+| `images`  | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.  |
+| `columns` | `2 \| 3`                                                                                  | `2`            | Configures the component's columns. |
+| `aspect`  | `"square" \| "portrait"`                                                                  | `"square"`     | Configures the component's aspect.  |
+| `overlay` | `boolean`                                                                                 | `false`        | Configures the component's overlay. |

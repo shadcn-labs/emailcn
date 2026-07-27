@@ -9,14 +9,14 @@ description: "Install email components, blocks, themes, and font helpers from th
 - **MJML React** templates: a project with **`@faire/mjml-react`** installed.
 - **JSX Email** templates: a project with **`jsx-email`** installed.
 
-Configure the `@emailcn` namespace for your preferred style first — see [Registry](/docs/registry).
+Configure the `@emailcn` namespace first, then select the framework in the item path — see [Registry](/docs/registry).
 
 ## Installation
 
 Run the following command to add any component or block:
 
 ```bash
-npx shadcn@latest add @emailcn/block-onboarding-default
+npx shadcn@latest add @emailcn/react-email/block-onboarding-default
 ```
 
 ## Usage
@@ -35,7 +35,8 @@ Components install with a `*Section` export you can compose inside your own docu
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
-import { DefaultFonts } from "@/components/email/default";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
+import { DefaultFonts } from "@/components/email/font-default";
 import { defaultTheme } from "@/components/email/theme-default";
 import { ButtonsSection } from "@/components/email/buttons";
 
@@ -46,7 +47,7 @@ export function WelcomeEmail() {
         <DefaultFonts />
       </Head>
       <Preview>Welcome</Preview>
-      <Tailwind config={defaultTheme}>
+      <Tailwind config={createEmailTailwindConfig(defaultTheme)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container">
             <ButtonsSection label="Get Started" href="https://example.com" />

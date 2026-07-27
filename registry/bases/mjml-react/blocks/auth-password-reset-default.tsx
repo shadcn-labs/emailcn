@@ -1,7 +1,8 @@
 // Subject: Reset your password for {_productName}
 
 import { PasswordResetBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -26,7 +27,7 @@ export const AuthPasswordResetDefault = ({
 
 AuthPasswordResetDefault.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

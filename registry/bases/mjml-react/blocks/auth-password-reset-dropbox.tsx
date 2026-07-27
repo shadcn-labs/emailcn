@@ -1,7 +1,8 @@
 // Subject: Reset your password for {_productName}
 
 import { PasswordResetBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { dropboxTheme } from "@/registry/bases/mjml-react/themes/dropbox";
+import { emailAsset } from "@/registry/email-assets";
+import { dropboxTheme } from "@/registry/themes/dropbox";
 
 interface Props {
   _logoUrl?: string;
@@ -26,7 +27,7 @@ export const AuthPasswordResetDropbox = ({
 
 AuthPasswordResetDropbox.PreviewProps = {
   _logoAlt: "Dropbox",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Dropbox",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

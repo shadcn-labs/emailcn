@@ -1,9 +1,9 @@
 ---
 title: "Pills"
-description: "Status pills for labels, categories, and state indicators."
+description: "Pills rendered with email-safe, renderer-native components."
 ---
 
-<ComponentPreview base="jsx-email" name="basic-pills-status-colors-demo" />
+<ComponentPreview base="jsx-email" name="pills-demo" />
 
 ## Installation
 
@@ -15,28 +15,41 @@ description: "Status pills for labels, categories, and state indicators."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/basic-pills-with-status-colors
+npx shadcn@latest add @emailcn/jsx-email/pills
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
+  <Step>**Install the following dependencies:**</Step>
 
-<Step>Copy both component source files into your project.</Step>
+```bash
+npm install jsx-email
+```
 
-<ComponentSource
-  src="registry/bases/jsx-email/ui/ui-elements/pills/basic-pills-with-status-colors.tsx"
-  base="jsx-email"
-  title="components/email/basic-pills-with-status-colors.tsx"
-/>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/ui-elements/pills/basic-pills-shared.tsx"
-  base="jsx-email"
-  title="components/email/basic-pills-shared.tsx"
-/>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/ui-elements/pills/pills.tsx"
+    base="jsx-email"
+    title="components/email/pills.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -45,16 +58,22 @@ npx shadcn@latest add @emailcn/basic-pills-with-status-colors
 ## Usage
 
 ```tsx
-import { BasicPillsStatusColors } from "@/components/email/basic-pills-with-status-colors";
+import { Pills } from "@/components/email/pills";
 ```
 
 ```tsx
-<BasicPillsStatusColors {...BasicPillsStatusColors.PreviewProps} />
+<Pills />
 ```
+
+## Examples
+
+### Mixed statuses
+
+<ComponentPreview base="jsx-email" name="pills-mixed-statuses-example-demo" />
 
 ## API Reference
 
-| Prop    | Type                                                                                                | Default        | Description                         |
-| ------- | --------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
-| `pills` | `{ label: string; variant: "default" \| "success" \| "error" \| "warning" \| "info" \| "brand" }[]` | set            | Pill labels and status color styles |
-| `theme` | `EmailThemeTokens`                                                                                  | `defaultTheme` | Email theme and container width     |
+| Prop    | Type                                                                                                                 | Default        | Description                       |
+| ------- | -------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------- |
+| `theme` | `EmailTheme`                                                                                                         | `defaultTheme` | Renderer theme configuration.     |
+| `pills` | `Array<{ label: string; status?: "brand" \| "danger" \| "default" \| "error" \| "info" \| "success" \| "warning" }>` | Built-in pills | Configures the component's pills. |

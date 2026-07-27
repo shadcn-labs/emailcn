@@ -1,0 +1,195 @@
+---
+title: "Category Preview"
+description: "Category Preview rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="category-preview-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/category-preview
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/ecommerce/category-previews/category-preview.tsx"
+    base="jsx-email"
+    title="components/email/category-preview.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CategoryPreview } from "@/components/email/category-preview";
+```
+
+```tsx
+<CategoryPreview layout="cards" detailLevel="name" />
+```
+
+## Examples
+
+### Category preview with cards
+
+#### basic
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-name-example-demo"
+/>
+
+#### with header
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-name-header-example-demo"
+/>
+
+#### with description
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-description-example-demo"
+/>
+
+#### with details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-price-example-demo"
+/>
+
+#### full details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-full-example-demo"
+/>
+
+#### header description
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-description-header-example-demo"
+/>
+
+#### header details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-price-header-example-demo"
+/>
+
+#### header full details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-cards-detail-level-full-header-example-demo"
+/>
+
+### Category preview with rows
+
+#### basic
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-name-example-demo"
+/>
+
+#### with header
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-name-header-example-demo"
+/>
+
+#### with description
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-description-example-demo"
+/>
+
+#### with details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-price-example-demo"
+/>
+
+#### full details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-full-example-demo"
+/>
+
+#### header description
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-description-header-example-demo"
+/>
+
+#### header details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-price-header-example-demo"
+/>
+
+#### header full details
+
+<ComponentPreview
+  base="jsx-email"
+  name="category-preview-layout-rows-detail-level-full-header-example-demo"
+/>
+
+## API Reference
+
+| Prop          | Type                                                                                                  | Default        | Description                             |
+| ------------- | ----------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------- |
+| `theme`       | `EmailTheme`                                                                                          | `defaultTheme` | Renderer theme configuration.           |
+| `layout`      | `"cards" \| "rows"`                                                                                   | `"cards"`      | Configures the component's layout.      |
+| `detailLevel` | `"name" \| "description" \| "price" \| "full"`                                                        | `"name"`       | Configures the component's detaillevel. |
+| `header`      | `{ heading: string; description?: string }`                                                           | -              | Configures the component's header.      |
+| `items`       | `Array<{ image: { src: string; alt?: string }; name: string; price?: string; description?: string }>` | -              | Configures the component's items.       |
+| `actionLabel` | `string`                                                                                              | -              | Configures the component's actionlabel. |

@@ -1,0 +1,283 @@
+---
+title: "Logo Cloud"
+description: "Logo Cloud rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="logo-cloud-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/logos/logo-cloud.tsx"
+    base="mjml-react"
+    title="components/email/logo-cloud.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloud } from "@/components/email/logo-cloud";
+```
+
+```tsx
+<LogoCloud layout="cloud" appearance="plain" alignment="center" />
+```
+
+## Examples
+
+### Basic logo cloud
+
+#### full
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-plain-title-description-example-demo"
+/>
+
+#### minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-plain-alignment-center-example-demo"
+/>
+
+#### with-description
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-plain-description-example-demo"
+/>
+
+#### with-title
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-plain-title-example-demo"
+/>
+
+### Logo cloud
+
+#### Boxed full
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-boxed-title-description-example-demo"
+/>
+
+#### Boxed minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-boxed-example-demo"
+/>
+
+#### Boxed with description
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-boxed-description-example-demo"
+/>
+
+#### Boxed with title
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-boxed-title-example-demo"
+/>
+
+#### Boxed flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-boxed-flush-example-demo"
+/>
+
+#### Outlined full
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-outlined-title-description-example-demo"
+/>
+
+#### Outlined minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-outlined-example-demo"
+/>
+
+#### Outlined with description
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-outlined-description-example-demo"
+/>
+
+#### Outlined with title
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-outlined-title-example-demo"
+/>
+
+#### Outlined flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-outlined-flush-example-demo"
+/>
+
+### Logo cloud with borders
+
+#### full
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-bordered-title-description-example-demo"
+/>
+
+#### minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-bordered-example-demo"
+/>
+
+#### with-description
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-bordered-description-example-demo"
+/>
+
+#### with-title
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-bordered-title-example-demo"
+/>
+
+#### flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-cloud-appearance-bordered-flush-example-demo"
+/>
+
+### Featured brands logo grid
+
+#### boxed left
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-featured-appearance-boxed-alignment-left-example-demo"
+/>
+
+#### boxed center
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-featured-appearance-boxed-alignment-center-example-demo"
+/>
+
+#### boxed right
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-featured-appearance-boxed-alignment-right-example-demo"
+/>
+
+#### outlined left
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-featured-appearance-outlined-alignment-left-example-demo"
+/>
+
+#### outlined center
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-featured-appearance-outlined-alignment-center-example-demo"
+/>
+
+#### outlined right
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-featured-appearance-outlined-alignment-right-example-demo"
+/>
+
+### Logos grid
+
+#### boxed
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-grid-appearance-boxed-alignment-center-example-demo"
+/>
+
+#### outlined
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-grid-appearance-outlined-alignment-center-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="mjml-react"
+  name="logo-cloud-layout-grid-appearance-bordered-alignment-center-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                                 | Default                                                                                                          | Description                                |
+| --------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `theme`         | `EmailTheme`                                         | `defaultTheme`                                                                                                   | Renderer theme configuration.              |
+| `title`         | `string`                                             | -                                                                                                                | Configures the component's title.          |
+| `description`   | `string`                                             | `"We created a personal account for you. Please confirm your e-mail address and use our service to the maximum"` | Configures the component's description.    |
+| `logos`         | `Array<{ alt: string; src: string; width: number }>` | Built-in logos                                                                                                   | Configures the component's logos.          |
+| `layout`        | `"cloud" \| "grid" \| "featured"`                    | `"cloud"`                                                                                                        | Configures the component's layout.         |
+| `appearance`    | `"plain" \| "boxed" \| "outlined" \| "bordered"`     | `"plain"`                                                                                                        | Configures the component's appearance.     |
+| `alignment`     | `"left" \| "center" \| "right"`                      | `"center"`                                                                                                       | Configures the component's alignment.      |
+| `featuredIndex` | `number`                                             | `0`                                                                                                              | Configures the component's featuredindex.  |
+| `flush`         | `boolean`                                            | `false`                                                                                                          | Removes the outer spacing where supported. |

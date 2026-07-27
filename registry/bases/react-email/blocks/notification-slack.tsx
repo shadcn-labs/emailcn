@@ -12,7 +12,9 @@ import {
   Text,
 } from "react-email";
 
-import { slackTheme } from "@/registry/bases/react-email/themes/slack";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { slackTheme } from "@/registry/themes/slack";
 
 interface Props {
   _logoUrl?: string;
@@ -48,7 +50,7 @@ export const NotificationSlack = ({
     <Html>
       <Head />
       <Preview>Join {teamName}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -83,9 +85,8 @@ export const NotificationSlack = ({
 
 NotificationSlack.PreviewProps = {
   _action: "invited you",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Slack",
   _targetName: "workspace",
   actorName: "Sarah",

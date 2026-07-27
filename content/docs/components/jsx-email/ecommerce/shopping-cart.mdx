@@ -1,9 +1,9 @@
 ---
 title: "Shopping Cart"
-description: "Shopping cart layouts for order review emails."
+description: "Shopping Cart rendered with email-safe, renderer-native components."
 ---
 
-<ComponentPreview base="jsx-email" name="shopping-cart-row-items-demo" />
+<ComponentPreview base="jsx-email" name="shopping-cart-demo" />
 
 ## Installation
 
@@ -15,25 +15,41 @@ description: "Shopping cart layouts for order review emails."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/shopping-cart-with-row-items
+npx shadcn@latest add @emailcn/jsx-email/shopping-cart
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/jsx-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx"
+    src="registry/bases/jsx-email/components/ecommerce/shopping-cart/shopping-cart.tsx"
     base="jsx-email"
-    title="components/email/shopping-cart-with-row-items.tsx"
+    title="components/email/shopping-cart.tsx"
   />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -42,61 +58,64 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { ShoppingCartRowItems } from "@/components/email/shopping-cart-with-row-items";
+import { ShoppingCart } from "@/components/email/shopping-cart";
 ```
 
 ```tsx
-<ShoppingCartRowItems {...ShoppingCartRowItems.PreviewProps} variant="basic" />
+<ShoppingCart variant="basic" />
 ```
 
 ## Examples
 
-### Basic Alt
+### Shopping cart with row items
+
+#### Basic
+
+The default demo above covers this original component variant.
+
+#### With details
 
 <ComponentPreview
   base="jsx-email"
-  name="shopping-cart-row-items-variant-basic-alt-example-demo"
+  name="shopping-cart-with-details-example-demo"
 />
 
-### With Details
+#### Full details
 
 <ComponentPreview
   base="jsx-email"
-  name="shopping-cart-row-items-variant-with-details-example-demo"
+  name="shopping-cart-full-details-example-demo"
 />
 
-### Details Alt
+#### Alternate
 
 <ComponentPreview
   base="jsx-email"
-  name="shopping-cart-row-items-variant-details-alt-example-demo"
+  name="shopping-cart-alternate-example-demo"
 />
 
-### Full Details
+#### Details alternate
 
 <ComponentPreview
   base="jsx-email"
-  name="shopping-cart-row-items-variant-full-details-example-demo"
+  name="shopping-cart-details-alternate-example-demo"
 />
 
-### Full Details Alt
+#### Full details standard
 
 <ComponentPreview
   base="jsx-email"
-  name="shopping-cart-row-items-variant-full-details-alt-example-demo"
+  name="shopping-cart-full-details-standard-example-demo"
 />
 
-### Example With CTA
+#### With call to action
 
-<ComponentPreview
-  base="jsx-email"
-  name="shopping-cart-row-items-variant-example-with-cta-example-demo"
-/>
+<ComponentPreview base="jsx-email" name="shopping-cart-with-cta-example-demo" />
 
 ## API Reference
 
-| Prop      | Type                  | Default        | Description         |
-| --------- | --------------------- | -------------- | ------------------- |
-| `variant` | `ShoppingCartVariant` | `"basic"`      | layout variant      |
-| `items`   | `ShoppingCartItem[]`  | data           | Cart item overrides |
-| `theme`   | `EmailThemeTokens`    | `defaultTheme` | Email theme styling |
+| Prop      | Type                                                                                                                                                     | Default             | Description                            |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------- |
+| `theme`   | `EmailTheme`                                                                                                                                             | `defaultTheme`      | Renderer theme configuration.          |
+| `items`   | `Array<{ colors?: string[]; description?: string; editHref?: string; imageUrl?: string; name: string; price: string; quantity: number; size?: string }>` | Built-in cart items | Supplies the cart items.               |
+| `variant` | `"basic" \| "basic-alt" \| "with-details" \| "details-alt" \| "full-details" \| "full-details-alt" \| "example-with-cta"`                                | `"basic"`           | Selects the cart-row detail treatment. |

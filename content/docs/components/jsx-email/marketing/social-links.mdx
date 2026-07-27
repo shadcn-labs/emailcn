@@ -1,0 +1,473 @@
+---
+title: "Social Links"
+description: "Social Links rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="social-links-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/social-links
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/social/social-links.tsx"
+    base="jsx-email"
+    title="components/email/social-links.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SocialLinks } from "@/components/email/social-links";
+```
+
+```tsx
+<SocialLinks presentation="icons" container="none" direction="inline" />
+```
+
+## Examples
+
+### Simple social logos row
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-none-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-example-demo"
+/>
+
+### Square tiles social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-tile-shape-square-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-tile-shape-square-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-tile-shape-square-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-tile-shape-square-example-demo"
+/>
+
+### Circle tiles social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-tile-shape-circle-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-tile-shape-circle-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-tile-shape-circle-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-tile-shape-circle-example-demo"
+/>
+
+### Outlined square tiles social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-tile-shape-square-outlined-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-tile-shape-square-outlined-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-tile-shape-square-outlined-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-tile-shape-square-outlined-example-demo"
+/>
+
+### Outlined circle tiles social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-tile-shape-circle-outlined-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-tile-shape-circle-outlined-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-tile-shape-circle-outlined-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-tile-shape-circle-outlined-example-demo"
+/>
+
+### Squared box social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-box-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-box-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-box-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-box-example-demo"
+/>
+
+### Outlined box social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-box-outlined-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-box-outlined-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-box-outlined-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-box-outlined-example-demo"
+/>
+
+### Pill box social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-pill-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-pill-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-pill-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-pill-example-demo"
+/>
+
+### Outlined pill box social logos
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-icons-container-pill-outlined-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-icons-container-pill-outlined-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-icons-container-pill-outlined-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-icons-container-pill-outlined-example-demo"
+/>
+
+### Socials with inline labels
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-labels-container-none-direction-inline-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-labels-container-none-direction-inline-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-labels-container-none-direction-inline-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-labels-container-none-direction-inline-example-demo"
+/>
+
+### Socials with stacked labels
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-labels-container-none-direction-stacked-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-labels-container-none-direction-stacked-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-labels-container-none-direction-stacked-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-labels-container-none-direction-stacked-example-demo"
+/>
+
+### Socials with inline tile labels
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-labels-container-tile-direction-inline-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-labels-container-tile-direction-inline-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-labels-container-tile-direction-inline-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-labels-container-tile-direction-inline-example-demo"
+/>
+
+### Socials with stacked tile labels
+
+#### Full
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-presentation-labels-container-tile-direction-stacked-example-demo"
+/>
+
+#### With lead
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-lead-presentation-labels-container-tile-direction-stacked-example-demo"
+/>
+
+#### With title
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-title-presentation-labels-container-tile-direction-stacked-example-demo"
+/>
+
+#### Minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="social-links-content-minimal-presentation-labels-container-tile-direction-stacked-example-demo"
+/>
+
+## API Reference
+
+| Prop           | Type                                                                           | Default                                                                                                           | Description                                             |
+| -------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `theme`        | `EmailTheme`                                                                   | `defaultTheme`                                                                                                    | Renderer theme configuration.                           |
+| `content`      | `"full" \| "lead" \| "title" \| "minimal"`                                     | `"full"`                                                                                                          | Controls whether the title and lead copy are displayed. |
+| `title`        | `string`                                                                       | `"Connect with us"`                                                                                               | Configures the component's title.                       |
+| `description`  | `string`                                                                       | `"Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments."` | Configures the component's description.                 |
+| `items`        | `Array<{ label?: string; href: string; icon: { alt?: string; src: string } }>` | Built-in items                                                                                                    | Configures the component's items.                       |
+| `presentation` | `"icons" \| "labels"`                                                          | `"icons"`                                                                                                         | Configures the component's presentation.                |
+| `container`    | `"none" \| "tile" \| "box" \| "pill"`                                          | `"none"`                                                                                                          | Configures the component's container.                   |
+| `shape`        | `"square" \| "circle"`                                                         | `"square"`                                                                                                        | Configures the component's shape.                       |
+| `outlined`     | `boolean`                                                                      | `false`                                                                                                           | Configures the component's outlined.                    |
+| `direction`    | `"inline" \| "stacked"`                                                        | `"inline"`                                                                                                        | Configures the component's direction.                   |

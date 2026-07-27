@@ -1,0 +1,115 @@
+---
+title: "Three Images"
+description: "Three Image Product Detail rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="three-image-product-detail-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/three-image-product-detail
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/ecommerce/product-detail/three-image-product-detail.tsx"
+    base="jsx-email"
+    title="components/email/three-image-product-detail.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ThreeImageProductDetail } from "@/components/email/three-image-product-detail";
+```
+
+```tsx
+<ThreeImageProductDetail ratingPosition="bottom" headerPosition="default" />
+```
+
+## Examples
+
+### Product detail with three images and details
+
+#### rating at the bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-image-product-detail-rating-position-bottom-header-position-default-example-demo"
+/>
+
+#### rating at the top
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-image-product-detail-rating-position-top-example-demo"
+/>
+
+#### rating aside
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-image-product-detail-rating-position-aside-example-demo"
+/>
+
+#### rating aside with header at the top
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-image-product-detail-rating-position-aside-header-position-top-example-demo"
+/>
+
+#### header at the top
+
+<ComponentPreview
+  base="jsx-email"
+  name="three-image-product-detail-header-position-top-example-demo"
+/>
+
+## API Reference
+
+| Prop             | Type                                                                                                                                                     | Default        | Description                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------ |
+| `theme`          | `EmailTheme`                                                                                                                                             | `defaultTheme` | Renderer theme configuration.              |
+| `product`        | `{ name?: string; price?: string; description?: string; features?: string[]; colors?: string[]; sizes?: string[]; ctaLabel?: string; ctaHref?: string }` | -              | Configures the component's product.        |
+| `images`         | `[{ src: string; alt?: string }, { src: string; alt?: string }, { src: string; alt?: string }]`                                                          | -              | Configures the component's images.         |
+| `ratingPosition` | `"top" \| "bottom" \| "aside"`                                                                                                                           | `"bottom"`     | Configures the component's ratingposition. |
+| `headerPosition` | `"top" \| "default"`                                                                                                                                     | `"default"`    | Configures the component's headerposition. |

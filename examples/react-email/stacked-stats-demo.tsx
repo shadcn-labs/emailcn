@@ -1,15 +1,11 @@
-import { StackedStats } from "@/registry/bases/react-email/ui/marketing/stats/stacked-stats";
-import type { StackedStatsVariant } from "@/registry/bases/react-email/ui/marketing/stats/stacked-stats";
+import { StackedStats } from "@/registry/bases/react-email/components/marketing/stats/stacked-stats";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function StackedStatsDemo({
-  variant,
-}: {
-  variant?: StackedStatsVariant;
-}) {
+export default function StackedStatsDemo() {
   return (
     <StackedStats
-      {...StackedStats.PreviewProps}
-      variant={variant ?? StackedStats.PreviewProps.variant}
+      variant="left"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

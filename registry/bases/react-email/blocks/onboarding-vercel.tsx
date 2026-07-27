@@ -11,12 +11,14 @@ import {
   Text,
 } from "react-email";
 
-import { vercelTheme } from "@/registry/bases/react-email/themes/vercel";
-import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
-import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
-import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
-import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu";
-import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
+import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-email/components/marketing/cta/call-to-action";
+import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/components/marketing/footers/navigation-footer";
+import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/components/marketing/headers/header-with-logo-and-menu";
+import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   _firstName?: string;
@@ -46,7 +48,7 @@ export const OnboardingVercel = ({
       <Preview>
         Welcome to {_productName}, {_firstName}
       </Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <LogoHeaderSection logoAlt={_productName} />
@@ -58,7 +60,7 @@ export const OnboardingVercel = ({
               ctaHref={ctaHref}
             />
 
-            <ContentGridSection type="title" title="Global Edge" />
+            <ContentGridSection layout="title" title="Global Edge" />
 
             <CTABannerSection
               heading="Start deploying"
@@ -84,8 +86,7 @@ export const OnboardingVercel = ({
 OnboardingVercel.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Vercel",
-  _senderAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Vercel Team",
   _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",

@@ -1,7 +1,8 @@
 // Subject: You're now part of the {teamName} workspace
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { slackTheme } from "@/registry/bases/mjml-react/themes/slack";
+import { emailAsset } from "@/registry/email-assets";
+import { slackTheme } from "@/registry/themes/slack";
 
 interface Props {
   _logoUrl?: string;
@@ -35,9 +36,8 @@ export const NotificationSlack = ({
 
 NotificationSlack.PreviewProps = {
   _action: "invited you",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Slack",
   _targetName: "workspace",
   actorName: "Sarah",

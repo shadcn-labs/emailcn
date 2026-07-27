@@ -15,8 +15,10 @@ import {
   Link,
 } from "react-email";
 
-import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
+import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/components/ecommerce/product-lists/product-list";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface ReceiptItem {
   name: string;
@@ -57,7 +59,7 @@ export const ReceiptDefault = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -141,13 +143,13 @@ ReceiptDefault.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://static.photos/technology/640x640/2",
+      imageUrl: emailAsset("products/product-1.jpg"),
       name: "Premium Sneakers",
       price: "$149.00",
       quantity: 1,
     },
     {
-      imageUrl: "https://static.photos/technology/640x640/3",
+      imageUrl: emailAsset("products/product-2.jpg"),
       name: "Running Socks",
       price: "$25.00",
       quantity: 2,

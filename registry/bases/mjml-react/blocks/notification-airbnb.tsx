@@ -1,7 +1,8 @@
 // Subject: Share your experience at {_targetName}
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { airbnbTheme } from "@/registry/bases/mjml-react/themes/airbnb";
+import { emailAsset } from "@/registry/email-assets";
+import { airbnbTheme } from "@/registry/themes/airbnb";
 
 interface Props {
   _logoUrl?: string;
@@ -34,9 +35,8 @@ export const NotificationAirbnb = ({
 
 NotificationAirbnb.PreviewProps = {
   _action: "completed their stay",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Airbnb",
   _targetName: "your place",
   actorName: "John",

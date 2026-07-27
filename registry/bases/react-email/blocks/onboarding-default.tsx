@@ -11,11 +11,13 @@ import {
   Text,
 } from "react-email";
 
-import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
-import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
-import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
-import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
+import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-email/components/marketing/cta/call-to-action";
+import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/components/marketing/footers/navigation-footer";
+import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _firstName?: string;
@@ -45,7 +47,7 @@ export const OnboardingDefault = ({
       <Preview>
         Welcome to {_productName}, {_firstName}
       </Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-4">
@@ -61,7 +63,7 @@ export const OnboardingDefault = ({
               ctaHref={ctaHref}
             />
 
-            <ContentGridSection type="title" title="Quick Setup" />
+            <ContentGridSection layout="title" title="Quick Setup" />
 
             <CTABannerSection
               heading="Ready to dive in?"
@@ -87,8 +89,7 @@ export const OnboardingDefault = ({
 OnboardingDefault.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Acme",
-  _senderAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "The team",
   _senderTitle: "Team",
   ctaHref: "https://example.com/dashboard",

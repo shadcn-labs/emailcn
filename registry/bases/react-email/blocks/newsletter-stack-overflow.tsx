@@ -12,8 +12,10 @@ import {
   Text,
 } from "react-email";
 
-import { stackOverflowTheme } from "@/registry/bases/react-email/themes/stack-overflow";
-import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
+import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface Article {
   title: string;
@@ -55,7 +57,7 @@ export const NewsletterStackOverflow = ({
     <Html>
       <Head />
       <Preview>{preheader}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -67,7 +69,7 @@ export const NewsletterStackOverflow = ({
               </Text>
             </Section>
 
-            <ContentGridSection type="title" title="Featured Articles" />
+            <ContentGridSection layout="title" title="Featured Articles" />
 
             <Section className="py-4">
               <Text className="mt-8 text-sm text-foreground-muted">
@@ -89,7 +91,7 @@ export const NewsletterStackOverflow = ({
 
 NewsletterStackOverflow.PreviewProps = {
   _logoAlt: "Stack Overflow",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stack Overflow",
   articles: [
     {
