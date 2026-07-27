@@ -1,4 +1,4 @@
-import { BentoImageGrid } from "@/registry/bases/jsx-email/ui/marketing/bento-grids/bento-image-grid";
+import { BentoImageGrid } from "@/registry/bases/jsx-email/components/marketing/bento-grids/bento-image-grid";
 
 export default function BentoImageGridDemo() {
   return (

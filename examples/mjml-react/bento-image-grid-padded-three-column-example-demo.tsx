@@ -1,4 +1,4 @@
-import { BentoImageGrid } from "@/registry/bases/mjml-react/ui/marketing/bento-grids/bento-image-grid";
+import { BentoImageGrid } from "@/registry/bases/mjml-react/components/marketing/bento-grids/bento-image-grid";
 
 export default function BentoImageGridPaddedThreeColumnDemo() {
   return (

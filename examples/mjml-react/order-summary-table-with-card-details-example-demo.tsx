@@ -1,4 +1,4 @@
-import { OrderSummaryTable } from "@/registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-table";
+import { OrderSummaryTable } from "@/registry/bases/mjml-react/components/ecommerce/order-summary/order-summary-table";
 
 export default function OrderSummaryTableWithCardDetailsDemo() {
   return (

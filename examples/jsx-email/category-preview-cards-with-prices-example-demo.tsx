@@ -1,4 +1,4 @@
-import { CategoryPreview } from "@/registry/bases/jsx-email/ui/ecommerce/category-previews/category-preview";
+import { CategoryPreview } from "@/registry/bases/jsx-email/components/ecommerce/category-previews/category-preview";
 
 export default function CategoryPreviewCardsWithPricesDemo() {
   return (

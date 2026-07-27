@@ -1,4 +1,4 @@
-import { AvatarGroup } from "@/registry/bases/mjml-react/ui/ui-elements/avatars/avatar-group";
+import { AvatarGroup } from "@/registry/bases/mjml-react/components/ui-elements/avatars/avatar-group";
 
 export default function AvatarGroupDemo() {
   return <AvatarGroup size="md" align="left" />;

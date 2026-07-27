@@ -1,4 +1,4 @@
-import { Container } from "@/registry/bases/mjml-react/ui/ui-elements/containers/container";
+import { Container } from "@/registry/bases/mjml-react/components/ui-elements/containers/container";
 
 export default function ContainerDemo() {
   return <Container mobile="gutters" align="left" />;

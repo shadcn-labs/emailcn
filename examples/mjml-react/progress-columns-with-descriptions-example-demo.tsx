@@ -1,4 +1,4 @@
-import { Progress } from "@/registry/bases/mjml-react/ui/ui-elements/progress-bars/progress";
+import { Progress } from "@/registry/bases/mjml-react/components/ui-elements/progress-bars/progress";
 
 export default function ProgressColumnsWithDescriptionsDemo() {
   return <Progress layout="columns" content="description" />;

@@ -1,4 +1,4 @@
-import { PurchasePricing } from "@/registry/bases/jsx-email/ui/marketing/pricing/purchase-pricing";
+import { PurchasePricing } from "@/registry/bases/jsx-email/components/marketing/pricing/purchase-pricing";
 
 export default function PurchasePricingCustomPlansDemo() {
   return (

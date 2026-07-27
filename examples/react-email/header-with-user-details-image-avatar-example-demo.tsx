@@ -1,4 +1,4 @@
-import { HeaderWithUserDetails } from "@/registry/bases/react-email/ui/marketing/headers/header-with-user-details";
+import { HeaderWithUserDetails } from "@/registry/bases/react-email/components/marketing/headers/header-with-user-details";
 
 export default function HeaderWithUserDetailsImageAvatarDemo() {
   return <HeaderWithUserDetails alignment="left" avatar="image" />;

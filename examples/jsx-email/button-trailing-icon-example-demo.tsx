@@ -1,4 +1,4 @@
-import { Button } from "@/registry/bases/jsx-email/ui/ui-elements/buttons/button";
+import { Button } from "@/registry/bases/jsx-email/components/ui-elements/buttons/button";
 
 export default function ButtonTrailingIconDemo() {
   return (

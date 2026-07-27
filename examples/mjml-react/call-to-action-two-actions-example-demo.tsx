@@ -1,4 +1,4 @@
-import { CallToAction } from "@/registry/bases/mjml-react/ui/marketing/cta/call-to-action";
+import { CallToAction } from "@/registry/bases/mjml-react/components/marketing/cta/call-to-action";
 
 export default function CallToActionTwoActionsDemo() {
   return (

@@ -1,4 +1,4 @@
-import { DataTable } from "@/registry/bases/jsx-email/ui/ui-elements/data-tables/data-table";
+import { DataTable } from "@/registry/bases/jsx-email/components/ui-elements/data-tables/data-table";
 
 export default function DataTableThreeColumnsDemo() {
   return (

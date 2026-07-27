@@ -1,4 +1,4 @@
-import { BentoStatsGrid } from "@/registry/bases/jsx-email/ui/marketing/bento-grids/bento-stats-grid";
+import { BentoStatsGrid } from "@/registry/bases/jsx-email/components/marketing/bento-grids/bento-stats-grid";
 
 export default function BentoStatsGridThreeColumnTextDemo() {
   return (

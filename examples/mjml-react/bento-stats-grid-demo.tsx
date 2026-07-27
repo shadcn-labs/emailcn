@@ -1,4 +1,4 @@
-import { BentoStatsGrid } from "@/registry/bases/mjml-react/ui/marketing/bento-grids/bento-stats-grid";
+import { BentoStatsGrid } from "@/registry/bases/mjml-react/components/marketing/bento-grids/bento-stats-grid";
 
 export default function BentoStatsGridDemo() {
   return (

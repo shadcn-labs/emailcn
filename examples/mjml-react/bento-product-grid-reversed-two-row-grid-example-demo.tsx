@@ -1,4 +1,4 @@
-import { BentoProductGrid } from "@/registry/bases/mjml-react/ui/marketing/bento-grids/bento-product-grid";
+import { BentoProductGrid } from "@/registry/bases/mjml-react/components/marketing/bento-grids/bento-product-grid";
 
 export default function BentoProductGridReversedTwoRowGridDemo() {
   return (

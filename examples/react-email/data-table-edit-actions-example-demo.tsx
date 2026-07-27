@@ -1,4 +1,4 @@
-import { DataTable } from "@/registry/bases/react-email/ui/ui-elements/data-tables/data-table";
+import { DataTable } from "@/registry/bases/react-email/components/ui-elements/data-tables/data-table";
 
 export default function DataTableEditActionsDemo() {
   return (

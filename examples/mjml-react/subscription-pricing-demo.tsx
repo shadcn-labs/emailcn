@@ -1,4 +1,4 @@
-import { SubscriptionPricing } from "@/registry/bases/mjml-react/ui/marketing/pricing/subscription-pricing";
+import { SubscriptionPricing } from "@/registry/bases/mjml-react/components/marketing/pricing/subscription-pricing";
 
 export default function SubscriptionPricingDemo() {
   return <SubscriptionPricing columns={2} />;

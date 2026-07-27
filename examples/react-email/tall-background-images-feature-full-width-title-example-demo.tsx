@@ -1,4 +1,4 @@
-import { TallBackgroundImagesFeature } from "@/registry/bases/react-email/ui/marketing/feature/tall-background-images-feature";
+import { TallBackgroundImagesFeature } from "@/registry/bases/react-email/components/marketing/feature/tall-background-images-feature";
 
 export default function TallBackgroundImagesFeatureFullWidthTitleDemo() {
   return (

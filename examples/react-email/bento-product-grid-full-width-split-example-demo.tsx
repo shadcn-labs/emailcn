@@ -1,4 +1,4 @@
-import { BentoProductGrid } from "@/registry/bases/react-email/ui/marketing/bento-grids/bento-product-grid";
+import { BentoProductGrid } from "@/registry/bases/react-email/components/marketing/bento-grids/bento-product-grid";
 
 export default function BentoProductGridFullWidthSplitDemo() {
   return (

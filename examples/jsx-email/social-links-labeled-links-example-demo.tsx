@@ -1,4 +1,4 @@
-import { SocialLinks } from "@/registry/bases/jsx-email/ui/marketing/social/social-links";
+import { SocialLinks } from "@/registry/bases/jsx-email/components/marketing/social/social-links";
 
 export default function SocialLinksLabeledLinksDemo() {
   return (

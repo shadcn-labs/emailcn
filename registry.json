@@ -502,7 +502,7 @@
       "description": "Category Preview email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/category-previews/category-preview.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/category-previews/category-preview.tsx",
           "target": "components/email/category-preview.tsx",
           "type": "registry:component"
         }
@@ -521,7 +521,7 @@
       "description": "Billing Order Summary email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/order-summary/billing-order-summary.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/order-summary/billing-order-summary.tsx",
           "target": "components/email/billing-order-summary.tsx",
           "type": "registry:component"
         }
@@ -540,7 +540,7 @@
       "description": "Order Summary Table email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/order-summary/order-summary-table.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/order-summary/order-summary-table.tsx",
           "target": "components/email/order-summary-table.tsx",
           "type": "registry:component"
         }
@@ -559,7 +559,7 @@
       "description": "Masonry Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/product-detail/masonry-product-detail.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/product-detail/masonry-product-detail.tsx",
           "target": "components/email/masonry-product-detail.tsx",
           "type": "registry:component"
         }
@@ -578,7 +578,7 @@
       "description": "Single Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/product-detail/single-image-product-detail.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/product-detail/single-image-product-detail.tsx",
           "target": "components/email/single-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -597,7 +597,7 @@
       "description": "Ecommerce product-detail variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/product-detail/split-product-detail.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/product-detail/split-product-detail.tsx",
           "target": "components/email/split-product-detail.tsx",
           "type": "registry:component"
         }
@@ -616,7 +616,7 @@
       "description": "Three Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/product-detail/three-image-product-detail.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/product-detail/three-image-product-detail.tsx",
           "target": "components/email/three-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -635,7 +635,7 @@
       "description": "Two Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/product-detail/two-image-product-detail.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/product-detail/two-image-product-detail.tsx",
           "target": "components/email/two-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -654,7 +654,7 @@
       "description": "Product List email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/product-lists/product-list.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/product-lists/product-list.tsx",
           "target": "components/email/product-list.tsx",
           "type": "registry:component"
         }
@@ -673,7 +673,7 @@
       "description": "Reviews email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/reviews/reviews.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/reviews/reviews.tsx",
           "target": "components/email/reviews.tsx",
           "type": "registry:component"
         }
@@ -692,7 +692,7 @@
       "description": "Shopping Cart email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ecommerce/shopping-cart/shopping-cart.tsx",
+          "path": "registry/bases/react-email/components/ecommerce/shopping-cart/shopping-cart.tsx",
           "target": "components/email/shopping-cart.tsx",
           "type": "registry:component"
         }
@@ -711,7 +711,7 @@
       "description": "Bento Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-image-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/bento-grids/bento-image-grid.tsx",
           "target": "components/email/bento-image-grid.tsx",
           "type": "registry:component"
         }
@@ -730,7 +730,7 @@
       "description": "Bento Product Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-product-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/bento-grids/bento-product-grid.tsx",
           "target": "components/email/bento-product-grid.tsx",
           "type": "registry:component"
         }
@@ -749,7 +749,7 @@
       "description": "Bento Stats Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/bento-grids/bento-stats-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/bento-grids/bento-stats-grid.tsx",
           "target": "components/email/bento-stats-grid.tsx",
           "type": "registry:component"
         }
@@ -768,7 +768,7 @@
       "description": "Blog Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/blog/blog-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/blog/blog-grid.tsx",
           "target": "components/email/blog-grid.tsx",
           "type": "registry:component"
         }
@@ -787,7 +787,7 @@
       "description": "Marketing blog variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/blog/featured-blog-post.tsx",
+          "path": "registry/bases/react-email/components/marketing/blog/featured-blog-post.tsx",
           "target": "components/email/featured-blog-post.tsx",
           "type": "registry:component"
         }
@@ -806,7 +806,7 @@
       "description": "Horizontal Blog Post email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/blog/horizontal-blog-post.tsx",
+          "path": "registry/bases/react-email/components/marketing/blog/horizontal-blog-post.tsx",
           "target": "components/email/horizontal-blog-post.tsx",
           "type": "registry:component"
         }
@@ -825,7 +825,7 @@
       "description": "Podcast Blog email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/blog/podcast-blog.tsx",
+          "path": "registry/bases/react-email/components/marketing/blog/podcast-blog.tsx",
           "target": "components/email/podcast-blog.tsx",
           "type": "registry:component"
         }
@@ -844,7 +844,7 @@
       "description": "Marketing content variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/content/content.tsx",
+          "path": "registry/bases/react-email/components/marketing/content/content.tsx",
           "target": "components/email/content.tsx",
           "type": "registry:component"
         }
@@ -863,7 +863,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/coupons/card-coupons.tsx",
+          "path": "registry/bases/react-email/components/marketing/coupons/card-coupons.tsx",
           "target": "components/email/card-coupons.tsx",
           "type": "registry:component"
         }
@@ -882,7 +882,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/coupons/coupons-with-centered-text.tsx",
+          "path": "registry/bases/react-email/components/marketing/coupons/coupons-with-centered-text.tsx",
           "target": "components/email/coupons-with-centered-text.tsx",
           "type": "registry:component"
         }
@@ -901,7 +901,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/coupons/coupons-with-content-overlayed.tsx",
+          "path": "registry/bases/react-email/components/marketing/coupons/coupons-with-content-overlayed.tsx",
           "target": "components/email/coupons-with-content-overlayed.tsx",
           "type": "registry:component"
         }
@@ -920,7 +920,7 @@
       "description": "Avatar Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/cta/avatar-call-to-action.tsx",
+          "path": "registry/bases/react-email/components/marketing/cta/avatar-call-to-action.tsx",
           "target": "components/email/avatar-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -939,7 +939,7 @@
       "description": "Background Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/cta/background-call-to-action.tsx",
+          "path": "registry/bases/react-email/components/marketing/cta/background-call-to-action.tsx",
           "target": "components/email/background-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -958,7 +958,7 @@
       "description": "Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/cta/call-to-action.tsx",
+          "path": "registry/bases/react-email/components/marketing/cta/call-to-action.tsx",
           "target": "components/email/call-to-action.tsx",
           "type": "registry:component"
         }
@@ -977,7 +977,7 @@
       "description": "Collage Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/cta/collage-call-to-action.tsx",
+          "path": "registry/bases/react-email/components/marketing/cta/collage-call-to-action.tsx",
           "target": "components/email/collage-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -996,7 +996,7 @@
       "description": "Image Strip Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/cta/image-strip-call-to-action.tsx",
+          "path": "registry/bases/react-email/components/marketing/cta/image-strip-call-to-action.tsx",
           "target": "components/email/image-strip-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -1015,7 +1015,7 @@
       "description": "Top Image Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/cta/top-image-call-to-action.tsx",
+          "path": "registry/bases/react-email/components/marketing/cta/top-image-call-to-action.tsx",
           "target": "components/email/top-image-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -1034,7 +1034,7 @@
       "description": "Faq email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/faq/faq.tsx",
+          "path": "registry/bases/react-email/components/marketing/faq/faq.tsx",
           "target": "components/email/faq.tsx",
           "type": "registry:component"
         }
@@ -1053,7 +1053,7 @@
       "description": "Image Feature email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/feature/image-feature.tsx",
+          "path": "registry/bases/react-email/components/marketing/feature/image-feature.tsx",
           "target": "components/email/image-feature.tsx",
           "type": "registry:component"
         }
@@ -1072,7 +1072,7 @@
       "description": "Portrait Feature email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/feature/portrait-feature.tsx",
+          "path": "registry/bases/react-email/components/marketing/feature/portrait-feature.tsx",
           "target": "components/email/portrait-feature.tsx",
           "type": "registry:component"
         }
@@ -1091,7 +1091,7 @@
       "description": "Product Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/feature/product-images-feature.tsx",
+          "path": "registry/bases/react-email/components/marketing/feature/product-images-feature.tsx",
           "target": "components/email/product-images-feature.tsx",
           "type": "registry:component"
         }
@@ -1110,7 +1110,7 @@
       "description": "Tall Background Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/feature/tall-background-images-feature.tsx",
+          "path": "registry/bases/react-email/components/marketing/feature/tall-background-images-feature.tsx",
           "target": "components/email/tall-background-images-feature.tsx",
           "type": "registry:component"
         }
@@ -1129,7 +1129,7 @@
       "description": "Navigation Footer email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/navigation-footer.tsx",
+          "path": "registry/bases/react-email/components/marketing/footers/navigation-footer.tsx",
           "target": "components/email/navigation-footer.tsx",
           "type": "registry:component"
         }
@@ -1148,7 +1148,7 @@
       "description": "Promotion Footer email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/promotion-footer.tsx",
+          "path": "registry/bases/react-email/components/marketing/footers/promotion-footer.tsx",
           "target": "components/email/promotion-footer.tsx",
           "type": "registry:component"
         }
@@ -1167,7 +1167,7 @@
       "description": "Utility Footer email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/footers/utility-footer.tsx",
+          "path": "registry/bases/react-email/components/marketing/footers/utility-footer.tsx",
           "target": "components/email/utility-footer.tsx",
           "type": "registry:component"
         }
@@ -1186,7 +1186,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-badge.tsx",
+          "path": "registry/bases/react-email/components/marketing/headers/header-with-logo-and-badge.tsx",
           "target": "components/email/header-with-logo-and-badge.tsx",
           "type": "registry:component"
         }
@@ -1205,7 +1205,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-finance-stats.tsx",
+          "path": "registry/bases/react-email/components/marketing/headers/header-with-logo-and-finance-stats.tsx",
           "target": "components/email/header-with-logo-and-finance-stats.tsx",
           "type": "registry:component"
         }
@@ -1224,7 +1224,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu.tsx",
+          "path": "registry/bases/react-email/components/marketing/headers/header-with-logo-and-menu.tsx",
           "target": "components/email/header-with-logo-and-menu.tsx",
           "type": "registry:component"
         }
@@ -1243,7 +1243,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo-and-social-icons.tsx",
+          "path": "registry/bases/react-email/components/marketing/headers/header-with-logo-and-social-icons.tsx",
           "target": "components/email/header-with-logo-and-social-icons.tsx",
           "type": "registry:component"
         }
@@ -1262,7 +1262,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-logo.tsx",
+          "path": "registry/bases/react-email/components/marketing/headers/header-with-logo.tsx",
           "target": "components/email/header-with-logo.tsx",
           "type": "registry:component"
         }
@@ -1281,7 +1281,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/headers/header-with-user-details.tsx",
+          "path": "registry/bases/react-email/components/marketing/headers/header-with-user-details.tsx",
           "target": "components/email/header-with-user-details.tsx",
           "type": "registry:component"
         }
@@ -1300,7 +1300,7 @@
       "description": "Image Grid Hero email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/hero/image-grid-hero.tsx",
+          "path": "registry/bases/react-email/components/marketing/hero/image-grid-hero.tsx",
           "target": "components/email/image-grid-hero.tsx",
           "type": "registry:component"
         }
@@ -1319,7 +1319,7 @@
       "description": "Overlap Hero email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/hero/overlap-hero.tsx",
+          "path": "registry/bases/react-email/components/marketing/hero/overlap-hero.tsx",
           "target": "components/email/overlap-hero.tsx",
           "type": "registry:component"
         }
@@ -1338,7 +1338,7 @@
       "description": "Overlay Hero email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/hero/overlay-hero.tsx",
+          "path": "registry/bases/react-email/components/marketing/hero/overlay-hero.tsx",
           "target": "components/email/overlay-hero.tsx",
           "type": "registry:component"
         }
@@ -1357,7 +1357,7 @@
       "description": "Split Hero email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/hero/split-hero.tsx",
+          "path": "registry/bases/react-email/components/marketing/hero/split-hero.tsx",
           "target": "components/email/split-hero.tsx",
           "type": "registry:component"
         }
@@ -1376,7 +1376,7 @@
       "description": "Featured Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/images/featured-image-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/images/featured-image-grid.tsx",
           "target": "components/email/featured-image-grid.tsx",
           "type": "registry:component"
         }
@@ -1395,7 +1395,7 @@
       "description": "Marketing images variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/images/full-width-image.tsx",
+          "path": "registry/bases/react-email/components/marketing/images/full-width-image.tsx",
           "target": "components/email/full-width-image.tsx",
           "type": "registry:component"
         }
@@ -1414,7 +1414,7 @@
       "description": "Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/images/image-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/images/image-grid.tsx",
           "target": "components/email/image-grid.tsx",
           "type": "registry:component"
         }
@@ -1433,7 +1433,7 @@
       "description": "Masonry Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/images/masonry-image-grid.tsx",
+          "path": "registry/bases/react-email/components/marketing/images/masonry-image-grid.tsx",
           "target": "components/email/masonry-image-grid.tsx",
           "type": "registry:component"
         }
@@ -1452,7 +1452,7 @@
       "description": "Logo Cloud email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/logos/logo-cloud.tsx",
+          "path": "registry/bases/react-email/components/marketing/logos/logo-cloud.tsx",
           "target": "components/email/logo-cloud.tsx",
           "type": "registry:component"
         }
@@ -1471,7 +1471,7 @@
       "description": "Purchase Pricing email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/pricing/purchase-pricing.tsx",
+          "path": "registry/bases/react-email/components/marketing/pricing/purchase-pricing.tsx",
           "target": "components/email/purchase-pricing.tsx",
           "type": "registry:component"
         }
@@ -1490,7 +1490,7 @@
       "description": "Subscription Pricing email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/pricing/subscription-pricing.tsx",
+          "path": "registry/bases/react-email/components/marketing/pricing/subscription-pricing.tsx",
           "target": "components/email/subscription-pricing.tsx",
           "type": "registry:component"
         }
@@ -1509,7 +1509,7 @@
       "description": "Social Links email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/social/social-links.tsx",
+          "path": "registry/bases/react-email/components/marketing/social/social-links.tsx",
           "target": "components/email/social-links.tsx",
           "type": "registry:component"
         }
@@ -1528,7 +1528,7 @@
       "description": "Collection Stats email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/stats/collection-stats.tsx",
+          "path": "registry/bases/react-email/components/marketing/stats/collection-stats.tsx",
           "target": "components/email/collection-stats.tsx",
           "type": "registry:component"
         }
@@ -1547,7 +1547,7 @@
       "description": "Marketing stats variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/stats/milestone-stats.tsx",
+          "path": "registry/bases/react-email/components/marketing/stats/milestone-stats.tsx",
           "target": "components/email/milestone-stats.tsx",
           "type": "registry:component"
         }
@@ -1566,7 +1566,7 @@
       "description": "Spotlight Stats email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/stats/spotlight-stats.tsx",
+          "path": "registry/bases/react-email/components/marketing/stats/spotlight-stats.tsx",
           "target": "components/email/spotlight-stats.tsx",
           "type": "registry:component"
         }
@@ -1585,7 +1585,7 @@
       "description": "Marketing stats variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/stats/stacked-stats.tsx",
+          "path": "registry/bases/react-email/components/marketing/stats/stacked-stats.tsx",
           "target": "components/email/stacked-stats.tsx",
           "type": "registry:component"
         }
@@ -1604,7 +1604,7 @@
       "description": "Team email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/team/team.tsx",
+          "path": "registry/bases/react-email/components/marketing/team/team.tsx",
           "target": "components/email/team.tsx",
           "type": "registry:component"
         }
@@ -1623,7 +1623,7 @@
       "description": "Testimonial email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/testimonials/testimonial.tsx",
+          "path": "registry/bases/react-email/components/marketing/testimonials/testimonial.tsx",
           "target": "components/email/testimonial.tsx",
           "type": "registry:component"
         }
@@ -1642,7 +1642,7 @@
       "description": "Marketing timelines variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/timelines/payment-timeline.tsx",
+          "path": "registry/bases/react-email/components/marketing/timelines/payment-timeline.tsx",
           "target": "components/email/payment-timeline.tsx",
           "type": "registry:component"
         }
@@ -1661,7 +1661,7 @@
       "description": "Timeline email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/marketing/timelines/timeline.tsx",
+          "path": "registry/bases/react-email/components/marketing/timelines/timeline.tsx",
           "target": "components/email/timeline.tsx",
           "type": "registry:component"
         }
@@ -1680,7 +1680,7 @@
       "description": "Avatar Details email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-details.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/avatars/avatar-details.tsx",
           "target": "components/email/avatar-details.tsx",
           "type": "registry:component"
         }
@@ -1699,7 +1699,7 @@
       "description": "Avatar Group email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/avatars/avatar-group.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/avatars/avatar-group.tsx",
           "target": "components/email/avatar-group.tsx",
           "type": "registry:component"
         }
@@ -1718,7 +1718,7 @@
       "description": "Button email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/buttons/button.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/buttons/button.tsx",
           "target": "components/email/button.tsx",
           "type": "registry:component"
         }
@@ -1737,7 +1737,7 @@
       "description": "UI Elements containers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/containers/container.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/containers/container.tsx",
           "target": "components/email/container.tsx",
           "type": "registry:component"
         }
@@ -1756,7 +1756,7 @@
       "description": "Data Table email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/data-tables/data-table.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/data-tables/data-table.tsx",
           "target": "components/email/data-table.tsx",
           "type": "registry:component"
         }
@@ -1775,7 +1775,7 @@
       "description": "UI Elements grids variant for email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/grids/grid.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/grids/grid.tsx",
           "target": "components/email/grid.tsx",
           "type": "registry:component"
         }
@@ -1794,7 +1794,7 @@
       "description": "Pills email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/pills/pills.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/pills/pills.tsx",
           "target": "components/email/pills.tsx",
           "type": "registry:component"
         }
@@ -1813,7 +1813,7 @@
       "description": "Progress email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/progress-bars/progress.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/progress-bars/progress.tsx",
           "target": "components/email/progress.tsx",
           "type": "registry:component"
         }
@@ -1832,7 +1832,7 @@
       "description": "Divider email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/spacing/divider.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/spacing/divider.tsx",
           "target": "components/email/divider.tsx",
           "type": "registry:component"
         }
@@ -1851,7 +1851,7 @@
       "description": "Spacer email component",
       "files": [
         {
-          "path": "registry/bases/react-email/ui/ui-elements/spacing/spacer.tsx",
+          "path": "registry/bases/react-email/components/ui-elements/spacing/spacer.tsx",
           "target": "components/email/spacer.tsx",
           "type": "registry:component"
         }
@@ -2640,7 +2640,7 @@
       "description": "Category Preview email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/category-previews/category-preview.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/category-previews/category-preview.tsx",
           "target": "components/email/category-preview.tsx",
           "type": "registry:component"
         }
@@ -2658,7 +2658,7 @@
       "description": "Billing Order Summary email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/order-summary/billing-order-summary.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/order-summary/billing-order-summary.tsx",
           "target": "components/email/billing-order-summary.tsx",
           "type": "registry:component"
         }
@@ -2676,7 +2676,7 @@
       "description": "Order Summary Table email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-table.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/order-summary/order-summary-table.tsx",
           "target": "components/email/order-summary-table.tsx",
           "type": "registry:component"
         }
@@ -2694,7 +2694,7 @@
       "description": "Masonry Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/product-detail/masonry-product-detail.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/masonry-product-detail.tsx",
           "target": "components/email/masonry-product-detail.tsx",
           "type": "registry:component"
         }
@@ -2712,7 +2712,7 @@
       "description": "Single Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/product-detail/single-image-product-detail.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/single-image-product-detail.tsx",
           "target": "components/email/single-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -2730,7 +2730,7 @@
       "description": "Ecommerce product-detail variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/product-detail/split-product-detail.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/split-product-detail.tsx",
           "target": "components/email/split-product-detail.tsx",
           "type": "registry:component"
         }
@@ -2748,7 +2748,7 @@
       "description": "Three Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/product-detail/three-image-product-detail.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/three-image-product-detail.tsx",
           "target": "components/email/three-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -2766,7 +2766,7 @@
       "description": "Two Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/product-detail/two-image-product-detail.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/two-image-product-detail.tsx",
           "target": "components/email/two-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -2784,7 +2784,7 @@
       "description": "Product List email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/product-lists/product-list.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/product-lists/product-list.tsx",
           "target": "components/email/product-list.tsx",
           "type": "registry:component"
         }
@@ -2802,7 +2802,7 @@
       "description": "Reviews email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/reviews/reviews.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/reviews/reviews.tsx",
           "target": "components/email/reviews.tsx",
           "type": "registry:component"
         }
@@ -2820,7 +2820,7 @@
       "description": "Shopping Cart email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ecommerce/shopping-cart/shopping-cart.tsx",
+          "path": "registry/bases/mjml-react/components/ecommerce/shopping-cart/shopping-cart.tsx",
           "target": "components/email/shopping-cart.tsx",
           "type": "registry:component"
         }
@@ -2838,7 +2838,7 @@
       "description": "Bento Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/bento-grids/bento-image-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/bento-grids/bento-image-grid.tsx",
           "target": "components/email/bento-image-grid.tsx",
           "type": "registry:component"
         }
@@ -2856,7 +2856,7 @@
       "description": "Bento Product Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/bento-grids/bento-product-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/bento-grids/bento-product-grid.tsx",
           "target": "components/email/bento-product-grid.tsx",
           "type": "registry:component"
         }
@@ -2874,7 +2874,7 @@
       "description": "Bento Stats Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/bento-grids/bento-stats-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/bento-grids/bento-stats-grid.tsx",
           "target": "components/email/bento-stats-grid.tsx",
           "type": "registry:component"
         }
@@ -2892,7 +2892,7 @@
       "description": "Blog Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/blog/blog-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/blog/blog-grid.tsx",
           "target": "components/email/blog-grid.tsx",
           "type": "registry:component"
         }
@@ -2910,7 +2910,7 @@
       "description": "Marketing blog variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/blog/featured-blog-post.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/blog/featured-blog-post.tsx",
           "target": "components/email/featured-blog-post.tsx",
           "type": "registry:component"
         }
@@ -2928,7 +2928,7 @@
       "description": "Horizontal Blog Post email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/blog/horizontal-blog-post.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/blog/horizontal-blog-post.tsx",
           "target": "components/email/horizontal-blog-post.tsx",
           "type": "registry:component"
         }
@@ -2946,7 +2946,7 @@
       "description": "Podcast Blog email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/blog/podcast-blog.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/blog/podcast-blog.tsx",
           "target": "components/email/podcast-blog.tsx",
           "type": "registry:component"
         }
@@ -2964,7 +2964,7 @@
       "description": "Marketing content variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/content/content.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/content/content.tsx",
           "target": "components/email/content.tsx",
           "type": "registry:component"
         }
@@ -2982,7 +2982,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/coupons/card-coupons.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/coupons/card-coupons.tsx",
           "target": "components/email/card-coupons.tsx",
           "type": "registry:component"
         }
@@ -3000,7 +3000,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/coupons/coupons-with-centered-text.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/coupons/coupons-with-centered-text.tsx",
           "target": "components/email/coupons-with-centered-text.tsx",
           "type": "registry:component"
         }
@@ -3018,7 +3018,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/coupons/coupons-with-content-overlayed.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/coupons/coupons-with-content-overlayed.tsx",
           "target": "components/email/coupons-with-content-overlayed.tsx",
           "type": "registry:component"
         }
@@ -3036,7 +3036,7 @@
       "description": "Avatar Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/cta/avatar-call-to-action.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/cta/avatar-call-to-action.tsx",
           "target": "components/email/avatar-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -3054,7 +3054,7 @@
       "description": "Background Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/cta/background-call-to-action.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/cta/background-call-to-action.tsx",
           "target": "components/email/background-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -3072,7 +3072,7 @@
       "description": "Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/cta/call-to-action.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/cta/call-to-action.tsx",
           "target": "components/email/call-to-action.tsx",
           "type": "registry:component"
         }
@@ -3090,7 +3090,7 @@
       "description": "Collage Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/cta/collage-call-to-action.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/cta/collage-call-to-action.tsx",
           "target": "components/email/collage-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -3108,7 +3108,7 @@
       "description": "Image Strip Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/cta/image-strip-call-to-action.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/cta/image-strip-call-to-action.tsx",
           "target": "components/email/image-strip-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -3126,7 +3126,7 @@
       "description": "Top Image Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/cta/top-image-call-to-action.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/cta/top-image-call-to-action.tsx",
           "target": "components/email/top-image-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -3144,7 +3144,7 @@
       "description": "Faq email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/faq/faq.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/faq/faq.tsx",
           "target": "components/email/faq.tsx",
           "type": "registry:component"
         }
@@ -3162,7 +3162,7 @@
       "description": "Image Feature email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/feature/image-feature.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/feature/image-feature.tsx",
           "target": "components/email/image-feature.tsx",
           "type": "registry:component"
         }
@@ -3180,7 +3180,7 @@
       "description": "Portrait Feature email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/feature/portrait-feature.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/feature/portrait-feature.tsx",
           "target": "components/email/portrait-feature.tsx",
           "type": "registry:component"
         }
@@ -3198,7 +3198,7 @@
       "description": "Product Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/feature/product-images-feature.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/feature/product-images-feature.tsx",
           "target": "components/email/product-images-feature.tsx",
           "type": "registry:component"
         }
@@ -3216,7 +3216,7 @@
       "description": "Tall Background Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/feature/tall-background-images-feature.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/feature/tall-background-images-feature.tsx",
           "target": "components/email/tall-background-images-feature.tsx",
           "type": "registry:component"
         }
@@ -3234,7 +3234,7 @@
       "description": "Navigation Footer email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/footers/navigation-footer.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/footers/navigation-footer.tsx",
           "target": "components/email/navigation-footer.tsx",
           "type": "registry:component"
         }
@@ -3252,7 +3252,7 @@
       "description": "Promotion Footer email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/footers/promotion-footer.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/footers/promotion-footer.tsx",
           "target": "components/email/promotion-footer.tsx",
           "type": "registry:component"
         }
@@ -3270,7 +3270,7 @@
       "description": "Utility Footer email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/footers/utility-footer.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/footers/utility-footer.tsx",
           "target": "components/email/utility-footer.tsx",
           "type": "registry:component"
         }
@@ -3288,7 +3288,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-badge.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-badge.tsx",
           "target": "components/email/header-with-logo-and-badge.tsx",
           "type": "registry:component"
         }
@@ -3306,7 +3306,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-finance-stats.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-finance-stats.tsx",
           "target": "components/email/header-with-logo-and-finance-stats.tsx",
           "type": "registry:component"
         }
@@ -3324,7 +3324,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-menu.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-menu.tsx",
           "target": "components/email/header-with-logo-and-menu.tsx",
           "type": "registry:component"
         }
@@ -3342,7 +3342,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-social-icons.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-social-icons.tsx",
           "target": "components/email/header-with-logo-and-social-icons.tsx",
           "type": "registry:component"
         }
@@ -3360,7 +3360,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-logo.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/headers/header-with-logo.tsx",
           "target": "components/email/header-with-logo.tsx",
           "type": "registry:component"
         }
@@ -3378,7 +3378,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/headers/header-with-user-details.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/headers/header-with-user-details.tsx",
           "target": "components/email/header-with-user-details.tsx",
           "type": "registry:component"
         }
@@ -3396,7 +3396,7 @@
       "description": "Image Grid Hero email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/hero/image-grid-hero.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/hero/image-grid-hero.tsx",
           "target": "components/email/image-grid-hero.tsx",
           "type": "registry:component"
         }
@@ -3414,7 +3414,7 @@
       "description": "Overlap Hero email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/hero/overlap-hero.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/hero/overlap-hero.tsx",
           "target": "components/email/overlap-hero.tsx",
           "type": "registry:component"
         }
@@ -3432,7 +3432,7 @@
       "description": "Overlay Hero email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/hero/overlay-hero.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/hero/overlay-hero.tsx",
           "target": "components/email/overlay-hero.tsx",
           "type": "registry:component"
         }
@@ -3450,7 +3450,7 @@
       "description": "Split Hero email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/hero/split-hero.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/hero/split-hero.tsx",
           "target": "components/email/split-hero.tsx",
           "type": "registry:component"
         }
@@ -3468,7 +3468,7 @@
       "description": "Featured Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/images/featured-image-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/images/featured-image-grid.tsx",
           "target": "components/email/featured-image-grid.tsx",
           "type": "registry:component"
         }
@@ -3486,7 +3486,7 @@
       "description": "Marketing images variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/images/full-width-image.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/images/full-width-image.tsx",
           "target": "components/email/full-width-image.tsx",
           "type": "registry:component"
         }
@@ -3504,7 +3504,7 @@
       "description": "Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/images/image-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/images/image-grid.tsx",
           "target": "components/email/image-grid.tsx",
           "type": "registry:component"
         }
@@ -3522,7 +3522,7 @@
       "description": "Masonry Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/images/masonry-image-grid.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/images/masonry-image-grid.tsx",
           "target": "components/email/masonry-image-grid.tsx",
           "type": "registry:component"
         }
@@ -3540,7 +3540,7 @@
       "description": "Logo Cloud email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/logos/logo-cloud.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/logos/logo-cloud.tsx",
           "target": "components/email/logo-cloud.tsx",
           "type": "registry:component"
         }
@@ -3558,7 +3558,7 @@
       "description": "Purchase Pricing email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/pricing/purchase-pricing.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/pricing/purchase-pricing.tsx",
           "target": "components/email/purchase-pricing.tsx",
           "type": "registry:component"
         }
@@ -3576,7 +3576,7 @@
       "description": "Subscription Pricing email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/pricing/subscription-pricing.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/pricing/subscription-pricing.tsx",
           "target": "components/email/subscription-pricing.tsx",
           "type": "registry:component"
         }
@@ -3594,7 +3594,7 @@
       "description": "Social Links email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/social/social-links.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/social/social-links.tsx",
           "target": "components/email/social-links.tsx",
           "type": "registry:component"
         }
@@ -3612,7 +3612,7 @@
       "description": "Collection Stats email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/stats/collection-stats.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/stats/collection-stats.tsx",
           "target": "components/email/collection-stats.tsx",
           "type": "registry:component"
         }
@@ -3630,7 +3630,7 @@
       "description": "Marketing stats variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/stats/milestone-stats.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/stats/milestone-stats.tsx",
           "target": "components/email/milestone-stats.tsx",
           "type": "registry:component"
         }
@@ -3648,7 +3648,7 @@
       "description": "Spotlight Stats email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/stats/spotlight-stats.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/stats/spotlight-stats.tsx",
           "target": "components/email/spotlight-stats.tsx",
           "type": "registry:component"
         }
@@ -3666,7 +3666,7 @@
       "description": "Marketing stats variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/stats/stacked-stats.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/stats/stacked-stats.tsx",
           "target": "components/email/stacked-stats.tsx",
           "type": "registry:component"
         }
@@ -3684,7 +3684,7 @@
       "description": "Team email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/team/team.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/team/team.tsx",
           "target": "components/email/team.tsx",
           "type": "registry:component"
         }
@@ -3702,7 +3702,7 @@
       "description": "Testimonial email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/testimonials/testimonial.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/testimonials/testimonial.tsx",
           "target": "components/email/testimonial.tsx",
           "type": "registry:component"
         }
@@ -3720,7 +3720,7 @@
       "description": "Marketing timelines variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/timelines/payment-timeline.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/timelines/payment-timeline.tsx",
           "target": "components/email/payment-timeline.tsx",
           "type": "registry:component"
         }
@@ -3738,7 +3738,7 @@
       "description": "Timeline email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/marketing/timelines/timeline.tsx",
+          "path": "registry/bases/mjml-react/components/marketing/timelines/timeline.tsx",
           "target": "components/email/timeline.tsx",
           "type": "registry:component"
         }
@@ -3756,7 +3756,7 @@
       "description": "Avatar Details email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/avatars/avatar-details.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/avatars/avatar-details.tsx",
           "target": "components/email/avatar-details.tsx",
           "type": "registry:component"
         }
@@ -3774,7 +3774,7 @@
       "description": "Avatar Group email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/avatars/avatar-group.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/avatars/avatar-group.tsx",
           "target": "components/email/avatar-group.tsx",
           "type": "registry:component"
         }
@@ -3792,7 +3792,7 @@
       "description": "Button email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/buttons/button.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/buttons/button.tsx",
           "target": "components/email/button.tsx",
           "type": "registry:component"
         }
@@ -3810,7 +3810,7 @@
       "description": "UI Elements containers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/containers/container.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/containers/container.tsx",
           "target": "components/email/container.tsx",
           "type": "registry:component"
         }
@@ -3828,7 +3828,7 @@
       "description": "Data Table email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/data-tables/data-table.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/data-tables/data-table.tsx",
           "target": "components/email/data-table.tsx",
           "type": "registry:component"
         }
@@ -3846,7 +3846,7 @@
       "description": "UI Elements grids variant for email templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/grids/grid.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/grids/grid.tsx",
           "target": "components/email/grid.tsx",
           "type": "registry:component"
         }
@@ -3864,7 +3864,7 @@
       "description": "Pills email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/pills/pills.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/pills/pills.tsx",
           "target": "components/email/pills.tsx",
           "type": "registry:component"
         }
@@ -3882,7 +3882,7 @@
       "description": "Progress email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/progress-bars/progress.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/progress-bars/progress.tsx",
           "target": "components/email/progress.tsx",
           "type": "registry:component"
         }
@@ -3900,7 +3900,7 @@
       "description": "Divider email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/spacing/divider.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/spacing/divider.tsx",
           "target": "components/email/divider.tsx",
           "type": "registry:component"
         }
@@ -3918,7 +3918,7 @@
       "description": "Spacer email component",
       "files": [
         {
-          "path": "registry/bases/mjml-react/ui/ui-elements/spacing/spacer.tsx",
+          "path": "registry/bases/mjml-react/components/ui-elements/spacing/spacer.tsx",
           "target": "components/email/spacer.tsx",
           "type": "registry:component"
         }
@@ -4403,11 +4403,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-airbnb",
       "title": "Airbnb Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4427,11 +4438,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-apple",
       "title": "Apple Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4451,11 +4473,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-default",
       "title": "Default Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4475,11 +4508,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-dropbox",
       "title": "Dropbox Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4499,11 +4543,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-github",
       "title": "Github Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4523,11 +4578,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-linear",
       "title": "Linear Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4547,11 +4613,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-nike",
       "title": "Nike Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4571,11 +4648,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-notion",
       "title": "Notion Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4595,11 +4683,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-raycast",
       "title": "Raycast Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4619,11 +4718,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-slack",
       "title": "Slack Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4643,11 +4753,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-stack-overflow",
       "title": "Stack Overflow Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4667,11 +4788,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-stripe",
       "title": "Stripe Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4691,11 +4823,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-twitch",
       "title": "Twitch Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["theme"],
@@ -4715,11 +4858,22 @@
           "path": "registry/themes/types.ts",
           "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-jsx-email-theme.ts",
+          "target": "components/email/create-jsx-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/jsx-email-tailwind.tsx",
+          "target": "components/email/email-tailwind.tsx",
+          "type": "registry:file"
         }
       ],
       "name": "jsx-email/theme-vercel",
       "title": "Vercel Email Theme (JSX Email)",
-      "type": "registry:file"
+      "type": "registry:file",
+      "dependencies": ["jsx-email"]
     },
     {
       "categories": ["email-font"],
@@ -4801,7 +4955,7 @@
       "description": "Category Preview email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/category-previews/category-preview.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/category-previews/category-preview.tsx",
           "target": "components/email/category-preview.tsx",
           "type": "registry:component"
         }
@@ -4820,7 +4974,7 @@
       "description": "Billing Order Summary email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/billing-order-summary.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/order-summary/billing-order-summary.tsx",
           "target": "components/email/billing-order-summary.tsx",
           "type": "registry:component"
         }
@@ -4839,7 +4993,7 @@
       "description": "Order Summary Table email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-table.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/order-summary/order-summary-table.tsx",
           "target": "components/email/order-summary-table.tsx",
           "type": "registry:component"
         }
@@ -4858,7 +5012,7 @@
       "description": "Masonry Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/masonry-product-detail.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/product-detail/masonry-product-detail.tsx",
           "target": "components/email/masonry-product-detail.tsx",
           "type": "registry:component"
         }
@@ -4877,7 +5031,7 @@
       "description": "Single Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/product-detail/single-image-product-detail.tsx",
           "target": "components/email/single-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -4896,7 +5050,7 @@
       "description": "Ecommerce product-detail variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/split-product-detail.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/product-detail/split-product-detail.tsx",
           "target": "components/email/split-product-detail.tsx",
           "type": "registry:component"
         }
@@ -4915,7 +5069,7 @@
       "description": "Three Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/three-image-product-detail.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/product-detail/three-image-product-detail.tsx",
           "target": "components/email/three-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -4934,7 +5088,7 @@
       "description": "Two Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/two-image-product-detail.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/product-detail/two-image-product-detail.tsx",
           "target": "components/email/two-image-product-detail.tsx",
           "type": "registry:component"
         }
@@ -4953,7 +5107,7 @@
       "description": "Product List email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-lists/product-list.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/product-lists/product-list.tsx",
           "target": "components/email/product-list.tsx",
           "type": "registry:component"
         }
@@ -4972,7 +5126,7 @@
       "description": "Reviews email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/reviews/reviews.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/reviews/reviews.tsx",
           "target": "components/email/reviews.tsx",
           "type": "registry:component"
         }
@@ -4991,7 +5145,7 @@
       "description": "Shopping Cart email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/shopping-cart/shopping-cart.tsx",
+          "path": "registry/bases/jsx-email/components/ecommerce/shopping-cart/shopping-cart.tsx",
           "target": "components/email/shopping-cart.tsx",
           "type": "registry:component"
         }
@@ -5010,7 +5164,7 @@
       "description": "Bento Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-image-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/bento-grids/bento-image-grid.tsx",
           "target": "components/email/bento-image-grid.tsx",
           "type": "registry:component"
         }
@@ -5029,7 +5183,7 @@
       "description": "Bento Product Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-product-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/bento-grids/bento-product-grid.tsx",
           "target": "components/email/bento-product-grid.tsx",
           "type": "registry:component"
         }
@@ -5048,7 +5202,7 @@
       "description": "Bento Stats Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-stats-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/bento-grids/bento-stats-grid.tsx",
           "target": "components/email/bento-stats-grid.tsx",
           "type": "registry:component"
         }
@@ -5067,7 +5221,7 @@
       "description": "Blog Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/blog-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/blog/blog-grid.tsx",
           "target": "components/email/blog-grid.tsx",
           "type": "registry:component"
         }
@@ -5086,7 +5240,7 @@
       "description": "Marketing blog variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/featured-blog-post.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/blog/featured-blog-post.tsx",
           "target": "components/email/featured-blog-post.tsx",
           "type": "registry:component"
         }
@@ -5105,7 +5259,7 @@
       "description": "Horizontal Blog Post email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/horizontal-blog-post.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/blog/horizontal-blog-post.tsx",
           "target": "components/email/horizontal-blog-post.tsx",
           "type": "registry:component"
         }
@@ -5124,7 +5278,7 @@
       "description": "Podcast Blog email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/podcast-blog.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/blog/podcast-blog.tsx",
           "target": "components/email/podcast-blog.tsx",
           "type": "registry:component"
         }
@@ -5143,7 +5297,7 @@
       "description": "Marketing content variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/content/content.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/content/content.tsx",
           "target": "components/email/content.tsx",
           "type": "registry:component"
         }
@@ -5162,7 +5316,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/coupons/card-coupons.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/coupons/card-coupons.tsx",
           "target": "components/email/card-coupons.tsx",
           "type": "registry:component"
         }
@@ -5181,7 +5335,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/coupons/coupons-with-centered-text.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/coupons/coupons-with-centered-text.tsx",
           "target": "components/email/coupons-with-centered-text.tsx",
           "type": "registry:component"
         }
@@ -5200,7 +5354,7 @@
       "description": "Marketing coupons variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/coupons/coupons-with-content-overlayed.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/coupons/coupons-with-content-overlayed.tsx",
           "target": "components/email/coupons-with-content-overlayed.tsx",
           "type": "registry:component"
         }
@@ -5219,7 +5373,7 @@
       "description": "Avatar Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/avatar-call-to-action.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/cta/avatar-call-to-action.tsx",
           "target": "components/email/avatar-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -5238,7 +5392,7 @@
       "description": "Background Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/background-call-to-action.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/cta/background-call-to-action.tsx",
           "target": "components/email/background-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -5257,7 +5411,7 @@
       "description": "Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/call-to-action.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/cta/call-to-action.tsx",
           "target": "components/email/call-to-action.tsx",
           "type": "registry:component"
         }
@@ -5276,7 +5430,7 @@
       "description": "Collage Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/collage-call-to-action.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/cta/collage-call-to-action.tsx",
           "target": "components/email/collage-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -5295,7 +5449,7 @@
       "description": "Image Strip Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/image-strip-call-to-action.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/cta/image-strip-call-to-action.tsx",
           "target": "components/email/image-strip-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -5314,7 +5468,7 @@
       "description": "Top Image Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/top-image-call-to-action.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/cta/top-image-call-to-action.tsx",
           "target": "components/email/top-image-call-to-action.tsx",
           "type": "registry:component"
         }
@@ -5333,7 +5487,7 @@
       "description": "Faq email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/faq.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/faq/faq.tsx",
           "target": "components/email/faq.tsx",
           "type": "registry:component"
         }
@@ -5352,7 +5506,7 @@
       "description": "Image Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/image-feature.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/feature/image-feature.tsx",
           "target": "components/email/image-feature.tsx",
           "type": "registry:component"
         }
@@ -5371,7 +5525,7 @@
       "description": "Portrait Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/portrait-feature.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/feature/portrait-feature.tsx",
           "target": "components/email/portrait-feature.tsx",
           "type": "registry:component"
         }
@@ -5390,7 +5544,7 @@
       "description": "Product Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/product-images-feature.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/feature/product-images-feature.tsx",
           "target": "components/email/product-images-feature.tsx",
           "type": "registry:component"
         }
@@ -5409,7 +5563,7 @@
       "description": "Tall Background Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/tall-background-images-feature.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/feature/tall-background-images-feature.tsx",
           "target": "components/email/tall-background-images-feature.tsx",
           "type": "registry:component"
         }
@@ -5428,7 +5582,7 @@
       "description": "Navigation Footer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/navigation-footer.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/footers/navigation-footer.tsx",
           "target": "components/email/navigation-footer.tsx",
           "type": "registry:component"
         }
@@ -5447,7 +5601,7 @@
       "description": "Promotion Footer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/promotion-footer.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/footers/promotion-footer.tsx",
           "target": "components/email/promotion-footer.tsx",
           "type": "registry:component"
         }
@@ -5466,7 +5620,7 @@
       "description": "Utility Footer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/utility-footer.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/footers/utility-footer.tsx",
           "target": "components/email/utility-footer.tsx",
           "type": "registry:component"
         }
@@ -5485,7 +5639,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-badge.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/headers/header-with-logo-and-badge.tsx",
           "target": "components/email/header-with-logo-and-badge.tsx",
           "type": "registry:component"
         }
@@ -5504,7 +5658,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-finance-stats.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/headers/header-with-logo-and-finance-stats.tsx",
           "target": "components/email/header-with-logo-and-finance-stats.tsx",
           "type": "registry:component"
         }
@@ -5523,7 +5677,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-menu.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/headers/header-with-logo-and-menu.tsx",
           "target": "components/email/header-with-logo-and-menu.tsx",
           "type": "registry:component"
         }
@@ -5542,7 +5696,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo-and-social-icons.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/headers/header-with-logo-and-social-icons.tsx",
           "target": "components/email/header-with-logo-and-social-icons.tsx",
           "type": "registry:component"
         }
@@ -5561,7 +5715,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-logo.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/headers/header-with-logo.tsx",
           "target": "components/email/header-with-logo.tsx",
           "type": "registry:component"
         }
@@ -5580,7 +5734,7 @@
       "description": "Marketing headers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/headers/header-with-user-details.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/headers/header-with-user-details.tsx",
           "target": "components/email/header-with-user-details.tsx",
           "type": "registry:component"
         }
@@ -5599,7 +5753,7 @@
       "description": "Image Grid Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/image-grid-hero.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/hero/image-grid-hero.tsx",
           "target": "components/email/image-grid-hero.tsx",
           "type": "registry:component"
         }
@@ -5618,7 +5772,7 @@
       "description": "Overlap Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/overlap-hero.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/hero/overlap-hero.tsx",
           "target": "components/email/overlap-hero.tsx",
           "type": "registry:component"
         }
@@ -5637,7 +5791,7 @@
       "description": "Overlay Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/overlay-hero.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/hero/overlay-hero.tsx",
           "target": "components/email/overlay-hero.tsx",
           "type": "registry:component"
         }
@@ -5656,7 +5810,7 @@
       "description": "Split Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/split-hero.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/hero/split-hero.tsx",
           "target": "components/email/split-hero.tsx",
           "type": "registry:component"
         }
@@ -5675,7 +5829,7 @@
       "description": "Featured Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/images/featured-image-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/images/featured-image-grid.tsx",
           "target": "components/email/featured-image-grid.tsx",
           "type": "registry:component"
         }
@@ -5694,7 +5848,7 @@
       "description": "Marketing images variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/images/full-width-image.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/images/full-width-image.tsx",
           "target": "components/email/full-width-image.tsx",
           "type": "registry:component"
         }
@@ -5713,7 +5867,7 @@
       "description": "Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/images/image-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/images/image-grid.tsx",
           "target": "components/email/image-grid.tsx",
           "type": "registry:component"
         }
@@ -5732,7 +5886,7 @@
       "description": "Masonry Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/images/masonry-image-grid.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/images/masonry-image-grid.tsx",
           "target": "components/email/masonry-image-grid.tsx",
           "type": "registry:component"
         }
@@ -5751,7 +5905,7 @@
       "description": "Logo Cloud email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/logos/logo-cloud.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/logos/logo-cloud.tsx",
           "target": "components/email/logo-cloud.tsx",
           "type": "registry:component"
         }
@@ -5770,7 +5924,7 @@
       "description": "Purchase Pricing email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/pricing/purchase-pricing.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/pricing/purchase-pricing.tsx",
           "target": "components/email/purchase-pricing.tsx",
           "type": "registry:component"
         }
@@ -5789,7 +5943,7 @@
       "description": "Subscription Pricing email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/pricing/subscription-pricing.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/pricing/subscription-pricing.tsx",
           "target": "components/email/subscription-pricing.tsx",
           "type": "registry:component"
         }
@@ -5808,7 +5962,7 @@
       "description": "Social Links email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/social/social-links.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/social/social-links.tsx",
           "target": "components/email/social-links.tsx",
           "type": "registry:component"
         }
@@ -5827,7 +5981,7 @@
       "description": "Collection Stats email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/collection-stats.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/stats/collection-stats.tsx",
           "target": "components/email/collection-stats.tsx",
           "type": "registry:component"
         }
@@ -5846,7 +6000,7 @@
       "description": "Marketing stats variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/milestone-stats.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/stats/milestone-stats.tsx",
           "target": "components/email/milestone-stats.tsx",
           "type": "registry:component"
         }
@@ -5865,7 +6019,7 @@
       "description": "Spotlight Stats email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/spotlight-stats.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/stats/spotlight-stats.tsx",
           "target": "components/email/spotlight-stats.tsx",
           "type": "registry:component"
         }
@@ -5884,7 +6038,7 @@
       "description": "Marketing stats variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/stacked-stats.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/stats/stacked-stats.tsx",
           "target": "components/email/stacked-stats.tsx",
           "type": "registry:component"
         }
@@ -5903,7 +6057,7 @@
       "description": "Team email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/team/team.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/team/team.tsx",
           "target": "components/email/team.tsx",
           "type": "registry:component"
         }
@@ -5922,7 +6076,7 @@
       "description": "Testimonial email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/testimonials/testimonial.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/testimonials/testimonial.tsx",
           "target": "components/email/testimonial.tsx",
           "type": "registry:component"
         }
@@ -5941,7 +6095,7 @@
       "description": "Marketing timelines variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/payment-timeline.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/timelines/payment-timeline.tsx",
           "target": "components/email/payment-timeline.tsx",
           "type": "registry:component"
         }
@@ -5960,7 +6114,7 @@
       "description": "Timeline email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/timeline.tsx",
+          "path": "registry/bases/jsx-email/components/marketing/timelines/timeline.tsx",
           "target": "components/email/timeline.tsx",
           "type": "registry:component"
         }
@@ -5979,7 +6133,7 @@
       "description": "Avatar Details email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/avatar-details.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/avatars/avatar-details.tsx",
           "target": "components/email/avatar-details.tsx",
           "type": "registry:component"
         }
@@ -5998,7 +6152,7 @@
       "description": "Avatar Group email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/avatar-group.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/avatars/avatar-group.tsx",
           "target": "components/email/avatar-group.tsx",
           "type": "registry:component"
         }
@@ -6017,7 +6171,7 @@
       "description": "Button email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/buttons/button.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/buttons/button.tsx",
           "target": "components/email/button.tsx",
           "type": "registry:component"
         }
@@ -6036,7 +6190,7 @@
       "description": "UI Elements containers variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/containers/container.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/containers/container.tsx",
           "target": "components/email/container.tsx",
           "type": "registry:component"
         }
@@ -6055,7 +6209,7 @@
       "description": "Data Table email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/data-tables/data-table.tsx",
           "target": "components/email/data-table.tsx",
           "type": "registry:component"
         }
@@ -6074,7 +6228,7 @@
       "description": "UI Elements grids variant for email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/grids/grid.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/grids/grid.tsx",
           "target": "components/email/grid.tsx",
           "type": "registry:component"
         }
@@ -6093,7 +6247,7 @@
       "description": "Pills email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/pills/pills.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/pills/pills.tsx",
           "target": "components/email/pills.tsx",
           "type": "registry:component"
         }
@@ -6112,7 +6266,7 @@
       "description": "Progress email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/progress.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/progress-bars/progress.tsx",
           "target": "components/email/progress.tsx",
           "type": "registry:component"
         }
@@ -6131,7 +6285,7 @@
       "description": "Divider email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/spacing/divider.tsx",
           "target": "components/email/divider.tsx",
           "type": "registry:component"
         }
@@ -6150,7 +6304,7 @@
       "description": "Spacer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/spacer.tsx",
+          "path": "registry/bases/jsx-email/components/ui-elements/spacing/spacer.tsx",
           "target": "components/email/spacer.tsx",
           "type": "registry:component"
         }

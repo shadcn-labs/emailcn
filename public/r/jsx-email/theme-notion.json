@@ -3,6 +3,9 @@
   "name": "jsx-email/theme-notion",
   "title": "Notion Email Theme (JSX Email)",
   "description": "Notion email theme tokens for JSX Email templates",
+  "dependencies": [
+    "jsx-email"
+  ],
   "files": [
     {
       "path": "registry/bases/jsx-email/themes/theme-notion.ts",
@@ -21,6 +24,18 @@
       "content": "export interface EmailThemeTokens {\n  borderRadius: string;\n  borderRadiusLg: string;\n  button: {\n    primary: {\n      backgroundColor: string;\n      borderRadius: string;\n      color: string;\n      fontSize: string;\n      fontWeight: string;\n      paddingX: string;\n      paddingY: string;\n    };\n    secondary: {\n      backgroundColor: string;\n      border: string;\n      borderRadius: string;\n      color: string;\n      fontSize: string;\n      fontWeight: string;\n      paddingX: string;\n      paddingY: string;\n    };\n  };\n  colorBackground: string;\n  colorBackgroundMuted: string;\n  colorBackgroundSubtle: string;\n  colorBorder: string;\n  colorBorderSubtle: string;\n  colorDanger: string;\n  colorPrimary: string;\n  colorPrimaryForeground: string;\n  colorPrimaryHover: string;\n  colorSuccess: string;\n  colorText: string;\n  colorTextMuted: string;\n  colorTextSubtle: string;\n  colorWarning: string;\n  containerWidth: string;\n  fontFamily: string;\n  fontFamilyMono: string;\n  fontSizeBase: string;\n  fontSizeHeading: string;\n  fontSizeLg: string;\n  fontSizeSm: string;\n  fontSizeXl: string;\n  fontWeightBold: string;\n  fontWeightMedium: string;\n  fontWeightNormal: string;\n  lineHeightBase: string;\n  spacingBase: string;\n  spacingLg: string;\n  spacingXl: string;\n}\n",
       "type": "registry:file",
       "target": "components/email/email-theme-types.ts"
+    },
+    {
+      "path": "registry/themes/create-jsx-email-theme.ts",
+      "content": "import type { TailwindProps } from \"jsx-email\";\n\nimport type { EmailThemeTokens } from \"@/components/email/email-theme-types\";\n\ntype JsxEmailTailwindConfig = NonNullable<TailwindProps[\"config\"]>;\n\nexport const createJsxEmailTheme = (\n  theme: EmailThemeTokens\n): JsxEmailTailwindConfig => ({\n  theme: {\n    borderRadius: {\n      DEFAULT: theme.borderRadius,\n      lg: theme.borderRadiusLg,\n    },\n    colors: {\n      bg: theme.colorBackground,\n      \"bg-2\": theme.colorBackgroundMuted,\n      \"bg-3\": theme.colorBackgroundSubtle,\n      brand: theme.colorPrimary,\n      \"brand-fg\": theme.colorPrimaryForeground,\n      \"brand-hover\": theme.colorPrimaryHover,\n      danger: theme.colorDanger,\n      fg: theme.colorText,\n      \"fg-2\": theme.colorTextMuted,\n      \"fg-3\": theme.colorTextSubtle,\n      stroke: theme.colorBorder,\n      \"stroke-strong\": theme.colorBorderSubtle,\n      success: theme.colorSuccess,\n      warning: theme.colorWarning,\n    },\n    fontFamily: {\n      mono: theme.fontFamilyMono,\n      sans: theme.fontFamily,\n    },\n    fontSize: {\n      base: theme.fontSizeBase,\n      heading: theme.fontSizeHeading,\n      lg: theme.fontSizeLg,\n      sm: theme.fontSizeSm,\n      xl: theme.fontSizeXl,\n    },\n    fontWeight: {\n      bold: theme.fontWeightBold,\n      medium: theme.fontWeightMedium,\n      normal: theme.fontWeightNormal,\n    },\n    lineHeight: {\n      base: theme.lineHeightBase,\n    },\n    maxWidth: {\n      email: theme.containerWidth,\n    },\n    spacing: {\n      base: theme.spacingBase,\n      lg: theme.spacingLg,\n      xl: theme.spacingXl,\n    },\n  },\n});\n",
+      "type": "registry:file",
+      "target": "components/email/create-jsx-email-theme.ts"
+    },
+    {
+      "path": "registry/themes/jsx-email-tailwind.tsx",
+      "content": "import { Tailwind } from \"jsx-email\";\nimport type { ReactNode } from \"react\";\n\nimport { createJsxEmailTheme } from \"@/components/email/create-jsx-email-theme\";\nimport type { EmailThemeTokens } from \"@/components/email/email-theme-types\";\n\ninterface EmailTailwindProps {\n  children: ReactNode;\n  theme: EmailThemeTokens;\n}\n\nexport const EmailTailwind = ({ children, theme }: EmailTailwindProps) => (\n  <Tailwind config={createJsxEmailTheme(theme)}>{children}</Tailwind>\n);\n",
+      "type": "registry:file",
+      "target": "components/email/email-tailwind.tsx"
     }
   ],
   "categories": [

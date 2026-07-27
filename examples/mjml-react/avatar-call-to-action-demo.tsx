@@ -1,4 +1,4 @@
-import { AvatarCallToAction } from "@/registry/bases/mjml-react/ui/marketing/cta/avatar-call-to-action";
+import { AvatarCallToAction } from "@/registry/bases/mjml-react/components/marketing/cta/avatar-call-to-action";
 
 export default function AvatarCallToActionDemo() {
   return <AvatarCallToAction placement="inline" />;

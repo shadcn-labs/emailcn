@@ -1,4 +1,4 @@
-import { CallToAction } from "@/registry/bases/jsx-email/ui/marketing/cta/call-to-action";
+import { CallToAction } from "@/registry/bases/jsx-email/components/marketing/cta/call-to-action";
 
 export default function CallToActionTwoActionsDemo() {
   return (

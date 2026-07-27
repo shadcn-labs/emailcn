@@ -1,4 +1,4 @@
-import { Reviews } from "@/registry/bases/react-email/ui/ecommerce/reviews/reviews";
+import { Reviews } from "@/registry/bases/react-email/components/ecommerce/reviews/reviews";
 
 export default function ReviewsTwoColumnsWithAvatarsDemo() {
   return (
