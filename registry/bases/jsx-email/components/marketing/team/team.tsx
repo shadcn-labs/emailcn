@@ -61,7 +61,7 @@ const TeamCardsDetails_SocialLinks = ({
   const suffix = accent ? "light" : "dark";
   const icons = ["facebook", "x", lastIcon] as const;
   return (
-    <Section>
+    <Section align="left" style={{ width: "80px" }}>
       <Fragment>
         <Row>
           {icons.map((icon, index) => (
@@ -384,9 +384,11 @@ const TeamCards_socialIcons = {
 
 const TeamCards_SocialLinks = ({
   accent,
+  center,
   lastIcon,
 }: {
   accent: boolean;
+  center: boolean;
   lastIcon: "instagram" | "linkedin";
 }) => {
   const icons = accent
@@ -394,7 +396,7 @@ const TeamCards_SocialLinks = ({
     : TeamCards_socialIcons.dark;
   const links = ["facebook", "x", lastIcon] as const;
   return (
-    <Section align={lastIcon === "linkedin" ? undefined : undefined}>
+    <Section align={center ? "center" : "left"} style={{ width: "80px" }}>
       <Fragment>
         <Row>
           {links.map((icon, index) => (
@@ -471,7 +473,11 @@ const TeamCards_TeamCard = ({
         <Fragment>
           <Row>
             <Column>
-              <TeamCards_SocialLinks accent={accent} lastIcon={lastIcon} />
+              <TeamCards_SocialLinks
+                accent={accent}
+                center={rounded}
+                lastIcon={lastIcon}
+              />
             </Column>
           </Row>
         </Fragment>
@@ -717,7 +723,7 @@ const TeamCompact_SocialLinks = ({
 }) => {
   const icons = ["facebook", "x", lastIcon] as const;
   return (
-    <Section>
+    <Section align="left" style={{ width: "80px" }}>
       <Fragment>
         <Row>
           {icons.map((icon, index) => (
@@ -1021,7 +1027,7 @@ const TeamGrid_SocialLinks = ({
 }) => {
   const suffix = accent ? "light" : "dark";
   return (
-    <Section align="center">
+    <Section align="center" style={{ width: `${icons.length * 32 - 16}px` }}>
       <Fragment>
         <Row>
           {icons.map((icon, index) => (
@@ -1447,7 +1453,11 @@ const TeamBios_SocialLinks = ({
   const suffix = accent ? "light" : "dark";
   const icons = ["facebook", "x", lastIcon] as const;
   return (
-    <Section className="horizontal-team-social">
+    <Section
+      align="left"
+      className="horizontal-team-social"
+      style={{ width: "80px" }}
+    >
       <Fragment>
         <Row>
           {icons.map((icon, index) => (

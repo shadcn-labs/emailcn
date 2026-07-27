@@ -102,11 +102,11 @@ const Rating = ({
   count: number;
   allSolid?: boolean;
 }) => (
-  <Section>
+  <Section style={{ width: "184px" }}>
     <Fragment>
       <Row>
         <Column>
-          <Section>
+          <Section style={{ width: "100px" }}>
             <Fragment>
               <Row>
                 {[0, 1, 2, 3, 4].map((index) => (
@@ -281,6 +281,7 @@ const Discover = ({ href }: { href: string }) => (
           alt=""
           src={emailAsset(`icon-arrow-right-indigo.png`)}
           style={{
+            display: "inline-block",
             maxWidth: "100%",
             verticalAlign: "baseline",
           }}

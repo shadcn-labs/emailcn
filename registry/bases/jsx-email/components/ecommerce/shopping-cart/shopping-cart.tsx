@@ -138,6 +138,7 @@ const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
           alt=""
           src={emailAsset(`icon-edit-indigo.png`)}
           style={{
+            display: "inline-block",
             maxWidth: "100%",
             verticalAlign: "text-top",
           }}
