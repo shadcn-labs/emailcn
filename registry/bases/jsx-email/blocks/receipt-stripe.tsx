@@ -17,8 +17,8 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import { stripeTheme } from "@/registry/bases/jsx-email/themes/stripe";
+import { defaultTheme } from "@/registry/themes/definitions/default";
+import { stripeTheme } from "@/registry/themes/definitions/stripe";
 
 interface ProductCardProps {
   imageUrl?: string;

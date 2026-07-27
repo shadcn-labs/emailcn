@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { airbnbTheme } from "@/registry/bases/react-email/themes/airbnb";
+import { airbnbTheme } from "@/registry/themes/react-email/airbnb";
 
 interface Props {
   _logoUrl?: string;

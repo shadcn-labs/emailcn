@@ -9,8 +9,23 @@
       "description": "Airbnb email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/airbnb.ts",
+          "path": "registry/themes/react-email/airbnb.ts",
           "target": "components/email/theme-airbnb.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/airbnb.ts",
+          "target": "components/email/theme-airbnb-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -18,7 +33,8 @@
       "title": "Airbnb Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -28,8 +44,23 @@
       "description": "Apple email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/apple.ts",
+          "path": "registry/themes/react-email/apple.ts",
           "target": "components/email/theme-apple.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/apple.ts",
+          "target": "components/email/theme-apple-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -37,7 +68,8 @@
       "title": "Apple Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -47,8 +79,23 @@
       "description": "Default email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/default.ts",
+          "path": "registry/themes/react-email/default.ts",
           "target": "components/email/theme-default.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/default.ts",
+          "target": "components/email/theme-default-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -56,7 +103,8 @@
       "title": "Default Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -66,8 +114,23 @@
       "description": "Dropbox email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/dropbox.ts",
+          "path": "registry/themes/react-email/dropbox.ts",
           "target": "components/email/theme-dropbox.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/dropbox.ts",
+          "target": "components/email/theme-dropbox-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -75,7 +138,8 @@
       "title": "Dropbox Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -85,8 +149,23 @@
       "description": "Github email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/github.ts",
+          "path": "registry/themes/react-email/github.ts",
           "target": "components/email/theme-github.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/github.ts",
+          "target": "components/email/theme-github-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -94,7 +173,8 @@
       "title": "Github Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -104,8 +184,23 @@
       "description": "Linear email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/linear.ts",
+          "path": "registry/themes/react-email/linear.ts",
           "target": "components/email/theme-linear.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/linear.ts",
+          "target": "components/email/theme-linear-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -113,7 +208,8 @@
       "title": "Linear Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -123,8 +219,23 @@
       "description": "Nike email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/nike.ts",
+          "path": "registry/themes/react-email/nike.ts",
           "target": "components/email/theme-nike.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/nike.ts",
+          "target": "components/email/theme-nike-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -132,7 +243,8 @@
       "title": "Nike Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -142,8 +254,23 @@
       "description": "Notion email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/notion.ts",
+          "path": "registry/themes/react-email/notion.ts",
           "target": "components/email/theme-notion.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/notion.ts",
+          "target": "components/email/theme-notion-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -151,7 +278,8 @@
       "title": "Notion Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -161,8 +289,23 @@
       "description": "Raycast email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/raycast.ts",
+          "path": "registry/themes/react-email/raycast.ts",
           "target": "components/email/theme-raycast.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/raycast.ts",
+          "target": "components/email/theme-raycast-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -170,7 +313,8 @@
       "title": "Raycast Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -180,8 +324,23 @@
       "description": "Slack email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/slack.ts",
+          "path": "registry/themes/react-email/slack.ts",
           "target": "components/email/theme-slack.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/slack.ts",
+          "target": "components/email/theme-slack-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -189,7 +348,8 @@
       "title": "Slack Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -199,8 +359,23 @@
       "description": "Stack Overflow email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/stack-overflow.ts",
+          "path": "registry/themes/react-email/stack-overflow.ts",
           "target": "components/email/theme-stack-overflow.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/stack-overflow.ts",
+          "target": "components/email/theme-stack-overflow-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -208,7 +383,8 @@
       "title": "Stack Overflow Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -218,8 +394,23 @@
       "description": "Stripe email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/stripe.ts",
+          "path": "registry/themes/react-email/stripe.ts",
           "target": "components/email/theme-stripe.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/stripe.ts",
+          "target": "components/email/theme-stripe-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -227,7 +418,8 @@
       "title": "Stripe Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -237,8 +429,23 @@
       "description": "Twitch email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/twitch.ts",
+          "path": "registry/themes/react-email/twitch.ts",
           "target": "components/email/theme-twitch.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/twitch.ts",
+          "target": "components/email/theme-twitch-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -246,7 +453,8 @@
       "title": "Twitch Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {
@@ -256,8 +464,23 @@
       "description": "Vercel email theme tokens for React Email templates",
       "files": [
         {
-          "path": "registry/bases/react-email/themes/vercel.ts",
+          "path": "registry/themes/react-email/vercel.ts",
           "target": "components/email/theme-vercel.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/definitions/vercel.ts",
+          "target": "components/email/theme-vercel-tokens.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/create-react-email-theme.ts",
+          "target": "components/email/create-react-email-theme.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -265,7 +488,8 @@
       "title": "Vercel Email Theme (React Email)",
       "type": "registry:file",
       "dependencies": [
-        "react-email"
+        "react-email",
+        "tailwindcss"
       ]
     },
     {

@@ -25,14 +25,29 @@ npx shadcn@latest add @emailcn/theme-vercel
   <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install react-email
+npm install react-email tailwindcss
 ```
 
   <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/themes/vercel.ts"
+    src="registry/themes/react-email/vercel.ts"
     base="react-email"
     title="components/email/theme-vercel.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/vercel.ts"
+    base="react-email"
+    title="components/email/theme-vercel-tokens.ts"
+  />
+  <ComponentSource
+    src="registry/themes/create-react-email-theme.ts"
+    base="react-email"
+    title="components/email/create-react-email-theme.ts"
+  />
+  <ComponentSource
+    src="registry/themes/types.ts"
+    base="react-email"
+    title="components/email/email-theme-types.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>

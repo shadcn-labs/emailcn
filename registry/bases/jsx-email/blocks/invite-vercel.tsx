@@ -16,7 +16,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { vercelTheme } from "@/registry/bases/jsx-email/themes/vercel";
+import { vercelTheme } from "@/registry/themes/definitions/vercel";
 
 interface Props {
   inviterName?: string;

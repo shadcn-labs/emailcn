@@ -1,1 +1,0 @@
-../bases/react-email/themes/github.ts

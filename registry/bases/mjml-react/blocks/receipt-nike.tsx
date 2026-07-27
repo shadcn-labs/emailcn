@@ -1,7 +1,7 @@
 // Subject: Your receipt from Nike
 
 import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { nikeTheme } from "@/registry/bases/mjml-react/themes/nike";
+import { nikeTheme } from "@/registry/themes/definitions/nike";
 
 interface ReceiptItem {
   name: string;

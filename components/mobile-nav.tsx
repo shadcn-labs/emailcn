@@ -181,6 +181,9 @@ export const MobileNav = ({
                   {item.label}
                 </MobileLink>
               ))}
+              <MobileLink href={ROUTES.DOCS_CHANGELOG} onOpenChange={setOpen}>
+                Changelog
+              </MobileLink>
             </div>
           </div>
           {tree.children.map((item) => {

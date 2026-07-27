@@ -14,8 +14,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import { stripeTheme } from "@/registry/bases/mjml-react/themes/stripe";
+import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
+import { stripeTheme } from "@/registry/themes/definitions/stripe";
 
 interface Props {
   _logoUrl?: string;

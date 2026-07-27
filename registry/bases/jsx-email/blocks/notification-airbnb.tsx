@@ -12,7 +12,7 @@ import {
   Text,
 } from "jsx-email";
 
-import { airbnbTheme } from "@/registry/bases/jsx-email/themes/airbnb";
+import { airbnbTheme } from "@/registry/themes/definitions/airbnb";
 
 interface Props {
   _logoUrl?: string;

@@ -25,14 +25,29 @@ npx shadcn@latest add @emailcn/theme-github
   <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install react-email
+npm install react-email tailwindcss
 ```
 
   <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/themes/github.ts"
+    src="registry/themes/react-email/github.ts"
     base="react-email"
     title="components/email/theme-github.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/github.ts"
+    base="react-email"
+    title="components/email/theme-github-tokens.ts"
+  />
+  <ComponentSource
+    src="registry/themes/create-react-email-theme.ts"
+    base="react-email"
+    title="components/email/create-react-email-theme.ts"
+  />
+  <ComponentSource
+    src="registry/themes/types.ts"
+    base="react-email"
+    title="components/email/email-theme-types.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>

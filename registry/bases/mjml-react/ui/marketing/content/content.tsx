@@ -11,8 +11,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
+import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
 
 export interface ContentProps {
   theme?: EmailThemeTokens;

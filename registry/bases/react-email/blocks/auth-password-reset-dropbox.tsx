@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { dropboxTheme } from "@/registry/bases/react-email/themes/dropbox";
+import { dropboxTheme } from "@/registry/themes/react-email/dropbox";
 
 interface Props {
   _logoUrl?: string;

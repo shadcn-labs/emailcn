@@ -17,7 +17,7 @@ const BASES = [
     deps: ["react-email"],
     label: "React Email",
     name: "react-email",
-    themeDeps: ["react-email"],
+    themeDeps: ["react-email", "tailwindcss"],
   },
   {
     deps: ["@faire/mjml-react", "mjml"],
@@ -101,6 +101,50 @@ const targetFor = (relPath) => {
   return `components/email/${path.basename(relPath)}`;
 };
 
+const themeSourceFor = (base, relPath) =>
+  path.join(
+    ROOT,
+    "registry/themes",
+    base.name === "react-email" ? "react-email" : "definitions",
+    path.basename(relPath)
+  );
+
+const registryFile = (sourcePath, target) => ({
+  path: path.relative(ROOT, sourcePath).split(path.sep).join("/"),
+  target,
+  type: "registry:file",
+});
+
+const themeFilesFor = (base, relPath) => {
+  const stem = path.basename(relPath, ".ts");
+  const definitionPath = path.join(
+    ROOT,
+    "registry/themes/definitions",
+    `${stem}.ts`
+  );
+  const typesPath = path.join(ROOT, "registry/themes/types.ts");
+
+  if (base.name !== "react-email") {
+    return [
+      registryFile(definitionPath, `components/email/theme-${stem}.ts`),
+      registryFile(typesPath, "components/email/email-theme-types.ts"),
+    ];
+  }
+
+  return [
+    registryFile(
+      themeSourceFor(base, relPath),
+      `components/email/theme-${stem}.ts`
+    ),
+    registryFile(definitionPath, `components/email/theme-${stem}-tokens.ts`),
+    registryFile(
+      path.join(ROOT, "registry/themes/create-react-email-theme.ts"),
+      "components/email/create-react-email-theme.ts"
+    ),
+    registryFile(typesPath, "components/email/email-theme-types.ts"),
+  ];
+};
+
 const resolveRelativeSource = (absPath, importPath) => {
   const resolved = path.resolve(path.dirname(absPath), importPath);
   const candidates = [
@@ -113,7 +157,7 @@ const resolveRelativeSource = (absPath, importPath) => {
   return candidates.find((candidate) => fs.existsSync(candidate));
 };
 
-const registryDepsFor = (base, absPath) => {
+const registryDepsFor = (base, absPath, kind) => {
   const src = fs.readFileSync(absPath, "utf-8");
   const deps = new Set();
   const re = new RegExp(
@@ -125,6 +169,14 @@ const registryDepsFor = (base, absPath) => {
     const relPath =
       rel ?? `${m[1]}${m[1].startsWith("themes/") ? ".ts" : ".tsx"}`;
     deps.add(`${REGISTRY_URL}/${base.name}/${itemNameFor(relPath)}.json`);
+  }
+
+  if (kind !== "theme") {
+    const themeImportRe =
+      /@\/registry\/themes\/(?:definitions|react-email)\/([\w-]+)/g;
+    for (const match of src.matchAll(themeImportRe)) {
+      deps.add(`${REGISTRY_URL}/${base.name}/theme-${match[1]}.json`);
+    }
   }
 
   const baseDir = path.join(ROOT, "registry/bases", base.name);
@@ -195,14 +247,19 @@ const metadataFor = (base, kind, stem, existing, reCounterpart) => {
 };
 
 const buildItem = (base, relPath) => {
-  const absPath = path.join(ROOT, "registry/bases", base.name, relPath);
-  const filePath = `registry/bases/${base.name}/${relPath}`;
+  const kind = kindFor(relPath);
+  const absPath =
+    kind === "theme"
+      ? themeSourceFor(base, relPath)
+      : path.join(ROOT, "registry/bases", base.name, relPath);
+  const filePath = path.relative(ROOT, absPath).split(path.sep).join("/");
   const existing = existingByPath.get(filePath);
   const reCounterpart = existingByPath.get(
-    `registry/bases/react-email/${relPath}`
+    kind === "theme"
+      ? `registry/themes/react-email/${path.basename(relPath)}`
+      : `registry/bases/react-email/${relPath}`
   );
   const stem = path.basename(relPath).replace(/\.(tsx|ts)$/, "");
-  const kind = kindFor(relPath);
   const { description, title } = metadataFor(
     base,
     kind,
@@ -211,7 +268,11 @@ const buildItem = (base, relPath) => {
     reCounterpart
   );
   const categories =
-    existing?.categories ?? reCounterpart?.categories ?? categoriesFor(kind);
+    kind === "theme"
+      ? categoriesFor(kind)
+      : (existing?.categories ??
+        reCounterpart?.categories ??
+        categoriesFor(kind));
   const type = registryTypeFor(kind);
   const fileType =
     kind === "theme" || kind === "font" ? type : "registry:component";
@@ -219,13 +280,16 @@ const buildItem = (base, relPath) => {
   const item = {
     categories,
     description,
-    files: [
-      {
-        path: filePath,
-        target: targetFor(relPath),
-        type: fileType,
-      },
-    ],
+    files:
+      kind === "theme"
+        ? themeFilesFor(base, relPath)
+        : [
+            {
+              path: filePath,
+              target: targetFor(relPath),
+              type: fileType,
+            },
+          ],
     name: itemNameFor(relPath),
     title,
     type,
@@ -235,7 +299,7 @@ const buildItem = (base, relPath) => {
   if (deps.length > 0) {
     item.dependencies = deps;
   }
-  const registryDependencies = registryDepsFor(base, absPath);
+  const registryDependencies = registryDepsFor(base, absPath, kind);
   if (registryDependencies.length > 0) {
     item.registryDependencies = registryDependencies;
   }
@@ -245,7 +309,19 @@ const buildItem = (base, relPath) => {
 for (const base of BASES) {
   const baseDir = path.join(ROOT, "registry/bases", base.name);
   const rel = (p) => path.relative(baseDir, p);
-  const group = (sub) => walk(path.join(baseDir, sub)).map(rel).sort();
+  const group = (sub) => {
+    if (sub === "themes") {
+      const directory = path.join(
+        ROOT,
+        "registry/themes",
+        base.name === "react-email" ? "react-email" : "definitions"
+      );
+      return walk(directory)
+        .map((filePath) => `themes/${path.basename(filePath)}`)
+        .toSorted();
+    }
+    return walk(path.join(baseDir, sub)).map(rel).toSorted();
+  };
 
   const items = [];
   for (const kind of ["themes", "fonts", "ui", "blocks"]) {

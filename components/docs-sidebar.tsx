@@ -24,7 +24,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
-import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
+import { EXCLUDED_SECTIONS, isComponentsFolder, PAGES_NEW } from "@/lib/docs";
 import type { FolderItem } from "@/lib/page-tree";
 import {
   getCategoryFolders,
@@ -41,27 +41,29 @@ const TOP_LEVEL_SECTIONS = [
   { href: ROUTES.DOCS_MCP, name: "MCP" },
   { href: ROUTES.DOCS_REGISTRY, name: "Registry" },
   { href: ROUTES.LLMS, name: "llms.txt" },
+  { href: ROUTES.DOCS_CHANGELOG, name: "Changelog" },
 ];
 
 const MENU_BUTTON_CLS =
-  "data-[active=true]:bg-accent data-[active=true]:border-accent relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md";
+  "relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48";
 
-const SidebarPageItem = ({
-  page,
-  pathname,
+const SidebarMenuItemLink = ({
+  href,
+  isActive,
+  children,
 }: {
-  page: { url: string; name: React.ReactNode };
-  pathname: string;
+  href: string;
+  isActive: boolean;
+  children: React.ReactNode;
 }) => (
   <SidebarMenuItem>
-    <SidebarMenuButton
-      asChild
-      isActive={page.url === pathname}
-      className={MENU_BUTTON_CLS}
-    >
-      <Link href={page.url}>
+    <SidebarMenuButton asChild className={MENU_BUTTON_CLS} isActive={isActive}>
+      <Link href={href}>
         <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-        {page.name}
+        {children}
+        {PAGES_NEW.includes(href) && (
+          <span className="flex size-2 rounded-full bg-blue-500" title="New" />
+        )}
       </Link>
     </SidebarMenuButton>
   </SidebarMenuItem>
@@ -144,11 +146,13 @@ const SidebarPageGroup = ({
         <SidebarMenu>
           {items.map((item) =>
             item.type === "page" ? (
-              <SidebarPageItem
+              <SidebarMenuItemLink
                 key={item.page.url}
-                page={item.page}
-                pathname={pathname}
-              />
+                href={item.page.url}
+                isActive={item.page.url === pathname}
+              >
+                {item.page.name}
+              </SidebarMenuItemLink>
             ) : (
               <SidebarFamilyGroup
                 group={item}
@@ -189,22 +193,17 @@ export const DocsSidebar = ({
           <SidebarGroupContent>
             <SidebarMenu>
               {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
-                <SidebarMenuItem key={name}>
-                  <SidebarMenuButton
-                    asChild
-                    isActive={
-                      href === "/docs"
-                        ? pathname === href
-                        : pathname.startsWith(href)
-                    }
-                    className={MENU_BUTTON_CLS}
-                  >
-                    <Link href={href}>
-                      <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-                      {name}
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                <SidebarMenuItemLink
+                  key={name}
+                  href={href}
+                  isActive={
+                    href === ROUTES.DOCS
+                      ? pathname === href
+                      : pathname.startsWith(href)
+                  }
+                >
+                  {name}
+                </SidebarMenuItemLink>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>

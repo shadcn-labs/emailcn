@@ -55,7 +55,8 @@ const registryDependencyName = (dependency) => {
   }
 };
 
-const requiredFiles = (item, items) => {
+const requiredInstallation = (item, items) => {
+  const dependencies = new Set();
   const files = [];
   const queued = [item];
   const visitedItems = new Set();
@@ -67,6 +68,10 @@ const requiredFiles = (item, items) => {
       continue;
     }
     visitedItems.add(current.name);
+
+    for (const dependency of current.dependencies ?? []) {
+      dependencies.add(dependency);
+    }
 
     for (const file of current.files ?? []) {
       if (!visitedTargets.has(file.target)) {
@@ -83,7 +88,7 @@ const requiredFiles = (item, items) => {
     }
   }
 
-  return files;
+  return { dependencies: [...dependencies], files };
 };
 
 const componentSource = (file, base) => `  <ComponentSource
@@ -106,8 +111,7 @@ const standardizeManualInstallation = (text, base) => {
     );
   }
 
-  const dependencies = item.dependencies ?? [];
-  const files = requiredFiles(item, items);
+  const { dependencies, files } = requiredInstallation(item, items);
   if (dependencies.length === 0 || files.length === 0) {
     throw new Error(
       `Incomplete manual installation data for ${base}/${item.name}`
@@ -139,6 +143,8 @@ const transformMdx = (text, target) =>
     .join(`base="${target.base}"`)
     .split(`registry/bases/${SRC_BASE}/`)
     .join(`registry/bases/${target.base}/`)
+    .split("registry/themes/react-email/")
+    .join("registry/themes/definitions/")
     .split(`/docs/components/${SRC_BASE}/`)
     .join(`/docs/components/${target.base}/`)
     .split("TailwindConfig")

@@ -12,7 +12,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface Props {
   _logoUrl?: string;

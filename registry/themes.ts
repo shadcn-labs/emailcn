@@ -1,20 +1,20 @@
 import { BASE_NAMES } from "@/registry/bases";
 import type { BaseName } from "@/registry/bases";
-import { airbnbTheme as mjmlAirbnb } from "@/registry/bases/mjml-react/themes/airbnb";
-import { appleTheme as mjmlApple } from "@/registry/bases/mjml-react/themes/apple";
-import { defaultTheme as mjmlDefault } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import { dropboxTheme as mjmlDropbox } from "@/registry/bases/mjml-react/themes/dropbox";
-import { githubTheme as mjmlGithub } from "@/registry/bases/mjml-react/themes/github";
-import { linearTheme as mjmlLinear } from "@/registry/bases/mjml-react/themes/linear";
-import { nikeTheme as mjmlNike } from "@/registry/bases/mjml-react/themes/nike";
-import { notionTheme as mjmlNotion } from "@/registry/bases/mjml-react/themes/notion";
-import { raycastTheme as mjmlRaycast } from "@/registry/bases/mjml-react/themes/raycast";
-import { slackTheme as mjmlSlack } from "@/registry/bases/mjml-react/themes/slack";
-import { stackOverflowTheme as mjmlStackOverflow } from "@/registry/bases/mjml-react/themes/stack-overflow";
-import { stripeTheme as mjmlStripe } from "@/registry/bases/mjml-react/themes/stripe";
-import { twitchTheme as mjmlTwitch } from "@/registry/bases/mjml-react/themes/twitch";
-import { vercelTheme as mjmlVercel } from "@/registry/bases/mjml-react/themes/vercel";
+import { airbnbTheme as mjmlAirbnb } from "@/registry/themes/definitions/airbnb";
+import { appleTheme as mjmlApple } from "@/registry/themes/definitions/apple";
+import { defaultTheme as mjmlDefault } from "@/registry/themes/definitions/default";
+import { dropboxTheme as mjmlDropbox } from "@/registry/themes/definitions/dropbox";
+import { githubTheme as mjmlGithub } from "@/registry/themes/definitions/github";
+import { linearTheme as mjmlLinear } from "@/registry/themes/definitions/linear";
+import { nikeTheme as mjmlNike } from "@/registry/themes/definitions/nike";
+import { notionTheme as mjmlNotion } from "@/registry/themes/definitions/notion";
+import { raycastTheme as mjmlRaycast } from "@/registry/themes/definitions/raycast";
+import { slackTheme as mjmlSlack } from "@/registry/themes/definitions/slack";
+import { stackOverflowTheme as mjmlStackOverflow } from "@/registry/themes/definitions/stack-overflow";
+import { stripeTheme as mjmlStripe } from "@/registry/themes/definitions/stripe";
+import { twitchTheme as mjmlTwitch } from "@/registry/themes/definitions/twitch";
+import { vercelTheme as mjmlVercel } from "@/registry/themes/definitions/vercel";
+import type { EmailThemeTokens } from "@/registry/themes/types";
 
 export interface RegistryThemeDefinition {
   bases: readonly BaseName[];

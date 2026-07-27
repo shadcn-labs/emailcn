@@ -4,14 +4,18 @@
   "items": [
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Airbnb email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/airbnb.ts",
+          "path": "registry/themes/definitions/airbnb.ts",
           "target": "components/email/theme-airbnb.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -26,8 +30,13 @@
       "description": "Apple email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/apple.ts",
+          "path": "registry/themes/definitions/apple.ts",
           "target": "components/email/theme-apple.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -37,14 +46,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Default email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/default.ts",
+          "path": "registry/themes/definitions/default.ts",
           "target": "components/email/theme-default.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -59,8 +72,13 @@
       "description": "Dropbox email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/dropbox.ts",
+          "path": "registry/themes/definitions/dropbox.ts",
           "target": "components/email/theme-dropbox.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -70,14 +88,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Github email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/github.ts",
+          "path": "registry/themes/definitions/github.ts",
           "target": "components/email/theme-github.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -87,14 +109,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Linear email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/linear.ts",
+          "path": "registry/themes/definitions/linear.ts",
           "target": "components/email/theme-linear.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -109,8 +135,13 @@
       "description": "Nike email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/nike.ts",
+          "path": "registry/themes/definitions/nike.ts",
           "target": "components/email/theme-nike.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -120,14 +151,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Notion email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/notion.ts",
+          "path": "registry/themes/definitions/notion.ts",
           "target": "components/email/theme-notion.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -137,14 +172,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Raycast email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/raycast.ts",
+          "path": "registry/themes/definitions/raycast.ts",
           "target": "components/email/theme-raycast.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -154,14 +193,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Slack email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/slack.ts",
+          "path": "registry/themes/definitions/slack.ts",
           "target": "components/email/theme-slack.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -176,8 +219,13 @@
       "description": "Stack Overflow email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/stack-overflow.ts",
+          "path": "registry/themes/definitions/stack-overflow.ts",
           "target": "components/email/theme-stack-overflow.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -187,14 +235,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Stripe email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/stripe.ts",
+          "path": "registry/themes/definitions/stripe.ts",
           "target": "components/email/theme-stripe.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -204,14 +256,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Twitch email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/twitch.ts",
+          "path": "registry/themes/definitions/twitch.ts",
           "target": "components/email/theme-twitch.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -221,14 +277,18 @@
     },
     {
       "categories": [
-        "theme",
-        "mjml"
+        "theme"
       ],
       "description": "Vercel email theme tokens for MJML templates",
       "files": [
         {
-          "path": "registry/bases/mjml-react/themes/vercel.ts",
+          "path": "registry/themes/definitions/vercel.ts",
           "target": "components/email/theme-vercel.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],

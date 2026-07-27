@@ -1,7 +1,7 @@
 // Subject: Your verification code for {_productName}
 
 import { AuthOtpBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { twitchTheme } from "@/registry/bases/mjml-react/themes/twitch";
+import { twitchTheme } from "@/registry/themes/definitions/twitch";
 
 interface Props {
   _logoUrl?: string;

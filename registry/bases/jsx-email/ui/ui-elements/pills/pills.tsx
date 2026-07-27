@@ -3,8 +3,8 @@ import { Fragment } from "react";
 import type { CSSProperties } from "react";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
+import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
 
 type PillStatusVariant =
   | "brand"

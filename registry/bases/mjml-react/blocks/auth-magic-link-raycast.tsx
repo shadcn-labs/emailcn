@@ -14,8 +14,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import { raycastTheme } from "@/registry/bases/mjml-react/themes/raycast";
+import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
+import { raycastTheme } from "@/registry/themes/definitions/raycast";
 
 interface Props {
   _logoUrl?: string;

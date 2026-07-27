@@ -11,8 +11,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
+import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
 
 const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
   <MjmlSection padding="0">

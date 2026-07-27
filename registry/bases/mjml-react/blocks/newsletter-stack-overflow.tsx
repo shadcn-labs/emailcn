@@ -1,7 +1,7 @@
 // Subject: {preheader}
 
 import { NewsletterBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { stackOverflowTheme } from "@/registry/bases/mjml-react/themes/stack-overflow";
+import { stackOverflowTheme } from "@/registry/themes/definitions/stack-overflow";
 
 interface Article {
   title: string;

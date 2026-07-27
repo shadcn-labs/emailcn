@@ -13,7 +13,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { stripeTheme } from "@/registry/bases/jsx-email/themes/stripe";
+import { stripeTheme } from "@/registry/themes/definitions/stripe";
 
 interface Props {
   _logoUrl?: string;

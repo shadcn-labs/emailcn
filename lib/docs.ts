@@ -43,3 +43,5 @@ const TITLE_OVERRIDES: Record<string, string> = {};
 
 export const formatTitleFromSlug = (slug: string): string =>
   TITLE_OVERRIDES[slug] ?? formatLabelFromSlug(slug);
+
+export const PAGES_NEW: string[] = [ROUTES.DOCS_CHANGELOG];

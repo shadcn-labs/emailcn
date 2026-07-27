@@ -15,8 +15,8 @@ import {
   Text,
 } from "jsx-email";
 
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import { stackOverflowTheme } from "@/registry/bases/jsx-email/themes/stack-overflow";
+import { defaultTheme } from "@/registry/themes/definitions/default";
+import { stackOverflowTheme } from "@/registry/themes/definitions/stack-overflow";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;

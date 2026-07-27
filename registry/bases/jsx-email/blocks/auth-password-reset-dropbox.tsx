@@ -13,7 +13,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { dropboxTheme } from "@/registry/bases/jsx-email/themes/dropbox";
+import { dropboxTheme } from "@/registry/themes/definitions/dropbox";
 
 interface Props {
   _logoUrl?: string;

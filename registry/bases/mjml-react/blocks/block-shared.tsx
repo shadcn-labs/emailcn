@@ -15,7 +15,7 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
 
 export const BlockEmail = ({
   children,

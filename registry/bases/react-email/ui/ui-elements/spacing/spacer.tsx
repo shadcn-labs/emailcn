@@ -11,7 +11,7 @@ import {
 import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+import { defaultTheme } from "@/registry/themes/react-email/default";
 
 const dividerColors = {
   border: "#e5e7eb",

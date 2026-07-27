@@ -27,7 +27,7 @@ npx shadcn@latest add @emailcn/block-receipt-default
   <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install react-email
+npm install react-email tailwindcss
 ```
 
   <Step>**Copy and paste the following code into your project.**</Step>
@@ -42,9 +42,24 @@ npm install react-email
     title="components/email/product-list.tsx"
   />
   <ComponentSource
-    src="registry/bases/react-email/themes/default.ts"
+    src="registry/themes/react-email/default.ts"
     base="react-email"
     title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/default.ts"
+    base="react-email"
+    title="components/email/theme-default-tokens.ts"
+  />
+  <ComponentSource
+    src="registry/themes/create-react-email-theme.ts"
+    base="react-email"
+    title="components/email/create-react-email-theme.ts"
+  />
+  <ComponentSource
+    src="registry/themes/types.ts"
+    base="react-email"
+    title="components/email/email-theme-types.ts"
   />
   <ComponentSource
     src="registry/bases/react-email/fonts/default.tsx"

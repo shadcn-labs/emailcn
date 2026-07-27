@@ -20,16 +20,11 @@ const baseRules = STYLES.map((base) => [
   (_match, kind, importPath) => installedImport(kind, importPath),
 ]);
 
-const replacements = [
-  ...baseRules,
+const commonReplacements = [
   [
     /@\/components\/emails\/([^"']+)/g,
     (_match, importPath) =>
       `@/components/email/${path.posix.basename(importPath)}`,
-  ],
-  [
-    /@\/registry\/themes\/([^"']+)/g,
-    (_match, importPath) => installedImport("themes", importPath),
   ],
   [/@\/registry\/lib\/resolve-theme/g, "@/components/email/resolve-theme"],
   [
@@ -38,9 +33,34 @@ const replacements = [
   ],
 ];
 
-const normalizeCode = (code) => {
+const themeReplacementsFor = (style) => [
+  [
+    /@\/registry\/themes\/react-email\/([^"']+)/g,
+    (_match, importPath) =>
+      `@/components/email/theme-${path.posix.basename(importPath)}`,
+  ],
+  [
+    /@\/registry\/themes\/definitions\/([^"']+)/g,
+    (_match, importPath) => {
+      const suffix = style === "react-email" ? "-tokens" : "";
+      return `@/components/email/theme-${path.posix.basename(importPath)}${suffix}`;
+    },
+  ],
+  [
+    /@\/registry\/themes\/create-react-email-theme/g,
+    "@/components/email/create-react-email-theme",
+  ],
+  [/@\/registry\/themes\/types/g, "@/components/email/email-theme-types"],
+];
+
+const normalizeCode = (code, style) => {
   let updated = code;
 
+  const replacements = [
+    ...baseRules,
+    ...themeReplacementsFor(style),
+    ...commonReplacements,
+  ];
   for (const [pattern, replacement] of replacements) {
     updated = updated.replace(pattern, replacement);
   }
@@ -48,7 +68,7 @@ const normalizeCode = (code) => {
   return updated;
 };
 
-const normalizeItem = (item) => {
+const normalizeItem = (item, style) => {
   let changed = false;
 
   for (const file of item.files ?? []) {
@@ -61,7 +81,7 @@ const normalizeItem = (item) => {
     }
 
     if (typeof file.content === "string") {
-      const content = normalizeCode(file.content);
+      const content = normalizeCode(file.content, style);
       if (content !== file.content) {
         file.content = content;
         changed = true;
@@ -97,7 +117,7 @@ for (const style of STYLES) {
     const item = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     let changed = false;
     for (const registryItem of item.items ?? [item]) {
-      changed = normalizeItem(registryItem) || changed;
+      changed = normalizeItem(registryItem, style) || changed;
     }
 
     if (changed) {

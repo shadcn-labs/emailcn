@@ -9,8 +9,13 @@
       "description": "Airbnb email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/airbnb.ts",
+          "path": "registry/themes/definitions/airbnb.ts",
           "target": "components/email/theme-airbnb.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -25,8 +30,13 @@
       "description": "Apple email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/apple.ts",
+          "path": "registry/themes/definitions/apple.ts",
           "target": "components/email/theme-apple.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -41,8 +51,13 @@
       "description": "Default email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/default.ts",
+          "path": "registry/themes/definitions/default.ts",
           "target": "components/email/theme-default.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -57,8 +72,13 @@
       "description": "Dropbox email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/dropbox.ts",
+          "path": "registry/themes/definitions/dropbox.ts",
           "target": "components/email/theme-dropbox.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -73,8 +93,13 @@
       "description": "Github email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/github.ts",
+          "path": "registry/themes/definitions/github.ts",
           "target": "components/email/theme-github.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -89,8 +114,13 @@
       "description": "Linear email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/linear.ts",
+          "path": "registry/themes/definitions/linear.ts",
           "target": "components/email/theme-linear.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -105,8 +135,13 @@
       "description": "Nike email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/nike.ts",
+          "path": "registry/themes/definitions/nike.ts",
           "target": "components/email/theme-nike.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -121,8 +156,13 @@
       "description": "Notion email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/notion.ts",
+          "path": "registry/themes/definitions/notion.ts",
           "target": "components/email/theme-notion.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -137,8 +177,13 @@
       "description": "Raycast email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/raycast.ts",
+          "path": "registry/themes/definitions/raycast.ts",
           "target": "components/email/theme-raycast.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -153,8 +198,13 @@
       "description": "Slack email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/slack.ts",
+          "path": "registry/themes/definitions/slack.ts",
           "target": "components/email/theme-slack.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -169,8 +219,13 @@
       "description": "Stack Overflow email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/stack-overflow.ts",
+          "path": "registry/themes/definitions/stack-overflow.ts",
           "target": "components/email/theme-stack-overflow.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -185,8 +240,13 @@
       "description": "Stripe email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/stripe.ts",
+          "path": "registry/themes/definitions/stripe.ts",
           "target": "components/email/theme-stripe.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -201,8 +261,13 @@
       "description": "Twitch email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/twitch.ts",
+          "path": "registry/themes/definitions/twitch.ts",
           "target": "components/email/theme-twitch.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
@@ -217,8 +282,13 @@
       "description": "Vercel email theme tokens for JSX Email templates",
       "files": [
         {
-          "path": "registry/bases/jsx-email/themes/vercel.ts",
+          "path": "registry/themes/definitions/vercel.ts",
           "target": "components/email/theme-vercel.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "registry/themes/types.ts",
+          "target": "components/email/email-theme-types.ts",
           "type": "registry:file"
         }
       ],
