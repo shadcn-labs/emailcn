@@ -40,24 +40,14 @@ npm install react-email tailwindcss
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/react-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="react-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/react-email/themes/email-theme.ts"
     base="react-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/create-react-email-theme.ts"
-    base="react-email"
-    title="components/email/create-react-email-theme.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="react-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -95,7 +85,7 @@ import { FeaturedImageGrid } from "@/components/email/featured-image-grid";
 
 | Prop              | Type                                                                                      | Default        | Description                                 |
 | ----------------- | ----------------------------------------------------------------------------------------- | -------------- | ------------------------------------------- |
-| `theme`           | `TailwindConfig`                                                                          | `defaultTheme` | Renderer theme configuration.               |
+| `theme`           | `EmailTheme`                                                                              | `defaultTheme` | Renderer theme configuration.               |
 | `images`          | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.          |
 | `feature`         | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }`        | -              | Configures the component's feature.         |
 | `columns`         | `2 \| 3`                                                                                  | `2`            | Configures the component's columns.         |

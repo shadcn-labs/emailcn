@@ -13,10 +13,11 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ContentCtaFooter_FooterWithContentAndCtaVariant =
   | "centered"
@@ -24,7 +25,7 @@ type ContentCtaFooter_FooterWithContentAndCtaVariant =
   | "right-aligned";
 
 interface ContentCtaFooter_FooterWithContentAndCtaProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;
@@ -242,7 +243,7 @@ const ContentCtaFooter_FooterWithContentAndCta = ({
     <Preview>
       {props.heading ?? ContentCtaFooter_defaults.heading.replaceAll("\n", " ")}
     </Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -268,7 +269,7 @@ ContentCtaFooter_FooterWithContentAndCta.PreviewProps = {
 const __ContentCtaFooter = ContentCtaFooter_FooterWithContentAndCta;
 
 interface LargeTitleFooter_FooterWithLargeTitleAndButtonsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   pageBackgroundColor?: string;
   backgroundColor?: string;
@@ -494,7 +495,7 @@ const LargeTitleFooter_FooterWithLargeTitleAndButtons = ({
       />
     </EmailHead>
     <Preview>Footer with large title and buttons</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",
@@ -515,7 +516,7 @@ LargeTitleFooter_FooterWithLargeTitleAndButtons.PreviewProps = {
 const __LargeTitleFooter = LargeTitleFooter_FooterWithLargeTitleAndButtons;
 
 interface FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   pageBackgroundColor?: string;
   backgroundColor?: string;
   dividerColor?: string;
@@ -737,7 +738,7 @@ const FullWidthCtaFooter_FooterWithMenuAndFullWidthCta = ({
       />
     </EmailHead>
     <Preview>Footer with menu and full-width CTA</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",
@@ -769,7 +770,7 @@ type OverlapFooter_FooterWithOverlappedCtaVariant =
 type OverlapFooter_FooterOverlappedLogoPosition = "left" | "right";
 
 interface OverlapFooter_FooterWithOverlappedCtaProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: OverlapFooter_FooterWithOverlappedCtaVariant;
   logoPosition?: OverlapFooter_FooterOverlappedLogoPosition;
   backgroundImageSrc?: string;
@@ -1524,7 +1525,7 @@ const OverlapFooter_FooterWithOverlappedCta = ({
       />
     </EmailHead>
     <Preview>Footer with overlapped CTA</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",

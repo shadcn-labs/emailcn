@@ -18,8 +18,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -42,7 +42,7 @@ const FooterEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview?: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -242,7 +242,7 @@ interface CenteredFooter_CenteredFooterSocial extends CenteredFooter_CenteredFoo
 }
 
 interface CenteredFooter_FooterCenteredWithMenuAndSocialsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -360,7 +360,7 @@ type DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant =
   | "right-logo";
 
 interface DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant;
   logoSrc?: string;
   logoAlt?: string;
@@ -507,7 +507,7 @@ interface TwoColumnFooter_FooterWith2ColumnMenuLink {
 }
 
 interface TwoColumnFooter_FooterWith2ColumnMenuProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -643,7 +643,7 @@ interface ThreeColumnFooter_FooterWith3ColMenuSocial extends ThreeColumnFooter_F
 }
 
 interface ThreeColumnFooter_FooterWith3ColMenuProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -813,7 +813,7 @@ interface FullMenuFooter_FullMenuFooterSocial extends FullMenuFooter_FullMenuFoo
 }
 
 interface FullMenuFooter_FooterWithFullMenuProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -965,7 +965,7 @@ interface TextMenuFooterBundle_FooterSocialLink extends TextMenuFooterBundle_Foo
 }
 
 interface TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   description?: string;

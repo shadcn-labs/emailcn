@@ -11,11 +11,11 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export interface ContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   type?: "title" | "paragraph";
   columns?: 1 | 2;
   withIcons?: boolean;

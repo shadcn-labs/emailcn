@@ -14,13 +14,14 @@ import {
   Link,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface Cta_CTAWithTopLargeImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;
@@ -178,7 +179,7 @@ const Cta_CTAWithTopLargeImage = ({
       <style dangerouslySetInnerHTML={{ __html: Cta_responsiveStyles }} />
     </EmailHead>
     <Preview>{props.heading ?? Cta_defaultSectionProps.heading}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

@@ -13,10 +13,11 @@ import {
   Text,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "default"
@@ -24,7 +25,7 @@ type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "accent";
 
 interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -318,7 +319,7 @@ const TeamCardsDetails_TwoColumnTeamCardsWithDetails = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Meet the team</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection {...props} />
       </Body>
@@ -343,7 +344,7 @@ type TeamCards_TwoColumnTeamCardsVariant =
   | "rounded-accent";
 
 interface TeamCards_TwoColumnTeamCardsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -667,7 +668,7 @@ const TeamCards_TwoColumnTeamCards = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Meet the team</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <TeamCards_TwoColumnTeamCardsSection {...props} />
       </Body>
@@ -689,7 +690,7 @@ type TeamCompact_TwoColumnsCompactVariant =
   | "accent";
 
 interface TeamCompact_TwoColumnsCompactProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -936,7 +937,7 @@ const TeamCompact_TwoColumnsCompact = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Meet the team</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <TeamCompact_TwoColumnsCompactSection {...props} />
       </Body>
@@ -958,7 +959,7 @@ type TeamGrid_ThreeColumnsTeamGridVariant =
   | "with-hero";
 
 interface TeamGrid_ThreeColumnsTeamGridProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -1395,7 +1396,7 @@ const TeamGrid_ThreeColumnsTeamGrid = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Meet the team</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <TeamGrid_ThreeColumnsTeamGridSection {...props} />
       </Body>
@@ -1417,7 +1418,7 @@ type TeamBios_HorizontalTeamMemberBiosVariant =
   | "image-right-accent";
 
 interface TeamBios_HorizontalTeamMemberBiosProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -1684,7 +1685,7 @@ const TeamBios_HorizontalTeamMemberBios = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Meet the team</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <TeamBios_HorizontalTeamMemberBiosSection {...props} />
       </Body>

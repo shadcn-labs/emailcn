@@ -15,17 +15,17 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type OverlaySplitHero_HeroOverlayedSplitVariant =
   | "overlay-left"
   | "overlay-right";
 
 interface OverlaySplitHero_HeroOverlayedSplitProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -333,7 +333,7 @@ type ContainedSplitHero_HeroSplitContainedVariant =
   | "portrait-bottom-right";
 
 interface ContainedSplitHero_HeroSplitContainedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -866,7 +866,7 @@ type FullBleedSplitHero_HeroSplitFullBleedVariant =
   | "image-right";
 
 interface FullBleedSplitHero_HeroSplitFullBleedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -1240,7 +1240,7 @@ type OverlayContentHeroBundle_HeroWithOverlayedContentVariant =
   | "slanted-right";
 
 interface OverlayContentHeroBundle_HeroWithOverlayedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   headingAccent?: string;
   heading?: string;
@@ -1570,7 +1570,7 @@ type SlantedSplitHero_HeroWithSlantedSplitVariant =
   | "right-slanted-up";
 
 interface SlantedSplitHero_HeroWithSlantedSplitProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;

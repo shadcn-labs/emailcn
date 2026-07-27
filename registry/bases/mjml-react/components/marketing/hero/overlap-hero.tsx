@@ -14,8 +14,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -29,7 +29,7 @@ const HeroEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -157,7 +157,7 @@ type OverlapContentHero_HeroWithOverlappedContentVariant =
   | "reversed-with-gradient";
 
 interface OverlapContentHero_HeroWithOverlappedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -388,7 +388,7 @@ type OverlapImageHero_HeroWithOverlappedImageVariant =
   | "slanted-right";
 
 interface OverlapImageHero_HeroWithOverlappedImageProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;

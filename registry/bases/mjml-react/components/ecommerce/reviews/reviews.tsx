@@ -14,8 +14,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ReviewsVariant =
   | "with-divider"
@@ -414,7 +414,7 @@ const ReviewsSection = ({
 
 interface FullWidthReviews_FullWidthReviewsProps {
   reviews?: ReviewItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: FullWidthReviewsVariant;
 }
 
@@ -452,7 +452,7 @@ const __FullWidthReviews = FullWidthReviews_FullWidthReviews;
 
 interface MasonryReviews_MasonryGridReviewsProps {
   reviews?: ReviewItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: ReviewsVariant;
 }
 
@@ -490,7 +490,7 @@ const __MasonryReviews = MasonryReviews_MasonryGridReviews;
 
 interface TwoColumnReviews_TwoColumnsReviewsProps {
   reviews?: ReviewItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: ReviewsVariant;
 }
 

@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/testimonial.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -89,7 +84,7 @@ import { Testimonial } from "@/components/email/testimonial";
 
 | Prop              | Type                                    | Default                                                                                                                             | Description                                 |
 | ----------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `theme`           | `EmailThemeTokens`                      | `defaultTheme`                                                                                                                      | Renderer theme configuration.               |
+| `theme`           | `EmailTheme`                            | `defaultTheme`                                                                                                                      | Renderer theme configuration.               |
 | `quote`           | `string`                                | `"“After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.”"` | Configures the component's quote.           |
 | `author`          | `string`                                | -                                                                                                                                   | Configures the component's author.          |
 | `role`            | `string`                                | -                                                                                                                                   | Configures the component's role.            |

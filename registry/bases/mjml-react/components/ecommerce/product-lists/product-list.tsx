@@ -16,8 +16,8 @@ import {
 } from "@faire/mjml-react";
 import { Fragment } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type ProductListVariant =
   | "basic"
@@ -290,7 +290,7 @@ const ProductListWithRowsSection = ({
 const ProductList_SharedProductListWithRowsSection = ProductListWithRowsSection;
 
 interface ProductList_ProductListWithRowsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   products?: ProductListItem[];
   variant?: ProductListVariant;
 }

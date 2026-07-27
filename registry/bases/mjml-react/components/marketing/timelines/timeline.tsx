@@ -13,8 +13,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type CardsTimeline_CardsTimelineVariant =
   | "default"
@@ -24,7 +24,7 @@ type CardsTimeline_CardsTimelineVariant =
   | "image-bottom";
 
 interface CardsTimeline_CardsTimelineProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: CardsTimeline_CardsTimelineVariant;
   date?: string;
   badge?: string;
@@ -176,7 +176,7 @@ type Changelog_ChangelogVariant =
 type Changelog_ChangelogLayout = "line" | "boxed";
 
 interface Changelog_ChangelogProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: Changelog_ChangelogVariant;
   layout?: Changelog_ChangelogLayout;
   version?: string;
@@ -345,7 +345,7 @@ type SplitTimeline_SplitCardsVariant =
   | "image-bottom-reverse";
 
 interface SplitTimeline_SplitCardsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: SplitTimeline_SplitCardsVariant;
   index?: string;
   label?: string;
@@ -543,7 +543,7 @@ type StackedTimeline_StackedTimelineVariant =
 type StackedTimeline_StackedTimelineLayout = "line" | "boxed";
 
 interface StackedTimeline_StackedTimelineProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: StackedTimeline_StackedTimelineVariant;
   layout?: StackedTimeline_StackedTimelineLayout;
   index?: string;

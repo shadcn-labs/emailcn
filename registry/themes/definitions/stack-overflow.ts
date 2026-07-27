@@ -1,5 +1,3 @@
-import type { EmailThemeTokens } from "@/components/email/email-theme-types";
-
 export const stackOverflowTheme = {
   borderRadius: "6px",
   borderRadiusLg: "12px",
@@ -53,4 +51,4 @@ export const stackOverflowTheme = {
   spacingBase: "24px",
   spacingLg: "32px",
   spacingXl: "48px",
-} satisfies EmailThemeTokens;
+};

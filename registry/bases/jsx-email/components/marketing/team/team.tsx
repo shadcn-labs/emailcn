@@ -13,10 +13,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "default"
@@ -24,7 +24,7 @@ type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "accent";
 
 interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -343,7 +343,7 @@ type TeamCards_TwoColumnTeamCardsVariant =
   | "rounded-accent";
 
 interface TeamCards_TwoColumnTeamCardsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -689,7 +689,7 @@ type TeamCompact_TwoColumnsCompactVariant =
   | "accent";
 
 interface TeamCompact_TwoColumnsCompactProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -958,7 +958,7 @@ type TeamGrid_ThreeColumnsTeamGridVariant =
   | "with-hero";
 
 interface TeamGrid_ThreeColumnsTeamGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -1417,7 +1417,7 @@ type TeamBios_HorizontalTeamMemberBiosVariant =
   | "image-right-accent";
 
 interface TeamBios_HorizontalTeamMemberBiosProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;

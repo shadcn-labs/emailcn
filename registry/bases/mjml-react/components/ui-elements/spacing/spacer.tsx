@@ -11,8 +11,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
   <MjmlSection padding="0">
@@ -29,7 +29,7 @@ const SpacingEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -47,7 +47,7 @@ const SpacingEmailShell = ({
 
 interface Spacer_VerticalSpacerProps {
   height?: number;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Spacer_VerticalSpacer = ({

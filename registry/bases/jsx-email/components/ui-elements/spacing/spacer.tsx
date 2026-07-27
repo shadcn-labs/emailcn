@@ -8,10 +8,10 @@ import {
 } from "jsx-email";
 import type { ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
   <Section
@@ -28,7 +28,7 @@ const SpacingEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -45,7 +45,7 @@ const SpacingEmailShell = ({
 
 interface Spacer_VerticalSpacerProps {
   height?: number;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Spacer_VerticalSpacer = ({

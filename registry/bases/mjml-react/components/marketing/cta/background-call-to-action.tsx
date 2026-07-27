@@ -12,8 +12,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -27,7 +27,7 @@ const CTAEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -134,7 +134,7 @@ const CTACopy = ({
 type BackgroundCta_CTAWithBackgroundImageVariant = "flush" | "boxed" | "padded";
 
 interface BackgroundCta_CTAWithBackgroundImageProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   emphasis?: string;
@@ -272,7 +272,7 @@ type BoxedBackgroundCta_BoxedCTAWithBackgroundImageVariant =
   | "padded-dark";
 
 interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;

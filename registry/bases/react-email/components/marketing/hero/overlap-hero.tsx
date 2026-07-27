@@ -15,10 +15,11 @@ import {
   Link,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type OverlapContentHero_HeroWithOverlappedContentVariant =
   | "basic"
@@ -27,7 +28,7 @@ type OverlapContentHero_HeroWithOverlappedContentVariant =
   | "reversed-with-gradient";
 
 interface OverlapContentHero_HeroWithOverlappedContentProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -382,7 +383,7 @@ const OverlapContentHero_HeroWithOverlappedContent = ({
         />
       </EmailHead>
       <Preview>{props.heading ?? preset.heading}</Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: pageBackgroundColor,
@@ -416,7 +417,7 @@ type OverlapImageHero_HeroWithOverlappedImageVariant =
   | "slanted-right";
 
 interface OverlapImageHero_HeroWithOverlappedImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -812,7 +813,7 @@ const OverlapImageHero_HeroWithOverlappedImage = ({
         />
       </EmailHead>
       <Preview>{`${props.eyebrow ?? preset.eyebrow} — ${props.heading ?? preset.heading}`}</Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: pageBackgroundColor,

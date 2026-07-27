@@ -13,10 +13,11 @@ import {
   Text,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type CategoryCards_CategoryPreviewCardsVariant =
   | "basic"
@@ -29,7 +30,7 @@ type CategoryCards_CategoryPreviewCardsVariant =
   | "header-full-details";
 
 interface CategoryCards_CategoryPreviewCardsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: CategoryCards_CategoryPreviewCardsVariant;
   heading?: string;
   intro?: string;
@@ -367,7 +368,7 @@ const CategoryCards_CategoryPreviewCards = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Our products</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <CategoryCards_CategoryPreviewCardsSection {...props} />
       </Body>
@@ -393,7 +394,7 @@ type CategoryRows_CategoryPreviewRowsVariant =
   | "header-full-details";
 
 interface CategoryRows_CategoryPreviewRowsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: CategoryRows_CategoryPreviewRowsVariant;
   heading?: string;
   intro?: string;
@@ -738,7 +739,7 @@ const CategoryRows_CategoryPreviewRows = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Our products</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <CategoryRows_CategoryPreviewRowsSection {...props} />
       </Body>

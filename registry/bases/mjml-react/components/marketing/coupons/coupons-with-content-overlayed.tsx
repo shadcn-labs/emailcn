@@ -12,8 +12,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type CouponsWithContentOverlayedVariant =
   | "split"
@@ -21,7 +21,7 @@ export type CouponsWithContentOverlayedVariant =
   | "code-bottom";
 
 export interface CouponsWithContentOverlayedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   overline?: string;
   discount?: string;
   code?: string;

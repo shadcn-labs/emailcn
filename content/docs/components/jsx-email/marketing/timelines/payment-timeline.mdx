@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -83,7 +78,7 @@ import { PaymentTimeline } from "@/components/email/payment-timeline";
 
 | Prop         | Type                     | Default         | Description                            |
 | ------------ | ------------------------ | --------------- | -------------------------------------- |
-| `theme`      | `EmailThemeTokens`       | `defaultTheme`  | Renderer theme configuration.          |
+| `theme`      | `EmailTheme`             | `defaultTheme`  | Renderer theme configuration.          |
 | `variant`    | `"3-steps" \| "4-steps"` | `"3-steps"`     | Configures the component's variant.    |
 | `amount`     | `string`                 | `"$9.99"`       | Configures the component's amount.     |
 | `firstDate`  | `string`                 | `"Paid: 17/11"` | Configures the component's firstdate.  |

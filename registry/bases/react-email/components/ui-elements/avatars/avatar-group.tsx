@@ -8,10 +8,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
 
@@ -143,7 +144,7 @@ interface Avatar_GroupedOverlappedAvatarsProps {
   avatars?: InternalAvatarItem[];
   plusCount?: number;
   size?: AvatarSize;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
 }
 
 const Avatar_GroupedOverlappedAvatars = ({
@@ -155,7 +156,7 @@ const Avatar_GroupedOverlappedAvatars = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Grouped overlapped avatars</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: "#f1f5f9" }} className="m-0">
         <GroupedOverlappedAvatarsSection {...props} />
       </Body>

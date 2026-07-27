@@ -1,5 +1,3 @@
-import type { EmailThemeTokens } from "@/components/email/email-theme-types";
-
 export const notionTheme = {
   borderRadius: "3px",
   borderRadiusLg: "6px",
@@ -54,4 +52,4 @@ export const notionTheme = {
   spacingBase: "24px",
   spacingLg: "32px",
   spacingXl: "48px",
-} satisfies EmailThemeTokens;
+};

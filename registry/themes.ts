@@ -12,22 +12,40 @@ import { stackOverflowTheme } from "@/registry/themes/definitions/stack-overflow
 import { stripeTheme } from "@/registry/themes/definitions/stripe";
 import { twitchTheme } from "@/registry/themes/definitions/twitch";
 import { vercelTheme } from "@/registry/themes/definitions/vercel";
+import type { EmailTheme } from "@/registry/themes/types";
+
+const THEMES_BY_NAME = {
+  airbnb: airbnbTheme,
+  apple: appleTheme,
+  default: defaultTheme,
+  dropbox: dropboxTheme,
+  github: githubTheme,
+  linear: linearTheme,
+  nike: nikeTheme,
+  notion: notionTheme,
+  raycast: raycastTheme,
+  slack: slackTheme,
+  "stack-overflow": stackOverflowTheme,
+  stripe: stripeTheme,
+  twitch: twitchTheme,
+  vercel: vercelTheme,
+} satisfies Record<string, EmailTheme>;
 
 export const THEME_PRIMARY_BY_NAME = {
-  airbnb: airbnbTheme.colorPrimary,
-  apple: appleTheme.colorPrimary,
-  default: defaultTheme.colorPrimary,
-  dropbox: dropboxTheme.colorPrimary,
-  github: githubTheme.colorPrimary,
-  linear: linearTheme.colorPrimary,
-  nike: nikeTheme.colorPrimary,
-  notion: notionTheme.colorPrimary,
-  raycast: raycastTheme.colorPrimary,
-  slack: slackTheme.colorPrimary,
-  "stack-overflow": stackOverflowTheme.colorPrimary,
-  stripe: stripeTheme.colorPrimary,
-  twitch: twitchTheme.colorPrimary,
-  vercel: vercelTheme.colorPrimary,
+  airbnb: THEMES_BY_NAME.airbnb.colorPrimary,
+  apple: THEMES_BY_NAME.apple.colorPrimary,
+  default: THEMES_BY_NAME.default.colorPrimary,
+  dropbox: THEMES_BY_NAME.dropbox.colorPrimary,
+  github: THEMES_BY_NAME.github.colorPrimary,
+  linear: THEMES_BY_NAME.linear.colorPrimary,
+  nike: THEMES_BY_NAME.nike.colorPrimary,
+  notion: THEMES_BY_NAME.notion.colorPrimary,
+  raycast: THEMES_BY_NAME.raycast.colorPrimary,
+  slack: THEMES_BY_NAME.slack.colorPrimary,
+  "stack-overflow": THEMES_BY_NAME["stack-overflow"].colorPrimary,
+  stripe: THEMES_BY_NAME.stripe.colorPrimary,
+  twitch: THEMES_BY_NAME.twitch.colorPrimary,
+  vercel: THEMES_BY_NAME.vercel.colorPrimary,
 } as const;
 
 export type RegistryThemeName = keyof typeof THEME_PRIMARY_BY_NAME;

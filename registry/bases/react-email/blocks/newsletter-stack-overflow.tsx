@@ -13,7 +13,8 @@ import {
 } from "react-email";
 
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
-import { stackOverflowTheme } from "@/registry/bases/react-email/themes/theme-stack-overflow";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { stackOverflowTheme } from "@/registry/themes/definitions/stack-overflow";
 
 interface Article {
   title: string;
@@ -55,7 +56,7 @@ export const NewsletterStackOverflow = ({
     <Html>
       <Head />
       <Preview>{preheader}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">

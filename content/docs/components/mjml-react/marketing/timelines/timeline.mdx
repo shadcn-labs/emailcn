@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/timeline.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -86,7 +81,7 @@ import { Timeline } from "@/components/email/timeline";
 
 | Prop         | Type                                                                                                                                                                                                             | Default        | Description                            |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------------- |
-| `theme`      | `EmailThemeTokens`                                                                                                                                                                                               | `defaultTheme` | Renderer theme configuration.          |
+| `theme`      | `EmailTheme`                                                                                                                                                                                                     | `defaultTheme` | Renderer theme configuration.          |
 | `items`      | `Array<{ index?: string; label?: string; date?: string; version?: string; category?: string; badge?: string; title: string; description?: string; image?: { src: string; alt?: string }; completed?: boolean }>` | -              | Configures the component's items.      |
 | `layout`     | `"line" \| "boxed" \| "cards" \| "split"`                                                                                                                                                                        | `"line"`       | Configures the component's layout.     |
 | `alignment`  | `"left" \| "right"`                                                                                                                                                                                              | `"left"`       | Configures the component's alignment.  |

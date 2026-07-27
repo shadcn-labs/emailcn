@@ -12,10 +12,11 @@ import {
   Text,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type CardsTimeline_CardsTimelineVariant =
   | "default"
@@ -25,7 +26,7 @@ type CardsTimeline_CardsTimelineVariant =
   | "image-bottom";
 
 interface CardsTimeline_CardsTimelineProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: CardsTimeline_CardsTimelineVariant;
   date?: string;
   badge?: string;
@@ -255,7 +256,7 @@ const CardsTimeline_CardsTimeline = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Miles traveled</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <CardsTimeline_CardsTimelineSection {...props} />
       </Body>
@@ -281,7 +282,7 @@ type Changelog_ChangelogVariant =
 type Changelog_ChangelogLayout = "line" | "boxed";
 
 interface Changelog_ChangelogProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: Changelog_ChangelogVariant;
   layout?: Changelog_ChangelogLayout;
   version?: string;
@@ -687,7 +688,7 @@ const Changelog_Changelog = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Refined layouts</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <Changelog_ChangelogSection {...props} />
       </Body>
@@ -716,7 +717,7 @@ type SplitTimeline_SplitCardsVariant =
   | "image-bottom-reverse";
 
 interface SplitTimeline_SplitCardsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: SplitTimeline_SplitCardsVariant;
   index?: string;
   label?: string;
@@ -1053,7 +1054,7 @@ const SplitTimeline_SplitCards = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Miles traveled</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <SplitTimeline_SplitCardsSection {...props} />
       </Body>
@@ -1081,7 +1082,7 @@ type StackedTimeline_StackedTimelineVariant =
 type StackedTimeline_StackedTimelineLayout = "line" | "boxed";
 
 interface StackedTimeline_StackedTimelineProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: StackedTimeline_StackedTimelineVariant;
   layout?: StackedTimeline_StackedTimelineLayout;
   index?: string;
@@ -1532,7 +1533,7 @@ const StackedTimeline_StackedTimeline = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Total distance</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <StackedTimeline_StackedTimelineSection {...props} />
       </Body>

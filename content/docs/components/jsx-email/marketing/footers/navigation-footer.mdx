@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -102,7 +97,7 @@ import { NavigationFooter } from "@/components/email/navigation-footer";
 
 | Prop            | Type                                                                                        | Default                                                                                                               | Description                               |
 | --------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `theme`         | `EmailThemeTokens`                                                                          | `defaultTheme`                                                                                                        | Renderer theme configuration.             |
+| `theme`         | `EmailTheme`                                                                                | `defaultTheme`                                                                                                        | Renderer theme configuration.             |
 | `brand`         | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                                                                                     | Configures the component's brand.         |
 | `description`   | `string`                                                                                    | `"Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed."` | Configures the component's description.   |
 | `menus`         | `Array<{ heading?: string; links: Array<{ label: string; href: string }> }>`                | -                                                                                                                     | Configures the component's menus.         |

@@ -13,10 +13,11 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AppStoreFooter_FooterWithAppStoreButtonsVariant =
   | "centered"
@@ -24,7 +25,7 @@ type AppStoreFooter_FooterWithAppStoreButtonsVariant =
   | "with-title";
 
 interface AppStoreFooter_FooterWithAppStoreButtonsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: AppStoreFooter_FooterWithAppStoreButtonsVariant;
   title?: string;
   pageBackgroundColor?: string;
@@ -261,7 +262,7 @@ const AppStoreFooter_FooterWithAppStoreButtons = ({
       />
     </EmailHead>
     <Preview>Footer with app-store buttons</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",
@@ -299,7 +300,7 @@ type BackgroundFooter_FooterWithBackgroundImageVariant =
 type BackgroundFooter_FooterBackgroundLogoPosition = "left" | "right";
 
 interface BackgroundFooter_FooterWithBackgroundImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BackgroundFooter_FooterWithBackgroundImageVariant;
   logoPosition?: BackgroundFooter_FooterBackgroundLogoPosition;
   bottomImageSrc?: string;
@@ -1075,7 +1076,7 @@ const BackgroundFooter_FooterWithBackgroundImage = ({
       />
     </EmailHead>
     <Preview>Footer with background image</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",
@@ -1109,7 +1110,7 @@ interface LocationsFooter_CompanyLocation {
 }
 
 interface LocationsFooter_FooterWithCompanyLocationsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: LocationsFooter_FooterWithCompanyLocationsVariant;
   locations?: LocationsFooter_CompanyLocation[];
   logoSrc?: string;
@@ -1522,7 +1523,7 @@ const LocationsFooter_FooterWithCompanyLocations = ({
       />
     </EmailHead>
     <Preview>Footer with company locations</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",
@@ -1556,7 +1557,7 @@ interface LegalFooter_LegalFooterSocial extends LegalFooter_LegalFooterLink {
 }
 
 interface LegalFooter_FooterWithLegalTextProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   legalText?: string;
   links?: LegalFooter_LegalFooterLink[];
   socials?: LegalFooter_LegalFooterSocial[];
@@ -1825,7 +1826,7 @@ const LegalFooter_FooterWithLegalText = ({
       />
     </EmailHead>
     <Preview>Footer with legal text</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1860,7 +1861,7 @@ interface AddressFooter_FooterAddressSocial {
 }
 
 interface AddressFooter_FooterWithSocialIconsAndAddressProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -2230,7 +2231,7 @@ const AddressFooter_FooterWithSocialIconsAndAddress = ({
       />
     </EmailHead>
     <Preview>Footer with social icons and address</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -2267,7 +2268,7 @@ interface SimpleSocialFooter_SimpleFooterSocial {
 }
 
 interface SimpleSocialFooter_SimpleFooterWithSocialIconsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -2471,7 +2472,7 @@ const SimpleSocialFooter_SimpleFooterWithSocialIcons = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Simple footer with social icons</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

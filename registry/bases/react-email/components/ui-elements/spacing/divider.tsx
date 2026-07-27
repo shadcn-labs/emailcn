@@ -14,10 +14,11 @@ import {
   Text,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type DividerVariant = "center" | "left" | "right";
 
@@ -131,14 +132,14 @@ const SpacingEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
       <DefaultFonts />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: dividerColors.surface }} className="m-0">
         <Container className="mx-auto max-w-[600px]">{children}</Container>
       </Body>
@@ -149,7 +150,7 @@ const SpacingEmailShell = ({
 interface DividerButton_DividerWithButtonProps {
   href?: string;
   label?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -191,7 +192,7 @@ const __DividerButton = DividerButton_DividerWithButton;
 
 interface DividerFile_DividerWithFileTypeProps {
   fileType?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -243,7 +244,7 @@ interface DividerIconButton_DividerWithIconButtonProps {
   href?: string;
   icon?: string;
   label?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -308,7 +309,7 @@ const __DividerIconButton = DividerIconButton_DividerWithIconButton;
 
 interface DividerIcon_DividerWithIconProps {
   icon?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -350,7 +351,7 @@ const __DividerIcon = DividerIcon_DividerWithIcon;
 interface DividerLogo_DividerWithLogoProps {
   logoAlt?: string;
   logoSrc?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -402,7 +403,7 @@ DividerLogo_DividerWithLogo.PreviewProps = {
 const __DividerLogo = DividerLogo_DividerWithLogo;
 
 interface DividerSocials_DividerWithSocialIconsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -440,7 +441,7 @@ DividerSocials_DividerWithSocialIcons.PreviewProps = {
 const __DividerSocials = DividerSocials_DividerWithSocialIcons;
 
 interface DividerTitle_DividerWithTitleProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   variant?: DividerVariant;
 }
@@ -473,7 +474,7 @@ DividerTitle_DividerWithTitle.PreviewProps = {
 const __DividerTitle = DividerTitle_DividerWithTitle;
 
 interface LineDivider_LineDividerProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
 }
 
 const LineDivider_LineDivider = ({

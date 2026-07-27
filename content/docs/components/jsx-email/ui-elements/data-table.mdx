@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -131,7 +126,7 @@ import { DataTable } from "@/components/email/data-table";
 
 | Prop      | Type                                                                                                                                                                                                                                                                                                                                                                                                                                   | Default                                   | Description                                        |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | -------------------------------------------------- |
-| `theme`   | `EmailThemeTokens`                                                                                                                                                                                                                                                                                                                                                                                                                     | `defaultTheme`                            | Renderer theme configuration.                      |
+| `theme`   | `EmailTheme`                                                                                                                                                                                                                                                                                                                                                                                                                           | `defaultTheme`                            | Renderer theme configuration.                      |
 | `variant` | `"basic" \| "four-columns" \| "change-indicators" \| "edit-actions" \| "logo-actions" \| "status-pills" \| "progress"`                                                                                                                                                                                                                                                                                                                 | `"basic"`                                 | Selects one of the original data-table treatments. |
 | `columns` | `Array<{ header: string; key?: keyof Row; align?: "left" \| "center" \| "right"; width?: string; cell?: (row: Row, index: number) => ReactNode }>`                                                                                                                                                                                                                                                                                     | Required when `variant="basic"`           | Defines generic table columns and custom cells.    |
 | `headers` | `string[]`                                                                                                                                                                                                                                                                                                                                                                                                                             | Built-in headers for specialized variants | Overrides the specialized variant's header labels. |

@@ -12,8 +12,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "square-images"
@@ -22,7 +22,7 @@ type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "portrait-overlay";
 
 interface TwoColumnGrid_TwoColumnsImageGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;
@@ -236,7 +236,7 @@ const ImageGridEmailShell = ({
   backgroundColor: string;
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -351,7 +351,7 @@ type ThreeColumnGrid_ThreeColumnsImageGridVariant =
   | "portrait-overlay";
 
 interface ThreeColumnGrid_ThreeColumnsImageGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;

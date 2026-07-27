@@ -16,8 +16,8 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -31,7 +31,7 @@ const CTAEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -142,7 +142,7 @@ type Cta_CTAWithImageStripVariant =
   | "full-left";
 
 interface Cta_CTAWithImageStripProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;

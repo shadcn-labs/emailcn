@@ -14,10 +14,11 @@ import {
   Heading,
   Text,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-top"
@@ -26,7 +27,7 @@ type TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-bottom-overlay";
 
 interface TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;
@@ -374,7 +375,7 @@ const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeature = ({
       />
     </EmailHead>
     <Preview>Two columns image grid with full width feature</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -409,7 +410,7 @@ type ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-bottom-overlay";
 
 interface ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;
@@ -831,7 +832,7 @@ const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeature = ({
       />
     </EmailHead>
     <Preview>Three columns image grid with full width feature</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

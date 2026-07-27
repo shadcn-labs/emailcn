@@ -15,17 +15,18 @@ import {
   Img,
   Button,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type OverlaySplitHero_HeroOverlayedSplitVariant =
   | "overlay-left"
   | "overlay-right";
 
 interface OverlaySplitHero_HeroOverlayedSplitProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -264,7 +265,7 @@ const OverlaySplitHero_HeroOverlayedSplit = ({
       />
     </EmailHead>
     <Preview>{`${eyebrow} — ${heading}`}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -333,7 +334,7 @@ type ContainedSplitHero_HeroSplitContainedVariant =
   | "portrait-bottom-right";
 
 interface ContainedSplitHero_HeroSplitContainedProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -834,7 +835,7 @@ const ContainedSplitHero_HeroSplitContained = ({
         />
       </EmailHead>
       <Preview>{`${resolved.heading} — ${resolved.subheading}`}</Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: resolved.pageBackgroundColor,
@@ -866,7 +867,7 @@ type FullBleedSplitHero_HeroSplitFullBleedVariant =
   | "image-right";
 
 interface FullBleedSplitHero_HeroSplitFullBleedProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -1166,7 +1167,7 @@ const FullBleedSplitHero_HeroSplitFullBleed = ({
       />
     </EmailHead>
     <Preview>{`${heading} — ${subheading}`}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1234,7 +1235,7 @@ type OverlayContentHeroBundle_HeroWithOverlayedContentVariant =
   | "slanted-right";
 
 interface OverlayContentHeroBundle_HeroWithOverlayedContentProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   headingAccent?: string;
   heading?: string;
@@ -1505,7 +1506,7 @@ const OverlayContentHeroBundle_HeroWithOverlayedContent = (
         />
       </EmailHead>
       <Preview>{`${sectionProps.eyebrow} — ${sectionProps.headingAccent} ${sectionProps.heading}`}</Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: pageBackgroundColor,
@@ -1564,7 +1565,7 @@ type SlantedSplitHero_HeroWithSlantedSplitVariant =
   | "right-slanted-up";
 
 interface SlantedSplitHero_HeroWithSlantedSplitProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -2001,7 +2002,7 @@ const SlantedSplitHero_HeroWithSlantedSplit = ({
       />
     </EmailHead>
     <Preview>{props.heading ?? "Bob Cut"}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

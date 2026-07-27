@@ -12,17 +12,18 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type HeaderWithUserDetailsAlignment = "left" | "right";
 
 export type HeaderWithUserDetailsAvatar = "initials" | "image";
 
 export interface HeaderWithUserDetailsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -264,7 +265,7 @@ export const HeaderWithUserDetails = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>John Adams</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: pageBackgroundColor, fontFamily }}
         className="m-0"

@@ -14,8 +14,8 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -334,7 +334,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -350,7 +350,7 @@ const BlogEmailShell = ({
 );
 
 interface Featured_FeaturedBlogPostProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   author?: string;
   badge?: string;
   excerpt?: string;
@@ -419,7 +419,7 @@ Featured_FeaturedBlogPost.PreviewProps = {
 const __Featured = Featured_FeaturedBlogPost;
 
 interface FeaturedDate_FeaturedPostWithLargeDateProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   date?: string;
   excerpt?: string;
   imageAlt?: string;
@@ -488,7 +488,7 @@ FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
 const __FeaturedDate = FeaturedDate_FeaturedPostWithLargeDate;
 
 interface FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   date?: string;
   excerpt?: string;
   imageAlt?: string;

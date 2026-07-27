@@ -14,10 +14,11 @@ import {
   Text,
   Link,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "square-images"
@@ -26,7 +27,7 @@ type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "portrait-overlay";
 
 interface TwoColumnGrid_TwoColumnsImageGridProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;
@@ -354,7 +355,7 @@ const TwoColumnGrid_TwoColumnsImageGrid = ({
       />
     </EmailHead>
     <Preview>Two columns image grid</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -388,7 +389,7 @@ type ThreeColumnGrid_ThreeColumnsImageGridVariant =
   | "portrait-overlay";
 
 interface ThreeColumnGrid_ThreeColumnsImageGridProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;
@@ -774,7 +775,7 @@ const ThreeColumnGrid_ThreeColumnsImageGrid = ({
       />
     </EmailHead>
     <Preview>Three columns image grid</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

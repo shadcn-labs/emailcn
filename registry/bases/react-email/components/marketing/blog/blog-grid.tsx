@@ -13,10 +13,11 @@ import {
   Column,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -440,7 +441,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -457,7 +458,7 @@ const BlogEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -487,7 +488,7 @@ const BlogEmailShell = ({
 );
 
 interface GridImage_TwoColumnsBlogWithImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -577,7 +578,7 @@ GridImage_TwoColumnsBlogWithImages.PreviewProps = {
 const __GridImage = GridImage_TwoColumnsBlogWithImages;
 
 interface GridText_TwoColumnsBlogWithImagesAndTextProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -667,7 +668,7 @@ GridText_TwoColumnsBlogWithImagesAndText.PreviewProps = {
 const __GridText = GridText_TwoColumnsBlogWithImagesAndText;
 
 interface GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -757,7 +758,7 @@ GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
 const __GridBoxed = GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent;
 
 interface Masonry_BlogWithImagesAnd2ColumnsMasonryProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -874,7 +875,7 @@ Masonry_BlogWithImagesAnd2ColumnsMasonry.PreviewProps = {
 const __Masonry = Masonry_BlogWithImagesAnd2ColumnsMasonry;
 
 interface MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;

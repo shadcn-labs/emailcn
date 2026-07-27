@@ -11,13 +11,13 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type PaymentTimelineVariant = "3-steps" | "4-steps";
 
 export interface PaymentTimelineProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: PaymentTimelineVariant;
   amount?: string;
   firstDate?: string;

@@ -11,8 +11,8 @@ import {
   MjmlText,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type GridVariant =
   | "one-column"
@@ -39,7 +39,7 @@ const fontFamily =
 export interface GridProps {
   align?: GridAlign;
   cells?: string[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: GridVariant;
 }
 

@@ -13,7 +13,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { raycastTheme } from "@/registry/bases/jsx-email/themes/theme-raycast";
+import { raycastTheme } from "@/registry/themes/definitions/raycast";
 
 interface Props {
   _logoUrl?: string;

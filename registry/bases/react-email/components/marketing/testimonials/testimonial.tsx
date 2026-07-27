@@ -13,17 +13,18 @@ import {
   Link,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type FullWidthTestimonial_FullWidthTestimonialVariant =
   | "default"
   | "overlapping-avatar";
 
 interface FullWidthTestimonial_FullWidthTestimonialProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: FullWidthTestimonial_FullWidthTestimonialVariant;
   quote?: string;
   author?: string;
@@ -256,7 +257,7 @@ const FullWidthTestimonial_FullWidthTestimonial = ({
       />
     </EmailHead>
     <Preview>Customer testimonial</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -284,7 +285,7 @@ const __FullWidthTestimonial = FullWidthTestimonial_FullWidthTestimonial;
 type TestimonialCta_TestimonialWithCtaVariant = "centered" | "split";
 
 interface TestimonialCta_TestimonialWithCtaProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: TestimonialCta_TestimonialWithCtaVariant;
   quote?: string;
   author?: string;
@@ -540,7 +541,7 @@ const TestimonialCta_TestimonialWithCta = ({
       />
     </EmailHead>
     <Preview>Customer testimonial</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

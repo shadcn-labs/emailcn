@@ -14,10 +14,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ProductDetailWithDetailsVariant =
   | "rating-bottom"
@@ -795,7 +796,7 @@ interface ProductDetail_SingleImageProductDetailProps extends Omit<
   ProductDetailContentOverrides,
   "imageUrls"
 > {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   imageUrl?: string;
   features?: string[];
   variant?: ProductDetail_SingleImageProductDetailVariant;
@@ -824,7 +825,7 @@ const ProductDetail_SingleImageProductDetail = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Product detail</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <ProductDetail_SingleImageProductDetailSection {...props} />
       </Body>

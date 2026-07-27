@@ -13,10 +13,11 @@ import {
   Heading,
   Text,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type FullWidthImage_FullWidthImageVariant =
   | "default"
@@ -36,7 +37,7 @@ type FullWidthImage_FullWidthImageVariant =
   | "sides-alt";
 
 interface FullWidthImage_FullWidthImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   imageSrc?: string;
   imageAlt?: string;
   pageBackgroundColor?: string;
@@ -319,7 +320,7 @@ const FullWidthImage_FullWidthImage = ({
       />
     </EmailHead>
     <Preview>Full width image</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: pageBackgroundColor }} className="m-0">
         <Container className="mx-auto max-w-[600px] w-[600px]">
           <FullWidthImage_FullWidthImageSection
@@ -358,7 +359,7 @@ type FullWidthOverlay_FullWidthImageWithOverlayVariant =
   | "sides-alt";
 
 interface FullWidthOverlay_FullWidthImageWithOverlayProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   imageSrc?: string;
   heading?: string;
   subtext?: string;
@@ -724,7 +725,7 @@ const FullWidthOverlay_FullWidthImageWithOverlay = ({
       />
     </EmailHead>
     <Preview>{props.heading ?? "Nike"}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: pageBackgroundColor }} className="m-0">
         <Container className="mx-auto max-w-[600px] w-[600px]">
           <FullWidthOverlay_FullWidthImageWithOverlaySection

@@ -13,10 +13,11 @@ import {
   Column,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -421,7 +422,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -438,7 +439,7 @@ const BlogEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -468,7 +469,7 @@ const BlogEmailShell = ({
 );
 
 interface Featured_FeaturedBlogPostProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   author?: string;
   badge?: string;
   excerpt?: string;
@@ -537,7 +538,7 @@ Featured_FeaturedBlogPost.PreviewProps = {
 const __Featured = Featured_FeaturedBlogPost;
 
 interface FeaturedDate_FeaturedPostWithLargeDateProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   date?: string;
   excerpt?: string;
   imageAlt?: string;
@@ -606,7 +607,7 @@ FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
 const __FeaturedDate = FeaturedDate_FeaturedPostWithLargeDate;
 
 interface FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   date?: string;
   excerpt?: string;
   imageAlt?: string;

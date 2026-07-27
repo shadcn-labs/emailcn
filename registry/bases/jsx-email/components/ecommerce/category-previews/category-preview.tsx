@@ -13,10 +13,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type CategoryCards_CategoryPreviewCardsVariant =
   | "basic"
@@ -29,7 +29,7 @@ type CategoryCards_CategoryPreviewCardsVariant =
   | "header-full-details";
 
 interface CategoryCards_CategoryPreviewCardsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: CategoryCards_CategoryPreviewCardsVariant;
   heading?: string;
   intro?: string;
@@ -393,7 +393,7 @@ type CategoryRows_CategoryPreviewRowsVariant =
   | "header-full-details";
 
 interface CategoryRows_CategoryPreviewRowsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: CategoryRows_CategoryPreviewRowsVariant;
   heading?: string;
   intro?: string;

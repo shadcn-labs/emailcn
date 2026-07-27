@@ -14,10 +14,11 @@ import {
   Column,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AlignedHero_HeroAlignedOverlayVariant =
   | "content-left"
@@ -26,7 +27,7 @@ type AlignedHero_HeroAlignedOverlayVariant =
   | "content-right-reversed";
 
 interface AlignedHero_HeroAlignedOverlayProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   headingStart?: string;
   headingEmphasis?: string;
@@ -281,7 +282,7 @@ const AlignedHero_HeroAlignedOverlay = ({
         />
       </EmailHead>
       <Preview>{`${eyebrow} — ${headingStart} ${headingEmphasis} ${headingEnd}`}</Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: pageBackgroundColor,
@@ -352,7 +353,7 @@ type BlockHero_HeroBlockOverlayVariant =
   | "right-flush-vertical";
 
 interface BlockHero_HeroBlockOverlayProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -629,7 +630,7 @@ const BlockHero_HeroBlockOverlay = ({
       <style dangerouslySetInnerHTML={{ __html: BlockHero_responsiveStyles }} />
     </EmailHead>
     <Preview>{props.heading ?? "SumUp"}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -667,7 +668,7 @@ type BlockBleedHero_HeroBlockWithBleedVariant =
   | "right-flush-vertical";
 
 interface BlockBleedHero_HeroBlockWithBleedProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -990,7 +991,7 @@ const BlockBleedHero_HeroBlockWithBleed = ({
       />
     </EmailHead>
     <Preview>{props.heading ?? "Preserve the planet we share"}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1024,7 +1025,7 @@ type GradientHero_HeroWithOverlayGradientVariant =
   | "unified-no-logo";
 
 interface GradientHero_HeroWithOverlayGradientProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -1326,7 +1327,7 @@ const GradientHero_HeroWithOverlayGradient = ({
       />
     </EmailHead>
     <Preview>{props.heading ?? "Forclaz 50L"}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

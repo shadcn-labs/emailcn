@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/button.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -91,7 +86,7 @@ import { Button } from "@/components/email/button";
 
 | Prop           | Type                                            | Default                         | Description                              |
 | -------------- | ----------------------------------------------- | ------------------------------- | ---------------------------------------- |
-| `theme`        | `EmailThemeTokens`                              | `defaultTheme`                  | Renderer theme configuration.            |
+| `theme`        | `EmailTheme`                                    | `defaultTheme`                  | Renderer theme configuration.            |
 | `label`        | `string`                                        | Variant-specific label          | Configures the component's label.        |
 | `href`         | `string`                                        | `"https://example.com"`         | Configures the component's href.         |
 | `variant`      | `"primary" \| "secondary" \| "text"`            | `"primary"`                     | Configures the component's variant.      |

@@ -13,10 +13,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface SimpleSocials_SimpleSocialLogoItem {
   alt: string;
@@ -25,7 +25,7 @@ interface SimpleSocials_SimpleSocialLogoItem {
 }
 
 interface SimpleSocials_SimpleSocialLogosRowProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SimpleSocials_SimpleSocialLogoItem[];
@@ -219,7 +219,7 @@ interface SocialLogos_SocialLogoItem {
 }
 
 interface SocialLogos_SocialLogosProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialLogos_SocialLogoItem[];
@@ -475,7 +475,7 @@ interface SocialLabels_LabeledSocialItem {
 }
 
 interface SocialLabels_SocialsWithLabelsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialLabels_LabeledSocialItem[];
@@ -706,7 +706,7 @@ interface SocialTileLabels_TiledSocialItem {
 }
 
 interface SocialTileLabels_SocialsWithTileLabelsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialTileLabels_TiledSocialItem[];

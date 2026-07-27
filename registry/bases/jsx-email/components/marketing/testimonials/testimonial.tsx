@@ -13,17 +13,17 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type FullWidthTestimonial_FullWidthTestimonialVariant =
   | "default"
   | "overlapping-avatar";
 
 interface FullWidthTestimonial_FullWidthTestimonialProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: FullWidthTestimonial_FullWidthTestimonialVariant;
   quote?: string;
   author?: string;
@@ -284,7 +284,7 @@ const __FullWidthTestimonial = FullWidthTestimonial_FullWidthTestimonial;
 type TestimonialCta_TestimonialWithCtaVariant = "centered" | "split";
 
 interface TestimonialCta_TestimonialWithCtaProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: TestimonialCta_TestimonialWithCtaVariant;
   quote?: string;
   author?: string;

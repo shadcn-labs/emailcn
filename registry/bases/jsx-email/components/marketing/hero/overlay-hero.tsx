@@ -14,10 +14,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AlignedHero_HeroAlignedOverlayVariant =
   | "content-left"
@@ -26,7 +26,7 @@ type AlignedHero_HeroAlignedOverlayVariant =
   | "content-right-reversed";
 
 interface AlignedHero_HeroAlignedOverlayProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   headingStart?: string;
   headingEmphasis?: string;
@@ -352,7 +352,7 @@ type BlockHero_HeroBlockOverlayVariant =
   | "right-flush-vertical";
 
 interface BlockHero_HeroBlockOverlayProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -667,7 +667,7 @@ type BlockBleedHero_HeroBlockWithBleedVariant =
   | "right-flush-vertical";
 
 interface BlockBleedHero_HeroBlockWithBleedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -1024,7 +1024,7 @@ type GradientHero_HeroWithOverlayGradientVariant =
   | "unified-no-logo";
 
 interface GradientHero_HeroWithOverlayGradientProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;

@@ -14,8 +14,8 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -352,7 +352,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -368,7 +368,7 @@ const BlogEmailShell = ({
 );
 
 interface GridImage_TwoColumnsBlogWithImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -458,7 +458,7 @@ GridImage_TwoColumnsBlogWithImages.PreviewProps = {
 const __GridImage = GridImage_TwoColumnsBlogWithImages;
 
 interface GridText_TwoColumnsBlogWithImagesAndTextProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -548,7 +548,7 @@ GridText_TwoColumnsBlogWithImagesAndText.PreviewProps = {
 const __GridText = GridText_TwoColumnsBlogWithImagesAndText;
 
 interface GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -638,7 +638,7 @@ GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
 const __GridBoxed = GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent;
 
 interface Masonry_BlogWithImagesAnd2ColumnsMasonryProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -755,7 +755,7 @@ Masonry_BlogWithImagesAnd2ColumnsMasonry.PreviewProps = {
 const __Masonry = Masonry_BlogWithImagesAnd2ColumnsMasonry;
 
 interface MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;

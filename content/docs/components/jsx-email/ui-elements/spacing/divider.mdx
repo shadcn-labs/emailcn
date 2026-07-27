@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -107,6 +102,6 @@ import { Divider } from "@/components/email/divider";
 
 | Prop      | Type                                                                                                                                                                                                                                                                                                                                           | Default        | Description                         |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
-| `theme`   | `EmailThemeTokens`                                                                                                                                                                                                                                                                                                                             | `defaultTheme` | Renderer theme configuration.       |
+| `theme`   | `EmailTheme`                                                                                                                                                                                                                                                                                                                                   | `defaultTheme` | Renderer theme configuration.       |
 | `align`   | `"left" \| "center" \| "right"`                                                                                                                                                                                                                                                                                                                | `"center"`     | Configures the component's align.   |
 | `content` | `{ type: "title"; title: string } \| { type: "file"; fileType: string } \| { type: "icon"; src: string } \| { type: "logo"; image: { src: string; alt?: string } } \| { type: "socials" } \| { type: "button"; action: { href: string; label: string } } \| { type: "icon-button"; iconSrc: string; action: { href: string; label: string } }` | -              | Configures the component's content. |

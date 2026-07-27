@@ -11,10 +11,11 @@ import {
   Row,
   Column,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type RollingStats_RollingStatsVariant =
   | "centered"
@@ -24,7 +25,7 @@ type RollingStats_RollingStatsVariant =
   | "bottom-right";
 
 interface RollingStats_RollingStatsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: RollingStats_RollingStatsVariant;
   eyebrow?: string;
   label?: string;
@@ -202,7 +203,7 @@ const RollingStats_RollingStats = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>3,119km mapped trails</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -237,7 +238,7 @@ type SingleStat_SingleStatWithBackgroundImageVariant =
   | "bottom-right";
 
 interface SingleStat_SingleStatWithBackgroundImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: SingleStat_SingleStatWithBackgroundImageVariant;
   eyebrow?: string;
   label?: string;
@@ -445,7 +446,7 @@ const SingleStat_SingleStatWithBackgroundImage = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>3,120km mapped trails</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

@@ -40,24 +40,14 @@ npm install react-email tailwindcss
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/react-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="react-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/react-email/themes/email-theme.ts"
     base="react-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/create-react-email-theme.ts"
-    base="react-email"
-    title="components/email/create-react-email-theme.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="react-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -88,7 +78,7 @@ import { Container } from "@/components/email/container";
 
 | Prop       | Type                            | Default        | Description                          |
 | ---------- | ------------------------------- | -------------- | ------------------------------------ |
-| `theme`    | `TailwindConfig`                | `defaultTheme` | Renderer theme configuration.        |
+| `theme`    | `EmailTheme`                    | `defaultTheme` | Renderer theme configuration.        |
 | `children` | `ReactNode`                     | -              | Configures the component's children. |
 | `maxWidth` | `string`                        | `"600px"`      | Configures the component's maxwidth. |
 | `align`    | `"left" \| "center" \| "right"` | `"center"`     | Configures the component's align.    |

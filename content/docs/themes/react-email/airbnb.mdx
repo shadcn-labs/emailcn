@@ -30,24 +30,14 @@ npm install react-email tailwindcss
 
   <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/themes/theme-airbnb.ts"
+    src="registry/themes/definitions/airbnb.ts"
     base="react-email"
     title="components/email/theme-airbnb.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/airbnb.ts"
+    src="registry/bases/react-email/themes/email-theme.ts"
     base="react-email"
-    title="components/email/theme-airbnb-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/create-react-email-theme.ts"
-    base="react-email"
-    title="components/email/create-react-email-theme.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="react-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -60,7 +50,10 @@ npm install react-email tailwindcss
 
 ```tsx
 import { Tailwind } from "react-email";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
 import { airbnbTheme } from "@/components/email/theme-airbnb";
 
-<Tailwind config={airbnbTheme}>{/* Your email content */}</Tailwind>;
+<Tailwind config={createEmailTailwindConfig(airbnbTheme)}>
+  {/* Your email content */}
+</Tailwind>;
 ```

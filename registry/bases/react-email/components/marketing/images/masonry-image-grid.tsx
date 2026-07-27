@@ -14,10 +14,11 @@ import {
   Text,
   Link,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-left"
@@ -26,7 +27,7 @@ type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-right-overlay";
 
 interface TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;
@@ -357,7 +358,7 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images = ({
       />
     </EmailHead>
     <Preview>Two columns masonry image grid with three images</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -396,7 +397,7 @@ type TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant =
   | "stacked-right-overlay-reverse";
 
 interface TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;
@@ -823,7 +824,7 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images = ({
       />
     </EmailHead>
     <Preview>Two columns masonry image grid with four images</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -858,7 +859,7 @@ type ThreeColumnMasonry_ThreeColumnsMasonryImageGridVariant =
   | "stacked-right-overlay";
 
 interface ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   stackImageSrc1?: string;
   stackImageAlt1?: string;
   stackImageHref1?: string;
@@ -1205,7 +1206,7 @@ const ThreeColumnMasonry_ThreeColumnsMasonryImageGrid = ({
       />
     </EmailHead>
     <Preview>Three columns masonry image grid</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1243,7 +1244,7 @@ type ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureV
     | "stacked-right-overlay-reverse";
 
 interface ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;
@@ -1691,7 +1692,7 @@ const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature
       <Preview>
         Three columns masonry image grid with full width feature
       </Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: pageBackgroundColor,

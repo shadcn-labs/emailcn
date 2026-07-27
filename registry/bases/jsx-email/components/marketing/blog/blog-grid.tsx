@@ -13,10 +13,10 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -440,7 +440,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -487,7 +487,7 @@ const BlogEmailShell = ({
 );
 
 interface GridImage_TwoColumnsBlogWithImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -577,7 +577,7 @@ GridImage_TwoColumnsBlogWithImages.PreviewProps = {
 const __GridImage = GridImage_TwoColumnsBlogWithImages;
 
 interface GridText_TwoColumnsBlogWithImagesAndTextProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -667,7 +667,7 @@ GridText_TwoColumnsBlogWithImagesAndText.PreviewProps = {
 const __GridText = GridText_TwoColumnsBlogWithImagesAndText;
 
 interface GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -757,7 +757,7 @@ GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
 const __GridBoxed = GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent;
 
 interface Masonry_BlogWithImagesAnd2ColumnsMasonryProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;
@@ -874,7 +874,7 @@ Masonry_BlogWithImagesAnd2ColumnsMasonry.PreviewProps = {
 const __Masonry = Masonry_BlogWithImagesAnd2ColumnsMasonry;
 
 interface MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   imageAlt1?: string;
   imageAlt2?: string;

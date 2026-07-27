@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -104,7 +99,7 @@ import { SpotlightStats } from "@/components/email/spotlight-stats";
 
 | Prop              | Type                                                                       | Default                     | Description                                 |
 | ----------------- | -------------------------------------------------------------------------- | --------------------------- | ------------------------------------------- |
-| `theme`           | `EmailThemeTokens`                                                         | `defaultTheme`              | Renderer theme configuration.               |
+| `theme`           | `EmailTheme`                                                               | `defaultTheme`              | Renderer theme configuration.               |
 | `eyebrow`         | `string`                                                                   | `"Mapped trails"`           | Configures the component's eyebrow.         |
 | `label`           | `string`                                                                   | `"Tracked by active users"` | Configures the component's label.           |
 | `values`          | `string[]`                                                                 | -                           | Configures the component's values.          |

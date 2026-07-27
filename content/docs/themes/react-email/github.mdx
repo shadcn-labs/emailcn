@@ -30,24 +30,14 @@ npm install react-email tailwindcss
 
   <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/themes/theme-github.ts"
+    src="registry/themes/definitions/github.ts"
     base="react-email"
     title="components/email/theme-github.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/github.ts"
+    src="registry/bases/react-email/themes/email-theme.ts"
     base="react-email"
-    title="components/email/theme-github-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/create-react-email-theme.ts"
-    base="react-email"
-    title="components/email/create-react-email-theme.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="react-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -60,7 +50,10 @@ npm install react-email tailwindcss
 
 ```tsx
 import { Tailwind } from "react-email";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
 import { githubTheme } from "@/components/email/theme-github";
 
-<Tailwind config={githubTheme}>{/* Your email content */}</Tailwind>;
+<Tailwind config={createEmailTailwindConfig(githubTheme)}>
+  {/* Your email content */}
+</Tailwind>;
 ```

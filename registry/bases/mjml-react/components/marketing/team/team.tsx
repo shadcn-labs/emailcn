@@ -15,8 +15,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -26,7 +26,7 @@ const TeamEmailShell = ({
   theme,
 }: {
   children: ReactNode;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -155,7 +155,7 @@ type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "accent";
 
 interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -263,7 +263,7 @@ type TeamCards_TwoColumnTeamCardsVariant =
   | "rounded-accent";
 
 interface TeamCards_TwoColumnTeamCardsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -367,7 +367,7 @@ type TeamCompact_TwoColumnsCompactVariant =
   | "accent";
 
 interface TeamCompact_TwoColumnsCompactProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -482,7 +482,7 @@ type TeamGrid_ThreeColumnsTeamGridVariant =
   | "with-hero";
 
 interface TeamGrid_ThreeColumnsTeamGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;
@@ -705,7 +705,7 @@ type TeamBios_HorizontalTeamMemberBiosVariant =
   | "image-right-accent";
 
 interface TeamBios_HorizontalTeamMemberBiosProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   avatarSrc1?: string;
   avatarAlt1?: string;
   name1?: string;

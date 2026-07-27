@@ -8,10 +8,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type PillStatusVariant =
   | "brand"
@@ -166,7 +167,7 @@ const BasicPillsStatusColorsSection = ({
 
 interface Pills_BasicPillsStatusColorsProps {
   pills?: InternalPillItem[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
 }
 
 const Pills_BasicPillsStatusColors = ({
@@ -178,7 +179,7 @@ const Pills_BasicPillsStatusColors = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Basic pills with status colors</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0">
         <BasicPillsStatusColorsSection pills={pills} />
       </Body>

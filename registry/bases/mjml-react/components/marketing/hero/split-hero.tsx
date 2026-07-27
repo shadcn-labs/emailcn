@@ -17,8 +17,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -32,7 +32,7 @@ const HeroEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -243,7 +243,7 @@ type OverlaySplitHero_HeroOverlayedSplitVariant =
   | "overlay-right";
 
 interface OverlaySplitHero_HeroOverlayedSplitProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -336,7 +336,7 @@ type ContainedSplitHero_HeroSplitContainedVariant =
   | "portrait-bottom-right";
 
 interface ContainedSplitHero_HeroSplitContainedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -540,7 +540,7 @@ type FullBleedSplitHero_HeroSplitFullBleedVariant =
   | "image-right";
 
 interface FullBleedSplitHero_HeroSplitFullBleedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;
@@ -565,7 +565,7 @@ const FullBleedSplitHero_fontFamily =
 type FullBleedSplitHero_SectionProps = Required<
   Omit<FullBleedSplitHero_HeroSplitFullBleedProps, "theme" | "variant">
 > & {
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
   variant: FullBleedSplitHero_HeroSplitFullBleedVariant;
 };
 
@@ -838,7 +838,7 @@ type OverlayContentHeroBundle_HeroWithOverlayedContentVariant =
   | "slanted-right";
 
 interface OverlayContentHeroBundle_HeroWithOverlayedContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   headingAccent?: string;
   heading?: string;
@@ -939,7 +939,7 @@ type SlantedSplitHero_HeroWithSlantedSplitVariant =
   | "right-slanted-up";
 
 interface SlantedSplitHero_HeroWithSlantedSplitProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   eyebrow?: string;
   heading?: string;
   subheading?: string;

@@ -13,10 +13,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type OrderSummaryAlignment = "left" | "right" | "centered" | "justified";
 
@@ -575,7 +576,7 @@ const OrderSummaryTableSection = ({
 };
 
 interface BorderedCard_BorderedOrderSummaryCardDetailsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BorderedCardOrderSummaryVariant;
 }
 
@@ -613,7 +614,7 @@ const BorderedCard_BorderedOrderSummaryCardDetails = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BorderedCard_BorderedOrderSummaryCardDetailsSection {...props} />
       </Body>
@@ -629,7 +630,7 @@ BorderedCard_BorderedOrderSummaryCardDetails.PreviewProps = {
 const __BorderedCard = BorderedCard_BorderedOrderSummaryCardDetails;
 
 interface BorderedBottom_BorderedOrderSummaryTotalBottomProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BorderedOrderSummaryVariant;
 }
 
@@ -669,7 +670,7 @@ const BorderedBottom_BorderedOrderSummaryTotalBottom = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BorderedBottom_BorderedOrderSummaryTotalBottomSection {...props} />
       </Body>
@@ -685,7 +686,7 @@ BorderedBottom_BorderedOrderSummaryTotalBottom.PreviewProps = {
 const __BorderedBottom = BorderedBottom_BorderedOrderSummaryTotalBottom;
 
 interface BorderedTop_BorderedOrderSummaryTotalTopProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BorderedOrderSummaryVariant;
 }
 
@@ -723,7 +724,7 @@ const BorderedTop_BorderedOrderSummaryTotalTop = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BorderedTop_BorderedOrderSummaryTotalTopSection {...props} />
       </Body>
@@ -739,7 +740,7 @@ BorderedTop_BorderedOrderSummaryTotalTop.PreviewProps = {
 const __BorderedTop = BorderedTop_BorderedOrderSummaryTotalTop;
 
 interface BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -782,7 +783,7 @@ const BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomSection
           {...props}
@@ -801,7 +802,7 @@ const __BoxedCardBottom =
   BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom;
 
 interface BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -839,7 +840,7 @@ const BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopSection {...props} />
       </Body>
@@ -855,7 +856,7 @@ BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop.PreviewProps = {
 const __BoxedCardTop = BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop;
 
 interface BoxedBottom_BoxedOrderSummaryTotalBottomProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -893,7 +894,7 @@ const BoxedBottom_BoxedOrderSummaryTotalBottom = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BoxedBottom_BoxedOrderSummaryTotalBottomSection {...props} />
       </Body>
@@ -909,7 +910,7 @@ BoxedBottom_BoxedOrderSummaryTotalBottom.PreviewProps = {
 const __BoxedBottom = BoxedBottom_BoxedOrderSummaryTotalBottom;
 
 interface BoxedTop_BoxedOrderSummaryTotalTopProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -947,7 +948,7 @@ const BoxedTop_BoxedOrderSummaryTotalTop = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order summary</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BoxedTop_BoxedOrderSummaryTotalTopSection {...props} />
       </Body>

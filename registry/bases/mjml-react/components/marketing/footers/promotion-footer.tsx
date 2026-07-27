@@ -18,8 +18,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -42,7 +42,7 @@ const FooterEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview?: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -269,7 +269,7 @@ type ContentCtaFooter_FooterWithContentAndCtaVariant =
   | "right-aligned";
 
 interface ContentCtaFooter_FooterWithContentAndCtaProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;
@@ -390,7 +390,7 @@ ContentCtaFooter_FooterWithContentAndCta.PreviewProps = {
 const __ContentCtaFooter = ContentCtaFooter_FooterWithContentAndCta;
 
 interface LargeTitleFooter_FooterWithLargeTitleAndButtonsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   pageBackgroundColor?: string;
   backgroundColor?: string;
@@ -495,7 +495,7 @@ LargeTitleFooter_FooterWithLargeTitleAndButtons.PreviewProps = {
 const __LargeTitleFooter = LargeTitleFooter_FooterWithLargeTitleAndButtons;
 
 interface FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   pageBackgroundColor?: string;
   backgroundColor?: string;
   dividerColor?: string;
@@ -604,7 +604,7 @@ type OverlapFooter_FooterWithOverlappedCtaVariant =
 type OverlapFooter_FooterOverlappedLogoPosition = "left" | "right";
 
 interface OverlapFooter_FooterWithOverlappedCtaProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: OverlapFooter_FooterWithOverlappedCtaVariant;
   logoPosition?: OverlapFooter_FooterOverlappedLogoPosition;
   backgroundImageSrc?: string;

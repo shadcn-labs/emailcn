@@ -13,8 +13,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type BillingTopVariant =
   | "basic"
@@ -157,7 +157,7 @@ const BillingDetailsSection = ({
 };
 
 interface BillingInline_OrderSummaryBillingInlineProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BillingInlineVariant;
 }
 
@@ -193,7 +193,7 @@ BillingInline_OrderSummaryBillingInline.PreviewProps = {
 const __BillingInline = BillingInline_OrderSummaryBillingInline;
 
 interface BillingTop_OrderSummaryBillingTopProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BillingTopVariant;
 }
 

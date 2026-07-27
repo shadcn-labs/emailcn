@@ -13,10 +13,10 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -421,7 +421,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -468,7 +468,7 @@ const BlogEmailShell = ({
 );
 
 interface HorizontalPlain_SinglePostHorizontalProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   author?: string;
   excerpt?: string;
   imageAlt?: string;
@@ -531,7 +531,7 @@ HorizontalPlain_SinglePostHorizontal.PreviewProps = {
 const __HorizontalPlain = HorizontalPlain_SinglePostHorizontal;
 
 interface HorizontalBoxed_BlogPostHorizontalBoxedProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   excerpt?: string;
   imageAlt?: string;
   imageSrc?: string;
@@ -588,7 +588,7 @@ HorizontalBoxed_BlogPostHorizontalBoxed.PreviewProps = {
 const __HorizontalBoxed = HorizontalBoxed_BlogPostHorizontalBoxed;
 
 interface HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   excerpt?: string;
   imageAlt1?: string;
   imageAlt2?: string;

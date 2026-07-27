@@ -35,6 +35,7 @@ Components install with a `*Section` export you can compose inside your own docu
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
 import { DefaultFonts } from "@/components/email/font-default";
 import { defaultTheme } from "@/components/email/theme-default";
 import { ButtonsSection } from "@/components/email/buttons";
@@ -46,7 +47,7 @@ export function WelcomeEmail() {
         <DefaultFonts />
       </Head>
       <Preview>Welcome</Preview>
-      <Tailwind config={defaultTheme}>
+      <Tailwind config={createEmailTailwindConfig(defaultTheme)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container">
             <ButtonsSection label="Get Started" href="https://example.com" />

@@ -8,10 +8,11 @@ import {
   Tailwind,
   Section,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const dividerColors = {
   border: "#e5e7eb",
@@ -37,14 +38,14 @@ const SpacingEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
       <DefaultFonts />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: dividerColors.surface }} className="m-0">
         <Container className="mx-auto max-w-[600px]">{children}</Container>
       </Body>
@@ -54,7 +55,7 @@ const SpacingEmailShell = ({
 
 interface Spacer_VerticalSpacerProps {
   height?: number;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
 }
 
 const Spacer_VerticalSpacer = ({

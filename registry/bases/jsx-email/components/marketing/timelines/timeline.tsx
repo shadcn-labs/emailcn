@@ -12,10 +12,10 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type CardsTimeline_CardsTimelineVariant =
   | "default"
@@ -25,7 +25,7 @@ type CardsTimeline_CardsTimelineVariant =
   | "image-bottom";
 
 interface CardsTimeline_CardsTimelineProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: CardsTimeline_CardsTimelineVariant;
   date?: string;
   badge?: string;
@@ -281,7 +281,7 @@ type Changelog_ChangelogVariant =
 type Changelog_ChangelogLayout = "line" | "boxed";
 
 interface Changelog_ChangelogProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: Changelog_ChangelogVariant;
   layout?: Changelog_ChangelogLayout;
   version?: string;
@@ -716,7 +716,7 @@ type SplitTimeline_SplitCardsVariant =
   | "image-bottom-reverse";
 
 interface SplitTimeline_SplitCardsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: SplitTimeline_SplitCardsVariant;
   index?: string;
   label?: string;
@@ -1081,7 +1081,7 @@ type StackedTimeline_StackedTimelineVariant =
 type StackedTimeline_StackedTimelineLayout = "line" | "boxed";
 
 interface StackedTimeline_StackedTimelineProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: StackedTimeline_StackedTimelineVariant;
   layout?: StackedTimeline_StackedTimelineLayout;
   index?: string;

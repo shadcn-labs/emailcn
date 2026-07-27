@@ -12,10 +12,10 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type SimpleStats_SimpleStatsVariant =
   | "default"
@@ -24,7 +24,7 @@ type SimpleStats_SimpleStatsVariant =
   | "bordered";
 
 interface SimpleStats_SimpleStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: SimpleStats_SimpleStatsVariant;
   stats?: {
     label: string;
@@ -276,7 +276,7 @@ type GridStats_GridStatsVariant =
 type GridStats_GridStatsLayout = "three-columns" | "bento" | "bento-reversed";
 
 interface GridStats_GridStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: GridStats_GridStatsVariant;
   layout?: GridStats_GridStatsLayout;
   featuredStat?: string;
@@ -852,7 +852,7 @@ type OverlayStats_OverlayStatsVariant =
   | "bento-reversed";
 
 interface OverlayStats_OverlayStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: OverlayStats_OverlayStatsVariant;
   featuredStat?: string;
   featuredLabel?: string;

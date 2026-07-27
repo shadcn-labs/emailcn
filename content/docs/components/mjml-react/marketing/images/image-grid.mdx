@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/image-grid.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -85,7 +80,7 @@ import { ImageGrid } from "@/components/email/image-grid";
 
 | Prop      | Type                                                                                      | Default        | Description                         |
 | --------- | ----------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
-| `theme`   | `EmailThemeTokens`                                                                        | `defaultTheme` | Renderer theme configuration.       |
+| `theme`   | `EmailTheme`                                                                              | `defaultTheme` | Renderer theme configuration.       |
 | `images`  | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.  |
 | `columns` | `2 \| 3`                                                                                  | `2`            | Configures the component's columns. |
 | `aspect`  | `"square" \| "portrait"`                                                                  | `"square"`     | Configures the component's aspect.  |

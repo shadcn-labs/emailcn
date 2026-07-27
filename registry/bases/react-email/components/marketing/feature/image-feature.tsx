@@ -14,15 +14,16 @@ import {
   Link,
   Row,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type Feature_FeatureWithProductImageVariant = "image-left" | "image-right";
 
 interface Feature_FeatureWithProductImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   imageSrc?: string;
@@ -227,7 +228,7 @@ const Feature_FeatureWithProductImage = ({
       <style dangerouslySetInnerHTML={{ __html: Feature_responsiveStyles }} />
     </EmailHead>
     <Preview>Powering every payment.</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

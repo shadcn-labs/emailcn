@@ -14,10 +14,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-top-right"
@@ -26,7 +26,7 @@ type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-bottom-right";
 
 interface TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   imageSrc1?: string;
@@ -392,7 +392,7 @@ type TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesVariant =
   | "logo-top-right";
 
 interface TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   imageSrc1?: string;

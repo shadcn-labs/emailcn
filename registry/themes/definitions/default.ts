@@ -1,8 +1,4 @@
-import type { EmailThemeTokens } from "@/components/email/email-theme-types";
-
-export type { EmailThemeTokens } from "@/components/email/email-theme-types";
-
-export const defaultTheme: EmailThemeTokens = {
+export const defaultTheme = {
   borderRadius: "6px",
   borderRadiusLg: "12px",
   button: {

@@ -14,10 +14,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-left"
@@ -26,7 +26,7 @@ type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-right-overlay";
 
 interface TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;
@@ -401,7 +401,7 @@ type TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant =
   | "stacked-right-overlay-reverse";
 
 interface TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;
@@ -868,7 +868,7 @@ type ThreeColumnMasonry_ThreeColumnsMasonryImageGridVariant =
   | "stacked-right-overlay";
 
 interface ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   stackImageSrc1?: string;
   stackImageAlt1?: string;
   stackImageHref1?: string;
@@ -1258,7 +1258,7 @@ type ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureV
     | "stacked-right-overlay-reverse";
 
 interface ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;

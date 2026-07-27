@@ -12,10 +12,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type BasicLogoCloud_BasicLogoCloudVariant =
   | "minimal"
@@ -24,7 +24,7 @@ type BasicLogoCloud_BasicLogoCloudVariant =
   | "full";
 
 interface BasicLogoCloud_BasicLogoCloudProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -268,7 +268,7 @@ type FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment =
   | "right";
 
 interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   featuredLogo?: {
@@ -597,7 +597,7 @@ type BorderedLogoCloud_LogoCloudWithBordersVariant =
   | "flush";
 
 interface BorderedLogoCloud_LogoCloudWithBordersProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -1032,7 +1032,7 @@ type LogoCloud_LogoCloudVariant =
 type LogoCloud_LogoCloudTone = "boxed" | "outlined";
 
 interface LogoCloud_LogoCloudProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -1415,7 +1415,7 @@ const __LogoCloud = LogoCloud_LogoCloud;
 type LogosGrid_LogosGridTone = "boxed" | "outlined" | "bordered";
 
 interface LogosGrid_LogosGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {

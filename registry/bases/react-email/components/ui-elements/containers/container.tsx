@@ -8,10 +8,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ContainerMobile = "flush" | "gutters";
 
@@ -85,7 +86,7 @@ interface Container_ContainerProps {
   content?: ReactNode;
   maxWidth?: string;
   mobile?: ContainerMobile;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
 }
 
 const Container_Container = ({
@@ -102,7 +103,7 @@ const Container_Container = ({
       <Preview>
         {mobile === "flush" ? "Flush on mobile" : "With gutters on mobile"}
       </Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body className="m-0">
           <ContainerSection {...props} mobile={mobile} />
         </Body>

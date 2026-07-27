@@ -12,10 +12,10 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -149,7 +149,7 @@ const DataTableEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -186,7 +186,7 @@ const DataTableEmailShell = ({
 );
 
 interface BasicTable_DataTableBasicProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: string[][];
 }
@@ -410,7 +410,7 @@ const DataTableProgress = ({ value }: { value: number }) => {
 };
 
 interface DataTable4ColumnsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: string[][];
 }
@@ -430,7 +430,7 @@ const DataTable4ColumnsSection = ({
 );
 
 interface DataTableChangeIndicatorProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     change: string;
@@ -463,7 +463,7 @@ const DataTableChangeIndicatorSection = ({
 );
 
 interface DataTableEditButtonProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: { editHref?: string; name: string; role: string }[];
 }
@@ -489,7 +489,7 @@ const DataTableEditButtonSection = ({
 );
 
 interface DataTableLogosActionsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     actionHref?: string;
@@ -525,7 +525,7 @@ const DataTableLogosActionsSection = ({
 );
 
 interface DataTableWithPillsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     name: string;
@@ -556,7 +556,7 @@ const DataTableWithPillsSection = ({
 );
 
 interface DataTableWithProgressProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: { label: string; progress: number; value: string }[];
 }

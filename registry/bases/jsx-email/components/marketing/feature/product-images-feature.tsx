@@ -14,10 +14,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type Feature_FeatureWithMultipleProductImagesVariant =
   | "logo-left"
@@ -26,7 +26,7 @@ type Feature_FeatureWithMultipleProductImagesVariant =
   | "images-right";
 
 interface Feature_FeatureWithMultipleProductImagesProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   largeImageSrc?: string;

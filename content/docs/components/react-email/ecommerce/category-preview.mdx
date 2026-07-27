@@ -40,24 +40,14 @@ npm install react-email tailwindcss
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/react-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="react-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/react-email/themes/email-theme.ts"
     base="react-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/create-react-email-theme.ts"
-    base="react-email"
-    title="components/email/create-react-email-theme.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="react-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -102,7 +92,7 @@ import { CategoryPreview } from "@/components/email/category-preview";
 
 | Prop          | Type                                                                                                  | Default        | Description                             |
 | ------------- | ----------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------- |
-| `theme`       | `TailwindConfig`                                                                                      | `defaultTheme` | Renderer theme configuration.           |
+| `theme`       | `EmailTheme`                                                                                          | `defaultTheme` | Renderer theme configuration.           |
 | `layout`      | `"cards" \| "rows"`                                                                                   | `"cards"`      | Configures the component's layout.      |
 | `detailLevel` | `"name" \| "description" \| "price" \| "full"`                                                        | `"name"`       | Configures the component's detaillevel. |
 | `header`      | `{ heading: string; description?: string }`                                                           | -              | Configures the component's header.      |

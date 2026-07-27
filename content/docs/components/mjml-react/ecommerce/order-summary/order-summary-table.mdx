@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/order-summary-table.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -85,7 +80,7 @@ import { OrderSummaryTable } from "@/components/email/order-summary-table";
 
 | Prop            | Type                                           | Default        | Description                                     |
 | --------------- | ---------------------------------------------- | -------------- | ----------------------------------------------- |
-| `theme`         | `EmailThemeTokens`                             | `defaultTheme` | Renderer theme configuration.                   |
+| `theme`         | `EmailTheme`                                   | `defaultTheme` | Renderer theme configuration.                   |
 | `alignment`     | `"left" \| "center" \| "right" \| "justified"` | `"left"`       | Aligns the order-summary values.                |
 | `appearance`    | `"bordered" \| "boxed"`                        | `"bordered"`   | Selects the bordered or boxed presentation.     |
 | `filled`        | `boolean`                                      | `false`        | Uses the filled table treatment when supported. |

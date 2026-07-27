@@ -14,8 +14,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
-import { stripeTheme } from "@/registry/bases/mjml-react/themes/theme-stripe";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { stripeTheme } from "@/registry/themes/definitions/stripe";
 
 interface Props {
   _logoUrl?: string;
@@ -31,7 +31,7 @@ export const AuthMagicLinkStripe = ({
   expiresInMinutes = 30,
   _productName = "Stripe",
 }: Props) => {
-  const theme: EmailThemeTokens = stripeTheme;
+  const theme: EmailTheme = stripeTheme;
 
   return (
     <Mjml>

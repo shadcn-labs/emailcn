@@ -24,7 +24,7 @@ export const getRegistryUiSourceCandidates = ({
     return [];
   }
 
-  const uiDir = path.join("registry", "bases", base, "ui");
+  const uiDir = path.join("registry", "bases", base, "components");
   const categories = ["marketing", "ecommerce", "ui-elements"];
 
   const candidates: string[] = [

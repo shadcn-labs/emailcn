@@ -12,8 +12,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export const HeaderEmailShell = ({
   children,
@@ -24,7 +24,7 @@ export const HeaderEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -66,7 +66,7 @@ export type HeaderWithUserDetailsAlignment = "left" | "right";
 export type HeaderWithUserDetailsAvatar = "initials" | "image";
 
 export interface HeaderWithUserDetailsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;

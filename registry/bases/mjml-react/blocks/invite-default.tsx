@@ -1,7 +1,7 @@
 // Subject: You're invited to join {teamName}
 
 import { InviteBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface Props {
   inviterName?: string;

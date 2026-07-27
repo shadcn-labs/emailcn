@@ -14,10 +14,11 @@ import {
   Column,
   Row,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-top-right"
@@ -26,7 +27,7 @@ type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-bottom-right";
 
 interface TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   imageSrc1?: string;
@@ -357,7 +358,7 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImages = ({
       />
     </EmailHead>
     <Preview>Discover the Monarch Collection.</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -392,7 +393,7 @@ type TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesVariant =
   | "logo-top-right";
 
 interface TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   imageSrc1?: string;
@@ -701,7 +702,7 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages = ({
       />
     </EmailHead>
     <Preview>Science-led skincare essentials.</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

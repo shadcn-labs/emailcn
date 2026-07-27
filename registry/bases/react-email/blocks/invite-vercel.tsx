@@ -15,7 +15,8 @@ import {
   Text,
 } from "react-email";
 
-import { vercelTheme } from "@/registry/bases/react-email/themes/theme-vercel";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { vercelTheme } from "@/registry/themes/definitions/vercel";
 
 interface Props {
   inviterName?: string;
@@ -38,7 +39,7 @@ export const InviteVercel = ({
     <Html>
       <Head />
       <Preview>You&apos;re invited to join {teamName}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">

@@ -12,10 +12,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AvatarAlignment = "center" | "left" | "right";
 
@@ -134,7 +135,7 @@ interface Avatar_AvatarWithDetailsProps {
   avatarUrl?: string;
   email?: string;
   name?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
 }
 
 const Avatar_AvatarWithDetails = ({
@@ -146,7 +147,7 @@ const Avatar_AvatarWithDetails = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Avatar with details</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: "#f1f5f9" }} className="m-0">
         <AvatarWithDetailsSection {...props} />
       </Body>

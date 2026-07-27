@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -98,7 +93,7 @@ import { SocialLinks } from "@/components/email/social-links";
 
 | Prop           | Type                                                                           | Default                                                                                                           | Description                              |
 | -------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| `theme`        | `EmailThemeTokens`                                                             | `defaultTheme`                                                                                                    | Renderer theme configuration.            |
+| `theme`        | `EmailTheme`                                                                   | `defaultTheme`                                                                                                    | Renderer theme configuration.            |
 | `title`        | `string`                                                                       | `"Connect with us"`                                                                                               | Configures the component's title.        |
 | `description`  | `string`                                                                       | `"Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments."` | Configures the component's description.  |
 | `items`        | `Array<{ label?: string; href: string; icon: { alt?: string; src: string } }>` | Built-in items                                                                                                    | Configures the component's items.        |

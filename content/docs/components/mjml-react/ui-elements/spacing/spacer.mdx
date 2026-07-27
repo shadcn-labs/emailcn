@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/spacer.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -73,7 +68,7 @@ import { Spacer } from "@/components/email/spacer";
 
 ## API Reference
 
-| Prop     | Type               | Default        | Description                        |
-| -------- | ------------------ | -------------- | ---------------------------------- |
-| `theme`  | `EmailThemeTokens` | `defaultTheme` | Renderer theme configuration.      |
-| `height` | `number`           | `24`           | Configures the component's height. |
+| Prop     | Type         | Default        | Description                        |
+| -------- | ------------ | -------------- | ---------------------------------- |
+| `theme`  | `EmailTheme` | `defaultTheme` | Renderer theme configuration.      |
+| `height` | `number`     | `24`           | Configures the component's height. |

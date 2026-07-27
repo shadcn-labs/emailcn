@@ -14,10 +14,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "square-images"
@@ -26,7 +26,7 @@ type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "portrait-overlay";
 
 interface TwoColumnGrid_TwoColumnsImageGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;
@@ -393,7 +393,7 @@ type ThreeColumnGrid_ThreeColumnsImageGridVariant =
   | "portrait-overlay";
 
 interface ThreeColumnGrid_ThreeColumnsImageGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc1?: string;
   imageAlt1?: string;
   imageHref1?: string;

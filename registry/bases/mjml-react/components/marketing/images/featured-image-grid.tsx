@@ -12,8 +12,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -35,7 +35,7 @@ const ImageGridEmailShell = ({
   backgroundColor: string;
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -178,7 +178,7 @@ type TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-bottom-overlay";
 
 interface TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;
@@ -315,7 +315,7 @@ type ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-bottom-overlay";
 
 interface ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   featureImageSrc?: string;
   featureImageAlt?: string;
   featureImageHref?: string;

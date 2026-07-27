@@ -13,15 +13,16 @@ import {
   Text,
   Link,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type BackgroundCta_CTAWithBackgroundImageVariant = "flush" | "boxed" | "padded";
 
 interface BackgroundCta_CTAWithBackgroundImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   emphasis?: string;
@@ -473,7 +474,7 @@ const BackgroundCta_CTAWithBackgroundImage = ({
         />
       </EmailHead>
       <Preview>{previewHeading}</Preview>
-      <Tailwind config={theme}>
+      <Tailwind config={createEmailTailwindConfig(theme)}>
         <Body
           style={{
             backgroundColor: pageBackgroundColor,
@@ -508,7 +509,7 @@ type BoxedBackgroundCta_BoxedCTAWithBackgroundImageVariant =
   | "padded-dark";
 
 interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   subtext?: string;
   ctaLabel?: string;
@@ -748,7 +749,7 @@ const BoxedBackgroundCta_BoxedCTAWithBackgroundImage = ({
     <Preview>
       {props.heading ?? BoxedBackgroundCta_defaultSectionStyles.heading}
     </Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

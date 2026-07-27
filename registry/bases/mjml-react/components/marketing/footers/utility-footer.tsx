@@ -18,8 +18,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -42,7 +42,7 @@ const FooterEmailShell = ({
   children: ReactNode;
   pageBackgroundColor: string;
   preview?: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -269,7 +269,7 @@ type AppStoreFooter_FooterWithAppStoreButtonsVariant =
   | "with-title";
 
 interface AppStoreFooter_FooterWithAppStoreButtonsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: AppStoreFooter_FooterWithAppStoreButtonsVariant;
   title?: string;
   pageBackgroundColor?: string;
@@ -392,7 +392,7 @@ type BackgroundFooter_FooterWithBackgroundImageVariant =
 type BackgroundFooter_FooterBackgroundLogoPosition = "left" | "right";
 
 interface BackgroundFooter_FooterWithBackgroundImageProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BackgroundFooter_FooterWithBackgroundImageVariant;
   logoPosition?: BackgroundFooter_FooterBackgroundLogoPosition;
   bottomImageSrc?: string;
@@ -758,7 +758,7 @@ interface LocationsFooter_CompanyLocation {
 }
 
 interface LocationsFooter_FooterWithCompanyLocationsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: LocationsFooter_FooterWithCompanyLocationsVariant;
   locations?: LocationsFooter_CompanyLocation[];
   logoSrc?: string;
@@ -932,7 +932,7 @@ interface LegalFooter_LegalFooterSocial extends LegalFooter_LegalFooterLink {
 }
 
 interface LegalFooter_FooterWithLegalTextProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   legalText?: string;
   links?: LegalFooter_LegalFooterLink[];
   socials?: LegalFooter_LegalFooterSocial[];
@@ -1060,7 +1060,7 @@ interface AddressFooter_FooterAddressSocial {
 }
 
 interface AddressFooter_FooterWithSocialIconsAndAddressProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -1217,7 +1217,7 @@ interface SimpleSocialFooter_SimpleFooterSocial {
 }
 
 interface SimpleSocialFooter_SimpleFooterWithSocialIconsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;

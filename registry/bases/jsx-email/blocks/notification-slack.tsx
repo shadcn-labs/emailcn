@@ -12,7 +12,7 @@ import {
   Text,
 } from "jsx-email";
 
-import { slackTheme } from "@/registry/bases/jsx-email/themes/theme-slack";
+import { slackTheme } from "@/registry/themes/definitions/slack";
 
 interface Props {
   _logoUrl?: string;

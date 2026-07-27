@@ -8,10 +8,10 @@ import {
 } from "jsx-email";
 import type { ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
 
@@ -143,7 +143,7 @@ interface Avatar_GroupedOverlappedAvatarsProps {
   avatars?: InternalAvatarItem[];
   plusCount?: number;
   size?: AvatarSize;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Avatar_GroupedOverlappedAvatars = ({

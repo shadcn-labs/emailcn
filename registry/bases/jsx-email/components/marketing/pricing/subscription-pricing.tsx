@@ -12,10 +12,10 @@ import {
 } from "jsx-email";
 import { Fragment } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface TwoColumnPricing_PricingPlanFeature {
   label: string;
@@ -33,7 +33,7 @@ interface TwoColumnPricing_PricingPlan {
 }
 
 interface TwoColumnPricing_TwoColumnsPricingTableProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   plans?: TwoColumnPricing_PricingPlan[];
   pageBackgroundColor?: string;
   backgroundColor?: string;
@@ -343,7 +343,7 @@ interface SinglePricing_PricingFeature {
 }
 
 interface SinglePricing_FullWidthSinglePricingProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   name?: string;
   price?: string;
   currency?: string;

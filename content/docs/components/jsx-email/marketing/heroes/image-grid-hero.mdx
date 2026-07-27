@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -90,7 +85,7 @@ import { ImageGridHero } from "@/components/email/image-grid-hero";
 
 | Prop            | Type                                                                                                                                                                     | Default        | Description                               |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------------------------------------- |
-| `theme`         | `EmailThemeTokens`                                                                                                                                                       | `defaultTheme` | Renderer theme configuration.             |
+| `theme`         | `EmailTheme`                                                                                                                                                             | `defaultTheme` | Renderer theme configuration.             |
 | `content`       | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }` | -              | Configures the component's content.       |
 | `images`        | `Array<{ src: string; alt?: string }>`                                                                                                                                   | -              | Configures the component's images.        |
 | `brand`         | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                 | -              | Configures the component's brand.         |

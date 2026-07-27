@@ -15,8 +15,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AvatarAlignment = "center" | "left" | "right";
 
@@ -109,7 +109,7 @@ interface Avatar_AvatarWithDetailsProps {
   avatarUrl?: string;
   email?: string;
   name?: string;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Avatar_AvatarWithDetails = ({

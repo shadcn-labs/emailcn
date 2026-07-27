@@ -13,7 +13,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { notionTheme } from "@/registry/bases/jsx-email/themes/theme-notion";
+import { notionTheme } from "@/registry/themes/definitions/notion";
 
 interface Props {
   _logoUrl?: string;

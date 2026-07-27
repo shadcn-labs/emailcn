@@ -12,13 +12,13 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type MilestoneStatsVariant = "default" | "boxed" | "accent";
 
 export interface MilestoneStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: MilestoneStatsVariant;
   heading?: string;
   value?: string;

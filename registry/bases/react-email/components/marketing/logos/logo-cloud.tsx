@@ -12,10 +12,11 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type BasicLogoCloud_BasicLogoCloudVariant =
   | "minimal"
@@ -24,7 +25,7 @@ type BasicLogoCloud_BasicLogoCloudVariant =
   | "full";
 
 interface BasicLogoCloud_BasicLogoCloudProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -235,7 +236,7 @@ const BasicLogoCloud_BasicLogoCloud = ({
       />
     </EmailHead>
     <Preview>Supported payment services</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -268,7 +269,7 @@ type FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment =
   | "right";
 
 interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   featuredLogo?: {
@@ -562,7 +563,7 @@ const FeaturedLogoGrid_FeaturedBrandsLogoGrid = ({
       />
     </EmailHead>
     <Preview>Brands we support</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -597,7 +598,7 @@ type BorderedLogoCloud_LogoCloudWithBordersVariant =
   | "flush";
 
 interface BorderedLogoCloud_LogoCloudWithBordersProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -997,7 +998,7 @@ const BorderedLogoCloud_LogoCloudWithBorders = ({
       />
     </EmailHead>
     <Preview>Supported payment services</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1032,7 +1033,7 @@ type LogoCloud_LogoCloudVariant =
 type LogoCloud_LogoCloudTone = "boxed" | "outlined";
 
 interface LogoCloud_LogoCloudProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -1385,7 +1386,7 @@ const LogoCloud_LogoCloud = ({
       <style dangerouslySetInnerHTML={{ __html: LogoCloud_responsiveStyles }} />
     </EmailHead>
     <Preview>Supported payment services</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1415,7 +1416,7 @@ const __LogoCloud = LogoCloud_LogoCloud;
 type LogosGrid_LogosGridTone = "boxed" | "outlined" | "bordered";
 
 interface LogosGrid_LogosGridProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -1746,7 +1747,7 @@ const LogosGrid_LogosGrid = ({
       <style dangerouslySetInnerHTML={{ __html: LogosGrid_responsiveStyles }} />
     </EmailHead>
     <Preview>Supported payment services</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

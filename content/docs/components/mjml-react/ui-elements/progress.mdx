@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/progress.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -86,7 +81,7 @@ import { Progress } from "@/components/email/progress";
 
 | Prop      | Type                                                                             | Default        | Description                         |
 | --------- | -------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
-| `theme`   | `EmailThemeTokens`                                                               | `defaultTheme` | Renderer theme configuration.       |
+| `theme`   | `EmailTheme`                                                                     | `defaultTheme` | Renderer theme configuration.       |
 | `items`   | `Array<{ title?: string; description?: string; value: number; color?: string }>` | Built-in items | Configures the component's items.   |
 | `layout`  | `"single" \| "group" \| "columns"`                                               | `"single"`     | Configures the component's layout.  |
 | `padding` | `"none" \| "padded"`                                                             | `"none"`       | Configures the component's padding. |

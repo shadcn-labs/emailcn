@@ -15,8 +15,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
 
@@ -151,7 +151,7 @@ interface Avatar_GroupedOverlappedAvatarsProps {
   avatars?: InternalAvatarItem[];
   plusCount?: number;
   size?: AvatarSize;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Avatar_GroupedOverlappedAvatars = ({

@@ -13,10 +13,11 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface SimpleSocials_SimpleSocialLogoItem {
   alt: string;
@@ -25,7 +26,7 @@ interface SimpleSocials_SimpleSocialLogoItem {
 }
 
 interface SimpleSocials_SimpleSocialLogosRowProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SimpleSocials_SimpleSocialLogoItem[];
@@ -179,7 +180,7 @@ const SimpleSocials_SimpleSocialLogosRow = ({
       />
     </EmailHead>
     <Preview>Connect with us</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -219,7 +220,7 @@ interface SocialLogos_SocialLogoItem {
 }
 
 interface SocialLogos_SocialLogosProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialLogos_SocialLogoItem[];
@@ -440,7 +441,7 @@ const SocialLogos_SocialLogos = ({
       />
     </EmailHead>
     <Preview>Connect with us</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -475,7 +476,7 @@ interface SocialLabels_LabeledSocialItem {
 }
 
 interface SocialLabels_SocialsWithLabelsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialLabels_LabeledSocialItem[];
@@ -671,7 +672,7 @@ const SocialLabels_SocialsWithLabels = ({
       />
     </EmailHead>
     <Preview>Connect with us</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -706,7 +707,7 @@ interface SocialTileLabels_TiledSocialItem {
 }
 
 interface SocialTileLabels_SocialsWithTileLabelsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialTileLabels_TiledSocialItem[];
@@ -916,7 +917,7 @@ const SocialTileLabels_SocialsWithTileLabels = ({
       />
     </EmailHead>
     <Preview>Connect with us</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

@@ -14,8 +14,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ContainerMobile = "flush" | "gutters";
 
@@ -93,7 +93,7 @@ interface Container_ContainerProps {
   content?: ReactNode;
   maxWidth?: string;
   mobile?: ContainerMobile;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Container_Container = ({

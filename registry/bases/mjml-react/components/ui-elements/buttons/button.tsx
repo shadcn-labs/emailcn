@@ -14,8 +14,8 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ButtonsVariant =
   | "primary"
@@ -250,7 +250,7 @@ interface Buttons_ButtonsProps {
   iconPosition?: "leading" | "trailing";
   label?: string;
   size?: ButtonSize | "all";
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: ButtonsVariant;
 }
 

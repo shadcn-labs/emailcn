@@ -13,13 +13,14 @@ import {
   Row,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export interface ContentProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   type?: "title" | "paragraph";
   columns?: 1 | 2;
   withIcons?: boolean;
@@ -222,7 +223,7 @@ export const Content = ({
       />
     </EmailHead>
     <Preview>{type === "title" ? (title ?? "Title") : "Content"}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: colors.background }} className="m-0">
         <Container className="mx-auto max-w-[600px]">
           <ContentSection

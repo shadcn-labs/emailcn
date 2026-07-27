@@ -11,8 +11,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type SimpleStats_SimpleStatsVariant =
   | "default"
@@ -21,7 +21,7 @@ type SimpleStats_SimpleStatsVariant =
   | "bordered";
 
 interface SimpleStats_SimpleStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: SimpleStats_SimpleStatsVariant;
   stats?: {
     label: string;
@@ -134,7 +134,7 @@ type GridStats_GridStatsVariant =
 type GridStats_GridStatsLayout = "three-columns" | "bento" | "bento-reversed";
 
 interface GridStats_GridStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: GridStats_GridStatsVariant;
   layout?: GridStats_GridStatsLayout;
   featuredStat?: string;
@@ -391,7 +391,7 @@ type OverlayStats_OverlayStatsVariant =
   | "bento-reversed";
 
 interface OverlayStats_OverlayStatsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: OverlayStats_OverlayStatsVariant;
   featuredStat?: string;
   featuredLabel?: string;

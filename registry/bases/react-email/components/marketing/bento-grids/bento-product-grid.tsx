@@ -12,10 +12,11 @@ import {
   Tailwind,
   Text,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const BENTO_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/bento-grids";
@@ -54,7 +55,7 @@ const textBase: CSSProperties = {
 interface BentoEmailShellProps {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }
 
 const BentoEmailShell = ({
@@ -79,7 +80,7 @@ const BentoEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: colors.canvas }} className="m-0">
         <Container
           style={{

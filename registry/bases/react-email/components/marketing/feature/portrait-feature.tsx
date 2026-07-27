@@ -14,10 +14,11 @@ import {
   Column,
   Row,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type Feature_FeatureWithLargePortraitImageVariant =
   | "logo-top-right"
@@ -30,7 +31,7 @@ type Feature_FeatureWithLargePortraitImageVariant =
   | "content-top-right";
 
 interface Feature_FeatureWithLargePortraitImageProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   portraitImageSrc?: string;
@@ -399,7 +400,7 @@ const Feature_FeatureWithLargePortraitImage = ({
       <style dangerouslySetInnerHTML={{ __html: Feature_responsiveStyles }} />
     </EmailHead>
     <Preview>Explore without limits.</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

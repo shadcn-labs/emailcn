@@ -11,15 +11,16 @@ import {
   Text,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type PaymentTimelineVariant = "3-steps" | "4-steps";
 
 export interface PaymentTimelineProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: PaymentTimelineVariant;
   amount?: string;
   firstDate?: string;
@@ -294,7 +295,7 @@ export const PaymentTimeline = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Payment timeline</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <PaymentTimelineSection {...props} />
       </Body>

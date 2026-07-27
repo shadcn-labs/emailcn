@@ -13,10 +13,11 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface CenteredFooter_CenteredFooterLink {
   href: string;
@@ -28,7 +29,7 @@ interface CenteredFooter_CenteredFooterSocial extends CenteredFooter_CenteredFoo
 }
 
 interface CenteredFooter_FooterCenteredWithMenuAndSocialsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -254,7 +255,7 @@ const CenteredFooter_FooterCenteredWithMenuAndSocials = ({
       />
     </EmailHead>
     <Preview>Footer centered with menu and socials</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -282,7 +283,7 @@ type DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant =
   | "right-logo";
 
 interface DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant;
   logoSrc?: string;
   logoAlt?: string;
@@ -585,7 +586,7 @@ const DividerMenuFooter_FooterWith2ColumnMenuAndDivider = ({
       />
     </EmailHead>
     <Preview>Footer with two-column menu and divider</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: props.pageBackgroundColor ?? "#f1f5f9",
@@ -617,7 +618,7 @@ interface TwoColumnFooter_FooterWith2ColumnMenuLink {
 }
 
 interface TwoColumnFooter_FooterWith2ColumnMenuProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -871,7 +872,7 @@ const TwoColumnFooter_FooterWith2ColumnMenu = ({
       />
     </EmailHead>
     <Preview>Footer with 2-column menu</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -908,7 +909,7 @@ interface ThreeColumnFooter_FooterWith3ColMenuSocial extends ThreeColumnFooter_F
 }
 
 interface ThreeColumnFooter_FooterWith3ColMenuProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -1251,7 +1252,7 @@ const ThreeColumnFooter_FooterWith3ColMenu = ({
       />
     </EmailHead>
     <Preview>Footer with 3-column menu</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1288,7 +1289,7 @@ interface FullMenuFooter_FullMenuFooterSocial extends FullMenuFooter_FullMenuFoo
 }
 
 interface FullMenuFooter_FooterWithFullMenuProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   logoHref?: string;
@@ -1619,7 +1620,7 @@ const FullMenuFooter_FooterWithFullMenu = ({
       />
     </EmailHead>
     <Preview>Footer with full menu</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -1658,7 +1659,7 @@ interface TextMenuFooterBundle_FooterSocialLink extends TextMenuFooterBundle_Foo
 }
 
 interface TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   logoSrc?: string;
   logoAlt?: string;
   description?: string;
@@ -1977,7 +1978,7 @@ const TextMenuFooterBundle_FooterWithTextMenuAndSocials = ({
       />
     </EmailHead>
     <Preview>Footer with text, menu and socials</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

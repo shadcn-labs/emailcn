@@ -12,10 +12,11 @@ import {
   Row,
   Column,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ProgressBarContentVariant =
   | "minimal"
@@ -331,7 +332,7 @@ const ProgressEmailShell = ({
   children: ReactNode;
   horizontalPadding: 24 | 64;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
   topSpacer: 30 | 44;
 }) => (
   <Html>
@@ -349,7 +350,7 @@ const ProgressEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -402,7 +403,7 @@ const ProgressEmailShell = ({
 
 interface ProgressFull_FullWidthProgressBarProps {
   description?: string;
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   value?: number;
   variant?: ProgressBarContentVariant;
@@ -459,7 +460,7 @@ const __ProgressFull = ProgressFull_FullWidthProgressBar;
 interface ProgressGroup_ProgressBarGroupProps {
   description?: string;
   items?: readonly ProgressBarItem[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   title?: string;
   variant?: ProgressBarPaddedVariant;
 }
@@ -521,7 +522,7 @@ const __ProgressGroup = ProgressGroup_ProgressBarGroup;
 
 interface ProgressColumns_ProgressBarColumnsProps {
   items?: readonly [ProgressBarItem, ProgressBarItem];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: ProgressBarColumnsVariant;
 }
 

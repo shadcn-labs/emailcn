@@ -14,10 +14,11 @@ import {
   Text,
   Link,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type Feature_FeatureWithMultipleProductImagesVariant =
   | "logo-left"
@@ -26,7 +27,7 @@ type Feature_FeatureWithMultipleProductImagesVariant =
   | "images-right";
 
 interface Feature_FeatureWithMultipleProductImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   body?: string;
   largeImageSrc?: string;
@@ -419,7 +420,7 @@ const Feature_FeatureWithMultipleProductImages = ({
       <style dangerouslySetInnerHTML={{ __html: Feature_responsiveStyles }} />
     </EmailHead>
     <Preview>Built for the journey ahead.</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

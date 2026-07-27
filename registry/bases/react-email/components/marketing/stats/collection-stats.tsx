@@ -12,10 +12,11 @@ import {
   Row,
   Column,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type SimpleStats_SimpleStatsVariant =
   | "default"
@@ -24,7 +25,7 @@ type SimpleStats_SimpleStatsVariant =
   | "bordered";
 
 interface SimpleStats_SimpleStatsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: SimpleStats_SimpleStatsVariant;
   stats?: {
     label: string;
@@ -239,7 +240,7 @@ const SimpleStats_SimpleStats = ({
       />
     </EmailHead>
     <Preview>45% increase in conversion rate</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -276,7 +277,7 @@ type GridStats_GridStatsVariant =
 type GridStats_GridStatsLayout = "three-columns" | "bento" | "bento-reversed";
 
 interface GridStats_GridStatsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: GridStats_GridStatsVariant;
   layout?: GridStats_GridStatsLayout;
   featuredStat?: string;
@@ -816,7 +817,7 @@ const GridStats_GridStats = ({
       <style dangerouslySetInnerHTML={{ __html: GridStats_responsiveStyles }} />
     </EmailHead>
     <Preview>120k+ Active users globally</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -852,7 +853,7 @@ type OverlayStats_OverlayStatsVariant =
   | "bento-reversed";
 
 interface OverlayStats_OverlayStatsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: OverlayStats_OverlayStatsVariant;
   featuredStat?: string;
   featuredLabel?: string;
@@ -1395,7 +1396,7 @@ const OverlayStats_OverlayStats = ({
       />
     </EmailHead>
     <Preview>120k+ Active users globally</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

@@ -14,10 +14,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type BillingTopVariant =
   | "basic"
@@ -426,7 +427,7 @@ const BillingDetailsSection = ({
 };
 
 interface BillingInline_OrderSummaryBillingInlineProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BillingInlineVariant;
 }
 
@@ -445,7 +446,7 @@ const BillingInline_OrderSummaryBillingInline = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order details</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BillingInline_OrderSummaryBillingInlineSection {...props} />
       </Body>
@@ -461,7 +462,7 @@ BillingInline_OrderSummaryBillingInline.PreviewProps = {
 const __BillingInline = BillingInline_OrderSummaryBillingInline;
 
 interface BillingTop_OrderSummaryBillingTopProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: BillingTopVariant;
 }
 
@@ -480,7 +481,7 @@ const BillingTop_OrderSummaryBillingTop = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Order details</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <BillingTop_OrderSummaryBillingTopSection {...props} />
       </Body>

@@ -15,7 +15,7 @@ import {
   Text,
 } from "jsx-email";
 
-import { linearTheme } from "@/registry/bases/jsx-email/themes/theme-linear";
+import { linearTheme } from "@/registry/themes/definitions/linear";
 
 interface Props {
   _logoUrl?: string;

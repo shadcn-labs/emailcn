@@ -12,8 +12,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface PurchasePricing_ProductPricingPlan {
   ctaHref: string;
@@ -24,7 +24,7 @@ interface PurchasePricing_ProductPricingPlan {
 }
 
 interface PurchasePricing_TwoColumnsPricingTableWithGapsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   plans?: PurchasePricing_ProductPricingPlan[];
   pageBackgroundColor?: string;
   backgroundColor?: string;

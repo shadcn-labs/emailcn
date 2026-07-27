@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/faq.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -89,7 +84,7 @@ import { Faq } from "@/components/email/faq";
 
 | Prop             | Type                                                                                 | Default                        | Description                                |
 | ---------------- | ------------------------------------------------------------------------------------ | ------------------------------ | ------------------------------------------ |
-| `theme`          | `EmailThemeTokens`                                                                   | `defaultTheme`                 | Renderer theme configuration.              |
+| `theme`          | `EmailTheme`                                                                         | `defaultTheme`                 | Renderer theme configuration.              |
 | `heading`        | `string`                                                                             | `"Frequently asked questions"` | Configures the component's heading.        |
 | `items`          | `Array<{ question: string; answer?: string; icon?: { alt?: string; src: string } }>` | -                              | Configures the component's items.          |
 | `layout`         | `"boxed" \| "collapsed" \| "expanded"`                                               | `"boxed"`                      | Configures the component's layout.         |

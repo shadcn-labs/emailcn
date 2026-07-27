@@ -11,10 +11,11 @@ import {
   Column,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface PurchasePricing_ProductPricingPlan {
   ctaHref: string;
@@ -25,7 +26,7 @@ interface PurchasePricing_ProductPricingPlan {
 }
 
 interface PurchasePricing_TwoColumnsPricingTableWithGapsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   plans?: PurchasePricing_ProductPricingPlan[];
   pageBackgroundColor?: string;
   backgroundColor?: string;
@@ -267,7 +268,7 @@ const PurchasePricing_TwoColumnsPricingTableWithGaps = ({
       />
     </EmailHead>
     <Preview>Model pricing</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

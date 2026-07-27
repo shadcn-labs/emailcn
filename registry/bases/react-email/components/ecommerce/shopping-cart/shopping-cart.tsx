@@ -14,10 +14,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type ShoppingCartVariant =
   | "basic"
@@ -562,7 +563,7 @@ const ShoppingCartSection = ({
 
 interface ShoppingCart_ShoppingCartRowItemsProps {
   items?: ShoppingCartItem[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: ShoppingCartVariant;
 }
 
@@ -582,7 +583,7 @@ const ShoppingCart_ShoppingCartRowItems = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Shopping cart</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <ShoppingCart_ShoppingCartRowItemsSection {...props} />
       </Body>

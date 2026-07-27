@@ -13,8 +13,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type CategoryCards_CategoryPreviewCardsVariant =
   | "basic"
@@ -27,7 +27,7 @@ type CategoryCards_CategoryPreviewCardsVariant =
   | "header-full-details";
 
 interface CategoryCards_CategoryPreviewCardsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: CategoryCards_CategoryPreviewCardsVariant;
   heading?: string;
   intro?: string;
@@ -272,7 +272,7 @@ type CategoryRows_CategoryPreviewRowsVariant =
   | "header-full-details";
 
 interface CategoryRows_CategoryPreviewRowsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: CategoryRows_CategoryPreviewRowsVariant;
   heading?: string;
   intro?: string;

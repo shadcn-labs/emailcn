@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -111,7 +106,7 @@ import { HeaderWithLogoAndMenu } from "@/components/email/header-with-logo-and-m
 
 | Prop                  | Type                                                                                                    | Default                                                              | Description                                     |
 | --------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------- |
-| `theme`               | `EmailThemeTokens`                                                                                      | `defaultTheme`                                                       | Renderer theme configuration.                   |
+| `theme`               | `EmailTheme`                                                                                            | `defaultTheme`                                                       | Renderer theme configuration.                   |
 | `logoSrc`             | `string`                                                                                                | `"https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"` | Configures the component's logosrc.             |
 | `logoAlt`             | `string`                                                                                                | `"Maizzle"`                                                          | Configures the component's logoalt.             |
 | `logoHref`            | `string`                                                                                                | `"https://example.com"`                                              | Configures the component's logohref.            |

@@ -14,10 +14,11 @@ import {
   Link,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -489,7 +490,7 @@ const FaqEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -505,7 +506,7 @@ const FaqEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -536,7 +537,7 @@ const FaqEmailShell = ({
 );
 
 interface BoxedNumbered_BoxedFaqWithNumberedQuestionsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -594,7 +595,7 @@ BoxedNumbered_BoxedFaqWithNumberedQuestions.PreviewProps = {
 const __BoxedNumbered = BoxedNumbered_BoxedFaqWithNumberedQuestions;
 
 interface BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -669,7 +670,7 @@ const __BoxedAlternating =
   BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors;
 
 interface CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -758,7 +759,7 @@ CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons.PreviewProps = {
 const __CollapsedIcons = CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons;
 
 interface CollapsedCta_CollapsedFaqWithInlineCtaProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   q2?: string;
@@ -828,7 +829,7 @@ CollapsedCta_CollapsedFaqWithInlineCta.PreviewProps = {
 const __CollapsedCta = CollapsedCta_CollapsedFaqWithInlineCta;
 
 interface CollapsedNumbers_CollapsedFaqWithNumbersProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   q2?: string;
@@ -888,7 +889,7 @@ CollapsedNumbers_CollapsedFaqWithNumbers.PreviewProps = {
 const __CollapsedNumbers = CollapsedNumbers_CollapsedFaqWithNumbers;
 
 interface ExpandedNumbers_ExpandedFaqWithNumbersProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -957,7 +958,7 @@ ExpandedNumbers_ExpandedFaqWithNumbers.PreviewProps = {
 const __ExpandedNumbers = ExpandedNumbers_ExpandedFaqWithNumbers;
 
 interface ExpandedOffset_ExpandedFaqWithOffsetAnswersProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;

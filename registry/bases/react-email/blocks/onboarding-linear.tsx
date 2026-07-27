@@ -16,7 +16,8 @@ import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-
 import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/components/marketing/footers/navigation-footer";
 import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/components/marketing/headers/header-with-logo-and-menu";
 import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
-import { linearTheme } from "@/registry/bases/react-email/themes/theme-linear";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { linearTheme } from "@/registry/themes/definitions/linear";
 
 interface Props {
   _firstName?: string;
@@ -46,7 +47,7 @@ export const OnboardingLinear = ({
       <Preview>
         Welcome to {_productName}, {_firstName}
       </Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <LogoHeaderSection logoAlt={_productName} />

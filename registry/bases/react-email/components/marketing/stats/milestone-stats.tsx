@@ -11,15 +11,16 @@ import {
   Row,
   Column,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type MilestoneStatsVariant = "default" | "boxed" | "accent";
 
 export interface MilestoneStatsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: MilestoneStatsVariant;
   heading?: string;
   value?: string;
@@ -290,7 +291,7 @@ export const MilestoneStats = ({
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
     </EmailHead>
     <Preview>5,685 miles traveled</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: pageBackgroundColor, fontFamily }}
         className="m-0"

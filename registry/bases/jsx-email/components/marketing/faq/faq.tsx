@@ -14,10 +14,10 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -489,7 +489,7 @@ const FaqEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -536,7 +536,7 @@ const FaqEmailShell = ({
 );
 
 interface BoxedNumbered_BoxedFaqWithNumberedQuestionsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -594,7 +594,7 @@ BoxedNumbered_BoxedFaqWithNumberedQuestions.PreviewProps = {
 const __BoxedNumbered = BoxedNumbered_BoxedFaqWithNumberedQuestions;
 
 interface BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -669,7 +669,7 @@ const __BoxedAlternating =
   BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors;
 
 interface CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -758,7 +758,7 @@ CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons.PreviewProps = {
 const __CollapsedIcons = CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons;
 
 interface CollapsedCta_CollapsedFaqWithInlineCtaProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   q2?: string;
@@ -828,7 +828,7 @@ CollapsedCta_CollapsedFaqWithInlineCta.PreviewProps = {
 const __CollapsedCta = CollapsedCta_CollapsedFaqWithInlineCta;
 
 interface CollapsedNumbers_CollapsedFaqWithNumbersProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   q2?: string;
@@ -888,7 +888,7 @@ CollapsedNumbers_CollapsedFaqWithNumbers.PreviewProps = {
 const __CollapsedNumbers = CollapsedNumbers_CollapsedFaqWithNumbers;
 
 interface ExpandedNumbers_ExpandedFaqWithNumbersProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;
@@ -957,7 +957,7 @@ ExpandedNumbers_ExpandedFaqWithNumbers.PreviewProps = {
 const __ExpandedNumbers = ExpandedNumbers_ExpandedFaqWithNumbers;
 
 interface ExpandedOffset_ExpandedFaqWithOffsetAnswersProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   heading?: string;
   q1?: string;
   a1?: string;

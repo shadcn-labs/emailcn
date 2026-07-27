@@ -13,10 +13,10 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type OrderSummaryAlignment = "left" | "right" | "centered" | "justified";
 
@@ -575,7 +575,7 @@ const OrderSummaryTableSection = ({
 };
 
 interface BorderedCard_BorderedOrderSummaryCardDetailsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BorderedCardOrderSummaryVariant;
 }
 
@@ -629,7 +629,7 @@ BorderedCard_BorderedOrderSummaryCardDetails.PreviewProps = {
 const __BorderedCard = BorderedCard_BorderedOrderSummaryCardDetails;
 
 interface BorderedBottom_BorderedOrderSummaryTotalBottomProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BorderedOrderSummaryVariant;
 }
 
@@ -685,7 +685,7 @@ BorderedBottom_BorderedOrderSummaryTotalBottom.PreviewProps = {
 const __BorderedBottom = BorderedBottom_BorderedOrderSummaryTotalBottom;
 
 interface BorderedTop_BorderedOrderSummaryTotalTopProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BorderedOrderSummaryVariant;
 }
 
@@ -739,7 +739,7 @@ BorderedTop_BorderedOrderSummaryTotalTop.PreviewProps = {
 const __BorderedTop = BorderedTop_BorderedOrderSummaryTotalTop;
 
 interface BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -801,7 +801,7 @@ const __BoxedCardBottom =
   BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom;
 
 interface BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -855,7 +855,7 @@ BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop.PreviewProps = {
 const __BoxedCardTop = BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop;
 
 interface BoxedBottom_BoxedOrderSummaryTotalBottomProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 
@@ -909,7 +909,7 @@ BoxedBottom_BoxedOrderSummaryTotalBottom.PreviewProps = {
 const __BoxedBottom = BoxedBottom_BoxedOrderSummaryTotalBottom;
 
 interface BoxedTop_BoxedOrderSummaryTotalTopProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: BoxedOrderSummaryVariant;
 }
 

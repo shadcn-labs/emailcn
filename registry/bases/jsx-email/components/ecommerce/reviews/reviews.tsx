@@ -12,10 +12,10 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ReviewsVariant =
   | "with-divider"
@@ -937,7 +937,7 @@ const ReviewsSection = ({
 
 interface FullWidthReviews_FullWidthReviewsProps {
   reviews?: ReviewItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: FullWidthReviewsVariant;
 }
 
@@ -974,7 +974,7 @@ const __FullWidthReviews = FullWidthReviews_FullWidthReviews;
 
 interface MasonryReviews_MasonryGridReviewsProps {
   reviews?: ReviewItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: ReviewsVariant;
 }
 
@@ -1011,7 +1011,7 @@ const __MasonryReviews = MasonryReviews_MasonryGridReviews;
 
 interface TwoColumnReviews_TwoColumnsReviewsProps {
   reviews?: ReviewItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: ReviewsVariant;
 }
 

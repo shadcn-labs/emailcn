@@ -13,15 +13,15 @@ import {
   MjmlButton,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type FullWidthTestimonial_FullWidthTestimonialVariant =
   | "default"
   | "overlapping-avatar";
 
 interface FullWidthTestimonial_FullWidthTestimonialProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: FullWidthTestimonial_FullWidthTestimonialVariant;
   quote?: string;
   author?: string;
@@ -189,7 +189,7 @@ const __FullWidthTestimonial = FullWidthTestimonial_FullWidthTestimonial;
 type TestimonialCta_TestimonialWithCtaVariant = "centered" | "split";
 
 interface TestimonialCta_TestimonialWithCtaProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: TestimonialCta_TestimonialWithCtaVariant;
   quote?: string;
   author?: string;

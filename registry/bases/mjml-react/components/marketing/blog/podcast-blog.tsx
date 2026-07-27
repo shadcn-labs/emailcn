@@ -14,8 +14,8 @@ import {
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -334,7 +334,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -350,7 +350,7 @@ const BlogEmailShell = ({
 );
 
 interface PodcastSplit_PodcastBlogSplitProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   episode?: string;
   excerpt?: string;
   host?: string;
@@ -418,7 +418,7 @@ PodcastSplit_PodcastBlogSplit.PreviewProps = {
 const __PodcastSplit = PodcastSplit_PodcastBlogSplit;
 
 interface PodcastFull_PodcastFullWidthProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   episode?: string;
   excerpt?: string;
   imageAlt?: string;

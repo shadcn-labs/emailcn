@@ -10,10 +10,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ButtonsVariant =
   | "primary"
@@ -347,7 +348,7 @@ interface Buttons_ButtonsProps {
   iconPosition?: "leading" | "trailing";
   label?: string;
   size?: ButtonSize | "all";
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: ButtonsVariant;
 }
 
@@ -361,7 +362,7 @@ const Buttons_Buttons = ({
       <style>{buttonsResponsiveStyles}</style>
     </EmailHead>
     <Preview>Buttons</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0">
         <ButtonsSection {...props} />
       </Body>

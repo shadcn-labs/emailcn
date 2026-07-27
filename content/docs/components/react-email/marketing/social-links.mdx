@@ -40,24 +40,14 @@ npm install react-email tailwindcss
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/react-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="react-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/react-email/themes/email-theme.ts"
     base="react-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/create-react-email-theme.ts"
-    base="react-email"
-    title="components/email/create-react-email-theme.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="react-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -103,7 +93,7 @@ import { SocialLinks } from "@/components/email/social-links";
 
 | Prop           | Type                                                                           | Default                                                                                                           | Description                              |
 | -------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| `theme`        | `TailwindConfig`                                                               | `defaultTheme`                                                                                                    | Renderer theme configuration.            |
+| `theme`        | `EmailTheme`                                                                   | `defaultTheme`                                                                                                    | Renderer theme configuration.            |
 | `title`        | `string`                                                                       | `"Connect with us"`                                                                                               | Configures the component's title.        |
 | `description`  | `string`                                                                       | `"Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments."` | Configures the component's description.  |
 | `items`        | `Array<{ label?: string; href: string; icon: { alt?: string; src: string } }>` | Built-in items                                                                                                    | Configures the component's items.        |

@@ -12,10 +12,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ReviewsVariant =
   | "with-divider"
@@ -937,7 +938,7 @@ const ReviewsSection = ({
 
 interface FullWidthReviews_FullWidthReviewsProps {
   reviews?: ReviewItem[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: FullWidthReviewsVariant;
 }
 
@@ -957,7 +958,7 @@ const FullWidthReviews_FullWidthReviews = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Customer review</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <FullWidthReviews_FullWidthReviewsSection {...props} />
       </Body>
@@ -974,7 +975,7 @@ const __FullWidthReviews = FullWidthReviews_FullWidthReviews;
 
 interface MasonryReviews_MasonryGridReviewsProps {
   reviews?: ReviewItem[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: ReviewsVariant;
 }
 
@@ -994,7 +995,7 @@ const MasonryReviews_MasonryGridReviews = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Customer reviews</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <MasonryReviews_MasonryGridReviewsSection {...props} />
       </Body>
@@ -1011,7 +1012,7 @@ const __MasonryReviews = MasonryReviews_MasonryGridReviews;
 
 interface TwoColumnReviews_TwoColumnsReviewsProps {
   reviews?: ReviewItem[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: ReviewsVariant;
 }
 
@@ -1031,7 +1032,7 @@ const TwoColumnReviews_TwoColumnsReviews = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Customer reviews</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <TwoColumnReviews_TwoColumnsReviewsSection {...props} />
       </Body>

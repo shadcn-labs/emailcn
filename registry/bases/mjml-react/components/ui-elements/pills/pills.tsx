@@ -12,8 +12,8 @@ import {
 } from "@faire/mjml-react";
 import { Fragment } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type PillStatusVariant =
   | "brand"
@@ -142,7 +142,7 @@ const BasicPillsStatusColorsSection = ({
 
 interface Pills_BasicPillsStatusColorsProps {
   pills?: InternalPillItem[];
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const Pills_BasicPillsStatusColors = ({

@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/grid.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -93,5 +88,5 @@ import { Grid } from "@/components/email/grid";
 | --------- | -------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------- |
 | `align`   | `"center" \| "left" \| "right"`                                                                                | `"center"`      | Configures the component's align.   |
 | `cells`   | `string[]`                                                                                                     | -               | Configures the component's cells.   |
-| `theme`   | `EmailThemeTokens`                                                                                             | `defaultTheme`  | Renderer theme configuration.       |
+| `theme`   | `EmailTheme`                                                                                                   | `defaultTheme`  | Renderer theme configuration.       |
 | `variant` | `"one-column" \| "two-columns" \| "three-columns" \| "four-columns" \| "one-three-split" \| "three-one-split"` | `"two-columns"` | Configures the component's variant. |

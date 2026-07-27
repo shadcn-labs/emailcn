@@ -40,19 +40,14 @@ npm install jsx-email
     title="components/email/font-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="jsx-email"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
     base="jsx-email"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="jsx-email"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -115,6 +110,6 @@ import { ShoppingCart } from "@/components/email/shopping-cart";
 
 | Prop      | Type                                                                                                                                                     | Default             | Description                            |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------- |
-| `theme`   | `EmailThemeTokens`                                                                                                                                       | `defaultTheme`      | Renderer theme configuration.          |
+| `theme`   | `EmailTheme`                                                                                                                                             | `defaultTheme`      | Renderer theme configuration.          |
 | `items`   | `Array<{ colors?: string[]; description?: string; editHref?: string; imageUrl?: string; name: string; price: string; quantity: number; size?: string }>` | Built-in cart items | Supplies the cart items.               |
 | `variant` | `"basic" \| "basic-alt" \| "with-details" \| "details-alt" \| "full-details" \| "full-details-alt" \| "example-with-cta"`                                | `"basic"`           | Selects the cart-row detail treatment. |

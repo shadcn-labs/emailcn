@@ -13,10 +13,10 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -421,7 +421,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -468,7 +468,7 @@ const BlogEmailShell = ({
 );
 
 interface PodcastSplit_PodcastBlogSplitProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   episode?: string;
   excerpt?: string;
   host?: string;
@@ -536,7 +536,7 @@ PodcastSplit_PodcastBlogSplit.PreviewProps = {
 const __PodcastSplit = PodcastSplit_PodcastBlogSplit;
 
 interface PodcastFull_PodcastFullWidthProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   episode?: string;
   excerpt?: string;
   imageAlt?: string;

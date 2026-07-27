@@ -12,7 +12,8 @@ import {
   Text,
 } from "react-email";
 
-import { notionTheme } from "@/registry/bases/react-email/themes/theme-notion";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { notionTheme } from "@/registry/themes/definitions/notion";
 
 interface Props {
   _logoUrl?: string;
@@ -33,7 +34,7 @@ export const AuthPasswordResetNotion = ({
     <Html>
       <Head />
       <Preview>Reset your password</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">

@@ -14,10 +14,11 @@ import {
   Preview,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type ProductListVariant =
   | "basic"
@@ -532,7 +533,7 @@ const ProductListWithRowsSection = ({
 const ProductList_SharedProductListWithRowsSection = ProductListWithRowsSection;
 
 interface ProductList_ProductListWithRowsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   products?: ProductListItem[];
   variant?: ProductListVariant;
 }
@@ -556,7 +557,7 @@ const ProductList_ProductListWithRows = ({
       <DefaultFonts />
     </EmailHead>
     <Preview>Product list</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body className="m-0 bg-background font-sans">
         <ProductList_ProductListWithRowsSectionWrapper {...props} />
       </Body>

@@ -13,10 +13,11 @@ import {
   Column,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -421,7 +422,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -438,7 +439,7 @@ const BlogEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -468,7 +469,7 @@ const BlogEmailShell = ({
 );
 
 interface PodcastSplit_PodcastBlogSplitProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   episode?: string;
   excerpt?: string;
   host?: string;
@@ -536,7 +537,7 @@ PodcastSplit_PodcastBlogSplit.PreviewProps = {
 const __PodcastSplit = PodcastSplit_PodcastBlogSplit;
 
 interface PodcastFull_PodcastFullWidthProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   episode?: string;
   excerpt?: string;
   imageAlt?: string;

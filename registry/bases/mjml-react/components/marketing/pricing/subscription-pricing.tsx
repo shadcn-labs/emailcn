@@ -12,8 +12,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface TwoColumnPricing_PricingPlanFeature {
   label: string;
@@ -31,7 +31,7 @@ interface TwoColumnPricing_PricingPlan {
 }
 
 interface TwoColumnPricing_TwoColumnsPricingTableProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   plans?: TwoColumnPricing_PricingPlan[];
   pageBackgroundColor?: string;
   backgroundColor?: string;
@@ -210,7 +210,7 @@ interface SinglePricing_PricingFeature {
 }
 
 interface SinglePricing_FullWidthSinglePricingProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   name?: string;
   price?: string;
   currency?: string;

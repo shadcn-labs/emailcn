@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/content.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -89,7 +84,7 @@ import { Content } from "@/components/email/content";
 
 | Prop        | Type                     | Default                                                                          | Description                           |
 | ----------- | ------------------------ | -------------------------------------------------------------------------------- | ------------------------------------- |
-| `theme`     | `EmailThemeTokens`       | `defaultTheme`                                                                   | Renderer theme configuration.         |
+| `theme`     | `EmailTheme`             | `defaultTheme`                                                                   | Renderer theme configuration.         |
 | `type`      | `"title" \| "paragraph"` | `"paragraph"`                                                                    | Configures the component's type.      |
 | `columns`   | `1 \| 2`                 | `1`                                                                              | Configures the component's columns.   |
 | `withIcons` | `boolean`                | `false`                                                                          | Configures the component's withicons. |

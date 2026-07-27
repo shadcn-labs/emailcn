@@ -14,10 +14,10 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type DividerVariant = "center" | "left" | "right";
 
@@ -131,7 +131,7 @@ const SpacingEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -149,7 +149,7 @@ const SpacingEmailShell = ({
 interface DividerButton_DividerWithButtonProps {
   href?: string;
   label?: string;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -191,7 +191,7 @@ const __DividerButton = DividerButton_DividerWithButton;
 
 interface DividerFile_DividerWithFileTypeProps {
   fileType?: string;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -243,7 +243,7 @@ interface DividerIconButton_DividerWithIconButtonProps {
   href?: string;
   icon?: string;
   label?: string;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -308,7 +308,7 @@ const __DividerIconButton = DividerIconButton_DividerWithIconButton;
 
 interface DividerIcon_DividerWithIconProps {
   icon?: string;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -350,7 +350,7 @@ const __DividerIcon = DividerIcon_DividerWithIcon;
 interface DividerLogo_DividerWithLogoProps {
   logoAlt?: string;
   logoSrc?: string;
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -402,7 +402,7 @@ DividerLogo_DividerWithLogo.PreviewProps = {
 const __DividerLogo = DividerLogo_DividerWithLogo;
 
 interface DividerSocials_DividerWithSocialIconsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   variant?: DividerVariant;
 }
 
@@ -440,7 +440,7 @@ DividerSocials_DividerWithSocialIcons.PreviewProps = {
 const __DividerSocials = DividerSocials_DividerWithSocialIcons;
 
 interface DividerTitle_DividerWithTitleProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   variant?: DividerVariant;
 }
@@ -473,7 +473,7 @@ DividerTitle_DividerWithTitle.PreviewProps = {
 const __DividerTitle = DividerTitle_DividerWithTitle;
 
 interface LineDivider_LineDividerProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
 }
 
 const LineDivider_LineDivider = ({

@@ -12,8 +12,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type BasicLogoCloud_BasicLogoCloudVariant =
   | "minimal"
@@ -22,7 +22,7 @@ type BasicLogoCloud_BasicLogoCloudVariant =
   | "full";
 
 interface BasicLogoCloud_BasicLogoCloudProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -159,7 +159,7 @@ type FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment =
   | "right";
 
 interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   featuredLogo?: {
@@ -325,7 +325,7 @@ type BorderedLogoCloud_LogoCloudWithBordersVariant =
   | "flush";
 
 interface BorderedLogoCloud_LogoCloudWithBordersProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -472,7 +472,7 @@ type LogoCloud_LogoCloudVariant =
 type LogoCloud_LogoCloudTone = "boxed" | "outlined";
 
 interface LogoCloud_LogoCloudProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {
@@ -623,7 +623,7 @@ const __LogoCloud = LogoCloud_LogoCloud;
 type LogosGrid_LogosGridTone = "boxed" | "outlined" | "bordered";
 
 interface LogosGrid_LogosGridProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   logos?: {

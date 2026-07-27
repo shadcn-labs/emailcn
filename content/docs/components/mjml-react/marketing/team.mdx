@@ -35,19 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/team.tsx"
   />
   <ComponentSource
-    src="registry/bases/mjml-react/themes/theme-default.ts"
+    src="registry/themes/definitions/default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/email-theme.ts"
     base="mjml-react"
-    title="components/email/theme-default-tokens.ts"
-  />
-  <ComponentSource
-    src="registry/themes/types.ts"
-    base="mjml-react"
-    title="components/email/email-theme-types.ts"
+    title="components/email/email-theme.ts"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -89,7 +84,7 @@ import { Team } from "@/components/email/team";
 
 | Prop            | Type                                                                                                         | Default        | Description                               |
 | --------------- | ------------------------------------------------------------------------------------------------------------ | -------------- | ----------------------------------------- |
-| `theme`         | `EmailThemeTokens`                                                                                           | `defaultTheme` | Renderer theme configuration.             |
+| `theme`         | `EmailTheme`                                                                                                 | `defaultTheme` | Renderer theme configuration.             |
 | `members`       | `Array<{ name: string; role: string; avatar: { alt?: string; src: string }; bio?: string; email?: string }>` | -              | Configures the component's members.       |
 | `layout`        | `"cards" \| "compact" \| "grid" \| "bios"`                                                                   | `"cards"`      | Configures the component's layout.        |
 | `columns`       | `2 \| 3`                                                                                                     | `2`            | Configures the component's columns.       |

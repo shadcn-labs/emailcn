@@ -15,7 +15,8 @@ import { ContentSection as ContentGridSection } from "@/registry/bases/react-ema
 import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-email/components/marketing/cta/call-to-action";
 import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/components/marketing/footers/navigation-footer";
 import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface Props {
   _firstName?: string;
@@ -45,7 +46,7 @@ export const OnboardingDefault = ({
       <Preview>
         Welcome to {_productName}, {_firstName}
       </Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-4">

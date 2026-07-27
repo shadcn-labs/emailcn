@@ -12,7 +12,8 @@ import {
   Text,
 } from "react-email";
 
-import { slackTheme } from "@/registry/bases/react-email/themes/theme-slack";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { slackTheme } from "@/registry/themes/definitions/slack";
 
 interface Props {
   _logoUrl?: string;
@@ -48,7 +49,7 @@ export const NotificationSlack = ({
     <Html>
       <Head />
       <Preview>Join {teamName}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">

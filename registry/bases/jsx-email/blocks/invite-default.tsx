@@ -16,7 +16,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface Props {
   inviterName?: string;

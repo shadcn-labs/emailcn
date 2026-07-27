@@ -12,8 +12,8 @@ import {
   MjmlText,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type FullWidthImage_FullWidthImageVariant =
   | "default"
@@ -33,7 +33,7 @@ type FullWidthImage_FullWidthImageVariant =
   | "sides-alt";
 
 interface FullWidthImage_FullWidthImageProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc?: string;
   imageAlt?: string;
   pageBackgroundColor?: string;
@@ -125,7 +125,7 @@ type FullWidthOverlay_FullWidthImageWithOverlayVariant =
   | "sides-alt";
 
 interface FullWidthOverlay_FullWidthImageWithOverlayProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageSrc?: string;
   heading?: string;
   subtext?: string;

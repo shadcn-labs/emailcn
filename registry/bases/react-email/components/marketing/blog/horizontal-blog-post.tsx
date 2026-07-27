@@ -13,10 +13,11 @@ import {
   Column,
   Img,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -421,7 +422,7 @@ const BlogEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
@@ -438,7 +439,7 @@ const BlogEmailShell = ({
       />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -468,7 +469,7 @@ const BlogEmailShell = ({
 );
 
 interface HorizontalPlain_SinglePostHorizontalProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   author?: string;
   excerpt?: string;
   imageAlt?: string;
@@ -531,7 +532,7 @@ HorizontalPlain_SinglePostHorizontal.PreviewProps = {
 const __HorizontalPlain = HorizontalPlain_SinglePostHorizontal;
 
 interface HorizontalBoxed_BlogPostHorizontalBoxedProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   excerpt?: string;
   imageAlt?: string;
   imageSrc?: string;
@@ -588,7 +589,7 @@ HorizontalBoxed_BlogPostHorizontalBoxed.PreviewProps = {
 const __HorizontalBoxed = HorizontalBoxed_BlogPostHorizontalBoxed;
 
 interface HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   excerpt?: string;
   imageAlt1?: string;
   imageAlt2?: string;

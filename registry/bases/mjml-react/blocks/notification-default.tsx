@@ -1,7 +1,7 @@
 // Subject: {_action} — {_targetName}
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface Props {
   _logoUrl?: string;

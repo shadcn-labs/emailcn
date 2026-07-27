@@ -12,10 +12,11 @@ import {
   Img,
   Link,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -149,14 +150,14 @@ const DataTableEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: TailwindConfig;
+  theme: EmailTheme;
 }) => (
   <Html>
     <EmailHead>
       <DefaultFonts />
     </EmailHead>
     <Preview>{preview}</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{ backgroundColor: colors.canvas, fontFamily }}
         className="m-0"
@@ -186,7 +187,7 @@ const DataTableEmailShell = ({
 );
 
 interface BasicTable_DataTableBasicProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: string[][];
 }
@@ -410,7 +411,7 @@ const DataTableProgress = ({ value }: { value: number }) => {
 };
 
 interface DataTable4ColumnsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: string[][];
 }
@@ -430,7 +431,7 @@ const DataTable4ColumnsSection = ({
 );
 
 interface DataTableChangeIndicatorProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     change: string;
@@ -463,7 +464,7 @@ const DataTableChangeIndicatorSection = ({
 );
 
 interface DataTableEditButtonProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: { editHref?: string; name: string; role: string }[];
 }
@@ -489,7 +490,7 @@ const DataTableEditButtonSection = ({
 );
 
 interface DataTableLogosActionsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     actionHref?: string;
@@ -525,7 +526,7 @@ const DataTableLogosActionsSection = ({
 );
 
 interface DataTableWithPillsProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     name: string;
@@ -556,7 +557,7 @@ const DataTableWithPillsSection = ({
 );
 
 interface DataTableWithProgressProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: { label: string; progress: number; value: string }[];
 }

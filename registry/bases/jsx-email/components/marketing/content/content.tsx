@@ -13,13 +13,13 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties } from "react";
 
-import { EmailTailwind } from "@/components/email/email-tailwind";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
+import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export interface ContentProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   type?: "title" | "paragraph";
   columns?: 1 | 2;
   withIcons?: boolean;

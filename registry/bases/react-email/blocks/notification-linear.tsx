@@ -15,7 +15,8 @@ import {
   Text,
 } from "react-email";
 
-import { linearTheme } from "@/registry/bases/react-email/themes/theme-linear";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { linearTheme } from "@/registry/themes/definitions/linear";
 
 interface Props {
   _logoUrl?: string;
@@ -49,7 +50,7 @@ export const NotificationLinear = ({
     <Html>
       <Head />
       <Preview>New notification</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">

@@ -12,10 +12,11 @@ import {
   Img,
   Tailwind,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface TwoColumnPricing_PricingPlanFeature {
   label: string;
@@ -33,7 +34,7 @@ interface TwoColumnPricing_PricingPlan {
 }
 
 interface TwoColumnPricing_TwoColumnsPricingTableProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   plans?: TwoColumnPricing_PricingPlan[];
   pageBackgroundColor?: string;
   backgroundColor?: string;
@@ -314,7 +315,7 @@ const TwoColumnPricing_TwoColumnsPricingTable = ({
       />
     </EmailHead>
     <Preview>Pricing plans</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,
@@ -343,7 +344,7 @@ interface SinglePricing_PricingFeature {
 }
 
 interface SinglePricing_FullWidthSinglePricingProps {
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   name?: string;
   price?: string;
   currency?: string;
@@ -578,7 +579,7 @@ const SinglePricing_FullWidthSinglePricing = ({
       />
     </EmailHead>
     <Preview>Takeoff pricing</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body
         style={{
           backgroundColor: pageBackgroundColor,

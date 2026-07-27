@@ -16,7 +16,8 @@ import {
 } from "react-email";
 
 import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/components/ecommerce/product-lists/product-list";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface ReceiptItem {
   name: string;
@@ -57,7 +58,7 @@ export const ReceiptDefault = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">

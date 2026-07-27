@@ -11,8 +11,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 const colors = {
   border: "#e5e7eb",
@@ -143,7 +143,7 @@ const DataTableEmailShell = ({
 }: {
   children: ReactNode;
   preview: string;
-  theme: EmailThemeTokens;
+  theme: EmailTheme;
 }) => (
   <Mjml>
     <MjmlHead>
@@ -161,7 +161,7 @@ const DataTableEmailShell = ({
 );
 
 interface BasicTable_DataTableBasicProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: string[][];
 }
@@ -388,7 +388,7 @@ const DataTableProgress = ({ value }: { value: number }) => {
 };
 
 interface DataTable4ColumnsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: string[][];
 }
@@ -408,7 +408,7 @@ const DataTable4ColumnsSection = ({
 );
 
 interface DataTableChangeIndicatorProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     change: string;
@@ -441,7 +441,7 @@ const DataTableChangeIndicatorSection = ({
 );
 
 interface DataTableEditButtonProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: { editHref?: string; name: string; role: string }[];
 }
@@ -467,7 +467,7 @@ const DataTableEditButtonSection = ({
 );
 
 interface DataTableLogosActionsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     actionHref?: string;
@@ -503,7 +503,7 @@ const DataTableLogosActionsSection = ({
 );
 
 interface DataTableWithPillsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: {
     name: string;
@@ -534,7 +534,7 @@ const DataTableWithPillsSection = ({
 );
 
 interface DataTableWithProgressProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   headers?: string[];
   rows?: { label: string; progress: number; value: string }[];
 }

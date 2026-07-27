@@ -11,10 +11,11 @@ import {
   Tailwind,
   Text,
 } from "react-email";
-import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
-import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 export type GridVariant =
   | "one-column"
@@ -49,7 +50,7 @@ const textStyle: CSSProperties = {
 export interface GridProps {
   align?: GridAlign;
   cells?: string[];
-  theme?: TailwindConfig;
+  theme?: EmailTheme;
   variant?: GridVariant;
 }
 
@@ -96,7 +97,7 @@ export const Grid = ({
       />
     </EmailHead>
     <Preview>Grid</Preview>
-    <Tailwind config={theme}>
+    <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: "#ffffff" }} className="m-0">
         <Container className="mx-auto max-w-[600px]">
           <GridSection align={align} cells={cells} variant={variant} />

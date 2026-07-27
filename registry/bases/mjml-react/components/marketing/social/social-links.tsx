@@ -13,8 +13,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 interface SimpleSocials_SimpleSocialLogoItem {
   alt: string;
@@ -23,7 +23,7 @@ interface SimpleSocials_SimpleSocialLogoItem {
 }
 
 interface SimpleSocials_SimpleSocialLogosRowProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SimpleSocials_SimpleSocialLogoItem[];
@@ -140,7 +140,7 @@ interface SocialLogos_SocialLogoItem {
 }
 
 interface SocialLogos_SocialLogosProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialLogos_SocialLogoItem[];
@@ -267,7 +267,7 @@ interface SocialLabels_LabeledSocialItem {
 }
 
 interface SocialLabels_SocialsWithLabelsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialLabels_LabeledSocialItem[];
@@ -413,7 +413,7 @@ interface SocialTileLabels_TiledSocialItem {
 }
 
 interface SocialTileLabels_SocialsWithTileLabelsProps {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   title?: string;
   description?: string;
   items?: SocialTileLabels_TiledSocialItem[];

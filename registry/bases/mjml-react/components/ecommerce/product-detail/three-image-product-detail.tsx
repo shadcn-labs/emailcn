@@ -15,8 +15,8 @@ import {
   MjmlWrapper,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { defaultTheme } from "@/registry/themes/definitions/default";
 
 type ProductDetailWithDetailsVariant =
   | "rating-bottom"
@@ -281,7 +281,7 @@ interface ProductDetail_ProductDetailThreeImagesProps extends Omit<
   ProductDetailContentOverrides,
   "imageUrls"
 > {
-  theme?: EmailThemeTokens;
+  theme?: EmailTheme;
   imageUrl1?: string;
   imageUrl2?: string;
   imageUrl3?: string;
