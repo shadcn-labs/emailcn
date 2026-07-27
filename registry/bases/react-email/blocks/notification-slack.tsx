@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { slackTheme } from "@/registry/themes/definitions/slack";
+import { slackTheme } from "@/registry/themes/slack";
 
 interface Props {
   _logoUrl?: string;

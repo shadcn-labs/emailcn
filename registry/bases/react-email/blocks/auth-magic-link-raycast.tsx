@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { raycastTheme } from "@/registry/themes/definitions/raycast";
+import { raycastTheme } from "@/registry/themes/raycast";
 
 interface Props {
   _logoUrl?: string;

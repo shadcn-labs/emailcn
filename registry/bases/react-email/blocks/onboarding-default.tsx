@@ -16,7 +16,7 @@ import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-
 import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/components/marketing/footers/navigation-footer";
 import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { defaultTheme } from "@/registry/themes/definitions/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _firstName?: string;

@@ -17,8 +17,8 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import { linearTheme } from "@/registry/themes/definitions/linear";
+import { defaultTheme } from "@/registry/themes/default";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;

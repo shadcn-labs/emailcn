@@ -13,7 +13,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
-import { defaultTheme } from "@/registry/themes/definitions/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 export const HeaderEmailShell = ({
   children,

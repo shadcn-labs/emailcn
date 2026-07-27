@@ -16,7 +16,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { linearTheme } from "@/registry/themes/definitions/linear";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
   _logoUrl?: string;

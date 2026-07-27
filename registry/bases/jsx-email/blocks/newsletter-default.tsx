@@ -15,7 +15,7 @@ import {
   Text,
 } from "jsx-email";
 
-import { defaultTheme } from "@/registry/themes/definitions/default";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;

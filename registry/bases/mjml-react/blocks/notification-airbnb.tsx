@@ -1,7 +1,7 @@
 // Subject: Share your experience at {_targetName}
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { airbnbTheme } from "@/registry/themes/definitions/airbnb";
+import { airbnbTheme } from "@/registry/themes/airbnb";
 
 interface Props {
   _logoUrl?: string;

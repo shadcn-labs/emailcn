@@ -17,7 +17,7 @@ import {
 
 import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/components/ecommerce/product-lists/product-list";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { appleTheme } from "@/registry/themes/definitions/apple";
+import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
   name: string;

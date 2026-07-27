@@ -15,7 +15,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
-import { stripeTheme } from "@/registry/themes/definitions/stripe";
+import { stripeTheme } from "@/registry/themes/stripe";
 
 interface Props {
   _logoUrl?: string;

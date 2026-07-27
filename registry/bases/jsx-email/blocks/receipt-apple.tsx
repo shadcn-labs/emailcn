@@ -17,8 +17,8 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
-import { appleTheme } from "@/registry/themes/definitions/apple";
-import { defaultTheme } from "@/registry/themes/definitions/default";
+import { appleTheme } from "@/registry/themes/apple";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface ProductCardProps {
   imageUrl?: string;

@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { notionTheme } from "@/registry/themes/definitions/notion";
+import { notionTheme } from "@/registry/themes/notion";
 
 interface Props {
   _logoUrl?: string;

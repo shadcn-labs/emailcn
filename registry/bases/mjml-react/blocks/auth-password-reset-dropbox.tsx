@@ -1,7 +1,7 @@
 // Subject: Reset your password for {_productName}
 
 import { PasswordResetBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { dropboxTheme } from "@/registry/themes/definitions/dropbox";
+import { dropboxTheme } from "@/registry/themes/dropbox";
 
 interface Props {
   _logoUrl?: string;

@@ -1,7 +1,7 @@
 // Subject: [{issueNumber}] {_action} — {_targetName}
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { linearTheme } from "@/registry/themes/definitions/linear";
+import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
   _logoUrl?: string;

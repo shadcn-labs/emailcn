@@ -13,7 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { dropboxTheme } from "@/registry/themes/definitions/dropbox";
+import { dropboxTheme } from "@/registry/themes/dropbox";
 
 interface Props {
   _logoUrl?: string;

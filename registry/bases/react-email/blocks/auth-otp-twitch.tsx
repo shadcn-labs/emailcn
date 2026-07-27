@@ -12,7 +12,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { twitchTheme } from "@/registry/themes/definitions/twitch";
+import { twitchTheme } from "@/registry/themes/twitch";
 
 interface Props {
   _logoUrl?: string;

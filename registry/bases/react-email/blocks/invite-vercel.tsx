@@ -16,7 +16,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { vercelTheme } from "@/registry/themes/definitions/vercel";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   inviterName?: string;

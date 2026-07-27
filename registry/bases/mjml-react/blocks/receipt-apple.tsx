@@ -1,7 +1,7 @@
 // Subject: Your receipt from Apple
 
 import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { appleTheme } from "@/registry/themes/definitions/apple";
+import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
   name: string;

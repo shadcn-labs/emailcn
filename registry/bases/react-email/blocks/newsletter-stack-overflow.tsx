@@ -14,7 +14,7 @@ import {
 
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { stackOverflowTheme } from "@/registry/themes/definitions/stack-overflow";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface Article {
   title: string;

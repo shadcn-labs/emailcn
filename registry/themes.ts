@@ -1,18 +1,17 @@
-import { airbnbTheme } from "@/registry/themes/definitions/airbnb";
-import { appleTheme } from "@/registry/themes/definitions/apple";
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import { dropboxTheme } from "@/registry/themes/definitions/dropbox";
-import { githubTheme } from "@/registry/themes/definitions/github";
-import { linearTheme } from "@/registry/themes/definitions/linear";
-import { nikeTheme } from "@/registry/themes/definitions/nike";
-import { notionTheme } from "@/registry/themes/definitions/notion";
-import { raycastTheme } from "@/registry/themes/definitions/raycast";
-import { slackTheme } from "@/registry/themes/definitions/slack";
-import { stackOverflowTheme } from "@/registry/themes/definitions/stack-overflow";
-import { stripeTheme } from "@/registry/themes/definitions/stripe";
-import { twitchTheme } from "@/registry/themes/definitions/twitch";
-import { vercelTheme } from "@/registry/themes/definitions/vercel";
-import type { EmailTheme } from "@/registry/themes/types";
+import { airbnbTheme } from "@/registry/themes/airbnb";
+import { appleTheme } from "@/registry/themes/apple";
+import { defaultTheme } from "@/registry/themes/default";
+import { dropboxTheme } from "@/registry/themes/dropbox";
+import { githubTheme } from "@/registry/themes/github";
+import { linearTheme } from "@/registry/themes/linear";
+import { nikeTheme } from "@/registry/themes/nike";
+import { notionTheme } from "@/registry/themes/notion";
+import { raycastTheme } from "@/registry/themes/raycast";
+import { slackTheme } from "@/registry/themes/slack";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
+import { stripeTheme } from "@/registry/themes/stripe";
+import { twitchTheme } from "@/registry/themes/twitch";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 const THEMES_BY_NAME = {
   airbnb: airbnbTheme,
@@ -29,7 +28,7 @@ const THEMES_BY_NAME = {
   stripe: stripeTheme,
   twitch: twitchTheme,
   vercel: vercelTheme,
-} satisfies Record<string, EmailTheme>;
+};
 
 export const THEME_PRIMARY_BY_NAME = {
   airbnb: THEMES_BY_NAME.airbnb.colorPrimary,

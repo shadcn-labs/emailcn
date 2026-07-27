@@ -17,7 +17,7 @@ import { NavigationFooterSection as FooterSection } from "@/registry/bases/react
 import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/components/marketing/headers/header-with-logo-and-menu";
 import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
-import { vercelTheme } from "@/registry/themes/definitions/vercel";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   _firstName?: string;
