@@ -1368,11 +1368,18 @@ export interface UtilityFooterProps {
   title?: string;
   alignment?: "left" | "center" | "right";
   columns?: 1 | 2;
+  logoPosition?: "left" | "right";
   backgroundImage?: {
     src: string;
     alt?: string;
     position?: "top" | "bottom";
   };
+  variant?:
+    | Parameters<typeof __AppStoreFooter>[0]["variant"]
+    | Parameters<typeof __BackgroundFooter>[0]["variant"]
+    | Parameters<typeof __LocationsFooter>[0]["variant"]
+    | Parameters<typeof __AddressFooter>[0]["variant"]
+    | Parameters<typeof __SimpleSocialFooter>[0]["variant"];
 }
 
 const footerBrandValues = (brand: FooterBrand | undefined) => {
@@ -1428,6 +1435,11 @@ const utilitySocialVariant = (
   return "centered";
 };
 
+const utilityFooterDefinedProps = <Props extends object>(props: Props) =>
+  Object.fromEntries(
+    Object.entries(props).filter(([, value]) => value !== undefined)
+  ) as Partial<Props>;
+
 export const UtilityFooter = ({
   theme,
   brand,
@@ -1439,92 +1451,122 @@ export const UtilityFooter = ({
   title,
   alignment = "center",
   columns = 1,
+  logoPosition = "left",
   backgroundImage,
+  variant: variantOverride,
 }: UtilityFooterProps) => {
   const footerBrand = footerBrandValues(brand);
   const footerLegal = footerLegalValues(legal);
+  const baseProps = utilityFooterDefinedProps({
+    theme,
+    unsubscribeHref: footerLegal.unsubscribeHref,
+  });
   if (backgroundImage) {
     return (
       <__BackgroundFooter
-        bottomImageSrc={
-          backgroundImage.position === "bottom"
-            ? backgroundImage.src
-            : undefined
-        }
-        logoSrc={footerBrand.logoSrc}
-        theme={theme}
-        topImageSrc={
-          backgroundImage.position === "bottom"
-            ? undefined
-            : backgroundImage.src
-        }
-        unsubscribeHref={footerLegal.unsubscribeHref}
+        {...baseProps}
+        logoPosition={logoPosition}
         variant={
-          backgroundImage.position === "bottom"
-            ? "bottom-image-content"
-            : "top-image-content"
+          (variantOverride ??
+            (backgroundImage.position === "bottom"
+              ? "bottom-image-content"
+              : "top-image-content")) as Parameters<
+            typeof __BackgroundFooter
+          >[0]["variant"]
         }
+        {...utilityFooterDefinedProps({
+          bottomImageSrc:
+            backgroundImage.position === "bottom"
+              ? backgroundImage.src
+              : undefined,
+          logoSrc: footerBrand.logoSrc,
+          topImageSrc:
+            backgroundImage.position === "bottom"
+              ? undefined
+              : backgroundImage.src,
+        })}
       />
     );
   }
   if (content === "locations") {
     return (
       <__LocationsFooter
-        locations={locations}
-        logoAlt={footerBrand.logoAlt}
-        logoHref={footerBrand.logoHref}
-        logoSrc={footerBrand.logoSrc}
-        theme={theme}
-        unsubscribeHref={footerLegal.unsubscribeHref}
-        variant={columns === 2 ? "grid" : "stacked"}
+        {...baseProps}
+        variant={
+          (variantOverride ??
+            (columns === 2 ? "grid" : "stacked")) as Parameters<
+            typeof __LocationsFooter
+          >[0]["variant"]
+        }
+        {...utilityFooterDefinedProps({
+          locations,
+          logoAlt: footerBrand.logoAlt,
+          logoHref: footerBrand.logoHref,
+          logoSrc: footerBrand.logoSrc,
+        })}
       />
     );
   }
   if (content === "app-stores") {
     return (
       <__AppStoreFooter
-        theme={theme}
-        title={title}
-        unsubscribeHref={footerLegal.unsubscribeHref}
-        variant={utilityAppStoreVariant(title, columns)}
+        {...baseProps}
+        variant={
+          (variantOverride ??
+            utilityAppStoreVariant(title, columns)) as Parameters<
+            typeof __AppStoreFooter
+          >[0]["variant"]
+        }
+        {...utilityFooterDefinedProps({ title })}
       />
     );
   }
   if (content === "legal") {
     return (
       <__LegalFooter
-        legalText={footerLegal.text}
-        socials={socials}
-        theme={theme}
-        unsubscribeHref={footerLegal.unsubscribeHref}
+        {...baseProps}
+        {...utilityFooterDefinedProps({
+          legalText: footerLegal.text,
+          socials,
+        })}
       />
     );
   }
   if (content === "address") {
     return (
       <__AddressFooter
-        address={address}
-        legalText={footerLegal.text}
-        logoAlt={footerBrand.logoAlt}
-        logoHref={footerBrand.logoHref}
-        logoSrc={footerBrand.logoSrc}
-        socials={socials}
-        theme={theme}
-        title={title}
-        unsubscribeHref={footerLegal.unsubscribeHref}
-        variant={utilityAddressVariant(alignment)}
+        {...baseProps}
+        variant={
+          (variantOverride ?? utilityAddressVariant(alignment)) as Parameters<
+            typeof __AddressFooter
+          >[0]["variant"]
+        }
+        {...utilityFooterDefinedProps({
+          address,
+          legalText: footerLegal.text,
+          logoAlt: footerBrand.logoAlt,
+          logoHref: footerBrand.logoHref,
+          logoSrc: footerBrand.logoSrc,
+          socials,
+          title,
+        })}
       />
     );
   }
   return (
     <__SimpleSocialFooter
-      logoAlt={footerBrand.logoAlt}
-      logoHref={footerBrand.logoHref}
-      logoSrc={footerBrand.logoSrc}
-      socials={socials}
-      theme={theme}
-      unsubscribeHref={footerLegal.unsubscribeHref}
-      variant={utilitySocialVariant(alignment)}
+      {...baseProps}
+      variant={
+        (variantOverride ?? utilitySocialVariant(alignment)) as Parameters<
+          typeof __SimpleSocialFooter
+        >[0]["variant"]
+      }
+      {...utilityFooterDefinedProps({
+        logoAlt: footerBrand.logoAlt,
+        logoHref: footerBrand.logoHref,
+        logoSrc: footerBrand.logoSrc,
+        socials,
+      })}
     />
   );
 };
@@ -1533,4 +1575,5 @@ UtilityFooter.PreviewProps = {
   alignment: "center",
   columns: 1,
   content: "socials",
+  logoPosition: "left",
 } satisfies UtilityFooterProps;

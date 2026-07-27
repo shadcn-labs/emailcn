@@ -1,17 +1,16 @@
-import { Fragment } from "react";
 import type { CSSProperties } from "react";
 import {
   Body,
+  Column,
   Container,
   Head as EmailHead,
   Html,
-  Preview,
-  Tailwind,
-  Column,
-  Text,
-  Section,
-  Row,
   Img,
+  Preview,
+  Row,
+  Section,
+  Tailwind,
+  Text,
 } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
@@ -19,123 +18,168 @@ import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/e
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
 import { defaultTheme } from "@/registry/themes/default";
 
+export type ContentAlignment = "left" | "center" | "right";
+export type ContentLayout =
+  | "title"
+  | "paragraph"
+  | "two-columns"
+  | "two-columns-with-icons";
+export type ContentPadding = "regular" | "large";
+export type ContentVariant = "small" | "large" | "lead" | "body";
+
 export interface ContentProps {
-  theme?: EmailTheme;
-  type?: "title" | "paragraph";
-  columns?: 1 | 2;
-  withIcons?: boolean;
-  padding?: "regular" | "large";
-  title?: string;
-  text?: string;
+  alignment?: ContentAlignment;
   column1?: string;
   column2?: string;
-  iconSrc1?: string;
   iconAlt1?: string;
-  iconSrc2?: string;
   iconAlt2?: string;
+  iconSrc1?: string;
+  iconSrc2?: string;
+  layout?: ContentLayout;
+  padding?: ContentPadding;
+  text?: string;
+  theme?: EmailTheme;
+  title?: string;
+  variant?: ContentVariant;
 }
 
 const colors = {
-  background: "#ffffff",
-  heading: "#111827",
-  muted: "#6b7280",
+  background: "#fffffe",
+  heading: "#030712",
+  muted: "#4b5563",
 } as const;
 
 const fontFamily =
   'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-const paragraphStyle: CSSProperties = {
-  color: colors.muted,
-  fontFamily,
-  fontSize: "16px",
-  lineHeight: "26px",
-  margin: 0,
-};
-
-const columnPadding = [
-  { padding: "0 16px 0 0" },
-  { padding: "0 0 0 16px" },
+const defaultIconSources = [
+  "https://cdn.simpleicons.org/github/111827",
+  "https://cdn.simpleicons.org/slack/4A154B",
 ] as const;
 
+const getImageMargin = (alignment: ContentAlignment) => {
+  if (alignment === "center") {
+    return "0 auto 10px";
+  }
+
+  if (alignment === "right") {
+    return "0 0 10px auto";
+  }
+
+  return "0 auto 10px 0";
+};
+
+const getTitleTypography = (variant?: ContentVariant) => {
+  if (variant === "large") {
+    return { fontSize: "30px", lineHeight: "36px" };
+  }
+
+  return { fontSize: "24px", lineHeight: "32px" };
+};
+
+const getParagraphTypography = (variant?: ContentVariant) => {
+  if (variant === "body") {
+    return { fontSize: "16px", lineHeight: "24px" };
+  }
+
+  return { fontSize: "18px", lineHeight: "28px" };
+};
+
 const ContentColumn = ({
+  alignment,
   alt,
+  fontSize,
   iconSrc,
   index,
+  lineHeight,
   text,
   withIcon,
 }: {
+  alignment: ContentAlignment;
   alt: string;
-  iconSrc?: string;
+  fontSize: string;
+  iconSrc: string;
   index: 0 | 1;
+  lineHeight: string;
   text: string;
   withIcon: boolean;
-}) => (
-  <Column
-    className="content-column"
-    style={{
-      ...columnPadding[index],
-      verticalAlign: "top",
-      width: "50%",
-    }}
-    width="50%"
-  >
-    {withIcon && iconSrc ? (
-      <Img
-        alt={alt}
-        height="24"
-        src={iconSrc}
-        width="24"
-        style={{
-          display: "block",
-          height: "24px",
-          margin: "0 auto 12px",
-          width: "24px",
-        }}
-      />
-    ) : null}
-    <Text
-      style={{
-        ...paragraphStyle,
-        textAlign: withIcon ? "center" : "left",
-      }}
-    >
-      {text}
-    </Text>
-  </Column>
-);
+}) => {
+  const columnPadding = index === 0 ? "0 22px 0 0" : "0 0 0 22px";
 
-export const ContentSection = ({
-  type = "paragraph",
-  columns = 1,
-  withIcons = false,
-  padding = "regular",
-  title = "Section Title",
-  text = "This is a paragraph used to present information in a clear and readable way.",
-  column1 = "This is the first column of a two-column paragraph layout.",
-  column2 = "This is the second column of a two-column paragraph layout.",
-  iconSrc1,
-  iconAlt1 = "Icon 1",
-  iconSrc2,
-  iconAlt2 = "Icon 2",
-}: Omit<ContentProps, "theme">) => {
-  const verticalPadding = padding === "large" ? "64px 0" : "32px 0";
-  if (type === "title") {
-    return (
-      <Section
+  return (
+    <Column
+      className="content-column"
+      style={{
+        padding: columnPadding,
+        verticalAlign: "top",
+        width: "50%",
+      }}
+      width="50%"
+    >
+      {withIcon ? (
+        <Img
+          alt={alt}
+          height="48"
+          src={iconSrc}
+          width="48"
+          style={{
+            display: "block",
+            height: "48px",
+            margin: getImageMargin(alignment),
+            width: "48px",
+          }}
+        />
+      ) : null}
+      <Text
         style={{
-          backgroundColor: colors.background,
-          padding: verticalPadding,
+          color: colors.muted,
+          fontFamily,
+          fontSize,
+          lineHeight,
+          margin: 0,
+          textAlign: alignment,
         }}
       >
+        {text}
+      </Text>
+    </Column>
+  );
+};
+
+export const ContentSection = ({
+  alignment = "center",
+  column1 = "A brief introduction that highlights the key idea in a clear, engaging way.",
+  column2 = "A brief introduction that highlights the key idea in a clear, engaging way.",
+  iconAlt1 = "GitHub",
+  iconAlt2 = "Slack",
+  iconSrc1 = defaultIconSources[0],
+  iconSrc2 = defaultIconSources[1],
+  layout = "paragraph",
+  padding = "regular",
+  text = "Lead text introduces the reader to the key message of an email. It sets the tone, provides context, and guides attention toward what matters most.",
+  title = "Stay in the loop by following us across our social channels.",
+  variant,
+}: Omit<ContentProps, "theme">) => {
+  const horizontalPadding = padding === "large" ? "64px" : "24px";
+  const sectionStyle: CSSProperties = {
+    backgroundColor: colors.background,
+    padding: `44px ${horizontalPadding}`,
+  };
+
+  if (layout === "title") {
+    const typography = getTitleTypography(variant);
+
+    return (
+      <Section style={sectionStyle}>
         <Text
           style={{
             color: colors.heading,
             fontFamily,
-            fontSize: "24px",
-            fontWeight: 700,
-            lineHeight: "32px",
+            fontSize: typography.fontSize,
+            fontWeight: 600,
+            lineHeight: typography.lineHeight,
             margin: 0,
-            textAlign: "center",
+            textAlign: alignment,
           }}
         >
           {title}
@@ -143,66 +187,72 @@ export const ContentSection = ({
       </Section>
     );
   }
-  if (columns === 2) {
+
+  const typography = getParagraphTypography(variant);
+
+  if (layout === "two-columns" || layout === "two-columns-with-icons") {
+    const withIcons = layout === "two-columns-with-icons";
+
     return (
-      <Section
-        style={{
-          backgroundColor: colors.background,
-          padding: verticalPadding,
-        }}
-      >
-        <Section
-          style={{ borderCollapse: "collapse", width: "100%" }}
-          width="100%"
-        >
-          <Fragment>
-            <Row>
-              <ContentColumn
-                alt={iconAlt1}
-                iconSrc={iconSrc1}
-                index={0}
-                text={column1}
-                withIcon={withIcons}
-              />
-              <ContentColumn
-                alt={iconAlt2}
-                iconSrc={iconSrc2}
-                index={1}
-                text={column2}
-                withIcon={withIcons}
-              />
-            </Row>
-          </Fragment>
-        </Section>
+      <Section style={sectionStyle}>
+        <Row>
+          <ContentColumn
+            alignment={alignment}
+            alt={iconAlt1}
+            fontSize={typography.fontSize}
+            iconSrc={iconSrc1}
+            index={0}
+            lineHeight={typography.lineHeight}
+            text={column1}
+            withIcon={withIcons}
+          />
+          <ContentColumn
+            alignment={alignment}
+            alt={iconAlt2}
+            fontSize={typography.fontSize}
+            iconSrc={iconSrc2}
+            index={1}
+            lineHeight={typography.lineHeight}
+            text={column2}
+            withIcon={withIcons}
+          />
+        </Row>
       </Section>
     );
   }
+
   return (
-    <Section
-      style={{
-        backgroundColor: colors.background,
-        padding: verticalPadding,
-      }}
-    >
-      <Text style={{ ...paragraphStyle, textAlign: "center" }}>{text}</Text>
+    <Section style={sectionStyle}>
+      <Text
+        style={{
+          color: colors.muted,
+          fontFamily,
+          fontSize: typography.fontSize,
+          lineHeight: typography.lineHeight,
+          margin: 0,
+          textAlign: alignment,
+        }}
+      >
+        {text}
+      </Text>
     </Section>
   );
 };
 
 export const Content = ({
-  theme = defaultTheme,
-  type = "paragraph",
-  columns = 1,
-  withIcons = false,
-  padding = "regular",
-  title,
-  text,
+  alignment = "center",
   column1,
   column2,
-  iconSrc1,
   iconAlt1,
-  iconSrc2,
   iconAlt2,
+  iconSrc1,
+  iconSrc2,
+  layout = "paragraph",
+  padding = "regular",
+  text,
+  theme = defaultTheme,
+  title,
+  variant,
 }: ContentProps) => (
   <Html>
     <EmailHead>
@@ -213,7 +263,7 @@ export const Content = ({
             @media only screen and (max-width: 600px) {
               .content-column {
                 display: block !important;
-                padding: 0 0 24px !important;
+                padding: 0 0 44px !important;
                 width: 100% !important;
               }
               .content-column:last-child { padding-bottom: 0 !important; }
@@ -222,23 +272,23 @@ export const Content = ({
         }}
       />
     </EmailHead>
-    <Preview>{type === "title" ? (title ?? "Title") : "Content"}</Preview>
+    <Preview>{layout === "title" ? (title ?? "Title") : "Content"}</Preview>
     <Tailwind config={createEmailTailwindConfig(theme)}>
       <Body style={{ backgroundColor: colors.background }} className="m-0">
         <Container className="mx-auto max-w-[600px]">
           <ContentSection
-            type={type}
-            columns={columns}
-            withIcons={withIcons}
-            padding={padding}
-            title={title}
-            text={text}
+            alignment={alignment}
             column1={column1}
             column2={column2}
-            iconSrc1={iconSrc1}
             iconAlt1={iconAlt1}
-            iconSrc2={iconSrc2}
             iconAlt2={iconAlt2}
+            iconSrc1={iconSrc1}
+            iconSrc2={iconSrc2}
+            layout={layout}
+            padding={padding}
+            text={text}
+            title={title}
+            variant={variant}
           />
         </Container>
       </Body>
@@ -247,10 +297,9 @@ export const Content = ({
 );
 
 Content.PreviewProps = {
-  columns: 1,
+  alignment: "center",
+  layout: "paragraph",
   padding: "regular",
-  text: "This is a paragraph used to present information in a clear and readable way.",
   theme: defaultTheme,
-  type: "paragraph",
-  withIcons: false,
+  variant: "lead",
 } satisfies ContentProps;

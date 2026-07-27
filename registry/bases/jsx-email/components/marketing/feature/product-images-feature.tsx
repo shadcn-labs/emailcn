@@ -448,7 +448,26 @@ export interface ProductImagesFeatureProps {
     iconSrc?: string;
   };
   placement?: "left" | "right";
+  presentation?: "images" | "logo";
 }
+
+const productImagesFeatureValues = ({
+  action,
+  images,
+  logo,
+}: Pick<ProductImagesFeatureProps, "action" | "images" | "logo">) => ({
+  arrowIconSrc: action?.iconSrc,
+  buttonHref: action?.href,
+  buttonLabel: action?.label,
+  largeImageAlt: images?.[0]?.alt,
+  largeImageSrc: images?.[0]?.src,
+  logoAlt: logo?.alt,
+  logoSrc: logo?.src,
+  middleImageAlt: images?.[1]?.alt,
+  middleImageSrc: images?.[1]?.src,
+  smallImageAlt: images?.[2]?.alt,
+  smallImageSrc: images?.[2]?.src,
+});
 
 export const ProductImagesFeature = ({
   theme,
@@ -458,26 +477,24 @@ export const ProductImagesFeature = ({
   logo,
   action,
   placement = "right",
-}: ProductImagesFeatureProps) => (
-  <__Feature
-    arrowIconSrc={action?.iconSrc}
-    body={body}
-    buttonHref={action?.href}
-    buttonLabel={action?.label}
-    heading={heading}
-    largeImageAlt={images?.[0]?.alt}
-    largeImageSrc={images?.[0]?.src}
-    logoAlt={logo?.alt}
-    logoSrc={logo?.src}
-    middleImageAlt={images?.[1]?.alt}
-    middleImageSrc={images?.[1]?.src}
-    smallImageAlt={images?.[2]?.alt}
-    smallImageSrc={images?.[2]?.src}
-    theme={theme}
-    variant={`images-${placement}`}
-  />
-);
+  presentation = "images",
+}: ProductImagesFeatureProps) => {
+  const values = productImagesFeatureValues({ action, images, logo });
+
+  return (
+    <__Feature
+      {...values}
+      body={body}
+      heading={heading}
+      theme={theme}
+      variant={
+        presentation === "logo" ? `logo-${placement}` : `images-${placement}`
+      }
+    />
+  );
+};
 
 ProductImagesFeature.PreviewProps = {
   placement: "right",
+  presentation: "images",
 } satisfies ProductImagesFeatureProps;

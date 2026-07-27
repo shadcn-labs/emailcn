@@ -67,21 +67,45 @@ import { ProductImagesFeature } from "@/components/email/product-images-feature"
 
 ## Examples
 
-### Images on the left
+### Feature with multiple product images
+
+#### logo left
 
 <ComponentPreview
   base="react-email"
-  name="product-images-feature-images-on-the-left-example-demo"
+  name="product-images-feature-presentation-logo-placement-left-example-demo"
+/>
+
+#### logo right
+
+<ComponentPreview
+  base="react-email"
+  name="product-images-feature-presentation-logo-placement-right-example-demo"
+/>
+
+#### images left
+
+<ComponentPreview
+  base="react-email"
+  name="product-images-feature-presentation-images-placement-left-example-demo"
+/>
+
+#### images right
+
+<ComponentPreview
+  base="react-email"
+  name="product-images-feature-presentation-images-placement-right-example-demo"
 />
 
 ## API Reference
 
-| Prop        | Type                                                | Default        | Description                           |
-| ----------- | --------------------------------------------------- | -------------- | ------------------------------------- |
-| `theme`     | `EmailTheme`                                        | `defaultTheme` | Renderer theme configuration.         |
-| `heading`   | `string`                                            | -              | Configures the component's heading.   |
-| `body`      | `string`                                            | -              | Configures the component's body.      |
-| `images`    | `Array<{ src: string; alt?: string }>`              | -              | Configures the component's images.    |
-| `logo`      | `{ src: string; alt?: string }`                     | -              | Configures the component's logo.      |
-| `action`    | `{ href: string; label: string; iconSrc?: string }` | -              | Configures the component's action.    |
-| `placement` | `"left" \| "right"`                                 | `"right"`      | Configures the component's placement. |
+| Prop           | Type                                                | Default        | Description                                    |
+| -------------- | --------------------------------------------------- | -------------- | ---------------------------------------------- |
+| `theme`        | `EmailTheme`                                        | `defaultTheme` | Renderer theme configuration.                  |
+| `heading`      | `string`                                            | -              | Configures the component's heading.            |
+| `body`         | `string`                                            | -              | Configures the component's body.               |
+| `images`       | `Array<{ src: string; alt?: string }>`              | -              | Configures the component's images.             |
+| `logo`         | `{ src: string; alt?: string }`                     | -              | Configures the component's logo.               |
+| `action`       | `{ href: string; label: string; iconSrc?: string }` | -              | Configures the component's action.             |
+| `placement`    | `"left" \| "right"`                                 | `"right"`      | Configures the component's placement.          |
+| `presentation` | `"images" \| "logo"`                                | `"images"`     | Selects the image collage or logo composition. |

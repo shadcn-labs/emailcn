@@ -1164,6 +1164,12 @@ export interface NavigationFooterProps {
   logoPosition?: "left" | "right" | "top" | "bottom";
   divider?: boolean;
   oversizedLogo?: boolean;
+  variant?:
+    | Parameters<typeof __DividerMenuFooter>[0]["variant"]
+    | Parameters<typeof __TwoColumnFooter>[0]["variant"]
+    | Parameters<typeof __ThreeColumnFooter>[0]["variant"]
+    | Parameters<typeof __FullMenuFooter>[0]["variant"]
+    | Parameters<typeof __TextMenuFooter>[0]["variant"];
 }
 
 const footerBrandValues = (brand: FooterBrand | undefined) => {
@@ -1184,6 +1190,16 @@ const footerLegalValues = (legal: FooterLegal | undefined) => ({
 
 const footerMenuLinks = (menu: FooterMenu | undefined) => menu?.links;
 
+const sideVariant = (
+  variant: NavigationFooterProps["variant"],
+  logoPosition: NavigationFooterProps["logoPosition"]
+) => variant ?? (logoPosition === "right" ? "right-logo" : "left-logo");
+
+const navigationFooterDefinedProps = <Props extends object>(props: Props) =>
+  Object.fromEntries(
+    Object.entries(props).filter(([, value]) => value !== undefined)
+  ) as Partial<Props>;
+
 export const NavigationFooter = ({
   theme,
   brand,
@@ -1196,6 +1212,7 @@ export const NavigationFooter = ({
   logoPosition = "left",
   divider = false,
   oversizedLogo = false,
+  variant: variantOverride,
 }: NavigationFooterProps) => {
   const footerBrand = footerBrandValues(brand);
   const footerLegal = footerLegalValues(legal);
@@ -1203,36 +1220,51 @@ export const NavigationFooter = ({
   const quickLinks = footerMenuLinks(quickMenu);
   const connectLinks = footerMenuLinks(connectMenu);
   const legalLinks = footerMenuLinks(legalMenu);
-  const baseProps = {
+  const baseProps = navigationFooterDefinedProps({
     logoAlt: footerBrand.logoAlt,
     logoHref: footerBrand.logoHref,
     logoSrc: footerBrand.logoSrc,
     socials,
     theme,
     unsubscribeHref: footerLegal.unsubscribeHref,
-  };
+  });
   if (oversizedLogo) {
     return (
       <__FullMenuFooter
         {...baseProps}
-        links={menus?.flatMap(({ links }) => links)}
-        variant="oversized-logo"
+        variant={
+          (variantOverride ?? "oversized-logo") as Parameters<
+            typeof __FullMenuFooter
+          >[0]["variant"]
+        }
+        {...navigationFooterDefinedProps({
+          links: menus?.flatMap(({ links }) => links),
+        })}
       />
     );
   }
   if (alignment === "center" && columns === 1) {
     return (
-      <__CenteredFooter {...baseProps} links={quickLinks} socials={socials} />
+      <__CenteredFooter
+        {...baseProps}
+        {...navigationFooterDefinedProps({ links: quickLinks, socials })}
+      />
     );
   }
   if (description) {
     return (
       <__TextMenuFooter
         {...baseProps}
-        copyright={footerLegal.copyright}
         description={description}
-        quickLinks={quickLinks}
-        variant={logoPosition === "right" ? "right-logo" : "left-logo"}
+        variant={
+          sideVariant(variantOverride, logoPosition) as Parameters<
+            typeof __TextMenuFooter
+          >[0]["variant"]
+        }
+        {...navigationFooterDefinedProps({
+          copyright: footerLegal.copyright,
+          quickLinks,
+        })}
       />
     );
   }
@@ -1240,7 +1272,11 @@ export const NavigationFooter = ({
     return (
       <__DividerMenuFooter
         {...baseProps}
-        variant={logoPosition === "right" ? "right-logo" : "left-logo"}
+        variant={
+          sideVariant(variantOverride, logoPosition) as Parameters<
+            typeof __DividerMenuFooter
+          >[0]["variant"]
+        }
       />
     );
   }
@@ -1248,20 +1284,32 @@ export const NavigationFooter = ({
     return (
       <__ThreeColumnFooter
         {...baseProps}
-        connectLinks={connectLinks}
-        legalLinks={legalLinks}
-        quickLinks={quickLinks}
-        variant={logoPosition === "right" ? "right-logo" : "left-logo"}
+        variant={
+          sideVariant(variantOverride, logoPosition) as Parameters<
+            typeof __ThreeColumnFooter
+          >[0]["variant"]
+        }
+        {...navigationFooterDefinedProps({
+          connectLinks,
+          legalLinks,
+          quickLinks,
+        })}
       />
     );
   }
   return (
     <__TwoColumnFooter
       {...baseProps}
-      connectLinks={connectLinks}
-      copyright={footerLegal.copyright}
-      quickLinks={quickLinks}
-      variant={logoPosition === "right" ? "right-logo" : "left-logo"}
+      variant={
+        sideVariant(variantOverride, logoPosition) as Parameters<
+          typeof __TwoColumnFooter
+        >[0]["variant"]
+      }
+      {...navigationFooterDefinedProps({
+        connectLinks,
+        copyright: footerLegal.copyright,
+        quickLinks,
+      })}
     />
   );
 };

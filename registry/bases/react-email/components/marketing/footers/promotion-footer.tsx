@@ -1579,10 +1579,14 @@ export interface PromotionFooterProps {
   placement?: "inline" | "full-width" | "overlap" | "large-title";
   menuColumns?: 0 | 2 | 3;
   alignment?: "left" | "center" | "right";
+  logoPosition?: "left" | "right";
   backgroundImage?: {
     src: string;
     alt?: string;
   };
+  variant?:
+    | Parameters<typeof __ContentCtaFooter>[0]["variant"]
+    | Parameters<typeof __OverlapFooter>[0]["variant"];
 }
 
 const footerBrandValues = (brand: FooterBrand | undefined) => {
@@ -1641,6 +1645,11 @@ const promotionAlignmentVariant = (
   return "centered";
 };
 
+const promotionFooterDefinedProps = <Props extends object>(props: Props) =>
+  Object.fromEntries(
+    Object.entries(props).filter(([, value]) => value !== undefined)
+  ) as Partial<Props>;
+
 export const PromotionFooter = ({
   theme,
   brand,
@@ -1651,7 +1660,9 @@ export const PromotionFooter = ({
   placement = "inline",
   menuColumns = 0,
   alignment = "center",
+  logoPosition = "left",
   backgroundImage,
+  variant: variantOverride,
 }: PromotionFooterProps) => {
   const footerBrand = footerBrandValues(brand);
   const footerLegal = footerLegalValues(legal);
@@ -1662,51 +1673,69 @@ export const PromotionFooter = ({
     const variant = promotionOverlapVariant(menuColumns, alignment);
     return (
       <__OverlapFooter
-        backgroundImageSrc={backgroundImageSrc}
-        logoSrc={footerBrand.logoSrc}
-        theme={theme}
-        unsubscribeHref={footerLegal.unsubscribeHref}
-        variant={variant}
+        logoPosition={logoPosition}
+        variant={
+          (variantOverride ?? variant) as Parameters<
+            typeof __OverlapFooter
+          >[0]["variant"]
+        }
+        {...promotionFooterDefinedProps({
+          backgroundImageSrc,
+          logoSrc: footerBrand.logoSrc,
+          theme,
+          unsubscribeHref: footerLegal.unsubscribeHref,
+        })}
       />
     );
   }
   if (placement === "full-width") {
     return (
       <__FullWidthCtaFooter
-        ctaHref={action.href}
-        ctaText={action.label}
-        theme={theme}
-        unsubscribeHref={footerLegal.unsubscribeHref}
+        {...promotionFooterDefinedProps({
+          ctaHref: action.href,
+          ctaText: action.label,
+          theme,
+          unsubscribeHref: footerLegal.unsubscribeHref,
+        })}
       />
     );
   }
   if (placement === "large-title") {
     return (
       <__LargeTitleFooter
-        theme={theme}
-        title={heading}
-        unsubscribeHref={footerLegal.unsubscribeHref}
+        {...promotionFooterDefinedProps({
+          theme,
+          title: heading,
+          unsubscribeHref: footerLegal.unsubscribeHref,
+        })}
       />
     );
   }
   return (
     <__ContentCtaFooter
-      ctaHref={action.href}
-      ctaLabel={action.label}
-      heading={heading}
-      logoAlt={footerBrand.logoAlt}
-      logoSrc={footerBrand.logoSrc}
-      subtext={description}
-      theme={theme}
-      unsubscribeHref={footerLegal.unsubscribeHref}
-      updatePreferencesHref={footerLegal.preferencesHref}
-      variant={promotionAlignmentVariant(alignment)}
+      variant={
+        (variantOverride ?? promotionAlignmentVariant(alignment)) as Parameters<
+          typeof __ContentCtaFooter
+        >[0]["variant"]
+      }
+      {...promotionFooterDefinedProps({
+        ctaHref: action.href,
+        ctaLabel: action.label,
+        heading,
+        logoAlt: footerBrand.logoAlt,
+        logoSrc: footerBrand.logoSrc,
+        subtext: description,
+        theme,
+        unsubscribeHref: footerLegal.unsubscribeHref,
+        updatePreferencesHref: footerLegal.preferencesHref,
+      })}
     />
   );
 };
 
 PromotionFooter.PreviewProps = {
   alignment: "center",
+  logoPosition: "left",
   menuColumns: 0,
   placement: "inline",
 } satisfies PromotionFooterProps;

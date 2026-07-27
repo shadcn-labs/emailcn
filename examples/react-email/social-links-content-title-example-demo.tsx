@@ -1,0 +1,5 @@
+import { SocialLinks } from "@/registry/bases/react-email/components/marketing/social/social-links";
+
+export default function SocialLinksContentTitleExampleDemo() {
+  return <SocialLinks content="title" presentation="icons" container="none" />;
+}

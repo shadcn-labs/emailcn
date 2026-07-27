@@ -67,37 +67,67 @@ import { OverlapHero } from "@/components/email/overlap-hero";
 
 ## Examples
 
-### Overlapped image
+### Hero with overlapped content
+
+#### basic
+
+The default demo above covers this configuration.
+
+#### basic-with-gradient
 
 <ComponentPreview
   base="react-email"
-  name="overlap-hero-overlapped-image-example-demo"
+  name="overlap-hero-target-content-variant-basic-with-gradient-example-demo"
 />
 
-### Slanted split
+#### reversed
 
 <ComponentPreview
   base="react-email"
-  name="overlap-hero-slanted-split-example-demo"
+  name="overlap-hero-target-content-variant-reversed-example-demo"
 />
 
-### Gradient
+#### reversed-with-gradient
 
 <ComponentPreview
   base="react-email"
-  name="overlap-hero-gradient-example-demo"
+  name="overlap-hero-target-content-variant-reversed-with-gradient-example-demo"
+/>
+
+### Hero with overlapped image
+
+#### default
+
+<ComponentPreview
+  base="react-email"
+  name="overlap-hero-target-image-variant-default-example-demo"
+/>
+
+#### slanted-left
+
+<ComponentPreview
+  base="react-email"
+  name="overlap-hero-target-image-variant-slanted-left-example-demo"
+/>
+
+#### slanted-right
+
+<ComponentPreview
+  base="react-email"
+  name="overlap-hero-target-image-variant-slanted-right-example-demo"
 />
 
 ## API Reference
 
-| Prop              | Type                                                                                                                                                                     | Default        | Description                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------------------------------------- |
-| `theme`           | `EmailTheme`                                                                                                                                                             | `defaultTheme` | Renderer theme configuration.               |
-| `content`         | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }` | -              | Configures the component's content.         |
-| `images`          | `Array<{ src: string; alt?: string }>`                                                                                                                                   | -              | Configures the component's images.          |
-| `backgroundImage` | `{ src: string; alt?: string }`                                                                                                                                          | -              | Configures the component's backgroundimage. |
-| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                 | -              | Configures the component's brand.           |
-| `target`          | `"content" \| "image"`                                                                                                                                                   | `"content"`    | Configures the component's target.          |
-| `direction`       | `"left" \| "right"`                                                                                                                                                      | `"left"`       | Configures the component's direction.       |
-| `gradient`        | `boolean`                                                                                                                                                                | `false`        | Configures the component's gradient.        |
-| `slanted`         | `boolean`                                                                                                                                                                | `false`        | Configures the component's slanted.         |
+| Prop              | Type                                                                                                                                                                     | Default                      | Description                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | ------------------------------------------------ |
+| `theme`           | `EmailTheme`                                                                                                                                                             | `defaultTheme`               | Renderer theme configuration.                    |
+| `content`         | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }` | -                            | Configures the component's content.              |
+| `images`          | `Array<{ src: string; alt?: string }>`                                                                                                                                   | -                            | Configures the component's images.               |
+| `backgroundImage` | `{ src: string; alt?: string }`                                                                                                                                          | -                            | Configures the component's backgroundimage.      |
+| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                 | -                            | Configures the component's brand.                |
+| `target`          | `"content" \| "image"`                                                                                                                                                   | `"content"`                  | Configures the component's target.               |
+| `direction`       | `"left" \| "right"`                                                                                                                                                      | `"left"`                     | Configures the component's direction.            |
+| `gradient`        | `boolean`                                                                                                                                                                | `false`                      | Configures the component's gradient.             |
+| `slanted`         | `boolean`                                                                                                                                                                | `false`                      | Configures the component's slanted.              |
+| `variant`         | `"basic" \| "reversed" \| "basic-with-gradient" \| "reversed-with-gradient" \| "default" \| "slanted-left" \| "slanted-right"`                                           | Derived from the other props | Selects an exact legacy composition when needed. |

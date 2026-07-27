@@ -67,29 +67,177 @@ import { Team } from "@/components/email/team";
 
 ## Examples
 
-### Compact bordered
+### 2-column team cards
 
-<ComponentPreview base="jsx-email" name="team-compact-bordered-example-demo" />
+#### default
 
-### Three column grid
+The default demo above covers this configuration.
 
-<ComponentPreview base="jsx-email" name="team-three-column-grid-example-demo" />
-
-### Bios with right images
+#### boxed
 
 <ComponentPreview
   base="jsx-email"
-  name="team-bios-with-right-images-example-demo"
+  name="team-layout-cards-columns-2-details-false-variant-boxed-example-demo"
+/>
+
+#### boxed-alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-false-variant-boxed-alt-example-demo"
+/>
+
+#### accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-false-variant-accent-example-demo"
+/>
+
+#### accent-alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-false-variant-accent-alt-example-demo"
+/>
+
+#### rounded
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-false-variant-rounded-example-demo"
+/>
+
+#### rounded-accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-false-variant-rounded-accent-example-demo"
+/>
+
+### 2-column team cards with details
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-variant-default-example-demo"
+/>
+
+#### boxed
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-variant-boxed-example-demo"
+/>
+
+#### accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-cards-columns-2-details-variant-accent-example-demo"
+/>
+
+### 2-column compact
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-compact-columns-2-variant-default-example-demo"
+/>
+
+#### border-top
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-compact-columns-2-variant-border-top-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-compact-columns-2-variant-bordered-example-demo"
+/>
+
+#### accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-compact-columns-2-variant-accent-example-demo"
+/>
+
+### 3-column team grid
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-grid-columns-3-variant-default-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-grid-columns-3-variant-bordered-example-demo"
+/>
+
+#### with-accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-grid-columns-3-variant-with-accent-example-demo"
+/>
+
+#### with-hero
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-grid-columns-3-variant-with-hero-example-demo"
+/>
+
+### Horizontal team member bios
+
+#### image-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-bios-variant-image-left-example-demo"
+/>
+
+#### image-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-bios-variant-image-right-example-demo"
+/>
+
+#### image-left-accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-bios-variant-image-left-accent-example-demo"
+/>
+
+#### image-right-accent
+
+<ComponentPreview
+  base="jsx-email"
+  name="team-layout-bios-variant-image-right-accent-example-demo"
 />
 
 ## API Reference
 
-| Prop            | Type                                                                                                         | Default        | Description                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------ | -------------- | ----------------------------------------- |
-| `theme`         | `EmailTheme`                                                                                                 | `defaultTheme` | Renderer theme configuration.             |
-| `members`       | `Array<{ name: string; role: string; avatar: { alt?: string; src: string }; bio?: string; email?: string }>` | -              | Configures the component's members.       |
-| `layout`        | `"cards" \| "compact" \| "grid" \| "bios"`                                                                   | `"cards"`      | Configures the component's layout.        |
-| `columns`       | `2 \| 3`                                                                                                     | `2`            | Configures the component's columns.       |
-| `appearance`    | `"plain" \| "boxed" \| "bordered" \| "accent" \| "rounded"`                                                  | `"plain"`      | Configures the component's appearance.    |
-| `imagePosition` | `"left" \| "right"`                                                                                          | `"left"`       | Configures the component's imageposition. |
-| `heroImage`     | `{ src: string; alt?: string }`                                                                              | -              | Configures the component's heroimage.     |
+| Prop            | Type                                                                                                                                                                                                                                             | Default                      | Description                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | ------------------------------------------------------- |
+| `theme`         | `EmailTheme`                                                                                                                                                                                                                                     | `defaultTheme`               | Renderer theme configuration.                           |
+| `members`       | `Array<{ name: string; role: string; avatar: { alt?: string; src: string }; bio?: string; email?: string }>`                                                                                                                                     | -                            | Configures the component's members.                     |
+| `layout`        | `"cards" \| "compact" \| "grid" \| "bios"`                                                                                                                                                                                                       | `"cards"`                    | Configures the component's layout.                      |
+| `columns`       | `2 \| 3`                                                                                                                                                                                                                                         | `2`                          | Configures the component's columns.                     |
+| `appearance`    | `"plain" \| "boxed" \| "bordered" \| "accent" \| "rounded"`                                                                                                                                                                                      | `"plain"`                    | Configures the component's appearance.                  |
+| `imagePosition` | `"left" \| "right"`                                                                                                                                                                                                                              | `"left"`                     | Configures the component's imageposition.               |
+| `heroImage`     | `{ src: string; alt?: string }`                                                                                                                                                                                                                  | -                            | Configures the component's heroimage.                   |
+| `details`       | `boolean`                                                                                                                                                                                                                                        | `false`                      | Includes biographies and email details in card layouts. |
+| `variant`       | `"default" \| "boxed" \| "accent" \| "boxed-alt" \| "accent-alt" \| "rounded" \| "rounded-accent" \| "border-top" \| "bordered" \| "with-accent" \| "with-hero" \| "image-left" \| "image-right" \| "image-left-accent" \| "image-right-accent"` | Derived from the other props | Selects an exact legacy composition when needed.        |

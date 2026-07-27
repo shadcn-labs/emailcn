@@ -1,0 +1,14 @@
+import { UtilityFooter } from "@/registry/bases/mjml-react/components/marketing/footers/utility-footer";
+
+export default function UtilityFooterBackgroundImagePositionBottomVariantBottomImage3ColumnMenuLogoPositionRightExampleDemo() {
+  return (
+    <UtilityFooter
+      backgroundImage={{
+        position: "bottom",
+        src: "https://emailcn.vercel.app/api/email-assets/images/image-landscape-1.jpg",
+      }}
+      variant="bottom-image-3-column-menu"
+      logoPosition="right"
+    />
+  );
+}

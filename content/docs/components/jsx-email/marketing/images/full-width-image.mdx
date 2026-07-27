@@ -67,46 +67,215 @@ import { FullWidthImage } from "@/components/email/full-width-image";
 
 ## Examples
 
-### Top frame
+### Full-width image
+
+#### Default
+
+The default demo above covers this configuration.
+
+#### Top padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-top-frame-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-padding-example-demo"
 />
 
-### Side frame
+#### Top right
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-side-frame-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-alternate-example-demo"
 />
 
-### Content overlay
+#### Top left
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-content-overlay-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-split-example-demo"
 />
 
-### Bottom frame
+#### Top + sides
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-bottom-frame-example-demo"
+  name="full-width-image-overlay-false-frame-top-frame-style-sides-example-demo"
 />
 
-### Left frame
+#### Right padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-left-frame-example-demo"
+  name="full-width-image-overlay-false-frame-right-frame-style-padding-example-demo"
 />
 
-### Right frame
+#### Right alt
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-right-frame-example-demo"
+  name="full-width-image-overlay-false-frame-right-frame-style-alternate-example-demo"
+/>
+
+#### Bottom padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-padding-example-demo"
+/>
+
+#### Bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-alternate-example-demo"
+/>
+
+#### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-split-example-demo"
+/>
+
+#### Bottom + sides
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-bottom-frame-style-sides-example-demo"
+/>
+
+#### Left padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-left-frame-style-padding-example-demo"
+/>
+
+#### Left alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-left-frame-style-alternate-example-demo"
+/>
+
+#### Sides padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-sides-frame-style-padding-example-demo"
+/>
+
+#### Sides alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-false-frame-sides-frame-style-alternate-example-demo"
+/>
+
+### Full-width image with overlay
+
+#### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-none-frame-style-padding-example-demo"
+/>
+
+#### Top padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-padding-example-demo"
+/>
+
+#### Top right
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-alternate-example-demo"
+/>
+
+#### Top left
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-split-example-demo"
+/>
+
+#### Top + sides
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-sides-example-demo"
+/>
+
+#### Right padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-right-frame-style-padding-example-demo"
+/>
+
+#### Right alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-right-frame-style-alternate-example-demo"
+/>
+
+#### Bottom padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-padding-example-demo"
+/>
+
+#### Bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-alternate-example-demo"
+/>
+
+#### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-split-example-demo"
+/>
+
+#### Bottom + sides
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-sides-example-demo"
+/>
+
+#### Left padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-left-frame-style-padding-example-demo"
+/>
+
+#### Left alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-left-frame-style-alternate-example-demo"
+/>
+
+#### Sides padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-sides-frame-style-padding-example-demo"
+/>
+
+#### Sides alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-sides-frame-style-alternate-example-demo"
 />
 
 ## API Reference
@@ -117,4 +286,4 @@ import { FullWidthImage } from "@/components/email/full-width-image";
 | `image`      | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }` | -              | Configures the component's image.      |
 | `overlay`    | `boolean`                                                                          | `false`        | Configures the component's overlay.    |
 | `frame`      | `"none" \| "top" \| "right" \| "bottom" \| "left" \| "sides"`                      | `"none"`       | Configures the component's frame.      |
-| `frameStyle` | `"padding" \| "split" \| "alternate"`                                              | `"padding"`    | Configures the component's framestyle. |
+| `frameStyle` | `"padding" \| "split" \| "alternate" \| "sides"`                                   | `"padding"`    | Configures the component's framestyle. |

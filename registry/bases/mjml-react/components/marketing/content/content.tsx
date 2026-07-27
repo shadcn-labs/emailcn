@@ -1,12 +1,13 @@
 import {
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
-  MjmlColumn,
   MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlStyle,
   MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -14,105 +15,127 @@ import {
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { defaultTheme } from "@/registry/themes/default";
 
+export type ContentAlignment = "left" | "center" | "right";
+export type ContentLayout =
+  | "title"
+  | "paragraph"
+  | "two-columns"
+  | "two-columns-with-icons";
+export type ContentPadding = "regular" | "large";
+export type ContentVariant = "small" | "large" | "lead" | "body";
+
 export interface ContentProps {
-  theme?: EmailTheme;
-  type?: "title" | "paragraph";
-  columns?: 1 | 2;
-  withIcons?: boolean;
-  padding?: "regular" | "large";
-  title?: string;
-  text?: string;
+  alignment?: ContentAlignment;
   column1?: string;
   column2?: string;
-  iconSrc1?: string;
   iconAlt1?: string;
-  iconSrc2?: string;
   iconAlt2?: string;
+  iconSrc1?: string;
+  iconSrc2?: string;
+  layout?: ContentLayout;
+  padding?: ContentPadding;
+  text?: string;
+  theme?: EmailTheme;
+  title?: string;
+  variant?: ContentVariant;
 }
 
 const colors = {
-  background: "#ffffff",
-  heading: "#111827",
-  muted: "#6b7280",
+  background: "#fffffe",
+  heading: "#030712",
+  muted: "#4b5563",
 } as const;
 
 const fontFamily =
   'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-const columnPadding = [
-  { padding: "0 16px 0 0" },
-  { padding: "0 0 0 16px" },
+const defaultIconSources = [
+  "https://cdn.simpleicons.org/github/111827",
+  "https://cdn.simpleicons.org/slack/4A154B",
 ] as const;
 
 const ContentColumn = ({
+  alignment,
   alt,
+  fontSize,
   iconSrc,
   index,
+  lineHeight,
   text,
   withIcon,
 }: {
+  alignment: ContentAlignment;
   alt: string;
-  iconSrc?: string;
+  fontSize: string;
+  iconSrc: string;
   index: 0 | 1;
+  lineHeight: string;
   text: string;
   withIcon: boolean;
-}) => (
-  <MjmlColumn
-    padding={columnPadding[index].padding}
-    verticalAlign="top"
-    width="50%"
-  >
-    {withIcon && iconSrc ? (
-      <MjmlImage
-        alt={alt}
-        height="24px"
-        padding="0 0 12px"
-        src={iconSrc}
-        width="24px"
-      />
-    ) : null}
-    <MjmlText
-      align={withIcon ? "center" : "left"}
-      color={colors.muted}
-      fontFamily={fontFamily}
-      fontSize="16px"
-      lineHeight="26px"
-      padding="0"
+}) => {
+  const columnPadding = index === 0 ? "0 22px 0 0" : "0 0 0 22px";
+
+  return (
+    <MjmlColumn
+      cssClass="content-column"
+      padding={columnPadding}
+      verticalAlign="top"
+      width="50%"
     >
-      {text}
-    </MjmlText>
-  </MjmlColumn>
-);
+      {withIcon ? (
+        <MjmlImage
+          align={alignment}
+          alt={alt}
+          height="48px"
+          padding="0 0 10px"
+          src={iconSrc}
+          width="48px"
+        />
+      ) : null}
+      <MjmlText
+        align={alignment}
+        color={colors.muted}
+        fontFamily={fontFamily}
+        fontSize={fontSize}
+        lineHeight={lineHeight}
+        padding="0"
+      >
+        {text}
+      </MjmlText>
+    </MjmlColumn>
+  );
+};
 
 export const ContentSection = ({
-  type = "paragraph",
-  columns = 1,
-  withIcons = false,
+  alignment = "center",
+  column1 = "A brief introduction that highlights the key idea in a clear, engaging way.",
+  column2 = "A brief introduction that highlights the key idea in a clear, engaging way.",
+  iconAlt1 = "GitHub",
+  iconAlt2 = "Slack",
+  iconSrc1 = defaultIconSources[0],
+  iconSrc2 = defaultIconSources[1],
+  layout = "paragraph",
   padding = "regular",
-  title = "Section Title",
-  text = "This is a paragraph used to present information in a clear and readable way.",
-  column1 = "This is the first column of a two-column paragraph layout.",
-  column2 = "This is the second column of a two-column paragraph layout.",
-  iconSrc1,
-  iconAlt1 = "Icon 1",
-  iconSrc2,
-  iconAlt2 = "Icon 2",
+  text = "Lead text introduces the reader to the key message of an email. It sets the tone, provides context, and guides attention toward what matters most.",
+  title = "Stay in the loop by following us across our social channels.",
+  variant,
 }: Omit<ContentProps, "theme">) => {
-  const verticalPadding = padding === "large" ? "64px 0" : "32px 0";
-  if (type === "title") {
+  const horizontalPadding = padding === "large" ? "64px" : "24px";
+  const sectionPadding = `44px ${horizontalPadding}`;
+
+  if (layout === "title") {
+    const isLarge = variant === "large";
+
     return (
-      <MjmlSection
-        backgroundColor={colors.background}
-        padding={verticalPadding}
-      >
+      <MjmlSection backgroundColor={colors.background} padding={sectionPadding}>
         <MjmlColumn padding="0">
           <MjmlText
-            align="center"
+            align={alignment}
             color={colors.heading}
             fontFamily={fontFamily}
-            fontSize="24px"
-            fontWeight="700"
-            lineHeight="32px"
+            fontSize={isLarge ? "30px" : "24px"}
+            fontWeight="600"
+            lineHeight={isLarge ? "36px" : "32px"}
             padding="0"
           >
             {title}
@@ -121,38 +144,49 @@ export const ContentSection = ({
       </MjmlSection>
     );
   }
-  if (columns === 2) {
+
+  const isBody = variant === "body";
+  const fontSize = isBody ? "16px" : "18px";
+  const lineHeight = isBody ? "24px" : "28px";
+
+  if (layout === "two-columns" || layout === "two-columns-with-icons") {
+    const withIcons = layout === "two-columns-with-icons";
+
     return (
-      <MjmlSection
-        backgroundColor={colors.background}
-        padding={verticalPadding}
-      >
+      <MjmlSection backgroundColor={colors.background} padding={sectionPadding}>
         <ContentColumn
+          alignment={alignment}
           alt={iconAlt1}
+          fontSize={fontSize}
           iconSrc={iconSrc1}
           index={0}
+          lineHeight={lineHeight}
           text={column1}
           withIcon={withIcons}
         />
         <ContentColumn
+          alignment={alignment}
           alt={iconAlt2}
+          fontSize={fontSize}
           iconSrc={iconSrc2}
           index={1}
+          lineHeight={lineHeight}
           text={column2}
           withIcon={withIcons}
         />
       </MjmlSection>
     );
   }
+
   return (
-    <MjmlSection backgroundColor={colors.background} padding={verticalPadding}>
+    <MjmlSection backgroundColor={colors.background} padding={sectionPadding}>
       <MjmlColumn padding="0">
         <MjmlText
-          align="center"
+          align={alignment}
           color={colors.muted}
           fontFamily={fontFamily}
-          fontSize="16px"
-          lineHeight="26px"
+          fontSize={fontSize}
+          lineHeight={lineHeight}
           padding="0"
         >
           {text}
@@ -163,42 +197,53 @@ export const ContentSection = ({
 };
 
 export const Content = ({
-  theme = defaultTheme,
-  type = "paragraph",
-  columns = 1,
-  withIcons = false,
-  padding = "regular",
-  title,
-  text,
+  alignment = "center",
   column1,
   column2,
-  iconSrc1,
   iconAlt1,
-  iconSrc2,
   iconAlt2,
+  iconSrc1,
+  iconSrc2,
+  layout = "paragraph",
+  padding = "regular",
+  text,
+  theme = defaultTheme,
+  title,
+  variant,
 }: ContentProps) => (
   <Mjml>
     <MjmlHead>
       <MjmlPreview>
-        {type === "title" ? (title ?? "Title") : "Content"}
+        {layout === "title" ? (title ?? "Title") : "Content"}
       </MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>
+        {`
+          @media only screen and (max-width: 600px) {
+            .content-column {
+              padding: 0 0 44px !important;
+              width: 100% !important;
+            }
+            .content-column:last-child { padding-bottom: 0 !important; }
+          }
+        `}
+      </MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor={colors.background} width={theme.containerWidth}>
       <MjmlWrapper padding="0">
         <ContentSection
-          type={type}
-          columns={columns}
-          withIcons={withIcons}
-          padding={padding}
-          title={title}
-          text={text}
+          alignment={alignment}
           column1={column1}
           column2={column2}
-          iconSrc1={iconSrc1}
           iconAlt1={iconAlt1}
-          iconSrc2={iconSrc2}
           iconAlt2={iconAlt2}
+          iconSrc1={iconSrc1}
+          iconSrc2={iconSrc2}
+          layout={layout}
+          padding={padding}
+          text={text}
+          title={title}
+          variant={variant}
         />
       </MjmlWrapper>
     </MjmlBody>
@@ -206,10 +251,9 @@ export const Content = ({
 );
 
 Content.PreviewProps = {
-  columns: 1,
+  alignment: "center",
+  layout: "paragraph",
   padding: "regular",
-  text: "This is a paragraph used to present information in a clear and readable way.",
   theme: defaultTheme,
-  type: "paragraph",
-  withIcons: false,
+  variant: "lead",
 } satisfies ContentProps;

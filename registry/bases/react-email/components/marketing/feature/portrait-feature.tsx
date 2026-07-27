@@ -450,6 +450,7 @@ export interface PortraitFeatureProps {
   };
   placement?: "left" | "right";
   contentPosition?: "top" | "bottom";
+  logoPosition?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }
 
 export const PortraitFeature = ({
@@ -462,6 +463,7 @@ export const PortraitFeature = ({
   action,
   placement = "right",
   contentPosition,
+  logoPosition,
 }: PortraitFeatureProps) => (
   <__Feature
     arrowIconSrc={action?.iconSrc}
@@ -479,11 +481,12 @@ export const PortraitFeature = ({
     variant={
       contentPosition
         ? `content-${contentPosition}-${placement}`
-        : `logo-top-${placement}`
+        : `logo-${logoPosition ?? `top-${placement}`}`
     }
   />
 );
 
 PortraitFeature.PreviewProps = {
+  logoPosition: "top-right",
   placement: "right",
 } satisfies PortraitFeatureProps;

@@ -68,7 +68,7 @@ export const NewsletterDefault = ({
               </Text>
             </Section>
 
-            <ContentGridSection type="title" title="Featured Articles" />
+            <ContentGridSection layout="title" title="Featured Articles" />
 
             <Section className="py-4">
               <Text className="mt-8 text-sm text-foreground-muted">

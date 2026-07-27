@@ -1,7 +1,5 @@
 import { SocialLinks } from "@/registry/bases/mjml-react/components/marketing/social/social-links";
 
 export default function SocialLinksDemo() {
-  return (
-    <SocialLinks presentation="icons" container="none" direction="inline" />
-  );
+  return <SocialLinks presentation="icons" container="none" />;
 }

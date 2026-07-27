@@ -67,38 +67,136 @@ import { PromotionFooter } from "@/components/email/promotion-footer";
 
 ## Examples
 
-### Full width CTA
+### Footer with content and CTA
+
+#### left
 
 <ComponentPreview
   base="react-email"
-  name="promotion-footer-full-width-cta-example-demo"
+  name="promotion-footer-placement-inline-alignment-left-example-demo"
 />
 
-### Overlapping three column menu
+#### center
+
+The default demo above covers this configuration.
+
+#### right
 
 <ComponentPreview
   base="react-email"
-  name="promotion-footer-overlapping-three-column-menu-example-demo"
+  name="promotion-footer-placement-inline-alignment-right-example-demo"
 />
 
-### Large title
+### Footer with large title and buttons
+
+#### default
 
 <ComponentPreview
   base="react-email"
-  name="promotion-footer-large-title-example-demo"
+  name="promotion-footer-placement-large-title-example-demo"
+/>
+
+### Footer with menu and full-width CTA
+
+#### default
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-full-width-example-demo"
+/>
+
+### Footer with overlapped CTA
+
+#### content left logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-content-logo-position-left-example-demo"
+/>
+
+#### content right logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-content-logo-position-right-example-demo"
+/>
+
+#### 2-column menu left logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-2-column-menu-logo-position-left-example-demo"
+/>
+
+#### 2-column menu right logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-2-column-menu-logo-position-right-example-demo"
+/>
+
+#### 3-column menu left logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-3-column-menu-logo-position-left-example-demo"
+/>
+
+#### 3-column menu right logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-3-column-menu-logo-position-right-example-demo"
+/>
+
+#### address left logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-address-logo-position-left-example-demo"
+/>
+
+#### address right logo
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-address-logo-position-right-example-demo"
+/>
+
+#### centered content
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-centered-content-logo-position-left-example-demo"
+/>
+
+#### centered menu
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-centered-menu-logo-position-left-example-demo"
+/>
+
+#### centered socials
+
+<ComponentPreview
+  base="react-email"
+  name="promotion-footer-placement-overlap-variant-centered-socials-logo-position-left-example-demo"
 />
 
 ## API Reference
 
-| Prop              | Type                                                                                        | Default                                                 | Description                                 |
-| ----------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------- |
-| `theme`           | `EmailTheme`                                                                                | `defaultTheme`                                          | Renderer theme configuration.               |
-| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                       | Configures the component's brand.           |
-| `heading`         | `string`                                                                                    | `"Start sending professionally\ndesigned emails today"` | Configures the component's heading.         |
-| `description`     | `string`                                                                                    | -                                                       | Configures the component's description.     |
-| `actions`         | `Array<{ href: string; label: string }>`                                                    | -                                                       | Configures the component's actions.         |
-| `legal`           | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }` | -                                                       | Configures the component's legal.           |
-| `placement`       | `"inline" \| "full-width" \| "overlap" \| "large-title"`                                    | `"inline"`                                              | Configures the component's placement.       |
-| `menuColumns`     | `0 \| 2 \| 3`                                                                               | `0`                                                     | Configures the component's menucolumns.     |
-| `alignment`       | `"left" \| "center" \| "right"`                                                             | `"center"`                                              | Configures the component's alignment.       |
-| `backgroundImage` | `{ src: string; alt?: string }`                                                             | -                                                       | Configures the component's backgroundimage. |
+| Prop              | Type                                                                                                                                                                             | Default                                                 | Description                                      |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------ |
+| `theme`           | `EmailTheme`                                                                                                                                                                     | `defaultTheme`                                          | Renderer theme configuration.                    |
+| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                         | -                                                       | Configures the component's brand.                |
+| `heading`         | `string`                                                                                                                                                                         | `"Start sending professionally\ndesigned emails today"` | Configures the component's heading.              |
+| `description`     | `string`                                                                                                                                                                         | -                                                       | Configures the component's description.          |
+| `actions`         | `Array<{ href: string; label: string }>`                                                                                                                                         | -                                                       | Configures the component's actions.              |
+| `legal`           | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }`                                                                                      | -                                                       | Configures the component's legal.                |
+| `placement`       | `"inline" \| "full-width" \| "overlap" \| "large-title"`                                                                                                                         | `"inline"`                                              | Configures the component's placement.            |
+| `menuColumns`     | `0 \| 2 \| 3`                                                                                                                                                                    | `0`                                                     | Configures the component's menucolumns.          |
+| `alignment`       | `"left" \| "center" \| "right"`                                                                                                                                                  | `"center"`                                              | Configures the component's alignment.            |
+| `logoPosition`    | `"left" \| "right"`                                                                                                                                                              | `"left"`                                                | Positions the logo in overlapping layouts.       |
+| `backgroundImage` | `{ src: string; alt?: string }`                                                                                                                                                  | -                                                       | Configures the component's backgroundimage.      |
+| `variant`         | `"centered" \| "left-aligned" \| "right-aligned" \| "content" \| "2-column-menu" \| "3-column-menu" \| "centered-content" \| "centered-menu" \| "address" \| "centered-socials"` | Derived from the other props                            | Selects an exact legacy composition when needed. |

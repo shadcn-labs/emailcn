@@ -62,30 +62,156 @@ import { SplitHero } from "@/components/email/split-hero";
 
 ## Examples
 
-### Full bleed left
+### Hero overlayed split
+
+#### overlay-left
 
 <ComponentPreview
   base="mjml-react"
-  name="split-hero-full-bleed-left-example-demo"
+  name="split-hero-treatment-overlay-variant-overlay-left-example-demo"
 />
 
-### Slanted
+#### overlay-right
 
-<ComponentPreview base="mjml-react" name="split-hero-slanted-example-demo" />
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-overlay-variant-overlay-right-example-demo"
+/>
 
-### Overlay
+### Hero split contained
 
-<ComponentPreview base="mjml-react" name="split-hero-overlay-example-demo" />
+#### single-image-left
+
+The default demo above covers this configuration.
+
+#### single-image-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-single-image-right-example-demo"
+/>
+
+#### square-images-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-square-images-left-example-demo"
+/>
+
+#### square-images-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-square-images-right-example-demo"
+/>
+
+#### portrait-top-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-portrait-top-left-example-demo"
+/>
+
+#### portrait-top-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-portrait-top-right-example-demo"
+/>
+
+#### portrait-bottom-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-portrait-bottom-left-example-demo"
+/>
+
+#### portrait-bottom-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-contained-variant-portrait-bottom-right-example-demo"
+/>
+
+### Hero split full bleed
+
+#### image-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-full-bleed-variant-image-left-example-demo"
+/>
+
+#### image-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-full-bleed-variant-image-right-example-demo"
+/>
+
+### Hero with overlayed content
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-overlay-content-variant-default-example-demo"
+/>
+
+#### slanted-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-overlay-content-variant-slanted-left-example-demo"
+/>
+
+#### slanted-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-overlay-content-variant-slanted-right-example-demo"
+/>
+
+### Hero with slanted split
+
+#### left-slanted-up
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-slanted-variant-left-slanted-up-example-demo"
+/>
+
+#### left-slanted-down
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-slanted-variant-left-slanted-down-example-demo"
+/>
+
+#### right-slanted-up
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-slanted-variant-right-slanted-up-example-demo"
+/>
+
+#### right-slanted-down
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-treatment-slanted-variant-right-slanted-down-example-demo"
+/>
 
 ## API Reference
 
-| Prop             | Type                                                                                                                                                                     | Default        | Description                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------------------------------------ |
-| `theme`          | `EmailTheme`                                                                                                                                                             | `defaultTheme` | Renderer theme configuration.              |
-| `content`        | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }` | -              | Configures the component's content.        |
-| `images`         | `Array<{ src: string; alt?: string }>`                                                                                                                                   | -              | Configures the component's images.         |
-| `brand`          | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                 | -              | Configures the component's brand.          |
-| `treatment`      | `"contained" \| "full-bleed" \| "overlay" \| "slanted"`                                                                                                                  | `"contained"`  | Configures the component's treatment.      |
-| `imagePosition`  | `"left" \| "right"`                                                                                                                                                      | `"right"`      | Configures the component's imageposition.  |
-| `slant`          | `"up" \| "down"`                                                                                                                                                         | `"down"`       | Configures the component's slant.          |
-| `overlayContent` | `boolean`                                                                                                                                                                | `false`        | Configures the component's overlaycontent. |
+| Prop             | Type                                                                                                                                                                                                                                                                                                                                                                                                                 | Default                      | Description                                      |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------ |
+| `theme`          | `EmailTheme`                                                                                                                                                                                                                                                                                                                                                                                                         | `defaultTheme`               | Renderer theme configuration.                    |
+| `content`        | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }`                                                                                                                                                                                                                                             | -                            | Configures the component's content.              |
+| `images`         | `Array<{ src: string; alt?: string }>`                                                                                                                                                                                                                                                                                                                                                                               | -                            | Configures the component's images.               |
+| `brand`          | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                                                                                                                                                                                                                                                             | -                            | Configures the component's brand.                |
+| `treatment`      | `"contained" \| "full-bleed" \| "overlay" \| "slanted"`                                                                                                                                                                                                                                                                                                                                                              | `"contained"`                | Configures the component's treatment.            |
+| `imagePosition`  | `"left" \| "right"`                                                                                                                                                                                                                                                                                                                                                                                                  | `"right"`                    | Configures the component's imageposition.        |
+| `slant`          | `"up" \| "down"`                                                                                                                                                                                                                                                                                                                                                                                                     | `"down"`                     | Configures the component's slant.                |
+| `overlayContent` | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                            | `false`                      | Configures the component's overlaycontent.       |
+| `variant`        | `"overlay-left" \| "overlay-right" \| "single-image-left" \| "single-image-right" \| "square-images-left" \| "square-images-right" \| "portrait-top-left" \| "portrait-top-right" \| "portrait-bottom-left" \| "portrait-bottom-right" \| "image-left" \| "image-right" \| "default" \| "slanted-left" \| "slanted-right" \| "left-slanted-down" \| "left-slanted-up" \| "right-slanted-down" \| "right-slanted-up"` | Derived from the other props | Selects an exact legacy composition when needed. |

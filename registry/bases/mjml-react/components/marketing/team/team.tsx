@@ -849,6 +849,13 @@ export interface TeamProps {
     src: string;
     alt?: string;
   };
+  details?: boolean;
+  variant?:
+    | Parameters<typeof __TeamCardsDetails>[0]["variant"]
+    | Parameters<typeof __TeamCards>[0]["variant"]
+    | Parameters<typeof __TeamCompact>[0]["variant"]
+    | Parameters<typeof __TeamGrid>[0]["variant"]
+    | Parameters<typeof __TeamBios>[0]["variant"];
 }
 
 const toTeamProps = (members: TeamMember[] | undefined) =>
@@ -874,6 +881,8 @@ export const Team = ({
   appearance = "plain",
   imagePosition = "left",
   heroImage,
+  details,
+  variant: variantOverride,
 }: TeamProps) => {
   const props = { ...toTeamProps(members), theme };
   if (layout === "compact") {
@@ -887,7 +896,11 @@ export const Team = ({
     return (
       <__TeamCompact
         {...props}
-        variant={variant as Parameters<typeof __TeamCompact>[0]["variant"]}
+        variant={
+          (variantOverride ?? variant) as Parameters<
+            typeof __TeamCompact
+          >[0]["variant"]
+        }
       />
     );
   }
@@ -905,7 +918,15 @@ export const Team = ({
       return "default";
     })();
     return (
-      <__TeamGrid {...props} heroImageSrc={heroImage?.src} variant={variant} />
+      <__TeamGrid
+        {...props}
+        heroImageSrc={heroImage?.src}
+        variant={
+          (variantOverride ?? variant) as Parameters<
+            typeof __TeamGrid
+          >[0]["variant"]
+        }
+      />
     );
   }
   if (layout === "bios") {
@@ -913,11 +934,16 @@ export const Team = ({
     return (
       <__TeamBios
         {...props}
-        variant={variant as Parameters<typeof __TeamBios>[0]["variant"]}
+        variant={
+          (variantOverride ?? variant) as Parameters<
+            typeof __TeamBios
+          >[0]["variant"]
+        }
       />
     );
   }
-  const withDetails = members?.some(({ bio, email }) => bio || email);
+  const withDetails =
+    details ?? members?.some(({ bio, email }) => bio || email) ?? false;
   const variant = (() => {
     if (appearance === "plain") {
       return "default";
@@ -933,9 +959,11 @@ export const Team = ({
         <__TeamCardsDetails
           {...props}
           variant={
-            variant === "rounded"
+            (variantOverride ?? variant) === "rounded"
               ? "default"
-              : (variant as Parameters<typeof __TeamCardsDetails>[0]["variant"])
+              : ((variantOverride ?? variant) as Parameters<
+                  typeof __TeamCardsDetails
+                >[0]["variant"])
           }
         />
       );
@@ -943,7 +971,11 @@ export const Team = ({
     return (
       <__TeamCards
         {...props}
-        variant={variant as Parameters<typeof __TeamCards>[0]["variant"]}
+        variant={
+          (variantOverride ?? variant) as Parameters<
+            typeof __TeamCards
+          >[0]["variant"]
+        }
       />
     );
   })();
@@ -952,6 +984,7 @@ export const Team = ({
 Team.PreviewProps = {
   appearance: "plain",
   columns: 2,
+  details: false,
   imagePosition: "left",
   layout: "cards",
 } satisfies TeamProps;

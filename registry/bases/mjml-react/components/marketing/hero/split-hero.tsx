@@ -1071,17 +1071,33 @@ export interface SplitHeroProps {
   imagePosition?: "left" | "right";
   slant?: "up" | "down";
   overlayContent?: boolean;
+  variant?:
+    | Parameters<typeof __OverlaySplitHero>[0]["variant"]
+    | Parameters<typeof __ContainedSplitHero>[0]["variant"]
+    | Parameters<typeof __FullBleedSplitHero>[0]["variant"]
+    | Parameters<typeof __OverlayContentHero>[0]["variant"]
+    | Parameters<typeof __SlantedSplitHero>[0]["variant"];
 }
 
 const heroContentValues = (content: HeroContent | undefined) => {
-  const { actions, description, eyebrow, heading, subheading } = content ?? {};
+  const {
+    actions,
+    description,
+    emphasis,
+    eyebrow,
+    heading,
+    price,
+    subheading,
+  } = content ?? {};
   const [action] = actions ?? [];
   return {
     ctaHref: action?.href,
     ctaLabel: action?.label,
     description,
+    emphasis,
     eyebrow,
     heading,
+    price,
     subheading,
   };
 };
@@ -1100,6 +1116,57 @@ const heroBrandValues = (brand: HeroBrand | undefined) => {
   };
 };
 
+const splitHeroImageValues = (images: HeroImage[] | undefined) => {
+  const [primaryImage, secondaryImage] = images ?? [];
+
+  return {
+    count: images?.length ?? 0,
+    primary: heroImageValues(primaryImage),
+    secondary: heroImageValues(secondaryImage),
+  };
+};
+
+const splitHeroVariant = ({
+  imageCount,
+  imagePosition,
+  overlayContent,
+  slant,
+  treatment,
+  variant,
+}: Required<
+  Pick<
+    SplitHeroProps,
+    "imagePosition" | "overlayContent" | "slant" | "treatment"
+  >
+> & {
+  imageCount: number;
+  variant: SplitHeroProps["variant"];
+}) => {
+  if (variant) {
+    return variant;
+  }
+  if (overlayContent) {
+    return treatment === "slanted" ? `slanted-${imagePosition}` : "default";
+  }
+  if (treatment === "overlay") {
+    return `overlay-${imagePosition}`;
+  }
+  if (treatment === "full-bleed") {
+    return `image-${imagePosition}`;
+  }
+  if (treatment === "slanted") {
+    return `${imagePosition}-slanted-${slant}`;
+  }
+  return imageCount > 1
+    ? `square-images-${imagePosition}`
+    : `single-image-${imagePosition}`;
+};
+
+const splitHeroDefinedProps = <Props extends object>(props: Props) =>
+  Object.fromEntries(
+    Object.entries(props).filter(([, value]) => value !== undefined)
+  ) as Partial<Props>;
+
 export const SplitHero = ({
   theme,
   content,
@@ -1109,111 +1176,106 @@ export const SplitHero = ({
   imagePosition = "right",
   slant = "down",
   overlayContent = false,
+  variant: variantOverride,
 }: SplitHeroProps) => {
   const contentValues = heroContentValues(content);
-  const [image] = images ?? [];
-  const imageValues = heroImageValues(image);
+  const imageValues = splitHeroImageValues(images);
   const brandValues = heroBrandValues(brand);
+  const variant = splitHeroVariant({
+    imageCount: imageValues.count,
+    imagePosition,
+    overlayContent,
+    slant,
+    treatment,
+    variant: variantOverride,
+  });
+  const contentProps = splitHeroDefinedProps({
+    ctaHref: contentValues.ctaHref,
+    ctaLabel: contentValues.ctaLabel,
+    description: contentValues.description,
+    eyebrow: contentValues.eyebrow,
+    heading: contentValues.heading,
+    subheading: contentValues.subheading,
+    theme,
+  });
   if (overlayContent) {
     return (
       <__OverlayContentHero
-        ctaHref={contentValues.ctaHref}
-        ctaLabel={contentValues.ctaLabel}
-        description={contentValues.description}
-        eyebrow={contentValues.eyebrow}
-        heading={contentValues.heading}
-        subheading={contentValues.subheading}
-        headingAccent={content?.emphasis}
-        imageAlt={imageValues.alt}
-        imageSrc={imageValues.src}
-        logoAlt={brandValues.logoAlt}
-        logoHref={brandValues.logoHref}
-        logoSrc={brandValues.logoSrc}
-        theme={theme}
         variant={
-          treatment === "slanted" ? `slanted-${imagePosition}` : "default"
+          variant as Parameters<typeof __OverlayContentHero>[0]["variant"]
         }
+        {...contentProps}
+        {...splitHeroDefinedProps({
+          headingAccent: contentValues.emphasis,
+          imageAlt: imageValues.primary.alt,
+          imageSrc: imageValues.primary.src,
+          logoAlt: brandValues.logoAlt,
+          logoHref: brandValues.logoHref,
+          logoSrc: brandValues.logoSrc,
+        })}
       />
     );
   }
   if (treatment === "overlay") {
     return (
       <__OverlaySplitHero
-        ctaHref={contentValues.ctaHref}
-        ctaLabel={contentValues.ctaLabel}
-        description={contentValues.description}
-        eyebrow={contentValues.eyebrow}
-        heading={contentValues.heading}
-        subheading={contentValues.subheading}
-        imageAlt={imageValues.alt}
-        imageSrc={imageValues.src}
-        logoAlt={brandValues.logoAlt}
-        logoHref={brandValues.logoHref}
-        logoSrc={brandValues.logoSrc}
-        theme={theme}
-        variant={`overlay-${imagePosition}`}
+        variant={variant as Parameters<typeof __OverlaySplitHero>[0]["variant"]}
+        {...contentProps}
+        {...splitHeroDefinedProps({
+          imageAlt: imageValues.primary.alt,
+          imageSrc: imageValues.primary.src,
+          logoAlt: brandValues.logoAlt,
+          logoHref: brandValues.logoHref,
+          logoSrc: brandValues.logoSrc,
+        })}
       />
     );
   }
   if (treatment === "full-bleed") {
     return (
       <__FullBleedSplitHero
-        ctaHref={contentValues.ctaHref}
-        ctaLabel={contentValues.ctaLabel}
-        description={contentValues.description}
-        eyebrow={contentValues.eyebrow}
-        heading={contentValues.heading}
-        price={content?.price}
-        subheading={contentValues.subheading}
-        imageAlt={imageValues.alt}
-        imageSrc={imageValues.src}
-        logoAlt={brandValues.logoAlt}
-        logoSrc={brandValues.logoSrc}
-        theme={theme}
-        variant={`image-${imagePosition}`}
+        variant={
+          variant as Parameters<typeof __FullBleedSplitHero>[0]["variant"]
+        }
+        {...contentProps}
+        {...splitHeroDefinedProps({
+          imageAlt: imageValues.primary.alt,
+          imageSrc: imageValues.primary.src,
+          logoAlt: brandValues.logoAlt,
+          logoSrc: brandValues.logoSrc,
+          price: contentValues.price,
+        })}
       />
     );
   }
   if (treatment === "slanted") {
     return (
       <__SlantedSplitHero
-        ctaHref={contentValues.ctaHref}
-        ctaLabel={contentValues.ctaLabel}
-        description={contentValues.description}
-        eyebrow={contentValues.eyebrow}
-        heading={contentValues.heading}
-        subheading={contentValues.subheading}
-        imageAlt={imageValues.alt}
-        imageSrc={imageValues.src}
-        logoAlt={brandValues.logoAlt}
-        logoHref={brandValues.logoHref}
-        logoSrc={brandValues.logoSrc}
-        theme={theme}
-        variant={`${imagePosition}-slanted-${slant}`}
+        variant={variant as Parameters<typeof __SlantedSplitHero>[0]["variant"]}
+        {...contentProps}
+        {...splitHeroDefinedProps({
+          imageAlt: imageValues.primary.alt,
+          imageSrc: imageValues.primary.src,
+          logoAlt: brandValues.logoAlt,
+          logoHref: brandValues.logoHref,
+          logoSrc: brandValues.logoSrc,
+        })}
       />
     );
   }
   return (
     <__ContainedSplitHero
-      ctaHref={contentValues.ctaHref}
-      ctaLabel={contentValues.ctaLabel}
-      description={contentValues.description}
-      eyebrow={contentValues.eyebrow}
-      heading={contentValues.heading}
-      price={content?.price}
-      subheading={contentValues.subheading}
-      logoAlt={brandValues.logoAlt}
-      logoSrc={brandValues.logoSrc}
-      primaryImageAlt={imageValues.alt}
-      primaryImageSrc={imageValues.src}
-      secondaryImageAlt={images?.[1]?.alt}
-      secondaryImageSrc={images?.[1]?.src}
-      theme={theme}
-      variant={
-        images && images.length > 1
-          ? `square-images-${imagePosition}`
-          : `single-image-${imagePosition}`
-      }
+      variant={variant as Parameters<typeof __ContainedSplitHero>[0]["variant"]}
+      {...contentProps}
+      {...splitHeroDefinedProps({
+        logoAlt: brandValues.logoAlt,
+        logoSrc: brandValues.logoSrc,
+        price: contentValues.price,
+        primaryImageAlt: imageValues.primary.alt,
+        primaryImageSrc: imageValues.primary.src,
+        secondaryImageAlt: imageValues.secondary.alt,
+        secondaryImageSrc: imageValues.secondary.src,
+      })}
     />
   );
 };

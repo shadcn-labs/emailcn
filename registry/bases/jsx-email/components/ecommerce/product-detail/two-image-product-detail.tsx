@@ -873,6 +873,9 @@ const detailVariant = (
   ratingPosition: TwoImageProductDetailProps["ratingPosition"] = "bottom",
   headerPosition: TwoImageProductDetailProps["headerPosition"] = "default"
 ) => {
+  if (headerPosition === "top" && ratingPosition === "aside") {
+    return "rating-aside-top" as const;
+  }
   if (headerPosition === "top") {
     return "header-top" as const;
   }

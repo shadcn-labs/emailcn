@@ -866,6 +866,9 @@ const detailVariant = (
   ratingPosition: MasonryProductDetailProps["ratingPosition"] = "bottom",
   headerPosition: MasonryProductDetailProps["headerPosition"] = "default"
 ) => {
+  if (headerPosition === "top" && ratingPosition === "aside") {
+    return "rating-aside-top" as const;
+  }
   if (headerPosition === "top") {
     return "header-top" as const;
   }

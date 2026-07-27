@@ -19,6 +19,8 @@ import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/e
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
 import { defaultTheme } from "@/registry/themes/default";
 
+export type SocialLinksContent = "full" | "lead" | "title" | "minimal";
+
 interface SimpleSocials_SimpleSocialLogoItem {
   alt: string;
   href: string;
@@ -27,6 +29,7 @@ interface SimpleSocials_SimpleSocialLogoItem {
 
 interface SimpleSocials_SimpleSocialLogosRowProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SimpleSocials_SimpleSocialLogoItem[];
@@ -72,100 +75,114 @@ const SimpleSocials_defaultItems: SimpleSocials_SimpleSocialLogoItem[] = [
 ];
 
 const SimpleSocials_SimpleSocialLogosRowSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items = SimpleSocials_defaultItems,
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
-}: Omit<SimpleSocials_SimpleSocialLogosRowProps, "theme">) => (
-  <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
-    <Fragment>
-      <Row>
-        <Column>&zwj;</Column>
-        <Column
-          style={{
-            backgroundColor,
-            maxWidth: "100%",
-            paddingBottom: "44px",
-            width: "600px",
-          }}
-        >
-          <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
-          <Section width="100%">
-            <Fragment>
-              <Row>
-                <Column
-                  className="simple-social-content"
-                  style={{ padding: "0 64px", textAlign: "center" }}
-                >
-                  <Heading
-                    style={{
-                      color: "#030712",
-                      fontFamily: SimpleSocials_fontFamily,
-                      fontSize: "20px",
-                      fontWeight: 600,
-                      lineHeight: "28px",
-                      margin: 0,
-                      textAlign: "center",
-                    }}
-                    as="h2"
+}: Omit<SimpleSocials_SimpleSocialLogosRowProps, "theme">) => {
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
+
+  return (
+    <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
+      <Fragment>
+        <Row>
+          <Column>&zwj;</Column>
+          <Column
+            style={{
+              backgroundColor,
+              maxWidth: "100%",
+              paddingBottom: "44px",
+              width: "600px",
+            }}
+          >
+            <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
+            <Section width="100%">
+              <Fragment>
+                <Row>
+                  <Column
+                    className="simple-social-content"
+                    style={{ padding: "0 64px", textAlign: "center" }}
                   >
-                    {title}
-                  </Heading>
-                  <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
-                  <Section
-                    align="center"
-                    style={{ marginLeft: "auto", marginRight: "auto" }}
-                  >
-                    <Fragment>
-                      <Row>
-                        {items.map((item, index) => (
-                          <Column
-                            key={`${item.alt}-${item.href}`}
-                            style={
-                              index > 0 ? { paddingLeft: "16px" } : undefined
-                            }
-                          >
-                            <Link href={item.href}>
-                              <Img
-                                alt={item.alt}
-                                src={item.src}
-                                style={{
-                                  maxWidth: "100%",
-                                  verticalAlign: "middle",
-                                }}
-                                width={24}
-                              />
-                            </Link>
-                          </Column>
-                        ))}
-                      </Row>
-                    </Fragment>
-                  </Section>
-                  <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
-                  <Text
-                    style={{
-                      color: "#4b5563",
-                      fontFamily: SimpleSocials_fontFamily,
-                      fontSize: "16px",
-                      fontWeight: 300,
-                      lineHeight: "24px",
-                      margin: 0,
-                      textAlign: "center",
-                    }}
-                  >
-                    {description}
-                  </Text>
-                </Column>
-              </Row>
-            </Fragment>
-          </Section>
-        </Column>
-        <Column>&zwj;</Column>
-      </Row>
-    </Fragment>
-  </Section>
-);
+                    {showTitle ? (
+                      <Fragment>
+                        <Heading
+                          style={{
+                            color: "#030712",
+                            fontFamily: SimpleSocials_fontFamily,
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                          as="h2"
+                        >
+                          {title}
+                        </Heading>
+                        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                      </Fragment>
+                    ) : null}
+                    <Section
+                      align="center"
+                      style={{ marginLeft: "auto", marginRight: "auto" }}
+                    >
+                      <Fragment>
+                        <Row>
+                          {items.map((item, index) => (
+                            <Column
+                              key={`${item.alt}-${item.href}`}
+                              style={
+                                index > 0 ? { paddingLeft: "16px" } : undefined
+                              }
+                            >
+                              <Link href={item.href}>
+                                <Img
+                                  alt={item.alt}
+                                  src={item.src}
+                                  style={{
+                                    maxWidth: "100%",
+                                    verticalAlign: "middle",
+                                  }}
+                                  width={24}
+                                />
+                              </Link>
+                            </Column>
+                          ))}
+                        </Row>
+                      </Fragment>
+                    </Section>
+                    {showDescription ? (
+                      <Fragment>
+                        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                        <Text
+                          style={{
+                            color: "#4b5563",
+                            fontFamily: SimpleSocials_fontFamily,
+                            fontSize: "16px",
+                            fontWeight: 300,
+                            lineHeight: "24px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                        >
+                          {description}
+                        </Text>
+                      </Fragment>
+                    ) : null}
+                  </Column>
+                </Row>
+              </Fragment>
+            </Section>
+          </Column>
+          <Column>&zwj;</Column>
+        </Row>
+      </Fragment>
+    </Section>
+  );
+};
 
 const SimpleSocials_SimpleSocialLogosRow = ({
   pageBackgroundColor = "#f1f5f9",
@@ -221,6 +238,7 @@ interface SocialLogos_SocialLogoItem {
 
 interface SocialLogos_SocialLogosProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialLogos_SocialLogoItem[];
@@ -287,6 +305,7 @@ const SocialLogos_variantStyle = (variant: SocialLogos_SocialLogosVariant) => {
 };
 
 const SocialLogos_SocialLogosSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items = SocialLogos_defaultItems,
@@ -296,6 +315,8 @@ const SocialLogos_SocialLogosSection = ({
 }: Omit<SocialLogos_SocialLogosProps, "theme">) => {
   const individual = SocialLogos_individualVariants.has(variant);
   const decoration = SocialLogos_variantStyle(variant);
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
   const itemLink = (item: SocialLogos_SocialLogoItem) => (
     <Link
       href={item.href}
@@ -341,21 +362,25 @@ const SocialLogos_SocialLogosSection = ({
                     className="social-logo-content"
                     style={{ padding: "0 64px", textAlign: "center" }}
                   >
-                    <Heading
-                      style={{
-                        color: "#030712",
-                        fontFamily: SocialLogos_fontFamily,
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                      as="h2"
-                    >
-                      {title}
-                    </Heading>
-                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    {showTitle ? (
+                      <Fragment>
+                        <Heading
+                          style={{
+                            color: "#030712",
+                            fontFamily: SocialLogos_fontFamily,
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                          as="h2"
+                        >
+                          {title}
+                        </Heading>
+                        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                      </Fragment>
+                    ) : null}
                     <Section
                       align="center"
                       style={
@@ -396,25 +421,29 @@ const SocialLogos_SocialLogosSection = ({
                         </Row>
                       </Fragment>
                     </Section>
-                    <Section
-                      className="social-logo-description-gap"
-                      style={{ lineHeight: "36px" }}
-                    >
-                      &zwj;
-                    </Section>
-                    <Text
-                      style={{
-                        color: "#4b5563",
-                        fontFamily: SocialLogos_fontFamily,
-                        fontSize: "16px",
-                        fontWeight: 300,
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {description}
-                    </Text>
+                    {showDescription ? (
+                      <Fragment>
+                        <Section
+                          className="social-logo-description-gap"
+                          style={{ lineHeight: "36px" }}
+                        >
+                          &zwj;
+                        </Section>
+                        <Text
+                          style={{
+                            color: "#4b5563",
+                            fontFamily: SocialLogos_fontFamily,
+                            fontSize: "16px",
+                            fontWeight: 300,
+                            lineHeight: "24px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                        >
+                          {description}
+                        </Text>
+                      </Fragment>
+                    ) : null}
                   </Column>
                 </Row>
               </Fragment>
@@ -477,6 +506,7 @@ interface SocialLabels_LabeledSocialItem {
 
 interface SocialLabels_SocialsWithLabelsProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialLabels_LabeledSocialItem[];
@@ -529,6 +559,7 @@ const SocialLabels_getItemStyle = (index: number, stacked: boolean) => {
 };
 
 const SocialLabels_SocialsWithLabelsSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items,
@@ -542,6 +573,8 @@ const SocialLabels_SocialsWithLabelsSection = ({
       ? SocialLabels_stackedItems
       : SocialLabels_inlineItems);
   const stacked = variant === "stacked";
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
   return (
     <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
       <Fragment>
@@ -563,21 +596,25 @@ const SocialLabels_SocialsWithLabelsSection = ({
                     className="labeled-social-content"
                     style={{ padding: "0 64px", textAlign: "center" }}
                   >
-                    <Heading
-                      style={{
-                        color: "#030712",
-                        fontFamily: SocialLabels_fontFamily,
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                      as="h2"
-                    >
-                      {title}
-                    </Heading>
-                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    {showTitle ? (
+                      <Fragment>
+                        <Heading
+                          style={{
+                            color: "#030712",
+                            fontFamily: SocialLabels_fontFamily,
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                          as="h2"
+                        >
+                          {title}
+                        </Heading>
+                        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                      </Fragment>
+                    ) : null}
                     <Section
                       align="center"
                       style={{ marginLeft: "auto", marginRight: "auto" }}
@@ -627,25 +664,29 @@ const SocialLabels_SocialsWithLabelsSection = ({
                         </Row>
                       </Fragment>
                     </Section>
-                    <Section
-                      className="labeled-social-description-gap"
-                      style={{ lineHeight: "36px" }}
-                    >
-                      &zwj;
-                    </Section>
-                    <Text
-                      style={{
-                        color: "#4b5563",
-                        fontFamily: SocialLabels_fontFamily,
-                        fontSize: "16px",
-                        fontWeight: 300,
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {description}
-                    </Text>
+                    {showDescription ? (
+                      <Fragment>
+                        <Section
+                          className="labeled-social-description-gap"
+                          style={{ lineHeight: "36px" }}
+                        >
+                          &zwj;
+                        </Section>
+                        <Text
+                          style={{
+                            color: "#4b5563",
+                            fontFamily: SocialLabels_fontFamily,
+                            fontSize: "16px",
+                            fontWeight: 300,
+                            lineHeight: "24px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                        >
+                          {description}
+                        </Text>
+                      </Fragment>
+                    ) : null}
                   </Column>
                 </Row>
               </Fragment>
@@ -708,6 +749,7 @@ interface SocialTileLabels_TiledSocialItem {
 
 interface SocialTileLabels_SocialsWithTileLabelsProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialTileLabels_TiledSocialItem[];
@@ -754,6 +796,7 @@ const SocialTileLabels_inlineItems: SocialTileLabels_TiledSocialItem[] = [
 }));
 
 const SocialTileLabels_SocialsWithTileLabelsSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items,
@@ -768,6 +811,8 @@ const SocialTileLabels_SocialsWithTileLabelsSection = ({
       ? SocialTileLabels_stackedItems
       : SocialTileLabels_inlineItems);
   const stacked = variant === "stacked";
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
   return (
     <Section style={{ backgroundColor: pageBackgroundColor }} width="100%">
       <Fragment>
@@ -792,21 +837,25 @@ const SocialTileLabels_SocialsWithTileLabelsSection = ({
                       textAlign: "center",
                     }}
                   >
-                    <Heading
-                      style={{
-                        color: "#030712",
-                        fontFamily: SocialTileLabels_fontFamily,
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                      as="h2"
-                    >
-                      {title}
-                    </Heading>
-                    <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                    {showTitle ? (
+                      <Fragment>
+                        <Heading
+                          style={{
+                            color: "#030712",
+                            fontFamily: SocialTileLabels_fontFamily,
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                          as="h2"
+                        >
+                          {title}
+                        </Heading>
+                        <Section style={{ lineHeight: "36px" }}>&zwj;</Section>
+                      </Fragment>
+                    ) : null}
                     <Section
                       align="center"
                       style={{ marginLeft: "auto", marginRight: "auto" }}
@@ -872,25 +921,29 @@ const SocialTileLabels_SocialsWithTileLabelsSection = ({
                         </Row>
                       </Fragment>
                     </Section>
-                    <Section
-                      className="tiled-social-description-gap"
-                      style={{ lineHeight: "36px" }}
-                    >
-                      &zwj;
-                    </Section>
-                    <Text
-                      style={{
-                        color: "#4b5563",
-                        fontFamily: SocialTileLabels_fontFamily,
-                        fontSize: "16px",
-                        fontWeight: 300,
-                        lineHeight: "24px",
-                        margin: 0,
-                        textAlign: "center",
-                      }}
-                    >
-                      {description}
-                    </Text>
+                    {showDescription ? (
+                      <Fragment>
+                        <Section
+                          className="tiled-social-description-gap"
+                          style={{ lineHeight: "36px" }}
+                        >
+                          &zwj;
+                        </Section>
+                        <Text
+                          style={{
+                            color: "#4b5563",
+                            fontFamily: SocialTileLabels_fontFamily,
+                            fontSize: "16px",
+                            fontWeight: 300,
+                            lineHeight: "24px",
+                            margin: 0,
+                            textAlign: "center",
+                          }}
+                        >
+                          {description}
+                        </Text>
+                      </Fragment>
+                    ) : null}
                   </Column>
                 </Row>
               </Fragment>
@@ -953,6 +1006,7 @@ export interface SocialLink {
 
 export interface SocialLinksProps {
   theme?: Parameters<typeof __SimpleSocials>[0]["theme"];
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialLink[];
@@ -980,6 +1034,7 @@ const iconVariant = ({
 
 export const SocialLinks = ({
   theme,
+  content = "full",
   title,
   description,
   items,
@@ -995,7 +1050,7 @@ export const SocialLinks = ({
     label: label ?? "",
     src: icon.src,
   }));
-  const props = { description, items: normalizedItems, theme, title };
+  const props = { content, description, items: normalizedItems, theme, title };
   if (presentation === "labels") {
     return container === "tile" ? (
       <__SocialTileLabels {...props} variant={direction} />
@@ -1016,6 +1071,7 @@ export const SocialLinks = ({
 
 SocialLinks.PreviewProps = {
   container: "none",
+  content: "full",
   direction: "inline",
   outlined: false,
   presentation: "icons",

@@ -62,7 +62,7 @@ export const OnboardingDefault = ({
               ctaHref={ctaHref}
             />
 
-            <ContentGridSection type="title" title="Quick Setup" />
+            <ContentGridSection layout="title" title="Quick Setup" />
 
             <CTABannerSection
               heading="Ready to dive in?"

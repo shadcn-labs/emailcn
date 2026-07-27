@@ -67,39 +67,105 @@ import { NavigationFooter } from "@/components/email/navigation-footer";
 
 ## Examples
 
-### Centered single column
+### Footer centered with menu and socials
+
+#### default
 
 <ComponentPreview
   base="mjml-react"
-  name="navigation-footer-centered-single-column-example-demo"
+  name="navigation-footer-columns-1-alignment-center-example-demo"
 />
 
-### Three columns
+### Footer with 2-column menu
+
+#### left logo
+
+The default demo above covers this configuration.
+
+#### right logo
 
 <ComponentPreview
   base="mjml-react"
-  name="navigation-footer-three-columns-example-demo"
+  name="navigation-footer-columns-2-logo-position-right-example-demo"
 />
 
-### With divider
+### Footer with 2-column menu and divider
+
+#### left logo
 
 <ComponentPreview
   base="mjml-react"
-  name="navigation-footer-with-divider-example-demo"
+  name="navigation-footer-columns-2-logo-position-left-divider-example-demo"
+/>
+
+#### right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-columns-2-logo-position-right-divider-example-demo"
+/>
+
+### Footer with 3-column menu
+
+#### left logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-columns-3-logo-position-left-example-demo"
+/>
+
+#### right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-columns-3-logo-position-right-example-demo"
+/>
+
+### Footer with full menu
+
+#### oversized logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-oversized-logo-variant-oversized-logo-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-oversized-logo-variant-bordered-example-demo"
+/>
+
+### Footer with text menu and socials
+
+#### left logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-description-logo-position-left-example-demo"
+/>
+
+#### right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="navigation-footer-description-logo-position-right-example-demo"
 />
 
 ## API Reference
 
-| Prop            | Type                                                                                        | Default                                                                                                               | Description                               |
-| --------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `theme`         | `EmailTheme`                                                                                | `defaultTheme`                                                                                                        | Renderer theme configuration.             |
-| `brand`         | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                                                                                     | Configures the component's brand.         |
-| `description`   | `string`                                                                                    | `"Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed."` | Configures the component's description.   |
-| `menus`         | `Array<{ heading?: string; links: Array<{ label: string; href: string }> }>`                | -                                                                                                                     | Configures the component's menus.         |
-| `socials`       | `Array<{ iconSrc: string; label: string; href: string }>`                                   | -                                                                                                                     | Configures the component's socials.       |
-| `legal`         | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }` | -                                                                                                                     | Configures the component's legal.         |
-| `columns`       | `1 \| 2 \| 3`                                                                               | `2`                                                                                                                   | Configures the component's columns.       |
-| `alignment`     | `"left" \| "center" \| "right"`                                                             | `"left"`                                                                                                              | Configures the component's alignment.     |
-| `logoPosition`  | `"left" \| "right" \| "top" \| "bottom"`                                                    | `"left"`                                                                                                              | Configures the component's logoposition.  |
-| `divider`       | `boolean`                                                                                   | `false`                                                                                                               | Configures the component's divider.       |
-| `oversizedLogo` | `boolean`                                                                                   | `false`                                                                                                               | Configures the component's oversizedlogo. |
+| Prop            | Type                                                                                        | Default                                                                                                               | Description                                      |
+| --------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `theme`         | `EmailTheme`                                                                                | `defaultTheme`                                                                                                        | Renderer theme configuration.                    |
+| `brand`         | `{ logo: { src: string; alt?: string }; href?: string }`                                    | -                                                                                                                     | Configures the component's brand.                |
+| `description`   | `string`                                                                                    | `"Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed."` | Configures the component's description.          |
+| `menus`         | `Array<{ heading?: string; links: Array<{ label: string; href: string }> }>`                | -                                                                                                                     | Configures the component's menus.                |
+| `socials`       | `Array<{ iconSrc: string; label: string; href: string }>`                                   | -                                                                                                                     | Configures the component's socials.              |
+| `legal`         | `{ copyright?: string; text?: string; unsubscribeHref?: string; preferencesHref?: string }` | -                                                                                                                     | Configures the component's legal.                |
+| `columns`       | `1 \| 2 \| 3`                                                                               | `2`                                                                                                                   | Configures the component's columns.              |
+| `alignment`     | `"left" \| "center" \| "right"`                                                             | `"left"`                                                                                                              | Configures the component's alignment.            |
+| `logoPosition`  | `"left" \| "right" \| "top" \| "bottom"`                                                    | `"left"`                                                                                                              | Configures the component's logoposition.         |
+| `divider`       | `boolean`                                                                                   | `false`                                                                                                               | Configures the component's divider.              |
+| `oversizedLogo` | `boolean`                                                                                   | `false`                                                                                                               | Configures the component's oversizedlogo.        |
+| `variant`       | `"left-logo" \| "right-logo" \| "oversized-logo" \| "bordered"`                             | Derived from the other props                                                                                          | Selects an exact legacy composition when needed. |

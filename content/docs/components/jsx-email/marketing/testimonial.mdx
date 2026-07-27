@@ -67,35 +67,131 @@ import { Testimonial } from "@/components/email/testimonial";
 
 ## Examples
 
-### Overlapping avatar
+### Centered testimonial with CTA
+
+#### With quote
 
 <ComponentPreview
   base="jsx-email"
-  name="testimonial-overlapping-avatar-example-demo"
+  name="testimonial-layout-centered-variant-quote-example-demo"
 />
 
-### Centered CTA
+#### Text top
 
 <ComponentPreview
   base="jsx-email"
-  name="testimonial-centered-cta-example-demo"
+  name="testimonial-layout-centered-variant-text-top-example-demo"
 />
 
-### Split
+#### Text bottom
 
-<ComponentPreview base="jsx-email" name="testimonial-split-example-demo" />
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-centered-variant-text-bottom-example-demo"
+/>
+
+### Split testimonial with CTA
+
+#### Image left
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-split-placement-left-example-demo"
+/>
+
+#### Image right
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-split-placement-right-example-demo"
+/>
+
+### Full width testimonial
+
+#### Left aligned
+
+The default demo above covers this configuration.
+
+#### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-center-appearance-plain-avatar-treatment-inline-example-demo"
+/>
+
+#### Boxed left
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-left-appearance-boxed-avatar-treatment-inline-example-demo"
+/>
+
+#### Boxed centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-center-appearance-boxed-avatar-treatment-inline-example-demo"
+/>
+
+#### Accent left
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-left-appearance-accent-avatar-treatment-inline-example-demo"
+/>
+
+#### Accent centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-center-appearance-accent-avatar-treatment-inline-example-demo"
+/>
+
+### Full width testimonial with overlapping avatar
+
+#### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-left-avatar-treatment-overlapping-placement-bottom-example-demo"
+/>
+
+#### Centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-center-avatar-treatment-overlapping-placement-bottom-example-demo"
+/>
+
+#### Top left
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-left-avatar-treatment-overlapping-placement-top-example-demo"
+/>
+
+#### Top centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="testimonial-layout-full-width-alignment-center-avatar-treatment-overlapping-placement-top-example-demo"
+/>
 
 ## API Reference
 
-| Prop              | Type                                    | Default                                                                                                                             | Description                                 |
-| ----------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `theme`           | `EmailTheme`                            | `defaultTheme`                                                                                                                      | Renderer theme configuration.               |
-| `quote`           | `string`                                | `"“After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.”"` | Configures the component's quote.           |
-| `author`          | `string`                                | -                                                                                                                                   | Configures the component's author.          |
-| `role`            | `string`                                | -                                                                                                                                   | Configures the component's role.            |
-| `company`         | `string`                                | `"Monarch"`                                                                                                                         | Configures the component's company.         |
-| `avatar`          | `{ src: string; alt?: string }`         | -                                                                                                                                   | Configures the component's avatar.          |
-| `logo`            | `{ src: string; alt?: string }`         | -                                                                                                                                   | Configures the component's logo.            |
-| `layout`          | `"full-width" \| "centered" \| "split"` | `"full-width"`                                                                                                                      | Configures the component's layout.          |
-| `avatarTreatment` | `"inline" \| "overlapping"`             | `"inline"`                                                                                                                          | Configures the component's avatartreatment. |
-| `action`          | `{ href: string; label: string }`       | -                                                                                                                                   | Configures the component's action.          |
+| Prop              | Type                                     | Default                           | Description                                                      |
+| ----------------- | ---------------------------------------- | --------------------------------- | ---------------------------------------------------------------- |
+| `theme`           | `EmailTheme`                             | `defaultTheme`                    | Renderer theme configuration.                                    |
+| `quote`           | `string`                                 | Layout-specific built-in copy     | Sets the testimonial quote.                                      |
+| `author`          | `string`                                 | Layout-specific built-in author   | Sets the quoted person's name.                                   |
+| `role`            | `string`                                 | Layout-specific built-in role     | Sets the quoted person's role.                                   |
+| `company`         | `string`                                 | `"Monarch"`                       | Sets the company used by CTA layouts.                            |
+| `avatar`          | `{ src: string; alt?: string }`          | Built-in avatar                   | Overrides the testimonial avatar.                                |
+| `logo`            | `{ src: string; alt?: string }`          | Appearance-specific built-in logo | Overrides the customer logo.                                     |
+| `layout`          | `"full-width" \| "centered" \| "split"`  | `"full-width"`                    | Selects the testimonial's structural layout.                     |
+| `alignment`       | `"left" \| "center"`                     | `"left"`                          | Aligns full-width testimonial content.                           |
+| `appearance`      | `"plain" \| "boxed" \| "accent"`         | `"plain"`                         | Styles an inline full-width testimonial.                         |
+| `avatarTreatment` | `"inline" \| "overlapping"`              | `"inline"`                        | Places the full-width avatar inline or across the card boundary. |
+| `placement`       | `"left" \| "right" \| "top" \| "bottom"` | Layout-specific                   | Positions the split image or overlapping avatar.                 |
+| `variant`         | `"quote" \| "text-top" \| "text-bottom"` | `"quote"`                         | Selects the centered CTA content treatment.                      |
+| `action`          | `{ href: string; label: string }`        | Built-in case-study link          | Overrides the action shown by centered and split CTA layouts.    |

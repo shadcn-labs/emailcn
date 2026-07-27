@@ -797,12 +797,17 @@ export interface LogoCloudProps {
   appearance?: "plain" | "boxed" | "outlined" | "bordered";
   alignment?: "left" | "center" | "right";
   featuredIndex?: number;
+  flush?: boolean;
 }
 
 const contentVariant = ({
   title,
   description,
-}: Pick<LogoCloudProps, "title" | "description">) => {
+  flush,
+}: Pick<LogoCloudProps, "title" | "description" | "flush">) => {
+  if (flush) {
+    return "flush" as const;
+  }
   if (title && description) {
     return "full" as const;
   }
@@ -811,6 +816,11 @@ const contentVariant = ({
   }
   return description ? ("with-description" as const) : "minimal";
 };
+
+const logoCloudDefinedProps = <Props extends object>(props: Props) =>
+  Object.fromEntries(
+    Object.entries(props).filter(([, value]) => value !== undefined)
+  ) as Partial<Props>;
 
 export const LogoCloud = ({
   theme,
@@ -821,28 +831,26 @@ export const LogoCloud = ({
   appearance = "plain",
   alignment = "center",
   featuredIndex = 0,
+  flush = false,
 }: LogoCloudProps) => {
   const resolvedAppearance = appearance;
+  const contentProps = logoCloudDefinedProps({ description, theme, title });
   if (layout === "featured") {
     return (
       <__FeaturedLogoGrid
         alignment={alignment}
-        description={description}
-        featuredLogo={logos?.[featuredIndex]}
-        supportingLogos={logos?.filter((_, index) => index !== featuredIndex)}
-        theme={theme}
-        title={title}
         tone={resolvedAppearance === "boxed" ? "boxed" : "outlined"}
+        {...contentProps}
+        {...logoCloudDefinedProps({
+          featuredLogo: logos?.[featuredIndex],
+          supportingLogos: logos?.filter((_, index) => index !== featuredIndex),
+        })}
       />
     );
   }
   if (layout === "grid") {
     return (
       <__LogosGrid
-        description={description}
-        logos={logos}
-        theme={theme}
-        title={title}
         tone={(() => {
           if (resolvedAppearance === "bordered") {
             return "bordered";
@@ -852,40 +860,36 @@ export const LogoCloud = ({
           }
           return "boxed";
         })()}
+        {...contentProps}
+        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
-  const variant = contentVariant({ description, title });
+  const variant = contentVariant({ description, flush, title });
   if (resolvedAppearance === "plain") {
     return (
       <__BasicLogoCloud
-        description={description}
-        logos={logos}
-        theme={theme}
-        title={title}
-        variant={variant}
+        variant={variant === "flush" ? "full" : variant}
+        {...contentProps}
+        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
   if (resolvedAppearance === "bordered") {
     return (
       <__BorderedLogoCloud
-        description={description}
-        logos={logos}
-        theme={theme}
-        title={title}
         variant={variant}
+        {...contentProps}
+        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
   return (
     <__LogoCloud
-      description={description}
-      logos={logos}
-      theme={theme}
-      title={title}
       tone={resolvedAppearance === "outlined" ? "outlined" : "boxed"}
       variant={variant}
+      {...contentProps}
+      {...logoCloudDefinedProps({ logos })}
     />
   );
 };
@@ -893,5 +897,6 @@ export const LogoCloud = ({
 LogoCloud.PreviewProps = {
   alignment: "center",
   appearance: "plain",
+  flush: false,
   layout: "cloud",
 } satisfies LogoCloudProps;

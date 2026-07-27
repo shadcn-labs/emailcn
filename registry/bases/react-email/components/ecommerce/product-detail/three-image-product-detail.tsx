@@ -884,6 +884,9 @@ const detailVariant = (
   ratingPosition: ThreeImageProductDetailProps["ratingPosition"] = "bottom",
   headerPosition: ThreeImageProductDetailProps["headerPosition"] = "default"
 ) => {
+  if (headerPosition === "top" && ratingPosition === "aside") {
+    return "rating-aside-top" as const;
+  }
   if (headerPosition === "top") {
     return "header-top" as const;
   }

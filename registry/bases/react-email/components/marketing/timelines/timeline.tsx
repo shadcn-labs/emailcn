@@ -1572,6 +1572,11 @@ export interface TimelineProps {
   alignment?: "left" | "right";
   appearance?: "muted" | "basic" | "accent";
   reverse?: boolean;
+  variant?:
+    | Parameters<typeof __CardsTimeline>[0]["variant"]
+    | Parameters<typeof __Changelog>[0]["variant"]
+    | Parameters<typeof __SplitTimeline>[0]["variant"]
+    | Parameters<typeof __StackedTimeline>[0]["variant"];
 }
 
 const timelineVariant = ({
@@ -1613,6 +1618,7 @@ export const Timeline = ({
   alignment = "left",
   appearance = "basic",
   reverse = false,
+  variant: variantOverride,
 }: TimelineProps) => {
   const [item] = items ?? [];
   const props = { ...timelineItemValues(item), theme };
@@ -1632,7 +1638,16 @@ export const Timeline = ({
       }
       return "default";
     })();
-    return <__CardsTimeline {...props} variant={variant} />;
+    return (
+      <__CardsTimeline
+        {...props}
+        variant={
+          (variantOverride ?? variant) as Parameters<
+            typeof __CardsTimeline
+          >[0]["variant"]
+        }
+      />
+    );
   }
   if (layout === "split") {
     const base = (() => {
@@ -1644,7 +1659,7 @@ export const Timeline = ({
       }
       return appearance;
     })();
-    const variant = `${base}${reverse ? "-reverse" : ""}`;
+    const variant = variantOverride ?? `${base}${reverse ? "-reverse" : ""}`;
     return (
       <__SplitTimeline
         {...props}
@@ -1657,7 +1672,12 @@ export const Timeline = ({
       <__Changelog
         {...props}
         layout={layout}
-        variant={timelineVariant({ alignment, appearance })}
+        variant={
+          (variantOverride ??
+            timelineVariant({ alignment, appearance })) as Parameters<
+            typeof __Changelog
+          >[0]["variant"]
+        }
       />
     );
   }
@@ -1668,7 +1688,11 @@ export const Timeline = ({
     <__StackedTimeline
       {...props}
       layout={layout}
-      variant={variant as Parameters<typeof __StackedTimeline>[0]["variant"]}
+      variant={
+        (variantOverride ?? variant) as Parameters<
+          typeof __StackedTimeline
+        >[0]["variant"]
+      }
     />
   );
 };

@@ -1467,18 +1467,18 @@ export const CollectionStats = ({
     return (
       <__OverlayStats
         backgroundImageSrc={backgroundImage.src}
-        featuredLabel={featured?.label}
-        featuredStat={featured?.value}
-        stats={items}
         theme={theme}
         variant={variant}
+        {...(featured
+          ? { featuredLabel: featured.label, featuredStat: featured.value }
+          : {})}
+        {...(items ? { stats: items } : {})}
       />
     );
   }
   if (layout === "row") {
     return (
       <__SimpleStats
-        stats={items}
         theme={theme}
         variant={(() => {
           if (appearance === "simple") {
@@ -1489,17 +1489,19 @@ export const CollectionStats = ({
           }
           return appearance;
         })()}
+        {...(items ? { stats: items } : {})}
       />
     );
   }
   return (
     <__GridStats
-      featuredLabel={featured?.label}
-      featuredStat={featured?.value}
       layout={layout === "bento" && reverse ? "bento-reversed" : layout}
-      stats={items}
       theme={theme}
       variant={appearance === "accent" ? "accent-column" : appearance}
+      {...(featured
+        ? { featuredLabel: featured.label, featuredStat: featured.value }
+        : {})}
+      {...(items ? { stats: items } : {})}
     />
   );
 };

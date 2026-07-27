@@ -690,6 +690,11 @@ export interface OverlayHeroProps {
     | "bottom-right";
   bleed?: boolean;
   reverse?: boolean;
+  variant?:
+    | Parameters<typeof __AlignedHero>[0]["variant"]
+    | Parameters<typeof __BlockHero>[0]["variant"]
+    | Parameters<typeof __BlockBleedHero>[0]["variant"]
+    | Parameters<typeof __GradientHero>[0]["variant"];
 }
 
 const blockPosition = (position: NonNullable<OverlayHeroProps["position"]>) => {
@@ -733,6 +738,7 @@ export const OverlayHero = ({
   position = "center-left",
   bleed = false,
   reverse = false,
+  variant: variantOverride,
 }: OverlayHeroProps) => {
   const contentValues = heroContentValues(content);
   const backgroundValues = heroImageValues(backgroundImage);
@@ -753,7 +759,12 @@ export const OverlayHero = ({
         logoHref={brandValues.logoHref}
         logoSrc={brandValues.logoSrc}
         theme={theme}
-        variant={`content-${side}${reverse ? "-reversed" : ""}`}
+        variant={
+          (variantOverride ??
+            `content-${side}${reverse ? "-reversed" : ""}`) as Parameters<
+            typeof __AlignedHero
+          >[0]["variant"]
+        }
       />
     );
   }
@@ -773,7 +784,12 @@ export const OverlayHero = ({
         logoHref={brandValues.logoHref}
         logoSrc={brandValues.logoSrc}
         theme={theme}
-        variant={`${side === "left" ? "split" : "unified"}-${brand ? "with-logo" : "no-logo"}`}
+        variant={
+          (variantOverride ??
+            `${side === "left" ? "split" : "unified"}-${brand ? "with-logo" : "no-logo"}`) as Parameters<
+            typeof __GradientHero
+          >[0]["variant"]
+        }
       />
     );
   }
@@ -793,7 +809,9 @@ export const OverlayHero = ({
       logoSrc={brandValues.logoSrc}
       theme={theme}
       variant={
-        blockPosition(position) as Parameters<typeof Component>[0]["variant"]
+        (variantOverride ?? blockPosition(position)) as Parameters<
+          typeof Component
+        >[0]["variant"]
       }
     />
   );

@@ -16,6 +16,8 @@ import {
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { defaultTheme } from "@/registry/themes/default";
 
+export type SocialLinksContent = "full" | "lead" | "title" | "minimal";
+
 interface SimpleSocials_SimpleSocialLogoItem {
   alt: string;
   href: string;
@@ -24,6 +26,7 @@ interface SimpleSocials_SimpleSocialLogoItem {
 
 interface SimpleSocials_SimpleSocialLogosRowProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SimpleSocials_SimpleSocialLogoItem[];
@@ -47,51 +50,61 @@ const SimpleSocials_defaultItems: SimpleSocials_SimpleSocialLogoItem[] = [
 }));
 
 const SimpleSocials_SimpleSocialLogosRowSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items = SimpleSocials_defaultItems,
   backgroundColor = "#fffffe",
-}: Omit<SimpleSocials_SimpleSocialLogosRowProps, "theme">) => (
-  <MjmlSection backgroundColor={backgroundColor} padding="44px 64px">
-    <MjmlColumn padding="0">
-      <MjmlText
-        align="center"
-        color="#030712"
-        fontFamily={SimpleSocials_fontFamily}
-        fontSize="20px"
-        fontWeight="600"
-        lineHeight="28px"
-        padding="0"
-      >
-        {title}
-      </MjmlText>
-      <MjmlSpacer height="36px" />
-      <MjmlSocial align="center" iconSize="24px" padding="0">
-        {items.map((item) => (
-          <MjmlSocialElement
-            alt={item.alt}
-            href={item.href}
-            key={`${item.alt}-${item.href}`}
-            padding="0 8px"
-            src={item.src}
-          />
-        ))}
-      </MjmlSocial>
-      <MjmlSpacer height="36px" />
-      <MjmlText
-        align="center"
-        color="#4b5563"
-        fontFamily={SimpleSocials_fontFamily}
-        fontSize="16px"
-        fontWeight="300"
-        lineHeight="24px"
-        padding="0"
-      >
-        {description}
-      </MjmlText>
-    </MjmlColumn>
-  </MjmlSection>
-);
+}: Omit<SimpleSocials_SimpleSocialLogosRowProps, "theme">) => {
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
+
+  return (
+    <MjmlSection backgroundColor={backgroundColor} padding="44px 64px">
+      <MjmlColumn padding="0">
+        {showTitle ? (
+          <MjmlText
+            align="center"
+            color="#030712"
+            fontFamily={SimpleSocials_fontFamily}
+            fontSize="20px"
+            fontWeight="600"
+            lineHeight="28px"
+            padding="0"
+          >
+            {title}
+          </MjmlText>
+        ) : null}
+        {showTitle ? <MjmlSpacer height="36px" /> : null}
+        <MjmlSocial align="center" iconSize="24px" padding="0">
+          {items.map((item) => (
+            <MjmlSocialElement
+              alt={item.alt}
+              href={item.href}
+              key={`${item.alt}-${item.href}`}
+              padding="0 8px"
+              src={item.src}
+            />
+          ))}
+        </MjmlSocial>
+        {showDescription ? <MjmlSpacer height="36px" /> : null}
+        {showDescription ? (
+          <MjmlText
+            align="center"
+            color="#4b5563"
+            fontFamily={SimpleSocials_fontFamily}
+            fontSize="16px"
+            fontWeight="300"
+            lineHeight="24px"
+            padding="0"
+          >
+            {description}
+          </MjmlText>
+        ) : null}
+      </MjmlColumn>
+    </MjmlSection>
+  );
+};
 
 const SimpleSocials_SimpleSocialLogosRow = ({
   pageBackgroundColor = "#f1f5f9",
@@ -141,6 +154,7 @@ interface SocialLogos_SocialLogoItem {
 
 interface SocialLogos_SocialLogosProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialLogos_SocialLogoItem[];
@@ -165,6 +179,7 @@ const SocialLogos_defaultItems: SocialLogos_SocialLogoItem[] = [
 }));
 
 const SocialLogos_SocialLogosSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items = SocialLogos_defaultItems,
@@ -173,21 +188,25 @@ const SocialLogos_SocialLogosSection = ({
 }: Omit<SocialLogos_SocialLogosProps, "theme">) => {
   const outlined = variant.startsWith("outlined");
   const rounded = variant.includes("circle") || variant.includes("pill");
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="44px 64px">
       <MjmlColumn padding="0">
-        <MjmlText
-          align="center"
-          color="#030712"
-          fontFamily={SocialLogos_fontFamily}
-          fontSize="20px"
-          fontWeight="600"
-          lineHeight="28px"
-          padding="0"
-        >
-          {title}
-        </MjmlText>
-        <MjmlSpacer height="36px" />
+        {showTitle ? (
+          <MjmlText
+            align="center"
+            color="#030712"
+            fontFamily={SocialLogos_fontFamily}
+            fontSize="20px"
+            fontWeight="600"
+            lineHeight="28px"
+            padding="0"
+          >
+            {title}
+          </MjmlText>
+        ) : null}
+        {showTitle ? <MjmlSpacer height="36px" /> : null}
         <MjmlSocial
           align="center"
           borderRadius={rounded ? "9999px" : "4px"}
@@ -207,18 +226,20 @@ const SocialLogos_SocialLogosSection = ({
             />
           ))}
         </MjmlSocial>
-        <MjmlSpacer height="36px" />
-        <MjmlText
-          align="center"
-          color="#4b5563"
-          fontFamily={SocialLogos_fontFamily}
-          fontSize="16px"
-          fontWeight="300"
-          lineHeight="24px"
-          padding="0"
-        >
-          {description}
-        </MjmlText>
+        {showDescription ? <MjmlSpacer height="36px" /> : null}
+        {showDescription ? (
+          <MjmlText
+            align="center"
+            color="#4b5563"
+            fontFamily={SocialLogos_fontFamily}
+            fontSize="16px"
+            fontWeight="300"
+            lineHeight="24px"
+            padding="0"
+          >
+            {description}
+          </MjmlText>
+        ) : null}
       </MjmlColumn>
     </MjmlSection>
   );
@@ -268,6 +289,7 @@ interface SocialLabels_LabeledSocialItem {
 
 interface SocialLabels_SocialsWithLabelsProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialLabels_LabeledSocialItem[];
@@ -305,6 +327,7 @@ const SocialLabels_inlineItems = SocialLabels_makeItems([
 ] as const);
 
 const SocialLabels_SocialsWithLabelsSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items,
@@ -317,21 +340,25 @@ const SocialLabels_SocialsWithLabelsSection = ({
       ? SocialLabels_stackedItems
       : SocialLabels_inlineItems);
   const stacked = variant === "stacked";
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="44px 64px">
       <MjmlColumn padding="0">
-        <MjmlText
-          align="center"
-          color="#030712"
-          fontFamily={SocialLabels_fontFamily}
-          fontSize="20px"
-          fontWeight="600"
-          lineHeight="28px"
-          padding="0"
-        >
-          {title}
-        </MjmlText>
-        <MjmlSpacer height="36px" />
+        {showTitle ? (
+          <MjmlText
+            align="center"
+            color="#030712"
+            fontFamily={SocialLabels_fontFamily}
+            fontSize="20px"
+            fontWeight="600"
+            lineHeight="28px"
+            padding="0"
+          >
+            {title}
+          </MjmlText>
+        ) : null}
+        {showTitle ? <MjmlSpacer height="36px" /> : null}
         <MjmlSocial
           align="center"
           color="#6b7280"
@@ -353,18 +380,20 @@ const SocialLabels_SocialsWithLabelsSection = ({
             </MjmlSocialElement>
           ))}
         </MjmlSocial>
-        <MjmlSpacer height="36px" />
-        <MjmlText
-          align="center"
-          color="#4b5563"
-          fontFamily={SocialLabels_fontFamily}
-          fontSize="16px"
-          fontWeight="300"
-          lineHeight="24px"
-          padding="0"
-        >
-          {description}
-        </MjmlText>
+        {showDescription ? <MjmlSpacer height="36px" /> : null}
+        {showDescription ? (
+          <MjmlText
+            align="center"
+            color="#4b5563"
+            fontFamily={SocialLabels_fontFamily}
+            fontSize="16px"
+            fontWeight="300"
+            lineHeight="24px"
+            padding="0"
+          >
+            {description}
+          </MjmlText>
+        ) : null}
       </MjmlColumn>
     </MjmlSection>
   );
@@ -414,6 +443,7 @@ interface SocialTileLabels_TiledSocialItem {
 
 interface SocialTileLabels_SocialsWithTileLabelsProps {
   theme?: EmailTheme;
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialTileLabels_TiledSocialItem[];
@@ -451,6 +481,7 @@ const SocialTileLabels_inlineItems = SocialTileLabels_makeItems([
 ] as const);
 
 const SocialTileLabels_SocialsWithTileLabelsSection = ({
+  content = "full",
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
   items,
@@ -464,21 +495,25 @@ const SocialTileLabels_SocialsWithTileLabelsSection = ({
       ? SocialTileLabels_stackedItems
       : SocialTileLabels_inlineItems);
   const stacked = variant === "stacked";
+  const showTitle = content === "full" || content === "title";
+  const showDescription = content === "full" || content === "lead";
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
       <MjmlColumn padding="0">
-        <MjmlText
-          align="center"
-          color="#030712"
-          fontFamily={SocialTileLabels_fontFamily}
-          fontSize="20px"
-          fontWeight="600"
-          lineHeight="28px"
-          padding="0"
-        >
-          {title}
-        </MjmlText>
-        <MjmlSpacer height="36px" />
+        {showTitle ? (
+          <MjmlText
+            align="center"
+            color="#030712"
+            fontFamily={SocialTileLabels_fontFamily}
+            fontSize="20px"
+            fontWeight="600"
+            lineHeight="28px"
+            padding="0"
+          >
+            {title}
+          </MjmlText>
+        ) : null}
+        {showTitle ? <MjmlSpacer height="36px" /> : null}
         <MjmlSocial
           align="center"
           color="#6b7280"
@@ -503,18 +538,20 @@ const SocialTileLabels_SocialsWithTileLabelsSection = ({
             </MjmlSocialElement>
           ))}
         </MjmlSocial>
-        <MjmlSpacer height="36px" />
-        <MjmlText
-          align="center"
-          color="#4b5563"
-          fontFamily={SocialTileLabels_fontFamily}
-          fontSize="16px"
-          fontWeight="300"
-          lineHeight="24px"
-          padding="0"
-        >
-          {description}
-        </MjmlText>
+        {showDescription ? <MjmlSpacer height="36px" /> : null}
+        {showDescription ? (
+          <MjmlText
+            align="center"
+            color="#4b5563"
+            fontFamily={SocialTileLabels_fontFamily}
+            fontSize="16px"
+            fontWeight="300"
+            lineHeight="24px"
+            padding="0"
+          >
+            {description}
+          </MjmlText>
+        ) : null}
       </MjmlColumn>
     </MjmlSection>
   );
@@ -564,6 +601,7 @@ export interface SocialLink {
 
 export interface SocialLinksProps {
   theme?: Parameters<typeof __SimpleSocials>[0]["theme"];
+  content?: SocialLinksContent;
   title?: string;
   description?: string;
   items?: SocialLink[];
@@ -591,6 +629,7 @@ const iconVariant = ({
 
 export const SocialLinks = ({
   theme,
+  content = "full",
   title,
   description,
   items,
@@ -606,7 +645,7 @@ export const SocialLinks = ({
     label: label ?? "",
     src: icon.src,
   }));
-  const props = { description, items: normalizedItems, theme, title };
+  const props = { content, description, items: normalizedItems, theme, title };
   if (presentation === "labels") {
     return container === "tile" ? (
       <__SocialTileLabels {...props} variant={direction} />
@@ -627,6 +666,7 @@ export const SocialLinks = ({
 
 SocialLinks.PreviewProps = {
   container: "none",
+  content: "full",
   direction: "inline",
   outlined: false,
   presentation: "icons",

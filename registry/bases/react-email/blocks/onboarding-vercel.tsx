@@ -59,7 +59,7 @@ export const OnboardingVercel = ({
               ctaHref={ctaHref}
             />
 
-            <ContentGridSection type="title" title="Global Edge" />
+            <ContentGridSection layout="title" title="Global Edge" />
 
             <CTABannerSection
               heading="Start deploying"

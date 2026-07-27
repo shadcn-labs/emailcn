@@ -1,5 +1,0 @@
-import { Reviews } from "@/registry/bases/react-email/components/ecommerce/reviews/reviews";
-
-export default function ReviewsAvatarLogoDemo() {
-  return <Reviews layout="two-columns" identity="avatar-logo" divider="none" />;
-}

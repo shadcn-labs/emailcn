@@ -59,7 +59,7 @@ export const OnboardingLinear = ({
               ctaHref={ctaHref}
             />
 
-            <ContentGridSection type="title" title="Issue Tracking" />
+            <ContentGridSection layout="title" title="Issue Tracking" />
 
             <CTABannerSection
               heading="Start tracking"

@@ -873,6 +873,9 @@ export interface OverlapHeroProps {
   direction?: "left" | "right";
   gradient?: boolean;
   slanted?: boolean;
+  variant?:
+    | Parameters<typeof __OverlapContentHero>[0]["variant"]
+    | Parameters<typeof __OverlapImageHero>[0]["variant"];
 }
 
 const heroContentValues = (content: HeroContent | undefined) => {
@@ -912,6 +915,7 @@ export const OverlapHero = ({
   direction = "left",
   gradient = false,
   slanted = false,
+  variant: variantOverride,
 }: OverlapHeroProps) => {
   const contentValues = heroContentValues(content);
   const [image] = images ?? [];
@@ -934,7 +938,12 @@ export const OverlapHero = ({
         logoHref={brandValues.logoHref}
         logoSrc={brandValues.logoSrc}
         theme={theme}
-        variant={slanted ? `slanted-${direction}` : "default"}
+        variant={
+          (variantOverride ??
+            (slanted ? `slanted-${direction}` : "default")) as Parameters<
+            typeof __OverlapImageHero
+          >[0]["variant"]
+        }
       />
     );
   }
@@ -952,7 +961,12 @@ export const OverlapHero = ({
       logoHref={brandValues.logoHref}
       logoSrc={brandValues.logoSrc}
       theme={theme}
-      variant={`${direction === "right" ? "reversed" : "basic"}${gradient ? "-with-gradient" : ""}`}
+      variant={
+        (variantOverride ??
+          `${direction === "right" ? "reversed" : "basic"}${gradient ? "-with-gradient" : ""}`) as Parameters<
+          typeof __OverlapContentHero
+        >[0]["variant"]
+      }
     />
   );
 };

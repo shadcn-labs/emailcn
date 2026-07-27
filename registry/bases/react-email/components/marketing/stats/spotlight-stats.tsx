@@ -490,6 +490,11 @@ export interface SpotlightStatsProps {
   };
 }
 
+const spotlightStatsDefinedProps = <Props extends object>(props: Props) =>
+  Object.fromEntries(
+    Object.entries(props).filter(([, value]) => value !== undefined)
+  ) as Partial<Props>;
+
 export const SpotlightStats = ({
   theme,
   eyebrow,
@@ -499,29 +504,27 @@ export const SpotlightStats = ({
   backgroundImage,
 }: SpotlightStatsProps) => {
   const variant = position === "center" ? "centered" : position;
+  const contentProps = spotlightStatsDefinedProps({ eyebrow, label, theme });
   if (backgroundImage) {
     return (
       <__SingleStat
         backgroundImageSrc={backgroundImage.src}
-        eyebrow={eyebrow}
-        label={label}
-        theme={theme}
-        value={values?.[0]}
         variant={variant}
+        {...contentProps}
+        {...spotlightStatsDefinedProps({ value: values?.[0] })}
       />
     );
   }
   return (
     <__RollingStats
-      eyebrow={eyebrow}
-      label={label}
-      theme={theme}
-      values={
-        values && values.length >= 3
-          ? [values[0], values[1], values[2]]
-          : undefined
-      }
       variant={variant}
+      {...contentProps}
+      {...spotlightStatsDefinedProps({
+        values:
+          values && values.length >= 3
+            ? [values[0], values[1], values[2]]
+            : undefined,
+      })}
     />
   );
 };

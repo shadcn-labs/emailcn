@@ -768,7 +768,7 @@ export interface FullWidthImageProps {
   image?: GalleryImage;
   overlay?: boolean;
   frame?: "none" | "top" | "right" | "bottom" | "left" | "sides";
-  frameStyle?: "padding" | "split" | "alternate";
+  frameStyle?: "padding" | "split" | "alternate" | "sides";
 }
 
 const fullWidthVariant = ({
@@ -780,6 +780,9 @@ const fullWidthVariant = ({
   }
   if (frameStyle === "padding") {
     return `${frame}-padding` as const;
+  }
+  if (frameStyle === "sides" && (frame === "top" || frame === "bottom")) {
+    return `${frame}-sides` as const;
   }
   if (frame === "top" || frame === "bottom") {
     return `${frame}-${frameStyle === "alternate" ? "right" : "left"}` as const;

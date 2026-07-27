@@ -16,7 +16,7 @@ interface ShowcaseItem {
 export const showcaseItems: readonly ShowcaseItem[] = [
   {
     className: "md:col-span-2",
-    name: "testimonial-overlapping-avatar-example-demo",
+    name: "testimonial-layout-full-width-alignment-left-avatar-treatment-overlapping-placement-bottom-example-demo",
     title: "Testimonial",
   },
   {
