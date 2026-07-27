@@ -11,10 +11,11 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
-  MjmlStyle,
+  MjmlTable,
   MjmlWrapper,
 } from "@faire/mjml-react";
 import { Fragment } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
@@ -42,8 +43,6 @@ export interface ShoppingCartItem {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const shoppingCartResponsiveStyles = "";
 
 const defaultItems: ShoppingCartItem[] = [
   {
@@ -92,7 +91,7 @@ const defaultItems: ShoppingCartItem[] = [
   },
 ];
 
-const Copy = ({ children }: { children?: string }) =>
+const Copy = ({ children }: { children?: ReactNode }) =>
   children ? (
     <MjmlText
       color="#4b5563"
@@ -106,21 +105,232 @@ const Copy = ({ children }: { children?: string }) =>
     </MjmlText>
   ) : null;
 
-const EditButton = ({ href }: { href: string }) => (
-  <MjmlButton
-    align="left"
-    backgroundColor="transparent"
-    color="#4f46e5"
+const EditLink = ({
+  align = "left",
+  href,
+}: {
+  align?: "left" | "right";
+  href: string;
+}) => (
+  <MjmlTable
+    align={align}
+    cellpadding="0"
+    cellspacing="0"
+    padding="0"
+    role="presentation"
+    width="72px"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            fontFamily,
+            fontSize: "16px",
+            fontWeight: 500,
+            lineHeight: "16px",
+            textAlign: align,
+          }}
+        >
+          <a
+            href={href}
+            style={{
+              color: "#4f46e5",
+              display: "inline-block",
+              textDecoration: "none",
+            }}
+          >
+            <img
+              alt=""
+              src={emailAsset("icon-edit-indigo.png")}
+              width="16"
+              style={{
+                display: "inline-block",
+                verticalAlign: "text-top",
+              }}
+            />
+            <span style={{ marginLeft: "8px" }}>Edit</span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const Header = ({ item }: { item: ShoppingCartItem }) => (
+  <MjmlTable
+    cellpadding="0"
+    cellspacing="0"
+    padding="0"
+    role="presentation"
+    tableLayout="fixed"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            color: "#030712",
+            fontFamily,
+            fontSize: "20px",
+            fontWeight: 600,
+            lineHeight: "28px",
+            verticalAlign: "top",
+          }}
+        >
+          {item.name}
+        </td>
+        <td
+          width="80"
+          style={{
+            color: "#030712",
+            fontFamily,
+            fontSize: "20px",
+            fontWeight: 500,
+            lineHeight: "28px",
+            textAlign: "right",
+            verticalAlign: "top",
+            width: "80px",
+          }}
+        >
+          {item.price}
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
+  <MjmlTable
+    cellpadding="0"
+    cellspacing="0"
+    color="#4b5563"
     fontFamily={fontFamily}
     fontSize="16px"
-    fontWeight="500"
-    href={href}
-    innerPadding="4px 0"
-    lineHeight="16px"
+    fontWeight="300"
+    lineHeight="24px"
     padding="0"
+    role="presentation"
+    tableLayout="fixed"
+    width="100%"
   >
-    ✎ Edit
-  </MjmlButton>
+    <tbody>
+      <tr>
+        <td style={{ paddingRight: "16px", verticalAlign: "top" }}>
+          Indigo | {item.size ?? "Large"}
+        </td>
+        <td
+          width="96"
+          style={{
+            textAlign: "right",
+            verticalAlign: "top",
+            width: "96px",
+          }}
+        >
+          <span style={{ fontWeight: 500 }}>Quantity:</span> {item.quantity}
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const ColorSwatches = ({ colors }: { colors: string[] }) => (
+  <>
+    {colors.map((color) => (
+      <span
+        key={color}
+        style={{
+          display: "inline-block",
+          maxWidth: "12px",
+        }}
+      >
+        <span
+          style={{
+            backgroundColor: color,
+            borderRadius: "9999px",
+            display: "inline-block",
+            height: "16px",
+            verticalAlign: "middle",
+            width: "16px",
+          }}
+        />
+      </span>
+    ))}
+  </>
+);
+
+const Options = ({
+  item,
+  showQuantity,
+}: {
+  item: ShoppingCartItem;
+  showQuantity: boolean;
+}) => (
+  <MjmlTable
+    align="left"
+    cellpadding="0"
+    cellspacing="0"
+    color="#4b5563"
+    fontFamily={fontFamily}
+    fontSize="14px"
+    lineHeight="20px"
+    padding="0"
+    role="presentation"
+    width="auto"
+  >
+    <tbody>
+      <tr>
+        <td style={{ paddingRight: "24px", whiteSpace: "nowrap" }}>
+          <span style={{ marginRight: "8px" }}>Colors:</span>
+          <ColorSwatches
+            colors={item.colors ?? ["#030712", "#fffffe", "#E5E7EB"]}
+          />
+        </td>
+        <td style={{ paddingRight: showQuantity ? "24px" : "0" }}>
+          <span style={{ marginRight: "8px" }}>Size:</span>
+          {item.size ?? "Large"}
+        </td>
+        {showQuantity ? (
+          <td style={{ whiteSpace: "nowrap" }}>
+            <span style={{ marginRight: "8px" }}>Quantity:</span>
+            {item.quantity}
+          </td>
+        ) : null}
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const QuantityAndEdit = ({ item }: { item: ShoppingCartItem }) => (
+  <MjmlTable
+    cellpadding="0"
+    cellspacing="0"
+    padding="0"
+    role="presentation"
+    tableLayout="fixed"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            color: "#4b5563",
+            fontFamily,
+            fontSize: "14px",
+            fontWeight: 500,
+            lineHeight: "20px",
+          }}
+        >
+          Qty: {item.quantity}
+        </td>
+        <td width="72" style={{ textAlign: "right", width: "72px" }}>
+          <EditLink
+            align="right"
+            href={item.editHref ?? "https://example.com/cart/edit"}
+          />
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
 );
 
 const RowContent = ({
@@ -138,25 +348,15 @@ const RowContent = ({
     "example-with-cta",
   ].includes(variant);
   const showQuantityOption = variant !== "full-details-alt";
-  let details = `Indigo · ${item.size ?? "Large"}`;
+  let details = <BasicInfo item={item} />;
   if (hasOptions) {
-    const quantity = showQuantityOption ? ` · Quantity: ${item.quantity}` : "";
-    details = `Colors: ${(item.colors ?? ["#030712", "#fffffe", "#E5E7EB"]).length} options · Size: ${item.size ?? "Large"}${quantity}`;
-  } else if (variant === "basic") {
-    details = `${details} · Quantity: ${item.quantity}`;
+    details = <Options item={item} showQuantity={showQuantityOption} />;
+  } else if (variant === "basic-alt") {
+    details = <Copy>Indigo | {item.size ?? "Large"}</Copy>;
   }
   return (
     <>
-      <MjmlText
-        color="#030712"
-        fontFamily={fontFamily}
-        fontSize="20px"
-        fontWeight="600"
-        lineHeight="28px"
-        padding="0"
-      >
-        {item.name} · {item.price}
-      </MjmlText>
+      <Header item={item} />
       <MjmlSpacer height="24px" />
       {hasDescription ? (
         <>
@@ -168,7 +368,7 @@ const RowContent = ({
           />
         </>
       ) : null}
-      <Copy>{details}</Copy>
+      {details}
       {hasDescription ? (
         <MjmlDivider
           borderColor="#d1d5db"
@@ -178,22 +378,9 @@ const RowContent = ({
       ) : null}
       <MjmlSpacer height={hasDescription && !isAlt ? "24px" : "34px"} />
       {isAlt ? (
-        <>
-          <MjmlText
-            color="#4b5563"
-            fontFamily={fontFamily}
-            fontSize="14px"
-            fontWeight="500"
-            lineHeight="20px"
-            padding="0"
-          >
-            Qty: {item.quantity}
-          </MjmlText>
-          <MjmlSpacer height="8px" />
-          <EditButton href={item.editHref ?? "https://example.com/cart/edit"} />
-        </>
+        <QuantityAndEdit item={item} />
       ) : (
-        <EditButton href={item.editHref ?? "https://example.com/cart/edit"} />
+        <EditLink href={item.editHref ?? "https://example.com/cart/edit"} />
       )}
     </>
   );
@@ -209,6 +396,7 @@ const CartRow = ({
   <MjmlSection backgroundColor="#fffffe" padding="0 24px">
     <MjmlColumn padding="0 24px 0 0" verticalAlign="top" width="168px">
       <MjmlImage
+        align="left"
         alt={item.name}
         borderRadius="8px"
         padding="0"
@@ -216,7 +404,7 @@ const CartRow = ({
         width="144px"
       />
     </MjmlColumn>
-    <MjmlColumn padding="0" verticalAlign="top">
+    <MjmlColumn padding="0" verticalAlign="top" width="384px">
       <RowContent item={item} variant={variant} />
     </MjmlColumn>
   </MjmlSection>
@@ -308,7 +496,6 @@ const ShoppingCart_ShoppingCartRowItems = ({
     <MjmlHead>
       <MjmlPreview>Shopping cart</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
-      <MjmlStyle>{shoppingCartResponsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">

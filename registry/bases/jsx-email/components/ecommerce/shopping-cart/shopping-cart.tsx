@@ -286,7 +286,11 @@ const Options = ({
   item: ShoppingCartItem;
   showQuantity?: boolean;
 }) => (
-  <Section className="shopping-cart-options">
+  <Section
+    align="left"
+    className="shopping-cart-options"
+    style={{ width: "auto" }}
+  >
     <Fragment>
       <Row>
         <Option label="Colors" unstyled>
