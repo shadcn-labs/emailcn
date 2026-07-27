@@ -5,6 +5,7 @@ import type { CSSProperties } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type PillStatusVariant =
   | "brand"
   | "danger"
@@ -13,16 +14,20 @@ type PillStatusVariant =
   | "info"
   | "success"
   | "warning";
+
 interface InternalPillItem {
   label: string;
   variant: PillStatusVariant;
 }
+
 type EmailCssProperties = CSSProperties & {
   msoPaddingAlt?: string;
   msoTextRaise?: string;
 };
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const pillStyles: Record<
   PillStatusVariant,
   {
@@ -67,6 +72,7 @@ const pillStyles: Record<
     color: "#f59e0b",
   },
 };
+
 const defaultPills: InternalPillItem[] = [
   { label: "Label", variant: "default" },
   { label: "Success", variant: "success" },
@@ -75,6 +81,7 @@ const defaultPills: InternalPillItem[] = [
   { label: "Info", variant: "info" },
   { label: "Brand", variant: "brand" },
 ];
+
 const Pill = ({ label, variant }: InternalPillItem) => {
   const colors = pillStyles[variant];
   const style: EmailCssProperties = {
@@ -98,6 +105,7 @@ const Pill = ({ label, variant }: InternalPillItem) => {
     </span>
   );
 };
+
 const BasicPillsStatusColorsSection = ({
   mjmlCompensation = false,
   pills = defaultPills,
@@ -148,10 +156,12 @@ const BasicPillsStatusColorsSection = ({
     <Section style={{ height: "100px" }} />
   </>
 );
+
 interface Pills_BasicPillsStatusColorsProps {
   pills?: InternalPillItem[];
   theme?: EmailThemeTokens;
 }
+
 const Pills_BasicPillsStatusColors = ({
   pills = defaultPills,
   theme: _theme = defaultTheme,
@@ -166,11 +176,14 @@ const Pills_BasicPillsStatusColors = ({
     </Body>
   </Html>
 );
+
 Pills_BasicPillsStatusColors.PreviewProps = {
   pills: defaultPills,
   theme: defaultTheme,
 } satisfies Pills_BasicPillsStatusColorsProps;
+
 const __Pills = Pills_BasicPillsStatusColors;
+
 export interface PillItem {
   label: string;
   status?:
@@ -182,10 +195,12 @@ export interface PillItem {
     | "success"
     | "warning";
 }
+
 export interface PillsProps {
   theme?: Parameters<typeof __Pills>[0]["theme"];
   pills?: PillItem[];
 }
+
 export const Pills = ({ theme, pills }: PillsProps) => (
   <__Pills
     pills={pills?.map(({ label, status = "default" }) => ({
@@ -195,4 +210,5 @@ export const Pills = ({ theme, pills }: PillsProps) => (
     theme={theme}
   />
 );
+
 Pills.PreviewProps = {} satisfies PillsProps;

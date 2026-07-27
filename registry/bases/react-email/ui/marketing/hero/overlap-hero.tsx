@@ -19,11 +19,13 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type OverlapContentHero_HeroWithOverlappedContentVariant =
   | "basic"
   | "reversed"
   | "basic-with-gradient"
   | "reversed-with-gradient";
+
 interface OverlapContentHero_HeroWithOverlappedContentProps {
   theme?: TailwindConfig;
   eyebrow?: string;
@@ -44,6 +46,7 @@ interface OverlapContentHero_HeroWithOverlappedContentProps {
   buttonTextColor?: string;
   variant?: OverlapContentHero_HeroWithOverlappedContentVariant;
 }
+
 interface OverlapContentHero_VariantPreset {
   backgroundImageSrc: string;
   backgroundPosition: "bottom" | "top";
@@ -57,10 +60,13 @@ interface OverlapContentHero_VariantPreset {
   subheading: string;
   textColor: string;
 }
+
 const OverlapContentHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const OverlapContentHero_assetRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const OverlapContentHero_variantPresets: Record<
   OverlapContentHero_HeroWithOverlappedContentVariant,
   OverlapContentHero_VariantPreset
@@ -124,6 +130,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#f9fafb",
   },
 };
+
 const OverlapContentHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-overlapped-content-side {
@@ -135,10 +142,12 @@ const OverlapContentHero_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 type OverlapContentHero_SectionProps = Omit<
   OverlapContentHero_HeroWithOverlappedContentProps,
   "theme"
 >;
+
 const OverlapContentHero_HeroWithOverlappedContentSection = (
   props: OverlapContentHero_SectionProps
 ) => {
@@ -354,6 +363,7 @@ const OverlapContentHero_HeroWithOverlappedContentSection = (
     </Section>
   );
 };
+
 const OverlapContentHero_HeroWithOverlappedContent = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -394,15 +404,19 @@ const OverlapContentHero_HeroWithOverlappedContent = ({
     </Html>
   );
 };
+
 OverlapContentHero_HeroWithOverlappedContent.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies OverlapContentHero_HeroWithOverlappedContentProps;
+
 const __OverlapContentHero = OverlapContentHero_HeroWithOverlappedContent;
+
 type OverlapImageHero_HeroWithOverlappedImageVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
+
 interface OverlapImageHero_HeroWithOverlappedImageProps {
   theme?: TailwindConfig;
   eyebrow?: string;
@@ -425,6 +439,7 @@ interface OverlapImageHero_HeroWithOverlappedImageProps {
   buttonTextColor?: string;
   variant?: OverlapImageHero_HeroWithOverlappedImageVariant;
 }
+
 interface OverlapImageHero_VariantPreset {
   backgroundImageSrc: string;
   contentBackgroundColor: string;
@@ -440,10 +455,13 @@ interface OverlapImageHero_VariantPreset {
   imageSpacer: number;
   mobileImageSpacer?: number;
 }
+
 const OverlapImageHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const OverlapImageHero_assetRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const OverlapImageHero_variantPresets: Record<
   OverlapImageHero_HeroWithOverlappedImageVariant,
   OverlapImageHero_VariantPreset
@@ -495,6 +513,7 @@ const OverlapImageHero_variantPresets: Record<
     topSpacer: 190,
   },
 };
+
 const OverlapImageHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-overlapped-image-frame {
@@ -525,10 +544,12 @@ const OverlapImageHero_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 type OverlapImageHero_SectionProps = Omit<
   OverlapImageHero_HeroWithOverlappedImageProps,
   "theme"
 >;
+
 const OverlapImageHero_HeroWithOverlappedImageSection = (
   props: OverlapImageHero_SectionProps
 ) => {
@@ -774,6 +795,7 @@ const OverlapImageHero_HeroWithOverlappedImageSection = (
     </Section>
   );
 };
+
 const OverlapImageHero_HeroWithOverlappedImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -814,11 +836,14 @@ const OverlapImageHero_HeroWithOverlappedImage = ({
     </Html>
   );
 };
+
 OverlapImageHero_HeroWithOverlappedImage.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies OverlapImageHero_HeroWithOverlappedImageProps;
+
 const __OverlapImageHero = OverlapImageHero_HeroWithOverlappedImage;
+
 export interface HeroContent {
   eyebrow?: string;
   heading?: string;
@@ -831,14 +856,17 @@ export interface HeroContent {
     label: string;
   }[];
 }
+
 export interface HeroImage {
   src: string;
   alt?: string;
 }
+
 export interface HeroBrand {
   logo: HeroImage;
   href?: string;
 }
+
 export interface OverlapHeroProps {
   theme?: Parameters<typeof __OverlapContentHero>[0]["theme"];
   content?: HeroContent;
@@ -850,6 +878,7 @@ export interface OverlapHeroProps {
   gradient?: boolean;
   slanted?: boolean;
 }
+
 const heroContentValues = (content: HeroContent | undefined) => {
   const { actions, description, eyebrow, heading, subheading } = content ?? {};
   const [action] = actions ?? [];
@@ -862,10 +891,12 @@ const heroContentValues = (content: HeroContent | undefined) => {
     subheading,
   };
 };
+
 const heroImageValues = (image: HeroImage | undefined) => ({
   alt: image?.alt,
   src: image?.src,
 });
+
 const heroBrandValues = (brand: HeroBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -874,6 +905,7 @@ const heroBrandValues = (brand: HeroBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 export const OverlapHero = ({
   theme,
   content,
@@ -928,6 +960,7 @@ export const OverlapHero = ({
     />
   );
 };
+
 OverlapHero.PreviewProps = {
   direction: "left",
   gradient: false,

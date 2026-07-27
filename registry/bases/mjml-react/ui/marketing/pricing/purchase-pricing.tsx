@@ -14,6 +14,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 interface PurchasePricing_ProductPricingPlan {
   ctaHref: string;
   ctaLabel: string;
@@ -21,6 +22,7 @@ interface PurchasePricing_ProductPricingPlan {
   name: string;
   purchasePrice: string;
 }
+
 interface PurchasePricing_TwoColumnsPricingTableWithGapsProps {
   theme?: EmailThemeTokens;
   plans?: PurchasePricing_ProductPricingPlan[];
@@ -29,8 +31,10 @@ interface PurchasePricing_TwoColumnsPricingTableWithGapsProps {
   cardBackgroundColor?: string;
   buttonBackgroundColor?: string;
 }
+
 const PurchasePricing_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const PurchasePricing_defaultPlans: PurchasePricing_ProductPricingPlan[] = [
   {
     ctaHref: "https://example.com",
@@ -47,6 +51,7 @@ const PurchasePricing_defaultPlans: PurchasePricing_ProductPricingPlan[] = [
     purchasePrice: "$52,400",
   },
 ];
+
 const PurchasePricing_ProductCard = ({
   plan,
   cardBackgroundColor,
@@ -114,6 +119,7 @@ const PurchasePricing_ProductCard = ({
     </MjmlButton>
   </MjmlColumn>
 );
+
 const PurchasePricing_TwoColumnsPricingTableWithGapsSection = ({
   plans = PurchasePricing_defaultPlans,
   backgroundColor = "#fffffe",
@@ -132,6 +138,7 @@ const PurchasePricing_TwoColumnsPricingTableWithGapsSection = ({
     ))}
   </MjmlSection>
 );
+
 const PurchasePricing_TwoColumnsPricingTableWithGaps = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -155,10 +162,13 @@ const PurchasePricing_TwoColumnsPricingTableWithGaps = ({
     </MjmlBody>
   </Mjml>
 );
+
 PurchasePricing_TwoColumnsPricingTableWithGaps.PreviewProps = {
   theme: defaultTheme,
 } satisfies PurchasePricing_TwoColumnsPricingTableWithGapsProps;
+
 const __PurchasePricing = PurchasePricing_TwoColumnsPricingTableWithGaps;
+
 export interface PurchasePlan {
   name: string;
   leasePrice?: string;
@@ -168,10 +178,12 @@ export interface PurchasePlan {
     label: string;
   };
 }
+
 export interface PurchasePricingProps {
   theme?: Parameters<typeof __PurchasePricing>[0]["theme"];
   plans?: PurchasePlan[];
 }
+
 export const PurchasePricing = ({ theme, plans }: PurchasePricingProps) => (
   <__PurchasePricing
     plans={plans?.map((plan) => ({
@@ -184,4 +196,5 @@ export const PurchasePricing = ({ theme, plans }: PurchasePricingProps) => (
     theme={theme}
   />
 );
+
 PurchasePricing.PreviewProps = {} satisfies PurchasePricingProps;

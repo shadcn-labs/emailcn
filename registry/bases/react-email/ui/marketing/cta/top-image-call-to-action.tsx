@@ -18,6 +18,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 interface Cta_CTAWithTopLargeImageProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -33,8 +34,10 @@ interface Cta_CTAWithTopLargeImageProps {
   buttonBackgroundColor?: string;
   buttonTextColor?: string;
 }
+
 const Cta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Cta_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .cta-top-image-content {
@@ -47,7 +50,9 @@ const Cta_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 type Cta_SectionProps = Omit<Cta_CTAWithTopLargeImageProps, "theme">;
+
 const Cta_defaultSectionProps = {
   backgroundColor: "#fffffe",
   buttonBackgroundColor: "#4f46e5",
@@ -64,6 +69,7 @@ const Cta_defaultSectionProps = {
     "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",
   textColor: "#4b5563",
 } satisfies Cta_SectionProps;
+
 const Cta_CTAWithTopLargeImageSection = (props: Cta_SectionProps) => {
   const resolved = { ...Cta_defaultSectionProps, ...props };
   return (
@@ -160,6 +166,7 @@ const Cta_CTAWithTopLargeImageSection = (props: Cta_SectionProps) => {
     </Section>
   );
 };
+
 const Cta_CTAWithTopLargeImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -191,10 +198,13 @@ const Cta_CTAWithTopLargeImage = ({
     </Tailwind>
   </Html>
 );
+
 Cta_CTAWithTopLargeImage.PreviewProps = {
   theme: defaultTheme,
 } satisfies Cta_CTAWithTopLargeImageProps;
+
 const __Cta = Cta_CTAWithTopLargeImage;
+
 export interface TopImageCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -208,6 +218,7 @@ export interface TopImageCallToActionProps {
     alt?: string;
   };
 }
+
 export const TopImageCallToAction = ({
   theme,
   heading,
@@ -225,4 +236,5 @@ export const TopImageCallToAction = ({
     theme={theme}
   />
 );
+
 TopImageCallToAction.PreviewProps = {} satisfies TopImageCallToActionProps;

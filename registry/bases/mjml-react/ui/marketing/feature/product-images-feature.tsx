@@ -16,8 +16,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FeatureEmailShell = ({
   children,
   pageBackgroundColor,
@@ -42,6 +44,7 @@ const FeatureEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const FeatureCopy = ({
   align = "left",
   body,
@@ -101,11 +104,13 @@ const FeatureCopy = ({
     </MjmlButton>
   </>
 );
+
 type Feature_FeatureWithMultipleProductImagesVariant =
   | "logo-left"
   | "logo-right"
   | "images-left"
   | "images-right";
+
 interface Feature_FeatureWithMultipleProductImagesProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -129,6 +134,7 @@ interface Feature_FeatureWithMultipleProductImagesProps {
   linkColor?: string;
   variant?: Feature_FeatureWithMultipleProductImagesVariant;
 }
+
 const Feature_FeatureWithMultipleProductImagesSection = (
   props: Omit<Feature_FeatureWithMultipleProductImagesProps, "theme">
 ) => {
@@ -257,6 +263,7 @@ const Feature_FeatureWithMultipleProductImagesSection = (
     </MjmlSection>
   );
 };
+
 const Feature_FeatureWithMultipleProductImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -270,11 +277,14 @@ const Feature_FeatureWithMultipleProductImages = ({
     <Feature_FeatureWithMultipleProductImagesSection {...props} />
   </FeatureEmailShell>
 );
+
 Feature_FeatureWithMultipleProductImages.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-left",
 } satisfies Feature_FeatureWithMultipleProductImagesProps;
+
 const __Feature = Feature_FeatureWithMultipleProductImages;
+
 export interface ProductImagesFeatureProps {
   theme?: Parameters<typeof __Feature>[0]["theme"];
   heading?: string;
@@ -294,6 +304,7 @@ export interface ProductImagesFeatureProps {
   };
   placement?: "left" | "right";
 }
+
 export const ProductImagesFeature = ({
   theme,
   heading,
@@ -321,6 +332,7 @@ export const ProductImagesFeature = ({
     variant={`images-${placement}`}
   />
 );
+
 ProductImagesFeature.PreviewProps = {
   placement: "right",
 } satisfies ProductImagesFeatureProps;

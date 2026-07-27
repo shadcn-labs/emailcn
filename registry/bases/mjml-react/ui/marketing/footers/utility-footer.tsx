@@ -20,15 +20,19 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 interface NativeFooterLink {
   href: string;
   label: string;
 }
+
 interface NativeFooterSocial extends NativeFooterLink {
   iconSrc: string;
 }
+
 const FooterEmailShell = ({
   children,
   pageBackgroundColor,
@@ -53,6 +57,7 @@ const FooterEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const FooterLogo = ({
   align = "left",
   alt,
@@ -77,6 +82,7 @@ const FooterLogo = ({
     width={width}
   />
 );
+
 const FooterCopy = ({
   align = "left",
   children,
@@ -106,6 +112,7 @@ const FooterCopy = ({
     {children}
   </MjmlText>
 );
+
 const FooterMenu = ({
   align = "left",
   links,
@@ -130,6 +137,7 @@ const FooterMenu = ({
     ))}
   </MjmlNavbar>
 );
+
 const FooterVerticalMenu = ({
   align = "left",
   heading,
@@ -170,6 +178,7 @@ const FooterVerticalMenu = ({
     ))}
   </>
 );
+
 const FooterSocials = ({
   align = "left",
   socials,
@@ -190,6 +199,7 @@ const FooterSocials = ({
     ))}
   </MjmlSocial>
 );
+
 const FooterLegal = ({
   align = "left",
   copyright,
@@ -221,6 +231,7 @@ const FooterLegal = ({
     </MjmlButton>
   </>
 );
+
 const FooterCta = ({
   align = "left",
   backgroundColor,
@@ -251,10 +262,12 @@ const FooterCta = ({
     {label}
   </MjmlButton>
 );
+
 type AppStoreFooter_FooterWithAppStoreButtonsVariant =
   | "centered"
   | "two-columns"
   | "with-title";
+
 interface AppStoreFooter_FooterWithAppStoreButtonsProps {
   theme?: EmailThemeTokens;
   variant?: AppStoreFooter_FooterWithAppStoreButtonsVariant;
@@ -266,10 +279,13 @@ interface AppStoreFooter_FooterWithAppStoreButtonsProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const AppStoreFooter_appStore =
   "https://emailcn.vercel.app/api/email-assets/badge-app-store.png";
+
 const AppStoreFooter_googlePlay =
   "https://emailcn.vercel.app/api/email-assets/badge-google-play.png";
+
 const AppStoreFooter_AppButtons = ({ align }: { align: "center" | "left" }) => (
   <>
     <MjmlImage
@@ -290,6 +306,7 @@ const AppStoreFooter_AppButtons = ({ align }: { align: "center" | "left" }) => (
     />
   </>
 );
+
 const AppStoreFooter_FooterWithAppStoreButtonsSection = ({
   variant = "centered",
   title = "Get the app",
@@ -343,6 +360,7 @@ const AppStoreFooter_FooterWithAppStoreButtonsSection = ({
     </MjmlSection>
   );
 };
+
 const AppStoreFooter_FooterWithAppStoreButtons = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -352,11 +370,14 @@ const AppStoreFooter_FooterWithAppStoreButtons = ({
     <AppStoreFooter_FooterWithAppStoreButtonsSection {...props} />
   </FooterEmailShell>
 );
+
 AppStoreFooter_FooterWithAppStoreButtons.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies AppStoreFooter_FooterWithAppStoreButtonsProps;
+
 const __AppStoreFooter = AppStoreFooter_FooterWithAppStoreButtons;
+
 type BackgroundFooter_FooterWithBackgroundImageVariant =
   | "bottom-image-content"
   | "bottom-image-2-column-menu"
@@ -367,7 +388,9 @@ type BackgroundFooter_FooterWithBackgroundImageVariant =
   | "top-image-address"
   | "top-image-centered"
   | "top-image-logo-bottom";
+
 type BackgroundFooter_FooterBackgroundLogoPosition = "left" | "right";
+
 interface BackgroundFooter_FooterWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   variant?: BackgroundFooter_FooterWithBackgroundImageVariant;
@@ -382,14 +405,17 @@ interface BackgroundFooter_FooterWithBackgroundImageProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const BackgroundFooter_copy =
   "Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed.";
+
 const BackgroundFooter_quickLinks = [
   { href: "https://example.com/about", label: "About us" },
   { href: "https://example.com/shop", label: "Shop" },
   { href: "https://example.com/faq", label: "FAQs" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
+
 const BackgroundFooter_connectLinks = [
   { href: "https://facebook.com", label: "Facebook" },
   { href: "https://github.com", label: "GitHub" },
@@ -397,12 +423,15 @@ const BackgroundFooter_connectLinks = [
   { href: "https://youtube.com", label: "YouTube" },
   { href: "https://instagram.com", label: "Instagram" },
 ];
+
 const BackgroundFooter_legalLinks = [
   { href: "https://example.com/privacy", label: "Privacy Policy" },
   { href: "https://example.com/terms", label: "Terms of Service" },
   { href: "https://example.com/returns", label: "Returns" },
 ];
+
 const BackgroundFooter_iconRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const BackgroundFooter_socials = [
   {
     href: "https://facebook.com",
@@ -430,6 +459,7 @@ const BackgroundFooter_socials = [
     label: "X",
   },
 ];
+
 const BackgroundFooter_ImageCta = ({
   imageSrc,
   primaryColor,
@@ -463,6 +493,7 @@ const BackgroundFooter_ImageCta = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const BackgroundFooter_FooterBrandColumn = ({
   address,
   centered,
@@ -515,6 +546,7 @@ const BackgroundFooter_FooterBrandColumn = ({
     })()}
   </MjmlColumn>
 );
+
 const BackgroundFooter_FooterContent = ({
   backgroundColor,
   logoPosition,
@@ -657,6 +689,7 @@ const BackgroundFooter_FooterContent = ({
     </>
   );
 };
+
 const BackgroundFooter_FooterWithBackgroundImageSection = ({
   variant = "bottom-image-content",
   logoPosition = "left",
@@ -694,6 +727,7 @@ const BackgroundFooter_FooterWithBackgroundImageSection = ({
     </>
   );
 };
+
 const BackgroundFooter_FooterWithBackgroundImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -707,17 +741,22 @@ const BackgroundFooter_FooterWithBackgroundImage = ({
     <BackgroundFooter_FooterWithBackgroundImageSection {...props} />
   </FooterEmailShell>
 );
+
 BackgroundFooter_FooterWithBackgroundImage.PreviewProps = {
   logoPosition: "left",
   theme: defaultTheme,
   variant: "bottom-image-content",
 } satisfies BackgroundFooter_FooterWithBackgroundImageProps;
+
 const __BackgroundFooter = BackgroundFooter_FooterWithBackgroundImage;
+
 type LocationsFooter_FooterWithCompanyLocationsVariant = "stacked" | "grid";
+
 interface LocationsFooter_CompanyLocation {
   address: string;
   name: string;
 }
+
 interface LocationsFooter_FooterWithCompanyLocationsProps {
   theme?: EmailThemeTokens;
   variant?: LocationsFooter_FooterWithCompanyLocationsVariant;
@@ -734,6 +773,7 @@ interface LocationsFooter_FooterWithCompanyLocationsProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const LocationsFooter_stackedLocations: LocationsFooter_CompanyLocation[] = [
   {
     address: "Gas Company Tower\n555 W 5th St, Los Angeles, CA 90013",
@@ -749,6 +789,7 @@ const LocationsFooter_stackedLocations: LocationsFooter_CompanyLocation[] = [
     name: "Downtown Chicago, IL",
   },
 ];
+
 const LocationsFooter_gridLocations: LocationsFooter_CompanyLocation[] = [
   ...LocationsFooter_stackedLocations,
   {
@@ -756,13 +797,16 @@ const LocationsFooter_gridLocations: LocationsFooter_CompanyLocation[] = [
     name: "Downtown San Francisco, CA",
   },
 ];
+
 const LocationsFooter_menu = [
   { href: "https://example.com/about", label: "About us" },
   { href: "https://example.com/shop", label: "Shop" },
   { href: "https://example.com/faq", label: "FAQs" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
+
 const LocationsFooter_iconRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const LocationsFooter_socials = [
   {
     href: "https://facebook.com",
@@ -790,6 +834,7 @@ const LocationsFooter_socials = [
     label: "X",
   },
 ];
+
 const LocationsFooter_FooterWithCompanyLocationsSection = ({
   variant = "stacked",
   locations,
@@ -859,6 +904,7 @@ const LocationsFooter_FooterWithCompanyLocationsSection = ({
     </>
   );
 };
+
 const LocationsFooter_FooterWithCompanyLocations = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -868,18 +914,23 @@ const LocationsFooter_FooterWithCompanyLocations = ({
     <LocationsFooter_FooterWithCompanyLocationsSection {...props} />
   </FooterEmailShell>
 );
+
 LocationsFooter_FooterWithCompanyLocations.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked",
 } satisfies LocationsFooter_FooterWithCompanyLocationsProps;
+
 const __LocationsFooter = LocationsFooter_FooterWithCompanyLocations;
+
 interface LegalFooter_LegalFooterLink {
   href: string;
   label: string;
 }
+
 interface LegalFooter_LegalFooterSocial extends LegalFooter_LegalFooterLink {
   iconSrc: string;
 }
+
 interface LegalFooter_FooterWithLegalTextProps {
   theme?: EmailThemeTokens;
   legalText?: string;
@@ -893,7 +944,9 @@ interface LegalFooter_FooterWithLegalTextProps {
   copyrightColor?: string;
   mutedTextColor?: string;
 }
+
 const LegalFooter_iconRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const LegalFooter_defaults = {
   backgroundColor: "#fffffe",
   copyrightColor: "#9ca3af",
@@ -938,10 +991,12 @@ const LegalFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type LegalFooter_SectionProps = Omit<
   LegalFooter_FooterWithLegalTextProps,
   "theme"
 >;
+
 const LegalFooter_FooterWithLegalTextSection = (
   props: LegalFooter_SectionProps
 ) => {
@@ -976,6 +1031,7 @@ const LegalFooter_FooterWithLegalTextSection = (
     </MjmlSection>
   );
 };
+
 const LegalFooter_FooterWithLegalText = ({
   pageBackgroundColor = LegalFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -985,19 +1041,24 @@ const LegalFooter_FooterWithLegalText = ({
     <LegalFooter_FooterWithLegalTextSection {...props} />
   </FooterEmailShell>
 );
+
 LegalFooter_FooterWithLegalText.PreviewProps = {
   theme: defaultTheme,
 } satisfies LegalFooter_FooterWithLegalTextProps;
+
 const __LegalFooter = LegalFooter_FooterWithLegalText;
+
 type AddressFooter_FooterWithSocialIconsAndAddressVariant =
   | "left-logo"
   | "right-logo"
   | "centered";
+
 interface AddressFooter_FooterAddressSocial {
   href: string;
   iconSrc: string;
   label: string;
 }
+
 interface AddressFooter_FooterWithSocialIconsAndAddressProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -1015,7 +1076,9 @@ interface AddressFooter_FooterWithSocialIconsAndAddressProps {
   mutedTextColor?: string;
   variant?: AddressFooter_FooterWithSocialIconsAndAddressVariant;
 }
+
 const AddressFooter_iconRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const AddressFooter_defaults = {
   address: "© 2026 emailcn\nemailcn | 155 Bdv Saint Germain | 75505 Paris",
   backgroundColor: "#fffffe",
@@ -1057,10 +1120,12 @@ const AddressFooter_defaults = {
   title: "Follow us",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type AddressFooter_SectionProps = Omit<
   AddressFooter_FooterWithSocialIconsAndAddressProps,
   "theme"
 >;
+
 const AddressFooter_FooterWithSocialIconsAndAddressSection = (
   props: AddressFooter_SectionProps
 ) => {
@@ -1122,6 +1187,7 @@ const AddressFooter_FooterWithSocialIconsAndAddressSection = (
     </MjmlSection>
   );
 };
+
 const AddressFooter_FooterWithSocialIconsAndAddress = ({
   pageBackgroundColor = AddressFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -1131,20 +1197,25 @@ const AddressFooter_FooterWithSocialIconsAndAddress = ({
     <AddressFooter_FooterWithSocialIconsAndAddressSection {...props} />
   </FooterEmailShell>
 );
+
 AddressFooter_FooterWithSocialIconsAndAddress.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies AddressFooter_FooterWithSocialIconsAndAddressProps;
+
 const __AddressFooter = AddressFooter_FooterWithSocialIconsAndAddress;
+
 type SimpleSocialFooter_SimpleFooterWithSocialIconsVariant =
   | "left-aligned"
   | "centered"
   | "right-aligned";
+
 interface SimpleSocialFooter_SimpleFooterSocial {
   href: string;
   iconSrc: string;
   label: string;
 }
+
 interface SimpleSocialFooter_SimpleFooterWithSocialIconsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -1157,6 +1228,7 @@ interface SimpleSocialFooter_SimpleFooterWithSocialIconsProps {
   mutedTextColor?: string;
   variant?: SimpleSocialFooter_SimpleFooterWithSocialIconsVariant;
 }
+
 const SimpleSocialFooter_defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
@@ -1193,10 +1265,12 @@ const SimpleSocialFooter_defaults = {
   ],
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type SimpleSocialFooter_SectionProps = Omit<
   SimpleSocialFooter_SimpleFooterWithSocialIconsProps,
   "theme"
 >;
+
 const SimpleSocialFooter_SimpleFooterWithSocialIconsSection = (
   props: SimpleSocialFooter_SectionProps
 ) => {
@@ -1231,6 +1305,7 @@ const SimpleSocialFooter_SimpleFooterWithSocialIconsSection = (
     </MjmlSection>
   );
 };
+
 const SimpleSocialFooter_SimpleFooterWithSocialIcons = ({
   pageBackgroundColor = SimpleSocialFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -1240,11 +1315,14 @@ const SimpleSocialFooter_SimpleFooterWithSocialIcons = ({
     <SimpleSocialFooter_SimpleFooterWithSocialIconsSection {...props} />
   </FooterEmailShell>
 );
+
 SimpleSocialFooter_SimpleFooterWithSocialIcons.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies SimpleSocialFooter_SimpleFooterWithSocialIconsProps;
+
 const __SimpleSocialFooter = SimpleSocialFooter_SimpleFooterWithSocialIcons;
+
 export interface FooterBrand {
   logo: {
     src: string;
@@ -1252,27 +1330,33 @@ export interface FooterBrand {
   };
   href?: string;
 }
+
 export interface FooterLink {
   label: string;
   href: string;
 }
+
 export interface FooterMenu {
   heading?: string;
   links: FooterLink[];
 }
+
 export interface FooterSocial extends FooterLink {
   iconSrc: string;
 }
+
 export interface FooterLegal {
   copyright?: string;
   text?: string;
   unsubscribeHref?: string;
   preferencesHref?: string;
 }
+
 export interface FooterLocation {
   name: string;
   address: string;
 }
+
 export interface UtilityFooterProps {
   theme?: Parameters<typeof __SimpleSocialFooter>[0]["theme"];
   brand?: FooterBrand;
@@ -1290,6 +1374,7 @@ export interface UtilityFooterProps {
     position?: "top" | "bottom";
   };
 }
+
 const footerBrandValues = (brand: FooterBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -1298,12 +1383,14 @@ const footerBrandValues = (brand: FooterBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 const footerLegalValues = (legal: FooterLegal | undefined) => ({
   copyright: legal?.copyright,
   preferencesHref: legal?.preferencesHref,
   text: legal?.text,
   unsubscribeHref: legal?.unsubscribeHref,
 });
+
 const utilityAppStoreVariant = (
   title: string | undefined,
   columns: NonNullable<UtilityFooterProps["columns"]>
@@ -1316,6 +1403,7 @@ const utilityAppStoreVariant = (
   }
   return "centered";
 };
+
 const utilityAddressVariant = (
   alignment: NonNullable<UtilityFooterProps["alignment"]>
 ): Parameters<typeof __AddressFooter>[0]["variant"] => {
@@ -1327,6 +1415,7 @@ const utilityAddressVariant = (
   }
   return "left-logo";
 };
+
 const utilitySocialVariant = (
   alignment: NonNullable<UtilityFooterProps["alignment"]>
 ): Parameters<typeof __SimpleSocialFooter>[0]["variant"] => {
@@ -1338,6 +1427,7 @@ const utilitySocialVariant = (
   }
   return "centered";
 };
+
 export const UtilityFooter = ({
   theme,
   brand,
@@ -1438,6 +1528,7 @@ export const UtilityFooter = ({
     />
   );
 };
+
 UtilityFooter.PreviewProps = {
   alignment: "center",
   columns: 1,

@@ -14,6 +14,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export const HeaderEmailShell = ({
   children,
   pageBackgroundColor,
@@ -38,6 +39,7 @@ export const HeaderEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 export const HeaderLogo = ({
   align = "left",
   alt,
@@ -58,8 +60,11 @@ export const HeaderLogo = ({
     width="55px"
   />
 );
+
 export type HeaderWithUserDetailsAlignment = "left" | "right";
+
 export type HeaderWithUserDetailsAvatar = "initials" | "image";
+
 export interface HeaderWithUserDetailsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -79,8 +84,10 @@ export interface HeaderWithUserDetailsProps {
   textColor?: string;
   mutedTextColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 export const HeaderWithUserDetailsSection = (
   props: Omit<HeaderWithUserDetailsProps, "theme">
 ) => {
@@ -196,6 +203,7 @@ export const HeaderWithUserDetailsSection = (
     </MjmlSection>
   );
 };
+
 export const HeaderWithUserDetails = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -209,6 +217,7 @@ export const HeaderWithUserDetails = ({
     <HeaderWithUserDetailsSection {...props} />
   </HeaderEmailShell>
 );
+
 HeaderWithUserDetails.PreviewProps = {
   alignment: "left",
   avatar: "initials",

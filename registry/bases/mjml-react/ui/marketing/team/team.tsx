@@ -17,8 +17,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamEmailShell = ({
   children,
   theme,
@@ -36,6 +38,7 @@ const TeamEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const TeamMemberContent = ({
   accent,
   avatarAlt,
@@ -145,10 +148,12 @@ const TeamMemberContent = ({
     </>
   );
 };
+
 type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "default"
   | "boxed"
   | "accent";
+
 interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -165,6 +170,7 @@ interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
   email2?: string;
   variant?: TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant;
 }
+
 const TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -230,6 +236,7 @@ const TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection = ({
     </MjmlSection>
   );
 };
+
 const TeamCardsDetails_TwoColumnTeamCardsWithDetails = ({
   theme = defaultTheme,
   ...props
@@ -238,11 +245,14 @@ const TeamCardsDetails_TwoColumnTeamCardsWithDetails = ({
     <TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection {...props} />
   </TeamEmailShell>
 );
+
 TeamCardsDetails_TwoColumnTeamCardsWithDetails.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps;
+
 const __TeamCardsDetails = TeamCardsDetails_TwoColumnTeamCardsWithDetails;
+
 type TeamCards_TwoColumnTeamCardsVariant =
   | "default"
   | "boxed"
@@ -251,6 +261,7 @@ type TeamCards_TwoColumnTeamCardsVariant =
   | "accent-alt"
   | "rounded"
   | "rounded-accent";
+
 interface TeamCards_TwoColumnTeamCardsProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -263,6 +274,7 @@ interface TeamCards_TwoColumnTeamCardsProps {
   role2?: string;
   variant?: TeamCards_TwoColumnTeamCardsVariant;
 }
+
 const TeamCards_TwoColumnTeamCardsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -331,6 +343,7 @@ const TeamCards_TwoColumnTeamCardsSection = ({
     </MjmlSection>
   );
 };
+
 const TeamCards_TwoColumnTeamCards = ({
   theme = defaultTheme,
   ...props
@@ -339,16 +352,20 @@ const TeamCards_TwoColumnTeamCards = ({
     <TeamCards_TwoColumnTeamCardsSection {...props} />
   </TeamEmailShell>
 );
+
 TeamCards_TwoColumnTeamCards.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamCards_TwoColumnTeamCardsProps;
+
 const __TeamCards = TeamCards_TwoColumnTeamCards;
+
 type TeamCompact_TwoColumnsCompactVariant =
   | "default"
   | "border-top"
   | "bordered"
   | "accent";
+
 interface TeamCompact_TwoColumnsCompactProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -361,8 +378,10 @@ interface TeamCompact_TwoColumnsCompactProps {
   role2?: string;
   variant?: TeamCompact_TwoColumnsCompactVariant;
 }
+
 const TeamCompact_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamCompact_TwoColumnsCompactSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -439,6 +458,7 @@ const TeamCompact_TwoColumnsCompactSection = ({
     </MjmlSection>
   );
 };
+
 const TeamCompact_TwoColumnsCompact = ({
   theme = defaultTheme,
   ...props
@@ -447,16 +467,20 @@ const TeamCompact_TwoColumnsCompact = ({
     <TeamCompact_TwoColumnsCompactSection {...props} />
   </TeamEmailShell>
 );
+
 TeamCompact_TwoColumnsCompact.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamCompact_TwoColumnsCompactProps;
+
 const __TeamCompact = TeamCompact_TwoColumnsCompact;
+
 type TeamGrid_ThreeColumnsTeamGridVariant =
   | "default"
   | "with-accent"
   | "bordered"
   | "with-hero";
+
 interface TeamGrid_ThreeColumnsTeamGridProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -486,8 +510,10 @@ interface TeamGrid_ThreeColumnsTeamGridProps {
   heroImageSrc?: string;
   variant?: TeamGrid_ThreeColumnsTeamGridVariant;
 }
+
 const TeamGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamGrid_ThreeColumnsTeamGridSection = (
   props: Omit<TeamGrid_ThreeColumnsTeamGridProps, "theme">
 ) => {
@@ -655,6 +681,7 @@ const TeamGrid_ThreeColumnsTeamGridSection = (
     </>
   );
 };
+
 const TeamGrid_ThreeColumnsTeamGrid = ({
   theme = defaultTheme,
   ...props
@@ -663,16 +690,20 @@ const TeamGrid_ThreeColumnsTeamGrid = ({
     <TeamGrid_ThreeColumnsTeamGridSection {...props} />
   </TeamEmailShell>
 );
+
 TeamGrid_ThreeColumnsTeamGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamGrid_ThreeColumnsTeamGridProps;
+
 const __TeamGrid = TeamGrid_ThreeColumnsTeamGrid;
+
 type TeamBios_HorizontalTeamMemberBiosVariant =
   | "image-left"
   | "image-right"
   | "image-left-accent"
   | "image-right-accent";
+
 interface TeamBios_HorizontalTeamMemberBiosProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -687,8 +718,10 @@ interface TeamBios_HorizontalTeamMemberBiosProps {
   bio2?: string;
   variant?: TeamBios_HorizontalTeamMemberBiosVariant;
 }
+
 const TeamBios_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamBios_HorizontalTeamMemberBiosSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -777,6 +810,7 @@ const TeamBios_HorizontalTeamMemberBiosSection = ({
     </>
   );
 };
+
 const TeamBios_HorizontalTeamMemberBios = ({
   theme = defaultTheme,
   ...props
@@ -785,11 +819,14 @@ const TeamBios_HorizontalTeamMemberBios = ({
     <TeamBios_HorizontalTeamMemberBiosSection {...props} />
   </TeamEmailShell>
 );
+
 TeamBios_HorizontalTeamMemberBios.PreviewProps = {
   theme: defaultTheme,
   variant: "image-left",
 } satisfies TeamBios_HorizontalTeamMemberBiosProps;
+
 const __TeamBios = TeamBios_HorizontalTeamMemberBios;
+
 export interface TeamMember {
   name: string;
   role: string;
@@ -800,6 +837,7 @@ export interface TeamMember {
   bio?: string;
   email?: string;
 }
+
 export interface TeamProps {
   theme?: Parameters<typeof __TeamCards>[0]["theme"];
   members?: TeamMember[];
@@ -812,6 +850,7 @@ export interface TeamProps {
     alt?: string;
   };
 }
+
 const toTeamProps = (members: TeamMember[] | undefined) =>
   Object.fromEntries(
     (members ?? []).flatMap((member, index) => {
@@ -826,6 +865,7 @@ const toTeamProps = (members: TeamMember[] | undefined) =>
       ];
     })
   );
+
 export const Team = ({
   theme,
   members,
@@ -908,6 +948,7 @@ export const Team = ({
     );
   })();
 };
+
 Team.PreviewProps = {
   appearance: "plain",
   columns: 2,

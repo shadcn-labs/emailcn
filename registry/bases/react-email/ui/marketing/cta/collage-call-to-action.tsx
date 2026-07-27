@@ -18,11 +18,13 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type Cta_CTAWithShiftedImagesVariant =
   | "flush-side-images"
   | "images-offset"
   | "images-offset-alt"
   | "collage";
+
 interface Cta_CTAWithShiftedImagesProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -45,8 +47,10 @@ interface Cta_CTAWithShiftedImagesProps {
   buttonTextColor?: string;
   variant?: Cta_CTAWithShiftedImagesVariant;
 }
+
 const Cta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Cta_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .cta-shifted-stack {
@@ -85,6 +89,7 @@ const Cta_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 const Cta_variantContent = {
   collage: {
     heading: "Be an Explorer",
@@ -143,6 +148,7 @@ const Cta_variantContent = {
     subtext: string;
   }
 >;
+
 const Cta_defaultSectionStyles = {
   backgroundColor: "#fffffe",
   buttonBackgroundColor: "#4f46e5",
@@ -157,9 +163,12 @@ const Cta_defaultSectionStyles = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type Cta_SectionProps = Omit<Cta_CTAWithShiftedImagesProps, "theme">;
+
 type Cta_ResolvedProps = typeof Cta_defaultSectionStyles &
   (typeof Cta_variantContent)[Cta_CTAWithShiftedImagesVariant];
+
 const Cta_CTAContent = ({
   buttonBackgroundColor,
   buttonTextColor,
@@ -227,6 +236,7 @@ const Cta_CTAContent = ({
     </Fragment>
   </Section>
 );
+
 interface Cta_ImageProps {
   alt: string;
   borderRadius?: string;
@@ -236,6 +246,7 @@ interface Cta_ImageProps {
   src: string;
   width: number;
 }
+
 const Cta_CTAImage = ({
   alt,
   borderRadius,
@@ -259,6 +270,7 @@ const Cta_CTAImage = ({
     width={width}
   />
 );
+
 const Cta_FlushSideImages = (props: Cta_ResolvedProps) => (
   <>
     <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
@@ -301,6 +313,7 @@ const Cta_FlushSideImages = (props: Cta_ResolvedProps) => (
     </Section>
   </>
 );
+
 const Cta_OffsetMobileImages = ({
   alternate,
   props,
@@ -339,6 +352,7 @@ const Cta_OffsetMobileImages = ({
     </Fragment>
   </Section>
 );
+
 const Cta_OffsetImages = ({
   alternate,
   props,
@@ -387,6 +401,7 @@ const Cta_OffsetImages = ({
     </Section>
   </>
 );
+
 const Cta_CollageImages = (props: Cta_ResolvedProps) => (
   <>
     <Section className="cta-shifted-collage-row" width="100%">
@@ -442,6 +457,7 @@ const Cta_CollageImages = (props: Cta_ResolvedProps) => (
     <Cta_CTAContent {...props} />
   </>
 );
+
 const Cta_VariantLayout = ({
   props,
   variant,
@@ -460,6 +476,7 @@ const Cta_VariantLayout = ({
   }
   return <Cta_CollageImages {...props} />;
 };
+
 const Cta_CTAWithShiftedImagesSection = (props: Cta_SectionProps) => {
   const variant = props.variant ?? "flush-side-images";
   const resolved = {
@@ -494,6 +511,7 @@ const Cta_CTAWithShiftedImagesSection = (props: Cta_SectionProps) => {
     </Section>
   );
 };
+
 const Cta_CTAWithShiftedImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -527,11 +545,14 @@ const Cta_CTAWithShiftedImages = ({
     </Tailwind>
   </Html>
 );
+
 Cta_CTAWithShiftedImages.PreviewProps = {
   theme: defaultTheme,
   variant: "flush-side-images",
 } satisfies Cta_CTAWithShiftedImagesProps;
+
 const __Cta = Cta_CTAWithShiftedImages;
+
 export interface CollageCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -546,6 +567,7 @@ export interface CollageCallToActionProps {
   }[];
   treatment?: "offset" | "shifted" | "side" | "collage";
 }
+
 export const CollageCallToAction = ({
   theme,
   heading,
@@ -579,6 +601,7 @@ export const CollageCallToAction = ({
     />
   );
 };
+
 CollageCallToAction.PreviewProps = {
   treatment: "side",
 } satisfies CollageCallToActionProps;

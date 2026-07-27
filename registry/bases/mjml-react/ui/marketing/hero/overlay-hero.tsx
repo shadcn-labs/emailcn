@@ -16,8 +16,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const HeroEmailShell = ({
   children,
   pageBackgroundColor,
@@ -42,6 +44,7 @@ const HeroEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const HeroCopy = ({
   align = "left",
   buttonBackgroundColor,
@@ -146,6 +149,7 @@ const HeroCopy = ({
     </MjmlButton>
   </>
 );
+
 const NativeBackgroundHero = ({
   align = "left",
   backgroundColor,
@@ -230,11 +234,13 @@ const NativeBackgroundHero = ({
     )}
   </MjmlSection>
 );
+
 type AlignedHero_HeroAlignedOverlayVariant =
   | "content-left"
   | "content-left-reversed"
   | "content-right"
   | "content-right-reversed";
+
 interface AlignedHero_HeroAlignedOverlayProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -256,7 +262,9 @@ interface AlignedHero_HeroAlignedOverlayProps {
   buttonTextColor?: string;
   variant?: AlignedHero_HeroAlignedOverlayVariant;
 }
+
 const AlignedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const AlignedHero_variantImages: Record<
   AlignedHero_HeroAlignedOverlayVariant,
   string
@@ -266,6 +274,7 @@ const AlignedHero_variantImages: Record<
   "content-right": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-2.png`,
   "content-right-reversed": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-3.png`,
 };
+
 const AlignedHero_HeroAlignedOverlaySection = ({
   backgroundColor = "#030712",
   buttonBackgroundColor = "#4f46e5",
@@ -303,6 +312,7 @@ const AlignedHero_HeroAlignedOverlaySection = ({
     textColor={textColor}
   />
 );
+
 const AlignedHero_HeroAlignedOverlay = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -316,11 +326,14 @@ const AlignedHero_HeroAlignedOverlay = ({
     <AlignedHero_HeroAlignedOverlaySection {...props} />
   </HeroEmailShell>
 );
+
 AlignedHero_HeroAlignedOverlay.PreviewProps = {
   theme: defaultTheme,
   variant: "content-left",
 } satisfies AlignedHero_HeroAlignedOverlayProps;
+
 const __AlignedHero = AlignedHero_HeroAlignedOverlay;
+
 type BlockHero_HeroBlockOverlayVariant =
   | "left-centered"
   | "left-top"
@@ -330,6 +343,7 @@ type BlockHero_HeroBlockOverlayVariant =
   | "right-top"
   | "right-bottom"
   | "right-flush-vertical";
+
 interface BlockHero_HeroBlockOverlayProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -351,7 +365,9 @@ interface BlockHero_HeroBlockOverlayProps {
   buttonTextColor?: string;
   variant?: BlockHero_HeroBlockOverlayVariant;
 }
+
 const BlockHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const BlockHero_HeroBlockOverlaySection = (
   props: Omit<BlockHero_HeroBlockOverlayProps, "theme">
 ) => {
@@ -422,6 +438,7 @@ const BlockHero_HeroBlockOverlaySection = (
     />
   );
 };
+
 const BlockHero_HeroBlockOverlay = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -435,11 +452,14 @@ const BlockHero_HeroBlockOverlay = ({
     <BlockHero_HeroBlockOverlaySection {...props} />
   </HeroEmailShell>
 );
+
 BlockHero_HeroBlockOverlay.PreviewProps = {
   theme: defaultTheme,
   variant: "left-centered",
 } satisfies BlockHero_HeroBlockOverlayProps;
+
 const __BlockHero = BlockHero_HeroBlockOverlay;
+
 type BlockBleedHero_HeroBlockWithBleedVariant =
   | "left-centered"
   | "left-top"
@@ -449,6 +469,7 @@ type BlockBleedHero_HeroBlockWithBleedVariant =
   | "right-top"
   | "right-bottom"
   | "right-flush-vertical";
+
 interface BlockBleedHero_HeroBlockWithBleedProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -470,7 +491,9 @@ interface BlockBleedHero_HeroBlockWithBleedProps {
   buttonTextColor?: string;
   variant?: BlockBleedHero_HeroBlockWithBleedVariant;
 }
+
 const BlockBleedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const BlockBleedHero_HeroBlockWithBleedSection = ({
   backgroundColor = "#030712",
   backgroundImageSrc = `${BlockBleedHero_assetRoot}/hero/block-with-bleed-bg.jpg`,
@@ -513,6 +536,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = ({
     textColor={textColor}
   />
 );
+
 const BlockBleedHero_HeroBlockWithBleed = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -526,16 +550,20 @@ const BlockBleedHero_HeroBlockWithBleed = ({
     <BlockBleedHero_HeroBlockWithBleedSection {...props} />
   </HeroEmailShell>
 );
+
 BlockBleedHero_HeroBlockWithBleed.PreviewProps = {
   theme: defaultTheme,
   variant: "left-centered",
 } satisfies BlockBleedHero_HeroBlockWithBleedProps;
+
 const __BlockBleedHero = BlockBleedHero_HeroBlockWithBleed;
+
 type GradientHero_HeroWithOverlayGradientVariant =
   | "split-with-logo"
   | "split-no-logo"
   | "unified-with-logo"
   | "unified-no-logo";
+
 interface GradientHero_HeroWithOverlayGradientProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -558,7 +586,9 @@ interface GradientHero_HeroWithOverlayGradientProps {
   buttonTextColor?: string;
   variant?: GradientHero_HeroWithOverlayGradientVariant;
 }
+
 const GradientHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const GradientHero_HeroWithOverlayGradientSection = ({
   backgroundColor = "#030712",
   backgroundImageSrc = `${GradientHero_assetRoot}/hero/overlay-gradient-bg.jpg`,
@@ -600,6 +630,7 @@ const GradientHero_HeroWithOverlayGradientSection = ({
     textColor={textColor}
   />
 );
+
 const GradientHero_HeroWithOverlayGradient = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -613,11 +644,14 @@ const GradientHero_HeroWithOverlayGradient = ({
     <GradientHero_HeroWithOverlayGradientSection {...props} />
   </HeroEmailShell>
 );
+
 GradientHero_HeroWithOverlayGradient.PreviewProps = {
   theme: defaultTheme,
   variant: "split-with-logo",
 } satisfies GradientHero_HeroWithOverlayGradientProps;
+
 const __GradientHero = GradientHero_HeroWithOverlayGradient;
+
 export interface HeroContent {
   eyebrow?: string;
   heading?: string;
@@ -630,14 +664,17 @@ export interface HeroContent {
     label: string;
   }[];
 }
+
 export interface HeroImage {
   src: string;
   alt?: string;
 }
+
 export interface HeroBrand {
   logo: HeroImage;
   href?: string;
 }
+
 export interface OverlayHeroProps {
   theme?: Parameters<typeof __BlockHero>[0]["theme"];
   content?: HeroContent;
@@ -654,10 +691,12 @@ export interface OverlayHeroProps {
   bleed?: boolean;
   reverse?: boolean;
 }
+
 const blockPosition = (position: NonNullable<OverlayHeroProps["position"]>) => {
   const [vertical, horizontal] = position.split("-");
   return `${horizontal}-${vertical === "center" ? "centered" : vertical}`;
 };
+
 const heroContentValues = (content: HeroContent | undefined) => {
   const { actions, description, eyebrow, heading, subheading } = content ?? {};
   const [action] = actions ?? [];
@@ -670,10 +709,12 @@ const heroContentValues = (content: HeroContent | undefined) => {
     subheading,
   };
 };
+
 const heroImageValues = (image: HeroImage | undefined) => ({
   alt: image?.alt,
   src: image?.src,
 });
+
 const heroBrandValues = (brand: HeroBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -682,6 +723,7 @@ const heroBrandValues = (brand: HeroBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 export const OverlayHero = ({
   theme,
   content,
@@ -756,6 +798,7 @@ export const OverlayHero = ({
     />
   );
 };
+
 OverlayHero.PreviewProps = {
   bleed: false,
   position: "center-left",

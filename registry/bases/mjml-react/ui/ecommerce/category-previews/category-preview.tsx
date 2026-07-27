@@ -15,6 +15,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type CategoryCards_CategoryPreviewCardsVariant =
   | "basic"
   | "with-header"
@@ -24,6 +25,7 @@ type CategoryCards_CategoryPreviewCardsVariant =
   | "header-details"
   | "full-details"
   | "header-full-details";
+
 interface CategoryCards_CategoryPreviewCardsProps {
   theme?: EmailThemeTokens;
   variant?: CategoryCards_CategoryPreviewCardsVariant;
@@ -39,8 +41,10 @@ interface CategoryCards_CategoryPreviewCardsProps {
   description2?: string;
   ctaLabel?: string;
 }
+
 const CategoryCards_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CategoryCards_variantFeatures = (
   variant: CategoryCards_CategoryPreviewCardsVariant
 ) => ({
@@ -60,6 +64,7 @@ const CategoryCards_variantFeatures = (
     variant === "header-details" ||
     variant === "header-full-details",
 });
+
 const CategoryCards_CategoryCard = ({
   ctaLabel,
   description,
@@ -158,6 +163,7 @@ const CategoryCards_CategoryCard = ({
     </MjmlButton>
   </MjmlColumn>
 );
+
 const CategoryCards_CategoryPreviewCardsSection = ({
   ctaLabel = "Shop now",
   description1 = "Soft, breathable, and effortlessly stylish. Made for comfort and everyday wear with a clean, minimal edge.",
@@ -230,6 +236,7 @@ const CategoryCards_CategoryPreviewCardsSection = ({
     </>
   );
 };
+
 const CategoryCards_CategoryPreviewCards = ({
   theme = defaultTheme,
   ...props
@@ -246,11 +253,14 @@ const CategoryCards_CategoryPreviewCards = ({
     </MjmlBody>
   </Mjml>
 );
+
 CategoryCards_CategoryPreviewCards.PreviewProps = {
   theme: defaultTheme,
   variant: "with-header",
 } satisfies CategoryCards_CategoryPreviewCardsProps;
+
 const __CategoryCards = CategoryCards_CategoryPreviewCards;
+
 type CategoryRows_CategoryPreviewRowsVariant =
   | "basic"
   | "with-header"
@@ -260,6 +270,7 @@ type CategoryRows_CategoryPreviewRowsVariant =
   | "header-details"
   | "full-details"
   | "header-full-details";
+
 interface CategoryRows_CategoryPreviewRowsProps {
   theme?: EmailThemeTokens;
   variant?: CategoryRows_CategoryPreviewRowsVariant;
@@ -275,8 +286,10 @@ interface CategoryRows_CategoryPreviewRowsProps {
   description2?: string;
   ctaLabel?: string;
 }
+
 const CategoryRows_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CategoryRows_variantFeatures = (
   variant: CategoryRows_CategoryPreviewRowsVariant
 ) => ({
@@ -296,6 +309,7 @@ const CategoryRows_variantFeatures = (
     variant === "header-details" ||
     variant === "header-full-details",
 });
+
 const CategoryRows_CategoryRow = ({
   ctaLabel,
   description,
@@ -395,6 +409,7 @@ const CategoryRows_CategoryRow = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const CategoryRows_CategoryPreviewRowsSection = ({
   ctaLabel = "Shop now",
   description1 = "Soft, breathable, and effortlessly stylish. Made for comfort and everyday wear with a clean, minimal edge.",
@@ -475,6 +490,7 @@ const CategoryRows_CategoryPreviewRowsSection = ({
     </>
   );
 };
+
 const CategoryRows_CategoryPreviewRows = ({
   theme = defaultTheme,
   ...props
@@ -491,11 +507,14 @@ const CategoryRows_CategoryPreviewRows = ({
     </MjmlBody>
   </Mjml>
 );
+
 CategoryRows_CategoryPreviewRows.PreviewProps = {
   theme: defaultTheme,
   variant: "with-header",
 } satisfies CategoryRows_CategoryPreviewRowsProps;
+
 const __CategoryRows = CategoryRows_CategoryPreviewRows;
+
 export interface CategoryPreviewItem {
   image: {
     src: string;
@@ -505,6 +524,7 @@ export interface CategoryPreviewItem {
   price?: string;
   description?: string;
 }
+
 export interface CategoryPreviewProps {
   theme?: Parameters<typeof __CategoryCards>[0]["theme"];
   layout?: "cards" | "rows";
@@ -516,6 +536,7 @@ export interface CategoryPreviewProps {
   items?: CategoryPreviewItem[];
   actionLabel?: string;
 }
+
 const categoryVariant = (
   header: CategoryPreviewProps["header"],
   detailLevel: NonNullable<CategoryPreviewProps["detailLevel"]>
@@ -540,6 +561,7 @@ const categoryVariant = (
   }
   return detailLevel === "full" ? "full-details" : "basic";
 };
+
 export const CategoryPreview = ({
   theme,
   layout = "cards",
@@ -570,6 +592,7 @@ export const CategoryPreview = ({
     <__CategoryCards {...props} />
   );
 };
+
 CategoryPreview.PreviewProps = {
   detailLevel: "name",
   layout: "cards",

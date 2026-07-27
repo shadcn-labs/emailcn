@@ -16,15 +16,18 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type ImageGridHero_HeroWithImageGridVariant =
   | "images-bottom"
   | "images-top"
   | "offset-images-bottom"
   | "offset-images-top";
+
 interface ImageGridHero_HeroWithImageGridImage {
   alt: string;
   src: string;
 }
+
 interface ImageGridHero_HeroWithImageGridProps {
   theme?: TailwindConfig;
   eyebrow?: string;
@@ -43,8 +46,10 @@ interface ImageGridHero_HeroWithImageGridProps {
   buttonTextColor?: string;
   variant?: ImageGridHero_HeroWithImageGridVariant;
 }
+
 const ImageGridHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const ImageGridHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-image-grid-container {
@@ -66,22 +71,27 @@ const ImageGridHero_responsiveStyles = `
       }
     }
   `;
+
 const ImageGridHero_regularImages: ImageGridHero_HeroWithImageGridImage[] =
   Array.from({ length: 7 }, (_, index) => ({
     alt: `Image ${index + 1}`,
     src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${index + 1}.jpg`,
   }));
+
 const ImageGridHero_offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
+
 const ImageGridHero_offsetImages: ImageGridHero_HeroWithImageGridImage[] =
   ImageGridHero_offsetImageNumbers.map((imageNumber, index) => ({
     alt: `Image ${index + 1}`,
     src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${imageNumber}.jpg`,
   }));
+
 const ImageGridHero_Spacer = ({ height }: { height: number }) => (
   <Section style={{ fontSize: 0, height, lineHeight: `${height}px` }}>
     &zwj;
   </Section>
 );
+
 const ImageGridHero_ImageGallery = ({
   images,
   offset,
@@ -128,11 +138,13 @@ const ImageGridHero_ImageGallery = ({
     </Section>
   );
 };
+
 type ImageGridHero_SectionProps = Required<
   Omit<ImageGridHero_HeroWithImageGridProps, "theme" | "variant">
 > & {
   variant: ImageGridHero_HeroWithImageGridVariant;
 };
+
 const ImageGridHero_HeroWithImageGridSection = ({
   backgroundColor,
   buttonBackgroundColor,
@@ -268,6 +280,7 @@ const ImageGridHero_HeroWithImageGridSection = ({
     </Section>
   );
 };
+
 const ImageGridHero_HeroWithImageGrid = ({
   backgroundColor = "#fffffe",
   buttonBackgroundColor = "#4f46e5",
@@ -333,6 +346,7 @@ const ImageGridHero_HeroWithImageGrid = ({
     </Tailwind>
   </Html>
 );
+
 ImageGridHero_HeroWithImageGrid.PreviewProps = {
   backgroundColor: "#fffffe",
   buttonBackgroundColor: "#4f46e5",
@@ -352,7 +366,9 @@ ImageGridHero_HeroWithImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "images-bottom",
 } satisfies ImageGridHero_HeroWithImageGridProps;
+
 const __ImageGridHero = ImageGridHero_HeroWithImageGrid;
+
 export interface HeroContent {
   eyebrow?: string;
   heading?: string;
@@ -365,14 +381,17 @@ export interface HeroContent {
     label: string;
   }[];
 }
+
 export interface HeroImage {
   src: string;
   alt?: string;
 }
+
 export interface HeroBrand {
   logo: HeroImage;
   href?: string;
 }
+
 export interface ImageGridHeroProps {
   theme?: Parameters<typeof __ImageGridHero>[0]["theme"];
   content?: HeroContent;
@@ -381,6 +400,7 @@ export interface ImageGridHeroProps {
   imagePosition?: "top" | "bottom";
   offset?: boolean;
 }
+
 export const ImageGridHero = ({
   theme,
   content,
@@ -404,6 +424,7 @@ export const ImageGridHero = ({
     variant={`${offset ? "offset-" : ""}images-${imagePosition}`}
   />
 );
+
 ImageGridHero.PreviewProps = {
   imagePosition: "bottom",
   offset: false,

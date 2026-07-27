@@ -16,10 +16,12 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
   | "default"
   | "boxed"
   | "accent";
+
 interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -36,14 +38,17 @@ interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
   email2?: string;
   variant?: TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant;
 }
+
 const TeamCardsDetails_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamCardsDetails_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .team-details-stack { display: block !important; width: 100% !important; }
       .team-details-gap { line-height: 24px !important; }
     }
   `;
+
 const TeamCardsDetails_SocialLinks = ({
   accent,
   lastIcon,
@@ -78,6 +83,7 @@ const TeamCardsDetails_SocialLinks = ({
     </Section>
   );
 };
+
 interface TeamCardsDetails_DetailsCardProps {
   accent: boolean;
   avatarAlt: string;
@@ -89,6 +95,7 @@ interface TeamCardsDetails_DetailsCardProps {
   role: string;
   variant: TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant;
 }
+
 const TeamCardsDetails_DetailsCard = ({
   accent,
   avatarAlt,
@@ -216,6 +223,7 @@ const TeamCardsDetails_DetailsCard = ({
     </>
   );
 };
+
 const TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -299,6 +307,7 @@ const TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection = ({
     </>
   );
 };
+
 const TeamCardsDetails_TwoColumnTeamCardsWithDetails = ({
   theme: _theme = defaultTheme,
   ...props
@@ -313,11 +322,14 @@ const TeamCardsDetails_TwoColumnTeamCardsWithDetails = ({
     </Body>
   </Html>
 );
+
 TeamCardsDetails_TwoColumnTeamCardsWithDetails.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps;
+
 const __TeamCardsDetails = TeamCardsDetails_TwoColumnTeamCardsWithDetails;
+
 type TeamCards_TwoColumnTeamCardsVariant =
   | "default"
   | "boxed"
@@ -326,6 +338,7 @@ type TeamCards_TwoColumnTeamCardsVariant =
   | "accent-alt"
   | "rounded"
   | "rounded-accent";
+
 interface TeamCards_TwoColumnTeamCardsProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -338,8 +351,10 @@ interface TeamCards_TwoColumnTeamCardsProps {
   role2?: string;
   variant?: TeamCards_TwoColumnTeamCardsVariant;
 }
+
 const TeamCards_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamCards_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .team-stack { display: block !important; width: 100% !important; }
@@ -347,6 +362,7 @@ const TeamCards_responsiveStyles = `
       .team-round-image { max-width: 144px !important; }
     }
   `;
+
 const TeamCards_socialIcons = {
   dark: {
     facebook:
@@ -367,6 +383,7 @@ const TeamCards_socialIcons = {
     x: "https://emailcn.vercel.app/api/email-assets/icon-x-light.png",
   },
 };
+
 const TeamCards_SocialLinks = ({
   accent,
   lastIcon,
@@ -399,6 +416,7 @@ const TeamCards_SocialLinks = ({
     </Section>
   );
 };
+
 interface TeamCards_TeamCardProps {
   accent: boolean;
   avatarAlt: string;
@@ -408,6 +426,7 @@ interface TeamCards_TeamCardProps {
   role: string;
   variant: TeamCards_TwoColumnTeamCardsVariant;
 }
+
 const TeamCards_TeamCard = ({
   accent,
   avatarAlt,
@@ -549,6 +568,7 @@ const TeamCards_TeamCard = ({
     </>
   );
 };
+
 const TeamCards_TwoColumnTeamCardsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -634,6 +654,7 @@ const TeamCards_TwoColumnTeamCardsSection = ({
     </>
   );
 };
+
 const TeamCards_TwoColumnTeamCards = ({
   theme: _theme = defaultTheme,
   ...props
@@ -648,16 +669,20 @@ const TeamCards_TwoColumnTeamCards = ({
     </Body>
   </Html>
 );
+
 TeamCards_TwoColumnTeamCards.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamCards_TwoColumnTeamCardsProps;
+
 const __TeamCards = TeamCards_TwoColumnTeamCards;
+
 type TeamCompact_TwoColumnsCompactVariant =
   | "default"
   | "border-top"
   | "bordered"
   | "accent";
+
 interface TeamCompact_TwoColumnsCompactProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -670,14 +695,17 @@ interface TeamCompact_TwoColumnsCompactProps {
   role2?: string;
   variant?: TeamCompact_TwoColumnsCompactVariant;
 }
+
 const TeamCompact_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamCompact_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .compact-team-stack { display: block !important; width: 100% !important; }
       .compact-team-gap { line-height: 24px !important; }
     }
   `;
+
 const TeamCompact_SocialLinks = ({
   lastIcon,
 }: {
@@ -709,6 +737,7 @@ const TeamCompact_SocialLinks = ({
     </Section>
   );
 };
+
 interface TeamCompact_CompactCardProps {
   avatarAlt: string;
   avatarSrc: string;
@@ -717,6 +746,7 @@ interface TeamCompact_CompactCardProps {
   role: string;
   variant: TeamCompact_TwoColumnsCompactVariant;
 }
+
 const TeamCompact_CompactCard = ({
   avatarAlt,
   avatarSrc,
@@ -820,6 +850,7 @@ const TeamCompact_CompactCard = ({
     </>
   );
 };
+
 const TeamCompact_TwoColumnsCompactSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -890,6 +921,7 @@ const TeamCompact_TwoColumnsCompactSection = ({
     </Section>
   </>
 );
+
 const TeamCompact_TwoColumnsCompact = ({
   theme: _theme = defaultTheme,
   ...props
@@ -904,16 +936,20 @@ const TeamCompact_TwoColumnsCompact = ({
     </Body>
   </Html>
 );
+
 TeamCompact_TwoColumnsCompact.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamCompact_TwoColumnsCompactProps;
+
 const __TeamCompact = TeamCompact_TwoColumnsCompact;
+
 type TeamGrid_ThreeColumnsTeamGridVariant =
   | "default"
   | "with-accent"
   | "bordered"
   | "with-hero";
+
 interface TeamGrid_ThreeColumnsTeamGridProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -943,8 +979,10 @@ interface TeamGrid_ThreeColumnsTeamGridProps {
   heroImageSrc?: string;
   variant?: TeamGrid_ThreeColumnsTeamGridVariant;
 }
+
 const TeamGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamGrid_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .team-grid-cell { display: inline-block !important; width: 50% !important; margin-bottom: 24px !important; }
@@ -952,12 +990,14 @@ const TeamGrid_responsiveStyles = `
       .team-grid-card-pad { padding-left: 12px !important; padding-right: 12px !important; }
     }
   `;
+
 type TeamGrid_SocialIcon =
   | "facebook"
   | "github"
   | "instagram"
   | "linkedin"
   | "x";
+
 interface TeamGrid_Member {
   alt: string;
   image: string;
@@ -965,6 +1005,7 @@ interface TeamGrid_Member {
   role: string;
   social: TeamGrid_SocialIcon[];
 }
+
 const TeamGrid_SocialLinks = ({
   accent,
   icons,
@@ -998,6 +1039,7 @@ const TeamGrid_SocialLinks = ({
     </Section>
   );
 };
+
 const TeamGrid_MemberCard = ({
   featured,
   member,
@@ -1075,6 +1117,7 @@ const TeamGrid_MemberCard = ({
     </Section>
   );
 };
+
 const TeamGrid_GridRows = ({
   members,
   variant,
@@ -1129,6 +1172,7 @@ const TeamGrid_GridRows = ({
     </Section>
   );
 };
+
 const TeamGrid_ThreeColumnsTeamGridSection = (
   props: Omit<TeamGrid_ThreeColumnsTeamGridProps, "theme">
 ) => {
@@ -1334,6 +1378,7 @@ const TeamGrid_ThreeColumnsTeamGridSection = (
     </>
   );
 };
+
 const TeamGrid_ThreeColumnsTeamGrid = ({
   theme: _theme = defaultTheme,
   ...props
@@ -1348,16 +1393,20 @@ const TeamGrid_ThreeColumnsTeamGrid = ({
     </Body>
   </Html>
 );
+
 TeamGrid_ThreeColumnsTeamGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies TeamGrid_ThreeColumnsTeamGridProps;
+
 const __TeamGrid = TeamGrid_ThreeColumnsTeamGrid;
+
 type TeamBios_HorizontalTeamMemberBiosVariant =
   | "image-left"
   | "image-right"
   | "image-left-accent"
   | "image-right-accent";
+
 interface TeamBios_HorizontalTeamMemberBiosProps {
   theme?: EmailThemeTokens;
   avatarSrc1?: string;
@@ -1372,8 +1421,10 @@ interface TeamBios_HorizontalTeamMemberBiosProps {
   bio2?: string;
   variant?: TeamBios_HorizontalTeamMemberBiosVariant;
 }
+
 const TeamBios_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TeamBios_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .horizontal-team-stack { display: block !important; width: 100% !important; }
@@ -1383,6 +1434,7 @@ const TeamBios_responsiveStyles = `
       .horizontal-team-social { margin-left: auto !important; margin-right: auto !important; }
     }
   `;
+
 const TeamBios_SocialLinks = ({
   accent,
   lastIcon,
@@ -1417,6 +1469,7 @@ const TeamBios_SocialLinks = ({
     </Section>
   );
 };
+
 const TeamBios_GapCell = () => (
   <Column
     className="horizontal-team-stack horizontal-team-gap"
@@ -1425,6 +1478,7 @@ const TeamBios_GapCell = () => (
     &zwj;
   </Column>
 );
+
 interface TeamBios_HorizontalCardProps {
   accent: boolean;
   avatarAlt: string;
@@ -1435,6 +1489,7 @@ interface TeamBios_HorizontalCardProps {
   name: string;
   role: string;
 }
+
 const TeamBios_HorizontalCard = ({
   accent,
   avatarAlt,
@@ -1550,6 +1605,7 @@ const TeamBios_HorizontalCard = ({
     </Section>
   );
 };
+
 const TeamBios_HorizontalTeamMemberBiosSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
@@ -1609,6 +1665,7 @@ const TeamBios_HorizontalTeamMemberBiosSection = ({
     </>
   );
 };
+
 const TeamBios_HorizontalTeamMemberBios = ({
   theme: _theme = defaultTheme,
   ...props
@@ -1623,11 +1680,14 @@ const TeamBios_HorizontalTeamMemberBios = ({
     </Body>
   </Html>
 );
+
 TeamBios_HorizontalTeamMemberBios.PreviewProps = {
   theme: defaultTheme,
   variant: "image-left",
 } satisfies TeamBios_HorizontalTeamMemberBiosProps;
+
 const __TeamBios = TeamBios_HorizontalTeamMemberBios;
+
 export interface TeamMember {
   name: string;
   role: string;
@@ -1638,6 +1698,7 @@ export interface TeamMember {
   bio?: string;
   email?: string;
 }
+
 export interface TeamProps {
   theme?: Parameters<typeof __TeamCards>[0]["theme"];
   members?: TeamMember[];
@@ -1650,6 +1711,7 @@ export interface TeamProps {
     alt?: string;
   };
 }
+
 const toTeamProps = (members: TeamMember[] | undefined) =>
   Object.fromEntries(
     (members ?? []).flatMap((member, index) => {
@@ -1664,6 +1726,7 @@ const toTeamProps = (members: TeamMember[] | undefined) =>
       ];
     })
   );
+
 export const Team = ({
   theme,
   members,
@@ -1746,6 +1809,7 @@ export const Team = ({
     );
   })();
 };
+
 Team.PreviewProps = {
   appearance: "plain",
   columns: 2,

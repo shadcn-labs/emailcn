@@ -15,8 +15,11 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type HeaderWithUserDetailsAlignment = "left" | "right";
+
 export type HeaderWithUserDetailsAvatar = "initials" | "image";
+
 export interface HeaderWithUserDetailsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -36,8 +39,10 @@ export interface HeaderWithUserDetailsProps {
   textColor?: string;
   mutedTextColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const sharedDefaults = {
   avatarAlt: "",
   avatarBackgroundColor: "#f3f4f6",
@@ -51,13 +56,16 @@ const sharedDefaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type SectionProps = Omit<HeaderWithUserDetailsProps, "theme">;
+
 type ResolvedProps = typeof sharedDefaults &
   SectionProps & {
     avatarSrc: string;
     userEmail: string;
     userName: string;
   };
+
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -68,6 +76,7 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
+
 const Avatar = ({
   avatar,
   props,
@@ -111,6 +120,7 @@ const Avatar = ({
       </Fragment>
     </Section>
   );
+
 const Details = ({
   alignRight = false,
   avatar,
@@ -159,6 +169,7 @@ const Details = ({
     </Fragment>
   </Section>
 );
+
 export const HeaderWithUserDetailsSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "left";
   const avatar = props.avatar ?? "initials";
@@ -239,6 +250,7 @@ export const HeaderWithUserDetailsSection = (props: SectionProps) => {
     </Section>
   );
 };
+
 export const HeaderWithUserDetails = ({
   alignment = "left",
   avatar = "initials",
@@ -263,6 +275,7 @@ export const HeaderWithUserDetails = ({
     </Body>
   </Html>
 );
+
 HeaderWithUserDetails.PreviewProps = {
   alignment: "left",
   avatar: "initials",

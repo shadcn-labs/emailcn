@@ -14,12 +14,15 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type HeaderWithLogoAndSocialIconsAlignment = "left" | "center" | "right";
+
 export interface HeaderSocialLink {
   alt: string;
   href: string;
   src: string;
 }
+
 export interface HeaderWithLogoAndSocialIconsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -30,8 +33,10 @@ export interface HeaderWithLogoAndSocialIconsProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const defaultSocials: HeaderSocialLink[] = [
   {
     alt: "GitHub",
@@ -49,6 +54,7 @@ const defaultSocials: HeaderSocialLink[] = [
     src: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
   },
 ];
+
 const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
@@ -57,8 +63,11 @@ const defaults = {
   pageBackgroundColor: "#f1f5f9",
   socials: defaultSocials,
 };
+
 type SectionProps = Omit<HeaderWithLogoAndSocialIconsProps, "theme">;
+
 type ResolvedProps = typeof defaults & SectionProps;
+
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -69,6 +78,7 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
+
 const Socials = ({
   align,
   props,
@@ -113,6 +123,7 @@ const Socials = ({
     </Section>
   );
 };
+
 export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "left";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -194,6 +205,7 @@ export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
     </Section>
   );
 };
+
 export const HeaderWithLogoAndSocialIcons = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -216,6 +228,7 @@ export const HeaderWithLogoAndSocialIcons = ({
     </Body>
   </Html>
 );
+
 HeaderWithLogoAndSocialIcons.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

@@ -16,7 +16,9 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type BackgroundCta_CTAWithBackgroundImageVariant = "flush" | "boxed" | "padded";
+
 interface BackgroundCta_CTAWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -38,8 +40,10 @@ interface BackgroundCta_CTAWithBackgroundImageProps {
   secondaryButtonBorderColor?: string;
   variant?: BackgroundCta_CTAWithBackgroundImageVariant;
 }
+
 const BackgroundCta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BackgroundCta_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .cta-background-action-cell {
@@ -73,6 +77,7 @@ const BackgroundCta_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 const BackgroundCta_variantContent = {
   boxed: {
     backgroundSrc:
@@ -115,6 +120,7 @@ const BackgroundCta_variantContent = {
     subtext: string;
   }
 >;
+
 const BackgroundCta_defaultSectionStyles = {
   backgroundColor: "#fffffe",
   ctaHref: "https://example.com/",
@@ -128,6 +134,7 @@ const BackgroundCta_defaultSectionStyles = {
   secondaryCtaHref: "https://example.com/",
   textColor: "#fffffe",
 };
+
 const BackgroundCta_variantSpacing = {
   boxed: { className: "cta-background-boxed-space", height: 64 },
   flush: { className: "cta-background-flush-space", height: 91 },
@@ -139,10 +146,12 @@ const BackgroundCta_variantSpacing = {
     height: number;
   }
 >;
+
 type BackgroundCta_SectionProps = Omit<
   BackgroundCta_CTAWithBackgroundImageProps,
   "theme"
 >;
+
 interface BackgroundCta_ContentProps {
   ctaHref: string;
   ctaLabel: string;
@@ -160,6 +169,7 @@ interface BackgroundCta_ContentProps {
   subtext: string;
   textColor: string;
 }
+
 const BackgroundCta_CTAContent = ({
   ctaHref,
   ctaLabel,
@@ -293,11 +303,13 @@ const BackgroundCta_CTAContent = ({
     </Fragment>
   </Section>
 );
+
 interface BackgroundCta_VariantFrameProps extends BackgroundCta_ContentProps {
   backgroundSrc: string;
   overlayColor: string;
   variant: BackgroundCta_CTAWithBackgroundImageVariant;
 }
+
 const BackgroundCta_VariantFrame = ({
   backgroundSrc,
   overlayColor,
@@ -387,6 +399,7 @@ const BackgroundCta_VariantFrame = ({
     </>
   );
 };
+
 const BackgroundCta_CTAWithBackgroundImageSection = (
   props: BackgroundCta_SectionProps
 ) => {
@@ -441,6 +454,7 @@ const BackgroundCta_CTAWithBackgroundImageSection = (
     </Section>
   );
 };
+
 const BackgroundCta_CTAWithBackgroundImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -478,16 +492,20 @@ const BackgroundCta_CTAWithBackgroundImage = ({
     </Html>
   );
 };
+
 BackgroundCta_CTAWithBackgroundImage.PreviewProps = {
   theme: defaultTheme,
   variant: "flush",
 } satisfies BackgroundCta_CTAWithBackgroundImageProps;
+
 const __BackgroundCta = BackgroundCta_CTAWithBackgroundImage;
+
 type BoxedBackgroundCta_BoxedCTAWithBackgroundImageVariant =
   | "flush-light"
   | "padded-light"
   | "flush-dark"
   | "padded-dark";
+
 interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -504,8 +522,10 @@ interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
   buttonTextColor?: string;
   variant?: BoxedBackgroundCta_BoxedCTAWithBackgroundImageVariant;
 }
+
 const BoxedBackgroundCta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BoxedBackgroundCta_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .boxed-cta-background-side {
@@ -517,6 +537,7 @@ const BoxedBackgroundCta_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 const BoxedBackgroundCta_variantStyles = {
   "flush-dark": {
     backgroundColor: "#030712",
@@ -556,6 +577,7 @@ const BoxedBackgroundCta_variantStyles = {
     textColor: string;
   }
 >;
+
 const BoxedBackgroundCta_defaultSectionStyles = {
   backgroundImageSrc:
     "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-glow.png",
@@ -568,10 +590,12 @@ const BoxedBackgroundCta_defaultSectionStyles = {
   subtext:
     "Your account is ready. Confirm your email to activate access, connect your tools, and start building smarter with our platform.",
 };
+
 type BoxedBackgroundCta_SectionProps = Omit<
   BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps,
   "theme"
 >;
+
 const BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection = (
   props: BoxedBackgroundCta_SectionProps
 ) => {
@@ -704,6 +728,7 @@ const BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection = (
     </Section>
   );
 };
+
 const BoxedBackgroundCta_BoxedCTAWithBackgroundImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -745,11 +770,14 @@ const BoxedBackgroundCta_BoxedCTAWithBackgroundImage = ({
     </Body>
   </Html>
 );
+
 BoxedBackgroundCta_BoxedCTAWithBackgroundImage.PreviewProps = {
   theme: defaultTheme,
   variant: "flush-light",
 } satisfies BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps;
+
 const __BoxedBackgroundCta = BoxedBackgroundCta_BoxedCTAWithBackgroundImage;
+
 export interface BackgroundCallToActionProps {
   theme?: Parameters<typeof __BackgroundCta>[0]["theme"];
   heading?: string;
@@ -767,6 +795,7 @@ export interface BackgroundCallToActionProps {
   contentCard?: boolean;
   appearance?: "light" | "dark";
 }
+
 export const BackgroundCallToAction = ({
   theme,
   heading,
@@ -807,6 +836,7 @@ export const BackgroundCallToAction = ({
       />
     );
   })();
+
 BackgroundCallToAction.PreviewProps = {
   appearance: "light",
   contentCard: false,

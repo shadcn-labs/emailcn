@@ -17,25 +17,32 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
+
 interface InternalAvatarItem {
   name: string;
   url?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const avatarResponsiveStyles = `
   .emailcn-avatar-group-left { margin-left: 0 !important; margin-right: auto !important; }
   .emailcn-avatar-group-center { margin-left: auto !important; margin-right: auto !important; }
   .emailcn-avatar-group-right { margin-left: auto !important; margin-right: 0 !important; }
 `;
+
 const defaultAvatars: InternalAvatarItem[] = [
   { name: "John Adams", url: `${ASSET_ROOT}/avatar-2.jpg` },
   { name: "Sarah Wilson", url: `${ASSET_ROOT}/avatar.jpg` },
   { name: "Michael Chen", url: `${ASSET_ROOT}/avatar-4.jpg` },
   { name: "Emily Davis", url: `${ASSET_ROOT}/avatar-5.jpg` },
 ];
+
 const avatarSizes: Record<
   AvatarSize,
   {
@@ -51,6 +58,7 @@ const avatarSizes: Record<
   xl: { countFontSize: 18, diameter: 56, overlapWidth: 42 },
   xs: { countFontSize: 11, diameter: 24, overlapWidth: 18 },
 };
+
 const AvatarShell = ({ children }: { children: ReactNode }) => (
   <>
     <MjmlSection padding="0">
@@ -68,6 +76,7 @@ const AvatarShell = ({ children }: { children: ReactNode }) => (
     </MjmlSection>
   </>
 );
+
 const GroupedOverlappedAvatarsSection = ({
   align = "center",
   avatars = defaultAvatars,
@@ -136,6 +145,7 @@ const GroupedOverlappedAvatarsSection = ({
     </AvatarShell>
   );
 };
+
 interface Avatar_GroupedOverlappedAvatarsProps {
   align?: "center" | "left" | "right";
   avatars?: InternalAvatarItem[];
@@ -143,6 +153,7 @@ interface Avatar_GroupedOverlappedAvatarsProps {
   size?: AvatarSize;
   theme?: EmailThemeTokens;
 }
+
 const Avatar_GroupedOverlappedAvatars = ({
   theme = defaultTheme,
   ...props
@@ -160,16 +171,20 @@ const Avatar_GroupedOverlappedAvatars = ({
     </MjmlBody>
   </Mjml>
 );
+
 Avatar_GroupedOverlappedAvatars.PreviewProps = {
   avatars: defaultAvatars,
   size: "md",
   theme: defaultTheme,
 } satisfies Avatar_GroupedOverlappedAvatarsProps;
+
 const __Avatar = Avatar_GroupedOverlappedAvatars;
+
 export interface AvatarItem {
   name: string;
   url?: string;
 }
+
 export interface AvatarGroupProps {
   theme?: Parameters<typeof __Avatar>[0]["theme"];
   avatars?: AvatarItem[];
@@ -177,6 +192,7 @@ export interface AvatarGroupProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
   align?: "left" | "center" | "right";
 }
+
 export const AvatarGroup = ({
   theme,
   avatars,
@@ -192,4 +208,5 @@ export const AvatarGroup = ({
     theme={theme}
   />
 );
+
 AvatarGroup.PreviewProps = {} satisfies AvatarGroupProps;

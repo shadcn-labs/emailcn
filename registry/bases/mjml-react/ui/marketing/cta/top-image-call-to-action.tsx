@@ -16,8 +16,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CTAEmailShell = ({
   children,
   pageBackgroundColor,
@@ -42,6 +44,7 @@ const CTAEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const CTACopy = ({
   align = "center",
   ctaHref,
@@ -129,6 +132,7 @@ const CTACopy = ({
     ) : null}
   </>
 );
+
 interface Cta_CTAWithTopLargeImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -144,6 +148,7 @@ interface Cta_CTAWithTopLargeImageProps {
   buttonBackgroundColor?: string;
   buttonTextColor?: string;
 }
+
 const Cta_CTAWithTopLargeImageSection = ({
   backgroundColor = "#fffffe",
   buttonBackgroundColor = "#4f46e5",
@@ -180,6 +185,7 @@ const Cta_CTAWithTopLargeImageSection = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const Cta_CTAWithTopLargeImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -193,10 +199,13 @@ const Cta_CTAWithTopLargeImage = ({
     <Cta_CTAWithTopLargeImageSection {...props} />
   </CTAEmailShell>
 );
+
 Cta_CTAWithTopLargeImage.PreviewProps = {
   theme: defaultTheme,
 } satisfies Cta_CTAWithTopLargeImageProps;
+
 const __Cta = Cta_CTAWithTopLargeImage;
+
 export interface TopImageCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -210,6 +219,7 @@ export interface TopImageCallToActionProps {
     alt?: string;
   };
 }
+
 export const TopImageCallToAction = ({
   theme,
   heading,
@@ -227,4 +237,5 @@ export const TopImageCallToAction = ({
     theme={theme}
   />
 );
+
 TopImageCallToAction.PreviewProps = {} satisfies TopImageCallToActionProps;

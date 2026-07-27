@@ -18,6 +18,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -29,23 +30,28 @@ const colors = {
   surfaceMuted: "#f9fafb",
   white: "#fffffe",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const tableStyle: CSSProperties = {
   borderCollapse: "separate",
   borderSpacing: 0,
   width: "100%",
 };
+
 const textBase: CSSProperties = {
   fontFamily,
   margin: 0,
 };
+
 interface InternalFaqItem {
   answer?: string;
   iconAlt?: string;
   iconSrc?: string;
   question: string;
 }
+
 const Question = ({ children }: { children: ReactNode }) => (
   <Heading
     style={{
@@ -60,6 +66,7 @@ const Question = ({ children }: { children: ReactNode }) => (
     {children}
   </Heading>
 );
+
 const Answer = ({
   children,
   marginTop = 8,
@@ -80,6 +87,7 @@ const Answer = ({
     {children}
   </Text>
 );
+
 const NumberLabel = ({ index }: { index: number }) => (
   <span
     style={{
@@ -93,6 +101,7 @@ const NumberLabel = ({ index }: { index: number }) => (
     {String(index + 1).padStart(2, "0")}
   </span>
 );
+
 const ToggleIcon = ({
   expanded = false,
   item,
@@ -139,6 +148,7 @@ const ToggleIcon = ({
       </span>
     );
   })();
+
 const FaqHeading = ({ children }: { children: ReactNode }) => (
   <>
     <Heading
@@ -159,6 +169,7 @@ const FaqHeading = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 const ExpandedNumbersContent = ({
   items,
 }: {
@@ -194,6 +205,7 @@ const ExpandedNumbersContent = ({
     </Fragment>
   </Section>
 );
+
 const OffsetAnswersContent = ({
   items,
 }: {
@@ -228,6 +240,7 @@ const OffsetAnswersContent = ({
     </Fragment>
   </Section>
 );
+
 const BoxedNumberedContent = ({
   items,
 }: {
@@ -270,6 +283,7 @@ const BoxedNumberedContent = ({
     </Fragment>
   </Section>
 );
+
 const AlternatingBoxedContent = ({
   items,
 }: {
@@ -314,6 +328,7 @@ const AlternatingBoxedContent = ({
     ))}
   </>
 );
+
 const CollapsedNumbersContent = ({
   items,
 }: {
@@ -360,6 +375,7 @@ const CollapsedNumbersContent = ({
     </Fragment>
   </Section>
 );
+
 const CollapsedIconsContent = ({
   items,
 }: {
@@ -409,6 +425,7 @@ const CollapsedIconsContent = ({
     ))}
   </>
 );
+
 const CollapsedCtaContent = ({
   ctaHref,
   ctaLabel,
@@ -464,6 +481,7 @@ const CollapsedCtaContent = ({
     </Section>
   </>
 );
+
 const FaqEmailShell = ({
   children,
   preview,
@@ -513,6 +531,7 @@ const FaqEmailShell = ({
     </Tailwind>
   </Html>
 );
+
 interface BoxedNumbered_BoxedFaqWithNumberedQuestionsProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -521,6 +540,7 @@ interface BoxedNumbered_BoxedFaqWithNumberedQuestionsProps {
   q2?: string;
   a2?: string;
 }
+
 const BoxedNumbered_BoxedFaqWithNumberedQuestionsSection = ({
   a1 = "This product helps you build beautiful emails quickly and easily.",
   a2 = "We offer flexible pricing plans to suit your needs.",
@@ -539,6 +559,7 @@ const BoxedNumbered_BoxedFaqWithNumberedQuestionsSection = ({
     </>
   );
 };
+
 const BoxedNumbered_BoxedFaqWithNumberedQuestions = ({
   theme = defaultTheme,
   a1 = "This product helps you build beautiful emails quickly and easily.",
@@ -557,6 +578,7 @@ const BoxedNumbered_BoxedFaqWithNumberedQuestions = ({
     />
   </FaqEmailShell>
 );
+
 BoxedNumbered_BoxedFaqWithNumberedQuestions.PreviewProps = {
   a1: "This product helps you build beautiful emails quickly and easily.",
   a2: "We offer flexible pricing plans to suit your needs.",
@@ -565,7 +587,9 @@ BoxedNumbered_BoxedFaqWithNumberedQuestions.PreviewProps = {
   q2: "How does pricing work?",
   theme: defaultTheme,
 } satisfies BoxedNumbered_BoxedFaqWithNumberedQuestionsProps;
+
 const __BoxedNumbered = BoxedNumbered_BoxedFaqWithNumberedQuestions;
+
 interface BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -576,6 +600,7 @@ interface BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsProp
   q3?: string;
   a3?: string;
 }
+
 const BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsSection =
   ({
     a1 = "This product helps you build beautiful emails quickly and easily.",
@@ -601,6 +626,7 @@ const BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsSection 
       </>
     );
   };
+
 const BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors = ({
   theme = defaultTheme,
   a1 = "This product helps you build beautiful emails quickly and easily.",
@@ -623,6 +649,7 @@ const BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors = ({
     />
   </FaqEmailShell>
 );
+
 BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors.PreviewProps =
   {
     a1: "This product helps you build beautiful emails quickly and easily.",
@@ -634,8 +661,10 @@ BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors.PreviewProps 
     q3: "Is there customer support?",
     theme: defaultTheme,
   } satisfies BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColorsProps;
+
 const __BoxedAlternating =
   BoxedAlternating_BoxedFaqWithNumbersAndAlternatingBackgroundColors;
+
 interface CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -650,6 +679,7 @@ interface CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsProps {
   iconSrc3?: string;
   iconAlt3?: string;
 }
+
 const CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsSection = ({
   a1 = "This product helps you build beautiful emails quickly and easily.",
   heading = "Frequently asked questions",
@@ -678,6 +708,7 @@ const CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsSection = ({
     </>
   );
 };
+
 const CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons = ({
   theme = defaultTheme,
   a1 = "This product helps you build beautiful emails quickly and easily.",
@@ -708,6 +739,7 @@ const CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons = ({
     />
   </FaqEmailShell>
 );
+
 CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons.PreviewProps = {
   a1: "This product helps you build beautiful emails quickly and easily.",
   heading: "Frequently asked questions",
@@ -719,7 +751,9 @@ CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons.PreviewProps = {
   q3: "Is there customer support?",
   theme: defaultTheme,
 } satisfies CollapsedIcons_CollapsedFaqWithExpandedSectionAndIconsProps;
+
 const __CollapsedIcons = CollapsedIcons_CollapsedFaqWithExpandedSectionAndIcons;
+
 interface CollapsedCta_CollapsedFaqWithInlineCtaProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -730,6 +764,7 @@ interface CollapsedCta_CollapsedFaqWithInlineCtaProps {
   ctaLabel?: string;
   ctaText?: string;
 }
+
 const CollapsedCta_CollapsedFaqWithInlineCtaSection = ({
   ctaHref = "#contact",
   ctaLabel = "Contact us",
@@ -752,6 +787,7 @@ const CollapsedCta_CollapsedFaqWithInlineCtaSection = ({
     </>
   );
 };
+
 const CollapsedCta_CollapsedFaqWithInlineCta = ({
   theme = defaultTheme,
   ctaHref = "#contact",
@@ -774,6 +810,7 @@ const CollapsedCta_CollapsedFaqWithInlineCta = ({
     />
   </FaqEmailShell>
 );
+
 CollapsedCta_CollapsedFaqWithInlineCta.PreviewProps = {
   ctaHref: "#contact",
   ctaLabel: "Contact us",
@@ -784,7 +821,9 @@ CollapsedCta_CollapsedFaqWithInlineCta.PreviewProps = {
   q3: "Is there customer support?",
   theme: defaultTheme,
 } satisfies CollapsedCta_CollapsedFaqWithInlineCtaProps;
+
 const __CollapsedCta = CollapsedCta_CollapsedFaqWithInlineCta;
+
 interface CollapsedNumbers_CollapsedFaqWithNumbersProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -793,6 +832,7 @@ interface CollapsedNumbers_CollapsedFaqWithNumbersProps {
   q3?: string;
   q4?: string;
 }
+
 const CollapsedNumbers_CollapsedFaqWithNumbersSection = ({
   heading = "Frequently asked questions",
   q1 = "What is this product?",
@@ -813,6 +853,7 @@ const CollapsedNumbers_CollapsedFaqWithNumbersSection = ({
     </>
   );
 };
+
 const CollapsedNumbers_CollapsedFaqWithNumbers = ({
   theme = defaultTheme,
   heading = "Frequently asked questions",
@@ -831,6 +872,7 @@ const CollapsedNumbers_CollapsedFaqWithNumbers = ({
     />
   </FaqEmailShell>
 );
+
 CollapsedNumbers_CollapsedFaqWithNumbers.PreviewProps = {
   heading: "Frequently asked questions",
   q1: "What is this product?",
@@ -839,7 +881,9 @@ CollapsedNumbers_CollapsedFaqWithNumbers.PreviewProps = {
   q4: "Can I cancel anytime?",
   theme: defaultTheme,
 } satisfies CollapsedNumbers_CollapsedFaqWithNumbersProps;
+
 const __CollapsedNumbers = CollapsedNumbers_CollapsedFaqWithNumbers;
+
 interface ExpandedNumbers_ExpandedFaqWithNumbersProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -850,6 +894,7 @@ interface ExpandedNumbers_ExpandedFaqWithNumbersProps {
   q3?: string;
   a3?: string;
 }
+
 const ExpandedNumbers_ExpandedFaqWithNumbersSection = ({
   a1 = "This product helps you build beautiful emails quickly and easily.",
   a2 = "We offer flexible pricing plans to suit your needs.",
@@ -871,6 +916,7 @@ const ExpandedNumbers_ExpandedFaqWithNumbersSection = ({
     </>
   );
 };
+
 const ExpandedNumbers_ExpandedFaqWithNumbers = ({
   theme = defaultTheme,
   a1 = "This product helps you build beautiful emails quickly and easily.",
@@ -893,6 +939,7 @@ const ExpandedNumbers_ExpandedFaqWithNumbers = ({
     />
   </FaqEmailShell>
 );
+
 ExpandedNumbers_ExpandedFaqWithNumbers.PreviewProps = {
   a1: "This product helps you build beautiful emails quickly and easily.",
   a2: "We offer flexible pricing plans to suit your needs.",
@@ -903,7 +950,9 @@ ExpandedNumbers_ExpandedFaqWithNumbers.PreviewProps = {
   q3: "Is there customer support?",
   theme: defaultTheme,
 } satisfies ExpandedNumbers_ExpandedFaqWithNumbersProps;
+
 const __ExpandedNumbers = ExpandedNumbers_ExpandedFaqWithNumbers;
+
 interface ExpandedOffset_ExpandedFaqWithOffsetAnswersProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -914,6 +963,7 @@ interface ExpandedOffset_ExpandedFaqWithOffsetAnswersProps {
   q3?: string;
   a3?: string;
 }
+
 const ExpandedOffset_ExpandedFaqWithOffsetAnswersSection = ({
   a1 = "This product helps you build beautiful emails quickly and easily.",
   a2 = "We offer flexible pricing plans to suit your needs.",
@@ -935,6 +985,7 @@ const ExpandedOffset_ExpandedFaqWithOffsetAnswersSection = ({
     </>
   );
 };
+
 const ExpandedOffset_ExpandedFaqWithOffsetAnswers = ({
   theme = defaultTheme,
   a1 = "This product helps you build beautiful emails quickly and easily.",
@@ -957,6 +1008,7 @@ const ExpandedOffset_ExpandedFaqWithOffsetAnswers = ({
     />
   </FaqEmailShell>
 );
+
 ExpandedOffset_ExpandedFaqWithOffsetAnswers.PreviewProps = {
   a1: "This product helps you build beautiful emails quickly and easily.",
   a2: "We offer flexible pricing plans to suit your needs.",
@@ -967,7 +1019,9 @@ ExpandedOffset_ExpandedFaqWithOffsetAnswers.PreviewProps = {
   q3: "Is there customer support?",
   theme: defaultTheme,
 } satisfies ExpandedOffset_ExpandedFaqWithOffsetAnswersProps;
+
 const __ExpandedOffset = ExpandedOffset_ExpandedFaqWithOffsetAnswers;
+
 export interface FaqItem {
   question: string;
   answer?: string;
@@ -976,11 +1030,13 @@ export interface FaqItem {
     src: string;
   };
 }
+
 export interface FaqAction {
   href: string;
   label: string;
   text?: string;
 }
+
 export interface FaqProps {
   theme?: Parameters<typeof __BoxedNumbered>[0]["theme"];
   heading?: string;
@@ -991,6 +1047,7 @@ export interface FaqProps {
   answerPosition?: "stacked" | "offset";
   action?: FaqAction;
 }
+
 const toFaqProps = (items: FaqItem[] | undefined) => {
   if (!items) {
     return {};
@@ -1007,6 +1064,7 @@ const toFaqProps = (items: FaqItem[] | undefined) => {
     })
   );
 };
+
 export const Faq = ({
   theme,
   heading,
@@ -1047,6 +1105,7 @@ export const Faq = ({
     <__BoxedNumbered {...props} />
   );
 };
+
 Faq.PreviewProps = {
   alternating: false,
   answerPosition: "stacked",

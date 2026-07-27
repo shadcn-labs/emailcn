@@ -13,12 +13,14 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type RollingStats_RollingStatsVariant =
   | "centered"
   | "top-left"
   | "bottom-left"
   | "top-right"
   | "bottom-right";
+
 interface RollingStats_RollingStatsProps {
   theme?: EmailThemeTokens;
   variant?: RollingStats_RollingStatsVariant;
@@ -34,8 +36,10 @@ interface RollingStats_RollingStatsProps {
   secondValueColor?: string;
   accentColor?: string;
 }
+
 const RollingStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const RollingStats_accentColors: Record<
   RollingStats_RollingStatsVariant,
   string
@@ -46,6 +50,7 @@ const RollingStats_accentColors: Record<
   "top-left": "#fde68a",
   "top-right": "#fecdd3",
 };
+
 const RollingStats_RollingStatsSection = ({
   accentColor,
   backgroundColor = "#fffffe",
@@ -134,6 +139,7 @@ const RollingStats_RollingStatsSection = ({
     </MjmlSection>
   );
 };
+
 const RollingStats_RollingStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -154,17 +160,21 @@ const RollingStats_RollingStats = ({
     </MjmlBody>
   </Mjml>
 );
+
 RollingStats_RollingStats.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies RollingStats_RollingStatsProps;
+
 const __RollingStats = RollingStats_RollingStats;
+
 type SingleStat_SingleStatWithBackgroundImageVariant =
   | "centered"
   | "top-left"
   | "bottom-left"
   | "top-right"
   | "bottom-right";
+
 interface SingleStat_SingleStatWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   variant?: SingleStat_SingleStatWithBackgroundImageVariant;
@@ -179,8 +189,10 @@ interface SingleStat_SingleStatWithBackgroundImageProps {
   labelColor?: string;
   valueColor?: string;
 }
+
 const SingleStat_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SingleStat_valueColors: Record<
   SingleStat_SingleStatWithBackgroundImageVariant,
   string
@@ -191,6 +203,7 @@ const SingleStat_valueColors: Record<
   "top-left": "#fde68a",
   "top-right": "#fecdd3",
 };
+
 const SingleStat_SingleStatWithBackgroundImageSection = ({
   backgroundImageSrc = "https://emailcn.vercel.app/api/email-assets/stats/single-stat.jpg",
   eyebrow = "Mapped trails",
@@ -268,6 +281,7 @@ const SingleStat_SingleStatWithBackgroundImageSection = ({
     </MjmlSection>
   );
 };
+
 const SingleStat_SingleStatWithBackgroundImage = ({
   backgroundColor = "#fffffe",
   pageBackgroundColor = "#f1f5f9",
@@ -289,11 +303,14 @@ const SingleStat_SingleStatWithBackgroundImage = ({
     </MjmlBody>
   </Mjml>
 );
+
 SingleStat_SingleStatWithBackgroundImage.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies SingleStat_SingleStatWithBackgroundImageProps;
+
 const __SingleStat = SingleStat_SingleStatWithBackgroundImage;
+
 export interface SpotlightStatsProps {
   theme?: Parameters<typeof __RollingStats>[0]["theme"];
   eyebrow?: string;
@@ -310,6 +327,7 @@ export interface SpotlightStatsProps {
     alt?: string;
   };
 }
+
 export const SpotlightStats = ({
   theme,
   eyebrow,
@@ -345,6 +363,7 @@ export const SpotlightStats = ({
     />
   );
 };
+
 SpotlightStats.PreviewProps = {
   position: "center",
 } satisfies SpotlightStatsProps;

@@ -17,11 +17,13 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "square-images"
   | "portrait-images"
   | "square-overlay"
   | "portrait-overlay";
+
 interface TwoColumnGrid_TwoColumnsImageGridProps {
   theme?: EmailThemeTokens;
   imageSrc1?: string;
@@ -40,8 +42,10 @@ interface TwoColumnGrid_TwoColumnsImageGridProps {
   textColor?: string;
   variant?: TwoColumnGrid_TwoColumnsImageGridVariant;
 }
+
 const TwoColumnGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TwoColumnGrid_responsiveStyles = `
     @media only screen and (max-width: 430px) {
       .two-grid-plain-stack {
@@ -69,6 +73,7 @@ const TwoColumnGrid_responsiveStyles = `
       }
     }
   `;
+
 const TwoColumnGrid_variantContent = {
   "portrait-images": {
     imageSrc1:
@@ -111,6 +116,7 @@ const TwoColumnGrid_variantContent = {
     portrait: boolean;
   }
 >;
+
 const TwoColumnGrid_defaultSectionStyles = {
   backgroundColor: "#fffffe",
   heading1: "The Ordinary.",
@@ -125,12 +131,15 @@ const TwoColumnGrid_defaultSectionStyles = {
   subtext2: "Moisturizing Mist",
   textColor: "#fffffe",
 };
+
 type TwoColumnGrid_SectionProps = Omit<
   TwoColumnGrid_TwoColumnsImageGridProps,
   "theme"
 >;
+
 type TwoColumnGrid_ResolvedProps = typeof TwoColumnGrid_defaultSectionStyles &
   (typeof TwoColumnGrid_variantContent)[TwoColumnGrid_TwoColumnsImageGridVariant];
+
 const TwoColumnGrid_OverlayCard = ({
   heading,
   headingColor,
@@ -204,6 +213,7 @@ const TwoColumnGrid_OverlayCard = ({
     </Section>
   </Section>
 );
+
 const TwoColumnGrid_GridItem = ({
   alt,
   heading,
@@ -248,6 +258,7 @@ const TwoColumnGrid_GridItem = ({
       />
     </Link>
   );
+
 const TwoColumnGrid_TwoColumnsImageGridSection = (
   props: TwoColumnGrid_SectionProps
 ) => {
@@ -327,6 +338,7 @@ const TwoColumnGrid_TwoColumnsImageGridSection = (
     </Section>
   );
 };
+
 const TwoColumnGrid_TwoColumnsImageGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -364,16 +376,20 @@ const TwoColumnGrid_TwoColumnsImageGrid = ({
     </Body>
   </Html>
 );
+
 TwoColumnGrid_TwoColumnsImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "square-images",
 } satisfies TwoColumnGrid_TwoColumnsImageGridProps;
+
 const __TwoColumnGrid = TwoColumnGrid_TwoColumnsImageGrid;
+
 type ThreeColumnGrid_ThreeColumnsImageGridVariant =
   | "square-images"
   | "portrait-images"
   | "square-overlay"
   | "portrait-overlay";
+
 interface ThreeColumnGrid_ThreeColumnsImageGridProps {
   theme?: EmailThemeTokens;
   imageSrc1?: string;
@@ -397,8 +413,10 @@ interface ThreeColumnGrid_ThreeColumnsImageGridProps {
   textColor?: string;
   variant?: ThreeColumnGrid_ThreeColumnsImageGridVariant;
 }
+
 const ThreeColumnGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const ThreeColumnGrid_responsiveStyles = `
     @media only screen and (max-width: 430px) {
       .three-grid-plain-stack {
@@ -440,16 +458,19 @@ const ThreeColumnGrid_responsiveStyles = `
       }
     }
   `;
+
 const ThreeColumnGrid_squareImages = [
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-2.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-3.jpg",
 ] as const;
+
 const ThreeColumnGrid_portraitImages = [
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-2.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-3.jpg",
 ] as const;
+
 const ThreeColumnGrid_variantContent = {
   "portrait-images": {
     headings: ["Boarding Pass", "L’Atelier", "Cultivate"],
@@ -493,6 +514,7 @@ const ThreeColumnGrid_variantContent = {
     subtexts: readonly [string, string, string];
   }
 >;
+
 const ThreeColumnGrid_defaults = {
   backgroundColor: "#fffffe",
   headingColor: "#fffffe",
@@ -505,13 +527,16 @@ const ThreeColumnGrid_defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#fffffe",
 };
+
 type ThreeColumnGrid_SectionProps = Omit<
   ThreeColumnGrid_ThreeColumnsImageGridProps,
   "theme"
 >;
+
 type ThreeColumnGrid_ResolvedProps = typeof ThreeColumnGrid_defaults &
   (typeof ThreeColumnGrid_variantContent)[ThreeColumnGrid_ThreeColumnsImageGridVariant] &
   ThreeColumnGrid_SectionProps;
+
 const ThreeColumnGrid_OverlayCard = ({
   heading,
   headingColor,
@@ -591,6 +616,7 @@ const ThreeColumnGrid_OverlayCard = ({
     </Section>
   </Section>
 );
+
 const ThreeColumnGrid_GridItem = ({
   alt,
   heading,
@@ -635,6 +661,7 @@ const ThreeColumnGrid_GridItem = ({
       />
     </Link>
   );
+
 const ThreeColumnGrid_ThreeColumnsImageGridSection = (
   props: ThreeColumnGrid_SectionProps
 ) => {
@@ -735,6 +762,7 @@ const ThreeColumnGrid_ThreeColumnsImageGridSection = (
     </Section>
   );
 };
+
 const ThreeColumnGrid_ThreeColumnsImageGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -772,11 +800,14 @@ const ThreeColumnGrid_ThreeColumnsImageGrid = ({
     </Body>
   </Html>
 );
+
 ThreeColumnGrid_ThreeColumnsImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "square-images",
 } satisfies ThreeColumnGrid_ThreeColumnsImageGridProps;
+
 const __ThreeColumnGrid = ThreeColumnGrid_ThreeColumnsImageGrid;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -784,6 +815,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface ImageGridProps {
   theme?: Parameters<typeof __TwoColumnGrid>[0]["theme"];
   images?: GalleryImage[];
@@ -791,6 +823,7 @@ export interface ImageGridProps {
   aspect?: "square" | "portrait";
   overlay?: boolean;
 }
+
 const imageGridItem = (image: GalleryImage | undefined) => ({
   alt: image?.alt,
   heading: image?.heading,
@@ -798,6 +831,7 @@ const imageGridItem = (image: GalleryImage | undefined) => ({
   src: image?.src,
   subtext: image?.subtext,
 });
+
 export const ImageGrid = ({
   theme,
   images,
@@ -832,6 +866,7 @@ export const ImageGrid = ({
     />
   );
 };
+
 ImageGrid.PreviewProps = {
   aspect: "square",
   columns: 2,

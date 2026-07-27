@@ -16,10 +16,12 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type ContentCtaFooter_FooterWithContentAndCtaVariant =
   | "centered"
   | "left-aligned"
   | "right-aligned";
+
 interface ContentCtaFooter_FooterWithContentAndCtaProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -39,8 +41,10 @@ interface ContentCtaFooter_FooterWithContentAndCtaProps {
   buttonTextColor?: string;
   variant?: ContentCtaFooter_FooterWithContentAndCtaVariant;
 }
+
 const ContentCtaFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const ContentCtaFooter_defaults = {
   backgroundColor: "#fffffe",
   buttonColor: "#4f46e5",
@@ -59,14 +63,17 @@ const ContentCtaFooter_defaults = {
   unsubscribeHref: "https://example.com/unsub",
   updatePreferencesHref: "https://example.com/update",
 };
+
 type ContentCtaFooter_SectionProps = Omit<
   ContentCtaFooter_FooterWithContentAndCtaProps,
   "theme"
 >;
+
 type ContentCtaFooter_ResolvedProps = typeof ContentCtaFooter_defaults &
   ContentCtaFooter_SectionProps & {
     variant: ContentCtaFooter_FooterWithContentAndCtaVariant;
   };
+
 const ContentCtaFooter_Multiline = ({ text }: { text: string }) =>
   text.split("\n").map((line, index) => (
     <Fragment key={line}>
@@ -74,6 +81,7 @@ const ContentCtaFooter_Multiline = ({ text }: { text: string }) =>
       {line}
     </Fragment>
   ));
+
 const ContentCtaFooter_FooterWithContentAndCtaSection = (
   props: ContentCtaFooter_SectionProps
 ) => {
@@ -219,6 +227,7 @@ const ContentCtaFooter_FooterWithContentAndCtaSection = (
     </Section>
   );
 };
+
 const ContentCtaFooter_FooterWithContentAndCta = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -247,11 +256,14 @@ const ContentCtaFooter_FooterWithContentAndCta = ({
     </Body>
   </Html>
 );
+
 ContentCtaFooter_FooterWithContentAndCta.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies ContentCtaFooter_FooterWithContentAndCtaProps;
+
 const __ContentCtaFooter = ContentCtaFooter_FooterWithContentAndCta;
+
 interface LargeTitleFooter_FooterWithLargeTitleAndButtonsProps {
   theme?: TailwindConfig;
   title?: string;
@@ -263,8 +275,10 @@ interface LargeTitleFooter_FooterWithLargeTitleAndButtonsProps {
   dividerColor?: string;
   unsubscribeHref?: string;
 }
+
 const LargeTitleFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LargeTitleFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-large-button-cell { display: block !important; margin-left: auto !important; margin-right: auto !important; max-width: 260px !important; width: 100% !important; }",
@@ -272,6 +286,7 @@ const LargeTitleFooter_responsiveStyles = [
   "  .footer-large-break { display: none !important; }",
   "}",
 ].join("\n");
+
 const LargeTitleFooter_FooterWithLargeTitleAndButtonsSection = ({
   title = "Start sending professionally\ndesigned emails today",
   pageBackgroundColor = "#f1f5f9",
@@ -463,6 +478,7 @@ const LargeTitleFooter_FooterWithLargeTitleAndButtonsSection = ({
     </Fragment>
   </Section>
 );
+
 const LargeTitleFooter_FooterWithLargeTitleAndButtons = ({
   theme: _theme = defaultTheme,
   ...props
@@ -486,10 +502,13 @@ const LargeTitleFooter_FooterWithLargeTitleAndButtons = ({
     </Body>
   </Html>
 );
+
 LargeTitleFooter_FooterWithLargeTitleAndButtons.PreviewProps = {
   theme: defaultTheme,
 } satisfies LargeTitleFooter_FooterWithLargeTitleAndButtonsProps;
+
 const __LargeTitleFooter = LargeTitleFooter_FooterWithLargeTitleAndButtons;
+
 interface FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaProps {
   theme?: TailwindConfig;
   pageBackgroundColor?: string;
@@ -502,16 +521,20 @@ interface FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaProps {
   ctaText?: string;
   unsubscribeHref?: string;
 }
+
 const FullWidthCtaFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FullWidthCtaFooter_responsiveStyles =
   "@media only screen and (max-width: 599px) { .footer-full-cta-break { display: none !important; } }";
+
 const FullWidthCtaFooter_links = [
   ["About us", "https://example.com/about"],
   ["Shop", "https://example.com/shop"],
   ["FAQs", "https://example.com/faq"],
   ["Contact us", "https://example.com/contact"],
 ] as const;
+
 const FullWidthCtaFooter_socials = [
   ["Facebook", "https://facebook.com", "icon-facebook.png"],
   ["GitHub", "https://github.com", "icon-github.png"],
@@ -519,6 +542,7 @@ const FullWidthCtaFooter_socials = [
   ["YouTube", "https://youtube.com", "icon-youtube.png"],
   ["X", "https://x.com", "icon-x.png"],
 ] as const;
+
 const FullWidthCtaFooter_Divider = ({ color }: { color: string }) => (
   <Section
     style={{
@@ -531,6 +555,7 @@ const FullWidthCtaFooter_Divider = ({ color }: { color: string }) => (
     &zwj;
   </Section>
 );
+
 const FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaSection = ({
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
@@ -692,6 +717,7 @@ const FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaSection = ({
     </Fragment>
   </Section>
 );
+
 const FullWidthCtaFooter_FooterWithMenuAndFullWidthCta = ({
   theme: _theme = defaultTheme,
   ...props
@@ -717,10 +743,13 @@ const FullWidthCtaFooter_FooterWithMenuAndFullWidthCta = ({
     </Body>
   </Html>
 );
+
 FullWidthCtaFooter_FooterWithMenuAndFullWidthCta.PreviewProps = {
   theme: defaultTheme,
 } satisfies FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaProps;
+
 const __FullWidthCtaFooter = FullWidthCtaFooter_FooterWithMenuAndFullWidthCta;
+
 type OverlapFooter_FooterWithOverlappedCtaVariant =
   | "content"
   | "2-column-menu"
@@ -729,7 +758,9 @@ type OverlapFooter_FooterWithOverlappedCtaVariant =
   | "centered-menu"
   | "address"
   | "centered-socials";
+
 type OverlapFooter_FooterOverlappedLogoPosition = "left" | "right";
+
 interface OverlapFooter_FooterWithOverlappedCtaProps {
   theme?: TailwindConfig;
   variant?: OverlapFooter_FooterWithOverlappedCtaVariant;
@@ -743,8 +774,10 @@ interface OverlapFooter_FooterWithOverlappedCtaProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const OverlapFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const OverlapFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-overlap-column { display: block !important; width: 100% !important; }",
@@ -753,25 +786,30 @@ const OverlapFooter_responsiveStyles = [
   "  .footer-overlap-hero { padding-left: 24px !important; padding-right: 24px !important; }",
   "}",
 ].join("\n");
+
 const OverlapFooter_copy =
   "Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed.";
+
 const OverlapFooter_quickLinks = [
   ["About us", "https://example.com/about"],
   ["Shop", "https://example.com/shop"],
   ["FAQs", "https://example.com/faq"],
   ["Contact us", "https://example.com/contact"],
 ] as const;
+
 const OverlapFooter_connectLinks = [
   ["Facebook", "https://facebook.com"],
   ["GitHub", "https://github.com"],
   ["LinkedIn", "https://linkedin.com"],
   ["YouTube", "https://youtube.com"],
 ] as const;
+
 const OverlapFooter_legalLinks = [
   ["Privacy Policy", "https://example.com/privacy"],
   ["Terms of Service", "https://example.com/terms"],
   ["Returns", "https://example.com/returns"],
 ] as const;
+
 const OverlapFooter_socialIcons = [
   ["Facebook", "https://facebook.com", "facebook"],
   ["GitHub", "https://github.com", "github"],
@@ -779,6 +817,7 @@ const OverlapFooter_socialIcons = [
   ["YouTube", "https://youtube.com", "youtube"],
   ["X", "https://x.com", "x"],
 ] as const;
+
 const OverlapFooter_Logo = ({
   logoSrc,
   width = 64,
@@ -795,6 +834,7 @@ const OverlapFooter_Logo = ({
     />
   </Link>
 );
+
 const OverlapFooter_LinkColumn = ({
   heading,
   links,
@@ -838,6 +878,7 @@ const OverlapFooter_LinkColumn = ({
     ))}
   </Column>
 );
+
 const OverlapFooter_Socials = () => (
   <Section>
     <Fragment>
@@ -865,6 +906,7 @@ const OverlapFooter_Socials = () => (
     </Fragment>
   </Section>
 );
+
 const OverlapFooter_ShortLegal = ({
   centered = false,
   textColor,
@@ -893,6 +935,7 @@ const OverlapFooter_ShortLegal = ({
     </Link>
   </Text>
 );
+
 const OverlapFooter_AddressLegal = ({
   centered = true,
   mutedTextColor,
@@ -939,6 +982,7 @@ const OverlapFooter_AddressLegal = ({
     </Text>
   </Section>
 );
+
 const OverlapFooter_OverlappedHero = ({
   backgroundImageSrc,
   primaryColor,
@@ -1078,6 +1122,7 @@ const OverlapFooter_OverlappedHero = ({
     </Section>
   </>
 );
+
 const OverlapFooter_SideLayout = ({
   columns,
   logoPosition,
@@ -1159,6 +1204,7 @@ const OverlapFooter_SideLayout = ({
     </Section>
   );
 };
+
 const OverlapFooter_FooterContent = ({
   variant,
   logoPosition,
@@ -1404,6 +1450,7 @@ const OverlapFooter_FooterContent = ({
     </Section>
   );
 };
+
 const OverlapFooter_FooterWithOverlappedCtaSection = ({
   variant = "content",
   logoPosition = "left",
@@ -1455,6 +1502,7 @@ const OverlapFooter_FooterWithOverlappedCtaSection = ({
     </Fragment>
   </Section>
 );
+
 const OverlapFooter_FooterWithOverlappedCta = ({
   theme: _theme = defaultTheme,
   variant = "content",
@@ -1484,12 +1532,15 @@ const OverlapFooter_FooterWithOverlappedCta = ({
     </Body>
   </Html>
 );
+
 OverlapFooter_FooterWithOverlappedCta.PreviewProps = {
   logoPosition: "left",
   theme: defaultTheme,
   variant: "content",
 } satisfies OverlapFooter_FooterWithOverlappedCtaProps;
+
 const __OverlapFooter = OverlapFooter_FooterWithOverlappedCta;
+
 export interface FooterBrand {
   logo: {
     src: string;
@@ -1497,12 +1548,14 @@ export interface FooterBrand {
   };
   href?: string;
 }
+
 export interface FooterLegal {
   copyright?: string;
   text?: string;
   unsubscribeHref?: string;
   preferencesHref?: string;
 }
+
 export interface PromotionFooterProps {
   theme?: Parameters<typeof __ContentCtaFooter>[0]["theme"];
   brand?: FooterBrand;
@@ -1521,6 +1574,7 @@ export interface PromotionFooterProps {
     alt?: string;
   };
 }
+
 const footerBrandValues = (brand: FooterBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -1529,12 +1583,14 @@ const footerBrandValues = (brand: FooterBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 const footerLegalValues = (legal: FooterLegal | undefined) => ({
   copyright: legal?.copyright,
   preferencesHref: legal?.preferencesHref,
   text: legal?.text,
   unsubscribeHref: legal?.unsubscribeHref,
 });
+
 const promotionActionValues = (
   action:
     | {
@@ -1546,6 +1602,7 @@ const promotionActionValues = (
   href: action?.href,
   label: action?.label,
 });
+
 const promotionOverlapVariant = (
   menuColumns: NonNullable<PromotionFooterProps["menuColumns"]>,
   alignment: NonNullable<PromotionFooterProps["alignment"]>
@@ -1561,6 +1618,7 @@ const promotionOverlapVariant = (
   }
   return "content";
 };
+
 const promotionAlignmentVariant = (
   alignment: NonNullable<PromotionFooterProps["alignment"]>
 ): Parameters<typeof __ContentCtaFooter>[0]["variant"] => {
@@ -1572,6 +1630,7 @@ const promotionAlignmentVariant = (
   }
   return "centered";
 };
+
 export const PromotionFooter = ({
   theme,
   brand,
@@ -1635,6 +1694,7 @@ export const PromotionFooter = ({
     />
   );
 };
+
 PromotionFooter.PreviewProps = {
   alignment: "center",
   menuColumns: 0,

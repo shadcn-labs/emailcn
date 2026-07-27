@@ -13,6 +13,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -32,17 +33,22 @@ const colors = {
   warningBorder: "#fde68a",
   white: "#fffffe",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 type DataTableAlignment = "center" | "left" | "right";
+
 interface DataTableCell {
   align?: DataTableAlignment;
   content: ReactNode;
 }
+
 const cellWidth = (
   columnWidths: readonly string[] | undefined,
   index: number
 ) => columnWidths?.[index];
+
 const DataTableFrame = ({
   alignments,
   columnWidths,
@@ -119,6 +125,7 @@ const DataTableFrame = ({
     </tbody>
   </MjmlTable>
 );
+
 const DataTableText = ({
   children,
   muted = false,
@@ -128,6 +135,7 @@ const DataTableText = ({
 }) => (
   <span style={{ color: muted ? colors.muted : colors.dark }}>{children}</span>
 );
+
 const DataTableEmailShell = ({
   children,
   preview,
@@ -151,11 +159,13 @@ const DataTableEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 interface BasicTable_DataTableBasicProps {
   theme?: EmailThemeTokens;
   headers?: string[];
   rows?: string[][];
 }
+
 const BasicTable_DataTableBasicSection = ({
   headers = ["Column 1", "Column 2"],
   rows = [["Row 1 Data", "Row 1 Data"]],
@@ -169,6 +179,7 @@ const BasicTable_DataTableBasicSection = ({
     )}
   />
 );
+
 const BasicTable_DataTableBasic = ({
   theme = defaultTheme,
   headers = ["Column 1", "Column 2"],
@@ -178,6 +189,7 @@ const BasicTable_DataTableBasic = ({
     <BasicTable_DataTableBasicSection headers={headers} rows={rows} />
   </DataTableEmailShell>
 );
+
 BasicTable_DataTableBasic.PreviewProps = {
   headers: ["Product", "Price", "Quantity"],
   rows: [
@@ -187,6 +199,7 @@ BasicTable_DataTableBasic.PreviewProps = {
   ],
   theme: defaultTheme,
 } satisfies BasicTable_DataTableBasicProps;
+
 export type DataTableStatusVariant =
   | "active"
   | "cancelled"

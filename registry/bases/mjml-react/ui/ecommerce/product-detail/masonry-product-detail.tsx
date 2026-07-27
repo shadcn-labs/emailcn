@@ -17,6 +17,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type ProductDetailWithDetailsVariant =
   | "rating-bottom"
   | "default"
@@ -24,7 +25,9 @@ type ProductDetailWithDetailsVariant =
   | "header-top"
   | "rating-aside"
   | "rating-aside-top";
+
 type ProductDetailImageLayout = "single" | "two" | "three" | "masonry";
+
 interface ProductDetailContentOverrides {
   name?: string;
   price?: string;
@@ -35,11 +38,15 @@ interface ProductDetailContentOverrides {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 const PRODUCT_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/product-detail";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const productDetailResponsiveStyles = "";
+
 const detailDefaults: Record<
   ProductDetailImageLayout,
   Required<
@@ -92,6 +99,7 @@ const detailDefaults: Record<
     sizes: ["7", "8", "9", "10", "11"],
   },
 };
+
 const resolveData = (
   layout: ProductDetailImageLayout,
   overrides: ProductDetailContentOverrides
@@ -107,6 +115,7 @@ const resolveData = (
     sizes: overrides.sizes ?? defaults.sizes,
   };
 };
+
 const ProductCopy = ({
   ctaHref,
   ctaLabel,
@@ -190,6 +199,7 @@ const ProductCopy = ({
     </MjmlButton>
   </>
 );
+
 const ProductImages = ({
   data,
   layout,
@@ -214,6 +224,7 @@ const ProductImages = ({
     ))}
   </MjmlSection>
 );
+
 const ProductDetailWithDetailsSection = ({
   ctaHref = "https://example.com",
   ctaLabel = "Shop now",
@@ -260,10 +271,12 @@ const ProductDetailWithDetailsSection = ({
     </>
   );
 };
+
 type ProductDetail_ProductDetailMasonryVariant = Exclude<
   ProductDetailWithDetailsVariant,
   "rating-bottom"
 >;
+
 interface ProductDetail_ProductDetailMasonryProps extends Omit<
   ProductDetailContentOverrides,
   "imageUrls"
@@ -273,6 +286,7 @@ interface ProductDetail_ProductDetailMasonryProps extends Omit<
   features?: string[];
   variant?: ProductDetail_ProductDetailMasonryVariant;
 }
+
 const ProductDetail_ProductDetailMasonrySection = ({
   features: _features,
   images,
@@ -286,6 +300,7 @@ const ProductDetail_ProductDetailMasonrySection = ({
     variant={variant}
   />
 );
+
 const ProductDetail_ProductDetailMasonry = ({
   theme = defaultTheme,
   ...props
@@ -303,11 +318,14 @@ const ProductDetail_ProductDetailMasonry = ({
     </MjmlBody>
   </Mjml>
 );
+
 ProductDetail_ProductDetailMasonry.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies ProductDetail_ProductDetailMasonryProps;
+
 const __ProductDetail = ProductDetail_ProductDetailMasonry;
+
 export interface ProductDetails {
   name?: string;
   price?: string;
@@ -318,6 +336,7 @@ export interface ProductDetails {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 export interface MasonryProductDetailProps {
   theme?: Parameters<typeof __ProductDetail>[0]["theme"];
   product?: ProductDetails;
@@ -328,6 +347,7 @@ export interface MasonryProductDetailProps {
   ratingPosition?: "top" | "bottom" | "aside";
   headerPosition?: "default" | "top";
 }
+
 const detailVariant = (
   ratingPosition: MasonryProductDetailProps["ratingPosition"] = "bottom",
   headerPosition: MasonryProductDetailProps["headerPosition"] = "default"
@@ -343,6 +363,7 @@ const detailVariant = (
   }
   return "default" as const;
 };
+
 export const MasonryProductDetail = ({
   theme,
   product,
@@ -364,4 +385,5 @@ export const MasonryProductDetail = ({
     variant={detailVariant(ratingPosition, headerPosition)}
   />
 );
+
 MasonryProductDetail.PreviewProps = {} satisfies MasonryProductDetailProps;

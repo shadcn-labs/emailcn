@@ -14,11 +14,13 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type BasicLogoCloud_BasicLogoCloudVariant =
   | "minimal"
   | "with-title"
   | "with-description"
   | "full";
+
 interface BasicLogoCloud_BasicLogoCloudProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -34,8 +36,10 @@ interface BasicLogoCloud_BasicLogoCloudProps {
   textColor?: string;
   variant?: BasicLogoCloud_BasicLogoCloudVariant;
 }
+
 const BasicLogoCloud_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BasicLogoCloud_defaultLogos = [
   ["Stripe", "logo-stripe.png", 57],
   ["Apple Pay", "logo-apple-pay.png", 60],
@@ -47,6 +51,7 @@ const BasicLogoCloud_defaultLogos = [
   src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
   width: Number(width),
 }));
+
 const BasicLogoCloud_BasicLogoCloudSection = ({
   backgroundColor = "#fffffe",
   description = "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
@@ -112,6 +117,7 @@ const BasicLogoCloud_BasicLogoCloudSection = ({
     </>
   );
 };
+
 const BasicLogoCloud_BasicLogoCloud = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -137,16 +143,21 @@ const BasicLogoCloud_BasicLogoCloud = ({
     </MjmlBody>
   </Mjml>
 );
+
 BasicLogoCloud_BasicLogoCloud.PreviewProps = {
   theme: defaultTheme,
   variant: "full",
 } satisfies BasicLogoCloud_BasicLogoCloudProps;
+
 const __BasicLogoCloud = BasicLogoCloud_BasicLogoCloud;
+
 type FeaturedLogoGrid_FeaturedBrandsLogoGridTone = "outlined" | "boxed";
+
 type FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment =
   | "left"
   | "center"
   | "right";
+
 interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -170,13 +181,16 @@ interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
   tone?: FeaturedLogoGrid_FeaturedBrandsLogoGridTone;
   alignment?: FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment;
 }
+
 const FeaturedLogoGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FeaturedLogoGrid_defaultFeaturedLogo = {
   alt: "Monarch",
   src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-1.png",
   width: 167,
 };
+
 const FeaturedLogoGrid_defaultSupportingLogos = [
   {
     alt: "Accentic",
@@ -189,6 +203,7 @@ const FeaturedLogoGrid_defaultSupportingLogos = [
     width: 78,
   },
 ];
+
 const FeaturedLogoGrid_FeaturedBrandsLogoGridSection = ({
   alignment = "left",
   backgroundColor = "#fffffe",
@@ -265,6 +280,7 @@ const FeaturedLogoGrid_FeaturedBrandsLogoGridSection = ({
     </>
   );
 };
+
 const FeaturedLogoGrid_FeaturedBrandsLogoGrid = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -292,18 +308,22 @@ const FeaturedLogoGrid_FeaturedBrandsLogoGrid = ({
     </MjmlBody>
   </Mjml>
 );
+
 FeaturedLogoGrid_FeaturedBrandsLogoGrid.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,
   tone: "outlined",
 } satisfies FeaturedLogoGrid_FeaturedBrandsLogoGridProps;
+
 const __FeaturedLogoGrid = FeaturedLogoGrid_FeaturedBrandsLogoGrid;
+
 type BorderedLogoCloud_LogoCloudWithBordersVariant =
   | "minimal"
   | "with-title"
   | "with-description"
   | "full"
   | "flush";
+
 interface BorderedLogoCloud_LogoCloudWithBordersProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -320,8 +340,10 @@ interface BorderedLogoCloud_LogoCloudWithBordersProps {
   textColor?: string;
   variant?: BorderedLogoCloud_LogoCloudWithBordersVariant;
 }
+
 const BorderedLogoCloud_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BorderedLogoCloud_defaultLogos = [
   ["Stripe", "logo-stripe.png", 57],
   ["Apple Pay", "logo-apple-pay.png", 60],
@@ -333,6 +355,7 @@ const BorderedLogoCloud_defaultLogos = [
   src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
   width: Number(width),
 }));
+
 const BorderedLogoCloud_LogoCloudWithBordersSection = ({
   backgroundColor = "#fffffe",
   borderColor = "#d1d5db",
@@ -405,6 +428,7 @@ const BorderedLogoCloud_LogoCloudWithBordersSection = ({
     </>
   );
 };
+
 const BorderedLogoCloud_LogoCloudWithBorders = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -430,18 +454,23 @@ const BorderedLogoCloud_LogoCloudWithBorders = ({
     </MjmlBody>
   </Mjml>
 );
+
 BorderedLogoCloud_LogoCloudWithBorders.PreviewProps = {
   theme: defaultTheme,
   variant: "full",
 } satisfies BorderedLogoCloud_LogoCloudWithBordersProps;
+
 const __BorderedLogoCloud = BorderedLogoCloud_LogoCloudWithBorders;
+
 type LogoCloud_LogoCloudVariant =
   | "minimal"
   | "with-title"
   | "with-description"
   | "full"
   | "flush";
+
 type LogoCloud_LogoCloudTone = "boxed" | "outlined";
+
 interface LogoCloud_LogoCloudProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -460,8 +489,10 @@ interface LogoCloud_LogoCloudProps {
   variant?: LogoCloud_LogoCloudVariant;
   tone?: LogoCloud_LogoCloudTone;
 }
+
 const LogoCloud_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LogoCloud_defaultLogos = [
   ["Stripe", "logo-stripe.png", 57],
   ["Apple Pay", "logo-apple-pay.png", 60],
@@ -473,6 +504,7 @@ const LogoCloud_defaultLogos = [
   src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
   width: Number(width),
 }));
+
 const LogoCloud_LogoCloudSection = ({
   backgroundColor = "#fffffe",
   borderColor = "#d1d5db",
@@ -551,6 +583,7 @@ const LogoCloud_LogoCloudSection = ({
     </>
   );
 };
+
 const LogoCloud_LogoCloud = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -578,13 +611,17 @@ const LogoCloud_LogoCloud = ({
     </MjmlBody>
   </Mjml>
 );
+
 LogoCloud_LogoCloud.PreviewProps = {
   theme: defaultTheme,
   tone: "boxed",
   variant: "full",
 } satisfies LogoCloud_LogoCloudProps;
+
 const __LogoCloud = LogoCloud_LogoCloud;
+
 type LogosGrid_LogosGridTone = "boxed" | "outlined" | "bordered";
+
 interface LogosGrid_LogosGridProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -602,8 +639,10 @@ interface LogosGrid_LogosGridProps {
   textColor?: string;
   tone?: LogosGrid_LogosGridTone;
 }
+
 const LogosGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LogosGrid_defaultLogos = [
   ["Stripe", "logo-stripe.png", 57],
   ["Apple Pay", "logo-apple-pay.png", 60],
@@ -616,6 +655,7 @@ const LogosGrid_defaultLogos = [
   src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
   width: Number(width),
 }));
+
 const LogosGrid_LogoRow = ({
   borderColor,
   boxBackgroundColor,
@@ -646,6 +686,7 @@ const LogosGrid_LogoRow = ({
     ))}
   </MjmlSection>
 );
+
 const LogosGrid_LogosGridSection = ({
   backgroundColor = "#fffffe",
   borderColor = "#d1d5db",
@@ -707,6 +748,7 @@ const LogosGrid_LogosGridSection = ({
     </MjmlSection>
   </>
 );
+
 const LogosGrid_LogosGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -732,16 +774,20 @@ const LogosGrid_LogosGrid = ({
     </MjmlBody>
   </Mjml>
 );
+
 LogosGrid_LogosGrid.PreviewProps = {
   theme: defaultTheme,
   tone: "boxed",
 } satisfies LogosGrid_LogosGridProps;
+
 const __LogosGrid = LogosGrid_LogosGrid;
+
 export interface LogoItem {
   alt: string;
   src: string;
   width: number;
 }
+
 export interface LogoCloudProps {
   theme?: Parameters<typeof __BasicLogoCloud>[0]["theme"];
   title?: string;
@@ -752,6 +798,7 @@ export interface LogoCloudProps {
   alignment?: "left" | "center" | "right";
   featuredIndex?: number;
 }
+
 const contentVariant = ({
   title,
   description,
@@ -764,6 +811,7 @@ const contentVariant = ({
   }
   return description ? ("with-description" as const) : "minimal";
 };
+
 export const LogoCloud = ({
   theme,
   title,
@@ -841,6 +889,7 @@ export const LogoCloud = ({
     />
   );
 };
+
 LogoCloud.PreviewProps = {
   alignment: "center",
   appearance: "plain",

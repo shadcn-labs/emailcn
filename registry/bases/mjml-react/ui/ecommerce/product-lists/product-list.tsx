@@ -18,6 +18,7 @@ import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export type ProductListVariant =
   | "basic"
   | "reviews-top"
@@ -27,6 +28,7 @@ export type ProductListVariant =
   | "details-reviews-top"
   | "full-details"
   | "full-reviews-top";
+
 export interface ProductListItem {
   imageUrl?: string;
   name: string;
@@ -37,10 +39,14 @@ export interface ProductListItem {
   reviewCount?: number;
   href?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const productListResponsiveStyles = "";
+
 const defaultProducts: ProductListItem[] = [
   {
     description:
@@ -61,6 +67,7 @@ const defaultProducts: ProductListItem[] = [
     reviewCount: 42,
   },
 ];
+
 const Rating = ({ count }: { count: number }) => (
   <MjmlText
     color="#4b5563"
@@ -72,6 +79,7 @@ const Rating = ({ count }: { count: number }) => (
     ★ ★ ★ ★ ★ &nbsp;({count} reviews)
   </MjmlText>
 );
+
 const Copy = ({ children }: { children?: string }) =>
   children ? (
     <MjmlText
@@ -85,6 +93,7 @@ const Copy = ({ children }: { children?: string }) =>
       {children}
     </MjmlText>
   ) : null;
+
 const ProductOptionsBlock = ({
   detailsVariant,
   fullDetails,
@@ -117,6 +126,7 @@ const ProductOptionsBlock = ({
   }
   return null;
 };
+
 const ProductContent = ({
   item,
   variant,
@@ -187,6 +197,7 @@ const ProductContent = ({
     </>
   );
 };
+
 const ProductRow = ({
   item,
   variant,
@@ -209,6 +220,7 @@ const ProductRow = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const ProductListWithRowsSection = ({
   products,
   variant = "basic",
@@ -274,12 +286,15 @@ const ProductListWithRowsSection = ({
     </>
   );
 };
+
 const ProductList_SharedProductListWithRowsSection = ProductListWithRowsSection;
+
 interface ProductList_ProductListWithRowsProps {
   theme?: EmailThemeTokens;
   products?: ProductListItem[];
   variant?: ProductListVariant;
 }
+
 const ProductList_ProductListWithRowsSectionWrapper = ({
   products,
   variant = "basic",
@@ -289,6 +304,7 @@ const ProductList_ProductListWithRowsSectionWrapper = ({
     variant={variant}
   />
 );
+
 const ProductList_ProductListWithRows = ({
   theme = defaultTheme,
   ...props
@@ -306,19 +322,25 @@ const ProductList_ProductListWithRows = ({
     </MjmlBody>
   </Mjml>
 );
+
 ProductList_ProductListWithRows.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies ProductList_ProductListWithRowsProps;
+
 const __ProductList = ProductList_ProductListWithRows;
+
 export interface ProductListProps extends Omit<
   Parameters<typeof __ProductList>[0],
   "theme"
 > {
   theme?: Parameters<typeof __ProductList>[0]["theme"];
 }
+
 export const ProductList = (props: ProductListProps) => (
   <__ProductList {...props} />
 );
+
 export const ProductListSection = ProductListWithRowsSection;
+
 ProductList.PreviewProps = {} satisfies ProductListProps;

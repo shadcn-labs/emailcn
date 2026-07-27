@@ -17,10 +17,12 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type Cta_CTAWithTeamAvatarsVariant =
   | "default"
   | "avatars-top"
   | "single-avatar";
+
 interface Cta_CTAWithTeamAvatarsProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -49,8 +51,10 @@ interface Cta_CTAWithTeamAvatarsProps {
   avatarBorderColor?: string;
   variant?: Cta_CTAWithTeamAvatarsVariant;
 }
+
 const Cta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Cta_responsiveStyles = `
     .cta-team-primary:hover {
       background-color: #4338ca !important;
@@ -77,12 +81,14 @@ const Cta_responsiveStyles = `
       }
     }
   `;
+
 const Cta_avatarSources = [
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg",
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar-4.jpg",
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar-5.jpg",
 ] as const;
+
 const Cta_variantContent = {
   "avatars-top": {
     ctaLabel: "Confirm your email",
@@ -114,6 +120,7 @@ const Cta_variantContent = {
     subtext: string;
   }
 >;
+
 const Cta_defaultSectionStyles = {
   avatarAlt1: "",
   avatarAlt2: "",
@@ -136,9 +143,12 @@ const Cta_defaultSectionStyles = {
   secondaryCtaHref: "https://example.com/",
   textColor: "#4b5563",
 };
+
 type Cta_SectionProps = Omit<Cta_CTAWithTeamAvatarsProps, "theme">;
+
 type Cta_ResolvedProps = typeof Cta_defaultSectionStyles &
   (typeof Cta_variantContent)[Cta_CTAWithTeamAvatarsVariant];
+
 const Cta_Avatar = ({
   alt,
   borderColor,
@@ -163,6 +173,7 @@ const Cta_Avatar = ({
     width={width}
   />
 );
+
 const Cta_AvatarGroup = (props: Cta_ResolvedProps) => (
   <Section style={{ fontSize: 0, textAlign: "center" }}>
     {[
@@ -182,6 +193,7 @@ const Cta_AvatarGroup = (props: Cta_ResolvedProps) => (
     ))}
   </Section>
 );
+
 const Cta_SingleAvatar = (props: Cta_ResolvedProps) => (
   <Section style={{ fontSize: 0, textAlign: "center" }}>
     <Section style={{ display: "inline-block", maxWidth: "72px" }}>
@@ -194,6 +206,7 @@ const Cta_SingleAvatar = (props: Cta_ResolvedProps) => (
     </Section>
   </Section>
 );
+
 const Cta_Heading = ({
   color,
   children,
@@ -216,6 +229,7 @@ const Cta_Heading = ({
     {children}
   </Heading>
 );
+
 const Cta_Copy = ({
   className,
   color,
@@ -240,6 +254,7 @@ const Cta_Copy = ({
     {text}
   </Text>
 );
+
 const Cta_PrimaryButton = (props: Cta_ResolvedProps) => (
   <Link
     className="cta-team-primary"
@@ -261,6 +276,7 @@ const Cta_PrimaryButton = (props: Cta_ResolvedProps) => (
     {props.ctaLabel}
   </Link>
 );
+
 const Cta_SingleAvatarActions = (props: Cta_ResolvedProps) => (
   <Section align="center" style={{ margin: "auto" }}>
     <Fragment>
@@ -300,6 +316,7 @@ const Cta_SingleAvatarActions = (props: Cta_ResolvedProps) => (
     </Fragment>
   </Section>
 );
+
 const Cta_VariantContent = ({
   props,
   variant,
@@ -341,6 +358,7 @@ const Cta_VariantContent = ({
     </>
   );
 };
+
 const Cta_CTAWithTeamAvatarsSection = (props: Cta_SectionProps) => {
   const variant = props.variant ?? "default";
   const resolved = {
@@ -381,6 +399,7 @@ const Cta_CTAWithTeamAvatarsSection = (props: Cta_SectionProps) => {
     </Section>
   );
 };
+
 const Cta_CTAWithTeamAvatars = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -412,11 +431,14 @@ const Cta_CTAWithTeamAvatars = ({
     </Body>
   </Html>
 );
+
 Cta_CTAWithTeamAvatars.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies Cta_CTAWithTeamAvatarsProps;
+
 const __Cta = Cta_CTAWithTeamAvatars;
+
 export interface AvatarCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -431,6 +453,7 @@ export interface AvatarCallToActionProps {
   }[];
   placement?: "top" | "inline";
 }
+
 const avatarCallToActionImage = (
   avatar:
     | {
@@ -442,6 +465,7 @@ const avatarCallToActionImage = (
   alt: avatar?.alt,
   src: avatar?.src,
 });
+
 const avatarCallToActionLink = (
   action:
     | {
@@ -453,6 +477,7 @@ const avatarCallToActionLink = (
   href: action?.href,
   label: action?.label,
 });
+
 export const AvatarCallToAction = ({
   theme,
   heading,
@@ -496,6 +521,7 @@ export const AvatarCallToAction = ({
     />
   );
 };
+
 AvatarCallToAction.PreviewProps = {
   placement: "inline",
 } satisfies AvatarCallToActionProps;

@@ -13,6 +13,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type ButtonsVariant =
   | "primary"
   | "primary-leading-icon"
@@ -23,15 +24,22 @@ type ButtonsVariant =
   | "text"
   | "text-leading-icon"
   | "text-trailing-icon";
+
 type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+
 type EmailCssProperties = CSSProperties & {
   msoTextRaise?: string;
 };
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const msoRaise14: EmailCssProperties = { msoTextRaise: "14px" };
+
 const msoRaise16: EmailCssProperties = { msoTextRaise: "16px" };
+
 const sizes: Record<
   ButtonSize,
   {
@@ -72,13 +80,18 @@ const sizes: Record<
   },
   xs: { fontSize: 12, iconWidth: 10, lineHeight: 16, paddingX: 8, paddingY: 4 },
 };
+
 const sizeOrder: ButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
+
 type ButtonAppearance = "primary" | "secondary" | "text";
+
 type IconPosition = "leading" | "trailing";
+
 const buttonsResponsiveStyles = `
   .emailcn-button-primary:hover { background-color: #4338ca !important; }
   .emailcn-button-secondary:hover { background-color: #f3f4f6 !important; }
 `;
+
 const getIconWidth = ({
   appearance,
   position,
@@ -98,6 +111,7 @@ const getIconWidth = ({
   }
   return width;
 };
+
 const getAppearanceStyles = (
   appearance: ButtonAppearance,
   withIcon: boolean
@@ -122,6 +136,7 @@ const getAppearanceStyles = (
     color: "#4f46e5",
   };
 };
+
 const getTextStyle = (position?: IconPosition): EmailCssProperties => {
   if (!position) {
     return msoRaise16;
@@ -133,6 +148,7 @@ const getTextStyle = (position?: IconPosition): EmailCssProperties => {
       : { marginRight: "8px" }),
   };
 };
+
 const Icon = ({
   appearance,
   customIcon,
@@ -169,6 +185,7 @@ const Icon = ({
     />
   );
 };
+
 const ButtonExample = ({
   align,
   appearance,
@@ -243,6 +260,7 @@ const ButtonExample = ({
     </Section>
   );
 };
+
 const ButtonsSection = ({
   align = "center",
   href = "https://example.com",
@@ -320,6 +338,7 @@ const ButtonsSection = ({
     </>
   );
 };
+
 interface Buttons_ButtonsProps {
   align?: "center" | "left" | "right";
   href?: string;
@@ -330,6 +349,7 @@ interface Buttons_ButtonsProps {
   theme?: EmailThemeTokens;
   variant?: ButtonsVariant;
 }
+
 const Buttons_Buttons = ({
   theme: _theme = defaultTheme,
   ...props
@@ -345,6 +365,7 @@ const Buttons_Buttons = ({
     </Body>
   </Html>
 );
+
 Buttons_Buttons.PreviewProps = {
   align: "center",
   href: "https://example.com",
@@ -352,7 +373,9 @@ Buttons_Buttons.PreviewProps = {
   theme: defaultTheme,
   variant: "primary",
 } satisfies Buttons_ButtonsProps;
+
 const __Buttons = Buttons_Buttons;
+
 export interface ButtonProps {
   theme?: Parameters<typeof __Buttons>[0]["theme"];
   label?: string;
@@ -363,6 +386,7 @@ export interface ButtonProps {
   iconPosition?: "leading" | "trailing";
   align?: "left" | "center" | "right";
 }
+
 export const Button = ({
   theme,
   label,
@@ -390,6 +414,7 @@ export const Button = ({
     }
   />
 );
+
 Button.PreviewProps = {
   iconPosition: "leading",
   variant: "primary",

@@ -16,10 +16,12 @@ import type { ReactNode, CSSProperties } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type AppStoreFooter_FooterWithAppStoreButtonsVariant =
   | "centered"
   | "two-columns"
   | "with-title";
+
 interface AppStoreFooter_FooterWithAppStoreButtonsProps {
   theme?: EmailThemeTokens;
   variant?: AppStoreFooter_FooterWithAppStoreButtonsVariant;
@@ -31,8 +33,10 @@ interface AppStoreFooter_FooterWithAppStoreButtonsProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const AppStoreFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const AppStoreFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-app-column { display: block !important; width: 100% !important; }",
@@ -40,6 +44,7 @@ const AppStoreFooter_responsiveStyles = [
   "  .footer-app-break { display: none !important; }",
   "}",
 ].join("\n");
+
 const AppStoreFooter_AppButtons = ({
   centered = true,
 }: {
@@ -76,6 +81,7 @@ const AppStoreFooter_AppButtons = ({
     </Fragment>
   </Section>
 );
+
 const AppStoreFooter_AddressAndLegal = ({
   align,
   mutedTextColor,
@@ -122,6 +128,7 @@ const AppStoreFooter_AddressAndLegal = ({
     </Text>
   </Section>
 );
+
 const AppStoreFooter_FooterWithAppStoreButtonsSection = ({
   variant = "centered",
   title = "Get the app",
@@ -239,6 +246,7 @@ const AppStoreFooter_FooterWithAppStoreButtonsSection = ({
     </Fragment>
   </Section>
 );
+
 const AppStoreFooter_FooterWithAppStoreButtons = ({
   theme: _theme = defaultTheme,
   variant = "centered",
@@ -266,11 +274,14 @@ const AppStoreFooter_FooterWithAppStoreButtons = ({
     </Body>
   </Html>
 );
+
 AppStoreFooter_FooterWithAppStoreButtons.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies AppStoreFooter_FooterWithAppStoreButtonsProps;
+
 const __AppStoreFooter = AppStoreFooter_FooterWithAppStoreButtons;
+
 type BackgroundFooter_FooterWithBackgroundImageVariant =
   | "bottom-image-content"
   | "bottom-image-2-column-menu"
@@ -281,7 +292,9 @@ type BackgroundFooter_FooterWithBackgroundImageVariant =
   | "top-image-address"
   | "top-image-centered"
   | "top-image-logo-bottom";
+
 type BackgroundFooter_FooterBackgroundLogoPosition = "left" | "right";
+
 interface BackgroundFooter_FooterWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   variant?: BackgroundFooter_FooterWithBackgroundImageVariant;
@@ -296,8 +309,10 @@ interface BackgroundFooter_FooterWithBackgroundImageProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const BackgroundFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BackgroundFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-bg-column { display: block !important; width: 100% !important; }",
@@ -306,14 +321,17 @@ const BackgroundFooter_responsiveStyles = [
   "  .footer-bg-hero { padding-left: 24px !important; padding-right: 24px !important; }",
   "}",
 ].join("\n");
+
 const BackgroundFooter_copy =
   "Lorem ipsum dolor sit amet consectetur. Eget aenean sed sit sed in sapien. Vel auctor arcu nulla consectetur sed.";
+
 const BackgroundFooter_quickLinks = [
   ["About us", "https://example.com/about"],
   ["Shop", "https://example.com/shop"],
   ["FAQs", "https://example.com/faq"],
   ["Contact us", "https://example.com/contact"],
 ] as const;
+
 const BackgroundFooter_connectLinks = [
   ["Facebook", "https://facebook.com"],
   ["GitHub", "https://github.com"],
@@ -321,11 +339,13 @@ const BackgroundFooter_connectLinks = [
   ["YouTube", "https://youtube.com"],
   ["Instagram", "https://instagram.com"],
 ] as const;
+
 const BackgroundFooter_legalLinks = [
   ["Privacy Policy", "https://example.com/privacy"],
   ["Terms of Service", "https://example.com/terms"],
   ["Returns", "https://example.com/returns"],
 ] as const;
+
 const BackgroundFooter_socialIcons = [
   ["Facebook", "https://facebook.com", "facebook"],
   ["GitHub", "https://github.com", "github"],
@@ -333,6 +353,7 @@ const BackgroundFooter_socialIcons = [
   ["YouTube", "https://youtube.com", "youtube"],
   ["X", "https://x.com", "x"],
 ] as const;
+
 const BackgroundFooter_Logo = ({
   logoSrc,
   width = 55,
@@ -349,6 +370,7 @@ const BackgroundFooter_Logo = ({
     />
   </Link>
 );
+
 const BackgroundFooter_LinkColumn = ({
   heading,
   links,
@@ -392,6 +414,7 @@ const BackgroundFooter_LinkColumn = ({
     ))}
   </Column>
 );
+
 const BackgroundFooter_Socials = ({ dark = false }: { dark?: boolean }) => (
   <Section>
     <Fragment>
@@ -419,6 +442,7 @@ const BackgroundFooter_Socials = ({ dark = false }: { dark?: boolean }) => (
     </Fragment>
   </Section>
 );
+
 const BackgroundFooter_ShortLegal = ({
   centered = false,
   textColor,
@@ -447,6 +471,7 @@ const BackgroundFooter_ShortLegal = ({
     </Link>
   </Text>
 );
+
 const BackgroundFooter_AddressLegal = ({
   centered = true,
   mutedTextColor,
@@ -493,6 +518,7 @@ const BackgroundFooter_AddressLegal = ({
     </Text>
   </Section>
 );
+
 const BackgroundFooter_CenteredMenu = ({
   textColor,
 }: {
@@ -528,6 +554,7 @@ const BackgroundFooter_CenteredMenu = ({
     </Fragment>
   </Section>
 );
+
 const BackgroundFooter_ImageCta = ({
   imageSrc,
   mode,
@@ -693,6 +720,7 @@ const BackgroundFooter_ImageCta = ({
     </Section>
   );
 };
+
 const BackgroundFooter_SideContent = ({
   columns,
   logoPosition,
@@ -776,6 +804,7 @@ const BackgroundFooter_SideContent = ({
     </Section>
   );
 };
+
 const BackgroundFooter_TopImageFooterContent = ({
   variant,
   logoPosition,
@@ -912,6 +941,7 @@ const BackgroundFooter_TopImageFooterContent = ({
     </Section>
   );
 };
+
 const BackgroundFooter_FooterWithBackgroundImageSection = ({
   variant = "bottom-image-content",
   logoPosition = "left",
@@ -1027,6 +1057,7 @@ const BackgroundFooter_FooterWithBackgroundImageSection = ({
     </Section>
   );
 };
+
 const BackgroundFooter_FooterWithBackgroundImage = ({
   theme: _theme = defaultTheme,
   variant = "bottom-image-content",
@@ -1056,17 +1087,22 @@ const BackgroundFooter_FooterWithBackgroundImage = ({
     </Body>
   </Html>
 );
+
 BackgroundFooter_FooterWithBackgroundImage.PreviewProps = {
   logoPosition: "left",
   theme: defaultTheme,
   variant: "bottom-image-content",
 } satisfies BackgroundFooter_FooterWithBackgroundImageProps;
+
 const __BackgroundFooter = BackgroundFooter_FooterWithBackgroundImage;
+
 type LocationsFooter_FooterWithCompanyLocationsVariant = "stacked" | "grid";
+
 interface LocationsFooter_CompanyLocation {
   address: string;
   name: string;
 }
+
 interface LocationsFooter_FooterWithCompanyLocationsProps {
   theme?: EmailThemeTokens;
   variant?: LocationsFooter_FooterWithCompanyLocationsVariant;
@@ -1083,8 +1119,10 @@ interface LocationsFooter_FooterWithCompanyLocationsProps {
   mutedTextColor?: string;
   unsubscribeHref?: string;
 }
+
 const LocationsFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LocationsFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-locations-grid-cell { display: block !important; width: 100% !important; }",
@@ -1093,6 +1131,7 @@ const LocationsFooter_responsiveStyles = [
   "  .footer-locations-break { display: none !important; }",
   "}",
 ].join("\n");
+
 const LocationsFooter_stackedLocations: LocationsFooter_CompanyLocation[] = [
   {
     address: "Gas Company Tower\n555 W 5th St, Los Angeles, CA 90013",
@@ -1108,6 +1147,7 @@ const LocationsFooter_stackedLocations: LocationsFooter_CompanyLocation[] = [
     name: "Downtown Chicago, IL",
   },
 ];
+
 const LocationsFooter_gridLocations: LocationsFooter_CompanyLocation[] = [
   ...LocationsFooter_stackedLocations,
   {
@@ -1115,12 +1155,14 @@ const LocationsFooter_gridLocations: LocationsFooter_CompanyLocation[] = [
     name: "Downtown San Francisco, CA",
   },
 ];
+
 const LocationsFooter_menu = [
   { href: "https://example.com/about", label: "About us" },
   { href: "https://example.com/shop", label: "Shop" },
   { href: "https://example.com/faq", label: "FAQs" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
+
 const LocationsFooter_socials = [
   ["Facebook", "https://facebook.com", "icon-facebook.png"],
   ["GitHub", "https://github.com", "icon-github.png"],
@@ -1128,6 +1170,7 @@ const LocationsFooter_socials = [
   ["YouTube", "https://youtube.com", "icon-youtube.png"],
   ["X", "https://x.com", "icon-x.png"],
 ] as const;
+
 const LocationsFooter_LineBreaks = ({ text }: { text: string }) => (
   <>
     {text.split("\n").map((line, index) => (
@@ -1138,6 +1181,7 @@ const LocationsFooter_LineBreaks = ({ text }: { text: string }) => (
     ))}
   </>
 );
+
 const LocationsFooter_Divider = ({
   color,
   style,
@@ -1157,6 +1201,7 @@ const LocationsFooter_Divider = ({
     &zwj;
   </Section>
 );
+
 const LocationsFooter_SocialLinks = () => (
   <Section>
     <Fragment>
@@ -1184,6 +1229,7 @@ const LocationsFooter_SocialLinks = () => (
     </Fragment>
   </Section>
 );
+
 const LocationsFooter_FooterWithCompanyLocationsSection = ({
   variant = "stacked",
   locations,
@@ -1457,6 +1503,7 @@ const LocationsFooter_FooterWithCompanyLocationsSection = ({
     </Section>
   );
 };
+
 const LocationsFooter_FooterWithCompanyLocations = ({
   theme: _theme = defaultTheme,
   variant = "stacked",
@@ -1484,18 +1531,23 @@ const LocationsFooter_FooterWithCompanyLocations = ({
     </Body>
   </Html>
 );
+
 LocationsFooter_FooterWithCompanyLocations.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked",
 } satisfies LocationsFooter_FooterWithCompanyLocationsProps;
+
 const __LocationsFooter = LocationsFooter_FooterWithCompanyLocations;
+
 interface LegalFooter_LegalFooterLink {
   href: string;
   label: string;
 }
+
 interface LegalFooter_LegalFooterSocial extends LegalFooter_LegalFooterLink {
   iconSrc: string;
 }
+
 interface LegalFooter_FooterWithLegalTextProps {
   theme?: EmailThemeTokens;
   legalText?: string;
@@ -1509,10 +1561,13 @@ interface LegalFooter_FooterWithLegalTextProps {
   copyrightColor?: string;
   mutedTextColor?: string;
 }
+
 const LegalFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LegalFooter_responsiveStyles =
   "@media only screen and (max-width: 599px) { .footer-legal-break { display: none !important; } }";
+
 const LegalFooter_defaults = {
   backgroundColor: "#fffffe",
   copyrightColor: "#9ca3af",
@@ -1557,12 +1612,15 @@ const LegalFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type LegalFooter_SectionProps = Omit<
   LegalFooter_FooterWithLegalTextProps,
   "theme"
 >;
+
 type LegalFooter_ResolvedProps = typeof LegalFooter_defaults &
   LegalFooter_SectionProps;
+
 const LegalFooter_Divider = ({
   color,
   margin,
@@ -1581,6 +1639,7 @@ const LegalFooter_Divider = ({
     &zwj;
   </Section>
 );
+
 const LegalFooter_FooterWithLegalTextSection = (
   props: LegalFooter_SectionProps
 ) => {
@@ -1745,6 +1804,7 @@ const LegalFooter_FooterWithLegalTextSection = (
     </Section>
   );
 };
+
 const LegalFooter_FooterWithLegalText = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1772,19 +1832,24 @@ const LegalFooter_FooterWithLegalText = ({
     </Body>
   </Html>
 );
+
 LegalFooter_FooterWithLegalText.PreviewProps = {
   theme: defaultTheme,
 } satisfies LegalFooter_FooterWithLegalTextProps;
+
 const __LegalFooter = LegalFooter_FooterWithLegalText;
+
 type AddressFooter_FooterWithSocialIconsAndAddressVariant =
   | "left-logo"
   | "right-logo"
   | "centered";
+
 interface AddressFooter_FooterAddressSocial {
   href: string;
   iconSrc: string;
   label: string;
 }
+
 interface AddressFooter_FooterWithSocialIconsAndAddressProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -1802,8 +1867,10 @@ interface AddressFooter_FooterWithSocialIconsAndAddressProps {
   mutedTextColor?: string;
   variant?: AddressFooter_FooterWithSocialIconsAndAddressVariant;
 }
+
 const AddressFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const AddressFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-address-cell { display: block !important; width: 100% !important; }",
@@ -1812,6 +1879,7 @@ const AddressFooter_responsiveStyles = [
   "  .footer-address-break { display: none !important; }",
   "}",
 ].join("\n");
+
 const AddressFooter_defaults = {
   address: "© 2026 emailcn\nemailcn  |  155 Bdv Saint Germain  |  75505 Paris",
   backgroundColor: "#fffffe",
@@ -1853,12 +1921,15 @@ const AddressFooter_defaults = {
   title: "Follow us",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type AddressFooter_SectionProps = Omit<
   AddressFooter_FooterWithSocialIconsAndAddressProps,
   "theme"
 >;
+
 type AddressFooter_ResolvedProps = typeof AddressFooter_defaults &
   AddressFooter_SectionProps;
+
 const AddressFooter_LogoCell = ({
   props,
 }: {
@@ -1882,6 +1953,7 @@ const AddressFooter_LogoCell = ({
     </Link>
   </Column>
 );
+
 const AddressFooter_ContentCell = ({
   props,
 }: {
@@ -1954,6 +2026,7 @@ const AddressFooter_ContentCell = ({
     </Text>
   </Column>
 );
+
 const AddressFooter_CenteredContent = ({
   props,
 }: {
@@ -2048,6 +2121,7 @@ const AddressFooter_CenteredContent = ({
     </Section>
   </>
 );
+
 const AddressFooter_FooterWithSocialIconsAndAddressSection = (
   props: AddressFooter_SectionProps
 ) => {
@@ -2132,6 +2206,7 @@ const AddressFooter_FooterWithSocialIconsAndAddressSection = (
     </Section>
   );
 };
+
 const AddressFooter_FooterWithSocialIconsAndAddress = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -2161,20 +2236,25 @@ const AddressFooter_FooterWithSocialIconsAndAddress = ({
     </Body>
   </Html>
 );
+
 AddressFooter_FooterWithSocialIconsAndAddress.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies AddressFooter_FooterWithSocialIconsAndAddressProps;
+
 const __AddressFooter = AddressFooter_FooterWithSocialIconsAndAddress;
+
 type SimpleSocialFooter_SimpleFooterWithSocialIconsVariant =
   | "left-aligned"
   | "centered"
   | "right-aligned";
+
 interface SimpleSocialFooter_SimpleFooterSocial {
   href: string;
   iconSrc: string;
   label: string;
 }
+
 interface SimpleSocialFooter_SimpleFooterWithSocialIconsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -2187,8 +2267,10 @@ interface SimpleSocialFooter_SimpleFooterWithSocialIconsProps {
   mutedTextColor?: string;
   variant?: SimpleSocialFooter_SimpleFooterWithSocialIconsVariant;
 }
+
 const SimpleSocialFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SimpleSocialFooter_defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
@@ -2225,14 +2307,17 @@ const SimpleSocialFooter_defaults = {
   ],
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type SimpleSocialFooter_SectionProps = Omit<
   SimpleSocialFooter_SimpleFooterWithSocialIconsProps,
   "theme"
 >;
+
 type SimpleSocialFooter_ResolvedProps = typeof SimpleSocialFooter_defaults &
   SimpleSocialFooter_SectionProps & {
     variant: SimpleSocialFooter_SimpleFooterWithSocialIconsVariant;
   };
+
 const SimpleSocialFooter_SimpleFooterWithSocialIconsSection = (
   props: SimpleSocialFooter_SectionProps
 ) => {
@@ -2363,6 +2448,7 @@ const SimpleSocialFooter_SimpleFooterWithSocialIconsSection = (
     </Section>
   );
 };
+
 const SimpleSocialFooter_SimpleFooterWithSocialIcons = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -2389,11 +2475,14 @@ const SimpleSocialFooter_SimpleFooterWithSocialIcons = ({
     </Body>
   </Html>
 );
+
 SimpleSocialFooter_SimpleFooterWithSocialIcons.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies SimpleSocialFooter_SimpleFooterWithSocialIconsProps;
+
 const __SimpleSocialFooter = SimpleSocialFooter_SimpleFooterWithSocialIcons;
+
 export interface FooterBrand {
   logo: {
     src: string;
@@ -2401,27 +2490,33 @@ export interface FooterBrand {
   };
   href?: string;
 }
+
 export interface FooterLink {
   label: string;
   href: string;
 }
+
 export interface FooterMenu {
   heading?: string;
   links: FooterLink[];
 }
+
 export interface FooterSocial extends FooterLink {
   iconSrc: string;
 }
+
 export interface FooterLegal {
   copyright?: string;
   text?: string;
   unsubscribeHref?: string;
   preferencesHref?: string;
 }
+
 export interface FooterLocation {
   name: string;
   address: string;
 }
+
 export interface UtilityFooterProps {
   theme?: Parameters<typeof __SimpleSocialFooter>[0]["theme"];
   brand?: FooterBrand;
@@ -2439,6 +2534,7 @@ export interface UtilityFooterProps {
     position?: "top" | "bottom";
   };
 }
+
 const footerBrandValues = (brand: FooterBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -2447,12 +2543,14 @@ const footerBrandValues = (brand: FooterBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 const footerLegalValues = (legal: FooterLegal | undefined) => ({
   copyright: legal?.copyright,
   preferencesHref: legal?.preferencesHref,
   text: legal?.text,
   unsubscribeHref: legal?.unsubscribeHref,
 });
+
 const utilityAppStoreVariant = (
   title: string | undefined,
   columns: NonNullable<UtilityFooterProps["columns"]>
@@ -2465,6 +2563,7 @@ const utilityAppStoreVariant = (
   }
   return "centered";
 };
+
 const utilityAddressVariant = (
   alignment: NonNullable<UtilityFooterProps["alignment"]>
 ): Parameters<typeof __AddressFooter>[0]["variant"] => {
@@ -2476,6 +2575,7 @@ const utilityAddressVariant = (
   }
   return "left-logo";
 };
+
 const utilitySocialVariant = (
   alignment: NonNullable<UtilityFooterProps["alignment"]>
 ): Parameters<typeof __SimpleSocialFooter>[0]["variant"] => {
@@ -2487,6 +2587,7 @@ const utilitySocialVariant = (
   }
   return "centered";
 };
+
 export const UtilityFooter = ({
   theme,
   brand,
@@ -2587,6 +2688,7 @@ export const UtilityFooter = ({
     />
   );
 };
+
 UtilityFooter.PreviewProps = {
   alignment: "center",
   columns: 1,

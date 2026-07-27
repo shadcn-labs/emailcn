@@ -15,11 +15,13 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 interface SimpleSocials_SimpleSocialLogoItem {
   alt: string;
   href: string;
   src: string;
 }
+
 interface SimpleSocials_SimpleSocialLogosRowProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -28,8 +30,10 @@ interface SimpleSocials_SimpleSocialLogosRowProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
+
 const SimpleSocials_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SimpleSocials_defaultItems: SimpleSocials_SimpleSocialLogoItem[] = [
   ["LinkedIn", "icon-linkedin.png"],
   ["X", "icon-x.png"],
@@ -41,6 +45,7 @@ const SimpleSocials_defaultItems: SimpleSocials_SimpleSocialLogoItem[] = [
   href: "https://example.com",
   src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
 }));
+
 const SimpleSocials_SimpleSocialLogosRowSection = ({
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
@@ -87,6 +92,7 @@ const SimpleSocials_SimpleSocialLogosRowSection = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SimpleSocials_SimpleSocialLogosRow = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -110,10 +116,13 @@ const SimpleSocials_SimpleSocialLogosRow = ({
     </MjmlBody>
   </Mjml>
 );
+
 SimpleSocials_SimpleSocialLogosRow.PreviewProps = {
   theme: defaultTheme,
 } satisfies SimpleSocials_SimpleSocialLogosRowProps;
+
 const __SimpleSocials = SimpleSocials_SimpleSocialLogosRow;
+
 type SocialLogos_SocialLogosVariant =
   | "square-tiles"
   | "squared-box"
@@ -123,11 +132,13 @@ type SocialLogos_SocialLogosVariant =
   | "outlined-circle-tiles"
   | "outlined-box"
   | "outlined-pill-box";
+
 interface SocialLogos_SocialLogoItem {
   alt: string;
   href: string;
   src: string;
 }
+
 interface SocialLogos_SocialLogosProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -137,8 +148,10 @@ interface SocialLogos_SocialLogosProps {
   backgroundColor?: string;
   variant?: SocialLogos_SocialLogosVariant;
 }
+
 const SocialLogos_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SocialLogos_defaultItems: SocialLogos_SocialLogoItem[] = [
   ["LinkedIn", "icon-linkedin.png"],
   ["X", "icon-x.png"],
@@ -150,6 +163,7 @@ const SocialLogos_defaultItems: SocialLogos_SocialLogoItem[] = [
   href: "https://example.com",
   src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
 }));
+
 const SocialLogos_SocialLogosSection = ({
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
@@ -209,6 +223,7 @@ const SocialLogos_SocialLogosSection = ({
     </MjmlSection>
   );
 };
+
 const SocialLogos_SocialLogos = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -234,18 +249,23 @@ const SocialLogos_SocialLogos = ({
     </MjmlBody>
   </Mjml>
 );
+
 SocialLogos_SocialLogos.PreviewProps = {
   theme: defaultTheme,
   variant: "square-tiles",
 } satisfies SocialLogos_SocialLogosProps;
+
 const __SocialLogos = SocialLogos_SocialLogos;
+
 type SocialLabels_SocialsWithLabelsVariant = "stacked" | "inline";
+
 interface SocialLabels_LabeledSocialItem {
   alt: string;
   href: string;
   label: string;
   src: string;
 }
+
 interface SocialLabels_SocialsWithLabelsProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -255,8 +275,10 @@ interface SocialLabels_SocialsWithLabelsProps {
   backgroundColor?: string;
   variant?: SocialLabels_SocialsWithLabelsVariant;
 }
+
 const SocialLabels_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SocialLabels_makeItems = (
   entries: readonly (readonly [string, string])[]
 ) =>
@@ -266,6 +288,7 @@ const SocialLabels_makeItems = (
     label,
     src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
   }));
+
 const SocialLabels_stackedItems = SocialLabels_makeItems([
   ["LinkedIn", "icon-linkedin.png"],
   ["X", "icon-x.png"],
@@ -273,12 +296,14 @@ const SocialLabels_stackedItems = SocialLabels_makeItems([
   ["Instagram", "icon-instagram.png"],
   ["Discord", "icon-discord.png"],
 ] as const);
+
 const SocialLabels_inlineItems = SocialLabels_makeItems([
   ["LinkedIn", "icon-linkedin.png"],
   ["Facebook", "icon-facebook.png"],
   ["YouTube", "icon-youtube.png"],
   ["Instagram", "icon-instagram.png"],
 ] as const);
+
 const SocialLabels_SocialsWithLabelsSection = ({
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
@@ -344,6 +369,7 @@ const SocialLabels_SocialsWithLabelsSection = ({
     </MjmlSection>
   );
 };
+
 const SocialLabels_SocialsWithLabels = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -369,18 +395,23 @@ const SocialLabels_SocialsWithLabels = ({
     </MjmlBody>
   </Mjml>
 );
+
 SocialLabels_SocialsWithLabels.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked",
 } satisfies SocialLabels_SocialsWithLabelsProps;
+
 const __SocialLabels = SocialLabels_SocialsWithLabels;
+
 type SocialTileLabels_SocialsWithTileLabelsVariant = "stacked" | "inline";
+
 interface SocialTileLabels_TiledSocialItem {
   alt: string;
   href: string;
   label: string;
   src: string;
 }
+
 interface SocialTileLabels_SocialsWithTileLabelsProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -391,8 +422,10 @@ interface SocialTileLabels_SocialsWithTileLabelsProps {
   tileBackgroundColor?: string;
   variant?: SocialTileLabels_SocialsWithTileLabelsVariant;
 }
+
 const SocialTileLabels_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SocialTileLabels_makeItems = (
   entries: readonly (readonly [string, string])[]
 ) =>
@@ -402,18 +435,21 @@ const SocialTileLabels_makeItems = (
     label,
     src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
   }));
+
 const SocialTileLabels_stackedItems = SocialTileLabels_makeItems([
   ["LinkedIn", "icon-linkedin.png"],
   ["X", "icon-x.png"],
   ["YouTube", "icon-youtube.png"],
   ["Instagram", "icon-instagram.png"],
 ] as const);
+
 const SocialTileLabels_inlineItems = SocialTileLabels_makeItems([
   ["LinkedIn", "icon-linkedin.png"],
   ["Facebook", "icon-facebook.png"],
   ["YouTube", "icon-youtube.png"],
   ["Instagram", "icon-instagram.png"],
 ] as const);
+
 const SocialTileLabels_SocialsWithTileLabelsSection = ({
   title = "Connect with us",
   description = "Stay in the loop by following us across our social channels for updates, news, and behind-the-scenes moments.",
@@ -483,6 +519,7 @@ const SocialTileLabels_SocialsWithTileLabelsSection = ({
     </MjmlSection>
   );
 };
+
 const SocialTileLabels_SocialsWithTileLabels = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -508,11 +545,14 @@ const SocialTileLabels_SocialsWithTileLabels = ({
     </MjmlBody>
   </Mjml>
 );
+
 SocialTileLabels_SocialsWithTileLabels.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked",
 } satisfies SocialTileLabels_SocialsWithTileLabelsProps;
+
 const __SocialTileLabels = SocialTileLabels_SocialsWithTileLabels;
+
 export interface SocialLink {
   label?: string;
   href: string;
@@ -521,6 +561,7 @@ export interface SocialLink {
     src: string;
   };
 }
+
 export interface SocialLinksProps {
   theme?: Parameters<typeof __SimpleSocials>[0]["theme"];
   title?: string;
@@ -532,6 +573,7 @@ export interface SocialLinksProps {
   outlined?: boolean;
   direction?: "inline" | "stacked";
 }
+
 const iconVariant = ({
   container,
   shape,
@@ -546,6 +588,7 @@ const iconVariant = ({
   }
   return `${prefix}${shape}-tiles` as const;
 };
+
 export const SocialLinks = ({
   theme,
   title,
@@ -581,6 +624,7 @@ export const SocialLinks = ({
     />
   );
 };
+
 SocialLinks.PreviewProps = {
   container: "none",
   direction: "inline",

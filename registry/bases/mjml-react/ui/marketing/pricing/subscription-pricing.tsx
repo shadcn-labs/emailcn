@@ -14,10 +14,12 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 interface TwoColumnPricing_PricingPlanFeature {
   label: string;
   muted?: boolean;
 }
+
 interface TwoColumnPricing_PricingPlan {
   ctaHref: string;
   ctaLabel: string;
@@ -27,6 +29,7 @@ interface TwoColumnPricing_PricingPlan {
   period: string;
   price: string;
 }
+
 interface TwoColumnPricing_TwoColumnsPricingTableProps {
   theme?: EmailThemeTokens;
   plans?: TwoColumnPricing_PricingPlan[];
@@ -35,8 +38,10 @@ interface TwoColumnPricing_TwoColumnsPricingTableProps {
   cardBackgroundColor?: string;
   brandColor?: string;
 }
+
 const TwoColumnPricing_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TwoColumnPricing_defaultPlans: TwoColumnPricing_PricingPlan[] = [
   {
     ctaHref: "https://example.com",
@@ -69,6 +74,7 @@ const TwoColumnPricing_defaultPlans: TwoColumnPricing_PricingPlan[] = [
     price: "$29",
   },
 ];
+
 const TwoColumnPricing_PlanCard = ({
   plan,
   cardBackgroundColor,
@@ -148,6 +154,7 @@ const TwoColumnPricing_PlanCard = ({
     </MjmlButton>
   </MjmlColumn>
 );
+
 const TwoColumnPricing_TwoColumnsPricingTableSection = ({
   plans = TwoColumnPricing_defaultPlans,
   backgroundColor = "#fffffe",
@@ -166,6 +173,7 @@ const TwoColumnPricing_TwoColumnsPricingTableSection = ({
     ))}
   </MjmlSection>
 );
+
 const TwoColumnPricing_TwoColumnsPricingTable = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -189,14 +197,18 @@ const TwoColumnPricing_TwoColumnsPricingTable = ({
     </MjmlBody>
   </Mjml>
 );
+
 TwoColumnPricing_TwoColumnsPricingTable.PreviewProps = {
   theme: defaultTheme,
 } satisfies TwoColumnPricing_TwoColumnsPricingTableProps;
+
 const __TwoColumnPricing = TwoColumnPricing_TwoColumnsPricingTable;
+
 interface SinglePricing_PricingFeature {
   label: string;
   muted?: boolean;
 }
+
 interface SinglePricing_FullWidthSinglePricingProps {
   theme?: EmailThemeTokens;
   name?: string;
@@ -210,14 +222,17 @@ interface SinglePricing_FullWidthSinglePricingProps {
   cardBackgroundColor?: string;
   brandColor?: string;
 }
+
 const SinglePricing_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SinglePricing_defaultFeatures: SinglePricing_PricingFeature[] = [
   { label: "Visual email editor" },
   { label: "Transactional & marketing templates" },
   { label: "Team collaboration (up to 3 users)", muted: true },
   { label: "Version control & previews", muted: true },
 ];
+
 const SinglePricing_FullWidthSinglePricingSection = ({
   name = "Takeoff",
   price = "$19",
@@ -283,6 +298,7 @@ const SinglePricing_FullWidthSinglePricingSection = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SinglePricing_FullWidthSinglePricing = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -306,10 +322,13 @@ const SinglePricing_FullWidthSinglePricing = ({
     </MjmlBody>
   </Mjml>
 );
+
 SinglePricing_FullWidthSinglePricing.PreviewProps = {
   theme: defaultTheme,
 } satisfies SinglePricing_FullWidthSinglePricingProps;
+
 const __SinglePricing = SinglePricing_FullWidthSinglePricing;
+
 export interface SubscriptionPlan {
   name: string;
   description?: string;
@@ -325,11 +344,13 @@ export interface SubscriptionPlan {
     label: string;
   };
 }
+
 export interface SubscriptionPricingProps {
   theme?: Parameters<typeof __TwoColumnPricing>[0]["theme"];
   plans?: SubscriptionPlan[];
   columns?: 1 | 2;
 }
+
 export const SubscriptionPricing = ({
   theme,
   plans,
@@ -364,6 +385,7 @@ export const SubscriptionPricing = ({
     />
   );
 };
+
 SubscriptionPricing.PreviewProps = {
   columns: 2,
 } satisfies SubscriptionPricingProps;

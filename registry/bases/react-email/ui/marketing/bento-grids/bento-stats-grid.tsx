@@ -17,14 +17,18 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 const BENTO_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/bento-grids";
+
 const BENTO_CHART_ROOT = "https://emailcn.vercel.app/email-assets/bento-grids";
+
 type BentoImagePlacementVariant =
   | "image-top-right"
   | "image-top-left"
   | "image-bottom-right"
   | "image-bottom-left";
+
 const colors = {
   border: "#d1d5db",
   canvas: "#f1f5f9",
@@ -37,6 +41,7 @@ const colors = {
   surfaceMuted: "#f9fafb",
   white: "#fffffe",
 } as const;
+
 const textBase: CSSProperties = {
   fontFamily:
     "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif",
@@ -44,11 +49,13 @@ const textBase: CSSProperties = {
   lineHeight: "24px",
   margin: 0,
 };
+
 interface BentoEmailShellProps {
   children: ReactNode;
   preview: string;
   theme: TailwindConfig;
 }
+
 const BentoEmailShell = ({
   children,
   preview,
@@ -86,6 +93,7 @@ const BentoEmailShell = ({
     </Tailwind>
   </Html>
 );
+
 const Gap = () => (
   <Column
     className="bento-gap"
@@ -102,11 +110,13 @@ const Gap = () => (
     &zwj;
   </Column>
 );
+
 const VerticalGap = () => (
   <Section style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>
     &zwj;
   </Section>
 );
+
 interface MetricCardData {
   change: string;
   comparison?: string;
@@ -115,6 +125,7 @@ interface MetricCardData {
   title: string;
   value: string;
 }
+
 const Divider = () => (
   <Section
     style={{ backgroundColor: colors.border, height: "1px", lineHeight: "1px" }}
@@ -122,6 +133,7 @@ const Divider = () => (
     &zwj;
   </Section>
 );
+
 const ReportLink = ({ data }: { data: MetricCardData }) => (
   <Text
     style={{
@@ -140,6 +152,7 @@ const ReportLink = ({ data }: { data: MetricCardData }) => (
     </Link>
   </Text>
 );
+
 const ImageMetricCard = ({ data }: { data: MetricCardData }) => (
   <Section
     style={{
@@ -217,6 +230,7 @@ const ImageMetricCard = ({ data }: { data: MetricCardData }) => (
     <ReportLink data={data} />
   </Section>
 );
+
 const TextMetricCard = ({ data }: { data: MetricCardData }) => (
   <Section
     style={{
@@ -266,10 +280,12 @@ const TextMetricCard = ({ data }: { data: MetricCardData }) => (
     <ReportLink data={data} />
   </Section>
 );
+
 interface FeatureCardData {
   description: string;
   title: string;
 }
+
 const FeatureCard = ({
   dark = false,
   data,
@@ -314,11 +330,13 @@ const FeatureCard = ({
     </Text>
   </Column>
 );
+
 interface StatCardData {
   label: string;
   suffix: string;
   value: string;
 }
+
 const StatCard = ({
   background = colors.surfaceMuted,
   dark = false,
@@ -372,12 +390,14 @@ const StatCard = ({
     </Text>
   </Column>
 );
+
 interface MiniMetricData {
   change: string;
   period: string;
   title: string;
   value: string;
 }
+
 const MiniMetricCard = ({ data }: { data: MiniMetricData }) => (
   <Column
     className="bento-column"
@@ -434,6 +454,7 @@ const MiniMetricCard = ({ data }: { data: MiniMetricData }) => (
     </Section>
   </Column>
 );
+
 const TwoThirdsStatsSection = ({
   feature,
   imageAlt,
@@ -496,6 +517,7 @@ const TwoThirdsStatsSection = ({
     </>
   );
 };
+
 const EvenSplitStatsSection = ({
   feature,
   imageAlt,
@@ -572,6 +594,7 @@ const EvenSplitStatsSection = ({
     </>
   );
 };
+
 const ThreeColumnStatsSection = ({
   imageAlt,
   imageSrc,
@@ -640,6 +663,7 @@ const ThreeColumnStatsSection = ({
     </>
   );
 };
+
 type InternalBentoStatsGridProps =
   | {
       data?: {
@@ -676,11 +700,13 @@ type InternalBentoStatsGridProps =
       style?: "chart" | "text";
       variant: "three-column";
     };
+
 const defaultStat: StatCardData = {
   label: "Engine v2",
   suffix: "faster",
   value: "75x",
 };
+
 const chartMetric: MetricCardData = {
   change: "10% increase",
   reportHref: "https://example.com",
@@ -688,6 +714,7 @@ const chartMetric: MetricCardData = {
   title: "API Calls",
   value: "25,000",
 };
+
 const textMetric: MetricCardData = {
   change: "10%",
   comparison: "Compared to last month",
@@ -696,11 +723,13 @@ const textMetric: MetricCardData = {
   title: "API Calls",
   value: "25k",
 };
+
 const threeStats = [
   defaultStat,
   { label: "Cost reduction", suffix: "faster", value: "50%" },
   { label: "Load time", suffix: "faster", value: "75x" },
 ] as const satisfies readonly [StatCardData, StatCardData, StatCardData];
+
 const TwoThirdsStatsGrid = (
   props: Extract<
     InternalBentoStatsGridProps,
@@ -736,6 +765,7 @@ const TwoThirdsStatsGrid = (
     />
   );
 };
+
 const EvenSplitStatsGrid = (
   props: Extract<
     InternalBentoStatsGridProps,
@@ -775,6 +805,7 @@ const EvenSplitStatsGrid = (
     />
   );
 };
+
 const ThreeColumnStatsGrid = (
   props: Extract<
     InternalBentoStatsGridProps,
@@ -802,6 +833,7 @@ const ThreeColumnStatsGrid = (
     />
   );
 };
+
 const BentoStatsGridSection = (props: InternalBentoStatsGridProps) => {
   if (props.variant === "even-split") {
     return <EvenSplitStatsGrid {...props} />;
@@ -811,9 +843,11 @@ const BentoStatsGridSection = (props: InternalBentoStatsGridProps) => {
   }
   return <TwoThirdsStatsGrid {...props} />;
 };
+
 export type BentoStatsGridProps = InternalBentoStatsGridProps & {
   theme?: typeof defaultTheme;
 };
+
 export const BentoStatsGrid = ({
   theme = defaultTheme,
   ...props
@@ -822,6 +856,7 @@ export const BentoStatsGrid = ({
     <BentoStatsGridSection {...props} />
   </BentoEmailShell>
 );
+
 BentoStatsGrid.PreviewProps = {
   placement: "image-top-right",
   style: "compact",

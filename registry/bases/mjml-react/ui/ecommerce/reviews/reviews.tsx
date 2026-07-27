@@ -16,6 +16,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type ReviewsVariant =
   | "with-divider"
   | "simple"
@@ -32,11 +33,13 @@ type ReviewsVariant =
   | "avatar-logo"
   | "avatar-logo-split"
   | "avatar-logo-bottom";
+
 type FullWidthReviewsVariant =
   | ReviewsVariant
   | "avatar-aside"
   | "avatar-aside-split"
   | "avatar-aside-reverse";
+
 interface InternalReviewItem {
   avatarUrl?: string;
   company?: string;
@@ -48,11 +51,16 @@ interface InternalReviewItem {
   rating: number;
   text: string;
 }
+
 type ReviewsLayout = "full-width" | "masonry-grid" | "two-columns";
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const reviewsResponsiveStyles = "";
+
 const defaultReviews: InternalReviewItem[] = [
   {
     avatarUrl: `${ASSET_ROOT}/reviews/avatar.jpg`,
@@ -88,6 +96,7 @@ const defaultReviews: InternalReviewItem[] = [
     text: "Super impressed with the quality. The designs are modern, easy to adapt, and helped streamline our entire workflow. Highly recommended!",
   },
 ];
+
 const twoColumnReviews: InternalReviewItem[] = [
   defaultReviews[0],
   {
@@ -98,6 +107,7 @@ const twoColumnReviews: InternalReviewItem[] = [
     rating: 5,
   },
 ];
+
 const Rating = ({
   centered,
   rating,
@@ -116,6 +126,7 @@ const Rating = ({
     ★ ★ ★ ★ {rating >= 4.5 ? "★" : "☆"}
   </MjmlText>
 );
+
 const AccentDivider = () => (
   <MjmlDivider
     borderColor="#6366f1"
@@ -124,6 +135,7 @@ const AccentDivider = () => (
     width="96px"
   />
 );
+
 const ReviewLogo = ({
   centered,
   item,
@@ -144,6 +156,7 @@ const ReviewLogo = ({
     {trailingSpace ? <MjmlSpacer height="24px" /> : null}
   </>
 );
+
 const ReviewAvatar = ({
   centered,
   item,
@@ -176,6 +189,7 @@ const ReviewAvatar = ({
     <MjmlSpacer height="24px" />
   </>
 );
+
 const ReviewTopIdentity = ({
   avatarAtTop,
   centered,
@@ -205,6 +219,7 @@ const ReviewTopIdentity = ({
   }
   return null;
 };
+
 const ReviewBottomIdentity = ({
   avatarAtBottom,
   item,
@@ -240,6 +255,7 @@ const ReviewBottomIdentity = ({
   }
   return null;
 };
+
 const ReviewContent = ({
   featured,
   item,
@@ -315,6 +331,7 @@ const ReviewContent = ({
     </>
   );
 };
+
 const ReviewColumn = ({
   featured,
   item,
@@ -330,6 +347,7 @@ const ReviewColumn = ({
     <ReviewContent featured={featured} item={item} variant={variant} />
   </MjmlColumn>
 );
+
 const ReviewsSection = ({
   layout,
   reviews,
@@ -393,17 +411,20 @@ const ReviewsSection = ({
     </MjmlSection>
   );
 };
+
 interface FullWidthReviews_FullWidthReviewsProps {
   reviews?: ReviewItem[];
   theme?: EmailThemeTokens;
   variant?: FullWidthReviewsVariant;
 }
+
 const FullWidthReviews_FullWidthReviewsSection = ({
   reviews,
   variant = "with-divider",
 }: Omit<FullWidthReviews_FullWidthReviewsProps, "theme">) => (
   <ReviewsSection layout="full-width" reviews={reviews} variant={variant} />
 );
+
 const FullWidthReviews_FullWidthReviews = ({
   theme = defaultTheme,
   ...props
@@ -421,22 +442,27 @@ const FullWidthReviews_FullWidthReviews = ({
     </MjmlBody>
   </Mjml>
 );
+
 FullWidthReviews_FullWidthReviews.PreviewProps = {
   theme: defaultTheme,
   variant: "with-divider",
 } satisfies FullWidthReviews_FullWidthReviewsProps;
+
 const __FullWidthReviews = FullWidthReviews_FullWidthReviews;
+
 interface MasonryReviews_MasonryGridReviewsProps {
   reviews?: ReviewItem[];
   theme?: EmailThemeTokens;
   variant?: ReviewsVariant;
 }
+
 const MasonryReviews_MasonryGridReviewsSection = ({
   reviews,
   variant = "with-divider",
 }: Omit<MasonryReviews_MasonryGridReviewsProps, "theme">) => (
   <ReviewsSection layout="masonry-grid" reviews={reviews} variant={variant} />
 );
+
 const MasonryReviews_MasonryGridReviews = ({
   theme = defaultTheme,
   ...props
@@ -454,22 +480,27 @@ const MasonryReviews_MasonryGridReviews = ({
     </MjmlBody>
   </Mjml>
 );
+
 MasonryReviews_MasonryGridReviews.PreviewProps = {
   theme: defaultTheme,
   variant: "with-divider",
 } satisfies MasonryReviews_MasonryGridReviewsProps;
+
 const __MasonryReviews = MasonryReviews_MasonryGridReviews;
+
 interface TwoColumnReviews_TwoColumnsReviewsProps {
   reviews?: ReviewItem[];
   theme?: EmailThemeTokens;
   variant?: ReviewsVariant;
 }
+
 const TwoColumnReviews_TwoColumnsReviewsSection = ({
   reviews,
   variant = "with-divider",
 }: Omit<TwoColumnReviews_TwoColumnsReviewsProps, "theme">) => (
   <ReviewsSection layout="two-columns" reviews={reviews} variant={variant} />
 );
+
 const TwoColumnReviews_TwoColumnsReviews = ({
   theme = defaultTheme,
   ...props
@@ -487,11 +518,14 @@ const TwoColumnReviews_TwoColumnsReviews = ({
     </MjmlBody>
   </Mjml>
 );
+
 TwoColumnReviews_TwoColumnsReviews.PreviewProps = {
   theme: defaultTheme,
   variant: "with-divider",
 } satisfies TwoColumnReviews_TwoColumnsReviewsProps;
+
 const __TwoColumnReviews = TwoColumnReviews_TwoColumnsReviews;
+
 export interface ReviewItem {
   avatarUrl?: string;
   company?: string;
@@ -503,6 +537,7 @@ export interface ReviewItem {
   rating: number;
   text: string;
 }
+
 export interface ReviewsProps {
   theme?: Parameters<typeof __FullWidthReviews>[0]["theme"];
   items?: ReviewItem[];
@@ -517,6 +552,7 @@ export interface ReviewsProps {
   divider?: "none" | "top" | "between" | "bottom";
   reverse?: boolean;
 }
+
 const reviewVariant = ({
   identity,
   divider,
@@ -561,6 +597,7 @@ const reviewVariant = ({
   }
   return divider === "bottom" ? "avatar-logo-bottom" : "avatar-logo";
 };
+
 export const Reviews = ({
   theme,
   items,
@@ -596,6 +633,7 @@ export const Reviews = ({
   }
   return <__FullWidthReviews {...props} />;
 };
+
 Reviews.PreviewProps = {
   divider: "none",
   identity: "text",

@@ -18,11 +18,13 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type Feature_FeatureWithMultipleProductImagesVariant =
   | "logo-left"
   | "logo-right"
   | "images-left"
   | "images-right";
+
 interface Feature_FeatureWithMultipleProductImagesProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -46,8 +48,10 @@ interface Feature_FeatureWithMultipleProductImagesProps {
   linkColor?: string;
   variant?: Feature_FeatureWithMultipleProductImagesVariant;
 }
+
 const Feature_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Feature_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .feature-multiple-centered {
@@ -73,6 +77,7 @@ const Feature_responsiveStyles = `
       }
     }
   `;
+
 const Feature_sharedDefaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
@@ -87,6 +92,7 @@ const Feature_sharedDefaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 const Feature_logoDefaults = {
   body: "Accepting cards should be quick, secure, and seamless. Discover our tools that simplify every transaction.",
   heading: "Built for the journey ahead.",
@@ -100,6 +106,7 @@ const Feature_logoDefaults = {
   smallImageSrc:
     "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
 };
+
 const Feature_imagesDefaults = {
   body: "Explore durable layers that balance insulation, breathability, and all-day comfort.",
   heading: "Outdoor essentials redefined.",
@@ -113,13 +120,16 @@ const Feature_imagesDefaults = {
   smallImageSrc:
     "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm-2.jpg",
 };
+
 type Feature_SectionProps = Omit<
   Feature_FeatureWithMultipleProductImagesProps,
   "theme"
 >;
+
 type Feature_ResolvedProps = typeof Feature_sharedDefaults &
   typeof Feature_imagesDefaults &
   Feature_SectionProps;
+
 const Feature_ProductImage = ({
   alt,
   src,
@@ -141,6 +151,7 @@ const Feature_ProductImage = ({
     width={width}
   />
 );
+
 const Feature_LogoArtwork = ({ props }: { props: Feature_ResolvedProps }) => (
   <Section
     className="feature-multiple-auto feature-multiple-centered"
@@ -181,6 +192,7 @@ const Feature_LogoArtwork = ({ props }: { props: Feature_ResolvedProps }) => (
     </Fragment>
   </Section>
 );
+
 const Feature_LogoImageGroup = ({
   props,
 }: {
@@ -201,6 +213,7 @@ const Feature_LogoImageGroup = ({
     </Section>
   </Column>
 );
+
 const Feature_ImagesArtwork = ({ props }: { props: Feature_ResolvedProps }) => (
   <Section
     className="feature-multiple-auto feature-multiple-centered"
@@ -237,6 +250,7 @@ const Feature_ImagesArtwork = ({ props }: { props: Feature_ResolvedProps }) => (
     </Fragment>
   </Section>
 );
+
 const Feature_ImagesGroup = ({ props }: { props: Feature_ResolvedProps }) => (
   <Column
     className="feature-multiple-stack"
@@ -245,6 +259,7 @@ const Feature_ImagesGroup = ({ props }: { props: Feature_ResolvedProps }) => (
     <Feature_ImagesArtwork props={props} />
   </Column>
 );
+
 const Feature_FeatureCopy = ({
   logoVariant,
   props,
@@ -324,6 +339,7 @@ const Feature_FeatureCopy = ({
     </Section>
   </Column>
 );
+
 const Feature_FeatureWithMultipleProductImagesSection = (
   props: Feature_SectionProps
 ) => {
@@ -390,6 +406,7 @@ const Feature_FeatureWithMultipleProductImagesSection = (
     </Section>
   );
 };
+
 const Feature_FeatureWithMultipleProductImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -423,11 +440,14 @@ const Feature_FeatureWithMultipleProductImages = ({
     </Tailwind>
   </Html>
 );
+
 Feature_FeatureWithMultipleProductImages.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-left",
 } satisfies Feature_FeatureWithMultipleProductImagesProps;
+
 const __Feature = Feature_FeatureWithMultipleProductImages;
+
 export interface ProductImagesFeatureProps {
   theme?: Parameters<typeof __Feature>[0]["theme"];
   heading?: string;
@@ -447,6 +467,7 @@ export interface ProductImagesFeatureProps {
   };
   placement?: "left" | "right";
 }
+
 export const ProductImagesFeature = ({
   theme,
   heading,
@@ -474,6 +495,7 @@ export const ProductImagesFeature = ({
     variant={`images-${placement}`}
   />
 );
+
 ProductImagesFeature.PreviewProps = {
   placement: "right",
 } satisfies ProductImagesFeatureProps;

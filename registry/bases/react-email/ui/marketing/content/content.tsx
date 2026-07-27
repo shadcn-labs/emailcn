@@ -17,6 +17,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 export interface ContentProps {
   theme?: TailwindConfig;
   type?: "title" | "paragraph";
@@ -32,13 +33,16 @@ export interface ContentProps {
   iconSrc2?: string;
   iconAlt2?: string;
 }
+
 const colors = {
   background: "#ffffff",
   heading: "#111827",
   muted: "#6b7280",
 } as const;
+
 const fontFamily =
   'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
 const paragraphStyle: CSSProperties = {
   color: colors.muted,
   fontFamily,
@@ -46,10 +50,12 @@ const paragraphStyle: CSSProperties = {
   lineHeight: "26px",
   margin: 0,
 };
+
 const columnPadding = [
   { padding: "0 16px 0 0" },
   { padding: "0 0 0 16px" },
 ] as const;
+
 const ContentColumn = ({
   alt,
   iconSrc,
@@ -96,6 +102,7 @@ const ContentColumn = ({
     </Text>
   </Column>
 );
+
 export const ContentSection = ({
   type = "paragraph",
   columns = 1,
@@ -180,6 +187,7 @@ export const ContentSection = ({
     </Section>
   );
 };
+
 export const Content = ({
   theme = defaultTheme,
   type = "paragraph",
@@ -236,6 +244,7 @@ export const Content = ({
     </Tailwind>
   </Html>
 );
+
 Content.PreviewProps = {
   columns: 1,
   padding: "regular",

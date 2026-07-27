@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -25,8 +26,10 @@ const colors = {
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 type BlogLayout =
   | "featured"
   | "featured-date"
@@ -41,6 +44,7 @@ type BlogLayout =
   | "two-column-boxed"
   | "two-column-images"
   | "two-column-images-text";
+
 interface BlogPostData {
   author?: string;
   badge?: string;
@@ -55,6 +59,7 @@ interface BlogPostData {
   month?: string;
   title: string;
 }
+
 const Image = ({
   alt,
   src,
@@ -72,6 +77,7 @@ const Image = ({
     width={`${width}px`}
   />
 );
+
 const Meta = ({
   boxed = false,
   post,
@@ -103,6 +109,7 @@ const Meta = ({
     return null;
   })();
 };
+
 const Copy = ({
   boxed = false,
   post,
@@ -162,6 +169,7 @@ const Copy = ({
     </>
   );
 };
+
 const VerticalCard = ({
   boxed = false,
   post,
@@ -177,6 +185,7 @@ const VerticalCard = ({
     <Copy boxed={boxed} post={post} />
   </>
 );
+
 const TwoColumns = ({
   boxed,
   posts,
@@ -200,6 +209,7 @@ const TwoColumns = ({
     ))}
   </MjmlSection>
 );
+
 const Masonry = ({
   boxed,
   posts,
@@ -228,6 +238,7 @@ const Masonry = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const Horizontal = ({
   boxed = false,
   post,
@@ -249,6 +260,7 @@ const Horizontal = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SplitImages = ({ post }: { post: BlogPostData }) => (
   <MjmlSection
     backgroundColor={colors.surfaceMuted}
@@ -271,6 +283,7 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const FullWidth = ({ post }: { post: BlogPostData }) => (
   <MjmlSection padding="0">
     <MjmlColumn padding="0">
@@ -280,6 +293,7 @@ const FullWidth = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const BlogContent = ({
   layout,
   posts,
@@ -312,6 +326,7 @@ const BlogContent = ({
   }
   return <FullWidth post={posts[0]} />;
 };
+
 const BlogEmailShell = ({
   children,
   preview,
@@ -333,6 +348,7 @@ const BlogEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 interface PodcastSplit_PodcastBlogSplitProps {
   theme?: EmailThemeTokens;
   episode?: string;
@@ -342,6 +358,7 @@ interface PodcastSplit_PodcastBlogSplitProps {
   imageSrc?: string;
   title?: string;
 }
+
 const PodcastSplit_PodcastBlogSplitSection = ({
   episode = "Episode 42",
   excerpt = "A conversation about emerging email trends and technologies.",
@@ -366,6 +383,7 @@ const PodcastSplit_PodcastBlogSplitSection = ({
     </>
   );
 };
+
 const PodcastSplit_PodcastBlogSplit = ({
   theme = defaultTheme,
   episode = "Episode 42",
@@ -386,6 +404,7 @@ const PodcastSplit_PodcastBlogSplit = ({
     />
   </BlogEmailShell>
 );
+
 PodcastSplit_PodcastBlogSplit.PreviewProps = {
   episode: "Episode 42",
   excerpt: "A conversation about emerging email trends and technologies.",
@@ -395,7 +414,9 @@ PodcastSplit_PodcastBlogSplit.PreviewProps = {
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastSplit_PodcastBlogSplitProps;
+
 const __PodcastSplit = PodcastSplit_PodcastBlogSplit;
+
 interface PodcastFull_PodcastFullWidthProps {
   theme?: EmailThemeTokens;
   episode?: string;
@@ -404,6 +425,7 @@ interface PodcastFull_PodcastFullWidthProps {
   imageSrc?: string;
   title?: string;
 }
+
 const PodcastFull_PodcastFullWidthSection = ({
   episode = "Episode 42",
   excerpt = "A conversation about emerging email trends and technologies.",
@@ -426,6 +448,7 @@ const PodcastFull_PodcastFullWidthSection = ({
     </>
   );
 };
+
 const PodcastFull_PodcastFullWidth = ({
   theme = defaultTheme,
   episode = "Episode 42",
@@ -444,6 +467,7 @@ const PodcastFull_PodcastFullWidth = ({
     />
   </BlogEmailShell>
 );
+
 PodcastFull_PodcastFullWidth.PreviewProps = {
   episode: "Episode 42",
   excerpt: "A conversation about emerging email trends and technologies.",
@@ -453,7 +477,9 @@ PodcastFull_PodcastFullWidth.PreviewProps = {
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastFull_PodcastFullWidthProps;
+
 const __PodcastFull = PodcastFull_PodcastFullWidth;
+
 export interface BlogPost {
   title: string;
   excerpt?: string;
@@ -468,11 +494,13 @@ export interface BlogPost {
   episode?: string;
   host?: string;
 }
+
 export interface PodcastBlogProps {
   theme?: Parameters<typeof __PodcastSplit>[0]["theme"];
   post?: BlogPost;
   width?: "split" | "full";
 }
+
 const toPodcastProps = (post: BlogPost | undefined) =>
   post
     ? {
@@ -484,6 +512,7 @@ const toPodcastProps = (post: BlogPost | undefined) =>
         title: post.title,
       }
     : {};
+
 export const PodcastBlog = ({
   theme,
   post,
@@ -496,6 +525,7 @@ export const PodcastBlog = ({
     <__PodcastSplit {...props} />
   );
 };
+
 PodcastBlog.PreviewProps = {
   width: "split",
 } satisfies PodcastBlogProps;

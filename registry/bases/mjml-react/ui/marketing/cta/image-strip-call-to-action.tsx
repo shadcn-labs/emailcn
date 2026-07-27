@@ -18,8 +18,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CTAEmailShell = ({
   children,
   pageBackgroundColor,
@@ -44,6 +46,7 @@ const CTAEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const CTACopy = ({
   align = "center",
   ctaHref,
@@ -131,11 +134,13 @@ const CTACopy = ({
     ) : null}
   </>
 );
+
 type Cta_CTAWithImageStripVariant =
   | "boxed-right"
   | "boxed-left"
   | "full-right"
   | "full-left";
+
 interface Cta_CTAWithImageStripProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -161,11 +166,13 @@ interface Cta_CTAWithImageStripProps {
   buttonTextColor?: string;
   variant?: Cta_CTAWithImageStripVariant;
 }
+
 const Cta_sharedAssets = {
   imageSrc2: "https://emailcn.vercel.app/api/email-assets/cta/strip-2.jpg",
   imageSrc4: "https://emailcn.vercel.app/api/email-assets/cta/strip-4.jpg",
   imageSrc5: "https://emailcn.vercel.app/api/email-assets/cta/strip-5.jpg",
 };
+
 const Cta_variantAssets = {
   "boxed-left": {
     imageSrc1:
@@ -192,6 +199,7 @@ const Cta_variantAssets = {
     ...Cta_sharedAssets,
   },
 } as const;
+
 const Cta_CTAWithImageStripSection = (
   props: Omit<Cta_CTAWithImageStripProps, "theme">
 ) => {
@@ -294,6 +302,7 @@ const Cta_CTAWithImageStripSection = (
     </MjmlSection>
   );
 };
+
 const Cta_CTAWithImageStrip = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -307,11 +316,14 @@ const Cta_CTAWithImageStrip = ({
     <Cta_CTAWithImageStripSection {...props} />
   </CTAEmailShell>
 );
+
 Cta_CTAWithImageStrip.PreviewProps = {
   theme: defaultTheme,
   variant: "boxed-right",
 } satisfies Cta_CTAWithImageStripProps;
+
 const __Cta = Cta_CTAWithImageStrip;
+
 export interface ImageStripCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -327,6 +339,7 @@ export interface ImageStripCallToActionProps {
   placement?: "left" | "right";
   width?: "boxed" | "full";
 }
+
 const imageStripItem = (
   image:
     | {
@@ -338,6 +351,7 @@ const imageStripItem = (
   alt: image?.alt,
   src: image?.src,
 });
+
 export const ImageStripCallToAction = ({
   theme,
   heading,
@@ -375,6 +389,7 @@ export const ImageStripCallToAction = ({
     />
   );
 };
+
 ImageStripCallToAction.PreviewProps = {
   placement: "right",
   width: "boxed",

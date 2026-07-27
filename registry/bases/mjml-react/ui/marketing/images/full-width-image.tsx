@@ -14,6 +14,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type FullWidthImage_FullWidthImageVariant =
   | "default"
   | "top-padding"
@@ -30,6 +31,7 @@ type FullWidthImage_FullWidthImageVariant =
   | "left-alt"
   | "sides-padding"
   | "sides-alt";
+
 interface FullWidthImage_FullWidthImageProps {
   theme?: EmailThemeTokens;
   imageSrc?: string;
@@ -38,6 +40,7 @@ interface FullWidthImage_FullWidthImageProps {
   spacerBackgroundColor?: string;
   variant?: FullWidthImage_FullWidthImageVariant;
 }
+
 const FullWidthImage_variantPadding: Record<
   FullWidthImage_FullWidthImageVariant,
   string
@@ -58,6 +61,7 @@ const FullWidthImage_variantPadding: Record<
   "top-right": "24px 24px 0 0",
   "top-sides": "24px 24px 0",
 };
+
 const FullWidthImage_FullWidthImageSection = ({
   imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
   imageAlt = "",
@@ -73,6 +77,7 @@ const FullWidthImage_FullWidthImageSection = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const FullWidthImage_FullWidthImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -94,11 +99,14 @@ const FullWidthImage_FullWidthImage = ({
     </MjmlBody>
   </Mjml>
 );
+
 FullWidthImage_FullWidthImage.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthImage_FullWidthImageProps;
+
 const __FullWidthImage = FullWidthImage_FullWidthImage;
+
 type FullWidthOverlay_FullWidthImageWithOverlayVariant =
   | "default"
   | "top-padding"
@@ -115,6 +123,7 @@ type FullWidthOverlay_FullWidthImageWithOverlayVariant =
   | "left-alt"
   | "sides-padding"
   | "sides-alt";
+
 interface FullWidthOverlay_FullWidthImageWithOverlayProps {
   theme?: EmailThemeTokens;
   imageSrc?: string;
@@ -126,8 +135,10 @@ interface FullWidthOverlay_FullWidthImageWithOverlayProps {
   spacerBackgroundColor?: string;
   variant?: FullWidthOverlay_FullWidthImageWithOverlayVariant;
 }
+
 const FullWidthOverlay_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FullWidthOverlay_variantPadding: Record<
   FullWidthOverlay_FullWidthImageWithOverlayVariant,
   string
@@ -148,6 +159,7 @@ const FullWidthOverlay_variantPadding: Record<
   "top-right": "24px 24px 0 0",
   "top-sides": "24px 24px 0",
 };
+
 const FullWidthOverlay_FullWidthImageWithOverlaySection = ({
   imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-2.jpg",
   heading = "Nike",
@@ -194,6 +206,7 @@ const FullWidthOverlay_FullWidthImageWithOverlaySection = ({
     </MjmlSection>
   </MjmlWrapper>
 );
+
 const FullWidthOverlay_FullWidthImageWithOverlay = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -216,11 +229,14 @@ const FullWidthOverlay_FullWidthImageWithOverlay = ({
     </MjmlBody>
   </Mjml>
 );
+
 FullWidthOverlay_FullWidthImageWithOverlay.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthOverlay_FullWidthImageWithOverlayProps;
+
 const __FullWidthOverlay = FullWidthOverlay_FullWidthImageWithOverlay;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -228,6 +244,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface FullWidthImageProps {
   theme?: Parameters<typeof __FullWidthImage>[0]["theme"];
   image?: GalleryImage;
@@ -235,6 +252,7 @@ export interface FullWidthImageProps {
   frame?: "none" | "top" | "right" | "bottom" | "left" | "sides";
   frameStyle?: "padding" | "split" | "alternate";
 }
+
 const fullWidthVariant = ({
   frame,
   frameStyle,
@@ -250,6 +268,7 @@ const fullWidthVariant = ({
   }
   return `${frame}-${frameStyle === "alternate" ? "alt" : "padding"}` as const;
 };
+
 export const FullWidthImage = ({
   theme,
   image,
@@ -275,6 +294,7 @@ export const FullWidthImage = ({
     />
   );
 };
+
 FullWidthImage.PreviewProps = {
   frame: "none",
   frameStyle: "padding",

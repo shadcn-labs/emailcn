@@ -14,8 +14,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CTAEmailShell = ({
   children,
   pageBackgroundColor,
@@ -40,6 +42,7 @@ const CTAEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const CTACopy = ({
   align = "center",
   ctaHref,
@@ -127,7 +130,9 @@ const CTACopy = ({
     ) : null}
   </>
 );
+
 type BackgroundCta_CTAWithBackgroundImageVariant = "flush" | "boxed" | "padded";
+
 interface BackgroundCta_CTAWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -149,6 +154,7 @@ interface BackgroundCta_CTAWithBackgroundImageProps {
   secondaryButtonBorderColor?: string;
   variant?: BackgroundCta_CTAWithBackgroundImageVariant;
 }
+
 const BackgroundCta_variantContent = {
   boxed: {
     backgroundSrc:
@@ -181,6 +187,7 @@ const BackgroundCta_variantContent = {
       "Experience paradise your way, crystal waters, white sands, and unforgettable moments.",
   },
 } as const;
+
 const BackgroundCta_CTAWithBackgroundImageSection = ({
   backgroundSrc,
   ctaHref = "https://example.com/",
@@ -236,6 +243,7 @@ const BackgroundCta_CTAWithBackgroundImageSection = ({
     </MjmlSection>
   );
 };
+
 const BackgroundCta_CTAWithBackgroundImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -249,16 +257,20 @@ const BackgroundCta_CTAWithBackgroundImage = ({
     <BackgroundCta_CTAWithBackgroundImageSection {...props} />
   </CTAEmailShell>
 );
+
 BackgroundCta_CTAWithBackgroundImage.PreviewProps = {
   theme: defaultTheme,
   variant: "flush",
 } satisfies BackgroundCta_CTAWithBackgroundImageProps;
+
 const __BackgroundCta = BackgroundCta_CTAWithBackgroundImage;
+
 type BoxedBackgroundCta_BoxedCTAWithBackgroundImageVariant =
   | "flush-light"
   | "padded-light"
   | "flush-dark"
   | "padded-dark";
+
 interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -275,6 +287,7 @@ interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
   buttonTextColor?: string;
   variant?: BoxedBackgroundCta_BoxedCTAWithBackgroundImageVariant;
 }
+
 const BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection = ({
   backgroundImageSrc = "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-glow.png",
   buttonBackgroundColor = "#4f46e5",
@@ -315,6 +328,7 @@ const BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection = ({
     </MjmlSection>
   );
 };
+
 const BoxedBackgroundCta_BoxedCTAWithBackgroundImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -328,11 +342,14 @@ const BoxedBackgroundCta_BoxedCTAWithBackgroundImage = ({
     <BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection {...props} />
   </CTAEmailShell>
 );
+
 BoxedBackgroundCta_BoxedCTAWithBackgroundImage.PreviewProps = {
   theme: defaultTheme,
   variant: "flush-light",
 } satisfies BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps;
+
 const __BoxedBackgroundCta = BoxedBackgroundCta_BoxedCTAWithBackgroundImage;
+
 export interface BackgroundCallToActionProps {
   theme?: Parameters<typeof __BackgroundCta>[0]["theme"];
   heading?: string;
@@ -350,6 +367,7 @@ export interface BackgroundCallToActionProps {
   contentCard?: boolean;
   appearance?: "light" | "dark";
 }
+
 export const BackgroundCallToAction = ({
   theme,
   heading,
@@ -390,6 +408,7 @@ export const BackgroundCallToAction = ({
       />
     );
   })();
+
 BackgroundCallToAction.PreviewProps = {
   appearance: "light",
   contentCard: false,

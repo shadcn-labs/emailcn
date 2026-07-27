@@ -16,27 +16,32 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type ProgressBarContentVariant =
   | "minimal"
   | "with-title"
   | "with-text"
   | "text-top";
+
 type ProgressBarPaddedVariant =
   | ProgressBarContentVariant
   | "minimal-padded"
   | "with-title-padded"
   | "with-text-padded"
   | "text-top-padded";
+
 type ProgressBarColumnsVariant = Exclude<
   ProgressBarPaddedVariant,
   "minimal" | "minimal-padded"
 >;
+
 interface ProgressBarItem {
   color?: string;
   description?: string;
   title: string;
   value: number;
 }
+
 const colors = {
   canvas: "#f1f5f9",
   dark: "#030712",
@@ -45,24 +50,31 @@ const colors = {
   surface: "#fffffe",
   track: "#f3f4f6",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const tableStyle: CSSProperties = {
   borderCollapse: "separate",
   borderSpacing: 0,
   width: "100%",
 };
+
 const textBase: CSSProperties = {
   fontFamily,
   margin: 0,
 };
+
 const clamp = (value: number) => Math.min(100, Math.max(0, value));
+
 const getContentVariant = (
   variant: ProgressBarPaddedVariant
 ): ProgressBarContentVariant =>
   variant.replace("-padded", "") as ProgressBarContentVariant;
+
 const isPaddedVariant = (variant: ProgressBarPaddedVariant) =>
   variant.endsWith("-padded");
+
 const Spacer = ({ height }: { height: number }) => (
   <Section
     style={{
@@ -74,6 +86,7 @@ const Spacer = ({ height }: { height: number }) => (
     &zwj;
   </Section>
 );
+
 const Description = ({
   children,
   marginBottom = 0,
@@ -96,6 +109,7 @@ const Description = ({
     {children}
   </Text>
 );
+
 const ProgressTrack = ({
   color = "#2dd4bf",
   value,
@@ -161,6 +175,7 @@ const ProgressTrack = ({
     </Section>
   );
 };
+
 const ItemContent = ({
   item,
   variant,
@@ -180,6 +195,7 @@ const ItemContent = ({
     ) : null}
   </>
 );
+
 const FullWidthProgressContent = ({
   description,
   title,
@@ -202,6 +218,7 @@ const FullWidthProgressContent = ({
     )}
   </>
 );
+
 const ProgressBarColumnsContent = ({
   items,
   variant,
@@ -235,6 +252,7 @@ const ProgressBarColumnsContent = ({
     </Section>
   );
 };
+
 const GroupHeading = ({ children }: { children: ReactNode }) => (
   <Heading
     style={{
@@ -250,6 +268,7 @@ const GroupHeading = ({ children }: { children: ReactNode }) => (
     {children}
   </Heading>
 );
+
 const GroupItem = ({ item }: { item: ProgressBarItem }) => (
   <>
     <Heading
@@ -268,6 +287,7 @@ const GroupItem = ({ item }: { item: ProgressBarItem }) => (
     <ProgressTrack color={item.color} value={item.value} />
   </>
 );
+
 const ProgressBarGroupContent = ({
   description,
   items,
@@ -300,6 +320,7 @@ const ProgressBarGroupContent = ({
     </>
   );
 };
+
 const ProgressEmailShell = ({
   children,
   horizontalPadding,
@@ -375,6 +396,7 @@ const ProgressEmailShell = ({
     </Tailwind>
   </Html>
 );
+
 interface ProgressFull_FullWidthProgressBarProps {
   description?: string;
   theme?: TailwindConfig;
@@ -382,8 +404,10 @@ interface ProgressFull_FullWidthProgressBarProps {
   value?: number;
   variant?: ProgressBarContentVariant;
 }
+
 const ProgressFull_defaultDescription =
   "Automate your workflows across tools with no code required. From CRM syncs to AI-powered triggers, FlowSync keeps your operations moving seamlessly.";
+
 const ProgressFull_FullWidthProgressBarSection = ({
   description = ProgressFull_defaultDescription,
   title = "FlowSync",
@@ -397,6 +421,7 @@ const ProgressFull_FullWidthProgressBarSection = ({
     variant={variant}
   />
 );
+
 const ProgressFull_FullWidthProgressBar = ({
   description = ProgressFull_defaultDescription,
   theme = defaultTheme,
@@ -418,13 +443,16 @@ const ProgressFull_FullWidthProgressBar = ({
     />
   </ProgressEmailShell>
 );
+
 ProgressFull_FullWidthProgressBar.PreviewProps = {
   description: ProgressFull_defaultDescription,
   theme: defaultTheme,
   title: "FlowSync",
   variant: "text-top",
 } satisfies ProgressFull_FullWidthProgressBarProps;
+
 const __ProgressFull = ProgressFull_FullWidthProgressBar;
+
 interface ProgressGroup_ProgressBarGroupProps {
   description?: string;
   items?: readonly ProgressBarItem[];
@@ -432,13 +460,16 @@ interface ProgressGroup_ProgressBarGroupProps {
   title?: string;
   variant?: ProgressBarPaddedVariant;
 }
+
 const ProgressGroup_defaultDescription =
   "Automate your workflows across tools with no code required. From CRM syncs to AI-powered triggers, FlowSync keeps your operations moving seamlessly.";
+
 const ProgressGroup_defaultItems = [
   { color: "#2dd4bf", title: "Ease of use", value: 75 },
   { color: "#fda4af", title: "Cost", value: 50 },
   { color: "#818cf8", title: "Integrations", value: 80 },
 ] as const satisfies readonly ProgressBarItem[];
+
 const ProgressGroup_ProgressBarGroupSection = ({
   description = ProgressGroup_defaultDescription,
   items = ProgressGroup_defaultItems,
@@ -452,6 +483,7 @@ const ProgressGroup_ProgressBarGroupSection = ({
     variant={variant}
   />
 );
+
 const ProgressGroup_ProgressBarGroup = ({
   description = ProgressGroup_defaultDescription,
   items = ProgressGroup_defaultItems,
@@ -473,6 +505,7 @@ const ProgressGroup_ProgressBarGroup = ({
     />
   </ProgressEmailShell>
 );
+
 ProgressGroup_ProgressBarGroup.PreviewProps = {
   description: ProgressGroup_defaultDescription,
   items: ProgressGroup_defaultItems,
@@ -480,16 +513,21 @@ ProgressGroup_ProgressBarGroup.PreviewProps = {
   title: "FlowSync",
   variant: "text-top",
 } satisfies ProgressGroup_ProgressBarGroupProps;
+
 const __ProgressGroup = ProgressGroup_ProgressBarGroup;
+
 interface ProgressColumns_ProgressBarColumnsProps {
   items?: readonly [ProgressBarItem, ProgressBarItem];
   theme?: TailwindConfig;
   variant?: ProgressBarColumnsVariant;
 }
+
 const ProgressColumns_flowSyncDescription =
   "Automate your workflows across tools with no code required. From CRM syncs to AI-powered triggers, FlowSync keeps your operations moving seamlessly.";
+
 const ProgressColumns_insightDescription =
   "Turn raw data into instant clarity. InsightIQ combines analytics, AI summaries, and interactive reporting to help teams make better decisions faster.";
+
 const ProgressColumns_getDefaultItems = (
   variant: ProgressBarColumnsVariant
 ): readonly [ProgressBarItem, ProgressBarItem] => {
@@ -511,6 +549,7 @@ const ProgressColumns_getDefaultItems = (
     },
   ];
 };
+
 const ProgressColumns_ProgressBarColumnsSection = ({
   items,
   variant = "with-text",
@@ -520,6 +559,7 @@ const ProgressColumns_ProgressBarColumnsSection = ({
     variant={variant}
   />
 );
+
 const ProgressColumns_ProgressBarColumns = ({
   items,
   theme = defaultTheme,
@@ -537,17 +577,21 @@ const ProgressColumns_ProgressBarColumns = ({
     />
   </ProgressEmailShell>
 );
+
 ProgressColumns_ProgressBarColumns.PreviewProps = {
   theme: defaultTheme,
   variant: "with-text",
 } satisfies ProgressColumns_ProgressBarColumnsProps;
+
 const __ProgressColumns = ProgressColumns_ProgressBarColumns;
+
 export interface ProgressItem {
   title?: string;
   description?: string;
   value: number;
   color?: string;
 }
+
 export interface ProgressProps {
   theme?: Parameters<typeof __ProgressFull>[0]["theme"];
   items?: ProgressItem[];
@@ -555,6 +599,7 @@ export interface ProgressProps {
   padding?: "none" | "padded";
   content?: "minimal" | "title" | "description" | "text-top";
 }
+
 const progressVariant = ({
   content,
   padding,
@@ -567,6 +612,7 @@ const progressVariant = ({
   }[content];
   return `${base}${padding === "padded" ? "-padded" : ""}`;
 };
+
 export const Progress = ({
   theme,
   items,
@@ -618,6 +664,7 @@ export const Progress = ({
     />
   );
 };
+
 Progress.PreviewProps = {
   content: "minimal",
   layout: "single",

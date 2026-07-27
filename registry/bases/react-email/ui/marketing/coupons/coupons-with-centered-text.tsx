@@ -18,11 +18,13 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 export type CouponsWithCenteredTextVariant =
   | "impact"
   | "inline"
   | "impact-alt"
   | "impact-background";
+
 export interface CouponsWithCenteredTextProps {
   theme?: TailwindConfig;
   overline?: string;
@@ -43,8 +45,10 @@ export interface CouponsWithCenteredTextProps {
   buttonColor?: string;
   variant?: CouponsWithCenteredTextVariant;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
     .coupon-centered-description { padding-left: 24px !important; padding-right: 24px !important; }
@@ -53,6 +57,7 @@ const responsiveStyles = `
     .coupon-centered-code { margin-top: 16px !important; }
   }
 `;
+
 const defaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
@@ -74,8 +79,11 @@ const defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type SectionProps = Omit<CouponsWithCenteredTextProps, "theme">;
+
 type ResolvedProps = typeof defaults & SectionProps;
+
 const Overline = ({
   light,
   props,
@@ -104,6 +112,7 @@ const Overline = ({
     )}
   </Text>
 );
+
 const ImpactHeading = ({
   alt,
   light,
@@ -135,6 +144,7 @@ const ImpactHeading = ({
     )}
   </Heading>
 );
+
 const Description = ({
   light,
   props,
@@ -168,6 +178,7 @@ const Description = ({
     </Fragment>
   </Section>
 );
+
 const CodeBox = ({ props }: { props: ResolvedProps }) => (
   <Section
     align="center"
@@ -193,6 +204,7 @@ const CodeBox = ({ props }: { props: ResolvedProps }) => (
     </Fragment>
   </Section>
 );
+
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
   <Section style={{ textAlign: "center" }}>
     <Link
@@ -226,6 +238,7 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
     </Link>
   </Section>
 );
+
 export const CouponsWithCenteredTextSection = (props: SectionProps) => {
   const variant = props.variant ?? "impact";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -319,6 +332,7 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
     </Section>
   );
 };
+
 export const CouponsWithCenteredText = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -348,6 +362,7 @@ export const CouponsWithCenteredText = ({
     </Tailwind>
   </Html>
 );
+
 CouponsWithCenteredText.PreviewProps = {
   theme: defaultTheme,
   variant: "impact",

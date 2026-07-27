@@ -15,7 +15,9 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 export type PaymentTimelineVariant = "3-steps" | "4-steps";
+
 export interface PaymentTimelineProps {
   theme?: TailwindConfig;
   variant?: PaymentTimelineVariant;
@@ -25,8 +27,10 @@ export interface PaymentTimelineProps {
   thirdDate?: string;
   fourthDate?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = `
   .payment-timeline-mobile { display: none; }
   @media only screen and (max-width: 430px) {
@@ -34,10 +38,12 @@ const responsiveStyles = `
     .payment-timeline-mobile { display: block !important; }
   }
 `;
+
 const textStyle = {
   fontFamily,
   margin: 0,
 } as const;
+
 const getDateAlignment = (
   index: number,
   length: number
@@ -47,6 +53,7 @@ const getDateAlignment = (
   }
   return index === length - 1 ? "right" : "center";
 };
+
 const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
   <Section
     style={{
@@ -71,6 +78,7 @@ const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
     )}
   </Section>
 );
+
 export const PaymentTimelineSection = ({
   amount = "$9.99",
   firstDate = "Paid: 17/11",
@@ -276,6 +284,7 @@ export const PaymentTimelineSection = ({
     </>
   );
 };
+
 export const PaymentTimeline = ({
   theme = defaultTheme,
   ...props
@@ -292,6 +301,7 @@ export const PaymentTimeline = ({
     </Tailwind>
   </Html>
 );
+
 PaymentTimeline.PreviewProps = {
   theme: defaultTheme,
   variant: "3-steps",

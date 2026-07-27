@@ -17,11 +17,13 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-left"
   | "stacked-right"
   | "stacked-left-overlay"
   | "stacked-right-overlay";
+
 interface TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps {
   theme?: EmailThemeTokens;
   imageSrc1?: string;
@@ -45,8 +47,10 @@ interface TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps {
   textColor?: string;
   variant?: TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant;
 }
+
 const TwoColumnMasonryThree_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TwoColumnMasonryThree_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .masonry-three-stack {
@@ -67,6 +71,7 @@ const TwoColumnMasonryThree_responsiveStyles = `
       }
     }
   `;
+
 const TwoColumnMasonryThree_defaultSectionStyles = {
   backgroundColor: "#fffffe",
   heading1: "White Glass",
@@ -91,13 +96,16 @@ const TwoColumnMasonryThree_defaultSectionStyles = {
   subtext3: "Insulated Steel",
   textColor: "#fffffe",
 };
+
 type TwoColumnMasonryThree_SectionProps = Omit<
   TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps,
   "theme"
 >;
+
 type TwoColumnMasonryThree_ResolvedProps =
   typeof TwoColumnMasonryThree_defaultSectionStyles &
     TwoColumnMasonryThree_SectionProps;
+
 const TwoColumnMasonryThree_OverlayCard = ({
   heading,
   headingColor,
@@ -175,6 +183,7 @@ const TwoColumnMasonryThree_OverlayCard = ({
     </Section>
   </Section>
 );
+
 const TwoColumnMasonryThree_PlainImage = ({
   alt,
   href,
@@ -197,6 +206,7 @@ const TwoColumnMasonryThree_PlainImage = ({
     />
   </Link>
 );
+
 const TwoColumnMasonryThree_StackedColumn = ({
   overlay,
   props,
@@ -238,6 +248,7 @@ const TwoColumnMasonryThree_StackedColumn = ({
     )}
   </>
 );
+
 const TwoColumnMasonryThree_PortraitColumn = ({
   overlay,
   props,
@@ -261,6 +272,7 @@ const TwoColumnMasonryThree_PortraitColumn = ({
       src={props.imageSrc3}
     />
   );
+
 const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesSection = (
   props: TwoColumnMasonryThree_SectionProps
 ) => {
@@ -327,6 +339,7 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesSection = (
     </Section>
   );
 };
+
 const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -366,12 +379,15 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images = ({
     </Body>
   </Html>
 );
+
 TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps;
+
 const __TwoColumnMasonryThree =
   TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images;
+
 type TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant =
   | "stacked-left"
   | "stacked-right"
@@ -381,6 +397,7 @@ type TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant =
   | "stacked-right-overlay"
   | "stacked-left-overlay-reverse"
   | "stacked-right-overlay-reverse";
+
 interface TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps {
   theme?: EmailThemeTokens;
   featureImageSrc?: string;
@@ -409,8 +426,10 @@ interface TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps {
   textColor?: string;
   variant?: TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant;
 }
+
 const TwoColumnMasonryFour_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TwoColumnMasonryFour_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .masonry-four-stack {
@@ -441,6 +460,7 @@ const TwoColumnMasonryFour_responsiveStyles = `
       }
     }
   `;
+
 const TwoColumnMasonryFour_defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Nemora",
@@ -471,12 +491,15 @@ const TwoColumnMasonryFour_defaults = {
   portraitSubtext: "T-shirts and sweats",
   textColor: "#fffffe",
 };
+
 type TwoColumnMasonryFour_SectionProps = Omit<
   TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps,
   "theme"
 >;
+
 type TwoColumnMasonryFour_ResolvedProps = typeof TwoColumnMasonryFour_defaults &
   TwoColumnMasonryFour_SectionProps;
+
 const TwoColumnMasonryFour_PlainImage = ({
   alt,
   href,
@@ -501,6 +524,7 @@ const TwoColumnMasonryFour_PlainImage = ({
     />
   </Link>
 );
+
 const TwoColumnMasonryFour_OverlayCard = ({
   feature = false,
   heading,
@@ -586,6 +610,7 @@ const TwoColumnMasonryFour_OverlayCard = ({
     </Section>
   );
 };
+
 const TwoColumnMasonryFour_FeatureRow = ({
   overlay,
   props,
@@ -621,6 +646,7 @@ const TwoColumnMasonryFour_FeatureRow = ({
     </Fragment>
   </Section>
 );
+
 const TwoColumnMasonryFour_LandscapeStack = ({
   overlay,
   props,
@@ -664,6 +690,7 @@ const TwoColumnMasonryFour_LandscapeStack = ({
     )}
   </>
 );
+
 const TwoColumnMasonryFour_PortraitCard = ({
   overlay,
   props,
@@ -688,6 +715,7 @@ const TwoColumnMasonryFour_PortraitCard = ({
       width={264}
     />
   );
+
 const TwoColumnMasonryFour_MasonryRow = ({
   overlay,
   props,
@@ -732,6 +760,7 @@ const TwoColumnMasonryFour_MasonryRow = ({
     </Section>
   );
 };
+
 const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesSection = (
   props: TwoColumnMasonryFour_SectionProps
 ) => {
@@ -780,6 +809,7 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesSection = (
     </Section>
   );
 };
+
 const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -819,17 +849,21 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images = ({
     </Body>
   </Html>
 );
+
 TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps;
+
 const __TwoColumnMasonryFour =
   TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images;
+
 type ThreeColumnMasonry_ThreeColumnsMasonryImageGridVariant =
   | "stacked-left"
   | "stacked-right"
   | "stacked-left-overlay"
   | "stacked-right-overlay";
+
 interface ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps {
   theme?: EmailThemeTokens;
   stackImageSrc1?: string;
@@ -853,8 +887,10 @@ interface ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps {
   textColor?: string;
   variant?: ThreeColumnMasonry_ThreeColumnsMasonryImageGridVariant;
 }
+
 const ThreeColumnMasonry_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const ThreeColumnMasonry_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .three-masonry-stack {
@@ -881,6 +917,7 @@ const ThreeColumnMasonry_responsiveStyles = `
       }
     }
   `;
+
 const ThreeColumnMasonry_defaults = {
   backgroundColor: "#fffffe",
   headingColor: "#fffffe",
@@ -905,12 +942,15 @@ const ThreeColumnMasonry_defaults = {
     "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry.jpg",
   wideSubtext: "Premium Cuts / Seasonal Fish",
 };
+
 type ThreeColumnMasonry_SectionProps = Omit<
   ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps,
   "theme"
 >;
+
 type ThreeColumnMasonry_ResolvedProps = typeof ThreeColumnMasonry_defaults &
   ThreeColumnMasonry_SectionProps;
+
 const ThreeColumnMasonry_PlainImage = ({
   alt,
   href,
@@ -935,6 +975,7 @@ const ThreeColumnMasonry_PlainImage = ({
     />
   </Link>
 );
+
 const ThreeColumnMasonry_OverlayCard = ({
   heading,
   headingColor,
@@ -1010,6 +1051,7 @@ const ThreeColumnMasonry_OverlayCard = ({
     </Section>
   </Section>
 );
+
 const ThreeColumnMasonry_StackedColumn = ({
   overlay,
   props,
@@ -1055,6 +1097,7 @@ const ThreeColumnMasonry_StackedColumn = ({
     )}
   </>
 );
+
 const ThreeColumnMasonry_WideColumn = ({
   overlay,
   props,
@@ -1079,6 +1122,7 @@ const ThreeColumnMasonry_WideColumn = ({
       width={360}
     />
   );
+
 const ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection = (
   props: ThreeColumnMasonry_SectionProps
 ) => {
@@ -1151,6 +1195,7 @@ const ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection = (
     </Section>
   );
 };
+
 const ThreeColumnMasonry_ThreeColumnsMasonryImageGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -1190,11 +1235,14 @@ const ThreeColumnMasonry_ThreeColumnsMasonryImageGrid = ({
     </Body>
   </Html>
 );
+
 ThreeColumnMasonry_ThreeColumnsMasonryImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps;
+
 const __ThreeColumnMasonry = ThreeColumnMasonry_ThreeColumnsMasonryImageGrid;
+
 type ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureVariant =
     | "stacked-left"
     | "stacked-right"
@@ -1204,6 +1252,7 @@ type ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureV
     | "stacked-right-overlay"
     | "stacked-left-overlay-reverse"
     | "stacked-right-overlay-reverse";
+
 interface ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps {
   theme?: EmailThemeTokens;
   featureImageSrc?: string;
@@ -1232,8 +1281,10 @@ interface ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFea
   textColor?: string;
   variant?: ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureVariant;
 }
+
 const ThreeColumnMasonryFeature_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const ThreeColumnMasonryFeature_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .three-masonry-feature-stack {
@@ -1264,6 +1315,7 @@ const ThreeColumnMasonryFeature_responsiveStyles = `
       }
     }
   `;
+
 const ThreeColumnMasonryFeature_defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Slope Lines",
@@ -1294,13 +1346,16 @@ const ThreeColumnMasonryFeature_defaults = {
     "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-2.jpg",
   wideSubtext: "Monochrome Geometric Pattern",
 };
+
 type ThreeColumnMasonryFeature_SectionProps = Omit<
   ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps,
   "theme"
 >;
+
 type ThreeColumnMasonryFeature_ResolvedProps =
   typeof ThreeColumnMasonryFeature_defaults &
     ThreeColumnMasonryFeature_SectionProps;
+
 const ThreeColumnMasonryFeature_PlainImage = ({
   alt,
   href,
@@ -1325,6 +1380,7 @@ const ThreeColumnMasonryFeature_PlainImage = ({
     />
   </Link>
 );
+
 const ThreeColumnMasonryFeature_OverlayCard = ({
   feature = false,
   heading,
@@ -1410,6 +1466,7 @@ const ThreeColumnMasonryFeature_OverlayCard = ({
     </Section>
   </Section>
 );
+
 const ThreeColumnMasonryFeature_FeatureRow = ({
   overlay,
   props,
@@ -1446,6 +1503,7 @@ const ThreeColumnMasonryFeature_FeatureRow = ({
     </Fragment>
   </Section>
 );
+
 const ThreeColumnMasonryFeature_StackedColumn = ({
   overlay,
   props,
@@ -1491,6 +1549,7 @@ const ThreeColumnMasonryFeature_StackedColumn = ({
     )}
   </>
 );
+
 const ThreeColumnMasonryFeature_WideColumn = ({
   overlay,
   props,
@@ -1515,6 +1574,7 @@ const ThreeColumnMasonryFeature_WideColumn = ({
       width={360}
     />
   );
+
 const ThreeColumnMasonryFeature_MasonryRow = ({
   equalColumns,
   overlay,
@@ -1569,6 +1629,7 @@ const ThreeColumnMasonryFeature_MasonryRow = ({
     </Section>
   );
 };
+
 const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureSection =
   (props: ThreeColumnMasonryFeature_SectionProps) => {
     const variant = props.variant ?? "stacked-left";
@@ -1621,6 +1682,7 @@ const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature
       </Section>
     );
   };
+
 const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature =
   ({
     pageBackgroundColor = "#f1f5f9",
@@ -1663,13 +1725,16 @@ const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature
       </Body>
     </Html>
   );
+
 ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature.PreviewProps =
   {
     theme: defaultTheme,
     variant: "stacked-left",
   } satisfies ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps;
+
 const __ThreeColumnMasonryFeature =
   ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -1677,6 +1742,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface MasonryImageGridProps {
   theme?: Parameters<typeof __TwoColumnMasonryThree>[0]["theme"];
   images?: GalleryImage[];
@@ -1686,6 +1752,7 @@ export interface MasonryImageGridProps {
   reverse?: boolean;
   overlay?: boolean;
 }
+
 const masonryImageGridItem = (image: GalleryImage | undefined) => ({
   alt: image?.alt,
   heading: image?.heading,
@@ -1693,6 +1760,7 @@ const masonryImageGridItem = (image: GalleryImage | undefined) => ({
   src: image?.src,
   subtext: image?.subtext,
 });
+
 export const MasonryImageGrid = ({
   theme,
   images,
@@ -1823,6 +1891,7 @@ export const MasonryImageGrid = ({
     />
   );
 };
+
 MasonryImageGrid.PreviewProps = {
   columns: 2,
   overlay: false,

@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -25,8 +26,10 @@ const colors = {
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 type BlogLayout =
   | "featured"
   | "featured-date"
@@ -41,6 +44,7 @@ type BlogLayout =
   | "two-column-boxed"
   | "two-column-images"
   | "two-column-images-text";
+
 interface BlogPostData {
   author?: string;
   badge?: string;
@@ -55,6 +59,7 @@ interface BlogPostData {
   month?: string;
   title: string;
 }
+
 const Image = ({
   alt,
   src,
@@ -72,6 +77,7 @@ const Image = ({
     width={`${width}px`}
   />
 );
+
 const Meta = ({
   boxed = false,
   post,
@@ -103,6 +109,7 @@ const Meta = ({
     return null;
   })();
 };
+
 const Copy = ({
   boxed = false,
   post,
@@ -162,6 +169,7 @@ const Copy = ({
     </>
   );
 };
+
 const VerticalCard = ({
   boxed = false,
   post,
@@ -177,6 +185,7 @@ const VerticalCard = ({
     <Copy boxed={boxed} post={post} />
   </>
 );
+
 const TwoColumns = ({
   boxed,
   posts,
@@ -200,6 +209,7 @@ const TwoColumns = ({
     ))}
   </MjmlSection>
 );
+
 const Masonry = ({
   boxed,
   posts,
@@ -228,6 +238,7 @@ const Masonry = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const Horizontal = ({
   boxed = false,
   post,
@@ -249,6 +260,7 @@ const Horizontal = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SplitImages = ({ post }: { post: BlogPostData }) => (
   <MjmlSection
     backgroundColor={colors.surfaceMuted}
@@ -271,6 +283,7 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const FullWidth = ({ post }: { post: BlogPostData }) => (
   <MjmlSection padding="0">
     <MjmlColumn padding="0">
@@ -280,6 +293,7 @@ const FullWidth = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const BlogContent = ({
   layout,
   posts,
@@ -312,6 +326,7 @@ const BlogContent = ({
   }
   return <FullWidth post={posts[0]} />;
 };
+
 const BlogEmailShell = ({
   children,
   preview,
@@ -333,6 +348,7 @@ const BlogEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 interface Featured_FeaturedBlogPostProps {
   theme?: EmailThemeTokens;
   author?: string;
@@ -342,6 +358,7 @@ interface Featured_FeaturedBlogPostProps {
   imageSrc?: string;
   title?: string;
 }
+
 const Featured_FeaturedBlogPostSection = ({
   author = "John Doe",
   badge = "Featured",
@@ -366,6 +383,7 @@ const Featured_FeaturedBlogPostSection = ({
     </>
   );
 };
+
 const Featured_FeaturedBlogPost = ({
   theme = defaultTheme,
   author = "John Doe",
@@ -386,6 +404,7 @@ const Featured_FeaturedBlogPost = ({
     />
   </BlogEmailShell>
 );
+
 Featured_FeaturedBlogPost.PreviewProps = {
   author: "John Doe",
   badge: "Featured",
@@ -396,7 +415,9 @@ Featured_FeaturedBlogPost.PreviewProps = {
   theme: defaultTheme,
   title: "Featured article",
 } satisfies Featured_FeaturedBlogPostProps;
+
 const __Featured = Featured_FeaturedBlogPost;
+
 interface FeaturedDate_FeaturedPostWithLargeDateProps {
   theme?: EmailThemeTokens;
   date?: string;
@@ -406,6 +427,7 @@ interface FeaturedDate_FeaturedPostWithLargeDateProps {
   month?: string;
   title?: string;
 }
+
 const FeaturedDate_FeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
@@ -430,6 +452,7 @@ const FeaturedDate_FeaturedPostWithLargeDateSection = ({
     </>
   );
 };
+
 const FeaturedDate_FeaturedPostWithLargeDate = ({
   theme = defaultTheme,
   date = "15",
@@ -450,6 +473,7 @@ const FeaturedDate_FeaturedPostWithLargeDate = ({
     />
   </BlogEmailShell>
 );
+
 FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "A compelling excerpt from the featured article.",
@@ -460,7 +484,9 @@ FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
   theme: defaultTheme,
   title: "Featured article",
 } satisfies FeaturedDate_FeaturedPostWithLargeDateProps;
+
 const __FeaturedDate = FeaturedDate_FeaturedPostWithLargeDate;
+
 interface FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps {
   theme?: EmailThemeTokens;
   date?: string;
@@ -470,6 +496,7 @@ interface FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps {
   month?: string;
   title?: string;
 }
+
 const FeaturedDateFull_FullWidthFeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
@@ -494,6 +521,7 @@ const FeaturedDateFull_FullWidthFeaturedPostWithLargeDateSection = ({
     </>
   );
 };
+
 const FeaturedDateFull_FullWidthFeaturedPostWithLargeDate = ({
   theme = defaultTheme,
   date = "15",
@@ -514,6 +542,7 @@ const FeaturedDateFull_FullWidthFeaturedPostWithLargeDate = ({
     />
   </BlogEmailShell>
 );
+
 FeaturedDateFull_FullWidthFeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "A compelling excerpt from the featured article.",
@@ -524,7 +553,9 @@ FeaturedDateFull_FullWidthFeaturedPostWithLargeDate.PreviewProps = {
   theme: defaultTheme,
   title: "Featured article",
 } satisfies FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps;
+
 const __FeaturedDateFull = FeaturedDateFull_FullWidthFeaturedPostWithLargeDate;
+
 export interface BlogPost {
   title: string;
   excerpt?: string;
@@ -539,12 +570,14 @@ export interface BlogPost {
   episode?: string;
   host?: string;
 }
+
 export interface FeaturedBlogPostProps {
   theme?: Parameters<typeof __Featured>[0]["theme"];
   post?: BlogPost;
   width?: "contained" | "full";
   dateStyle?: "none" | "large";
 }
+
 const toFeaturedProps = (post: BlogPost | undefined) =>
   post
     ? {
@@ -558,6 +591,7 @@ const toFeaturedProps = (post: BlogPost | undefined) =>
         title: post.title,
       }
     : {};
+
 export const FeaturedBlogPost = ({
   theme,
   post,
@@ -574,6 +608,7 @@ export const FeaturedBlogPost = ({
   }
   return <__Featured {...props} />;
 };
+
 FeaturedBlogPost.PreviewProps = {
   dateStyle: "none",
   width: "contained",

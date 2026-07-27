@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -25,8 +26,10 @@ const colors = {
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 type BlogLayout =
   | "featured"
   | "featured-date"
@@ -41,6 +44,7 @@ type BlogLayout =
   | "two-column-boxed"
   | "two-column-images"
   | "two-column-images-text";
+
 interface BlogPostData {
   author?: string;
   badge?: string;
@@ -55,6 +59,7 @@ interface BlogPostData {
   month?: string;
   title: string;
 }
+
 const Image = ({
   alt,
   src,
@@ -72,6 +77,7 @@ const Image = ({
     width={`${width}px`}
   />
 );
+
 const Meta = ({
   boxed = false,
   post,
@@ -103,6 +109,7 @@ const Meta = ({
     return null;
   })();
 };
+
 const Copy = ({
   boxed = false,
   post,
@@ -162,6 +169,7 @@ const Copy = ({
     </>
   );
 };
+
 const VerticalCard = ({
   boxed = false,
   post,
@@ -177,6 +185,7 @@ const VerticalCard = ({
     <Copy boxed={boxed} post={post} />
   </>
 );
+
 const TwoColumns = ({
   boxed,
   posts,
@@ -200,6 +209,7 @@ const TwoColumns = ({
     ))}
   </MjmlSection>
 );
+
 const Masonry = ({
   boxed,
   posts,
@@ -228,6 +238,7 @@ const Masonry = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const Horizontal = ({
   boxed = false,
   post,
@@ -249,6 +260,7 @@ const Horizontal = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SplitImages = ({ post }: { post: BlogPostData }) => (
   <MjmlSection
     backgroundColor={colors.surfaceMuted}
@@ -271,6 +283,7 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const FullWidth = ({ post }: { post: BlogPostData }) => (
   <MjmlSection padding="0">
     <MjmlColumn padding="0">
@@ -280,6 +293,7 @@ const FullWidth = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const BlogContent = ({
   layout,
   posts,
@@ -312,6 +326,7 @@ const BlogContent = ({
   }
   return <FullWidth post={posts[0]} />;
 };
+
 const BlogEmailShell = ({
   children,
   preview,
@@ -333,6 +348,7 @@ const BlogEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 interface HorizontalPlain_SinglePostHorizontalProps {
   theme?: EmailThemeTokens;
   author?: string;
@@ -341,6 +357,7 @@ interface HorizontalPlain_SinglePostHorizontalProps {
   imageSrc?: string;
   title?: string;
 }
+
 const HorizontalPlain_SinglePostHorizontalSection = ({
   author = "John Doe",
   excerpt = "A concise summary of the ideas explored in this article.",
@@ -363,6 +380,7 @@ const HorizontalPlain_SinglePostHorizontalSection = ({
     </>
   );
 };
+
 const HorizontalPlain_SinglePostHorizontal = ({
   theme = defaultTheme,
   author = "John Doe",
@@ -381,6 +399,7 @@ const HorizontalPlain_SinglePostHorizontal = ({
     />
   </BlogEmailShell>
 );
+
 HorizontalPlain_SinglePostHorizontal.PreviewProps = {
   author: "John Doe",
   excerpt: "A concise summary of the ideas explored in this article.",
@@ -390,7 +409,9 @@ HorizontalPlain_SinglePostHorizontal.PreviewProps = {
   theme: defaultTheme,
   title: "A practical guide to better email",
 } satisfies HorizontalPlain_SinglePostHorizontalProps;
+
 const __HorizontalPlain = HorizontalPlain_SinglePostHorizontal;
+
 interface HorizontalBoxed_BlogPostHorizontalBoxedProps {
   theme?: EmailThemeTokens;
   excerpt?: string;
@@ -398,6 +419,7 @@ interface HorizontalBoxed_BlogPostHorizontalBoxedProps {
   imageSrc?: string;
   title?: string;
 }
+
 const HorizontalBoxed_BlogPostHorizontalBoxedSection = ({
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
@@ -418,6 +440,7 @@ const HorizontalBoxed_BlogPostHorizontalBoxedSection = ({
     </>
   );
 };
+
 const HorizontalBoxed_BlogPostHorizontalBoxed = ({
   theme = defaultTheme,
   excerpt = "A concise summary of the ideas explored in this article.",
@@ -434,6 +457,7 @@ const HorizontalBoxed_BlogPostHorizontalBoxed = ({
     />
   </BlogEmailShell>
 );
+
 HorizontalBoxed_BlogPostHorizontalBoxed.PreviewProps = {
   excerpt: "A concise summary of the ideas explored in this article.",
   imageAlt: "Mountain landscape",
@@ -442,7 +466,9 @@ HorizontalBoxed_BlogPostHorizontalBoxed.PreviewProps = {
   theme: defaultTheme,
   title: "A practical guide to better email",
 } satisfies HorizontalBoxed_BlogPostHorizontalBoxedProps;
+
 const __HorizontalBoxed = HorizontalBoxed_BlogPostHorizontalBoxed;
+
 interface HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps {
   theme?: EmailThemeTokens;
   excerpt?: string;
@@ -452,6 +478,7 @@ interface HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps {
   imageSrc2?: string;
   title?: string;
 }
+
 const HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesSection = ({
   excerpt = "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1 = "Mountain landscape",
@@ -479,6 +506,7 @@ const HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesSection = ({
     </>
   );
 };
+
 const HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages = ({
   theme = defaultTheme,
   excerpt = "A thoughtful look at the places and ideas shaping our work.",
@@ -499,6 +527,7 @@ const HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages = ({
     />
   </BlogEmailShell>
 );
+
 HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
   excerpt: "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1: "Mountain landscape",
@@ -510,8 +539,10 @@ HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
   theme: defaultTheme,
   title: "Two perspectives, one story",
 } satisfies HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps;
+
 const __HorizontalSplit =
   HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages;
+
 export interface BlogPost {
   title: string;
   excerpt?: string;
@@ -526,12 +557,14 @@ export interface BlogPost {
   episode?: string;
   host?: string;
 }
+
 export interface HorizontalBlogPostProps {
   theme?: Parameters<typeof __HorizontalPlain>[0]["theme"];
   post?: BlogPost;
   surface?: "plain" | "boxed";
   media?: "single" | "split";
 }
+
 const toHorizontalProps = (post: BlogPost | undefined) =>
   post
     ? {
@@ -546,6 +579,7 @@ const toHorizontalProps = (post: BlogPost | undefined) =>
         title: post.title,
       }
     : {};
+
 export const HorizontalBlogPost = ({
   theme,
   post,
@@ -562,6 +596,7 @@ export const HorizontalBlogPost = ({
     <__HorizontalPlain {...props} />
   );
 };
+
 HorizontalBlogPost.PreviewProps = {
   media: "single",
   surface: "plain",

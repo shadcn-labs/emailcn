@@ -17,7 +17,9 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type OrderSummaryAlignment = "left" | "right" | "centered" | "justified";
+
 type BoxedOrderSummaryVariant =
   | "left-aligned"
   | "left-filled"
@@ -27,11 +29,13 @@ type BoxedOrderSummaryVariant =
   | "centered-filled"
   | "justified"
   | "justified-filled";
+
 type BorderedOrderSummaryVariant =
   | "left-aligned"
   | "right-aligned"
   | "centered"
   | "justified";
+
 type BorderedCardOrderSummaryVariant =
   | "bottom-left"
   | "bottom-right"
@@ -41,15 +45,19 @@ type BorderedCardOrderSummaryVariant =
   | "top-right"
   | "top-centered"
   | "top-justified";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = `
   @media only screen and (max-width: 430px) {
     .order-detail-column { display: block !important; width: 100% !important; }
     .order-detail-gap { line-height: 44px !important; }
   }
 `;
+
 const textStyle = { fontFamily, margin: 0 } as const;
+
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{responsiveStyles}</style>
@@ -82,6 +90,7 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 const Divider = ({ margin = 24 }: { margin?: number }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -102,6 +111,7 @@ const Divider = ({ margin = 24 }: { margin?: number }) => (
     </Fragment>
   </Section>
 );
+
 const CardMethod = () => (
   <Section>
     <Fragment>
@@ -147,6 +157,7 @@ const CardMethod = () => (
     </Fragment>
   </Section>
 );
+
 const PaymentMethod = ({
   amount,
   centered = false,
@@ -199,6 +210,7 @@ const PaymentMethod = ({
     </Section>
   );
 };
+
 const alignmentStyles = (alignment: OrderSummaryAlignment) => {
   if (alignment === "left") {
     return {
@@ -231,6 +243,7 @@ const alignmentStyles = (alignment: OrderSummaryAlignment) => {
     labelWidth: "50%",
   };
 };
+
 const SummaryRow = ({
   amount,
   alignment,
@@ -271,6 +284,7 @@ const SummaryRow = ({
     </Row>
   );
 };
+
 const TotalRow = ({
   alignment,
   boxed,
@@ -389,6 +403,7 @@ const TotalRow = ({
     );
   })();
 };
+
 interface TableSectionProps {
   alignment: OrderSummaryAlignment;
   cardDetails?: boolean;
@@ -396,6 +411,7 @@ interface TableSectionProps {
   surface: "boxed" | "bordered";
   totalPosition: "top" | "bottom";
 }
+
 const OrderSummaryTableSection = ({
   alignment,
   cardDetails = false,
@@ -557,10 +573,12 @@ const OrderSummaryTableSection = ({
     </EmailShell>
   );
 };
+
 interface BorderedCard_BorderedOrderSummaryCardDetailsProps {
   theme?: TailwindConfig;
   variant?: BorderedCardOrderSummaryVariant;
 }
+
 const BorderedCard_getAlignment = (variant: string): OrderSummaryAlignment => {
   if (variant.includes("right")) {
     return "right";
@@ -573,6 +591,7 @@ const BorderedCard_getAlignment = (variant: string): OrderSummaryAlignment => {
   }
   return "left";
 };
+
 const BorderedCard_BorderedOrderSummaryCardDetailsSection = ({
   variant = "bottom-left",
 }: Omit<BorderedCard_BorderedOrderSummaryCardDetailsProps, "theme">) => (
@@ -584,6 +603,7 @@ const BorderedCard_BorderedOrderSummaryCardDetailsSection = ({
     totalPosition={variant.startsWith("top") ? "top" : "bottom"}
   />
 );
+
 const BorderedCard_BorderedOrderSummaryCardDetails = ({
   theme = defaultTheme,
   ...props
@@ -600,15 +620,19 @@ const BorderedCard_BorderedOrderSummaryCardDetails = ({
     </Tailwind>
   </Html>
 );
+
 BorderedCard_BorderedOrderSummaryCardDetails.PreviewProps = {
   theme: defaultTheme,
   variant: "bottom-left",
 } satisfies BorderedCard_BorderedOrderSummaryCardDetailsProps;
+
 const __BorderedCard = BorderedCard_BorderedOrderSummaryCardDetails;
+
 interface BorderedBottom_BorderedOrderSummaryTotalBottomProps {
   theme?: TailwindConfig;
   variant?: BorderedOrderSummaryVariant;
 }
+
 const BorderedBottom_getAlignment = (
   variant: string
 ): OrderSummaryAlignment => {
@@ -623,6 +647,7 @@ const BorderedBottom_getAlignment = (
   }
   return "left";
 };
+
 const BorderedBottom_BorderedOrderSummaryTotalBottomSection = ({
   variant = "left-aligned",
 }: Omit<BorderedBottom_BorderedOrderSummaryTotalBottomProps, "theme">) => (
@@ -634,6 +659,7 @@ const BorderedBottom_BorderedOrderSummaryTotalBottomSection = ({
     totalPosition={"bottom"}
   />
 );
+
 const BorderedBottom_BorderedOrderSummaryTotalBottom = ({
   theme = defaultTheme,
   ...props
@@ -650,15 +676,19 @@ const BorderedBottom_BorderedOrderSummaryTotalBottom = ({
     </Tailwind>
   </Html>
 );
+
 BorderedBottom_BorderedOrderSummaryTotalBottom.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies BorderedBottom_BorderedOrderSummaryTotalBottomProps;
+
 const __BorderedBottom = BorderedBottom_BorderedOrderSummaryTotalBottom;
+
 interface BorderedTop_BorderedOrderSummaryTotalTopProps {
   theme?: TailwindConfig;
   variant?: BorderedOrderSummaryVariant;
 }
+
 const BorderedTop_getAlignment = (variant: string): OrderSummaryAlignment => {
   if (variant.includes("right")) {
     return "right";
@@ -671,6 +701,7 @@ const BorderedTop_getAlignment = (variant: string): OrderSummaryAlignment => {
   }
   return "left";
 };
+
 const BorderedTop_BorderedOrderSummaryTotalTopSection = ({
   variant = "left-aligned",
 }: Omit<BorderedTop_BorderedOrderSummaryTotalTopProps, "theme">) => (
@@ -682,6 +713,7 @@ const BorderedTop_BorderedOrderSummaryTotalTopSection = ({
     totalPosition={"top"}
   />
 );
+
 const BorderedTop_BorderedOrderSummaryTotalTop = ({
   theme = defaultTheme,
   ...props
@@ -698,15 +730,19 @@ const BorderedTop_BorderedOrderSummaryTotalTop = ({
     </Tailwind>
   </Html>
 );
+
 BorderedTop_BorderedOrderSummaryTotalTop.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies BorderedTop_BorderedOrderSummaryTotalTopProps;
+
 const __BorderedTop = BorderedTop_BorderedOrderSummaryTotalTop;
+
 interface BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomProps {
   theme?: TailwindConfig;
   variant?: BoxedOrderSummaryVariant;
 }
+
 const BoxedCardBottom_getAlignment = (
   variant: string
 ): OrderSummaryAlignment => {
@@ -721,6 +757,7 @@ const BoxedCardBottom_getAlignment = (
   }
   return "left";
 };
+
 const BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomSection = ({
   variant = "left-aligned",
 }: Omit<
@@ -735,6 +772,7 @@ const BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomSection = ({
     totalPosition={"bottom"}
   />
 );
+
 const BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom = ({
   theme = defaultTheme,
   ...props
@@ -753,16 +791,20 @@ const BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom = ({
     </Tailwind>
   </Html>
 );
+
 BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottomProps;
+
 const __BoxedCardBottom =
   BoxedCardBottom_BoxedOrderSummaryCardDetailsTotalBottom;
+
 interface BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopProps {
   theme?: TailwindConfig;
   variant?: BoxedOrderSummaryVariant;
 }
+
 const BoxedCardTop_getAlignment = (variant: string): OrderSummaryAlignment => {
   if (variant.includes("right")) {
     return "right";
@@ -775,6 +817,7 @@ const BoxedCardTop_getAlignment = (variant: string): OrderSummaryAlignment => {
   }
   return "left";
 };
+
 const BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopSection = ({
   variant = "left-aligned",
 }: Omit<BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopProps, "theme">) => (
@@ -786,6 +829,7 @@ const BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopSection = ({
     totalPosition={"top"}
   />
 );
+
 const BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop = ({
   theme = defaultTheme,
   ...props
@@ -802,15 +846,19 @@ const BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop = ({
     </Tailwind>
   </Html>
 );
+
 BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTopProps;
+
 const __BoxedCardTop = BoxedCardTop_BoxedOrderSummaryCardDetailsTotalTop;
+
 interface BoxedBottom_BoxedOrderSummaryTotalBottomProps {
   theme?: TailwindConfig;
   variant?: BoxedOrderSummaryVariant;
 }
+
 const BoxedBottom_getAlignment = (variant: string): OrderSummaryAlignment => {
   if (variant.includes("right")) {
     return "right";
@@ -823,6 +871,7 @@ const BoxedBottom_getAlignment = (variant: string): OrderSummaryAlignment => {
   }
   return "left";
 };
+
 const BoxedBottom_BoxedOrderSummaryTotalBottomSection = ({
   variant = "left-aligned",
 }: Omit<BoxedBottom_BoxedOrderSummaryTotalBottomProps, "theme">) => (
@@ -834,6 +883,7 @@ const BoxedBottom_BoxedOrderSummaryTotalBottomSection = ({
     totalPosition={"bottom"}
   />
 );
+
 const BoxedBottom_BoxedOrderSummaryTotalBottom = ({
   theme = defaultTheme,
   ...props
@@ -850,15 +900,19 @@ const BoxedBottom_BoxedOrderSummaryTotalBottom = ({
     </Tailwind>
   </Html>
 );
+
 BoxedBottom_BoxedOrderSummaryTotalBottom.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies BoxedBottom_BoxedOrderSummaryTotalBottomProps;
+
 const __BoxedBottom = BoxedBottom_BoxedOrderSummaryTotalBottom;
+
 interface BoxedTop_BoxedOrderSummaryTotalTopProps {
   theme?: TailwindConfig;
   variant?: BoxedOrderSummaryVariant;
 }
+
 const BoxedTop_getAlignment = (variant: string): OrderSummaryAlignment => {
   if (variant.includes("right")) {
     return "right";
@@ -871,6 +925,7 @@ const BoxedTop_getAlignment = (variant: string): OrderSummaryAlignment => {
   }
   return "left";
 };
+
 const BoxedTop_BoxedOrderSummaryTotalTopSection = ({
   variant = "left-aligned",
 }: Omit<BoxedTop_BoxedOrderSummaryTotalTopProps, "theme">) => (
@@ -882,6 +937,7 @@ const BoxedTop_BoxedOrderSummaryTotalTopSection = ({
     totalPosition={"top"}
   />
 );
+
 const BoxedTop_BoxedOrderSummaryTotalTop = ({
   theme = defaultTheme,
   ...props
@@ -898,11 +954,14 @@ const BoxedTop_BoxedOrderSummaryTotalTop = ({
     </Tailwind>
   </Html>
 );
+
 BoxedTop_BoxedOrderSummaryTotalTop.PreviewProps = {
   theme: defaultTheme,
   variant: "left-aligned",
 } satisfies BoxedTop_BoxedOrderSummaryTotalTopProps;
+
 const __BoxedTop = BoxedTop_BoxedOrderSummaryTotalTop;
+
 export interface OrderSummaryTableProps {
   theme?: Parameters<typeof __BorderedBottom>[0]["theme"];
   alignment?: "left" | "center" | "right" | "justified";
@@ -911,6 +970,7 @@ export interface OrderSummaryTableProps {
   totalPosition?: "top" | "bottom";
   cardDetails?: boolean;
 }
+
 const boxedVariant = ({
   alignment,
   filled,
@@ -923,6 +983,7 @@ const boxedVariant = ({
   }
   return `${alignment}-${filled ? "filled" : "aligned"}` as const;
 };
+
 const borderedVariant = (
   alignment: NonNullable<OrderSummaryTableProps["alignment"]>
 ) => {
@@ -933,6 +994,7 @@ const borderedVariant = (
     ? "justified"
     : (`${alignment}-aligned` as const);
 };
+
 const borderedCardVariant = (
   totalPosition: NonNullable<OrderSummaryTableProps["totalPosition"]>,
   alignment: NonNullable<OrderSummaryTableProps["alignment"]>
@@ -940,6 +1002,7 @@ const borderedCardVariant = (
   const normalized = alignment === "center" ? "centered" : alignment;
   return `${totalPosition}-${normalized}` as const;
 };
+
 export const OrderSummaryTable = ({
   theme,
   alignment = "left",
@@ -970,6 +1033,7 @@ export const OrderSummaryTable = ({
   const Component = totalPosition === "top" ? __BoxedTop : __BoxedBottom;
   return <Component theme={theme} variant={variant} />;
 };
+
 OrderSummaryTable.PreviewProps = {
   alignment: "left",
   appearance: "bordered",

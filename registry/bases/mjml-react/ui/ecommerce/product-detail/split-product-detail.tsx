@@ -17,6 +17,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type SplitProductDetailVariant =
   | "stacked-left"
   | "stacked-right"
@@ -26,7 +27,9 @@ type SplitProductDetailVariant =
   | "rating-right"
   | "bleed-left"
   | "bleed-right";
+
 type ProductDetailImageLayout = "single" | "two" | "three" | "masonry";
+
 interface ProductDetailContentOverrides {
   name?: string;
   price?: string;
@@ -37,11 +40,15 @@ interface ProductDetailContentOverrides {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 const PRODUCT_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/product-detail";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const productDetailResponsiveStyles = "";
+
 const detailDefaults: Record<
   ProductDetailImageLayout,
   Required<
@@ -94,6 +101,7 @@ const detailDefaults: Record<
     sizes: ["7", "8", "9", "10", "11"],
   },
 };
+
 const resolveData = (
   layout: ProductDetailImageLayout,
   overrides: ProductDetailContentOverrides
@@ -109,6 +117,7 @@ const resolveData = (
     sizes: overrides.sizes ?? defaults.sizes,
   };
 };
+
 const ProductCopy = ({
   ctaHref,
   ctaLabel,
@@ -192,6 +201,7 @@ const ProductCopy = ({
     </MjmlButton>
   </>
 );
+
 const SplitProductDetailSection = ({
   ctaHref = "https://example.com",
   ctaLabel = "Shop now",
@@ -249,7 +259,9 @@ const SplitProductDetailSection = ({
     </MjmlSection>
   );
 };
+
 const ProductDetail_SharedSplitProductDetailSection = SplitProductDetailSection;
+
 interface ProductDetail_SplitProductDetailProps extends Omit<
   ProductDetailContentOverrides,
   "imageUrls"
@@ -260,6 +272,7 @@ interface ProductDetail_SplitProductDetailProps extends Omit<
   features?: string[];
   variant?: SplitProductDetailVariant;
 }
+
 const ProductDetail_SplitProductDetailSectionWrapper = ({
   features: _features,
   imageUrl,
@@ -273,6 +286,7 @@ const ProductDetail_SplitProductDetailSectionWrapper = ({
     variant={variant}
   />
 );
+
 const ProductDetail_SplitProductDetail = ({
   theme = defaultTheme,
   ...props
@@ -290,11 +304,14 @@ const ProductDetail_SplitProductDetail = ({
     </MjmlBody>
   </Mjml>
 );
+
 ProductDetail_SplitProductDetail.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies ProductDetail_SplitProductDetailProps;
+
 const __ProductDetail = ProductDetail_SplitProductDetail;
+
 export interface ProductDetails {
   name?: string;
   price?: string;
@@ -305,6 +322,7 @@ export interface ProductDetails {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 export interface SplitProductDetailProps {
   theme?: Parameters<typeof __ProductDetail>[0]["theme"];
   product?: ProductDetails;
@@ -315,6 +333,7 @@ export interface SplitProductDetailProps {
   treatment?: "stacked" | "side" | "rating" | "bleed";
   placement?: "left" | "right";
 }
+
 const splitVariant = (
   treatment: SplitProductDetailProps["treatment"] = "stacked",
   placement: SplitProductDetailProps["placement"] = "left"
@@ -330,6 +349,7 @@ const splitVariant = (
   }
   return `stacked-${placement}` as const;
 };
+
 export const SplitProductDetail = ({
   theme,
   product,
@@ -352,6 +372,7 @@ export const SplitProductDetail = ({
     theme={theme}
   />
 );
+
 SplitProductDetail.PreviewProps = {
   placement: "left",
   treatment: "stacked",

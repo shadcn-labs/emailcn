@@ -15,9 +15,11 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type FullWidthTestimonial_FullWidthTestimonialVariant =
   | "default"
   | "overlapping-avatar";
+
 interface FullWidthTestimonial_FullWidthTestimonialProps {
   theme?: EmailThemeTokens;
   variant?: FullWidthTestimonial_FullWidthTestimonialVariant;
@@ -30,8 +32,10 @@ interface FullWidthTestimonial_FullWidthTestimonialProps {
   backgroundColor?: string;
   cardBackgroundColor?: string;
 }
+
 const FullWidthTestimonial_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FullWidthTestimonial_FullWidthTestimonialSection = ({
   variant = "default",
   quote = "“After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.”",
@@ -148,6 +152,7 @@ const FullWidthTestimonial_FullWidthTestimonialSection = ({
     </>
   );
 };
+
 const FullWidthTestimonial_FullWidthTestimonial = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -173,12 +178,16 @@ const FullWidthTestimonial_FullWidthTestimonial = ({
     </MjmlBody>
   </Mjml>
 );
+
 FullWidthTestimonial_FullWidthTestimonial.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthTestimonial_FullWidthTestimonialProps;
+
 const __FullWidthTestimonial = FullWidthTestimonial_FullWidthTestimonial;
+
 type TestimonialCta_TestimonialWithCtaVariant = "centered" | "split";
+
 interface TestimonialCta_TestimonialWithCtaProps {
   theme?: EmailThemeTokens;
   variant?: TestimonialCta_TestimonialWithCtaVariant;
@@ -193,8 +202,10 @@ interface TestimonialCta_TestimonialWithCtaProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
+
 const TestimonialCta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TestimonialCta_TestimonialWithCtaSection = ({
   variant = "centered",
   quote,
@@ -329,6 +340,7 @@ const TestimonialCta_TestimonialWithCtaSection = ({
     </MjmlSection>
   );
 };
+
 const TestimonialCta_TestimonialWithCta = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -354,11 +366,14 @@ const TestimonialCta_TestimonialWithCta = ({
     </MjmlBody>
   </Mjml>
 );
+
 TestimonialCta_TestimonialWithCta.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies TestimonialCta_TestimonialWithCtaProps;
+
 const __TestimonialCta = TestimonialCta_TestimonialWithCta;
+
 export interface TestimonialProps {
   theme?: Parameters<typeof __FullWidthTestimonial>[0]["theme"];
   quote?: string;
@@ -380,6 +395,7 @@ export interface TestimonialProps {
     label: string;
   };
 }
+
 export const Testimonial = ({
   theme,
   quote,
@@ -422,6 +438,7 @@ export const Testimonial = ({
       />
     );
   })();
+
 Testimonial.PreviewProps = {
   avatarTreatment: "inline",
   layout: "full-width",

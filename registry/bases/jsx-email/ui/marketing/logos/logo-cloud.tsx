@@ -15,11 +15,13 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type BasicLogoCloud_BasicLogoCloudVariant =
   | "minimal"
   | "with-title"
   | "with-description"
   | "full";
+
 interface BasicLogoCloud_BasicLogoCloudProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -35,8 +37,10 @@ interface BasicLogoCloud_BasicLogoCloudProps {
   textColor?: string;
   variant?: BasicLogoCloud_BasicLogoCloudVariant;
 }
+
 const BasicLogoCloud_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BasicLogoCloud_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .basic-logo-item {
@@ -50,6 +54,7 @@ const BasicLogoCloud_responsiveStyles = `
       .basic-logo-description-gap { line-height: 20px !important; }
     }
   `;
+
 const BasicLogoCloud_defaultLogos = [
   {
     alt: "Stripe",
@@ -77,6 +82,7 @@ const BasicLogoCloud_defaultLogos = [
     width: 70,
   },
 ];
+
 const BasicLogoCloud_defaults = {
   backgroundColor: "#fffffe",
   description:
@@ -87,12 +93,15 @@ const BasicLogoCloud_defaults = {
   title: "Supported payment services",
   titleColor: "#030712",
 };
+
 type BasicLogoCloud_SectionProps = Omit<
   BasicLogoCloud_BasicLogoCloudProps,
   "theme"
 >;
+
 type BasicLogoCloud_ResolvedProps = typeof BasicLogoCloud_defaults &
   BasicLogoCloud_SectionProps;
+
 const BasicLogoCloud_BasicLogoCloudSection = (
   props: BasicLogoCloud_SectionProps
 ) => {
@@ -210,6 +219,7 @@ const BasicLogoCloud_BasicLogoCloudSection = (
     </Section>
   );
 };
+
 const BasicLogoCloud_BasicLogoCloud = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -239,16 +249,21 @@ const BasicLogoCloud_BasicLogoCloud = ({
     </Body>
   </Html>
 );
+
 BasicLogoCloud_BasicLogoCloud.PreviewProps = {
   theme: defaultTheme,
   variant: "full",
 } satisfies BasicLogoCloud_BasicLogoCloudProps;
+
 const __BasicLogoCloud = BasicLogoCloud_BasicLogoCloud;
+
 type FeaturedLogoGrid_FeaturedBrandsLogoGridTone = "outlined" | "boxed";
+
 type FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment =
   | "left"
   | "center"
   | "right";
+
 interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -272,8 +287,10 @@ interface FeaturedLogoGrid_FeaturedBrandsLogoGridProps {
   tone?: FeaturedLogoGrid_FeaturedBrandsLogoGridTone;
   alignment?: FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment;
 }
+
 const FeaturedLogoGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FeaturedLogoGrid_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .featured-logo-stack { display: block !important; width: 100% !important; }
@@ -284,6 +301,7 @@ const FeaturedLogoGrid_responsiveStyles = `
       .featured-logo-description-gap { line-height: 20px !important; }
     }
   `;
+
 const FeaturedLogoGrid_defaults = {
   alignment: "left" as FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment,
   backgroundColor: "#fffffe",
@@ -314,13 +332,17 @@ const FeaturedLogoGrid_defaults = {
   titleColor: "#030712",
   tone: "outlined" as FeaturedLogoGrid_FeaturedBrandsLogoGridTone,
 };
+
 type FeaturedLogoGrid_SectionProps = Omit<
   FeaturedLogoGrid_FeaturedBrandsLogoGridProps,
   "theme"
 >;
+
 type FeaturedLogoGrid_ResolvedProps = typeof FeaturedLogoGrid_defaults &
   FeaturedLogoGrid_SectionProps;
+
 type FeaturedLogoGrid_ColumnKind = "large" | "first" | "second";
+
 const FeaturedLogoGrid_getCardStyle = (
   props: FeaturedLogoGrid_ResolvedProps,
   tone: FeaturedLogoGrid_FeaturedBrandsLogoGridTone
@@ -330,6 +352,7 @@ const FeaturedLogoGrid_getCardStyle = (
   borderRadius: "4px",
   textAlign: "center" as const,
 });
+
 const FeaturedLogoGrid_LargeCard = ({
   props,
   tone,
@@ -354,6 +377,7 @@ const FeaturedLogoGrid_LargeCard = ({
     />
   </Column>
 );
+
 const FeaturedLogoGrid_SmallCard = ({
   logo,
   props,
@@ -378,6 +402,7 @@ const FeaturedLogoGrid_SmallCard = ({
     />
   </Section>
 );
+
 const FeaturedLogoGrid_SmallColumn = ({
   reversed,
   props,
@@ -402,6 +427,7 @@ const FeaturedLogoGrid_SmallColumn = ({
     </Column>
   );
 };
+
 const FeaturedLogoGrid_columnOrders: Record<
   FeaturedLogoGrid_FeaturedBrandsLogoGridAlignment,
   FeaturedLogoGrid_ColumnKind[]
@@ -410,6 +436,7 @@ const FeaturedLogoGrid_columnOrders: Record<
   left: ["large", "first", "second"],
   right: ["first", "second", "large"],
 };
+
 const FeaturedLogoGrid_FeaturedBrandsLogoGridSection = (
   props: FeaturedLogoGrid_SectionProps
 ) => {
@@ -516,6 +543,7 @@ const FeaturedLogoGrid_FeaturedBrandsLogoGridSection = (
     </Section>
   );
 };
+
 const FeaturedLogoGrid_FeaturedBrandsLogoGrid = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -547,18 +575,22 @@ const FeaturedLogoGrid_FeaturedBrandsLogoGrid = ({
     </Body>
   </Html>
 );
+
 FeaturedLogoGrid_FeaturedBrandsLogoGrid.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,
   tone: "outlined",
 } satisfies FeaturedLogoGrid_FeaturedBrandsLogoGridProps;
+
 const __FeaturedLogoGrid = FeaturedLogoGrid_FeaturedBrandsLogoGrid;
+
 type BorderedLogoCloud_LogoCloudWithBordersVariant =
   | "minimal"
   | "with-title"
   | "with-description"
   | "full"
   | "flush";
+
 interface BorderedLogoCloud_LogoCloudWithBordersProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -575,8 +607,10 @@ interface BorderedLogoCloud_LogoCloudWithBordersProps {
   textColor?: string;
   variant?: BorderedLogoCloud_LogoCloudWithBordersVariant;
 }
+
 const BorderedLogoCloud_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BorderedLogoCloud_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .border-logo-flush-table { margin: 0 auto !important; }
@@ -598,6 +632,7 @@ const BorderedLogoCloud_responsiveStyles = `
       }
     }
   `;
+
 const BorderedLogoCloud_defaultLogos = [
   {
     alt: "Stripe",
@@ -625,6 +660,7 @@ const BorderedLogoCloud_defaultLogos = [
     width: 70,
   },
 ];
+
 const BorderedLogoCloud_defaults = {
   backgroundColor: "#fffffe",
   borderColor: "#d1d5db",
@@ -636,13 +672,17 @@ const BorderedLogoCloud_defaults = {
   title: "Supported payment services",
   titleColor: "#030712",
 };
+
 type BorderedLogoCloud_SectionProps = Omit<
   BorderedLogoCloud_LogoCloudWithBordersProps,
   "theme"
 >;
+
 type BorderedLogoCloud_ResolvedProps = typeof BorderedLogoCloud_defaults &
   BorderedLogoCloud_SectionProps;
+
 type BorderedLogoCloud_Logo = (typeof BorderedLogoCloud_defaultLogos)[number];
+
 const BorderedLogoCloud_LogoItem = ({
   className,
   logo,
@@ -664,6 +704,7 @@ const BorderedLogoCloud_LogoItem = ({
     />
   </Column>
 );
+
 const BorderedLogoCloud_Divider = ({
   className,
   color,
@@ -678,6 +719,7 @@ const BorderedLogoCloud_Divider = ({
     &zwj;
   </Column>
 );
+
 const BorderedLogoCloud_LogoRow = ({
   flush = false,
   logos,
@@ -740,6 +782,7 @@ const BorderedLogoCloud_LogoRow = ({
     </Fragment>
   </Section>
 );
+
 const BorderedLogoCloud_Title = ({
   props,
 }: {
@@ -760,6 +803,7 @@ const BorderedLogoCloud_Title = ({
     {props.title}
   </Heading>
 );
+
 const BorderedLogoCloud_Description = ({
   props,
 }: {
@@ -779,6 +823,7 @@ const BorderedLogoCloud_Description = ({
     {props.description}
   </Text>
 );
+
 const BorderedLogoCloud_LogoCloudWithBordersSection = (
   props: BorderedLogoCloud_SectionProps
 ) => {
@@ -932,6 +977,7 @@ const BorderedLogoCloud_LogoCloudWithBordersSection = (
     </Section>
   );
 };
+
 const BorderedLogoCloud_LogoCloudWithBorders = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -961,18 +1007,23 @@ const BorderedLogoCloud_LogoCloudWithBorders = ({
     </Body>
   </Html>
 );
+
 BorderedLogoCloud_LogoCloudWithBorders.PreviewProps = {
   theme: defaultTheme,
   variant: "full",
 } satisfies BorderedLogoCloud_LogoCloudWithBordersProps;
+
 const __BorderedLogoCloud = BorderedLogoCloud_LogoCloudWithBorders;
+
 type LogoCloud_LogoCloudVariant =
   | "minimal"
   | "with-title"
   | "with-description"
   | "full"
   | "flush";
+
 type LogoCloud_LogoCloudTone = "boxed" | "outlined";
+
 interface LogoCloud_LogoCloudProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -991,8 +1042,10 @@ interface LogoCloud_LogoCloudProps {
   variant?: LogoCloud_LogoCloudVariant;
   tone?: LogoCloud_LogoCloudTone;
 }
+
 const LogoCloud_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LogoCloud_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .logo-cloud-item {
@@ -1007,6 +1060,7 @@ const LogoCloud_responsiveStyles = `
       }
     }
   `;
+
 const LogoCloud_defaultLogos = [
   {
     alt: "Stripe",
@@ -1034,6 +1088,7 @@ const LogoCloud_defaultLogos = [
     width: 70,
   },
 ];
+
 const LogoCloud_defaults = {
   backgroundColor: "#fffffe",
   borderColor: "#d1d5db",
@@ -1046,10 +1101,14 @@ const LogoCloud_defaults = {
   title: "Supported payment services",
   titleColor: "#030712",
 };
+
 type LogoCloud_SectionProps = Omit<LogoCloud_LogoCloudProps, "theme">;
+
 type LogoCloud_ResolvedProps = typeof LogoCloud_defaults &
   LogoCloud_SectionProps;
+
 type LogoCloud_Logo = (typeof LogoCloud_defaultLogos)[number];
+
 const LogoCloud_LogoItem = ({
   flush,
   index,
@@ -1094,6 +1153,7 @@ const LogoCloud_LogoItem = ({
     </Column>
   );
 };
+
 const LogoCloud_LogoRow = ({
   flush = false,
   logos,
@@ -1131,6 +1191,7 @@ const LogoCloud_LogoRow = ({
     </Fragment>
   </Section>
 );
+
 const LogoCloud_Title = ({ props }: { props: LogoCloud_ResolvedProps }) => (
   <Heading
     style={{
@@ -1147,6 +1208,7 @@ const LogoCloud_Title = ({ props }: { props: LogoCloud_ResolvedProps }) => (
     {props.title}
   </Heading>
 );
+
 const LogoCloud_Description = ({
   props,
 }: {
@@ -1166,6 +1228,7 @@ const LogoCloud_Description = ({
     {props.description}
   </Text>
 );
+
 const LogoCloud_LogoCloudSection = (props: LogoCloud_SectionProps) => {
   const variant = props.variant ?? "full";
   const tone = props.tone ?? "boxed";
@@ -1301,6 +1364,7 @@ const LogoCloud_LogoCloudSection = (props: LogoCloud_SectionProps) => {
     </Section>
   );
 };
+
 const LogoCloud_LogoCloud = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1330,13 +1394,17 @@ const LogoCloud_LogoCloud = ({
     </Body>
   </Html>
 );
+
 LogoCloud_LogoCloud.PreviewProps = {
   theme: defaultTheme,
   tone: "boxed",
   variant: "full",
 } satisfies LogoCloud_LogoCloudProps;
+
 const __LogoCloud = LogoCloud_LogoCloud;
+
 type LogosGrid_LogosGridTone = "boxed" | "outlined" | "bordered";
+
 interface LogosGrid_LogosGridProps {
   theme?: EmailThemeTokens;
   title?: string;
@@ -1354,8 +1422,10 @@ interface LogosGrid_LogosGridProps {
   textColor?: string;
   tone?: LogosGrid_LogosGridTone;
 }
+
 const LogosGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const LogosGrid_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .logos-grid-item {
@@ -1374,6 +1444,7 @@ const LogosGrid_responsiveStyles = `
       }
     }
   `;
+
 const LogosGrid_defaultLogos = [
   {
     alt: "Stripe",
@@ -1406,6 +1477,7 @@ const LogosGrid_defaultLogos = [
     width: 70,
   },
 ];
+
 const LogosGrid_defaults = {
   backgroundColor: "#fffffe",
   borderColor: "#d1d5db",
@@ -1418,10 +1490,14 @@ const LogosGrid_defaults = {
   title: "Supported payment services",
   titleColor: "#030712",
 };
+
 type LogosGrid_SectionProps = Omit<LogosGrid_LogosGridProps, "theme">;
+
 type LogosGrid_ResolvedProps = typeof LogosGrid_defaults &
   LogosGrid_SectionProps;
+
 type LogosGrid_Logo = (typeof LogosGrid_defaultLogos)[number];
+
 const LogosGrid_GridItem = ({
   bordered,
   logo,
@@ -1453,6 +1529,7 @@ const LogosGrid_GridItem = ({
     />
   </Column>
 );
+
 const LogosGrid_Divider = ({ color }: { color: string }) => (
   <Column
     className="logos-grid-divider"
@@ -1461,6 +1538,7 @@ const LogosGrid_Divider = ({ color }: { color: string }) => (
     &zwj;
   </Column>
 );
+
 const LogosGrid_CardRow = ({
   logos,
   props,
@@ -1492,6 +1570,7 @@ const LogosGrid_CardRow = ({
     </Fragment>
   </Section>
 );
+
 const LogosGrid_BorderedRows = ({
   logos,
   props,
@@ -1549,6 +1628,7 @@ const LogosGrid_BorderedRows = ({
     </Section>
   </>
 );
+
 const LogosGrid_LogosGridSection = (props: LogosGrid_SectionProps) => {
   const tone = props.tone ?? "boxed";
   const resolved = {
@@ -1644,6 +1724,7 @@ const LogosGrid_LogosGridSection = (props: LogosGrid_SectionProps) => {
     </Section>
   );
 };
+
 const LogosGrid_LogosGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1671,16 +1752,20 @@ const LogosGrid_LogosGrid = ({
     </Body>
   </Html>
 );
+
 LogosGrid_LogosGrid.PreviewProps = {
   theme: defaultTheme,
   tone: "boxed",
 } satisfies LogosGrid_LogosGridProps;
+
 const __LogosGrid = LogosGrid_LogosGrid;
+
 export interface LogoItem {
   alt: string;
   src: string;
   width: number;
 }
+
 export interface LogoCloudProps {
   theme?: Parameters<typeof __BasicLogoCloud>[0]["theme"];
   title?: string;
@@ -1691,6 +1776,7 @@ export interface LogoCloudProps {
   alignment?: "left" | "center" | "right";
   featuredIndex?: number;
 }
+
 const contentVariant = ({
   title,
   description,
@@ -1703,6 +1789,7 @@ const contentVariant = ({
   }
   return description ? ("with-description" as const) : "minimal";
 };
+
 export const LogoCloud = ({
   theme,
   title,
@@ -1780,6 +1867,7 @@ export const LogoCloud = ({
     />
   );
 };
+
 LogoCloud.PreviewProps = {
   alignment: "center",
   appearance: "plain",

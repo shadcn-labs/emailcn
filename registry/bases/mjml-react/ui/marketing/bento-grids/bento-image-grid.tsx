@@ -15,24 +15,29 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const BENTO_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/bento-grids";
+
 type BentoCaptionsVariant =
   | "captions-top"
   | "captions-top-reverse"
   | "captions-bottom"
   | "captions-bottom-reverse";
+
 type BentoDetailsVariant =
   | BentoCaptionsVariant
   | "captions-top-alt"
   | "captions-top-alt-reverse"
   | "captions-bottom-alt"
   | "captions-bottom-alt-reverse";
+
 type BentoThreeColumnVariant =
   | "captions-top"
   | "captions-bottom"
   | "captions-top-alt"
   | "captions-bottom-alt";
+
 const colors = {
   border: "#d1d5db",
   canvas: "#f1f5f9",
@@ -45,13 +50,16 @@ const colors = {
   surfaceMuted: "#f9fafb",
   white: "#fffffe",
 } as const;
+
 const fontFamily =
   "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif";
+
 interface BentoEmailShellProps {
   children: ReactNode;
   preview: string;
   theme: EmailThemeTokens;
 }
+
 const BentoEmailShell = ({
   children,
   preview,
@@ -69,6 +77,7 @@ const BentoEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const VerticalGap = () => (
   <MjmlSection padding="0">
     <MjmlColumn padding="0">
@@ -76,6 +85,7 @@ const VerticalGap = () => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const Image = ({
   alt,
   src,
@@ -93,12 +103,14 @@ const Image = ({
     width={`${width}px`}
   />
 );
+
 interface BentoImageCardItem {
   description?: string;
   imageAlt: string;
   imageSrc: string;
   title: string;
 }
+
 const CardCaption = ({
   dark,
   item,
@@ -135,6 +147,7 @@ const CardCaption = ({
     })()}
   </>
 );
+
 const HeaderImageCard = ({
   captionPosition,
   item,
@@ -162,6 +175,7 @@ const HeaderImageCard = ({
     </MjmlColumn>
   );
 };
+
 const AlternatingImageCardsSection = ({
   items,
   variant,
@@ -219,6 +233,7 @@ const AlternatingImageCardsSection = ({
     </>
   );
 };
+
 interface ThreeColumnFlushData {
   left: BentoImageCardItem;
   middleImages:
@@ -231,7 +246,9 @@ interface ThreeColumnFlushData {
   };
   right: BentoImageCardItem;
 }
+
 type ThreeColumnPaddedData = ThreeColumnFlushData;
+
 const ThreeColumnOuterCard = ({
   captionPosition,
   item,
@@ -262,6 +279,7 @@ const ThreeColumnOuterCard = ({
     ) : null}
   </MjmlColumn>
 );
+
 const MiddleContent = ({
   data,
   variant,
@@ -303,6 +321,7 @@ const MiddleContent = ({
     </MjmlColumn>
   );
 };
+
 const ThreeColumnsImagesSection = ({
   data,
   padded,
@@ -335,6 +354,7 @@ const ThreeColumnsImagesSection = ({
     </MjmlSection>
   );
 };
+
 const ThreeColumnsFlushSection = ({
   data,
   variant,
@@ -344,6 +364,7 @@ const ThreeColumnsFlushSection = ({
 }) => (
   <ThreeColumnsImagesSection data={data} padded={false} variant={variant} />
 );
+
 const ThreeColumnsPaddedSection = ({
   data,
   variant,
@@ -351,12 +372,14 @@ const ThreeColumnsPaddedSection = ({
   data: ThreeColumnPaddedData;
   variant: BentoThreeColumnVariant;
 }) => <ThreeColumnsImagesSection data={data} padded variant={variant} />;
+
 type AlternatingImageData = readonly [
   BentoImageCardItem,
   BentoImageCardItem,
   BentoImageCardItem,
   BentoImageCardItem,
 ];
+
 type InternalBentoImageGridProps =
   | {
       data?: AlternatingImageData;
@@ -382,6 +405,7 @@ type InternalBentoImageGridProps =
       style: "padded";
       variant: "three-column";
     };
+
 const imageItem = (
   image: string,
   title: string,
@@ -392,6 +416,7 @@ const imageItem = (
   imageSrc: `${BENTO_ASSET_ROOT}/${image}.jpg`,
   title,
 });
+
 const captionItems: Record<BentoCaptionsVariant, AlternatingImageData> = {
   "captions-bottom": [
     imageItem("1-bento-1", "Monochrome Mood"),
@@ -418,7 +443,9 @@ const captionItems: Record<BentoCaptionsVariant, AlternatingImageData> = {
     imageItem("1-bento-3", "Casual Cool"),
   ],
 };
+
 const detail = "A striking solo statement that’s both minimal and bold.";
+
 const detailItems: Record<BentoDetailsVariant, AlternatingImageData> = {
   "captions-bottom": [
     imageItem("2-bento-1", "Monochrome Mood", detail),
@@ -469,6 +496,7 @@ const detailItems: Record<BentoDetailsVariant, AlternatingImageData> = {
     imageItem("2-bento-3", "Redux Denim"),
   ],
 };
+
 const threeColumnItem = (
   image: string,
   title: string,
@@ -479,10 +507,12 @@ const threeColumnItem = (
   imageSrc: `${BENTO_ASSET_ROOT}/${image}.jpg`,
   title,
 });
+
 const promo = {
   description: detail,
   title: "The Kartell Collection",
 };
+
 const flushData: Record<BentoThreeColumnVariant, ThreeColumnFlushData> = {
   "captions-bottom": {
     left: threeColumnItem("3-bento-lg-2", "Arco Side Chair", "Ocean Shell"),
@@ -513,6 +543,7 @@ const flushData: Record<BentoThreeColumnVariant, ThreeColumnFlushData> = {
     right: threeColumnItem("3-bento-lg-2", "Milo Bar Stool", "Walnut frame"),
   },
 };
+
 const paddedData: Record<BentoThreeColumnVariant, ThreeColumnPaddedData> = {
   "captions-bottom": {
     left: threeColumnItem("3-bento-lg-2-pad", "Milo Bar Stool", "Walnut frame"),
@@ -555,6 +586,7 @@ const paddedData: Record<BentoThreeColumnVariant, ThreeColumnPaddedData> = {
     ),
   },
 };
+
 const AlternatingImageGrid = (
   props: Extract<
     InternalBentoImageGridProps,
@@ -580,6 +612,7 @@ const AlternatingImageGrid = (
     />
   );
 };
+
 const ThreeColumnImageGrid = (
   props: Extract<
     InternalBentoImageGridProps,
@@ -605,15 +638,18 @@ const ThreeColumnImageGrid = (
     />
   );
 };
+
 const BentoImageGridSection = (props: InternalBentoImageGridProps) =>
   props.variant === "three-column" ? (
     <ThreeColumnImageGrid {...props} />
   ) : (
     <AlternatingImageGrid {...props} />
   );
+
 export type BentoImageGridProps = InternalBentoImageGridProps & {
   theme?: typeof defaultTheme;
 };
+
 export const BentoImageGrid = ({
   theme = defaultTheme,
   ...props
@@ -622,6 +658,7 @@ export const BentoImageGrid = ({
     <BentoImageGridSection {...props} />
   </BentoEmailShell>
 );
+
 BentoImageGrid.PreviewProps = {
   placement: "captions-top",
   style: "captions",

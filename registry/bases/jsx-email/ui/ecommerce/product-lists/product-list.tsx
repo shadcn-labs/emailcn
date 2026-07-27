@@ -17,6 +17,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type ProductListVariant =
   | "basic"
   | "reviews-top"
@@ -26,6 +27,7 @@ export type ProductListVariant =
   | "details-reviews-top"
   | "full-details"
   | "full-reviews-top";
+
 export interface ProductListItem {
   imageUrl?: string;
   name: string;
@@ -36,9 +38,12 @@ export interface ProductListItem {
   reviewCount?: number;
   href?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const productListResponsiveStyles = `
   @media only screen and (max-width: 599px) {
     .product-list-column { display: block !important; width: 100% !important; }
@@ -49,10 +54,13 @@ const productListResponsiveStyles = `
     .product-list-option { display: inline-block !important; }
   }
 `;
+
 const textStyle = { fontFamily, margin: 0 } as const;
+
 const Spacer = ({ height }: { height: number }) => (
   <Section style={{ lineHeight: `${height}px` }}>&zwj;</Section>
 );
+
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{productListResponsiveStyles}</style>
@@ -85,6 +93,7 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 const Rating = ({
   count,
   allSolid = false,
@@ -130,6 +139,7 @@ const Rating = ({
     </Fragment>
   </Section>
 );
+
 const Copy = ({ children }: { children: ReactNode }) => (
   <Text
     style={{
@@ -143,6 +153,7 @@ const Copy = ({ children }: { children: ReactNode }) => (
     {children}
   </Text>
 );
+
 const ProductOptions = () => (
   <Section>
     <Fragment>
@@ -231,6 +242,7 @@ const ProductOptions = () => (
     </Fragment>
   </Section>
 );
+
 const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
   <Section
     style={{
@@ -243,6 +255,7 @@ const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
     &zwj;
   </Section>
 );
+
 const Discover = ({ href }: { href: string }) => (
   <Section>
     <Link
@@ -274,6 +287,7 @@ const Discover = ({ href }: { href: string }) => (
     </Link>
   </Section>
 );
+
 const defaultProducts: ProductListItem[] = [
   {
     description:
@@ -294,6 +308,7 @@ const defaultProducts: ProductListItem[] = [
     reviewCount: 42,
   },
 ];
+
 const Header = ({ item }: { item: ProductListItem }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -331,6 +346,7 @@ const Header = ({ item }: { item: ProductListItem }) => (
     </Fragment>
   </Section>
 );
+
 const ProductContent = ({
   item,
   variant,
@@ -394,6 +410,7 @@ const ProductContent = ({
     </>
   );
 };
+
 const ProductRow = ({
   item,
   variant,
@@ -439,6 +456,7 @@ const ProductRow = ({
     </Fragment>
   </Section>
 );
+
 const ProductListWithRowsSection = ({
   products,
   variant = "basic",
@@ -509,12 +527,15 @@ const ProductListWithRowsSection = ({
     </EmailShell>
   );
 };
+
 const ProductList_SharedProductListWithRowsSection = ProductListWithRowsSection;
+
 interface ProductList_ProductListWithRowsProps {
   theme?: EmailThemeTokens;
   products?: ProductListItem[];
   variant?: ProductListVariant;
 }
+
 const ProductList_ProductListWithRowsSectionWrapper = ({
   products,
   variant = "basic",
@@ -524,6 +545,7 @@ const ProductList_ProductListWithRowsSectionWrapper = ({
     variant={variant}
   />
 );
+
 const ProductList_ProductListWithRows = ({
   theme: _theme = defaultTheme,
   ...props
@@ -538,19 +560,25 @@ const ProductList_ProductListWithRows = ({
     </Body>
   </Html>
 );
+
 ProductList_ProductListWithRows.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies ProductList_ProductListWithRowsProps;
+
 const __ProductList = ProductList_ProductListWithRows;
+
 export interface ProductListProps extends Omit<
   Parameters<typeof __ProductList>[0],
   "theme"
 > {
   theme?: Parameters<typeof __ProductList>[0]["theme"];
 }
+
 export const ProductList = (props: ProductListProps) => (
   <__ProductList {...props} />
 );
+
 export const ProductListSection = ProductListWithRowsSection;
+
 ProductList.PreviewProps = {} satisfies ProductListProps;

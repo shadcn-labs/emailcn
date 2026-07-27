@@ -15,11 +15,13 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type SimpleStats_SimpleStatsVariant =
   | "default"
   | "outlined"
   | "boxed"
   | "bordered";
+
 interface SimpleStats_SimpleStatsProps {
   theme?: EmailThemeTokens;
   variant?: SimpleStats_SimpleStatsVariant;
@@ -34,14 +36,17 @@ interface SimpleStats_SimpleStatsProps {
   headingColor?: string;
   textColor?: string;
 }
+
 const SimpleStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SimpleStats_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .simple-stat-stack { display: block !important; width: 100% !important; }
       .simple-stat-gap { line-height: 24px !important; }
     }
   `;
+
 const SimpleStats_defaults = {
   backgroundColor: "#fffffe",
   borderColor: "#d1d5db",
@@ -55,7 +60,9 @@ const SimpleStats_defaults = {
   ],
   textColor: "#4b5563",
 };
+
 type SimpleStats_SectionProps = Omit<SimpleStats_SimpleStatsProps, "theme">;
+
 const SimpleStats_StatCopy = ({
   headingColor,
   label,
@@ -95,6 +102,7 @@ const SimpleStats_StatCopy = ({
     </Text>
   </>
 );
+
 const SimpleStats_SimpleStatsSection = (props: SimpleStats_SectionProps) => {
   const resolved = { ...SimpleStats_defaults, ...props };
   const variant = props.variant ?? "default";
@@ -215,6 +223,7 @@ const SimpleStats_SimpleStatsSection = (props: SimpleStats_SectionProps) => {
     </Section>
   );
 };
+
 const SimpleStats_SimpleStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -248,18 +257,23 @@ const SimpleStats_SimpleStats = ({
     </Body>
   </Html>
 );
+
 SimpleStats_SimpleStats.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies SimpleStats_SimpleStatsProps;
+
 const __SimpleStats = SimpleStats_SimpleStats;
+
 type GridStats_GridStatsVariant =
   | "simple"
   | "outlined"
   | "bordered"
   | "boxed"
   | "accent-column";
+
 type GridStats_GridStatsLayout = "three-columns" | "bento" | "bento-reversed";
+
 interface GridStats_GridStatsProps {
   theme?: EmailThemeTokens;
   variant?: GridStats_GridStatsVariant;
@@ -279,29 +293,35 @@ interface GridStats_GridStatsProps {
   textColor?: string;
   accentColor?: string;
 }
+
 const GridStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const GridStats_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .grid-stat-stack { display: block !important; width: 100% !important; }
       .grid-stat-gap { line-height: 24px !important; }
     }
   `;
+
 const GridStats_detailedStats = [
   { label: "Increase in conversion rate", value: "45%" },
   { label: "Average page load time", value: "2.1s" },
   { label: "Monthly churn reduction", value: "18%" },
 ];
+
 const GridStats_simpleStats = [
   { label: "Uptime across all core services", value: "99.9%" },
   { label: "Uptime across all core services", value: "3x" },
   { label: "Average support response", value: "24hr" },
 ];
+
 const GridStats_bentoStats = [
   { label: "Uptime across all core services", value: "99.9%" },
   { label: "Growth in user engagement", value: "3x" },
   { label: "Maximum support response time", value: "24hr" },
 ];
+
 const GridStats_defaults = {
   accentBackgroundColor: "#030712",
   accentColor: "#818cf8",
@@ -314,7 +334,9 @@ const GridStats_defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type GridStats_SectionProps = Omit<GridStats_GridStatsProps, "theme">;
+
 type GridStats_ResolvedProps = typeof GridStats_defaults &
   GridStats_SectionProps & {
     stats: {
@@ -322,6 +344,7 @@ type GridStats_ResolvedProps = typeof GridStats_defaults &
       value: string;
     }[];
   };
+
 const GridStats_StatText = ({
   label,
   props,
@@ -359,14 +382,18 @@ const GridStats_StatText = ({
     </Text>
   </>
 );
+
 interface GridStats_BentoItem {
   featured: boolean;
   label: string;
   value: string;
   width: string;
 }
+
 type GridStats_BentoRow = [GridStats_BentoItem, GridStats_BentoItem];
+
 type GridStats_BentoRows = [GridStats_BentoRow, GridStats_BentoRow];
+
 const GridStats_getBentoCardBackground = (
   dark: boolean,
   boxed: boolean,
@@ -379,6 +406,7 @@ const GridStats_getBentoCardBackground = (
     return props.cardBackgroundColor;
   }
 };
+
 const GridStats_getBentoAccentColor = (
   variant: GridStats_GridStatsVariant,
   reversed: boolean
@@ -388,6 +416,7 @@ const GridStats_getBentoAccentColor = (
   }
   return reversed ? "#34d399" : "#fbbf24";
 };
+
 const GridStats_getStats = (
   variant: GridStats_GridStatsVariant,
   useThreeColumns: boolean
@@ -400,6 +429,7 @@ const GridStats_getStats = (
   }
   return GridStats_bentoStats;
 };
+
 const GridStats_getBentoRows = (
   props: GridStats_ResolvedProps,
   reversed: boolean
@@ -439,6 +469,7 @@ const GridStats_getBentoRows = (
     [growth, support],
   ];
 };
+
 const GridStats_BentoCard = ({
   accentColor,
   bordered,
@@ -517,6 +548,7 @@ const GridStats_BentoCard = ({
     </Column>
   );
 };
+
 const GridStats_BentoLayout = ({
   props,
   reversed,
@@ -566,6 +598,7 @@ const GridStats_BentoLayout = ({
     </>
   );
 };
+
 const GridStats_GridStatsSection = (props: GridStats_SectionProps) => {
   const variant = props.variant ?? "boxed";
   const layout = props.layout ?? "three-columns";
@@ -768,6 +801,7 @@ const GridStats_GridStatsSection = (props: GridStats_SectionProps) => {
     </Section>
   );
 };
+
 const GridStats_GridStats = ({
   pageBackgroundColor = "#f1f5f9",
   layout = "three-columns",
@@ -801,17 +835,21 @@ const GridStats_GridStats = ({
     </Body>
   </Html>
 );
+
 GridStats_GridStats.PreviewProps = {
   layout: "three-columns",
   theme: defaultTheme,
   variant: "boxed",
 } satisfies GridStats_GridStatsProps;
+
 const __GridStats = GridStats_GridStats;
+
 type OverlayStats_OverlayStatsVariant =
   | "default"
   | "three-columns"
   | "bento"
   | "bento-reversed";
+
 interface OverlayStats_OverlayStatsProps {
   theme?: EmailThemeTokens;
   variant?: OverlayStats_OverlayStatsVariant;
@@ -827,19 +865,23 @@ interface OverlayStats_OverlayStatsProps {
   headingColor?: string;
   textColor?: string;
 }
+
 const OverlayStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const OverlayStats_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .overlay-stat-stack { display: block !important; width: 100% !important; }
       .overlay-stat-gap { line-height: 24px !important; }
     }
   `;
+
 const OverlayStats_common = {
   headingColor: "#fffffe",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#e5e7eb",
 };
+
 interface OverlayStats_OverlayVariantDefaults {
   backgroundImageSrc: string;
   featuredLabel: string;
@@ -850,6 +892,7 @@ interface OverlayStats_OverlayVariantDefaults {
     value: string;
   }[];
 }
+
 const OverlayStats_variants: Record<
   OverlayStats_OverlayStatsVariant,
   OverlayStats_OverlayVariantDefaults
@@ -917,10 +960,13 @@ const OverlayStats_variants: Record<
     ],
   },
 };
+
 type OverlayStats_SectionProps = Omit<OverlayStats_OverlayStatsProps, "theme">;
+
 type OverlayStats_ResolvedProps = typeof OverlayStats_common &
   OverlayStats_SectionProps &
   OverlayStats_OverlayVariantDefaults;
+
 const OverlayStats_OverlayStatCopy = ({
   featured,
   label,
@@ -960,6 +1006,7 @@ const OverlayStats_OverlayStatCopy = ({
     </Text>
   </>
 );
+
 const OverlayStats_OverlayThreeColumnLayout = ({
   props,
 }: {
@@ -1062,12 +1109,14 @@ const OverlayStats_OverlayThreeColumnLayout = ({
     <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
   </>
 );
+
 interface OverlayStats_OverlayBentoItem {
   featured: boolean;
   label: ReactNode;
   value: string;
   width: string;
 }
+
 const OverlayStats_OverlayBentoCard = ({
   item,
   props,
@@ -1099,6 +1148,7 @@ const OverlayStats_OverlayBentoCard = ({
     </Section>
   </Column>
 );
+
 const OverlayStats_OverlayBentoLayout = ({
   props,
   reversed,
@@ -1184,6 +1234,7 @@ const OverlayStats_OverlayBentoLayout = ({
     </>
   );
 };
+
 const OverlayStats_getOverlayContent = (
   variant: OverlayStats_OverlayStatsVariant,
   props: OverlayStats_ResolvedProps,
@@ -1202,6 +1253,7 @@ const OverlayStats_getOverlayContent = (
     />
   );
 };
+
 const OverlayStats_OverlayStatsSection = (props: OverlayStats_SectionProps) => {
   const variant = props.variant ?? "default";
   const resolved = {
@@ -1327,6 +1379,7 @@ const OverlayStats_OverlayStatsSection = (props: OverlayStats_SectionProps) => {
     </Section>
   );
 };
+
 const OverlayStats_OverlayStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1360,16 +1413,20 @@ const OverlayStats_OverlayStats = ({
     </Body>
   </Html>
 );
+
 OverlayStats_OverlayStats.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies OverlayStats_OverlayStatsProps;
+
 const __OverlayStats = OverlayStats_OverlayStats;
+
 export interface CollectionStatItem {
   label: string;
   value: string;
   description?: string;
 }
+
 export interface CollectionStatsProps {
   theme?: Parameters<typeof __SimpleStats>[0]["theme"];
   items?: CollectionStatItem[];
@@ -1382,6 +1439,7 @@ export interface CollectionStatsProps {
     alt?: string;
   };
 }
+
 export const CollectionStats = ({
   theme,
   items,
@@ -1443,6 +1501,7 @@ export const CollectionStats = ({
     />
   );
 };
+
 CollectionStats.PreviewProps = {
   appearance: "simple",
   layout: "row",

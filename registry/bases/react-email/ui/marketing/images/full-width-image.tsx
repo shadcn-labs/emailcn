@@ -17,6 +17,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type FullWidthImage_FullWidthImageVariant =
   | "default"
   | "top-padding"
@@ -33,6 +34,7 @@ type FullWidthImage_FullWidthImageVariant =
   | "left-alt"
   | "sides-padding"
   | "sides-alt";
+
 interface FullWidthImage_FullWidthImageProps {
   theme?: TailwindConfig;
   imageSrc?: string;
@@ -41,6 +43,7 @@ interface FullWidthImage_FullWidthImageProps {
   spacerBackgroundColor?: string;
   variant?: FullWidthImage_FullWidthImageVariant;
 }
+
 const FullWidthImage_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .full-image-side-block {
@@ -48,6 +51,7 @@ const FullWidthImage_responsiveStyles = `
       }
     }
   `;
+
 const FullWidthImage_variantLayout = {
   "bottom-left": {
     bottom: true,
@@ -164,6 +168,7 @@ const FullWidthImage_variantLayout = {
     top: boolean;
   }
 >;
+
 const FullWidthImage_SideSpacer = ({
   alignment,
   pageBackgroundColor,
@@ -197,6 +202,7 @@ const FullWidthImage_SideSpacer = ({
     </Section>
   </Column>
 );
+
 const FullWidthImage_FullWidthImageSection = ({
   imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
   imageAlt = "",
@@ -298,6 +304,7 @@ const FullWidthImage_FullWidthImageSection = ({
     </Section>
   );
 };
+
 const FullWidthImage_FullWidthImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -327,11 +334,14 @@ const FullWidthImage_FullWidthImage = ({
     </Tailwind>
   </Html>
 );
+
 FullWidthImage_FullWidthImage.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthImage_FullWidthImageProps;
+
 const __FullWidthImage = FullWidthImage_FullWidthImage;
+
 type FullWidthOverlay_FullWidthImageWithOverlayVariant =
   | "default"
   | "top-padding"
@@ -348,6 +358,7 @@ type FullWidthOverlay_FullWidthImageWithOverlayVariant =
   | "left-alt"
   | "sides-padding"
   | "sides-alt";
+
 interface FullWidthOverlay_FullWidthImageWithOverlayProps {
   theme?: TailwindConfig;
   imageSrc?: string;
@@ -359,6 +370,7 @@ interface FullWidthOverlay_FullWidthImageWithOverlayProps {
   spacerBackgroundColor?: string;
   variant?: FullWidthOverlay_FullWidthImageWithOverlayVariant;
 }
+
 const FullWidthOverlay_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .full-image-side-block {
@@ -370,8 +382,10 @@ const FullWidthOverlay_responsiveStyles = `
       }
     }
   `;
+
 const FullWidthOverlay_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FullWidthOverlay_variantLayout = {
   "bottom-left": {
     bottom: true,
@@ -488,6 +502,7 @@ const FullWidthOverlay_variantLayout = {
     top: boolean;
   }
 >;
+
 const FullWidthOverlay_SideSpacer = ({
   alignment,
   pageBackgroundColor,
@@ -521,6 +536,7 @@ const FullWidthOverlay_SideSpacer = ({
     </Section>
   </Column>
 );
+
 const FullWidthOverlay_OverlayImage = ({
   heading,
   headingColor,
@@ -591,6 +607,7 @@ const FullWidthOverlay_OverlayImage = ({
     </Section>
   </Section>
 );
+
 const FullWidthOverlay_FullWidthImageWithOverlaySection = ({
   imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-2.jpg",
   heading = "Nike",
@@ -694,6 +711,7 @@ const FullWidthOverlay_FullWidthImageWithOverlaySection = ({
     </Section>
   );
 };
+
 const FullWidthOverlay_FullWidthImageWithOverlay = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -723,11 +741,14 @@ const FullWidthOverlay_FullWidthImageWithOverlay = ({
     </Tailwind>
   </Html>
 );
+
 FullWidthOverlay_FullWidthImageWithOverlay.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthOverlay_FullWidthImageWithOverlayProps;
+
 const __FullWidthOverlay = FullWidthOverlay_FullWidthImageWithOverlay;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -735,6 +756,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface FullWidthImageProps {
   theme?: Parameters<typeof __FullWidthImage>[0]["theme"];
   image?: GalleryImage;
@@ -742,6 +764,7 @@ export interface FullWidthImageProps {
   frame?: "none" | "top" | "right" | "bottom" | "left" | "sides";
   frameStyle?: "padding" | "split" | "alternate";
 }
+
 const fullWidthVariant = ({
   frame,
   frameStyle,
@@ -757,6 +780,7 @@ const fullWidthVariant = ({
   }
   return `${frame}-${frameStyle === "alternate" ? "alt" : "padding"}` as const;
 };
+
 export const FullWidthImage = ({
   theme,
   image,
@@ -782,6 +806,7 @@ export const FullWidthImage = ({
     />
   );
 };
+
 FullWidthImage.PreviewProps = {
   frame: "none",
   frameStyle: "padding",

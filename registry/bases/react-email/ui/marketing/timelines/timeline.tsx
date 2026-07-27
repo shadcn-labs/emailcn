@@ -16,12 +16,14 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type CardsTimeline_CardsTimelineVariant =
   | "default"
   | "with-badge"
   | "with-accent"
   | "image-top"
   | "image-bottom";
+
 interface CardsTimeline_CardsTimelineProps {
   theme?: TailwindConfig;
   variant?: CardsTimeline_CardsTimelineVariant;
@@ -32,12 +34,15 @@ interface CardsTimeline_CardsTimelineProps {
   imageSrc?: string;
   imageAlt?: string;
 }
+
 const CardsTimeline_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CardsTimeline_textStyle = {
   fontFamily: CardsTimeline_fontFamily,
   margin: 0,
 } as const;
+
 const CardsTimeline_CardsTimelineSection = (
   props: Omit<CardsTimeline_CardsTimelineProps, "theme">
 ) => {
@@ -240,6 +245,7 @@ const CardsTimeline_CardsTimelineSection = (
     </Section>
   );
 };
+
 const CardsTimeline_CardsTimeline = ({
   theme = defaultTheme,
   ...props
@@ -256,11 +262,14 @@ const CardsTimeline_CardsTimeline = ({
     </Tailwind>
   </Html>
 );
+
 CardsTimeline_CardsTimeline.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies CardsTimeline_CardsTimelineProps;
+
 const __CardsTimeline = CardsTimeline_CardsTimeline;
+
 type Changelog_ChangelogVariant =
   | "muted-left"
   | "muted-right"
@@ -268,7 +277,9 @@ type Changelog_ChangelogVariant =
   | "basic-right"
   | "accent-left"
   | "accent-right";
+
 type Changelog_ChangelogLayout = "line" | "boxed";
+
 interface Changelog_ChangelogProps {
   theme?: TailwindConfig;
   variant?: Changelog_ChangelogVariant;
@@ -279,8 +290,10 @@ interface Changelog_ChangelogProps {
   title?: string;
   description?: string;
 }
+
 const Changelog_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Changelog_responsiveStyles = `
     .changelog-mobile { display: none; }
     @media only screen and (max-width: 599px) {
@@ -293,10 +306,12 @@ const Changelog_responsiveStyles = `
       .changelog-copy { text-align: left !important; }
     }
   `;
+
 const Changelog_textStyle = {
   fontFamily: Changelog_fontFamily,
   margin: 0,
 } as const;
+
 const Changelog_ChangelogShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{Changelog_responsiveStyles}</style>
@@ -319,10 +334,12 @@ const Changelog_ChangelogShell = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 interface Changelog_BadgeProps {
   muted: boolean;
   version: string;
 }
+
 const Changelog_VersionBadge = ({ muted, version }: Changelog_BadgeProps) => (
   <span
     style={{
@@ -341,6 +358,7 @@ const Changelog_VersionBadge = ({ muted, version }: Changelog_BadgeProps) => (
     {version}
   </span>
 );
+
 interface Changelog_MetaProps {
   category: string;
   date: string;
@@ -348,6 +366,7 @@ interface Changelog_MetaProps {
   right: boolean;
   version: string;
 }
+
 const Changelog_ChangelogMeta = ({
   category,
   date,
@@ -391,6 +410,7 @@ const Changelog_ChangelogMeta = ({
     </Text>
   </Column>
 );
+
 const Changelog_ChangelogRail = ({
   muted,
   accent,
@@ -423,12 +443,14 @@ const Changelog_ChangelogRail = ({
     </Section>
   </Column>
 );
+
 interface Changelog_CopyProps {
   boxed: boolean;
   dark: boolean;
   description: string;
   title: string;
 }
+
 const Changelog_ChangelogCopy = ({
   boxed,
   dark,
@@ -506,6 +528,7 @@ const Changelog_ChangelogCopy = ({
       </>
     );
   })();
+
 interface Changelog_ContentProps {
   accent: boolean;
   boxed: boolean;
@@ -517,6 +540,7 @@ interface Changelog_ContentProps {
   title: string;
   version: string;
 }
+
 const Changelog_ChangelogContent = ({
   accent,
   boxed,
@@ -593,6 +617,7 @@ const Changelog_ChangelogContent = ({
     </Column>
   );
 };
+
 const Changelog_ChangelogSection = ({
   category = "Refactoring",
   date = "19 Jan",
@@ -652,6 +677,7 @@ const Changelog_ChangelogSection = ({
     </Changelog_ChangelogShell>
   );
 };
+
 const Changelog_Changelog = ({
   theme = defaultTheme,
   ...props
@@ -668,12 +694,15 @@ const Changelog_Changelog = ({
     </Tailwind>
   </Html>
 );
+
 Changelog_Changelog.PreviewProps = {
   layout: "line",
   theme: defaultTheme,
   variant: "muted-left",
 } satisfies Changelog_ChangelogProps;
+
 const __Changelog = Changelog_Changelog;
+
 type SplitTimeline_SplitCardsVariant =
   | "muted"
   | "muted-reverse"
@@ -685,6 +714,7 @@ type SplitTimeline_SplitCardsVariant =
   | "image-top-reverse"
   | "image-bottom"
   | "image-bottom-reverse";
+
 interface SplitTimeline_SplitCardsProps {
   theme?: TailwindConfig;
   variant?: SplitTimeline_SplitCardsVariant;
@@ -697,8 +727,10 @@ interface SplitTimeline_SplitCardsProps {
   imageSrc?: string;
   imageAlt?: string;
 }
+
 const SplitTimeline_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SplitTimeline_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .split-card-column { display: block !important; width: 100% !important; }
@@ -707,10 +739,12 @@ const SplitTimeline_responsiveStyles = `
       .split-card-mobile-space { display: block !important; line-height: 16px !important; }
     }
   `;
+
 const SplitTimeline_textStyle = {
   fontFamily: SplitTimeline_fontFamily,
   margin: 0,
 } as const;
+
 const SplitTimeline_SplitShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{SplitTimeline_responsiveStyles}</style>
@@ -733,6 +767,7 @@ const SplitTimeline_SplitShell = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 const SplitTimeline_SplitMeta = ({
   index,
   label,
@@ -770,6 +805,7 @@ const SplitTimeline_SplitMeta = ({
     </Section>
   </Column>
 );
+
 interface SplitTimeline_EventCardProps {
   badge: string;
   date: string;
@@ -779,6 +815,7 @@ interface SplitTimeline_EventCardProps {
   title: string;
   variant: SplitTimeline_SplitCardsVariant;
 }
+
 const SplitTimeline_EventCard = ({
   badge,
   date,
@@ -950,6 +987,7 @@ const SplitTimeline_EventCard = ({
     </Section>
   );
 };
+
 const SplitTimeline_SplitCardsSection = ({
   badge = "Today",
   date = "Monday",
@@ -1005,6 +1043,7 @@ const SplitTimeline_SplitCardsSection = ({
     </SplitTimeline_SplitShell>
   );
 };
+
 const SplitTimeline_SplitCards = ({
   theme = defaultTheme,
   ...props
@@ -1021,11 +1060,14 @@ const SplitTimeline_SplitCards = ({
     </Tailwind>
   </Html>
 );
+
 SplitTimeline_SplitCards.PreviewProps = {
   theme: defaultTheme,
   variant: "muted",
 } satisfies SplitTimeline_SplitCardsProps;
+
 const __SplitTimeline = SplitTimeline_SplitCards;
+
 type StackedTimeline_StackedTimelineVariant =
   | "muted-left"
   | "muted-right"
@@ -1035,7 +1077,9 @@ type StackedTimeline_StackedTimelineVariant =
   | "completed-right"
   | "accent-left"
   | "accent-right";
+
 type StackedTimeline_StackedTimelineLayout = "line" | "boxed";
+
 interface StackedTimeline_StackedTimelineProps {
   theme?: TailwindConfig;
   variant?: StackedTimeline_StackedTimelineVariant;
@@ -1045,8 +1089,10 @@ interface StackedTimeline_StackedTimelineProps {
   title?: string;
   description?: string;
 }
+
 const StackedTimeline_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const StackedTimeline_responsiveStyles = `
     .stacked-timeline-mobile { display: none; }
     @media only screen and (max-width: 599px) {
@@ -1059,13 +1105,16 @@ const StackedTimeline_responsiveStyles = `
       .stacked-timeline-card { text-align: left !important; }
     }
   `;
+
 const StackedTimeline_textStyle = {
   fontFamily: StackedTimeline_fontFamily,
   margin: 0,
 } as const;
+
 interface StackedTimeline_ShellProps {
   children: ReactNode;
 }
+
 const StackedTimeline_TimelineShell = ({
   children,
 }: StackedTimeline_ShellProps) => (
@@ -1090,12 +1139,14 @@ const StackedTimeline_TimelineShell = ({
     </Section>
   </>
 );
+
 interface StackedTimeline_MetaProps {
   index: string;
   label: string;
   muted: boolean;
   right: boolean;
 }
+
 const StackedTimeline_TimelineMeta = ({
   index,
   label,
@@ -1133,6 +1184,7 @@ const StackedTimeline_TimelineMeta = ({
     </Text>
   </Column>
 );
+
 const StackedTimeline_Rail = ({
   boxed,
   muted,
@@ -1177,6 +1229,7 @@ const StackedTimeline_Rail = ({
     </Section>
   </Column>
 );
+
 interface StackedTimeline_CopyProps {
   accent: boolean;
   boxed: boolean;
@@ -1186,6 +1239,7 @@ interface StackedTimeline_CopyProps {
   title: string;
   titleColor: string;
 }
+
 const StackedTimeline_TimelineCopy = ({
   boxed,
   cardBackground,
@@ -1260,6 +1314,7 @@ const StackedTimeline_TimelineCopy = ({
       </Text>
     </>
   );
+
 interface StackedTimeline_ContentProps {
   accent: boolean;
   boxed: boolean;
@@ -1270,6 +1325,7 @@ interface StackedTimeline_ContentProps {
   right: boolean;
   title: string;
 }
+
 const StackedTimeline_TimelineContent = ({
   accent,
   boxed,
@@ -1403,6 +1459,7 @@ const StackedTimeline_TimelineContent = ({
     </Column>
   );
 };
+
 const StackedTimeline_StackedTimelineSection = ({
   description = "Every mile tells a story. Each step forward adds to the journey, shaping the path ahead and marking progress along the way.",
   index,
@@ -1465,6 +1522,7 @@ const StackedTimeline_StackedTimelineSection = ({
     </StackedTimeline_TimelineShell>
   );
 };
+
 const StackedTimeline_StackedTimeline = ({
   theme = defaultTheme,
   ...props
@@ -1481,12 +1539,15 @@ const StackedTimeline_StackedTimeline = ({
     </Tailwind>
   </Html>
 );
+
 StackedTimeline_StackedTimeline.PreviewProps = {
   layout: "line",
   theme: defaultTheme,
   variant: "muted-left",
 } satisfies StackedTimeline_StackedTimelineProps;
+
 const __StackedTimeline = StackedTimeline_StackedTimeline;
+
 export interface TimelineItem {
   index?: string;
   label?: string;
@@ -1502,6 +1563,7 @@ export interface TimelineItem {
   };
   completed?: boolean;
 }
+
 export interface TimelineProps {
   theme?: Parameters<typeof __Changelog>[0]["theme"];
   items?: TimelineItem[];
@@ -1510,11 +1572,13 @@ export interface TimelineProps {
   appearance?: "muted" | "basic" | "accent";
   reverse?: boolean;
 }
+
 const timelineVariant = ({
   alignment,
   appearance,
 }: Required<Pick<TimelineProps, "alignment" | "appearance">>) =>
   `${appearance}-${alignment}` as const;
+
 const timelineItemValues = (item: TimelineItem | undefined) => {
   const {
     badge,
@@ -1540,6 +1604,7 @@ const timelineItemValues = (item: TimelineItem | undefined) => {
     version,
   };
 };
+
 export const Timeline = ({
   theme,
   items,
@@ -1606,6 +1671,7 @@ export const Timeline = ({
     />
   );
 };
+
 Timeline.PreviewProps = {
   alignment: "left",
   appearance: "basic",

@@ -19,8 +19,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const HeroEmailShell = ({
   children,
   pageBackgroundColor,
@@ -45,6 +47,7 @@ const HeroEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const HeroCopy = ({
   align = "left",
   buttonBackgroundColor,
@@ -149,6 +152,7 @@ const HeroCopy = ({
     </MjmlButton>
   </>
 );
+
 const NativeBackgroundHero = ({
   align = "left",
   backgroundColor,
@@ -233,9 +237,11 @@ const NativeBackgroundHero = ({
     )}
   </MjmlSection>
 );
+
 type OverlaySplitHero_HeroOverlayedSplitVariant =
   | "overlay-left"
   | "overlay-right";
+
 interface OverlaySplitHero_HeroOverlayedSplitProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -256,8 +262,10 @@ interface OverlaySplitHero_HeroOverlayedSplitProps {
   buttonTextColor?: string;
   variant?: OverlaySplitHero_HeroOverlayedSplitVariant;
 }
+
 const OverlaySplitHero_assetRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const OverlaySplitHero_HeroOverlayedSplitSection = ({
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
@@ -295,6 +303,7 @@ const OverlaySplitHero_HeroOverlayedSplitSection = ({
     textColor={textColor}
   />
 );
+
 const OverlaySplitHero_HeroOverlayedSplit = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -308,11 +317,14 @@ const OverlaySplitHero_HeroOverlayedSplit = ({
     <OverlaySplitHero_HeroOverlayedSplitSection {...props} />
   </HeroEmailShell>
 );
+
 OverlaySplitHero_HeroOverlayedSplit.PreviewProps = {
   theme: defaultTheme,
   variant: "overlay-left",
 } satisfies OverlaySplitHero_HeroOverlayedSplitProps;
+
 const __OverlaySplitHero = OverlaySplitHero_HeroOverlayedSplit;
+
 type ContainedSplitHero_HeroSplitContainedVariant =
   | "single-image-left"
   | "single-image-right"
@@ -322,6 +334,7 @@ type ContainedSplitHero_HeroSplitContainedVariant =
   | "portrait-top-right"
   | "portrait-bottom-left"
   | "portrait-bottom-right";
+
 interface ContainedSplitHero_HeroSplitContainedProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -345,8 +358,10 @@ interface ContainedSplitHero_HeroSplitContainedProps {
   buttonTextColor?: string;
   variant?: ContainedSplitHero_HeroSplitContainedVariant;
 }
+
 const ContainedSplitHero_assetRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const ContainedSplitHero_presets = {
   portraitBottom: {
     backgroundColor: "#030712",
@@ -401,6 +416,7 @@ const ContainedSplitHero_presets = {
     textColor: "#f9fafb",
   },
 };
+
 const ContainedSplitHero_getPreset = (
   variant: ContainedSplitHero_HeroSplitContainedVariant
 ) => {
@@ -414,6 +430,7 @@ const ContainedSplitHero_getPreset = (
     ? ContainedSplitHero_presets.portraitBottom
     : ContainedSplitHero_presets.portraitTop;
 };
+
 const ContainedSplitHero_HeroSplitContainedSection = (
   props: Omit<ContainedSplitHero_HeroSplitContainedProps, "theme">
 ) => {
@@ -496,6 +513,7 @@ const ContainedSplitHero_HeroSplitContainedSection = (
     </MjmlSection>
   );
 };
+
 const ContainedSplitHero_HeroSplitContained = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -509,14 +527,18 @@ const ContainedSplitHero_HeroSplitContained = ({
     <ContainedSplitHero_HeroSplitContainedSection {...props} />
   </HeroEmailShell>
 );
+
 ContainedSplitHero_HeroSplitContained.PreviewProps = {
   theme: defaultTheme,
   variant: "single-image-left",
 } satisfies ContainedSplitHero_HeroSplitContainedProps;
+
 const __ContainedSplitHero = ContainedSplitHero_HeroSplitContained;
+
 type FullBleedSplitHero_HeroSplitFullBleedVariant =
   | "image-left"
   | "image-right";
+
 interface FullBleedSplitHero_HeroSplitFullBleedProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -536,14 +558,17 @@ interface FullBleedSplitHero_HeroSplitFullBleedProps {
   buttonTextColor?: string;
   variant?: FullBleedSplitHero_HeroSplitFullBleedVariant;
 }
+
 const FullBleedSplitHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 type FullBleedSplitHero_SectionProps = Required<
   Omit<FullBleedSplitHero_HeroSplitFullBleedProps, "theme" | "variant">
 > & {
   theme: EmailThemeTokens;
   variant: FullBleedSplitHero_HeroSplitFullBleedVariant;
 };
+
 const FullBleedSplitHero_HeroImageColumn = ({
   logoAlt,
   logoSrc,
@@ -565,6 +590,7 @@ const FullBleedSplitHero_HeroImageColumn = ({
     />
   </MjmlColumn>
 );
+
 const FullBleedSplitHero_HeroSpacerColumn = () => (
   <MjmlColumn
     cssClass="hero-split-column hero-split-spacer"
@@ -575,6 +601,7 @@ const FullBleedSplitHero_HeroSpacerColumn = () => (
     <MjmlSpacer height="1px" />
   </MjmlColumn>
 );
+
 const FullBleedSplitHero_HeroTextColumn = ({
   buttonBackgroundColor,
   buttonTextColor,
@@ -679,6 +706,7 @@ const FullBleedSplitHero_HeroTextColumn = ({
     <MjmlSpacer height="44px" />
   </MjmlColumn>
 );
+
 const FullBleedSplitHero_HeroSplitFullBleedSection = (
   props: FullBleedSplitHero_SectionProps
 ) => (
@@ -692,6 +720,7 @@ const FullBleedSplitHero_HeroSplitFullBleedSection = (
     <FullBleedSplitHero_HeroTextColumn {...props} />
   </MjmlSection>
 );
+
 const FullBleedSplitHero_HeroSplitFullBleed = ({
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
@@ -778,6 +807,7 @@ const FullBleedSplitHero_HeroSplitFullBleed = ({
     </MjmlBody>
   </Mjml>
 );
+
 FullBleedSplitHero_HeroSplitFullBleed.PreviewProps = {
   buttonBackgroundColor: "#4f46e5",
   buttonTextColor: "#fffffe",
@@ -799,11 +829,14 @@ FullBleedSplitHero_HeroSplitFullBleed.PreviewProps = {
   theme: defaultTheme,
   variant: "image-left",
 } satisfies FullBleedSplitHero_HeroSplitFullBleedProps;
+
 const __FullBleedSplitHero = FullBleedSplitHero_HeroSplitFullBleed;
+
 type OverlayContentHeroBundle_HeroWithOverlayedContentVariant =
   | "default"
   | "slanted-left"
   | "slanted-right";
+
 interface OverlayContentHeroBundle_HeroWithOverlayedContentProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -826,8 +859,10 @@ interface OverlayContentHeroBundle_HeroWithOverlayedContentProps {
   buttonTextColor?: string;
   variant?: OverlayContentHeroBundle_HeroWithOverlayedContentVariant;
 }
+
 const OverlayContentHeroBundle_assetRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const OverlayContentHeroBundle_HeroWithOverlayedContentSection = ({
   accentColor = "#D34A36",
   buttonBackgroundColor = "#D34A36",
@@ -868,6 +903,7 @@ const OverlayContentHeroBundle_HeroWithOverlayedContentSection = ({
     textColor={variant === "default" ? textColor : accentColor}
   />
 );
+
 const OverlayContentHeroBundle_HeroWithOverlayedContent = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -881,21 +917,27 @@ const OverlayContentHeroBundle_HeroWithOverlayedContent = ({
     <OverlayContentHeroBundle_HeroWithOverlayedContentSection {...props} />
   </HeroEmailShell>
 );
+
 OverlayContentHeroBundle_HeroWithOverlayedContent.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies OverlayContentHeroBundle_HeroWithOverlayedContentProps;
+
 const __OverlayContentHeroBundle = {
   Component: OverlayContentHeroBundle_HeroWithOverlayedContent,
   __SplitHeroSection: OverlayContentHeroBundle_HeroWithOverlayedContentSection,
 };
+
 const __OverlayContentHero = __OverlayContentHeroBundle.Component;
+
 const { __SplitHeroSection } = __OverlayContentHeroBundle;
+
 type SlantedSplitHero_HeroWithSlantedSplitVariant =
   | "left-slanted-down"
   | "left-slanted-up"
   | "right-slanted-down"
   | "right-slanted-up";
+
 interface SlantedSplitHero_HeroWithSlantedSplitProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -917,8 +959,10 @@ interface SlantedSplitHero_HeroWithSlantedSplitProps {
   buttonTextColor?: string;
   variant?: SlantedSplitHero_HeroWithSlantedSplitVariant;
 }
+
 const SlantedSplitHero_assetRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const SlantedSplitHero_HeroWithSlantedSplitSection = ({
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
@@ -973,6 +1017,7 @@ const SlantedSplitHero_HeroWithSlantedSplitSection = ({
     </MjmlSection>
   );
 };
+
 const SlantedSplitHero_HeroWithSlantedSplit = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -986,11 +1031,14 @@ const SlantedSplitHero_HeroWithSlantedSplit = ({
     <SlantedSplitHero_HeroWithSlantedSplitSection {...props} />
   </HeroEmailShell>
 );
+
 SlantedSplitHero_HeroWithSlantedSplit.PreviewProps = {
   theme: defaultTheme,
   variant: "left-slanted-down",
 } satisfies SlantedSplitHero_HeroWithSlantedSplitProps;
+
 const __SlantedSplitHero = SlantedSplitHero_HeroWithSlantedSplit;
+
 export interface HeroContent {
   eyebrow?: string;
   heading?: string;
@@ -1003,14 +1051,17 @@ export interface HeroContent {
     label: string;
   }[];
 }
+
 export interface HeroImage {
   src: string;
   alt?: string;
 }
+
 export interface HeroBrand {
   logo: HeroImage;
   href?: string;
 }
+
 export interface SplitHeroProps {
   theme?: Parameters<typeof __ContainedSplitHero>[0]["theme"];
   content?: HeroContent;
@@ -1021,6 +1072,7 @@ export interface SplitHeroProps {
   slant?: "up" | "down";
   overlayContent?: boolean;
 }
+
 const heroContentValues = (content: HeroContent | undefined) => {
   const { actions, description, eyebrow, heading, subheading } = content ?? {};
   const [action] = actions ?? [];
@@ -1033,10 +1085,12 @@ const heroContentValues = (content: HeroContent | undefined) => {
     subheading,
   };
 };
+
 const heroImageValues = (image: HeroImage | undefined) => ({
   alt: image?.alt,
   src: image?.src,
 });
+
 const heroBrandValues = (brand: HeroBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -1045,6 +1099,7 @@ const heroBrandValues = (brand: HeroBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 export const SplitHero = ({
   theme,
   content,
@@ -1162,7 +1217,9 @@ export const SplitHero = ({
     />
   );
 };
+
 export const SplitHeroSection = __SplitHeroSection;
+
 SplitHero.PreviewProps = {
   imagePosition: "right",
   overlayContent: false,

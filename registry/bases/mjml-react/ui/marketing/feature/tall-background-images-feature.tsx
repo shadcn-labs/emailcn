@@ -16,8 +16,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FeatureEmailShell = ({
   children,
   pageBackgroundColor,
@@ -42,6 +44,7 @@ const FeatureEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const FeatureCopy = ({
   align = "left",
   body,
@@ -101,11 +104,13 @@ const FeatureCopy = ({
     </MjmlButton>
   </>
 );
+
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-top-right"
   | "logo-top-left"
   | "logo-bottom-left"
   | "logo-bottom-right";
+
 interface TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -126,6 +131,7 @@ interface TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps {
   linkColor?: string;
   variant?: TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant;
 }
+
 const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = ({
   backgroundColor = "#fffffe",
   body = "Premium footwear, outerwear, and lifestyle pieces chosen for quality, comfort, and everyday performance.",
@@ -214,6 +220,7 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = ({
     </MjmlSection>
   );
 };
+
 const TallFeatureSplit_FeatureWithDoubleTallBackgroundImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -227,17 +234,21 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImages = ({
     <TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection {...props} />
   </FeatureEmailShell>
 );
+
 TallFeatureSplit_FeatureWithDoubleTallBackgroundImages.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-top-left",
 } satisfies TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps;
+
 const __TallFeatureSplit =
   TallFeatureSplit_FeatureWithDoubleTallBackgroundImages;
+
 type TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesVariant =
   | "logo-bottom-left"
   | "logo-bottom-right"
   | "logo-top-left"
   | "logo-top-right";
+
 interface TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -258,8 +269,10 @@ interface TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps {
   linkColor?: string;
   variant?: TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesVariant;
 }
+
 const TallFeatureFull_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = ({
   backgroundColor = "#fffffe",
   body = "Discover clinically proven formulas designed to target concerns with precision and clarity.",
@@ -360,6 +373,7 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = ({
     </>
   );
 };
+
 const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -375,12 +389,15 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages = ({
     />
   </FeatureEmailShell>
 );
+
 TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-bottom-left",
 } satisfies TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps;
+
 const __TallFeatureFull =
   TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages;
+
 export interface TallBackgroundImagesFeatureProps {
   theme?: Parameters<typeof __TallFeatureSplit>[0]["theme"];
   heading?: string;
@@ -407,6 +424,7 @@ export interface TallBackgroundImagesFeatureProps {
   logoPosition?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   titleWidth?: "split" | "full";
 }
+
 export const TallBackgroundImagesFeature = ({
   theme,
   heading,
@@ -435,6 +453,7 @@ export const TallBackgroundImagesFeature = ({
     />
   );
 };
+
 TallBackgroundImagesFeature.PreviewProps = {
   logoPosition: "top-left",
   titleWidth: "split",

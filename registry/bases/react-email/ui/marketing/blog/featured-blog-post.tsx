@@ -17,6 +17,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -26,14 +27,18 @@ const colors = {
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const tableStyle: CSSProperties = {
   borderCollapse: "separate",
   borderSpacing: 0,
   width: "100%",
 };
+
 const textBase: CSSProperties = { fontFamily, margin: 0 };
+
 type BlogLayout =
   | "featured"
   | "featured-date"
@@ -48,6 +53,7 @@ type BlogLayout =
   | "two-column-boxed"
   | "two-column-images"
   | "two-column-images-text";
+
 interface BlogPostData {
   author?: string;
   badge?: string;
@@ -62,6 +68,7 @@ interface BlogPostData {
   month?: string;
   title: string;
 }
+
 const Image = ({
   alt,
   src,
@@ -87,6 +94,7 @@ const Image = ({
     }}
   />
 );
+
 const Meta = ({ post }: { post: BlogPostData }) => {
   const label =
     post.episode ??
@@ -108,6 +116,7 @@ const Meta = ({ post }: { post: BlogPostData }) => {
     </Text>
   ) : null;
 };
+
 const Copy = ({ post }: { post: BlogPostData }) => (
   <>
     <Meta post={post} />
@@ -156,6 +165,7 @@ const Copy = ({ post }: { post: BlogPostData }) => (
     })()}
   </>
 );
+
 const VerticalCard = ({
   boxed = false,
   post,
@@ -188,6 +198,7 @@ const VerticalCard = ({
     </Fragment>
   </Section>
 );
+
 const Gap = ({ width = 24 }: { width?: number }) => (
   <Column
     className="blog-gap"
@@ -197,6 +208,7 @@ const Gap = ({ width = 24 }: { width?: number }) => (
     &zwj;
   </Column>
 );
+
 const BlogColumnFragment = ({
   boxed,
   index,
@@ -216,6 +228,7 @@ const BlogColumnFragment = ({
     </Column>
   </>
 );
+
 const TwoColumns = ({
   boxed,
   posts,
@@ -238,6 +251,7 @@ const TwoColumns = ({
     </Fragment>
   </Section>
 );
+
 const Masonry = ({
   boxed,
   posts,
@@ -269,6 +283,7 @@ const Masonry = ({
     </Fragment>
   </Section>
 );
+
 const Horizontal = ({
   boxed = false,
   post,
@@ -307,6 +322,7 @@ const Horizontal = ({
     </Fragment>
   </Section>
 );
+
 const SplitImages = ({ post }: { post: BlogPostData }) => (
   <Section
     style={{
@@ -347,6 +363,7 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
     </Fragment>
   </Section>
 );
+
 const FullWidth = ({ post }: { post: BlogPostData }) => (
   <Section style={tableStyle}>
     <Fragment>
@@ -363,6 +380,7 @@ const FullWidth = ({ post }: { post: BlogPostData }) => (
     </Fragment>
   </Section>
 );
+
 const BlogContent = ({
   layout,
   posts,
@@ -395,6 +413,7 @@ const BlogContent = ({
   }
   return <FullWidth post={posts[0]} />;
 };
+
 const BlogEmailShell = ({
   children,
   preview,
@@ -444,6 +463,7 @@ const BlogEmailShell = ({
     </Tailwind>
   </Html>
 );
+
 interface Featured_FeaturedBlogPostProps {
   theme?: TailwindConfig;
   author?: string;
@@ -453,6 +473,7 @@ interface Featured_FeaturedBlogPostProps {
   imageSrc?: string;
   title?: string;
 }
+
 const Featured_FeaturedBlogPostSection = ({
   author = "John Doe",
   badge = "Featured",
@@ -477,6 +498,7 @@ const Featured_FeaturedBlogPostSection = ({
     </>
   );
 };
+
 const Featured_FeaturedBlogPost = ({
   theme = defaultTheme,
   author = "John Doe",
@@ -497,6 +519,7 @@ const Featured_FeaturedBlogPost = ({
     />
   </BlogEmailShell>
 );
+
 Featured_FeaturedBlogPost.PreviewProps = {
   author: "John Doe",
   badge: "Featured",
@@ -507,7 +530,9 @@ Featured_FeaturedBlogPost.PreviewProps = {
   theme: defaultTheme,
   title: "Featured article",
 } satisfies Featured_FeaturedBlogPostProps;
+
 const __Featured = Featured_FeaturedBlogPost;
+
 interface FeaturedDate_FeaturedPostWithLargeDateProps {
   theme?: TailwindConfig;
   date?: string;
@@ -517,6 +542,7 @@ interface FeaturedDate_FeaturedPostWithLargeDateProps {
   month?: string;
   title?: string;
 }
+
 const FeaturedDate_FeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
@@ -541,6 +567,7 @@ const FeaturedDate_FeaturedPostWithLargeDateSection = ({
     </>
   );
 };
+
 const FeaturedDate_FeaturedPostWithLargeDate = ({
   theme = defaultTheme,
   date = "15",
@@ -561,6 +588,7 @@ const FeaturedDate_FeaturedPostWithLargeDate = ({
     />
   </BlogEmailShell>
 );
+
 FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "A compelling excerpt from the featured article.",
@@ -571,7 +599,9 @@ FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
   theme: defaultTheme,
   title: "Featured article",
 } satisfies FeaturedDate_FeaturedPostWithLargeDateProps;
+
 const __FeaturedDate = FeaturedDate_FeaturedPostWithLargeDate;
+
 interface FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps {
   theme?: TailwindConfig;
   date?: string;
@@ -581,6 +611,7 @@ interface FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps {
   month?: string;
   title?: string;
 }
+
 const FeaturedDateFull_FullWidthFeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
@@ -605,6 +636,7 @@ const FeaturedDateFull_FullWidthFeaturedPostWithLargeDateSection = ({
     </>
   );
 };
+
 const FeaturedDateFull_FullWidthFeaturedPostWithLargeDate = ({
   theme = defaultTheme,
   date = "15",
@@ -625,6 +657,7 @@ const FeaturedDateFull_FullWidthFeaturedPostWithLargeDate = ({
     />
   </BlogEmailShell>
 );
+
 FeaturedDateFull_FullWidthFeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "A compelling excerpt from the featured article.",
@@ -635,7 +668,9 @@ FeaturedDateFull_FullWidthFeaturedPostWithLargeDate.PreviewProps = {
   theme: defaultTheme,
   title: "Featured article",
 } satisfies FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps;
+
 const __FeaturedDateFull = FeaturedDateFull_FullWidthFeaturedPostWithLargeDate;
+
 export interface BlogPost {
   title: string;
   excerpt?: string;
@@ -650,12 +685,14 @@ export interface BlogPost {
   episode?: string;
   host?: string;
 }
+
 export interface FeaturedBlogPostProps {
   theme?: Parameters<typeof __Featured>[0]["theme"];
   post?: BlogPost;
   width?: "contained" | "full";
   dateStyle?: "none" | "large";
 }
+
 const toFeaturedProps = (post: BlogPost | undefined) =>
   post
     ? {
@@ -669,6 +706,7 @@ const toFeaturedProps = (post: BlogPost | undefined) =>
         title: post.title,
       }
     : {};
+
 export const FeaturedBlogPost = ({
   theme,
   post,
@@ -685,6 +723,7 @@ export const FeaturedBlogPost = ({
   }
   return <__Featured {...props} />;
 };
+
 FeaturedBlogPost.PreviewProps = {
   dateStyle: "none",
   width: "contained",

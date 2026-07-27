@@ -17,7 +17,9 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type Feature_FeatureWithProductImageVariant = "image-left" | "image-right";
+
 interface Feature_FeatureWithProductImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -34,8 +36,10 @@ interface Feature_FeatureWithProductImageProps {
   linkColor?: string;
   variant?: Feature_FeatureWithProductImageVariant;
 }
+
 const Feature_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Feature_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .feature-product-stack {
@@ -52,6 +56,7 @@ const Feature_responsiveStyles = `
       }
     }
   `;
+
 const Feature_defaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
@@ -67,8 +72,11 @@ const Feature_defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type Feature_SectionProps = Omit<Feature_FeatureWithProductImageProps, "theme">;
+
 type Feature_ResolvedProps = typeof Feature_defaults & Feature_SectionProps;
+
 const Feature_ProductImage = ({ props }: { props: Feature_ResolvedProps }) => (
   <Column
     className="feature-product-stack"
@@ -87,6 +95,7 @@ const Feature_ProductImage = ({ props }: { props: Feature_ResolvedProps }) => (
     />
   </Column>
 );
+
 const Feature_ProductCopy = ({ props }: { props: Feature_ResolvedProps }) => (
   <Column
     className="feature-product-stack"
@@ -150,6 +159,7 @@ const Feature_ProductCopy = ({ props }: { props: Feature_ResolvedProps }) => (
     </Section>
   </Column>
 );
+
 const Feature_FeatureWithProductImageSection = (
   props: Feature_SectionProps
 ) => {
@@ -203,6 +213,7 @@ const Feature_FeatureWithProductImageSection = (
     </Section>
   );
 };
+
 const Feature_FeatureWithProductImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -234,11 +245,14 @@ const Feature_FeatureWithProductImage = ({
     </Body>
   </Html>
 );
+
 Feature_FeatureWithProductImage.PreviewProps = {
   theme: defaultTheme,
   variant: "image-left",
 } satisfies Feature_FeatureWithProductImageProps;
+
 const __Feature = Feature_FeatureWithProductImage;
+
 export interface ImageFeatureProps {
   theme?: Parameters<typeof __Feature>[0]["theme"];
   heading?: string;
@@ -254,6 +268,7 @@ export interface ImageFeatureProps {
   };
   placement?: "left" | "right";
 }
+
 export const ImageFeature = ({
   theme,
   heading,
@@ -274,6 +289,7 @@ export const ImageFeature = ({
     variant={`image-${placement}`}
   />
 );
+
 ImageFeature.PreviewProps = {
   placement: "right",
 } satisfies ImageFeatureProps;

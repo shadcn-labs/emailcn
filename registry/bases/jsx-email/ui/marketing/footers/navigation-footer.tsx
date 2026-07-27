@@ -16,13 +16,16 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 interface CenteredFooter_CenteredFooterLink {
   href: string;
   label: string;
 }
+
 interface CenteredFooter_CenteredFooterSocial extends CenteredFooter_CenteredFooterLink {
   iconSrc: string;
 }
+
 interface CenteredFooter_FooterCenteredWithMenuAndSocialsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -36,10 +39,13 @@ interface CenteredFooter_FooterCenteredWithMenuAndSocialsProps {
   textColor?: string;
   mutedTextColor?: string;
 }
+
 const CenteredFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CenteredFooter_responsiveStyles =
   "@media only screen and (max-width: 599px) { .footer-centered-menu-break { display: none !important; } }";
+
 const CenteredFooter_defaults = {
   backgroundColor: "#fffffe",
   links: [
@@ -83,12 +89,15 @@ const CenteredFooter_defaults = {
   textColor: "#9ca3af",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type CenteredFooter_SectionProps = Omit<
   CenteredFooter_FooterCenteredWithMenuAndSocialsProps,
   "theme"
 >;
+
 type CenteredFooter_ResolvedProps = typeof CenteredFooter_defaults &
   CenteredFooter_SectionProps;
+
 const CenteredFooter_CenteredRow = ({ children }: { children: ReactNode }) => (
   <Section align="center" style={{ marginLeft: "auto", marginRight: "auto" }}>
     <Fragment>
@@ -96,6 +105,7 @@ const CenteredFooter_CenteredRow = ({ children }: { children: ReactNode }) => (
     </Fragment>
   </Section>
 );
+
 const CenteredFooter_FooterCenteredWithMenuAndSocialsSection = (
   props: CenteredFooter_SectionProps
 ) => {
@@ -229,6 +239,7 @@ const CenteredFooter_FooterCenteredWithMenuAndSocialsSection = (
     </Section>
   );
 };
+
 const CenteredFooter_FooterCenteredWithMenuAndSocials = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -256,13 +267,17 @@ const CenteredFooter_FooterCenteredWithMenuAndSocials = ({
     </Body>
   </Html>
 );
+
 CenteredFooter_FooterCenteredWithMenuAndSocials.PreviewProps = {
   theme: defaultTheme,
 } satisfies CenteredFooter_FooterCenteredWithMenuAndSocialsProps;
+
 const __CenteredFooter = CenteredFooter_FooterCenteredWithMenuAndSocials;
+
 type DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant =
   | "left-logo"
   | "right-logo";
+
 interface DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps {
   theme?: EmailThemeTokens;
   variant?: DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant;
@@ -277,8 +292,10 @@ interface DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps {
   legalColor?: string;
   unsubscribeHref?: string;
 }
+
 const DividerMenuFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const DividerMenuFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-divider-socials { float: none !important; margin-bottom: 44px !important; margin-left: 0 !important; }",
@@ -286,17 +303,20 @@ const DividerMenuFooter_responsiveStyles = [
   "  .footer-divider-social-cell { display: table-header-group !important; }",
   "}",
 ].join("\n");
+
 const DividerMenuFooter_quickLinks = [
   ["About us", "https://example.com/about"],
   ["Shop", "https://example.com/shop"],
   ["FAQs", "https://example.com/faq"],
   ["Contact us", "https://example.com/contact"],
 ] as const;
+
 const DividerMenuFooter_legalLinks = [
   ["Privacy Policy", "https://example.com/privacy"],
   ["Terms of Service", "https://example.com/terms"],
   ["Returns", "https://example.com/returns"],
 ] as const;
+
 const DividerMenuFooter_socials = [
   ["Facebook", "https://facebook.com", "icon-facebook.png"],
   ["GitHub", "https://github.com", "icon-github.png"],
@@ -304,6 +324,7 @@ const DividerMenuFooter_socials = [
   ["YouTube", "https://youtube.com", "icon-youtube.png"],
   ["X", "https://x.com", "icon-x.png"],
 ] as const;
+
 const DividerMenuFooter_LinkColumn = ({
   heading,
   links,
@@ -351,6 +372,7 @@ const DividerMenuFooter_LinkColumn = ({
     ))}
   </Column>
 );
+
 const DividerMenuFooter_FooterWith2ColumnMenuAndDividerSection = ({
   variant = "left-logo",
   logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
@@ -546,6 +568,7 @@ const DividerMenuFooter_FooterWith2ColumnMenuAndDividerSection = ({
     </Fragment>
   </Section>
 );
+
 const DividerMenuFooter_FooterWith2ColumnMenuAndDivider = ({
   theme: _theme = defaultTheme,
   variant = "left-logo",
@@ -573,16 +596,21 @@ const DividerMenuFooter_FooterWith2ColumnMenuAndDivider = ({
     </Body>
   </Html>
 );
+
 DividerMenuFooter_FooterWith2ColumnMenuAndDivider.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps;
+
 const __DividerMenuFooter = DividerMenuFooter_FooterWith2ColumnMenuAndDivider;
+
 type TwoColumnFooter_FooterWith2ColumnMenuVariant = "left-logo" | "right-logo";
+
 interface TwoColumnFooter_FooterWith2ColumnMenuLink {
   href: string;
   label: string;
 }
+
 interface TwoColumnFooter_FooterWith2ColumnMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -599,8 +627,10 @@ interface TwoColumnFooter_FooterWith2ColumnMenuProps {
   mutedTextColor?: string;
   variant?: TwoColumnFooter_FooterWith2ColumnMenuVariant;
 }
+
 const TwoColumnFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TwoColumnFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-two-menu-cell { display: block !important; width: 100% !important; }",
@@ -608,6 +638,7 @@ const TwoColumnFooter_responsiveStyles = [
   "  .footer-two-menu-columns { float: none !important; margin: 0 !important; text-align: left !important; }",
   "}",
 ].join("\n");
+
 const TwoColumnFooter_defaults = {
   backgroundColor: "#fffffe",
   connectLinks: [
@@ -633,12 +664,15 @@ const TwoColumnFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type TwoColumnFooter_SectionProps = Omit<
   TwoColumnFooter_FooterWith2ColumnMenuProps,
   "theme"
 >;
+
 type TwoColumnFooter_ResolvedProps = typeof TwoColumnFooter_defaults &
   TwoColumnFooter_SectionProps;
+
 const TwoColumnFooter_MenuColumn = ({
   links,
   props,
@@ -681,6 +715,7 @@ const TwoColumnFooter_MenuColumn = ({
     ))}
   </Column>
 );
+
 const TwoColumnFooter_LogoCell = ({
   props,
 }: {
@@ -712,6 +747,7 @@ const TwoColumnFooter_LogoCell = ({
     </Section>
   </Column>
 );
+
 const TwoColumnFooter_MenusCell = ({
   props,
 }: {
@@ -744,6 +780,7 @@ const TwoColumnFooter_MenusCell = ({
     </Section>
   </Column>
 );
+
 const TwoColumnFooter_FooterWith2ColumnMenuSection = (
   props: TwoColumnFooter_SectionProps
 ) => {
@@ -814,6 +851,7 @@ const TwoColumnFooter_FooterWith2ColumnMenuSection = (
     </Section>
   );
 };
+
 const TwoColumnFooter_FooterWith2ColumnMenu = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -843,19 +881,25 @@ const TwoColumnFooter_FooterWith2ColumnMenu = ({
     </Body>
   </Html>
 );
+
 TwoColumnFooter_FooterWith2ColumnMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies TwoColumnFooter_FooterWith2ColumnMenuProps;
+
 const __TwoColumnFooter = TwoColumnFooter_FooterWith2ColumnMenu;
+
 type ThreeColumnFooter_FooterWith3ColMenuVariant = "left-logo" | "right-logo";
+
 interface ThreeColumnFooter_FooterWith3ColMenuLink {
   href: string;
   label: string;
 }
+
 interface ThreeColumnFooter_FooterWith3ColMenuSocial extends ThreeColumnFooter_FooterWith3ColMenuLink {
   iconSrc: string;
 }
+
 interface ThreeColumnFooter_FooterWith3ColMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -873,8 +917,10 @@ interface ThreeColumnFooter_FooterWith3ColMenuProps {
   mutedTextColor?: string;
   variant?: ThreeColumnFooter_FooterWith3ColMenuVariant;
 }
+
 const ThreeColumnFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const ThreeColumnFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-three-menu-cell { display: block !important; width: 100% !important; }",
@@ -884,6 +930,7 @@ const ThreeColumnFooter_responsiveStyles = [
   "  .footer-three-menu-column { padding-right: 20px !important; }",
   "}",
 ].join("\n");
+
 const ThreeColumnFooter_defaults = {
   backgroundColor: "#fffffe",
   connectLinks: [
@@ -940,12 +987,15 @@ const ThreeColumnFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type ThreeColumnFooter_SectionProps = Omit<
   ThreeColumnFooter_FooterWith3ColMenuProps,
   "theme"
 >;
+
 type ThreeColumnFooter_ResolvedProps = typeof ThreeColumnFooter_defaults &
   ThreeColumnFooter_SectionProps;
+
 const ThreeColumnFooter_MenuColumn = ({
   last = false,
   links,
@@ -995,6 +1045,7 @@ const ThreeColumnFooter_MenuColumn = ({
     ))}
   </Column>
 );
+
 const ThreeColumnFooter_BrandCell = ({
   props,
 }: {
@@ -1031,6 +1082,7 @@ const ThreeColumnFooter_BrandCell = ({
     </Text>
   </Column>
 );
+
 const ThreeColumnFooter_MenusCell = ({
   props,
 }: {
@@ -1069,6 +1121,7 @@ const ThreeColumnFooter_MenusCell = ({
     </Section>
   </Column>
 );
+
 const ThreeColumnFooter_FooterWith3ColMenuSection = (
   props: ThreeColumnFooter_SectionProps
 ) => {
@@ -1176,6 +1229,7 @@ const ThreeColumnFooter_FooterWith3ColMenuSection = (
     </Section>
   );
 };
+
 const ThreeColumnFooter_FooterWith3ColMenu = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1205,19 +1259,25 @@ const ThreeColumnFooter_FooterWith3ColMenu = ({
     </Body>
   </Html>
 );
+
 ThreeColumnFooter_FooterWith3ColMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies ThreeColumnFooter_FooterWith3ColMenuProps;
+
 const __ThreeColumnFooter = ThreeColumnFooter_FooterWith3ColMenu;
+
 type FullMenuFooter_FooterWithFullMenuVariant = "oversized-logo" | "bordered";
+
 interface FullMenuFooter_FullMenuFooterLink {
   href: string;
   label: string;
 }
+
 interface FullMenuFooter_FullMenuFooterSocial extends FullMenuFooter_FullMenuFooterLink {
   iconSrc: string;
 }
+
 interface FullMenuFooter_FooterWithFullMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -1234,8 +1294,10 @@ interface FullMenuFooter_FooterWithFullMenuProps {
   mutedTextColor?: string;
   variant?: FullMenuFooter_FooterWithFullMenuVariant;
 }
+
 const FullMenuFooter_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FullMenuFooter_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-full-menu-item { display: inline-block !important; }",
@@ -1243,6 +1305,7 @@ const FullMenuFooter_responsiveStyles = [
   "  .footer-full-menu-row { line-height: 32px !important; text-align: center !important; }",
   "}",
 ].join("\n");
+
 const FullMenuFooter_defaults = {
   assistanceText:
     "If you have any questions or need assistance\nplease reply to this email.",
@@ -1291,15 +1354,18 @@ const FullMenuFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type FullMenuFooter_SectionProps = Omit<
   FullMenuFooter_FooterWithFullMenuProps,
   "theme"
 >;
+
 type FullMenuFooter_ResolvedProps = typeof FullMenuFooter_defaults &
   FullMenuFooter_SectionProps & {
     logoSrc: string;
     variant: FullMenuFooter_FooterWithFullMenuVariant;
   };
+
 const FullMenuFooter_Divider = ({
   props,
 }: {
@@ -1316,6 +1382,7 @@ const FullMenuFooter_Divider = ({
     &zwj;
   </Section>
 );
+
 const FullMenuFooter_Menu = ({
   props,
 }: {
@@ -1352,6 +1419,7 @@ const FullMenuFooter_Menu = ({
     </Fragment>
   </Section>
 );
+
 const FullMenuFooter_Socials = ({
   props,
 }: {
@@ -1383,6 +1451,7 @@ const FullMenuFooter_Socials = ({
     </Fragment>
   </Section>
 );
+
 const FullMenuFooter_Address = ({
   props,
 }: {
@@ -1424,6 +1493,7 @@ const FullMenuFooter_Address = ({
     </Text>
   </Section>
 );
+
 const FullMenuFooter_FooterWithFullMenuSection = (
   props: FullMenuFooter_SectionProps
 ) => {
@@ -1525,6 +1595,7 @@ const FullMenuFooter_FooterWithFullMenuSection = (
     </Section>
   );
 };
+
 const FullMenuFooter_FooterWithFullMenu = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1554,21 +1625,27 @@ const FullMenuFooter_FooterWithFullMenu = ({
     </Body>
   </Html>
 );
+
 FullMenuFooter_FooterWithFullMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "oversized-logo",
 } satisfies FullMenuFooter_FooterWithFullMenuProps;
+
 const __FullMenuFooter = FullMenuFooter_FooterWithFullMenu;
+
 type TextMenuFooterBundle_FooterWithTextMenuAndSocialsVariant =
   | "left-logo"
   | "right-logo";
+
 interface TextMenuFooterBundle_FooterLink {
   href: string;
   label: string;
 }
+
 interface TextMenuFooterBundle_FooterSocialLink extends TextMenuFooterBundle_FooterLink {
   iconSrc: string;
 }
+
 interface TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -1587,8 +1664,10 @@ interface TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps {
   mutedTextColor?: string;
   variant?: TextMenuFooterBundle_FooterWithTextMenuAndSocialsVariant;
 }
+
 const TextMenuFooterBundle_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TextMenuFooterBundle_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .footer-text-menu-cell { display: block !important; width: 100% !important; }",
@@ -1596,6 +1675,7 @@ const TextMenuFooterBundle_responsiveStyles = [
   "  .footer-text-menu-links { float: none !important; margin: 0 !important; text-align: left !important; }",
   "}",
 ].join("\n");
+
 const TextMenuFooterBundle_defaults = {
   backgroundColor: "#fffffe",
   copyright: "© 2026 emailcn. No longer want to receive emails?",
@@ -1642,12 +1722,15 @@ const TextMenuFooterBundle_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type TextMenuFooterBundle_SectionProps = Omit<
   TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps,
   "theme"
 >;
+
 type TextMenuFooterBundle_ResolvedProps = typeof TextMenuFooterBundle_defaults &
   TextMenuFooterBundle_SectionProps;
+
 const TextMenuFooterBundle_BrandCopy = ({
   props,
 }: {
@@ -1686,6 +1769,7 @@ const TextMenuFooterBundle_BrandCopy = ({
     </Fragment>
   </Section>
 );
+
 const TextMenuFooterBundle_QuickLinks = ({
   props,
 }: {
@@ -1737,6 +1821,7 @@ const TextMenuFooterBundle_QuickLinks = ({
     </Fragment>
   </Section>
 );
+
 const TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection = (
   props: TextMenuFooterBundle_SectionProps
 ) => {
@@ -1864,6 +1949,7 @@ const TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection = (
     </Section>
   );
 };
+
 const TextMenuFooterBundle_FooterWithTextMenuAndSocials = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -1895,17 +1981,22 @@ const TextMenuFooterBundle_FooterWithTextMenuAndSocials = ({
     </Body>
   </Html>
 );
+
 TextMenuFooterBundle_FooterWithTextMenuAndSocials.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps;
+
 const __TextMenuFooterBundle = {
   Component: TextMenuFooterBundle_FooterWithTextMenuAndSocials,
   __NavigationFooterSection:
     TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection,
 };
+
 const __TextMenuFooter = __TextMenuFooterBundle.Component;
+
 const { __NavigationFooterSection } = __TextMenuFooterBundle;
+
 export interface FooterBrand {
   logo: {
     src: string;
@@ -1913,23 +2004,28 @@ export interface FooterBrand {
   };
   href?: string;
 }
+
 export interface FooterLink {
   label: string;
   href: string;
 }
+
 export interface FooterMenu {
   heading?: string;
   links: FooterLink[];
 }
+
 export interface FooterSocial extends FooterLink {
   iconSrc: string;
 }
+
 export interface FooterLegal {
   copyright?: string;
   text?: string;
   unsubscribeHref?: string;
   preferencesHref?: string;
 }
+
 export interface NavigationFooterProps {
   theme?: Parameters<typeof __TwoColumnFooter>[0]["theme"];
   brand?: FooterBrand;
@@ -1943,6 +2039,7 @@ export interface NavigationFooterProps {
   divider?: boolean;
   oversizedLogo?: boolean;
 }
+
 const footerBrandValues = (brand: FooterBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -1951,13 +2048,16 @@ const footerBrandValues = (brand: FooterBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 const footerLegalValues = (legal: FooterLegal | undefined) => ({
   copyright: legal?.copyright,
   preferencesHref: legal?.preferencesHref,
   text: legal?.text,
   unsubscribeHref: legal?.unsubscribeHref,
 });
+
 const footerMenuLinks = (menu: FooterMenu | undefined) => menu?.links;
+
 export const NavigationFooter = ({
   theme,
   brand,
@@ -2039,7 +2139,9 @@ export const NavigationFooter = ({
     />
   );
 };
+
 export const NavigationFooterSection = __NavigationFooterSection;
+
 NavigationFooter.PreviewProps = {
   alignment: "left",
   columns: 2,

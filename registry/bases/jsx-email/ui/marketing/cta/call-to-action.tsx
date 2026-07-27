@@ -17,10 +17,12 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type CtaBundle_CTAWithTitleAndActionLeadVariant =
   | "title-and-lead"
   | "secondary-button"
   | "minimal";
+
 interface CtaBundle_CTAWithTitleAndActionLeadProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -41,10 +43,13 @@ interface CtaBundle_CTAWithTitleAndActionLeadProps {
   secondaryButtonBorderColor?: string;
   variant?: CtaBundle_CTAWithTitleAndActionLeadVariant;
 }
+
 const CtaBundle_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CtaBundle_arrowSrc =
   "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png";
+
 const CtaBundle_responsiveStyles = `
     @media only screen and (max-width: 430px) {
       .cta-title-action-cell {
@@ -64,10 +69,12 @@ const CtaBundle_responsiveStyles = `
       background-color: #f9fafb !important;
     }
   `;
+
 type CtaBundle_SectionProps = Omit<
   CtaBundle_CTAWithTitleAndActionLeadProps,
   "theme"
 >;
+
 const CtaBundle_defaultSectionProps = {
   backgroundColor: "#fffffe",
   ctaHref: "https://example.com/",
@@ -87,6 +94,7 @@ const CtaBundle_defaultSectionProps = {
   textColor: "#4b5563",
   variant: "title-and-lead",
 } satisfies CtaBundle_SectionProps;
+
 const CtaBundle_CTAWithTitleAndActionLeadSection = (
   props: CtaBundle_SectionProps
 ) => {
@@ -273,6 +281,7 @@ const CtaBundle_CTAWithTitleAndActionLeadSection = (
     </Section>
   );
 };
+
 const CtaBundle_CTAWithTitleAndActionLead = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -309,16 +318,21 @@ const CtaBundle_CTAWithTitleAndActionLead = ({
     </Body>
   </Html>
 );
+
 CtaBundle_CTAWithTitleAndActionLead.PreviewProps = {
   theme: defaultTheme,
   variant: "title-and-lead",
 } satisfies CtaBundle_CTAWithTitleAndActionLeadProps;
+
 const __CtaBundle = {
   Component: CtaBundle_CTAWithTitleAndActionLead,
   __CallToActionSection: CtaBundle_CTAWithTitleAndActionLeadSection,
 };
+
 const __Cta = __CtaBundle.Component;
+
 const { __CallToActionSection } = __CtaBundle;
+
 export interface CallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -329,6 +343,7 @@ export interface CallToActionProps {
     label: string;
   }[];
 }
+
 export const CallToAction = ({
   theme,
   heading,
@@ -356,5 +371,7 @@ export const CallToAction = ({
     })()}
   />
 );
+
 export const CallToActionSection = __CallToActionSection;
+
 CallToAction.PreviewProps = {} satisfies CallToActionProps;

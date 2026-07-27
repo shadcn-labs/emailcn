@@ -11,7 +11,9 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type ContainerMobile = "flush" | "gutters";
+
 const containerResponsiveStyles = `
   @media only screen and (max-width: 599px) {
     .container-mobile-gutters {
@@ -20,6 +22,7 @@ const containerResponsiveStyles = `
     }
   }
 `;
+
 const ContainerSection = ({
   align = "center",
   children,
@@ -74,6 +77,7 @@ const ContainerSection = ({
     </>
   );
 };
+
 interface Container_ContainerProps {
   align?: "center" | "left" | "right";
   children?: ReactNode;
@@ -82,6 +86,7 @@ interface Container_ContainerProps {
   mobile?: ContainerMobile;
   theme?: EmailThemeTokens;
 }
+
 const Container_Container = ({
   theme: _theme = defaultTheme,
   ...props
@@ -102,13 +107,16 @@ const Container_Container = ({
     </Html>
   );
 };
+
 Container_Container.PreviewProps = {
   align: "center",
   maxWidth: "600px",
   mobile: "gutters",
   theme: defaultTheme,
 } satisfies Container_ContainerProps;
+
 const __Container = Container_Container;
+
 export interface ContainerProps {
   theme?: Parameters<typeof __Container>[0]["theme"];
   children?: Parameters<typeof __Container>[0]["children"];
@@ -116,7 +124,9 @@ export interface ContainerProps {
   align?: "left" | "center" | "right";
   mobile?: "flush" | "gutters";
 }
+
 export const Container = (props: ContainerProps) => <__Container {...props} />;
+
 Container.PreviewProps = {
   mobile: "gutters",
 } satisfies ContainerProps;

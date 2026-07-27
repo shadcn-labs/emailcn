@@ -15,12 +15,14 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type RollingStats_RollingStatsVariant =
   | "centered"
   | "top-left"
   | "bottom-left"
   | "top-right"
   | "bottom-right";
+
 interface RollingStats_RollingStatsProps {
   theme?: TailwindConfig;
   variant?: RollingStats_RollingStatsVariant;
@@ -36,8 +38,10 @@ interface RollingStats_RollingStatsProps {
   secondValueColor?: string;
   accentColor?: string;
 }
+
 const RollingStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const RollingStats_defaults = {
   backgroundColor: "#fffffe",
   eyebrow: "Mapped trails",
@@ -49,6 +53,7 @@ const RollingStats_defaults = {
   panelBackgroundColor: "#030712",
   secondValueColor: "#737373",
 };
+
 const RollingStats_accentColors: Record<
   RollingStats_RollingStatsVariant,
   string
@@ -59,12 +64,15 @@ const RollingStats_accentColors: Record<
   "top-left": "#fde68a",
   "top-right": "#fecdd3",
 };
+
 type RollingStats_SectionProps = Omit<RollingStats_RollingStatsProps, "theme">;
+
 type RollingStats_ResolvedProps = typeof RollingStats_defaults &
   RollingStats_SectionProps & {
     accentColor: string;
     values: [string, string, string];
   };
+
 const RollingStats_RollingStatsSection = (props: RollingStats_SectionProps) => {
   const variant = props.variant ?? "centered";
   const centered = variant === "centered";
@@ -182,6 +190,7 @@ const RollingStats_RollingStatsSection = (props: RollingStats_SectionProps) => {
     </Section>
   );
 };
+
 const RollingStats_RollingStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -214,17 +223,21 @@ const RollingStats_RollingStats = ({
     </Tailwind>
   </Html>
 );
+
 RollingStats_RollingStats.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies RollingStats_RollingStatsProps;
+
 const __RollingStats = RollingStats_RollingStats;
+
 type SingleStat_SingleStatWithBackgroundImageVariant =
   | "centered"
   | "top-left"
   | "bottom-left"
   | "top-right"
   | "bottom-right";
+
 interface SingleStat_SingleStatWithBackgroundImageProps {
   theme?: TailwindConfig;
   variant?: SingleStat_SingleStatWithBackgroundImageVariant;
@@ -239,8 +252,10 @@ interface SingleStat_SingleStatWithBackgroundImageProps {
   labelColor?: string;
   valueColor?: string;
 }
+
 const SingleStat_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SingleStat_defaults = {
   backgroundColor: "#fffffe",
   backgroundImageSrc:
@@ -253,6 +268,7 @@ const SingleStat_defaults = {
   pageBackgroundColor: "#f1f5f9",
   value: "3,120km",
 };
+
 const SingleStat_valueColors: Record<
   SingleStat_SingleStatWithBackgroundImageVariant,
   string
@@ -263,14 +279,17 @@ const SingleStat_valueColors: Record<
   "top-left": "#fde68a",
   "top-right": "#fecdd3",
 };
+
 type SingleStat_SectionProps = Omit<
   SingleStat_SingleStatWithBackgroundImageProps,
   "theme"
 >;
+
 type SingleStat_ResolvedProps = typeof SingleStat_defaults &
   SingleStat_SectionProps & {
     valueColor: string;
   };
+
 const SingleStat_SingleStatWithBackgroundImageSection = (
   props: SingleStat_SectionProps
 ) => {
@@ -416,6 +435,7 @@ const SingleStat_SingleStatWithBackgroundImageSection = (
     </Section>
   );
 };
+
 const SingleStat_SingleStatWithBackgroundImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -448,11 +468,14 @@ const SingleStat_SingleStatWithBackgroundImage = ({
     </Tailwind>
   </Html>
 );
+
 SingleStat_SingleStatWithBackgroundImage.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies SingleStat_SingleStatWithBackgroundImageProps;
+
 const __SingleStat = SingleStat_SingleStatWithBackgroundImage;
+
 export interface SpotlightStatsProps {
   theme?: Parameters<typeof __RollingStats>[0]["theme"];
   eyebrow?: string;
@@ -469,6 +492,7 @@ export interface SpotlightStatsProps {
     alt?: string;
   };
 }
+
 export const SpotlightStats = ({
   theme,
   eyebrow,
@@ -504,6 +528,7 @@ export const SpotlightStats = ({
     />
   );
 };
+
 SpotlightStats.PreviewProps = {
   position: "center",
 } satisfies SpotlightStatsProps;

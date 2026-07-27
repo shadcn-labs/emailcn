@@ -15,8 +15,10 @@ import type { CSSProperties, ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 const BENTO_ASSET_ROOT =
   "https://emailcn.vercel.app/api/email-assets/bento-grids";
+
 type BentoPaddedVariant =
   | "padded-left"
   | "padded-right"
@@ -26,6 +28,7 @@ type BentoPaddedVariant =
   | "padded-right-reverse"
   | "padded-sides-reverse"
   | "padded-full-reverse";
+
 const colors = {
   border: "#d1d5db",
   canvas: "#f1f5f9",
@@ -38,6 +41,7 @@ const colors = {
   surfaceMuted: "#f9fafb",
   white: "#fffffe",
 } as const;
+
 const textBase: CSSProperties = {
   fontFamily:
     "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif",
@@ -45,11 +49,13 @@ const textBase: CSSProperties = {
   lineHeight: "24px",
   margin: 0,
 };
+
 interface BentoEmailShellProps {
   children: ReactNode;
   preview: string;
   theme: EmailThemeTokens;
 }
+
 const BentoEmailShell = ({
   children,
   preview,
@@ -85,6 +91,7 @@ const BentoEmailShell = ({
     </Body>
   </Html>
 );
+
 const Gap = () => (
   <Column
     className="bento-gap"
@@ -101,11 +108,13 @@ const Gap = () => (
     &zwj;
   </Column>
 );
+
 const VerticalGap = () => (
   <Section style={{ fontSize: 0, height: "24px", lineHeight: "24px" }}>
     &zwj;
   </Section>
 );
+
 const Multiline = ({ value }: { value: string }) => (
   <>
     {value.split("\n").map((line, index) => (
@@ -116,15 +125,18 @@ const Multiline = ({ value }: { value: string }) => (
     ))}
   </>
 );
+
 interface BentoImageCardItem {
   description?: string;
   imageAlt: string;
   imageSrc: string;
   title: string;
 }
+
 interface ProductTileData extends BentoImageCardItem {
   price: string;
 }
+
 const ProductTile = ({
   dark = false,
   imageInsetOverride,
@@ -216,6 +228,7 @@ const ProductTile = ({
     </Column>
   );
 };
+
 const TwoRowsThreeColumnsSection = ({
   bottom,
   top,
@@ -284,6 +297,7 @@ const TwoRowsThreeColumnsSection = ({
     </>
   );
 };
+
 const EvenSplitTwoThirdsSection = ({
   bottom,
   top,
@@ -321,14 +335,19 @@ const EvenSplitTwoThirdsSection = ({
     </>
   );
 };
+
 type ProductPair = readonly [ProductTileData, ProductTileData];
+
 type ProductTriple = readonly [
   ProductTileData,
   ProductTileData,
   ProductTileData,
 ];
+
 type BentoProductGridStyle = "full" | "left" | "right" | "sides";
+
 type BentoProductGridPlacement = "normal" | "reverse";
+
 type InternalBentoProductGridProps =
   | {
       data?: {
@@ -348,6 +367,7 @@ type InternalBentoProductGridProps =
       style?: BentoProductGridStyle;
       variant: "even-split-two-thirds";
     };
+
 const product = (
   image: string,
   title: string,
@@ -360,6 +380,7 @@ const product = (
   price,
   title,
 });
+
 const productTop: ProductPair = [
   product(
     "4-bento-lg-1",
@@ -374,11 +395,13 @@ const productTop: ProductPair = [
     "Strikingly thin and fast so you can\nwork, play, or create anywhere."
   ),
 ];
+
 const productBottom: ProductTriple = [
   product("4-bento-sm-1", "Watch Ultra", "/ from $799"),
   product("4-bento-sm-2", "Mac Mini", "/ from $599"),
   product("4-bento-sm-3", "AirPods", "/ from $129"),
 ];
+
 const toPaddedVariant = (
   style: BentoProductGridStyle,
   placement: BentoProductGridPlacement
@@ -386,6 +409,7 @@ const toPaddedVariant = (
   const reverse = placement === "reverse" ? "-reverse" : "";
   return `padded-${style}${reverse}` as BentoPaddedVariant;
 };
+
 const splitProductBottom = (variant: BentoPaddedVariant): ProductPair => {
   const insetOnBothSides =
     variant.includes("sides") || variant.includes("full");
@@ -403,6 +427,7 @@ const splitProductBottom = (variant: BentoPaddedVariant): ProductPair => {
     ),
   ];
 };
+
 const TwoRowProductGrid = (
   props: Extract<
     InternalBentoProductGridProps,
@@ -422,6 +447,7 @@ const TwoRowProductGrid = (
     />
   );
 };
+
 const SplitProductGrid = (
   props: Extract<
     InternalBentoProductGridProps,
@@ -441,15 +467,18 @@ const SplitProductGrid = (
     />
   );
 };
+
 const BentoProductGridSection = (props: InternalBentoProductGridProps) =>
   props.variant === "even-split-two-thirds" ? (
     <SplitProductGrid {...props} />
   ) : (
     <TwoRowProductGrid {...props} />
   );
+
 export type BentoProductGridProps = InternalBentoProductGridProps & {
   theme?: typeof defaultTheme;
 };
+
 export const BentoProductGrid = ({
   theme = defaultTheme,
   ...props
@@ -458,6 +487,7 @@ export const BentoProductGrid = ({
     <BentoProductGridSection {...props} />
   </BentoEmailShell>
 );
+
 BentoProductGrid.PreviewProps = {
   placement: "normal",
   style: "full",

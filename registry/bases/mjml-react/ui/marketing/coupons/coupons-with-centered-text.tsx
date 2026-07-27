@@ -14,11 +14,13 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export type CouponsWithCenteredTextVariant =
   | "impact"
   | "inline"
   | "impact-alt"
   | "impact-background";
+
 export interface CouponsWithCenteredTextProps {
   theme?: EmailThemeTokens;
   overline?: string;
@@ -39,8 +41,10 @@ export interface CouponsWithCenteredTextProps {
   buttonColor?: string;
   variant?: CouponsWithCenteredTextVariant;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 export const CouponsWithCenteredTextSection = (
   props: Omit<CouponsWithCenteredTextProps, "theme">
 ) => {
@@ -170,6 +174,7 @@ export const CouponsWithCenteredTextSection = (
     </MjmlSection>
   );
 };
+
 export const CouponsWithCenteredText = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -195,6 +200,7 @@ export const CouponsWithCenteredText = ({
     </MjmlBody>
   </Mjml>
 );
+
 CouponsWithCenteredText.PreviewProps = {
   theme: defaultTheme,
   variant: "impact",

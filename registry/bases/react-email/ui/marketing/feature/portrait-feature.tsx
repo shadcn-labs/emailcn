@@ -18,6 +18,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type Feature_FeatureWithLargePortraitImageVariant =
   | "logo-top-right"
   | "logo-top-left"
@@ -27,6 +28,7 @@ type Feature_FeatureWithLargePortraitImageVariant =
   | "content-bottom-right"
   | "content-top-left"
   | "content-top-right";
+
 interface Feature_FeatureWithLargePortraitImageProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -48,8 +50,10 @@ interface Feature_FeatureWithLargePortraitImageProps {
   linkColor?: string;
   variant?: Feature_FeatureWithLargePortraitImageVariant;
 }
+
 const Feature_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Feature_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .feature-portrait-stack {
@@ -70,6 +74,7 @@ const Feature_responsiveStyles = `
       }
     }
   `;
+
 const Feature_sharedDefaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
@@ -85,6 +90,7 @@ const Feature_sharedDefaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 const Feature_logoDefaults = {
   body: "Find advanced outerwear engineered to handle wind, rain, and sudden shifts in the elements.",
   heading: "Explore without limits.",
@@ -95,6 +101,7 @@ const Feature_logoDefaults = {
   secondaryImageSrc:
     "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
 };
+
 const Feature_contentDefaults = {
   body: "Experience cutting-edge performance, from dual-frequency GPS to pro-grade health insights.",
   heading: "Innovation on your wrist.",
@@ -105,19 +112,23 @@ const Feature_contentDefaults = {
   secondaryImageSrc:
     "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
 };
+
 const Feature_contentTopRightDefaults = {
   portraitImageSrc:
     "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-3.jpg",
   secondaryImageSrc:
     "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-2.jpg",
 };
+
 type Feature_SectionProps = Omit<
   Feature_FeatureWithLargePortraitImageProps,
   "theme"
 >;
+
 type Feature_ResolvedProps = typeof Feature_sharedDefaults &
   typeof Feature_contentDefaults &
   Feature_SectionProps;
+
 const Feature_ResponsiveImage = ({
   alt,
   src,
@@ -140,6 +151,7 @@ const Feature_ResponsiveImage = ({
     width={width}
   />
 );
+
 const Feature_LogoPanel = ({ props }: { props: Feature_ResolvedProps }) => (
   <Section
     style={{
@@ -161,6 +173,7 @@ const Feature_LogoPanel = ({ props }: { props: Feature_ResolvedProps }) => (
     />
   </Section>
 );
+
 const Feature_SecondaryImage = ({
   props,
 }: {
@@ -174,6 +187,7 @@ const Feature_SecondaryImage = ({
     />
   </Section>
 );
+
 const Feature_FeatureCopy = ({
   contentVariant,
   props,
@@ -247,6 +261,7 @@ const Feature_FeatureCopy = ({
     </Section>
   </>
 );
+
 const Feature_ContentColumn = ({
   contentVariant,
   mediaAfter,
@@ -279,6 +294,7 @@ const Feature_ContentColumn = ({
     </Column>
   );
 };
+
 const Feature_PortraitColumn = ({
   props,
 }: {
@@ -295,6 +311,7 @@ const Feature_PortraitColumn = ({
     />
   </Column>
 );
+
 const Feature_FeatureWithLargePortraitImageSection = (
   props: Feature_SectionProps
 ) => {
@@ -369,6 +386,7 @@ const Feature_FeatureWithLargePortraitImageSection = (
     </Section>
   );
 };
+
 const Feature_FeatureWithLargePortraitImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -402,11 +420,14 @@ const Feature_FeatureWithLargePortraitImage = ({
     </Tailwind>
   </Html>
 );
+
 Feature_FeatureWithLargePortraitImage.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-top-left",
 } satisfies Feature_FeatureWithLargePortraitImageProps;
+
 const __Feature = Feature_FeatureWithLargePortraitImage;
+
 export interface PortraitFeatureProps {
   theme?: Parameters<typeof __Feature>[0]["theme"];
   heading?: string;
@@ -431,6 +452,7 @@ export interface PortraitFeatureProps {
   placement?: "left" | "right";
   contentPosition?: "top" | "bottom";
 }
+
 export const PortraitFeature = ({
   theme,
   heading,
@@ -462,6 +484,7 @@ export const PortraitFeature = ({
     }
   />
 );
+
 PortraitFeature.PreviewProps = {
   placement: "right",
 } satisfies PortraitFeatureProps;

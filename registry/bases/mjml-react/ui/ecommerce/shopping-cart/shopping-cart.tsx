@@ -18,6 +18,7 @@ import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export type ShoppingCartVariant =
   | "basic"
   | "basic-alt"
@@ -26,6 +27,7 @@ export type ShoppingCartVariant =
   | "full-details"
   | "full-details-alt"
   | "example-with-cta";
+
 export interface ShoppingCartItem {
   colors?: string[];
   description?: string;
@@ -36,10 +38,14 @@ export interface ShoppingCartItem {
   quantity: number;
   size?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const shoppingCartResponsiveStyles = "";
+
 const defaultItems: ShoppingCartItem[] = [
   {
     colors: ["#030712", "#fffffe", "#E5E7EB"],
@@ -86,6 +92,7 @@ const defaultItems: ShoppingCartItem[] = [
     size: "Extra Large",
   },
 ];
+
 const Copy = ({ children }: { children?: string }) =>
   children ? (
     <MjmlText
@@ -99,6 +106,7 @@ const Copy = ({ children }: { children?: string }) =>
       {children}
     </MjmlText>
   ) : null;
+
 const EditButton = ({ href }: { href: string }) => (
   <MjmlButton
     align="left"
@@ -115,6 +123,7 @@ const EditButton = ({ href }: { href: string }) => (
     ✎ Edit
   </MjmlButton>
 );
+
 const RowContent = ({
   item,
   variant,
@@ -190,6 +199,7 @@ const RowContent = ({
     </>
   );
 };
+
 const CartRow = ({
   item,
   variant,
@@ -212,6 +222,7 @@ const CartRow = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const ShoppingCartSection = ({
   items,
   variant = "basic",
@@ -276,17 +287,20 @@ const ShoppingCartSection = ({
     </>
   );
 };
+
 interface ShoppingCart_ShoppingCartRowItemsProps {
   items?: ShoppingCartItem[];
   theme?: EmailThemeTokens;
   variant?: ShoppingCartVariant;
 }
+
 const ShoppingCart_ShoppingCartRowItemsSection = ({
   items,
   variant = "basic",
 }: Omit<ShoppingCart_ShoppingCartRowItemsProps, "theme">) => (
   <ShoppingCartSection items={items} variant={variant} />
 );
+
 const ShoppingCart_ShoppingCartRowItems = ({
   theme = defaultTheme,
   ...props
@@ -304,18 +318,23 @@ const ShoppingCart_ShoppingCartRowItems = ({
     </MjmlBody>
   </Mjml>
 );
+
 ShoppingCart_ShoppingCartRowItems.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies ShoppingCart_ShoppingCartRowItemsProps;
+
 const __ShoppingCart = ShoppingCart_ShoppingCartRowItems;
+
 export interface ShoppingCartProps extends Omit<
   Parameters<typeof __ShoppingCart>[0],
   "theme"
 > {
   theme?: Parameters<typeof __ShoppingCart>[0]["theme"];
 }
+
 export const ShoppingCart = (props: ShoppingCartProps) => (
   <__ShoppingCart {...props} />
 );
+
 ShoppingCart.PreviewProps = {} satisfies ShoppingCartProps;

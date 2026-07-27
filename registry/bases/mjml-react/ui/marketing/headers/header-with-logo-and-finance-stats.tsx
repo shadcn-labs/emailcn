@@ -15,6 +15,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export const HeaderEmailShell = ({
   children,
   pageBackgroundColor,
@@ -39,6 +40,7 @@ export const HeaderEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 export const HeaderLogo = ({
   align = "left",
   alt,
@@ -59,10 +61,12 @@ export const HeaderLogo = ({
     width="55px"
   />
 );
+
 export type HeaderWithLogoAndFinanceStatsAlignment =
   | "left"
   | "center"
   | "right";
+
 export interface HeaderFinanceStat {
   alt: string;
   change: string;
@@ -70,6 +74,7 @@ export interface HeaderFinanceStat {
   positive: boolean;
   src: string;
 }
+
 export interface HeaderWithLogoAndFinanceStatsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -80,8 +85,10 @@ export interface HeaderWithLogoAndFinanceStatsProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const defaultStats: HeaderFinanceStat[] = [
   {
     alt: "BTC",
@@ -98,6 +105,7 @@ const defaultStats: HeaderFinanceStat[] = [
     src: "https://emailcn.vercel.app/api/email-assets/eth-logo.png",
   },
 ];
+
 const FinanceColumn = ({ stat }: { stat: HeaderFinanceStat }) => (
   <MjmlColumn padding="0 8px" verticalAlign="middle" width="25%">
     <MjmlImage
@@ -130,6 +138,7 @@ const FinanceColumn = ({ stat }: { stat: HeaderFinanceStat }) => (
     </MjmlText>
   </MjmlColumn>
 );
+
 export const HeaderWithLogoAndFinanceStatsSection = ({
   alignment = "left",
   backgroundColor = "#fffffe",
@@ -178,6 +187,7 @@ export const HeaderWithLogoAndFinanceStatsSection = ({
     </MjmlSection>
   );
 };
+
 export const HeaderWithLogoAndFinanceStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -191,6 +201,7 @@ export const HeaderWithLogoAndFinanceStats = ({
     <HeaderWithLogoAndFinanceStatsSection {...props} />
   </HeaderEmailShell>
 );
+
 HeaderWithLogoAndFinanceStats.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

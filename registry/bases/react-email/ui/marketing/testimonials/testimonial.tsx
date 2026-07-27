@@ -16,9 +16,11 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type FullWidthTestimonial_FullWidthTestimonialVariant =
   | "default"
   | "overlapping-avatar";
+
 interface FullWidthTestimonial_FullWidthTestimonialProps {
   theme?: TailwindConfig;
   variant?: FullWidthTestimonial_FullWidthTestimonialVariant;
@@ -31,13 +33,16 @@ interface FullWidthTestimonial_FullWidthTestimonialProps {
   backgroundColor?: string;
   cardBackgroundColor?: string;
 }
+
 const FullWidthTestimonial_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FullWidthTestimonial_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .full-testimonial-card { padding-left: 24px !important; padding-right: 24px !important; }",
   "}",
 ].join("\n");
+
 const FullWidthTestimonial_FullWidthTestimonialSection = ({
   variant = "default",
   quote = "“After migrating to emailcn, we increased efficiency by 40% across our transactional and marketing email development pipeline.”",
@@ -233,6 +238,7 @@ const FullWidthTestimonial_FullWidthTestimonialSection = ({
     </Section>
   );
 };
+
 const FullWidthTestimonial_FullWidthTestimonial = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -264,12 +270,16 @@ const FullWidthTestimonial_FullWidthTestimonial = ({
     </Body>
   </Html>
 );
+
 FullWidthTestimonial_FullWidthTestimonial.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies FullWidthTestimonial_FullWidthTestimonialProps;
+
 const __FullWidthTestimonial = FullWidthTestimonial_FullWidthTestimonial;
+
 type TestimonialCta_TestimonialWithCtaVariant = "centered" | "split";
+
 interface TestimonialCta_TestimonialWithCtaProps {
   theme?: TailwindConfig;
   variant?: TestimonialCta_TestimonialWithCtaVariant;
@@ -284,8 +294,10 @@ interface TestimonialCta_TestimonialWithCtaProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
+
 const TestimonialCta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TestimonialCta_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .testimonial-split-column { display: block !important; width: 100% !important; }",
@@ -294,6 +306,7 @@ const TestimonialCta_responsiveStyles = [
   "  .testimonial-centered-quote { font-size: 24px !important; line-height: 32px !important; }",
   "}",
 ].join("\n");
+
 const TestimonialCta_TestimonialWithCtaSection = ({
   variant = "centered",
   quote,
@@ -509,6 +522,7 @@ const TestimonialCta_TestimonialWithCtaSection = ({
     </Section>
   );
 };
+
 const TestimonialCta_TestimonialWithCta = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -538,11 +552,14 @@ const TestimonialCta_TestimonialWithCta = ({
     </Body>
   </Html>
 );
+
 TestimonialCta_TestimonialWithCta.PreviewProps = {
   theme: defaultTheme,
   variant: "centered",
 } satisfies TestimonialCta_TestimonialWithCtaProps;
+
 const __TestimonialCta = TestimonialCta_TestimonialWithCta;
+
 export interface TestimonialProps {
   theme?: Parameters<typeof __FullWidthTestimonial>[0]["theme"];
   quote?: string;
@@ -564,6 +581,7 @@ export interface TestimonialProps {
     label: string;
   };
 }
+
 export const Testimonial = ({
   theme,
   quote,
@@ -606,6 +624,7 @@ export const Testimonial = ({
       />
     );
   })();
+
 Testimonial.PreviewProps = {
   avatarTreatment: "inline",
   layout: "full-width",

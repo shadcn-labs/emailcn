@@ -13,11 +13,13 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type SimpleStats_SimpleStatsVariant =
   | "default"
   | "outlined"
   | "boxed"
   | "bordered";
+
 interface SimpleStats_SimpleStatsProps {
   theme?: EmailThemeTokens;
   variant?: SimpleStats_SimpleStatsVariant;
@@ -32,13 +34,16 @@ interface SimpleStats_SimpleStatsProps {
   headingColor?: string;
   textColor?: string;
 }
+
 const SimpleStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SimpleStats_defaultStats = [
   { label: "Increase in conversion rate", value: "45%" },
   { label: "Average page load time", value: "2.1s" },
   { label: "Monthly churn reduction", value: "18%" },
 ];
+
 const SimpleStats_SimpleStatsSection = ({
   backgroundColor = "#fffffe",
   borderColor = "#d1d5db",
@@ -90,6 +95,7 @@ const SimpleStats_SimpleStatsSection = ({
     ))}
   </MjmlSection>
 );
+
 const SimpleStats_SimpleStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -110,18 +116,23 @@ const SimpleStats_SimpleStats = ({
     </MjmlBody>
   </Mjml>
 );
+
 SimpleStats_SimpleStats.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies SimpleStats_SimpleStatsProps;
+
 const __SimpleStats = SimpleStats_SimpleStats;
+
 type GridStats_GridStatsVariant =
   | "simple"
   | "outlined"
   | "bordered"
   | "boxed"
   | "accent-column";
+
 type GridStats_GridStatsLayout = "three-columns" | "bento" | "bento-reversed";
+
 interface GridStats_GridStatsProps {
   theme?: EmailThemeTokens;
   variant?: GridStats_GridStatsVariant;
@@ -141,23 +152,28 @@ interface GridStats_GridStatsProps {
   textColor?: string;
   accentColor?: string;
 }
+
 const GridStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const GridStats_detailedStats = [
   { label: "Increase in conversion rate", value: "45%" },
   { label: "Average page load time", value: "2.1s" },
   { label: "Monthly churn reduction", value: "18%" },
 ];
+
 const GridStats_simpleStats = [
   { label: "Uptime across all core services", value: "99.9%" },
   { label: "Uptime across all core services", value: "3x" },
   { label: "Average support response", value: "24hr" },
 ];
+
 const GridStats_bentoStats = [
   { label: "Uptime across all core services", value: "99.9%" },
   { label: "Growth in user engagement", value: "3x" },
   { label: "Maximum support response time", value: "24hr" },
 ];
+
 interface GridStats_StatCardProps {
   accent: boolean;
   accentBackgroundColor: string;
@@ -172,6 +188,7 @@ interface GridStats_StatCardProps {
   variant: GridStats_GridStatsVariant;
   width: string;
 }
+
 const GridStats_StatCard = ({
   accent,
   accentBackgroundColor,
@@ -237,6 +254,7 @@ const GridStats_StatCard = ({
     </MjmlColumn>
   );
 };
+
 const GridStats_GridStatsSection = ({
   accentBackgroundColor = "#030712",
   accentColor = "#818cf8",
@@ -336,6 +354,7 @@ const GridStats_GridStatsSection = ({
     </>
   );
 };
+
 const GridStats_GridStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -356,17 +375,21 @@ const GridStats_GridStats = ({
     </MjmlBody>
   </Mjml>
 );
+
 GridStats_GridStats.PreviewProps = {
   layout: "three-columns",
   theme: defaultTheme,
   variant: "boxed",
 } satisfies GridStats_GridStatsProps;
+
 const __GridStats = GridStats_GridStats;
+
 type OverlayStats_OverlayStatsVariant =
   | "default"
   | "three-columns"
   | "bento"
   | "bento-reversed";
+
 interface OverlayStats_OverlayStatsProps {
   theme?: EmailThemeTokens;
   variant?: OverlayStats_OverlayStatsVariant;
@@ -382,8 +405,10 @@ interface OverlayStats_OverlayStatsProps {
   headingColor?: string;
   textColor?: string;
 }
+
 const OverlayStats_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 interface OverlayStats_OverlayDefaults {
   backgroundImageSrc: string;
   featuredLabel: string;
@@ -393,6 +418,7 @@ interface OverlayStats_OverlayDefaults {
     value: string;
   }[];
 }
+
 const OverlayStats_variants: Record<
   OverlayStats_OverlayStatsVariant,
   OverlayStats_OverlayDefaults
@@ -442,6 +468,7 @@ const OverlayStats_variants: Record<
     ],
   },
 };
+
 const OverlayStats_OverlayStat = ({
   featured = false,
   headingColor,
@@ -487,12 +514,14 @@ const OverlayStats_OverlayStat = ({
     </MjmlText>
   </MjmlColumn>
 );
+
 const OverlayStats_backgroundProps = (url: string) => ({
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat" as const,
   backgroundSize: "cover",
   backgroundUrl: url,
 });
+
 const OverlayStats_OverlayStatsSection = ({
   backgroundImageSrc,
   featuredLabel,
@@ -579,6 +608,7 @@ const OverlayStats_OverlayStatsSection = ({
     </>
   );
 };
+
 const OverlayStats_OverlayStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -599,16 +629,20 @@ const OverlayStats_OverlayStats = ({
     </MjmlBody>
   </Mjml>
 );
+
 OverlayStats_OverlayStats.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies OverlayStats_OverlayStatsProps;
+
 const __OverlayStats = OverlayStats_OverlayStats;
+
 export interface CollectionStatItem {
   label: string;
   value: string;
   description?: string;
 }
+
 export interface CollectionStatsProps {
   theme?: Parameters<typeof __SimpleStats>[0]["theme"];
   items?: CollectionStatItem[];
@@ -621,6 +655,7 @@ export interface CollectionStatsProps {
     alt?: string;
   };
 }
+
 export const CollectionStats = ({
   theme,
   items,
@@ -682,6 +717,7 @@ export const CollectionStats = ({
     />
   );
 };
+
 CollectionStats.PreviewProps = {
   appearance: "simple",
   layout: "row",

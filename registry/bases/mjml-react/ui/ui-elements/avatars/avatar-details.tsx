@@ -17,15 +17,20 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type AvatarAlignment = "center" | "left" | "right";
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const avatarResponsiveStyles = `
   .emailcn-avatar-group-left { margin-left: 0 !important; margin-right: auto !important; }
   .emailcn-avatar-group-center { margin-left: auto !important; margin-right: auto !important; }
   .emailcn-avatar-group-right { margin-left: auto !important; margin-right: 0 !important; }
 `;
+
 const AvatarShell = ({ children }: { children: ReactNode }) => (
   <>
     <MjmlSection padding="0">
@@ -43,6 +48,7 @@ const AvatarShell = ({ children }: { children: ReactNode }) => (
     </MjmlSection>
   </>
 );
+
 const AvatarWithDetailsSection = ({
   align = "center",
   avatarUrl = `${ASSET_ROOT}/avatar-2.jpg`,
@@ -97,6 +103,7 @@ const AvatarWithDetailsSection = ({
     </MjmlGroup>
   </AvatarShell>
 );
+
 interface Avatar_AvatarWithDetailsProps {
   align?: AvatarAlignment;
   avatarUrl?: string;
@@ -104,6 +111,7 @@ interface Avatar_AvatarWithDetailsProps {
   name?: string;
   theme?: EmailThemeTokens;
 }
+
 const Avatar_AvatarWithDetails = ({
   theme = defaultTheme,
   ...props
@@ -121,6 +129,7 @@ const Avatar_AvatarWithDetails = ({
     </MjmlBody>
   </Mjml>
 );
+
 Avatar_AvatarWithDetails.PreviewProps = {
   align: "center",
   avatarUrl: "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
@@ -128,7 +137,9 @@ Avatar_AvatarWithDetails.PreviewProps = {
   name: "John Adams",
   theme: defaultTheme,
 } satisfies Avatar_AvatarWithDetailsProps;
+
 const __Avatar = Avatar_AvatarWithDetails;
+
 export interface AvatarDetailsProps {
   theme?: Parameters<typeof __Avatar>[0]["theme"];
   avatar?: {
@@ -139,6 +150,7 @@ export interface AvatarDetailsProps {
   email?: string;
   align?: "left" | "center" | "right";
 }
+
 export const AvatarDetails = ({
   theme,
   avatar,
@@ -154,4 +166,5 @@ export const AvatarDetails = ({
     theme={theme}
   />
 );
+
 AvatarDetails.PreviewProps = {} satisfies AvatarDetailsProps;

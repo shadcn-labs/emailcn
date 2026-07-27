@@ -18,6 +18,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type ProductDetailWithDetailsVariant =
   | "rating-bottom"
   | "default"
@@ -25,8 +26,11 @@ type ProductDetailWithDetailsVariant =
   | "header-top"
   | "rating-aside"
   | "rating-aside-top";
+
 type ProductDetailImageLayout = "single" | "two" | "three" | "masonry";
+
 type RatingIcon = "solid" | "half" | "outline";
+
 interface ProductDetailData {
   name: string;
   price: string;
@@ -36,6 +40,7 @@ interface ProductDetailData {
   sizes: string[];
   ratingIcons: RatingIcon[];
 }
+
 interface ProductDetailContentOverrides {
   name?: string;
   price?: string;
@@ -46,10 +51,14 @@ interface ProductDetailContentOverrides {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const PRODUCT_ASSET_ROOT = `${ASSET_ROOT}/product-detail`;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const productDetailResponsiveStyles = `
   @media only screen and (max-width: 599px) {
     .product-split-stack { display: block !important; width: 100% !important; }
@@ -81,7 +90,9 @@ const productDetailResponsiveStyles = `
     .product-detail-option { display: inline-block !important; }
   }
 `;
+
 const textStyle = { fontFamily, margin: 0 } as const;
+
 const Spacer = ({
   className,
   height,
@@ -93,6 +104,7 @@ const Spacer = ({
     &zwj;
   </Section>
 );
+
 const EmailShell = ({
   children,
   padding = "0 24px",
@@ -131,6 +143,7 @@ const EmailShell = ({
     </Section>
   </>
 );
+
 const ProductHeader = ({ name, price }: { name: string; price: string }) => (
   <>
     <Heading
@@ -158,6 +171,7 @@ const ProductHeader = ({ name, price }: { name: string; price: string }) => (
     </Text>
   </>
 );
+
 const Description = ({ children }: { children: ReactNode }) => (
   <Text
     style={{
@@ -171,6 +185,7 @@ const Description = ({ children }: { children: ReactNode }) => (
     {children}
   </Text>
 );
+
 const Star = ({ icon }: { icon: RatingIcon }) => (
   <Column style={{ paddingRight: "4px" }}>
     <Img
@@ -181,6 +196,7 @@ const Star = ({ icon }: { icon: RatingIcon }) => (
     />
   </Column>
 );
+
 const Stars = ({ icons }: { icons: RatingIcon[] }) => (
   <Section>
     <Fragment>
@@ -192,6 +208,7 @@ const Stars = ({ icons }: { icons: RatingIcon[] }) => (
     </Fragment>
   </Section>
 );
+
 const Rating = ({
   icons,
   reviewLabel = "(18 reviews)",
@@ -222,6 +239,7 @@ const Rating = ({
     </Fragment>
   </Section>
 );
+
 const CallToAction = ({ href, label }: { href: string; label: string }) => (
   <Section>
     <Link
@@ -251,6 +269,7 @@ const CallToAction = ({ href, label }: { href: string; label: string }) => (
     </Link>
   </Section>
 );
+
 const ProductImage = ({
   borderRadius = "4px",
   className,
@@ -282,6 +301,7 @@ const ProductImage = ({
   );
   return href ? <Link href={href}>{image}</Link> : image;
 };
+
 const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
   <Section
     style={{
@@ -294,6 +314,7 @@ const Divider = ({ bottom, top }: { bottom: number; top: number }) => (
     &zwj;
   </Section>
 );
+
 const ProductOptions = ({
   colors,
   sizes,
@@ -383,6 +404,7 @@ const ProductOptions = ({
     </Fragment>
   </Section>
 );
+
 const mergeData = (
   data: ProductDetailData,
   overrides: ProductDetailContentOverrides
@@ -395,6 +417,7 @@ const mergeData = (
   price: overrides.price ?? data.price,
   sizes: overrides.sizes ?? data.sizes,
 });
+
 const detailData: Record<ProductDetailImageLayout, ProductDetailData> = {
   masonry: {
     colors: ["#FACC15", "#030712"],
@@ -443,6 +466,7 @@ const detailData: Record<ProductDetailImageLayout, ProductDetailData> = {
     sizes: ["S", "M", "L", "XL"],
   },
 };
+
 const SingleImage = ({ data }: { data: ProductDetailData }) => (
   <ProductImage
     className="product-responsive-image"
@@ -451,6 +475,7 @@ const SingleImage = ({ data }: { data: ProductDetailData }) => (
     width={552}
   />
 );
+
 const TwoImages = ({ data }: { data: ProductDetailData }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -498,6 +523,7 @@ const TwoImages = ({ data }: { data: ProductDetailData }) => (
     </Fragment>
   </Section>
 );
+
 const ThreeImages = ({ data }: { data: ProductDetailData }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -545,6 +571,7 @@ const ThreeImages = ({ data }: { data: ProductDetailData }) => (
     </Fragment>
   </Section>
 );
+
 const MasonryImages = ({ data }: { data: ProductDetailData }) => (
   <>
     <Section className="product-masonry-desktop" style={{ width: "100%" }}>
@@ -603,6 +630,7 @@ const MasonryImages = ({ data }: { data: ProductDetailData }) => (
     </Section>
   </>
 );
+
 const ProductImages = ({
   data,
   layout,
@@ -621,6 +649,7 @@ const ProductImages = ({
   }
   return <MasonryImages data={data} />;
 };
+
 const AsideHeader = ({ data }: { data: ProductDetailData }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -677,6 +706,7 @@ const AsideHeader = ({ data }: { data: ProductDetailData }) => (
     </Fragment>
   </Section>
 );
+
 const ProductDetailHeader = ({
   data,
   variant,
@@ -698,6 +728,7 @@ const ProductDetailHeader = ({
   }
   return <ProductHeader name={data.name} price={data.price} />;
 };
+
 const DetailBody = ({ data }: { data: ProductDetailData }) => (
   <>
     <Description>{data.description}</Description>
@@ -706,6 +737,7 @@ const DetailBody = ({ data }: { data: ProductDetailData }) => (
     <Divider bottom={0} top={8} />
   </>
 );
+
 const ProductDetailWithDetailsSection = ({
   ctaHref = "https://example.com",
   ctaLabel = "Shop now",
@@ -753,10 +785,12 @@ const ProductDetailWithDetailsSection = ({
     </EmailShell>
   );
 };
+
 type ProductDetail_ProductDetailTwoImagesVariant = Exclude<
   ProductDetailWithDetailsVariant,
   "default"
 >;
+
 interface ProductDetail_ProductDetailTwoImagesProps extends Omit<
   ProductDetailContentOverrides,
   "imageUrls"
@@ -767,6 +801,7 @@ interface ProductDetail_ProductDetailTwoImagesProps extends Omit<
   features?: string[];
   variant?: ProductDetail_ProductDetailTwoImagesVariant;
 }
+
 const ProductDetail_ProductDetailTwoImagesSection = ({
   features: _features,
   imageUrl1,
@@ -781,6 +816,7 @@ const ProductDetail_ProductDetailTwoImagesSection = ({
     variant={variant}
   />
 );
+
 const ProductDetail_ProductDetailTwoImages = ({
   theme = defaultTheme,
   ...props
@@ -797,11 +833,14 @@ const ProductDetail_ProductDetailTwoImages = ({
     </Tailwind>
   </Html>
 );
+
 ProductDetail_ProductDetailTwoImages.PreviewProps = {
   theme: defaultTheme,
   variant: "rating-bottom",
 } satisfies ProductDetail_ProductDetailTwoImagesProps;
+
 const __ProductDetail = ProductDetail_ProductDetailTwoImages;
+
 export interface ProductDetails {
   name?: string;
   price?: string;
@@ -812,6 +851,7 @@ export interface ProductDetails {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 export interface TwoImageProductDetailProps {
   theme?: Parameters<typeof __ProductDetail>[0]["theme"];
   product?: ProductDetails;
@@ -828,6 +868,7 @@ export interface TwoImageProductDetailProps {
   ratingPosition?: "top" | "bottom" | "aside";
   headerPosition?: "default" | "top";
 }
+
 const detailVariant = (
   ratingPosition: TwoImageProductDetailProps["ratingPosition"] = "bottom",
   headerPosition: TwoImageProductDetailProps["headerPosition"] = "default"
@@ -843,6 +884,7 @@ const detailVariant = (
   }
   return "rating-bottom" as const;
 };
+
 export const TwoImageProductDetail = ({
   theme,
   product,
@@ -865,4 +907,5 @@ export const TwoImageProductDetail = ({
     variant={detailVariant(ratingPosition, headerPosition)}
   />
 );
+
 TwoImageProductDetail.PreviewProps = {} satisfies TwoImageProductDetailProps;

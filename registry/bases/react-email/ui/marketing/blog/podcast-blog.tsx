@@ -17,6 +17,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -26,14 +27,18 @@ const colors = {
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const tableStyle: CSSProperties = {
   borderCollapse: "separate",
   borderSpacing: 0,
   width: "100%",
 };
+
 const textBase: CSSProperties = { fontFamily, margin: 0 };
+
 type BlogLayout =
   | "featured"
   | "featured-date"
@@ -48,6 +53,7 @@ type BlogLayout =
   | "two-column-boxed"
   | "two-column-images"
   | "two-column-images-text";
+
 interface BlogPostData {
   author?: string;
   badge?: string;
@@ -62,6 +68,7 @@ interface BlogPostData {
   month?: string;
   title: string;
 }
+
 const Image = ({
   alt,
   src,
@@ -87,6 +94,7 @@ const Image = ({
     }}
   />
 );
+
 const Meta = ({ post }: { post: BlogPostData }) => {
   const label =
     post.episode ??
@@ -108,6 +116,7 @@ const Meta = ({ post }: { post: BlogPostData }) => {
     </Text>
   ) : null;
 };
+
 const Copy = ({ post }: { post: BlogPostData }) => (
   <>
     <Meta post={post} />
@@ -156,6 +165,7 @@ const Copy = ({ post }: { post: BlogPostData }) => (
     })()}
   </>
 );
+
 const VerticalCard = ({
   boxed = false,
   post,
@@ -188,6 +198,7 @@ const VerticalCard = ({
     </Fragment>
   </Section>
 );
+
 const Gap = ({ width = 24 }: { width?: number }) => (
   <Column
     className="blog-gap"
@@ -197,6 +208,7 @@ const Gap = ({ width = 24 }: { width?: number }) => (
     &zwj;
   </Column>
 );
+
 const BlogColumnFragment = ({
   boxed,
   index,
@@ -216,6 +228,7 @@ const BlogColumnFragment = ({
     </Column>
   </>
 );
+
 const TwoColumns = ({
   boxed,
   posts,
@@ -238,6 +251,7 @@ const TwoColumns = ({
     </Fragment>
   </Section>
 );
+
 const Masonry = ({
   boxed,
   posts,
@@ -269,6 +283,7 @@ const Masonry = ({
     </Fragment>
   </Section>
 );
+
 const Horizontal = ({
   boxed = false,
   post,
@@ -307,6 +322,7 @@ const Horizontal = ({
     </Fragment>
   </Section>
 );
+
 const SplitImages = ({ post }: { post: BlogPostData }) => (
   <Section
     style={{
@@ -347,6 +363,7 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
     </Fragment>
   </Section>
 );
+
 const FullWidth = ({ post }: { post: BlogPostData }) => (
   <Section style={tableStyle}>
     <Fragment>
@@ -363,6 +380,7 @@ const FullWidth = ({ post }: { post: BlogPostData }) => (
     </Fragment>
   </Section>
 );
+
 const BlogContent = ({
   layout,
   posts,
@@ -395,6 +413,7 @@ const BlogContent = ({
   }
   return <FullWidth post={posts[0]} />;
 };
+
 const BlogEmailShell = ({
   children,
   preview,
@@ -444,6 +463,7 @@ const BlogEmailShell = ({
     </Tailwind>
   </Html>
 );
+
 interface PodcastSplit_PodcastBlogSplitProps {
   theme?: TailwindConfig;
   episode?: string;
@@ -453,6 +473,7 @@ interface PodcastSplit_PodcastBlogSplitProps {
   imageSrc?: string;
   title?: string;
 }
+
 const PodcastSplit_PodcastBlogSplitSection = ({
   episode = "Episode 42",
   excerpt = "A conversation about emerging email trends and technologies.",
@@ -477,6 +498,7 @@ const PodcastSplit_PodcastBlogSplitSection = ({
     </>
   );
 };
+
 const PodcastSplit_PodcastBlogSplit = ({
   theme = defaultTheme,
   episode = "Episode 42",
@@ -497,6 +519,7 @@ const PodcastSplit_PodcastBlogSplit = ({
     />
   </BlogEmailShell>
 );
+
 PodcastSplit_PodcastBlogSplit.PreviewProps = {
   episode: "Episode 42",
   excerpt: "A conversation about emerging email trends and technologies.",
@@ -506,7 +529,9 @@ PodcastSplit_PodcastBlogSplit.PreviewProps = {
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastSplit_PodcastBlogSplitProps;
+
 const __PodcastSplit = PodcastSplit_PodcastBlogSplit;
+
 interface PodcastFull_PodcastFullWidthProps {
   theme?: TailwindConfig;
   episode?: string;
@@ -515,6 +540,7 @@ interface PodcastFull_PodcastFullWidthProps {
   imageSrc?: string;
   title?: string;
 }
+
 const PodcastFull_PodcastFullWidthSection = ({
   episode = "Episode 42",
   excerpt = "A conversation about emerging email trends and technologies.",
@@ -537,6 +563,7 @@ const PodcastFull_PodcastFullWidthSection = ({
     </>
   );
 };
+
 const PodcastFull_PodcastFullWidth = ({
   theme = defaultTheme,
   episode = "Episode 42",
@@ -555,6 +582,7 @@ const PodcastFull_PodcastFullWidth = ({
     />
   </BlogEmailShell>
 );
+
 PodcastFull_PodcastFullWidth.PreviewProps = {
   episode: "Episode 42",
   excerpt: "A conversation about emerging email trends and technologies.",
@@ -564,7 +592,9 @@ PodcastFull_PodcastFullWidth.PreviewProps = {
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastFull_PodcastFullWidthProps;
+
 const __PodcastFull = PodcastFull_PodcastFullWidth;
+
 export interface BlogPost {
   title: string;
   excerpt?: string;
@@ -579,11 +609,13 @@ export interface BlogPost {
   episode?: string;
   host?: string;
 }
+
 export interface PodcastBlogProps {
   theme?: Parameters<typeof __PodcastSplit>[0]["theme"];
   post?: BlogPost;
   width?: "split" | "full";
 }
+
 const toPodcastProps = (post: BlogPost | undefined) =>
   post
     ? {
@@ -595,6 +627,7 @@ const toPodcastProps = (post: BlogPost | undefined) =>
         title: post.title,
       }
     : {};
+
 export const PodcastBlog = ({
   theme,
   post,
@@ -607,6 +640,7 @@ export const PodcastBlog = ({
     <__PodcastSplit {...props} />
   );
 };
+
 PodcastBlog.PreviewProps = {
   width: "split",
 } satisfies PodcastBlogProps;

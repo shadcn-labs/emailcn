@@ -18,11 +18,13 @@ import type { ReactElement } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type Cta_CTAWithImageStripVariant =
   | "boxed-right"
   | "boxed-left"
   | "full-right"
   | "full-left";
+
 interface Cta_CTAWithImageStripProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -48,8 +50,10 @@ interface Cta_CTAWithImageStripProps {
   buttonTextColor?: string;
   variant?: Cta_CTAWithImageStripVariant;
 }
+
 const Cta_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Cta_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .cta-strip-inner {
@@ -82,11 +86,13 @@ const Cta_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 const Cta_sharedStripAssets = {
   imageSrc2: "https://emailcn.vercel.app/api/email-assets/cta/strip-2.jpg",
   imageSrc4: "https://emailcn.vercel.app/api/email-assets/cta/strip-4.jpg",
   imageSrc5: "https://emailcn.vercel.app/api/email-assets/cta/strip-5.jpg",
 };
+
 const Cta_variantContent = {
   "boxed-left": {
     imageSrc1:
@@ -127,6 +133,7 @@ const Cta_variantContent = {
     stripBackgroundColor: string;
   }
 >;
+
 const Cta_defaultSectionStyles = {
   backgroundColor: "#fffffe",
   buttonBackgroundColor: "#4f46e5",
@@ -145,9 +152,12 @@ const Cta_defaultSectionStyles = {
     "Join a community built for explorers. Sign up today and get early access to new collections, gear guides, and exclusive offers made for the outdoors.",
   textColor: "#4b5563",
 };
+
 type Cta_SectionProps = Omit<Cta_CTAWithImageStripProps, "theme">;
+
 type Cta_ResolvedProps = typeof Cta_defaultSectionStyles &
   (typeof Cta_variantContent)[Cta_CTAWithImageStripVariant];
+
 const Cta_CTAContent = ({
   buttonBackgroundColor,
   buttonTextColor,
@@ -209,6 +219,7 @@ const Cta_CTAContent = ({
     <Section style={{ lineHeight: "24px" }}>&zwj;</Section>
   </Section>
 );
+
 const Cta_StripImage = ({
   alt,
   borderRadius = "4px",
@@ -225,6 +236,7 @@ const Cta_StripImage = ({
     width="116"
   />
 );
+
 const Cta_ImageColumn = ({
   children,
   firstOffset = false,
@@ -245,6 +257,7 @@ const Cta_ImageColumn = ({
     ))}
   </Column>
 );
+
 const Cta_ImageStrip = ({
   boxed,
   left,
@@ -293,6 +306,7 @@ const Cta_ImageStrip = ({
     </Section>
   </Column>
 );
+
 const Cta_CTAWithImageStripSection = (props: Cta_SectionProps) => {
   const variant = props.variant ?? "boxed-right";
   const resolved = {
@@ -367,6 +381,7 @@ const Cta_CTAWithImageStripSection = (props: Cta_SectionProps) => {
     </Section>
   );
 };
+
 const Cta_CTAWithImageStrip = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -398,11 +413,14 @@ const Cta_CTAWithImageStrip = ({
     </Body>
   </Html>
 );
+
 Cta_CTAWithImageStrip.PreviewProps = {
   theme: defaultTheme,
   variant: "boxed-right",
 } satisfies Cta_CTAWithImageStripProps;
+
 const __Cta = Cta_CTAWithImageStrip;
+
 export interface ImageStripCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -418,6 +436,7 @@ export interface ImageStripCallToActionProps {
   placement?: "left" | "right";
   width?: "boxed" | "full";
 }
+
 const imageStripItem = (
   image:
     | {
@@ -429,6 +448,7 @@ const imageStripItem = (
   alt: image?.alt,
   src: image?.src,
 });
+
 export const ImageStripCallToAction = ({
   theme,
   heading,
@@ -466,6 +486,7 @@ export const ImageStripCallToAction = ({
     />
   );
 };
+
 ImageStripCallToAction.PreviewProps = {
   placement: "right",
   width: "boxed",

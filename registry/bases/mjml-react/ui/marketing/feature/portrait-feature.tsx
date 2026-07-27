@@ -16,8 +16,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FeatureEmailShell = ({
   children,
   pageBackgroundColor,
@@ -42,6 +44,7 @@ const FeatureEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const FeatureCopy = ({
   align = "left",
   body,
@@ -101,6 +104,7 @@ const FeatureCopy = ({
     </MjmlButton>
   </>
 );
+
 type Feature_FeatureWithLargePortraitImageVariant =
   | "logo-top-right"
   | "logo-top-left"
@@ -110,6 +114,7 @@ type Feature_FeatureWithLargePortraitImageVariant =
   | "content-bottom-right"
   | "content-top-left"
   | "content-top-right";
+
 interface Feature_FeatureWithLargePortraitImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -131,6 +136,7 @@ interface Feature_FeatureWithLargePortraitImageProps {
   linkColor?: string;
   variant?: Feature_FeatureWithLargePortraitImageVariant;
 }
+
 const Feature_FeatureWithLargePortraitImageSection = (
   props: Omit<Feature_FeatureWithLargePortraitImageProps, "theme">
 ) => {
@@ -254,6 +260,7 @@ const Feature_FeatureWithLargePortraitImageSection = (
     </MjmlSection>
   );
 };
+
 const Feature_FeatureWithLargePortraitImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -267,11 +274,14 @@ const Feature_FeatureWithLargePortraitImage = ({
     <Feature_FeatureWithLargePortraitImageSection {...props} />
   </FeatureEmailShell>
 );
+
 Feature_FeatureWithLargePortraitImage.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-top-left",
 } satisfies Feature_FeatureWithLargePortraitImageProps;
+
 const __Feature = Feature_FeatureWithLargePortraitImage;
+
 export interface PortraitFeatureProps {
   theme?: Parameters<typeof __Feature>[0]["theme"];
   heading?: string;
@@ -296,6 +306,7 @@ export interface PortraitFeatureProps {
   placement?: "left" | "right";
   contentPosition?: "top" | "bottom";
 }
+
 export const PortraitFeature = ({
   theme,
   heading,
@@ -327,6 +338,7 @@ export const PortraitFeature = ({
     }
   />
 );
+
 PortraitFeature.PreviewProps = {
   placement: "right",
 } satisfies PortraitFeatureProps;

@@ -15,8 +15,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 interface NativeImageCardData {
   alt: string;
   heading: string;
@@ -24,6 +26,7 @@ interface NativeImageCardData {
   src: string;
   subtext: string;
 }
+
 const ImageGridEmailShell = ({
   backgroundColor,
   children,
@@ -45,6 +48,7 @@ const ImageGridEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const NativeImageCard = ({
   data,
   headingColor,
@@ -94,6 +98,7 @@ const NativeImageCard = ({
     ) : null}
   </>
 );
+
 const NativeFeatureImage = ({
   backgroundColor,
   data,
@@ -121,11 +126,13 @@ const NativeFeatureImage = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-left"
   | "stacked-right"
   | "stacked-left-overlay"
   | "stacked-right-overlay";
+
 interface TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps {
   theme?: EmailThemeTokens;
   imageSrc1?: string;
@@ -149,6 +156,7 @@ interface TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps {
   textColor?: string;
   variant?: TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant;
 }
+
 const TwoColumnMasonryThree_defaults = {
   backgroundColor: "#fffffe",
   heading1: "White Glass",
@@ -172,6 +180,7 @@ const TwoColumnMasonryThree_defaults = {
   subtext3: "Insulated Steel",
   textColor: "#fffffe",
 };
+
 const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesSection = (
   props: Omit<
     TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps,
@@ -245,6 +254,7 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesSection = (
     </MjmlSection>
   );
 };
+
 const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -260,12 +270,15 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images = ({
     />
   </ImageGridEmailShell>
 );
+
 TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesProps;
+
 const __TwoColumnMasonryThree =
   TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3Images;
+
 type TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant =
   | "stacked-left"
   | "stacked-right"
@@ -275,6 +288,7 @@ type TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant =
   | "stacked-right-overlay"
   | "stacked-left-overlay-reverse"
   | "stacked-right-overlay-reverse";
+
 interface TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps {
   theme?: EmailThemeTokens;
   featureImageSrc?: string;
@@ -303,6 +317,7 @@ interface TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps {
   textColor?: string;
   variant?: TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesVariant;
 }
+
 const TwoColumnMasonryFour_defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Nemora",
@@ -332,6 +347,7 @@ const TwoColumnMasonryFour_defaults = {
   portraitSubtext: "T-shirts and sweats",
   textColor: "#fffffe",
 };
+
 const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesSection = (
   props: Omit<
     TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps,
@@ -431,6 +447,7 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesSection = (
     </>
   );
 };
+
 const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -446,17 +463,21 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images = ({
     />
   </ImageGridEmailShell>
 );
+
 TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesProps;
+
 const __TwoColumnMasonryFour =
   TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4Images;
+
 type ThreeColumnMasonry_ThreeColumnsMasonryImageGridVariant =
   | "stacked-left"
   | "stacked-right"
   | "stacked-left-overlay"
   | "stacked-right-overlay";
+
 interface ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps {
   theme?: EmailThemeTokens;
   stackImageSrc1?: string;
@@ -480,6 +501,7 @@ interface ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps {
   textColor?: string;
   variant?: ThreeColumnMasonry_ThreeColumnsMasonryImageGridVariant;
 }
+
 const ThreeColumnMasonry_defaults = {
   backgroundColor: "#fffffe",
   headingColor: "#fffffe",
@@ -503,6 +525,7 @@ const ThreeColumnMasonry_defaults = {
     "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry.jpg",
   wideSubtext: "Premium Cuts / Seasonal Fish",
 };
+
 const ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection = (
   props: Omit<ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps, "theme">
 ) => {
@@ -573,6 +596,7 @@ const ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection = (
     </MjmlSection>
   );
 };
+
 const ThreeColumnMasonry_ThreeColumnsMasonryImageGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -586,11 +610,14 @@ const ThreeColumnMasonry_ThreeColumnsMasonryImageGrid = ({
     <ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection {...props} />
   </ImageGridEmailShell>
 );
+
 ThreeColumnMasonry_ThreeColumnsMasonryImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps;
+
 const __ThreeColumnMasonry = ThreeColumnMasonry_ThreeColumnsMasonryImageGrid;
+
 type ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureVariant =
     | "stacked-left"
     | "stacked-right"
@@ -600,6 +627,7 @@ type ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureV
     | "stacked-right-overlay"
     | "stacked-left-overlay-reverse"
     | "stacked-right-overlay-reverse";
+
 interface ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps {
   theme?: EmailThemeTokens;
   featureImageSrc?: string;
@@ -628,6 +656,7 @@ interface ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFea
   textColor?: string;
   variant?: ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureVariant;
 }
+
 const ThreeColumnMasonryFeature_defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Slope Lines",
@@ -657,6 +686,7 @@ const ThreeColumnMasonryFeature_defaults = {
     "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-2.jpg",
   wideSubtext: "Monochrome Geometric Pattern",
 };
+
 const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureSection =
   (
     props: Omit<
@@ -757,6 +787,7 @@ const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature
       </>
     );
   };
+
 const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature =
   ({
     pageBackgroundColor = "#f1f5f9",
@@ -773,13 +804,16 @@ const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature
       />
     </ImageGridEmailShell>
   );
+
 ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature.PreviewProps =
   {
     theme: defaultTheme,
     variant: "stacked-left",
   } satisfies ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureProps;
+
 const __ThreeColumnMasonryFeature =
   ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -787,6 +821,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface MasonryImageGridProps {
   theme?: Parameters<typeof __TwoColumnMasonryThree>[0]["theme"];
   images?: GalleryImage[];
@@ -796,6 +831,7 @@ export interface MasonryImageGridProps {
   reverse?: boolean;
   overlay?: boolean;
 }
+
 const masonryImageGridItem = (image: GalleryImage | undefined) => ({
   alt: image?.alt,
   heading: image?.heading,
@@ -803,6 +839,7 @@ const masonryImageGridItem = (image: GalleryImage | undefined) => ({
   src: image?.src,
   subtext: image?.subtext,
 });
+
 export const MasonryImageGrid = ({
   theme,
   images,
@@ -933,6 +970,7 @@ export const MasonryImageGrid = ({
     />
   );
 };
+
 MasonryImageGrid.PreviewProps = {
   columns: 2,
   overlay: false,

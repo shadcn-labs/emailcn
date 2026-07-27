@@ -16,7 +16,9 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type DividerVariant = "center" | "left" | "right";
+
 const dividerColors = {
   border: "#e5e7eb",
   muted: "#6b7280",
@@ -25,8 +27,10 @@ const dividerColors = {
   text: "#111827",
   white: "#ffffff",
 } as const;
+
 const dividerFontFamily =
   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
 const columnWidths: Record<
   DividerVariant,
   {
@@ -39,6 +43,7 @@ const columnWidths: Record<
   left: { content: "30%", left: "0%", right: "70%" },
   right: { content: "30%", left: "70%", right: "0%" },
 };
+
 const RuleColumn = ({ width }: { width: string }) => (
   <MjmlColumn padding="0" verticalAlign="middle" width={width}>
     <MjmlDivider
@@ -50,6 +55,7 @@ const RuleColumn = ({ width }: { width: string }) => (
     />
   </MjmlColumn>
 );
+
 const DividerFrame = ({
   children,
   variant = "center",
@@ -72,6 +78,7 @@ const DividerFrame = ({
     </MjmlSection>
   );
 };
+
 const LineDividerSection = () => (
   <MjmlSection padding="24px 0">
     <MjmlColumn padding="0">
@@ -85,6 +92,7 @@ const LineDividerSection = () => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SpacingEmailShell = ({
   children,
   preview,
@@ -107,12 +115,14 @@ const SpacingEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 interface DividerButton_DividerWithButtonProps {
   href?: string;
   label?: string;
   theme?: EmailThemeTokens;
   variant?: DividerVariant;
 }
+
 const DividerButton_DividerWithButtonSection = ({
   href = "#",
   label = "View All",
@@ -136,6 +146,7 @@ const DividerButton_DividerWithButtonSection = ({
     </MjmlButton>
   </DividerFrame>
 );
+
 const DividerButton_DividerWithButton = ({
   href = "#",
   label = "View All",
@@ -150,18 +161,22 @@ const DividerButton_DividerWithButton = ({
     />
   </SpacingEmailShell>
 );
+
 DividerButton_DividerWithButton.PreviewProps = {
   href: "https://example.com/shop",
   label: "Shop Now",
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerButton_DividerWithButtonProps;
+
 const __DividerButton = DividerButton_DividerWithButton;
+
 interface DividerFile_DividerWithFileTypeProps {
   fileType?: string;
   theme?: EmailThemeTokens;
   variant?: DividerVariant;
 }
+
 const DividerFile_DividerWithFileTypeSection = ({
   fileType = "PDF",
   variant = "center",
@@ -183,6 +198,7 @@ const DividerFile_DividerWithFileTypeSection = ({
     </MjmlButton>
   </DividerFrame>
 );
+
 const DividerFile_DividerWithFileType = ({
   fileType = "PDF",
   theme = defaultTheme,
@@ -195,12 +211,15 @@ const DividerFile_DividerWithFileType = ({
     />
   </SpacingEmailShell>
 );
+
 DividerFile_DividerWithFileType.PreviewProps = {
   fileType: "PDF",
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerFile_DividerWithFileTypeProps;
+
 const __DividerFile = DividerFile_DividerWithFileType;
+
 interface DividerIconButton_DividerWithIconButtonProps {
   href?: string;
   icon?: string;
@@ -208,6 +227,7 @@ interface DividerIconButton_DividerWithIconButtonProps {
   theme?: EmailThemeTokens;
   variant?: DividerVariant;
 }
+
 const DividerIconButton_DividerWithIconButtonSection = ({
   href = "#",
   icon = "➜",
@@ -232,6 +252,7 @@ const DividerIconButton_DividerWithIconButtonSection = ({
     </MjmlButton>
   </DividerFrame>
 );
+
 const DividerIconButton_DividerWithIconButton = ({
   href = "#",
   icon = "➜",
@@ -248,6 +269,7 @@ const DividerIconButton_DividerWithIconButton = ({
     />
   </SpacingEmailShell>
 );
+
 DividerIconButton_DividerWithIconButton.PreviewProps = {
   href: "https://example.com",
   icon: "➜",
@@ -255,12 +277,15 @@ DividerIconButton_DividerWithIconButton.PreviewProps = {
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerIconButton_DividerWithIconButtonProps;
+
 const __DividerIconButton = DividerIconButton_DividerWithIconButton;
+
 interface DividerIcon_DividerWithIconProps {
   icon?: string;
   theme?: EmailThemeTokens;
   variant?: DividerVariant;
 }
+
 const DividerIcon_DividerWithIconSection = ({
   icon = "✨",
   variant = "center",
@@ -278,6 +303,7 @@ const DividerIcon_DividerWithIconSection = ({
     </MjmlText>
   </DividerFrame>
 );
+
 const DividerIcon_DividerWithIcon = ({
   icon = "✨",
   theme = defaultTheme,
@@ -287,18 +313,22 @@ const DividerIcon_DividerWithIcon = ({
     <DividerIcon_DividerWithIconSection icon={icon} variant={variant} />
   </SpacingEmailShell>
 );
+
 DividerIcon_DividerWithIcon.PreviewProps = {
   icon: "✨",
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerIcon_DividerWithIconProps;
+
 const __DividerIcon = DividerIcon_DividerWithIcon;
+
 interface DividerLogo_DividerWithLogoProps {
   logoAlt?: string;
   logoSrc?: string;
   theme?: EmailThemeTokens;
   variant?: DividerVariant;
 }
+
 const DividerLogo_DividerWithLogoSection = ({
   logoAlt = "Logo",
   logoSrc,
@@ -317,6 +347,7 @@ const DividerLogo_DividerWithLogoSection = ({
     ) : null}
   </DividerFrame>
 );
+
 const DividerLogo_DividerWithLogo = ({
   logoAlt = "Logo",
   logoSrc,
@@ -331,17 +362,21 @@ const DividerLogo_DividerWithLogo = ({
     />
   </SpacingEmailShell>
 );
+
 DividerLogo_DividerWithLogo.PreviewProps = {
   logoAlt: "emailcn",
   logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerLogo_DividerWithLogoProps;
+
 const __DividerLogo = DividerLogo_DividerWithLogo;
+
 interface DividerSocials_DividerWithSocialIconsProps {
   theme?: EmailThemeTokens;
   variant?: DividerVariant;
 }
+
 const DividerSocials_DividerWithSocialIconsSection = ({
   variant = "center",
 }: Omit<DividerSocials_DividerWithSocialIconsProps, "theme">) => (
@@ -359,6 +394,7 @@ const DividerSocials_DividerWithSocialIconsSection = ({
     </MjmlText>
   </DividerFrame>
 );
+
 const DividerSocials_DividerWithSocialIcons = ({
   theme = defaultTheme,
   variant = "center",
@@ -367,16 +403,20 @@ const DividerSocials_DividerWithSocialIcons = ({
     <DividerSocials_DividerWithSocialIconsSection variant={variant} />
   </SpacingEmailShell>
 );
+
 DividerSocials_DividerWithSocialIcons.PreviewProps = {
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerSocials_DividerWithSocialIconsProps;
+
 const __DividerSocials = DividerSocials_DividerWithSocialIcons;
+
 interface DividerTitle_DividerWithTitleProps {
   theme?: EmailThemeTokens;
   title?: string;
   variant?: DividerVariant;
 }
+
 const DividerTitle_DividerWithTitleSection = ({
   title = "Section Title",
   variant = "center",
@@ -395,6 +435,7 @@ const DividerTitle_DividerWithTitleSection = ({
     </MjmlText>
   </DividerFrame>
 );
+
 const DividerTitle_DividerWithTitle = ({
   theme = defaultTheme,
   title = "Section Title",
@@ -404,15 +445,19 @@ const DividerTitle_DividerWithTitle = ({
     <DividerTitle_DividerWithTitleSection title={title} variant={variant} />
   </SpacingEmailShell>
 );
+
 DividerTitle_DividerWithTitle.PreviewProps = {
   theme: defaultTheme,
   title: "Featured Products",
   variant: "center",
 } satisfies DividerTitle_DividerWithTitleProps;
+
 const __DividerTitle = DividerTitle_DividerWithTitle;
+
 interface LineDivider_LineDividerProps {
   theme?: EmailThemeTokens;
 }
+
 const LineDivider_LineDivider = ({
   theme = defaultTheme,
 }: LineDivider_LineDividerProps) => (
@@ -420,10 +465,13 @@ const LineDivider_LineDivider = ({
     <LineDividerSection />
   </SpacingEmailShell>
 );
+
 LineDivider_LineDivider.PreviewProps = {
   theme: defaultTheme,
 } satisfies LineDivider_LineDividerProps;
+
 const __LineDivider = LineDivider_LineDivider;
+
 export type DividerContent =
   | {
       type: "title";
@@ -462,11 +510,13 @@ export type DividerContent =
         label: string;
       };
     };
+
 export interface DividerProps {
   theme?: Parameters<typeof __LineDivider>[0]["theme"];
   align?: "left" | "center" | "right";
   content?: DividerContent;
 }
+
 export const Divider = ({ theme, align = "center", content }: DividerProps) => {
   if (!content) {
     return <__LineDivider theme={theme} />;
@@ -521,6 +571,7 @@ export const Divider = ({ theme, align = "center", content }: DividerProps) => {
     />
   );
 };
+
 Divider.PreviewProps = {
   align: "center",
 } satisfies DividerProps;

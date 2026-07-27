@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export const HeaderEmailShell = ({
   children,
   pageBackgroundColor,
@@ -40,6 +41,7 @@ export const HeaderEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 export const HeaderLogo = ({
   align = "left",
   alt,
@@ -60,6 +62,7 @@ export const HeaderLogo = ({
     width="55px"
   />
 );
+
 export type HeaderWithLogoAndMenuVariant =
   | "menu-right"
   | "menu-left"
@@ -67,10 +70,12 @@ export type HeaderWithLogoAndMenuVariant =
   | "stacked-left"
   | "stacked-center"
   | "stacked-right";
+
 export interface HeaderMenuLink {
   href: string;
   label: string;
 }
+
 export interface HeaderWithLogoAndMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -82,8 +87,10 @@ export interface HeaderWithLogoAndMenuProps {
   textColor?: string;
   variant?: HeaderWithLogoAndMenuVariant;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const defaultLinks: HeaderMenuLink[] = [
   { href: "https://example.com", label: "Home" },
   { href: "https://example.com/about", label: "About us" },
@@ -92,6 +99,7 @@ const defaultLinks: HeaderMenuLink[] = [
   { href: "https://example.com/returns", label: "Returns" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
+
 const Menu = ({
   align,
   links,
@@ -116,6 +124,7 @@ const Menu = ({
     ))}
   </MjmlNavbar>
 );
+
 export const HeaderWithLogoAndMenuSection = ({
   backgroundColor = "#fffffe",
   links = defaultLinks,
@@ -201,6 +210,7 @@ export const HeaderWithLogoAndMenuSection = ({
     </MjmlSection>
   );
 };
+
 export const HeaderWithLogoAndMenu = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -214,6 +224,7 @@ export const HeaderWithLogoAndMenu = ({
     <HeaderWithLogoAndMenuSection {...props} />
   </HeaderEmailShell>
 );
+
 HeaderWithLogoAndMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "menu-right",

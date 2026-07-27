@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export const HeaderEmailShell = ({
   children,
   pageBackgroundColor,
@@ -40,6 +41,7 @@ export const HeaderEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 export const HeaderLogo = ({
   align = "left",
   alt,
@@ -60,7 +62,9 @@ export const HeaderLogo = ({
     width="55px"
   />
 );
+
 export type HeaderWithLogoAndBadgeAlignment = "left" | "center" | "right";
+
 export interface HeaderWithLogoAndBadgeProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -76,8 +80,10 @@ export interface HeaderWithLogoAndBadgeProps {
   badgeColor?: string;
   badgeTextColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 export const HeaderWithLogoAndBadgeSection = ({
   alignment = "left",
   backgroundColor = "#fffffe",
@@ -144,6 +150,7 @@ export const HeaderWithLogoAndBadgeSection = ({
     </MjmlSection>
   );
 };
+
 export const HeaderWithLogoAndBadge = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -157,6 +164,7 @@ export const HeaderWithLogoAndBadge = ({
     <HeaderWithLogoAndBadgeSection {...props} />
   </HeaderEmailShell>
 );
+
 HeaderWithLogoAndBadge.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

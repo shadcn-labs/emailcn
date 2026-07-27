@@ -17,6 +17,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type ShoppingCartVariant =
   | "basic"
   | "basic-alt"
@@ -25,6 +26,7 @@ export type ShoppingCartVariant =
   | "full-details"
   | "full-details-alt"
   | "example-with-cta";
+
 export interface ShoppingCartItem {
   colors?: string[];
   description?: string;
@@ -35,9 +37,12 @@ export interface ShoppingCartItem {
   quantity: number;
   size?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const shoppingCartResponsiveStyles = `
   @media only screen and (max-width: 599px) {
     .shopping-cart-column { display: block !important; width: 100% !important; }
@@ -49,6 +54,7 @@ const shoppingCartResponsiveStyles = `
     .shopping-cart-option { display: inline-block !important; }
   }
 `;
+
 const defaultItems: ShoppingCartItem[] = [
   {
     colors: ["#030712", "#fffffe", "#E5E7EB"],
@@ -95,15 +101,21 @@ const defaultItems: ShoppingCartItem[] = [
     size: "Extra Large",
   },
 ];
+
 const textStyle = { fontFamily, margin: 0 } as const;
+
 type EmailCssProperties = CSSProperties & {
   msoTextRaise?: string;
 };
+
 const msoRaise6: EmailCssProperties = { msoTextRaise: "6px" };
+
 const msoRaise16: EmailCssProperties = { msoTextRaise: "16px" };
+
 const Spacer = ({ height }: { height: number }) => (
   <Section style={{ lineHeight: `${height}px` }}>&zwj;</Section>
 );
+
 const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
   <Section style={align ? { textAlign: align } : undefined}>
     <Link
@@ -136,6 +148,7 @@ const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
     </Link>
   </Section>
 );
+
 const Divider = ({
   bottom = 8,
   top = 24,
@@ -156,6 +169,7 @@ const Divider = ({
     &zwj;
   </Section>
 );
+
 const Copy = ({ children }: { children: ReactNode }) => (
   <Text
     style={{
@@ -169,6 +183,7 @@ const Copy = ({ children }: { children: ReactNode }) => (
     {children}
   </Text>
 );
+
 const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -195,6 +210,7 @@ const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
     </Fragment>
   </Section>
 );
+
 const ColorSwatches = ({ colors }: { colors: string[] }) => (
   <Section style={{ fontSize: 0, lineHeight: 1 }}>
     {colors.map((color) => (
@@ -212,6 +228,7 @@ const ColorSwatches = ({ colors }: { colors: string[] }) => (
     ))}
   </Section>
 );
+
 const Option = ({
   children,
   last = false,
@@ -260,6 +277,7 @@ const Option = ({
     </Section>
   </Column>
 );
+
 const Options = ({
   item,
   showQuantity = true,
@@ -287,6 +305,7 @@ const Options = ({
     </Fragment>
   </Section>
 );
+
 const QuantityAndEdit = ({ item }: { item: ShoppingCartItem }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -310,6 +329,7 @@ const QuantityAndEdit = ({ item }: { item: ShoppingCartItem }) => (
     </Fragment>
   </Section>
 );
+
 const Header = ({ item }: { item: ShoppingCartItem }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -347,6 +367,7 @@ const Header = ({ item }: { item: ShoppingCartItem }) => (
     </Fragment>
   </Section>
 );
+
 const RowContent = ({
   item,
   variant,
@@ -391,6 +412,7 @@ const RowContent = ({
     </>
   );
 };
+
 const CartRow = ({
   item,
   variant,
@@ -435,6 +457,7 @@ const CartRow = ({
     </Fragment>
   </Section>
 );
+
 const Checkout = () => (
   <Section style={{ textAlign: "center" }}>
     <Link
@@ -457,6 +480,7 @@ const Checkout = () => (
     </Link>
   </Section>
 );
+
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{shoppingCartResponsiveStyles}</style>
@@ -489,6 +513,7 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 const ShoppingCartSection = ({
   items,
   variant = "basic",
@@ -533,17 +558,20 @@ const ShoppingCartSection = ({
     </EmailShell>
   );
 };
+
 interface ShoppingCart_ShoppingCartRowItemsProps {
   items?: ShoppingCartItem[];
   theme?: EmailThemeTokens;
   variant?: ShoppingCartVariant;
 }
+
 const ShoppingCart_ShoppingCartRowItemsSection = ({
   items,
   variant = "basic",
 }: Omit<ShoppingCart_ShoppingCartRowItemsProps, "theme">) => (
   <ShoppingCartSection items={items} variant={variant} />
 );
+
 const ShoppingCart_ShoppingCartRowItems = ({
   theme: _theme = defaultTheme,
   ...props
@@ -558,18 +586,23 @@ const ShoppingCart_ShoppingCartRowItems = ({
     </Body>
   </Html>
 );
+
 ShoppingCart_ShoppingCartRowItems.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies ShoppingCart_ShoppingCartRowItemsProps;
+
 const __ShoppingCart = ShoppingCart_ShoppingCartRowItems;
+
 export interface ShoppingCartProps extends Omit<
   Parameters<typeof __ShoppingCart>[0],
   "theme"
 > {
   theme?: Parameters<typeof __ShoppingCart>[0]["theme"];
 }
+
 export const ShoppingCart = (props: ShoppingCartProps) => (
   <__ShoppingCart {...props} />
 );
+
 ShoppingCart.PreviewProps = {} satisfies ShoppingCartProps;

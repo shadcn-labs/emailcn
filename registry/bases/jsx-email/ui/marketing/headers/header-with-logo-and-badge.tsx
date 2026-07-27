@@ -14,7 +14,9 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type HeaderWithLogoAndBadgeAlignment = "left" | "center" | "right";
+
 export interface HeaderWithLogoAndBadgeProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -30,8 +32,10 @@ export interface HeaderWithLogoAndBadgeProps {
   badgeColor?: string;
   badgeTextColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .header-badge-stack { display: block !important; width: 100% !important; }",
@@ -41,6 +45,7 @@ const responsiveStyles = [
   "  .header-badge-mobile-logo { text-align: left !important; }",
   "}",
 ].join("\n");
+
 const defaults = {
   backgroundColor: "#fffffe",
   badgeBackgroundColor: "#eff6ff",
@@ -54,8 +59,11 @@ const defaults = {
   message: "On orders over $65",
   pageBackgroundColor: "#f1f5f9",
 };
+
 type SectionProps = Omit<HeaderWithLogoAndBadgeProps, "theme">;
+
 type ResolvedProps = typeof defaults & SectionProps;
+
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -66,6 +74,7 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
+
 const Badge = ({
   align,
   props,
@@ -129,6 +138,7 @@ const Badge = ({
     </Section>
   );
 };
+
 export const HeaderWithLogoAndBadgeSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "left";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -213,6 +223,7 @@ export const HeaderWithLogoAndBadgeSection = (props: SectionProps) => {
     </Section>
   );
 };
+
 export const HeaderWithLogoAndBadge = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -236,6 +247,7 @@ export const HeaderWithLogoAndBadge = ({
     </Body>
   </Html>
 );
+
 HeaderWithLogoAndBadge.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

@@ -15,8 +15,11 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type HeaderWithLogoVariant = "minimal" | "with-text";
+
 export type HeaderWithLogoAlignment = "left" | "center" | "right";
+
 export interface HeaderWithLogoProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -29,8 +32,10 @@ export interface HeaderWithLogoProps {
   variant?: HeaderWithLogoVariant;
   alignment?: HeaderWithLogoAlignment;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .header-logo-text-stack { display: block !important; width: 100% !important; }",
@@ -41,6 +46,7 @@ const responsiveStyles = [
   "  .header-logo-text-right-copy { padding-top: 24px !important; text-align: right !important; }",
   "}",
 ].join("\n");
+
 const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
@@ -50,8 +56,11 @@ const defaults = {
   text: "Medium, rare, but mostly well-done\nHTML email components.",
   textColor: "#030712",
 };
+
 type SectionProps = Omit<HeaderWithLogoProps, "theme">;
+
 type ResolvedProps = typeof defaults & SectionProps;
+
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -62,6 +71,7 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
+
 const Copy = ({
   centered = false,
   props,
@@ -93,6 +103,7 @@ const Copy = ({
     })()}
   </Text>
 );
+
 const WithText = ({
   alignment,
   props,
@@ -159,6 +170,7 @@ const WithText = ({
     </Section>
   );
 };
+
 export const HeaderWithLogoSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "center";
   const variant = props.variant ?? "minimal";
@@ -198,6 +210,7 @@ export const HeaderWithLogoSection = (props: SectionProps) => {
     </Section>
   );
 };
+
 export const HeaderWithLogo = ({
   alignment = "center",
   pageBackgroundColor = "#f1f5f9",
@@ -223,6 +236,7 @@ export const HeaderWithLogo = ({
     </Body>
   </Html>
 );
+
 HeaderWithLogo.PreviewProps = {
   alignment: "center",
   theme: defaultTheme,

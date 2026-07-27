@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const colors = {
   border: "#e5e7eb",
   canvas: "#f1f5f9",
@@ -25,8 +26,10 @@ const colors = {
   surface: "#fffffe",
   surfaceMuted: "#f9fafb",
 } as const;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 type BlogLayout =
   | "featured"
   | "featured-date"
@@ -41,6 +44,7 @@ type BlogLayout =
   | "two-column-boxed"
   | "two-column-images"
   | "two-column-images-text";
+
 interface BlogPostData {
   author?: string;
   badge?: string;
@@ -55,6 +59,7 @@ interface BlogPostData {
   month?: string;
   title: string;
 }
+
 const Image = ({
   alt,
   src,
@@ -72,6 +77,7 @@ const Image = ({
     width={`${width}px`}
   />
 );
+
 const Meta = ({
   boxed = false,
   post,
@@ -103,6 +109,7 @@ const Meta = ({
     return null;
   })();
 };
+
 const Copy = ({
   boxed = false,
   post,
@@ -162,6 +169,7 @@ const Copy = ({
     </>
   );
 };
+
 const VerticalCard = ({
   boxed = false,
   post,
@@ -177,6 +185,7 @@ const VerticalCard = ({
     <Copy boxed={boxed} post={post} />
   </>
 );
+
 const TwoColumns = ({
   boxed,
   posts,
@@ -200,6 +209,7 @@ const TwoColumns = ({
     ))}
   </MjmlSection>
 );
+
 const Masonry = ({
   boxed,
   posts,
@@ -228,6 +238,7 @@ const Masonry = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const Horizontal = ({
   boxed = false,
   post,
@@ -249,6 +260,7 @@ const Horizontal = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 const SplitImages = ({ post }: { post: BlogPostData }) => (
   <MjmlSection
     backgroundColor={colors.surfaceMuted}
@@ -271,6 +283,7 @@ const SplitImages = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const FullWidth = ({ post }: { post: BlogPostData }) => (
   <MjmlSection padding="0">
     <MjmlColumn padding="0">
@@ -280,6 +293,7 @@ const FullWidth = ({ post }: { post: BlogPostData }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const BlogContent = ({
   layout,
   posts,
@@ -312,6 +326,7 @@ const BlogContent = ({
   }
   return <FullWidth post={posts[0]} />;
 };
+
 const BlogHeading = ({ children }: { children: ReactNode }) => (
   <MjmlSection padding="0 0 32px">
     <MjmlColumn padding="0">
@@ -329,6 +344,7 @@ const BlogHeading = ({ children }: { children: ReactNode }) => (
     </MjmlColumn>
   </MjmlSection>
 );
+
 const BlogEmailShell = ({
   children,
   preview,
@@ -350,6 +366,7 @@ const BlogEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 interface GridImage_TwoColumnsBlogWithImagesProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -362,6 +379,7 @@ interface GridImage_TwoColumnsBlogWithImagesProps {
   excerpt1?: string;
   excerpt2?: string;
 }
+
 const GridImage_TwoColumnsBlogWithImagesSection = ({
   heading = "Latest posts",
   imageAlt1 = "Mountain landscape",
@@ -394,6 +412,7 @@ const GridImage_TwoColumnsBlogWithImagesSection = ({
     </>
   );
 };
+
 const GridImage_TwoColumnsBlogWithImages = ({
   theme = defaultTheme,
   heading = "Latest posts",
@@ -420,6 +439,7 @@ const GridImage_TwoColumnsBlogWithImages = ({
     />
   </BlogEmailShell>
 );
+
 GridImage_TwoColumnsBlogWithImages.PreviewProps = {
   excerpt1: "Practical ideas for clearer, more useful email experiences.",
   excerpt2: "How small systems help teams publish consistently.",
@@ -434,7 +454,9 @@ GridImage_TwoColumnsBlogWithImages.PreviewProps = {
   title1: "Designing emails people enjoy",
   title2: "A better content workflow",
 } satisfies GridImage_TwoColumnsBlogWithImagesProps;
+
 const __GridImage = GridImage_TwoColumnsBlogWithImages;
+
 interface GridText_TwoColumnsBlogWithImagesAndTextProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -447,6 +469,7 @@ interface GridText_TwoColumnsBlogWithImagesAndTextProps {
   excerpt1?: string;
   excerpt2?: string;
 }
+
 const GridText_TwoColumnsBlogWithImagesAndTextSection = ({
   heading = "Latest posts",
   imageAlt1 = "Mountain landscape",
@@ -479,6 +502,7 @@ const GridText_TwoColumnsBlogWithImagesAndTextSection = ({
     </>
   );
 };
+
 const GridText_TwoColumnsBlogWithImagesAndText = ({
   theme = defaultTheme,
   heading = "Latest posts",
@@ -505,6 +529,7 @@ const GridText_TwoColumnsBlogWithImagesAndText = ({
     />
   </BlogEmailShell>
 );
+
 GridText_TwoColumnsBlogWithImagesAndText.PreviewProps = {
   excerpt1: "Practical ideas for clearer, more useful email experiences.",
   excerpt2: "How small systems help teams publish consistently.",
@@ -519,7 +544,9 @@ GridText_TwoColumnsBlogWithImagesAndText.PreviewProps = {
   title1: "Designing emails people enjoy",
   title2: "A better content workflow",
 } satisfies GridText_TwoColumnsBlogWithImagesAndTextProps;
+
 const __GridText = GridText_TwoColumnsBlogWithImagesAndText;
+
 interface GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -532,6 +559,7 @@ interface GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentProps {
   excerpt1?: string;
   excerpt2?: string;
 }
+
 const GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentSection = ({
   heading = "Latest posts",
   imageAlt1 = "Mountain landscape",
@@ -564,6 +592,7 @@ const GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentSection = ({
     </>
   );
 };
+
 const GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent = ({
   theme = defaultTheme,
   heading = "Latest posts",
@@ -590,6 +619,7 @@ const GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent = ({
     />
   </BlogEmailShell>
 );
+
 GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
   excerpt1: "Practical ideas for clearer, more useful email experiences.",
   excerpt2: "How small systems help teams publish consistently.",
@@ -604,7 +634,9 @@ GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent.PreviewProps = {
   title1: "Designing emails people enjoy",
   title2: "A better content workflow",
 } satisfies GridBoxed_TwoColumnsBlogWithImagesAndBoxedContentProps;
+
 const __GridBoxed = GridBoxed_TwoColumnsBlogWithImagesAndBoxedContent;
+
 interface Masonry_BlogWithImagesAnd2ColumnsMasonryProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -621,6 +653,7 @@ interface Masonry_BlogWithImagesAnd2ColumnsMasonryProps {
   title3?: string;
   excerpt3?: string;
 }
+
 const Masonry_BlogWithImagesAnd2ColumnsMasonrySection = ({
   heading = "From the blog",
   imageAlt1 = "Mountain landscape",
@@ -663,6 +696,7 @@ const Masonry_BlogWithImagesAnd2ColumnsMasonrySection = ({
     </>
   );
 };
+
 const Masonry_BlogWithImagesAnd2ColumnsMasonry = ({
   theme = defaultTheme,
   heading = "From the blog",
@@ -697,6 +731,7 @@ const Masonry_BlogWithImagesAnd2ColumnsMasonry = ({
     />
   </BlogEmailShell>
 );
+
 Masonry_BlogWithImagesAnd2ColumnsMasonry.PreviewProps = {
   excerpt1: "Practical ideas for clearer, more useful email experiences.",
   excerpt2: "How small systems help teams publish consistently.",
@@ -716,7 +751,9 @@ Masonry_BlogWithImagesAnd2ColumnsMasonry.PreviewProps = {
   title2: "A better content workflow",
   title3: "What we learned this month",
 } satisfies Masonry_BlogWithImagesAnd2ColumnsMasonryProps;
+
 const __Masonry = Masonry_BlogWithImagesAnd2ColumnsMasonry;
+
 interface MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -733,6 +770,7 @@ interface MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentProps {
   title3?: string;
   excerpt3?: string;
 }
+
 const MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentSection = ({
   heading = "From the blog",
   imageAlt1 = "Mountain landscape",
@@ -775,6 +813,7 @@ const MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentSection = ({
     </>
   );
 };
+
 const MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContent = ({
   theme = defaultTheme,
   heading = "From the blog",
@@ -809,6 +848,7 @@ const MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContent = ({
     />
   </BlogEmailShell>
 );
+
 MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContent.PreviewProps = {
   excerpt1: "Practical ideas for clearer, more useful email experiences.",
   excerpt2: "How small systems help teams publish consistently.",
@@ -828,7 +868,9 @@ MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContent.PreviewProps = {
   title2: "A better content workflow",
   title3: "What we learned this month",
 } satisfies MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContentProps;
+
 const __MasonryBoxed = MasonryBoxed_TwoColumnsMasonryBlogWithBoxedContent;
+
 export interface BlogPost {
   title: string;
   excerpt?: string;
@@ -843,6 +885,7 @@ export interface BlogPost {
   episode?: string;
   host?: string;
 }
+
 export interface BlogGridProps {
   theme?: Parameters<typeof __GridImage>[0]["theme"];
   heading?: string;
@@ -850,6 +893,7 @@ export interface BlogGridProps {
   masonry?: boolean;
   content?: "image" | "image-text" | "boxed";
 }
+
 const toPostProps = (posts: BlogPost[] | undefined) => {
   if (!posts) {
     return {};
@@ -866,6 +910,7 @@ const toPostProps = (posts: BlogPost[] | undefined) => {
     })
   );
 };
+
 export const BlogGrid = ({
   theme,
   heading,
@@ -889,6 +934,7 @@ export const BlogGrid = ({
   }
   return <__GridImage {...props} />;
 };
+
 BlogGrid.PreviewProps = {
   content: "image",
   masonry: false,

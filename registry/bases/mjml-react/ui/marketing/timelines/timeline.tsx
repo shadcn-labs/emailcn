@@ -15,12 +15,14 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type CardsTimeline_CardsTimelineVariant =
   | "default"
   | "with-badge"
   | "with-accent"
   | "image-top"
   | "image-bottom";
+
 interface CardsTimeline_CardsTimelineProps {
   theme?: EmailThemeTokens;
   variant?: CardsTimeline_CardsTimelineVariant;
@@ -31,8 +33,10 @@ interface CardsTimeline_CardsTimelineProps {
   imageSrc?: string;
   imageAlt?: string;
 }
+
 const CardsTimeline_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CardsTimeline_CardsTimelineSection = (
   props: Omit<CardsTimeline_CardsTimelineProps, "theme">
 ) => {
@@ -136,6 +140,7 @@ const CardsTimeline_CardsTimelineSection = (
     </MjmlSection>
   );
 };
+
 const CardsTimeline_CardsTimeline = ({
   theme = defaultTheme,
   ...props
@@ -152,11 +157,14 @@ const CardsTimeline_CardsTimeline = ({
     </MjmlBody>
   </Mjml>
 );
+
 CardsTimeline_CardsTimeline.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies CardsTimeline_CardsTimelineProps;
+
 const __CardsTimeline = CardsTimeline_CardsTimeline;
+
 type Changelog_ChangelogVariant =
   | "muted-left"
   | "muted-right"
@@ -164,7 +172,9 @@ type Changelog_ChangelogVariant =
   | "basic-right"
   | "accent-left"
   | "accent-right";
+
 type Changelog_ChangelogLayout = "line" | "boxed";
+
 interface Changelog_ChangelogProps {
   theme?: EmailThemeTokens;
   variant?: Changelog_ChangelogVariant;
@@ -175,12 +185,15 @@ interface Changelog_ChangelogProps {
   title?: string;
   description?: string;
 }
+
 const Changelog_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const Changelog_resolveChangelogAlignment = (right: boolean) =>
   right
     ? ({ content: "right", meta: "left" } as const)
     : ({ content: "left", meta: "right" } as const);
+
 const Changelog_ChangelogSection = (
   props: Omit<Changelog_ChangelogProps, "theme">
 ) => {
@@ -293,6 +306,7 @@ const Changelog_ChangelogSection = (
     </MjmlSection>
   );
 };
+
 const Changelog_Changelog = ({
   theme = defaultTheme,
   ...props
@@ -309,12 +323,15 @@ const Changelog_Changelog = ({
     </MjmlBody>
   </Mjml>
 );
+
 Changelog_Changelog.PreviewProps = {
   layout: "line",
   theme: defaultTheme,
   variant: "muted-left",
 } satisfies Changelog_ChangelogProps;
+
 const __Changelog = Changelog_Changelog;
+
 type SplitTimeline_SplitCardsVariant =
   | "muted"
   | "muted-reverse"
@@ -326,6 +343,7 @@ type SplitTimeline_SplitCardsVariant =
   | "image-top-reverse"
   | "image-bottom"
   | "image-bottom-reverse";
+
 interface SplitTimeline_SplitCardsProps {
   theme?: EmailThemeTokens;
   variant?: SplitTimeline_SplitCardsVariant;
@@ -338,8 +356,10 @@ interface SplitTimeline_SplitCardsProps {
   imageSrc?: string;
   imageAlt?: string;
 }
+
 const SplitTimeline_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const SplitTimeline_SplitCardsSection = (
   props: Omit<SplitTimeline_SplitCardsProps, "theme">
 ) => {
@@ -485,6 +505,7 @@ const SplitTimeline_SplitCardsSection = (
     </MjmlSection>
   );
 };
+
 const SplitTimeline_SplitCards = ({
   theme = defaultTheme,
   ...props
@@ -501,11 +522,14 @@ const SplitTimeline_SplitCards = ({
     </MjmlBody>
   </Mjml>
 );
+
 SplitTimeline_SplitCards.PreviewProps = {
   theme: defaultTheme,
   variant: "muted",
 } satisfies SplitTimeline_SplitCardsProps;
+
 const __SplitTimeline = SplitTimeline_SplitCards;
+
 type StackedTimeline_StackedTimelineVariant =
   | "muted-left"
   | "muted-right"
@@ -515,7 +539,9 @@ type StackedTimeline_StackedTimelineVariant =
   | "completed-right"
   | "accent-left"
   | "accent-right";
+
 type StackedTimeline_StackedTimelineLayout = "line" | "boxed";
+
 interface StackedTimeline_StackedTimelineProps {
   theme?: EmailThemeTokens;
   variant?: StackedTimeline_StackedTimelineVariant;
@@ -525,8 +551,10 @@ interface StackedTimeline_StackedTimelineProps {
   title?: string;
   description?: string;
 }
+
 const StackedTimeline_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const StackedTimeline_resolveStackedTimelineStyles = ({
   accent,
   boxed,
@@ -565,6 +593,7 @@ const StackedTimeline_resolveStackedTimelineStyles = ({
     titleColor,
   } as const;
 };
+
 const StackedTimeline_StackedTimelineSection = (
   props: Omit<StackedTimeline_StackedTimelineProps, "theme">
 ) => {
@@ -655,6 +684,7 @@ const StackedTimeline_StackedTimelineSection = (
     </MjmlSection>
   );
 };
+
 const StackedTimeline_StackedTimeline = ({
   theme = defaultTheme,
   ...props
@@ -671,12 +701,15 @@ const StackedTimeline_StackedTimeline = ({
     </MjmlBody>
   </Mjml>
 );
+
 StackedTimeline_StackedTimeline.PreviewProps = {
   layout: "line",
   theme: defaultTheme,
   variant: "muted-left",
 } satisfies StackedTimeline_StackedTimelineProps;
+
 const __StackedTimeline = StackedTimeline_StackedTimeline;
+
 export interface TimelineItem {
   index?: string;
   label?: string;
@@ -692,6 +725,7 @@ export interface TimelineItem {
   };
   completed?: boolean;
 }
+
 export interface TimelineProps {
   theme?: Parameters<typeof __Changelog>[0]["theme"];
   items?: TimelineItem[];
@@ -700,11 +734,13 @@ export interface TimelineProps {
   appearance?: "muted" | "basic" | "accent";
   reverse?: boolean;
 }
+
 const timelineVariant = ({
   alignment,
   appearance,
 }: Required<Pick<TimelineProps, "alignment" | "appearance">>) =>
   `${appearance}-${alignment}` as const;
+
 const timelineItemValues = (item: TimelineItem | undefined) => {
   const {
     badge,
@@ -730,6 +766,7 @@ const timelineItemValues = (item: TimelineItem | undefined) => {
     version,
   };
 };
+
 export const Timeline = ({
   theme,
   items,
@@ -796,6 +833,7 @@ export const Timeline = ({
     />
   );
 };
+
 Timeline.PreviewProps = {
   alignment: "left",
   appearance: "basic",

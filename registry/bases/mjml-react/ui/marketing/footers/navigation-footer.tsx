@@ -20,15 +20,19 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 interface NativeFooterLink {
   href: string;
   label: string;
 }
+
 interface NativeFooterSocial extends NativeFooterLink {
   iconSrc: string;
 }
+
 const FooterEmailShell = ({
   children,
   pageBackgroundColor,
@@ -53,6 +57,7 @@ const FooterEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const FooterLogo = ({
   align = "left",
   alt,
@@ -77,6 +82,7 @@ const FooterLogo = ({
     width={width}
   />
 );
+
 const FooterCopy = ({
   align = "left",
   children,
@@ -106,6 +112,7 @@ const FooterCopy = ({
     {children}
   </MjmlText>
 );
+
 const FooterMenu = ({
   align = "left",
   links,
@@ -130,6 +137,7 @@ const FooterMenu = ({
     ))}
   </MjmlNavbar>
 );
+
 const FooterVerticalMenu = ({
   align = "left",
   heading,
@@ -170,6 +178,7 @@ const FooterVerticalMenu = ({
     ))}
   </>
 );
+
 const FooterSocials = ({
   align = "left",
   socials,
@@ -190,6 +199,7 @@ const FooterSocials = ({
     ))}
   </MjmlSocial>
 );
+
 const FooterLegal = ({
   align = "left",
   copyright,
@@ -221,13 +231,16 @@ const FooterLegal = ({
     </MjmlButton>
   </>
 );
+
 interface CenteredFooter_CenteredFooterLink {
   href: string;
   label: string;
 }
+
 interface CenteredFooter_CenteredFooterSocial extends CenteredFooter_CenteredFooterLink {
   iconSrc: string;
 }
+
 interface CenteredFooter_FooterCenteredWithMenuAndSocialsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -241,6 +254,7 @@ interface CenteredFooter_FooterCenteredWithMenuAndSocialsProps {
   textColor?: string;
   mutedTextColor?: string;
 }
+
 const CenteredFooter_defaults = {
   backgroundColor: "#fffffe",
   links: [
@@ -284,10 +298,12 @@ const CenteredFooter_defaults = {
   textColor: "#9ca3af",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type CenteredFooter_SectionProps = Omit<
   CenteredFooter_FooterCenteredWithMenuAndSocialsProps,
   "theme"
 >;
+
 const CenteredFooter_FooterCenteredWithMenuAndSocialsSection = (
   props: CenteredFooter_SectionProps
 ) => {
@@ -322,6 +338,7 @@ const CenteredFooter_FooterCenteredWithMenuAndSocialsSection = (
     </MjmlSection>
   );
 };
+
 const CenteredFooter_FooterCenteredWithMenuAndSocials = ({
   pageBackgroundColor = CenteredFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -331,13 +348,17 @@ const CenteredFooter_FooterCenteredWithMenuAndSocials = ({
     <CenteredFooter_FooterCenteredWithMenuAndSocialsSection {...props} />
   </FooterEmailShell>
 );
+
 CenteredFooter_FooterCenteredWithMenuAndSocials.PreviewProps = {
   theme: defaultTheme,
 } satisfies CenteredFooter_FooterCenteredWithMenuAndSocialsProps;
+
 const __CenteredFooter = CenteredFooter_FooterCenteredWithMenuAndSocials;
+
 type DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant =
   | "left-logo"
   | "right-logo";
+
 interface DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps {
   theme?: EmailThemeTokens;
   variant?: DividerMenuFooter_FooterWith2ColumnMenuAndDividerVariant;
@@ -352,19 +373,23 @@ interface DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps {
   legalColor?: string;
   unsubscribeHref?: string;
 }
+
 const DividerMenuFooter_quickLinks = [
   { href: "https://example.com/about", label: "About us" },
   { href: "https://example.com/shop", label: "Shop" },
   { href: "https://example.com/faq", label: "FAQs" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
+
 const DividerMenuFooter_legalLinks = [
   { href: "https://example.com/privacy", label: "Privacy Policy" },
   { href: "https://example.com/terms", label: "Terms of Service" },
   { href: "https://example.com/returns", label: "Returns" },
 ];
+
 const DividerMenuFooter_iconRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const DividerMenuFooter_socials = [
   {
     href: "https://facebook.com",
@@ -392,6 +417,7 @@ const DividerMenuFooter_socials = [
     label: "X",
   },
 ];
+
 const DividerMenuFooter_FooterWith2ColumnMenuAndDividerSection = ({
   variant = "left-logo",
   logoSrc = `${DividerMenuFooter_iconRoot}/maizzle-insignia.png`,
@@ -455,6 +481,7 @@ const DividerMenuFooter_FooterWith2ColumnMenuAndDividerSection = ({
     </>
   );
 };
+
 const DividerMenuFooter_FooterWith2ColumnMenuAndDivider = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -464,16 +491,21 @@ const DividerMenuFooter_FooterWith2ColumnMenuAndDivider = ({
     <DividerMenuFooter_FooterWith2ColumnMenuAndDividerSection {...props} />
   </FooterEmailShell>
 );
+
 DividerMenuFooter_FooterWith2ColumnMenuAndDivider.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies DividerMenuFooter_FooterWith2ColumnMenuAndDividerProps;
+
 const __DividerMenuFooter = DividerMenuFooter_FooterWith2ColumnMenuAndDivider;
+
 type TwoColumnFooter_FooterWith2ColumnMenuVariant = "left-logo" | "right-logo";
+
 interface TwoColumnFooter_FooterWith2ColumnMenuLink {
   href: string;
   label: string;
 }
+
 interface TwoColumnFooter_FooterWith2ColumnMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -490,6 +522,7 @@ interface TwoColumnFooter_FooterWith2ColumnMenuProps {
   mutedTextColor?: string;
   variant?: TwoColumnFooter_FooterWith2ColumnMenuVariant;
 }
+
 const TwoColumnFooter_defaults = {
   backgroundColor: "#fffffe",
   connectLinks: [
@@ -515,10 +548,12 @@ const TwoColumnFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type TwoColumnFooter_SectionProps = Omit<
   TwoColumnFooter_FooterWith2ColumnMenuProps,
   "theme"
 >;
+
 const TwoColumnFooter_FooterWith2ColumnMenuSection = (
   props: TwoColumnFooter_SectionProps
 ) => {
@@ -578,6 +613,7 @@ const TwoColumnFooter_FooterWith2ColumnMenuSection = (
     </>
   );
 };
+
 const TwoColumnFooter_FooterWith2ColumnMenu = ({
   pageBackgroundColor = TwoColumnFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -587,19 +623,25 @@ const TwoColumnFooter_FooterWith2ColumnMenu = ({
     <TwoColumnFooter_FooterWith2ColumnMenuSection {...props} />
   </FooterEmailShell>
 );
+
 TwoColumnFooter_FooterWith2ColumnMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies TwoColumnFooter_FooterWith2ColumnMenuProps;
+
 const __TwoColumnFooter = TwoColumnFooter_FooterWith2ColumnMenu;
+
 type ThreeColumnFooter_FooterWith3ColMenuVariant = "left-logo" | "right-logo";
+
 interface ThreeColumnFooter_FooterWith3ColMenuLink {
   href: string;
   label: string;
 }
+
 interface ThreeColumnFooter_FooterWith3ColMenuSocial extends ThreeColumnFooter_FooterWith3ColMenuLink {
   iconSrc: string;
 }
+
 interface ThreeColumnFooter_FooterWith3ColMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -617,8 +659,10 @@ interface ThreeColumnFooter_FooterWith3ColMenuProps {
   mutedTextColor?: string;
   variant?: ThreeColumnFooter_FooterWith3ColMenuVariant;
 }
+
 const ThreeColumnFooter_iconRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const ThreeColumnFooter_defaults = {
   backgroundColor: "#fffffe",
   connectLinks: [
@@ -675,10 +719,12 @@ const ThreeColumnFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type ThreeColumnFooter_SectionProps = Omit<
   ThreeColumnFooter_FooterWith3ColMenuProps,
   "theme"
 >;
+
 const ThreeColumnFooter_FooterWith3ColMenuSection = (
   props: ThreeColumnFooter_SectionProps
 ) => {
@@ -737,6 +783,7 @@ const ThreeColumnFooter_FooterWith3ColMenuSection = (
     </>
   );
 };
+
 const ThreeColumnFooter_FooterWith3ColMenu = ({
   pageBackgroundColor = ThreeColumnFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -746,19 +793,25 @@ const ThreeColumnFooter_FooterWith3ColMenu = ({
     <ThreeColumnFooter_FooterWith3ColMenuSection {...props} />
   </FooterEmailShell>
 );
+
 ThreeColumnFooter_FooterWith3ColMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies ThreeColumnFooter_FooterWith3ColMenuProps;
+
 const __ThreeColumnFooter = ThreeColumnFooter_FooterWith3ColMenu;
+
 type FullMenuFooter_FooterWithFullMenuVariant = "oversized-logo" | "bordered";
+
 interface FullMenuFooter_FullMenuFooterLink {
   href: string;
   label: string;
 }
+
 interface FullMenuFooter_FullMenuFooterSocial extends FullMenuFooter_FullMenuFooterLink {
   iconSrc: string;
 }
+
 interface FullMenuFooter_FooterWithFullMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -775,7 +828,9 @@ interface FullMenuFooter_FooterWithFullMenuProps {
   mutedTextColor?: string;
   variant?: FullMenuFooter_FooterWithFullMenuVariant;
 }
+
 const FullMenuFooter_iconRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const FullMenuFooter_defaults = {
   assistanceText:
     "If you have any questions or need assistance, please reply to this email.",
@@ -825,10 +880,12 @@ const FullMenuFooter_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type FullMenuFooter_SectionProps = Omit<
   FullMenuFooter_FooterWithFullMenuProps,
   "theme"
 >;
+
 const FullMenuFooter_FooterWithFullMenuSection = (
   props: FullMenuFooter_SectionProps
 ) => {
@@ -876,6 +933,7 @@ const FullMenuFooter_FooterWithFullMenuSection = (
     </MjmlSection>
   );
 };
+
 const FullMenuFooter_FooterWithFullMenu = ({
   pageBackgroundColor = FullMenuFooter_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -885,21 +943,27 @@ const FullMenuFooter_FooterWithFullMenu = ({
     <FullMenuFooter_FooterWithFullMenuSection {...props} />
   </FooterEmailShell>
 );
+
 FullMenuFooter_FooterWithFullMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "oversized-logo",
 } satisfies FullMenuFooter_FooterWithFullMenuProps;
+
 const __FullMenuFooter = FullMenuFooter_FooterWithFullMenu;
+
 type TextMenuFooterBundle_FooterWithTextMenuAndSocialsVariant =
   | "left-logo"
   | "right-logo";
+
 interface TextMenuFooterBundle_FooterLink {
   href: string;
   label: string;
 }
+
 interface TextMenuFooterBundle_FooterSocialLink extends TextMenuFooterBundle_FooterLink {
   iconSrc: string;
 }
+
 interface TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -918,8 +982,10 @@ interface TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps {
   mutedTextColor?: string;
   variant?: TextMenuFooterBundle_FooterWithTextMenuAndSocialsVariant;
 }
+
 const TextMenuFooterBundle_iconRoot =
   "https://emailcn.vercel.app/api/email-assets";
+
 const TextMenuFooterBundle_defaults = {
   backgroundColor: "#fffffe",
   copyright: "© 2026 emailcn. No longer want to receive emails?",
@@ -966,10 +1032,12 @@ const TextMenuFooterBundle_defaults = {
   textColor: "#6b7280",
   unsubscribeHref: "https://example.com/unsub",
 };
+
 type TextMenuFooterBundle_SectionProps = Omit<
   TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps,
   "theme"
 >;
+
 const TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection = (
   props: TextMenuFooterBundle_SectionProps
 ) => {
@@ -1029,6 +1097,7 @@ const TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection = (
     </>
   );
 };
+
 const TextMenuFooterBundle_FooterWithTextMenuAndSocials = ({
   pageBackgroundColor = TextMenuFooterBundle_defaults.pageBackgroundColor,
   theme = defaultTheme,
@@ -1038,17 +1107,22 @@ const TextMenuFooterBundle_FooterWithTextMenuAndSocials = ({
     <TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection {...props} />
   </FooterEmailShell>
 );
+
 TextMenuFooterBundle_FooterWithTextMenuAndSocials.PreviewProps = {
   theme: defaultTheme,
   variant: "left-logo",
 } satisfies TextMenuFooterBundle_FooterWithTextMenuAndSocialsProps;
+
 const __TextMenuFooterBundle = {
   Component: TextMenuFooterBundle_FooterWithTextMenuAndSocials,
   __NavigationFooterSection:
     TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection,
 };
+
 const __TextMenuFooter = __TextMenuFooterBundle.Component;
+
 const { __NavigationFooterSection } = __TextMenuFooterBundle;
+
 export interface FooterBrand {
   logo: {
     src: string;
@@ -1056,23 +1130,28 @@ export interface FooterBrand {
   };
   href?: string;
 }
+
 export interface FooterLink {
   label: string;
   href: string;
 }
+
 export interface FooterMenu {
   heading?: string;
   links: FooterLink[];
 }
+
 export interface FooterSocial extends FooterLink {
   iconSrc: string;
 }
+
 export interface FooterLegal {
   copyright?: string;
   text?: string;
   unsubscribeHref?: string;
   preferencesHref?: string;
 }
+
 export interface NavigationFooterProps {
   theme?: Parameters<typeof __TwoColumnFooter>[0]["theme"];
   brand?: FooterBrand;
@@ -1086,6 +1165,7 @@ export interface NavigationFooterProps {
   divider?: boolean;
   oversizedLogo?: boolean;
 }
+
 const footerBrandValues = (brand: FooterBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -1094,13 +1174,16 @@ const footerBrandValues = (brand: FooterBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 const footerLegalValues = (legal: FooterLegal | undefined) => ({
   copyright: legal?.copyright,
   preferencesHref: legal?.preferencesHref,
   text: legal?.text,
   unsubscribeHref: legal?.unsubscribeHref,
 });
+
 const footerMenuLinks = (menu: FooterMenu | undefined) => menu?.links;
+
 export const NavigationFooter = ({
   theme,
   brand,
@@ -1182,7 +1265,9 @@ export const NavigationFooter = ({
     />
   );
 };
+
 export const NavigationFooterSection = __NavigationFooterSection;
+
 NavigationFooter.PreviewProps = {
   alignment: "left",
   columns: 2,

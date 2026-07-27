@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type ButtonsVariant =
   | "primary"
   | "primary-leading-icon"
@@ -26,9 +27,12 @@ type ButtonsVariant =
   | "text"
   | "text-leading-icon"
   | "text-trailing-icon";
+
 type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const sizes: Record<
   ButtonSize,
   {
@@ -64,13 +68,18 @@ const sizes: Record<
   },
   xs: { fontSize: 12, lineHeight: 16, paddingX: 8, paddingY: 4 },
 };
+
 const sizeOrder: ButtonSize[] = ["xs", "sm", "md", "lg", "xl"];
+
 type ButtonAppearance = "primary" | "secondary" | "text";
+
 type IconPosition = "leading" | "trailing";
+
 const buttonsResponsiveStyles = `
   .emailcn-button-primary:hover { background-color: #4338ca !important; }
   .emailcn-button-secondary:hover { background-color: #f3f4f6 !important; }
 `;
+
 const getAppearanceStyles = (
   appearance: ButtonAppearance,
   withIcon: boolean
@@ -95,6 +104,7 @@ const getAppearanceStyles = (
     color: "#4f46e5",
   };
 };
+
 const Icon = ({
   customIcon,
   position,
@@ -102,6 +112,7 @@ const Icon = ({
   customIcon?: ReactNode;
   position: IconPosition;
 }) => customIcon ?? (position === "leading" ? "↓" : "→");
+
 const ButtonExample = ({
   align,
   appearance,
@@ -156,6 +167,7 @@ const ButtonExample = ({
     </MjmlButton>
   );
 };
+
 const ButtonsSection = ({
   align = "center",
   href = "https://example.com",
@@ -230,6 +242,7 @@ const ButtonsSection = ({
     </>
   );
 };
+
 interface Buttons_ButtonsProps {
   align?: "center" | "left" | "right";
   href?: string;
@@ -240,6 +253,7 @@ interface Buttons_ButtonsProps {
   theme?: EmailThemeTokens;
   variant?: ButtonsVariant;
 }
+
 const Buttons_Buttons = ({
   theme = defaultTheme,
   ...props
@@ -257,6 +271,7 @@ const Buttons_Buttons = ({
     </MjmlBody>
   </Mjml>
 );
+
 Buttons_Buttons.PreviewProps = {
   align: "center",
   href: "https://example.com",
@@ -264,7 +279,9 @@ Buttons_Buttons.PreviewProps = {
   theme: defaultTheme,
   variant: "primary",
 } satisfies Buttons_ButtonsProps;
+
 const __Buttons = Buttons_Buttons;
+
 export interface ButtonProps {
   theme?: Parameters<typeof __Buttons>[0]["theme"];
   label?: string;
@@ -275,6 +292,7 @@ export interface ButtonProps {
   iconPosition?: "leading" | "trailing";
   align?: "left" | "center" | "right";
 }
+
 export const Button = ({
   theme,
   label,
@@ -302,6 +320,7 @@ export const Button = ({
     }
   />
 );
+
 Button.PreviewProps = {
   iconPosition: "leading",
   variant: "primary",

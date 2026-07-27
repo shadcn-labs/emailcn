@@ -15,8 +15,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CTAEmailShell = ({
   children,
   pageBackgroundColor,
@@ -41,6 +43,7 @@ const CTAEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const CTACopy = ({
   align = "center",
   ctaHref,
@@ -128,10 +131,12 @@ const CTACopy = ({
     ) : null}
   </>
 );
+
 type Cta_CTAWithTeamAvatarsVariant =
   | "default"
   | "avatars-top"
   | "single-avatar";
+
 interface Cta_CTAWithTeamAvatarsProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -160,12 +165,14 @@ interface Cta_CTAWithTeamAvatarsProps {
   avatarBorderColor?: string;
   variant?: Cta_CTAWithTeamAvatarsVariant;
 }
+
 const Cta_avatarSources = [
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg",
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar-4.jpg",
   "https://emailcn.vercel.app/api/email-assets/reviews/avatar-5.jpg",
 ] as const;
+
 const Cta_variantContent = {
   "avatars-top": {
     ctaLabel: "Confirm your email",
@@ -189,6 +196,7 @@ const Cta_variantContent = {
       "Join Jenna Hendricks, our founder and visionary, for an open discussion about what’s next for our community and how you can be part of it.",
   },
 } as const;
+
 const Cta_CTAWithTeamAvatarsSection = (
   props: Omit<Cta_CTAWithTeamAvatarsProps, "theme">
 ) => {
@@ -311,6 +319,7 @@ const Cta_CTAWithTeamAvatarsSection = (
     </>
   );
 };
+
 const Cta_CTAWithTeamAvatars = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -324,11 +333,14 @@ const Cta_CTAWithTeamAvatars = ({
     <Cta_CTAWithTeamAvatarsSection {...props} />
   </CTAEmailShell>
 );
+
 Cta_CTAWithTeamAvatars.PreviewProps = {
   theme: defaultTheme,
   variant: "default",
 } satisfies Cta_CTAWithTeamAvatarsProps;
+
 const __Cta = Cta_CTAWithTeamAvatars;
+
 export interface AvatarCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -343,6 +355,7 @@ export interface AvatarCallToActionProps {
   }[];
   placement?: "top" | "inline";
 }
+
 const avatarCallToActionImage = (
   avatar:
     | {
@@ -354,6 +367,7 @@ const avatarCallToActionImage = (
   alt: avatar?.alt,
   src: avatar?.src,
 });
+
 const avatarCallToActionLink = (
   action:
     | {
@@ -365,6 +379,7 @@ const avatarCallToActionLink = (
   href: action?.href,
   label: action?.label,
 });
+
 export const AvatarCallToAction = ({
   theme,
   heading,
@@ -408,6 +423,7 @@ export const AvatarCallToAction = ({
     />
   );
 };
+
 AvatarCallToAction.PreviewProps = {
   placement: "inline",
 } satisfies AvatarCallToActionProps;

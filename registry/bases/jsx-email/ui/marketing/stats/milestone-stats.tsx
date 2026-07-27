@@ -14,7 +14,9 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 export type MilestoneStatsVariant = "default" | "boxed" | "accent";
+
 export interface MilestoneStatsProps {
   theme?: EmailThemeTokens;
   variant?: MilestoneStatsVariant;
@@ -34,12 +36,15 @@ export interface MilestoneStatsProps {
   progressTrackColor?: string;
   progressColor?: string;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = `
   @media only screen and (max-width: 599px) { .milestone-side-gap { width: 48px !important; } }
   @media only screen and (max-width: 430px) { .milestone-side-gap { display: none !important; } }
 `;
+
 const defaults = {
   backgroundColor: "#fffffe",
   cardBackgroundColor: "#f9fafb",
@@ -57,8 +62,11 @@ const defaults = {
   unit: "miles",
   value: "5,685",
 };
+
 type SectionProps = Omit<MilestoneStatsProps, "theme">;
+
 type ResolvedProps = typeof defaults & SectionProps;
+
 const MilestoneContent = ({
   props,
   variant,
@@ -200,6 +208,7 @@ const MilestoneContent = ({
     </>
   );
 };
+
 export const MilestoneStatsSection = (props: SectionProps) => {
   const variant = props.variant ?? "default";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -267,6 +276,7 @@ export const MilestoneStatsSection = (props: SectionProps) => {
     </Section>
   );
 };
+
 export const MilestoneStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -294,6 +304,7 @@ export const MilestoneStats = ({
     </Body>
   </Html>
 );
+
 MilestoneStats.PreviewProps = {
   theme: defaultTheme,
   variant: "default",

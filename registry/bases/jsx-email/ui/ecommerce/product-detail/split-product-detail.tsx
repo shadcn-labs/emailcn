@@ -17,6 +17,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type SplitProductDetailVariant =
   | "stacked-left"
   | "stacked-right"
@@ -26,8 +27,11 @@ type SplitProductDetailVariant =
   | "rating-right"
   | "bleed-left"
   | "bleed-right";
+
 type RatingIcon = "solid" | "half" | "outline";
+
 type SplitProductKind = "stacked" | "image" | "rating" | "bleed";
+
 interface ProductDetailData {
   name: string;
   price: string;
@@ -37,6 +41,7 @@ interface ProductDetailData {
   sizes: string[];
   ratingIcons: RatingIcon[];
 }
+
 interface ProductDetailContentOverrides {
   name?: string;
   price?: string;
@@ -47,10 +52,14 @@ interface ProductDetailContentOverrides {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
+
 const PRODUCT_ASSET_ROOT = `${ASSET_ROOT}/product-detail`;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const productDetailResponsiveStyles = `
   @media only screen and (max-width: 599px) {
     .product-split-stack { display: block !important; width: 100% !important; }
@@ -82,7 +91,9 @@ const productDetailResponsiveStyles = `
     .product-detail-option { display: inline-block !important; }
   }
 `;
+
 const textStyle = { fontFamily, margin: 0 } as const;
+
 const getSplitProductKind = (
   variant: SplitProductDetailVariant
 ): SplitProductKind => {
@@ -97,6 +108,7 @@ const getSplitProductKind = (
   }
   return "image";
 };
+
 const getSplitImageRadius = (
   kind: SplitProductKind,
   side: "left" | "right"
@@ -106,6 +118,7 @@ const getSplitImageRadius = (
   }
   return side === "left" ? "0 4px 4px 0" : "4px 0 0 4px";
 };
+
 const getBleedCopyStyle = (
   isBleed: boolean,
   side: "left" | "right"
@@ -115,12 +128,14 @@ const getBleedCopyStyle = (
   }
   return side === "left" ? { padding: "0 24px" } : { paddingRight: "24px" };
 };
+
 const getSplitShellPadding = (isBleed: boolean, side: "left" | "right") => {
   if (!isBleed) {
     return "0 24px";
   }
   return side === "left" ? "0 24px 0 0" : "0 0 0 24px";
 };
+
 const Spacer = ({
   className,
   height,
@@ -132,6 +147,7 @@ const Spacer = ({
     &zwj;
   </Section>
 );
+
 const EmailShell = ({
   children,
   padding = "0 24px",
@@ -170,6 +186,7 @@ const EmailShell = ({
     </Section>
   </>
 );
+
 const ProductHeader = ({ name, price }: { name: string; price: string }) => (
   <>
     <Heading
@@ -197,6 +214,7 @@ const ProductHeader = ({ name, price }: { name: string; price: string }) => (
     </Text>
   </>
 );
+
 const Description = ({ children }: { children: ReactNode }) => (
   <Text
     style={{
@@ -210,6 +228,7 @@ const Description = ({ children }: { children: ReactNode }) => (
     {children}
   </Text>
 );
+
 const Star = ({ icon }: { icon: RatingIcon }) => (
   <Column style={{ paddingRight: "4px" }}>
     <Img
@@ -220,6 +239,7 @@ const Star = ({ icon }: { icon: RatingIcon }) => (
     />
   </Column>
 );
+
 const Stars = ({ icons }: { icons: RatingIcon[] }) => (
   <Section>
     <Fragment>
@@ -231,6 +251,7 @@ const Stars = ({ icons }: { icons: RatingIcon[] }) => (
     </Fragment>
   </Section>
 );
+
 const Rating = ({
   icons,
   reviewLabel = "(18 reviews)",
@@ -261,6 +282,7 @@ const Rating = ({
     </Fragment>
   </Section>
 );
+
 const CallToAction = ({ href, label }: { href: string; label: string }) => (
   <Section>
     <Link
@@ -290,6 +312,7 @@ const CallToAction = ({ href, label }: { href: string; label: string }) => (
     </Link>
   </Section>
 );
+
 const ProductImage = ({
   borderRadius = "4px",
   className,
@@ -321,6 +344,7 @@ const ProductImage = ({
   );
   return href ? <Link href={href}>{image}</Link> : image;
 };
+
 const splitData = (variant: SplitProductDetailVariant): ProductDetailData => {
   if (variant.startsWith("stacked")) {
     return {
@@ -365,6 +389,7 @@ const splitData = (variant: SplitProductDetailVariant): ProductDetailData => {
     sizes: [],
   };
 };
+
 const mergeData = (
   data: ProductDetailData,
   overrides: ProductDetailContentOverrides
@@ -377,6 +402,7 @@ const mergeData = (
   price: overrides.price ?? data.price,
   sizes: overrides.sizes ?? data.sizes,
 });
+
 const SplitCopy = ({
   ctaHref,
   ctaLabel,
@@ -402,6 +428,7 @@ const SplitCopy = ({
     <CallToAction href={ctaHref} label={ctaLabel} />
   </>
 );
+
 const StackedImages = ({ imageUrls }: { imageUrls: string[] }) => (
   <>
     <Section className="product-stacked-image">
@@ -425,6 +452,7 @@ const StackedImages = ({ imageUrls }: { imageUrls: string[] }) => (
     </Section>
   </>
 );
+
 const SplitImageColumn = ({
   data,
   kind,
@@ -468,6 +496,7 @@ const SplitImageColumn = ({
     </>
   );
 };
+
 const SplitProductDetailSection = ({
   ctaHref = "https://example.com",
   ctaLabel = "Shop now",
@@ -534,7 +563,9 @@ const SplitProductDetailSection = ({
     </EmailShell>
   );
 };
+
 const ProductDetail_SharedSplitProductDetailSection = SplitProductDetailSection;
+
 interface ProductDetail_SplitProductDetailProps extends Omit<
   ProductDetailContentOverrides,
   "imageUrls"
@@ -545,6 +576,7 @@ interface ProductDetail_SplitProductDetailProps extends Omit<
   features?: string[];
   variant?: SplitProductDetailVariant;
 }
+
 const ProductDetail_SplitProductDetailSectionWrapper = ({
   features: _features,
   imageUrl,
@@ -558,6 +590,7 @@ const ProductDetail_SplitProductDetailSectionWrapper = ({
     variant={variant}
   />
 );
+
 const ProductDetail_SplitProductDetail = ({
   theme: _theme = defaultTheme,
   ...props
@@ -572,11 +605,14 @@ const ProductDetail_SplitProductDetail = ({
     </Body>
   </Html>
 );
+
 ProductDetail_SplitProductDetail.PreviewProps = {
   theme: defaultTheme,
   variant: "stacked-left",
 } satisfies ProductDetail_SplitProductDetailProps;
+
 const __ProductDetail = ProductDetail_SplitProductDetail;
+
 export interface ProductDetails {
   name?: string;
   price?: string;
@@ -587,6 +623,7 @@ export interface ProductDetails {
   ctaLabel?: string;
   ctaHref?: string;
 }
+
 export interface SplitProductDetailProps {
   theme?: Parameters<typeof __ProductDetail>[0]["theme"];
   product?: ProductDetails;
@@ -597,6 +634,7 @@ export interface SplitProductDetailProps {
   treatment?: "stacked" | "side" | "rating" | "bleed";
   placement?: "left" | "right";
 }
+
 const splitVariant = (
   treatment: SplitProductDetailProps["treatment"] = "stacked",
   placement: SplitProductDetailProps["placement"] = "left"
@@ -612,6 +650,7 @@ const splitVariant = (
   }
   return `stacked-${placement}` as const;
 };
+
 export const SplitProductDetail = ({
   theme,
   product,
@@ -634,6 +673,7 @@ export const SplitProductDetail = ({
     theme={theme}
   />
 );
+
 SplitProductDetail.PreviewProps = {
   placement: "left",
   treatment: "stacked",

@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 export const HeaderEmailShell = ({
   children,
   pageBackgroundColor,
@@ -40,6 +41,7 @@ export const HeaderEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 export const HeaderLogo = ({
   align = "left",
   alt,
@@ -60,12 +62,15 @@ export const HeaderLogo = ({
     width="55px"
   />
 );
+
 export type HeaderWithLogoAndSocialIconsAlignment = "left" | "center" | "right";
+
 export interface HeaderSocialLink {
   alt: string;
   href: string;
   src: string;
 }
+
 export interface HeaderWithLogoAndSocialIconsProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -76,6 +81,7 @@ export interface HeaderWithLogoAndSocialIconsProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
+
 const defaultSocials: HeaderSocialLink[] = [
   {
     alt: "GitHub",
@@ -93,6 +99,7 @@ const defaultSocials: HeaderSocialLink[] = [
     src: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
   },
 ];
+
 export const HeaderWithLogoAndSocialIconsSection = ({
   alignment = "left",
   backgroundColor = "#fffffe",
@@ -139,6 +146,7 @@ export const HeaderWithLogoAndSocialIconsSection = ({
     </MjmlSection>
   );
 };
+
 export const HeaderWithLogoAndSocialIcons = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -152,6 +160,7 @@ export const HeaderWithLogoAndSocialIcons = ({
     <HeaderWithLogoAndSocialIconsSection {...props} />
   </HeaderEmailShell>
 );
+
 HeaderWithLogoAndSocialIcons.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

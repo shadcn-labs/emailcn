@@ -17,6 +17,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type BillingTopVariant =
   | "basic"
   | "bordered"
@@ -26,20 +27,25 @@ type BillingTopVariant =
   | "bordered-with-notes"
   | "basic-full-details"
   | "bordered-full-details";
+
 type BillingInlineVariant =
   | "basic"
   | "bordered"
   | "basic-with-notes"
   | "bordered-with-notes";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const responsiveStyles = `
   @media only screen and (max-width: 430px) {
     .order-detail-column { display: block !important; width: 100% !important; }
     .order-detail-gap { line-height: 44px !important; }
   }
 `;
+
 const textStyle = { fontFamily, margin: 0 } as const;
+
 const EmailShell = ({ children }: { children: ReactNode }) => (
   <>
     <style>{responsiveStyles}</style>
@@ -72,6 +78,7 @@ const EmailShell = ({ children }: { children: ReactNode }) => (
     </Section>
   </>
 );
+
 const Divider = ({ margin = 24 }: { margin?: number }) => (
   <Section style={{ width: "100%" }}>
     <Fragment>
@@ -92,6 +99,7 @@ const Divider = ({ margin = 24 }: { margin?: number }) => (
     </Fragment>
   </Section>
 );
+
 const CardMethod = () => (
   <Section>
     <Fragment>
@@ -137,6 +145,7 @@ const CardMethod = () => (
     </Fragment>
   </Section>
 );
+
 const PaymentMethod = ({
   amount,
   centered = false,
@@ -189,6 +198,7 @@ const PaymentMethod = ({
     </Section>
   );
 };
+
 const DetailText = ({ children }: { children: ReactNode }) => (
   <Text
     style={{
@@ -201,6 +211,7 @@ const DetailText = ({ children }: { children: ReactNode }) => (
     {children}
   </Text>
 );
+
 const DetailBlock = ({
   children,
   gap = 0,
@@ -229,6 +240,7 @@ const DetailBlock = ({
     {children}
   </>
 );
+
 const TwoColumnDetails = ({
   left,
   right,
@@ -261,6 +273,7 @@ const TwoColumnDetails = ({
     </Fragment>
   </Section>
 );
+
 const AddressColumns = () => (
   <TwoColumnDetails
     left={
@@ -283,6 +296,7 @@ const AddressColumns = () => (
     }
   />
 );
+
 const FedExShipping = () => (
   <>
     <Section>
@@ -295,12 +309,14 @@ const FedExShipping = () => (
     <DetailText>Takes up to 2 working days</DetailText>
   </>
 );
+
 const DhlShipping = () => (
   <DetailText>
     DHL
     <br /> Takes up to 2 working days
   </DetailText>
 );
+
 const NotesText = ({ splitLine = false }: { splitLine?: boolean }) => (
   <DetailText>
     Ring buzzer for Apt 3B, or call when outside.
@@ -308,12 +324,14 @@ const NotesText = ({ splitLine = false }: { splitLine?: boolean }) => (
     Elevator is on the left.
   </DetailText>
 );
+
 const SectionGap = ({ bordered }: { bordered: boolean }) =>
   bordered ? (
     <Divider />
   ) : (
     <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
   );
+
 const ShippingDetails = ({
   bordered,
   layout,
@@ -353,6 +371,7 @@ const ShippingDetails = ({
     </DetailBlock>
   );
 };
+
 const BillingDetailsSection = ({
   layout,
   variant,
@@ -404,15 +423,18 @@ const BillingDetailsSection = ({
     </EmailShell>
   );
 };
+
 interface BillingInline_OrderSummaryBillingInlineProps {
   theme?: EmailThemeTokens;
   variant?: BillingInlineVariant;
 }
+
 const BillingInline_OrderSummaryBillingInlineSection = ({
   variant = "basic",
 }: Omit<BillingInline_OrderSummaryBillingInlineProps, "theme">) => (
   <BillingDetailsSection layout="inline" variant={variant} />
 );
+
 const BillingInline_OrderSummaryBillingInline = ({
   theme: _theme = defaultTheme,
   ...props
@@ -427,20 +449,25 @@ const BillingInline_OrderSummaryBillingInline = ({
     </Body>
   </Html>
 );
+
 BillingInline_OrderSummaryBillingInline.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies BillingInline_OrderSummaryBillingInlineProps;
+
 const __BillingInline = BillingInline_OrderSummaryBillingInline;
+
 interface BillingTop_OrderSummaryBillingTopProps {
   theme?: EmailThemeTokens;
   variant?: BillingTopVariant;
 }
+
 const BillingTop_OrderSummaryBillingTopSection = ({
   variant = "basic-with-payment",
 }: Omit<BillingTop_OrderSummaryBillingTopProps, "theme">) => (
   <BillingDetailsSection layout="top" variant={variant} />
 );
+
 const BillingTop_OrderSummaryBillingTop = ({
   theme: _theme = defaultTheme,
   ...props
@@ -455,11 +482,14 @@ const BillingTop_OrderSummaryBillingTop = ({
     </Body>
   </Html>
 );
+
 BillingTop_OrderSummaryBillingTop.PreviewProps = {
   theme: defaultTheme,
   variant: "basic-with-payment",
 } satisfies BillingTop_OrderSummaryBillingTopProps;
+
 const __BillingTop = BillingTop_OrderSummaryBillingTop;
+
 export interface BillingOrderSummaryProps {
   theme?: Parameters<typeof __BillingTop>[0]["theme"];
   payment?: boolean;
@@ -467,6 +497,7 @@ export interface BillingOrderSummaryProps {
   billingPosition?: "top" | "inline";
   appearance?: "plain" | "bordered";
 }
+
 const billingVariant = ({
   appearance,
   billingPosition,
@@ -488,6 +519,7 @@ const billingVariant = ({
   }
   return payment ? `${prefix}-with-payment` : prefix;
 };
+
 export const BillingOrderSummary = ({
   theme,
   payment,
@@ -513,6 +545,7 @@ export const BillingOrderSummary = ({
     />
   );
 };
+
 BillingOrderSummary.PreviewProps = {
   appearance: "plain",
   billingPosition: "top",

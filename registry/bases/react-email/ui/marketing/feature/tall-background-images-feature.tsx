@@ -18,11 +18,13 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-top-right"
   | "logo-top-left"
   | "logo-bottom-left"
   | "logo-bottom-right";
+
 interface TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -43,8 +45,10 @@ interface TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps {
   linkColor?: string;
   variant?: TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant;
 }
+
 const TallFeatureSplit_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TallFeatureSplit_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .feature-double-stack {
@@ -68,6 +72,7 @@ const TallFeatureSplit_responsiveStyles = `
       }
     }
   `;
+
 const TallFeatureSplit_defaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
@@ -90,12 +95,15 @@ const TallFeatureSplit_defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type TallFeatureSplit_SectionProps = Omit<
   TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps,
   "theme"
 >;
+
 type TallFeatureSplit_ResolvedProps = typeof TallFeatureSplit_defaults &
   TallFeatureSplit_SectionProps;
+
 const TallFeatureSplit_LogoPanel = ({
   props,
 }: {
@@ -121,6 +129,7 @@ const TallFeatureSplit_LogoPanel = ({
     />
   </Section>
 );
+
 const TallFeatureSplit_FeatureCopy = ({
   props,
 }: {
@@ -185,6 +194,7 @@ const TallFeatureSplit_FeatureCopy = ({
     </Section>
   </>
 );
+
 const TallFeatureSplit_ContentColumn = ({
   logoAfter,
   props,
@@ -209,6 +219,7 @@ const TallFeatureSplit_ContentColumn = ({
     ) : null}
   </Column>
 );
+
 const TallFeatureSplit_BackgroundCard = ({
   imageSrc,
   props,
@@ -232,6 +243,7 @@ const TallFeatureSplit_BackgroundCard = ({
     <Section style={{ lineHeight: "410px" }}>&zwj;</Section>
   </Column>
 );
+
 const TallFeatureSplit_ImagesColumn = ({
   props,
 }: {
@@ -263,6 +275,7 @@ const TallFeatureSplit_ImagesColumn = ({
     </Section>
   </Column>
 );
+
 const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = (
   props: TallFeatureSplit_SectionProps
 ) => {
@@ -329,6 +342,7 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = (
     </Section>
   );
 };
+
 const TallFeatureSplit_FeatureWithDoubleTallBackgroundImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -364,17 +378,21 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImages = ({
     </Tailwind>
   </Html>
 );
+
 TallFeatureSplit_FeatureWithDoubleTallBackgroundImages.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-top-left",
 } satisfies TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesProps;
+
 const __TallFeatureSplit =
   TallFeatureSplit_FeatureWithDoubleTallBackgroundImages;
+
 type TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesVariant =
   | "logo-bottom-left"
   | "logo-bottom-right"
   | "logo-top-left"
   | "logo-top-right";
+
 interface TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps {
   theme?: TailwindConfig;
   heading?: string;
@@ -395,8 +413,10 @@ interface TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps {
   linkColor?: string;
   variant?: TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesVariant;
 }
+
 const TallFeatureFull_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TallFeatureFull_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .feature-full-stack { display: block !important; width: 100% !important; }
@@ -408,6 +428,7 @@ const TallFeatureFull_responsiveStyles = `
       .feature-full-image-gap { line-height: 24px !important; }
     }
   `;
+
 const TallFeatureFull_defaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
@@ -430,12 +451,15 @@ const TallFeatureFull_defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
+
 type TallFeatureFull_SectionProps = Omit<
   TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps,
   "theme"
 >;
+
 type TallFeatureFull_ResolvedProps = typeof TallFeatureFull_defaults &
   TallFeatureFull_SectionProps;
+
 const TallFeatureFull_LogoPanel = ({
   props,
 }: {
@@ -457,6 +481,7 @@ const TallFeatureFull_LogoPanel = ({
     />
   </Section>
 );
+
 const TallFeatureFull_FeatureCopy = ({
   props,
 }: {
@@ -508,6 +533,7 @@ const TallFeatureFull_FeatureCopy = ({
     </Section>
   </>
 );
+
 const TallFeatureFull_ContentColumn = ({
   logoAfter,
   props,
@@ -532,6 +558,7 @@ const TallFeatureFull_ContentColumn = ({
     ) : null}
   </Column>
 );
+
 const TallFeatureFull_BackgroundCard = ({
   imageSrc,
   props,
@@ -555,6 +582,7 @@ const TallFeatureFull_BackgroundCard = ({
     <Section style={{ lineHeight: "280px" }}>&zwj;</Section>
   </Column>
 );
+
 const TallFeatureFull_ImagesColumn = ({
   props,
 }: {
@@ -586,6 +614,7 @@ const TallFeatureFull_ImagesColumn = ({
     </Section>
   </Column>
 );
+
 const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = (
   props: TallFeatureFull_SectionProps
 ) => {
@@ -659,6 +688,7 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = (
     </Section>
   );
 };
+
 const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -694,12 +724,15 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages = ({
     </Tailwind>
   </Html>
 );
+
 TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages.PreviewProps = {
   theme: defaultTheme,
   variant: "logo-bottom-left",
 } satisfies TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesProps;
+
 const __TallFeatureFull =
   TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImages;
+
 export interface TallBackgroundImagesFeatureProps {
   theme?: Parameters<typeof __TallFeatureSplit>[0]["theme"];
   heading?: string;
@@ -726,6 +759,7 @@ export interface TallBackgroundImagesFeatureProps {
   logoPosition?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   titleWidth?: "split" | "full";
 }
+
 export const TallBackgroundImagesFeature = ({
   theme,
   heading,
@@ -754,6 +788,7 @@ export const TallBackgroundImagesFeature = ({
     />
   );
 };
+
 TallBackgroundImagesFeature.PreviewProps = {
   logoPosition: "top-left",
   titleWidth: "split",

@@ -15,8 +15,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const FeatureEmailShell = ({
   children,
   pageBackgroundColor,
@@ -41,6 +43,7 @@ const FeatureEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const FeatureCopy = ({
   align = "left",
   body,
@@ -100,7 +103,9 @@ const FeatureCopy = ({
     </MjmlButton>
   </>
 );
+
 type Feature_FeatureWithProductImageVariant = "image-left" | "image-right";
+
 interface Feature_FeatureWithProductImageProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -117,6 +122,7 @@ interface Feature_FeatureWithProductImageProps {
   linkColor?: string;
   variant?: Feature_FeatureWithProductImageVariant;
 }
+
 const Feature_FeatureWithProductImageSection = ({
   backgroundColor = "#fffffe",
   body = "Discover tools that make accepting payments faster, easier, and more reliable, wherever you serve customers.",
@@ -161,6 +167,7 @@ const Feature_FeatureWithProductImageSection = ({
     </MjmlSection>
   );
 };
+
 const Feature_FeatureWithProductImage = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -174,11 +181,14 @@ const Feature_FeatureWithProductImage = ({
     <Feature_FeatureWithProductImageSection {...props} />
   </FeatureEmailShell>
 );
+
 Feature_FeatureWithProductImage.PreviewProps = {
   theme: defaultTheme,
   variant: "image-left",
 } satisfies Feature_FeatureWithProductImageProps;
+
 const __Feature = Feature_FeatureWithProductImage;
+
 export interface ImageFeatureProps {
   theme?: Parameters<typeof __Feature>[0]["theme"];
   heading?: string;
@@ -194,6 +204,7 @@ export interface ImageFeatureProps {
   };
   placement?: "left" | "right";
 }
+
 export const ImageFeature = ({
   theme,
   heading,
@@ -214,6 +225,7 @@ export const ImageFeature = ({
     variant={`image-${placement}`}
   />
 );
+
 ImageFeature.PreviewProps = {
   placement: "right",
 } satisfies ImageFeatureProps;

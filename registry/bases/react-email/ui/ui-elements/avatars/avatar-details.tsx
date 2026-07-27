@@ -15,10 +15,14 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+
 type AvatarAlignment = "center" | "left" | "right";
+
 const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const AvatarShell = ({ children }: { children: ReactNode }) => (
   <Section style={{ backgroundColor: "#f1f5f9" }}>
     <Section style={{ height: "100px" }} />
@@ -40,6 +44,7 @@ const AvatarShell = ({ children }: { children: ReactNode }) => (
     <Section style={{ height: "100px" }} />
   </Section>
 );
+
 const AvatarWithDetailsSection = ({
   align = "center",
   avatarUrl = `${ASSET_ROOT}/avatar-2.jpg`,
@@ -122,6 +127,7 @@ const AvatarWithDetailsSection = ({
     </AvatarShell>
   );
 };
+
 interface Avatar_AvatarWithDetailsProps {
   align?: AvatarAlignment;
   avatarUrl?: string;
@@ -129,6 +135,7 @@ interface Avatar_AvatarWithDetailsProps {
   name?: string;
   theme?: TailwindConfig;
 }
+
 const Avatar_AvatarWithDetails = ({
   theme: _theme = defaultTheme,
   ...props
@@ -143,6 +150,7 @@ const Avatar_AvatarWithDetails = ({
     </Body>
   </Html>
 );
+
 Avatar_AvatarWithDetails.PreviewProps = {
   align: "center",
   avatarUrl: "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
@@ -150,7 +158,9 @@ Avatar_AvatarWithDetails.PreviewProps = {
   name: "John Adams",
   theme: defaultTheme,
 } satisfies Avatar_AvatarWithDetailsProps;
+
 const __Avatar = Avatar_AvatarWithDetails;
+
 export interface AvatarDetailsProps {
   theme?: Parameters<typeof __Avatar>[0]["theme"];
   avatar?: {
@@ -161,6 +171,7 @@ export interface AvatarDetailsProps {
   email?: string;
   align?: "left" | "center" | "right";
 }
+
 export const AvatarDetails = ({
   theme,
   avatar,
@@ -176,4 +187,5 @@ export const AvatarDetails = ({
     theme={theme}
   />
 );
+
 AvatarDetails.PreviewProps = {} satisfies AvatarDetailsProps;

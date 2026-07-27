@@ -14,8 +14,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 interface NativeImageCardData {
   alt: string;
   heading: string;
@@ -23,6 +25,7 @@ interface NativeImageCardData {
   src: string;
   subtext: string;
 }
+
 const ImageGridEmailShell = ({
   backgroundColor,
   children,
@@ -44,6 +47,7 @@ const ImageGridEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const NativeImageCard = ({
   data,
   headingColor,
@@ -93,6 +97,7 @@ const NativeImageCard = ({
     ) : null}
   </>
 );
+
 const NativeImageRow = ({
   backgroundColor,
   cards,
@@ -137,6 +142,7 @@ const NativeImageRow = ({
     </MjmlSection>
   );
 };
+
 const NativeFeatureImage = ({
   backgroundColor,
   data,
@@ -164,11 +170,13 @@ const NativeFeatureImage = ({
     </MjmlColumn>
   </MjmlSection>
 );
+
 type TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-top"
   | "full-width-bottom"
   | "full-width-top-overlay"
   | "full-width-bottom-overlay";
+
 interface TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureProps {
   theme?: EmailThemeTokens;
   featureImageSrc?: string;
@@ -192,6 +200,7 @@ interface TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureProps {
   textColor?: string;
   variant?: TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant;
 }
+
 const TwoColumnFeatureGrid_defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Arlo Bar Chair",
@@ -215,6 +224,7 @@ const TwoColumnFeatureGrid_defaults = {
   imageSubtext2: "Curved Wood / Fabric Seat",
   textColor: "#fffffe",
 };
+
 const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureSection = (
   props: Omit<
     TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureProps,
@@ -273,6 +283,7 @@ const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureSection = (
     </>
   );
 };
+
 const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeature = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -288,17 +299,21 @@ const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeature = ({
     />
   </ImageGridEmailShell>
 );
+
 TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeature.PreviewProps = {
   theme: defaultTheme,
   variant: "full-width-top",
 } satisfies TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureProps;
+
 const __TwoColumnFeatureGrid =
   TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeature;
+
 type ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-top"
   | "full-width-bottom"
   | "full-width-top-overlay"
   | "full-width-bottom-overlay";
+
 interface ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureProps {
   theme?: EmailThemeTokens;
   featureImageSrc?: string;
@@ -327,6 +342,7 @@ interface ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureProps 
   textColor?: string;
   variant?: ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureVariant;
 }
+
 const ThreeColumnFeatureGrid_defaults = {
   backgroundColor: "#fffffe",
   featureHeading: "Island Escape",
@@ -356,6 +372,7 @@ const ThreeColumnFeatureGrid_defaults = {
   subtext3: "Beach freedom",
   textColor: "#fffffe",
 };
+
 const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureSection =
   (
     props: Omit<
@@ -422,6 +439,7 @@ const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureSection =
       </>
     );
   };
+
 const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeature = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -437,13 +455,16 @@ const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeature = ({
     />
   </ImageGridEmailShell>
 );
+
 ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeature.PreviewProps =
   {
     theme: defaultTheme,
     variant: "full-width-top",
   } satisfies ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureProps;
+
 const __ThreeColumnFeatureGrid =
   ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeature;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -451,6 +472,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface FeaturedImageGridProps {
   theme?: Parameters<typeof __TwoColumnFeatureGrid>[0]["theme"];
   images?: GalleryImage[];
@@ -459,6 +481,7 @@ export interface FeaturedImageGridProps {
   featurePosition?: "top" | "bottom";
   overlay?: boolean;
 }
+
 const featuredImageGridItem = (image: GalleryImage | undefined) => ({
   alt: image?.alt,
   heading: image?.heading,
@@ -466,6 +489,7 @@ const featuredImageGridItem = (image: GalleryImage | undefined) => ({
   src: image?.src,
   subtext: image?.subtext,
 });
+
 export const FeaturedImageGrid = ({
   theme,
   images,
@@ -508,6 +532,7 @@ export const FeaturedImageGrid = ({
     />
   );
 };
+
 FeaturedImageGrid.PreviewProps = {
   columns: 2,
   featurePosition: "top",

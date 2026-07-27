@@ -14,6 +14,7 @@ import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type PillStatusVariant =
   | "brand"
   | "danger"
@@ -22,12 +23,15 @@ type PillStatusVariant =
   | "info"
   | "success"
   | "warning";
+
 interface InternalPillItem {
   label: string;
   variant: PillStatusVariant;
 }
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const pillStyles: Record<
   PillStatusVariant,
   {
@@ -72,6 +76,7 @@ const pillStyles: Record<
     color: "#f59e0b",
   },
 };
+
 const defaultPills: InternalPillItem[] = [
   { label: "Label", variant: "default" },
   { label: "Success", variant: "success" },
@@ -80,6 +85,7 @@ const defaultPills: InternalPillItem[] = [
   { label: "Info", variant: "info" },
   { label: "Brand", variant: "brand" },
 ];
+
 const Pill = ({ label, variant }: InternalPillItem) => {
   const colors = pillStyles[variant];
   return (
@@ -100,6 +106,7 @@ const Pill = ({ label, variant }: InternalPillItem) => {
     </MjmlButton>
   );
 };
+
 const BasicPillsStatusColorsSection = ({
   mjmlCompensation: _mjmlCompensation = false,
   pills = defaultPills,
@@ -132,10 +139,12 @@ const BasicPillsStatusColorsSection = ({
     </MjmlSection>
   </>
 );
+
 interface Pills_BasicPillsStatusColorsProps {
   pills?: InternalPillItem[];
   theme?: EmailThemeTokens;
 }
+
 const Pills_BasicPillsStatusColors = ({
   pills = defaultPills,
   theme = defaultTheme,
@@ -152,11 +161,14 @@ const Pills_BasicPillsStatusColors = ({
     </MjmlBody>
   </Mjml>
 );
+
 Pills_BasicPillsStatusColors.PreviewProps = {
   pills: defaultPills,
   theme: defaultTheme,
 } satisfies Pills_BasicPillsStatusColorsProps;
+
 const __Pills = Pills_BasicPillsStatusColors;
+
 export interface PillItem {
   label: string;
   status?:
@@ -168,10 +180,12 @@ export interface PillItem {
     | "success"
     | "warning";
 }
+
 export interface PillsProps {
   theme?: Parameters<typeof __Pills>[0]["theme"];
   pills?: PillItem[];
 }
+
 export const Pills = ({ theme, pills }: PillsProps) => (
   <__Pills
     pills={pills?.map(({ label, status = "default" }) => ({
@@ -181,4 +195,5 @@ export const Pills = ({ theme, pills }: PillsProps) => (
     theme={theme}
   />
 );
+
 Pills.PreviewProps = {} satisfies PillsProps;

@@ -14,6 +14,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 interface PurchasePricing_ProductPricingPlan {
   ctaHref: string;
   ctaLabel: string;
@@ -21,6 +22,7 @@ interface PurchasePricing_ProductPricingPlan {
   name: string;
   purchasePrice: string;
 }
+
 interface PurchasePricing_TwoColumnsPricingTableWithGapsProps {
   theme?: EmailThemeTokens;
   plans?: PurchasePricing_ProductPricingPlan[];
@@ -29,14 +31,17 @@ interface PurchasePricing_TwoColumnsPricingTableWithGapsProps {
   cardBackgroundColor?: string;
   buttonBackgroundColor?: string;
 }
+
 const PurchasePricing_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const PurchasePricing_responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .product-pricing-column { display: block !important; padding-left: 0 !important; width: 100% !important; }",
   "  .product-pricing-column + .product-pricing-column { padding-top: 44px !important; }",
   "}",
 ].join("\n");
+
 const PurchasePricing_defaultPlans: PurchasePricing_ProductPricingPlan[] = [
   {
     ctaHref: "https://example.com",
@@ -53,6 +58,7 @@ const PurchasePricing_defaultPlans: PurchasePricing_ProductPricingPlan[] = [
     purchasePrice: "$52,400",
   },
 ];
+
 const PurchasePricing_PriceBlock = ({
   label,
   price,
@@ -118,6 +124,7 @@ const PurchasePricing_PriceBlock = ({
     <Section style={{ lineHeight: "16px" }}>&zwj;</Section>
   </Section>
 );
+
 const PurchasePricing_ProductCard = ({
   plan,
   cardBackgroundColor,
@@ -187,6 +194,7 @@ const PurchasePricing_ProductCard = ({
     </Link>
   </>
 );
+
 const PurchasePricing_TwoColumnsPricingTableWithGapsSection = ({
   plans = PurchasePricing_defaultPlans,
   pageBackgroundColor = "#f1f5f9",
@@ -244,6 +252,7 @@ const PurchasePricing_TwoColumnsPricingTableWithGapsSection = ({
     </Fragment>
   </Section>
 );
+
 const PurchasePricing_TwoColumnsPricingTableWithGaps = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -271,10 +280,13 @@ const PurchasePricing_TwoColumnsPricingTableWithGaps = ({
     </Body>
   </Html>
 );
+
 PurchasePricing_TwoColumnsPricingTableWithGaps.PreviewProps = {
   theme: defaultTheme,
 } satisfies PurchasePricing_TwoColumnsPricingTableWithGapsProps;
+
 const __PurchasePricing = PurchasePricing_TwoColumnsPricingTableWithGaps;
+
 export interface PurchasePlan {
   name: string;
   leasePrice?: string;
@@ -284,10 +296,12 @@ export interface PurchasePlan {
     label: string;
   };
 }
+
 export interface PurchasePricingProps {
   theme?: Parameters<typeof __PurchasePricing>[0]["theme"];
   plans?: PurchasePlan[];
 }
+
 export const PurchasePricing = ({ theme, plans }: PurchasePricingProps) => (
   <__PurchasePricing
     plans={plans?.map((plan) => ({
@@ -300,4 +314,5 @@ export const PurchasePricing = ({ theme, plans }: PurchasePricingProps) => (
     theme={theme}
   />
 );
+
 PurchasePricing.PreviewProps = {} satisfies PurchasePricingProps;

@@ -14,11 +14,13 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "square-images"
   | "portrait-images"
   | "square-overlay"
   | "portrait-overlay";
+
 interface TwoColumnGrid_TwoColumnsImageGridProps {
   theme?: EmailThemeTokens;
   imageSrc1?: string;
@@ -37,8 +39,10 @@ interface TwoColumnGrid_TwoColumnsImageGridProps {
   textColor?: string;
   variant?: TwoColumnGrid_TwoColumnsImageGridVariant;
 }
+
 const TwoColumnGrid_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const TwoColumnGrid_variantContent = {
   "portrait-images": {
     imageSrc1:
@@ -76,6 +80,7 @@ const TwoColumnGrid_variantContent = {
     overlay: boolean;
   }
 >;
+
 const TwoColumnGrid_ImageCard = ({
   alt,
   heading,
@@ -131,6 +136,7 @@ const TwoColumnGrid_ImageCard = ({
     ) : null}
   </>
 );
+
 const TwoColumnGrid_TwoColumnsImageGridSection = ({
   backgroundColor = "#fffffe",
   heading1 = "The Ordinary.",
@@ -177,6 +183,7 @@ const TwoColumnGrid_TwoColumnsImageGridSection = ({
     </MjmlSection>
   );
 };
+
 const TwoColumnGrid_TwoColumnsImageGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -201,13 +208,17 @@ const TwoColumnGrid_TwoColumnsImageGrid = ({
     </MjmlBody>
   </Mjml>
 );
+
 TwoColumnGrid_TwoColumnsImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "square-images",
 } satisfies TwoColumnGrid_TwoColumnsImageGridProps;
+
 const __TwoColumnGrid = TwoColumnGrid_TwoColumnsImageGrid;
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 interface NativeImageCardData {
   alt: string;
   heading: string;
@@ -215,6 +226,7 @@ interface NativeImageCardData {
   src: string;
   subtext: string;
 }
+
 const ImageGridEmailShell = ({
   backgroundColor,
   children,
@@ -236,6 +248,7 @@ const ImageGridEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const NativeImageCard = ({
   data,
   headingColor,
@@ -285,6 +298,7 @@ const NativeImageCard = ({
     ) : null}
   </>
 );
+
 const NativeImageRow = ({
   backgroundColor,
   cards,
@@ -329,11 +343,13 @@ const NativeImageRow = ({
     </MjmlSection>
   );
 };
+
 type ThreeColumnGrid_ThreeColumnsImageGridVariant =
   | "square-images"
   | "portrait-images"
   | "square-overlay"
   | "portrait-overlay";
+
 interface ThreeColumnGrid_ThreeColumnsImageGridProps {
   theme?: EmailThemeTokens;
   imageSrc1?: string;
@@ -357,16 +373,19 @@ interface ThreeColumnGrid_ThreeColumnsImageGridProps {
   textColor?: string;
   variant?: ThreeColumnGrid_ThreeColumnsImageGridVariant;
 }
+
 const ThreeColumnGrid_squareImages = [
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-2.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-3.jpg",
 ] as const;
+
 const ThreeColumnGrid_portraitImages = [
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-2.jpg",
   "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-3.jpg",
 ] as const;
+
 const ThreeColumnGrid_variantContent = {
   "portrait-images": {
     headings: ["Boarding Pass", "L’Atelier", "Cultivate"],
@@ -397,6 +416,7 @@ const ThreeColumnGrid_variantContent = {
     subtexts: ["Private pools", "Relax & restore", "Beach freedom"],
   },
 } as const;
+
 const ThreeColumnGrid_ThreeColumnsImageGridSection = ({
   backgroundColor = "#fffffe",
   headingColor = "#fffffe",
@@ -453,6 +473,7 @@ const ThreeColumnGrid_ThreeColumnsImageGridSection = ({
     />
   );
 };
+
 const ThreeColumnGrid_ThreeColumnsImageGrid = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -466,11 +487,14 @@ const ThreeColumnGrid_ThreeColumnsImageGrid = ({
     <ThreeColumnGrid_ThreeColumnsImageGridSection {...props} />
   </ImageGridEmailShell>
 );
+
 ThreeColumnGrid_ThreeColumnsImageGrid.PreviewProps = {
   theme: defaultTheme,
   variant: "square-images",
 } satisfies ThreeColumnGrid_ThreeColumnsImageGridProps;
+
 const __ThreeColumnGrid = ThreeColumnGrid_ThreeColumnsImageGrid;
+
 export interface GalleryImage {
   src: string;
   alt?: string;
@@ -478,6 +502,7 @@ export interface GalleryImage {
   heading?: string;
   subtext?: string;
 }
+
 export interface ImageGridProps {
   theme?: Parameters<typeof __TwoColumnGrid>[0]["theme"];
   images?: GalleryImage[];
@@ -485,6 +510,7 @@ export interface ImageGridProps {
   aspect?: "square" | "portrait";
   overlay?: boolean;
 }
+
 const imageGridItem = (image: GalleryImage | undefined) => ({
   alt: image?.alt,
   heading: image?.heading,
@@ -492,6 +518,7 @@ const imageGridItem = (image: GalleryImage | undefined) => ({
   src: image?.src,
   subtext: image?.subtext,
 });
+
 export const ImageGrid = ({
   theme,
   images,
@@ -526,6 +553,7 @@ export const ImageGrid = ({
     />
   );
 };
+
 ImageGrid.PreviewProps = {
   aspect: "square",
   columns: 2,

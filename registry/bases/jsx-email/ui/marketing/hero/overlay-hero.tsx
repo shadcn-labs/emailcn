@@ -17,11 +17,13 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 type AlignedHero_HeroAlignedOverlayVariant =
   | "content-left"
   | "content-left-reversed"
   | "content-right"
   | "content-right-reversed";
+
 interface AlignedHero_HeroAlignedOverlayProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -43,9 +45,12 @@ interface AlignedHero_HeroAlignedOverlayProps {
   buttonTextColor?: string;
   variant?: AlignedHero_HeroAlignedOverlayVariant;
 }
+
 const AlignedHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const AlignedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const AlignedHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-aligned-overlay-start {
@@ -72,6 +77,7 @@ const AlignedHero_responsiveStyles = `
       }
     }
   `;
+
 const AlignedHero_variantImages: Record<
   AlignedHero_HeroAlignedOverlayVariant,
   string
@@ -81,11 +87,13 @@ const AlignedHero_variantImages: Record<
   "content-right": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-2.png`,
   "content-right-reversed": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-3.png`,
 };
+
 type AlignedHero_SectionProps = Required<
   Omit<AlignedHero_HeroAlignedOverlayProps, "theme" | "variant">
 > & {
   variant: AlignedHero_HeroAlignedOverlayVariant;
 };
+
 const AlignedHero_HeroAlignedOverlaySection = ({
   backgroundColor,
   buttonBackgroundColor,
@@ -240,6 +248,7 @@ const AlignedHero_HeroAlignedOverlaySection = ({
     </Section>
   );
 };
+
 const AlignedHero_HeroAlignedOverlay = ({
   backgroundColor = "#030712",
   buttonBackgroundColor = "#4f46e5",
@@ -307,6 +316,7 @@ const AlignedHero_HeroAlignedOverlay = ({
     </Html>
   );
 };
+
 AlignedHero_HeroAlignedOverlay.PreviewProps = {
   backgroundColor: "#030712",
   buttonBackgroundColor: "#4f46e5",
@@ -328,7 +338,9 @@ AlignedHero_HeroAlignedOverlay.PreviewProps = {
   theme: defaultTheme,
   variant: "content-left",
 } satisfies AlignedHero_HeroAlignedOverlayProps;
+
 const __AlignedHero = AlignedHero_HeroAlignedOverlay;
+
 type BlockHero_HeroBlockOverlayVariant =
   | "left-centered"
   | "left-top"
@@ -338,6 +350,7 @@ type BlockHero_HeroBlockOverlayVariant =
   | "right-top"
   | "right-bottom"
   | "right-flush-vertical";
+
 interface BlockHero_HeroBlockOverlayProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -359,9 +372,12 @@ interface BlockHero_HeroBlockOverlayProps {
   buttonTextColor?: string;
   variant?: BlockHero_HeroBlockOverlayVariant;
 }
+
 const BlockHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BlockHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const BlockHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-block-overlay-gap {
@@ -392,7 +408,9 @@ const BlockHero_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 type BlockHero_SectionProps = Omit<BlockHero_HeroBlockOverlayProps, "theme">;
+
 const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
   const {
     backgroundColor,
@@ -598,6 +616,7 @@ const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
     </Section>
   );
 };
+
 const BlockHero_HeroBlockOverlay = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -630,11 +649,14 @@ const BlockHero_HeroBlockOverlay = ({
     </Body>
   </Html>
 );
+
 BlockHero_HeroBlockOverlay.PreviewProps = {
   theme: defaultTheme,
   variant: "left-centered",
 } satisfies BlockHero_HeroBlockOverlayProps;
+
 const __BlockHero = BlockHero_HeroBlockOverlay;
+
 type BlockBleedHero_HeroBlockWithBleedVariant =
   | "left-centered"
   | "left-top"
@@ -644,6 +666,7 @@ type BlockBleedHero_HeroBlockWithBleedVariant =
   | "right-top"
   | "right-bottom"
   | "right-flush-vertical";
+
 interface BlockBleedHero_HeroBlockWithBleedProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -665,9 +688,12 @@ interface BlockBleedHero_HeroBlockWithBleedProps {
   buttonTextColor?: string;
   variant?: BlockBleedHero_HeroBlockWithBleedVariant;
 }
+
 const BlockBleedHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const BlockBleedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const BlockBleedHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-block-bleed-spacer {
@@ -697,10 +723,12 @@ const BlockBleedHero_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 type BlockBleedHero_SectionProps = Omit<
   BlockBleedHero_HeroBlockWithBleedProps,
   "theme"
 >;
+
 const BlockBleedHero_HeroBlockWithBleedSection = (
   props: BlockBleedHero_SectionProps
 ) => {
@@ -948,6 +976,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = (
     </Section>
   );
 };
+
 const BlockBleedHero_HeroBlockWithBleed = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -982,16 +1011,20 @@ const BlockBleedHero_HeroBlockWithBleed = ({
     </Body>
   </Html>
 );
+
 BlockBleedHero_HeroBlockWithBleed.PreviewProps = {
   theme: defaultTheme,
   variant: "left-centered",
 } satisfies BlockBleedHero_HeroBlockWithBleedProps;
+
 const __BlockBleedHero = BlockBleedHero_HeroBlockWithBleed;
+
 type GradientHero_HeroWithOverlayGradientVariant =
   | "split-with-logo"
   | "split-no-logo"
   | "unified-with-logo"
   | "unified-no-logo";
+
 interface GradientHero_HeroWithOverlayGradientProps {
   theme?: EmailThemeTokens;
   eyebrow?: string;
@@ -1014,9 +1047,12 @@ interface GradientHero_HeroWithOverlayGradientProps {
   buttonTextColor?: string;
   variant?: GradientHero_HeroWithOverlayGradientVariant;
 }
+
 const GradientHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const GradientHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
+
 const GradientHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-overlay-gradient-heading {
@@ -1028,10 +1064,12 @@ const GradientHero_responsiveStyles = `
       background-color: #4338ca !important;
     }
   `;
+
 type GradientHero_SectionProps = Omit<
   GradientHero_HeroWithOverlayGradientProps,
   "theme"
 >;
+
 const GradientHero_HeroWithOverlayGradientSection = (
   props: GradientHero_SectionProps
 ) => {
@@ -1275,6 +1313,7 @@ const GradientHero_HeroWithOverlayGradientSection = (
     </Section>
   );
 };
+
 const GradientHero_HeroWithOverlayGradient = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -1309,11 +1348,14 @@ const GradientHero_HeroWithOverlayGradient = ({
     </Body>
   </Html>
 );
+
 GradientHero_HeroWithOverlayGradient.PreviewProps = {
   theme: defaultTheme,
   variant: "split-with-logo",
 } satisfies GradientHero_HeroWithOverlayGradientProps;
+
 const __GradientHero = GradientHero_HeroWithOverlayGradient;
+
 export interface HeroContent {
   eyebrow?: string;
   heading?: string;
@@ -1326,14 +1368,17 @@ export interface HeroContent {
     label: string;
   }[];
 }
+
 export interface HeroImage {
   src: string;
   alt?: string;
 }
+
 export interface HeroBrand {
   logo: HeroImage;
   href?: string;
 }
+
 export interface OverlayHeroProps {
   theme?: Parameters<typeof __BlockHero>[0]["theme"];
   content?: HeroContent;
@@ -1350,10 +1395,12 @@ export interface OverlayHeroProps {
   bleed?: boolean;
   reverse?: boolean;
 }
+
 const blockPosition = (position: NonNullable<OverlayHeroProps["position"]>) => {
   const [vertical, horizontal] = position.split("-");
   return `${horizontal}-${vertical === "center" ? "centered" : vertical}`;
 };
+
 const heroContentValues = (content: HeroContent | undefined) => {
   const { actions, description, eyebrow, heading, subheading } = content ?? {};
   const [action] = actions ?? [];
@@ -1366,10 +1413,12 @@ const heroContentValues = (content: HeroContent | undefined) => {
     subheading,
   };
 };
+
 const heroImageValues = (image: HeroImage | undefined) => ({
   alt: image?.alt,
   src: image?.src,
 });
+
 const heroBrandValues = (brand: HeroBrand | undefined) => {
   const { href, logo } = brand ?? {};
   return {
@@ -1378,6 +1427,7 @@ const heroBrandValues = (brand: HeroBrand | undefined) => {
     logoSrc: logo?.src,
   };
 };
+
 export const OverlayHero = ({
   theme,
   content,
@@ -1452,6 +1502,7 @@ export const OverlayHero = ({
     />
   );
 };
+
 OverlayHero.PreviewProps = {
   bleed: false,
   position: "center-left",

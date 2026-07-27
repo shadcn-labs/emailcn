@@ -15,8 +15,10 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const CTAEmailShell = ({
   children,
   pageBackgroundColor,
@@ -41,6 +43,7 @@ const CTAEmailShell = ({
     </MjmlBody>
   </Mjml>
 );
+
 const CTACopy = ({
   align = "center",
   ctaHref,
@@ -128,11 +131,13 @@ const CTACopy = ({
     ) : null}
   </>
 );
+
 type Cta_CTAWithShiftedImagesVariant =
   | "flush-side-images"
   | "images-offset"
   | "images-offset-alt"
   | "collage";
+
 interface Cta_CTAWithShiftedImagesProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -155,6 +160,7 @@ interface Cta_CTAWithShiftedImagesProps {
   buttonTextColor?: string;
   variant?: Cta_CTAWithShiftedImagesVariant;
 }
+
 const Cta_variantContent = {
   collage: {
     heading: "Be an Explorer",
@@ -201,6 +207,7 @@ const Cta_variantContent = {
       "Be part of a network that lives for the outdoors. Confirm your email to stay connected, get new gear updates, and access member rewards.",
   },
 } as const;
+
 const Cta_CTAWithShiftedImagesSection = (
   props: Omit<Cta_CTAWithShiftedImagesProps, "theme">
 ) => {
@@ -324,6 +331,7 @@ const Cta_CTAWithShiftedImagesSection = (
     </MjmlSection>
   );
 };
+
 const Cta_CTAWithShiftedImages = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -337,11 +345,14 @@ const Cta_CTAWithShiftedImages = ({
     <Cta_CTAWithShiftedImagesSection {...props} />
   </CTAEmailShell>
 );
+
 Cta_CTAWithShiftedImages.PreviewProps = {
   theme: defaultTheme,
   variant: "flush-side-images",
 } satisfies Cta_CTAWithShiftedImagesProps;
+
 const __Cta = Cta_CTAWithShiftedImages;
+
 export interface CollageCallToActionProps {
   theme?: Parameters<typeof __Cta>[0]["theme"];
   heading?: string;
@@ -356,6 +367,7 @@ export interface CollageCallToActionProps {
   }[];
   treatment?: "offset" | "shifted" | "side" | "collage";
 }
+
 export const CollageCallToAction = ({
   theme,
   heading,
@@ -389,6 +401,7 @@ export const CollageCallToAction = ({
     />
   );
 };
+
 CollageCallToAction.PreviewProps = {
   treatment: "side",
 } satisfies CollageCallToActionProps;

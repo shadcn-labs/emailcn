@@ -15,6 +15,7 @@ import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+
 type BillingTopVariant =
   | "basic"
   | "bordered"
@@ -24,14 +25,18 @@ type BillingTopVariant =
   | "bordered-with-notes"
   | "basic-full-details"
   | "bordered-full-details";
+
 type BillingInlineVariant =
   | "basic"
   | "bordered"
   | "basic-with-notes"
   | "bordered-with-notes";
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
 const orderSummaryResponsiveStyles = "";
+
 const DetailBlock = ({
   children,
   title,
@@ -61,6 +66,7 @@ const DetailBlock = ({
     </MjmlText>
   </>
 );
+
 const BillingDetailsSection = ({
   layout,
   variant,
@@ -149,15 +155,18 @@ const BillingDetailsSection = ({
     </>
   );
 };
+
 interface BillingInline_OrderSummaryBillingInlineProps {
   theme?: EmailThemeTokens;
   variant?: BillingInlineVariant;
 }
+
 const BillingInline_OrderSummaryBillingInlineSection = ({
   variant = "basic",
 }: Omit<BillingInline_OrderSummaryBillingInlineProps, "theme">) => (
   <BillingDetailsSection layout="inline" variant={variant} />
 );
+
 const BillingInline_OrderSummaryBillingInline = ({
   theme = defaultTheme,
   ...props
@@ -175,20 +184,25 @@ const BillingInline_OrderSummaryBillingInline = ({
     </MjmlBody>
   </Mjml>
 );
+
 BillingInline_OrderSummaryBillingInline.PreviewProps = {
   theme: defaultTheme,
   variant: "basic",
 } satisfies BillingInline_OrderSummaryBillingInlineProps;
+
 const __BillingInline = BillingInline_OrderSummaryBillingInline;
+
 interface BillingTop_OrderSummaryBillingTopProps {
   theme?: EmailThemeTokens;
   variant?: BillingTopVariant;
 }
+
 const BillingTop_OrderSummaryBillingTopSection = ({
   variant = "basic-with-payment",
 }: Omit<BillingTop_OrderSummaryBillingTopProps, "theme">) => (
   <BillingDetailsSection layout="top" variant={variant} />
 );
+
 const BillingTop_OrderSummaryBillingTop = ({
   theme = defaultTheme,
   ...props
@@ -206,11 +220,14 @@ const BillingTop_OrderSummaryBillingTop = ({
     </MjmlBody>
   </Mjml>
 );
+
 BillingTop_OrderSummaryBillingTop.PreviewProps = {
   theme: defaultTheme,
   variant: "basic-with-payment",
 } satisfies BillingTop_OrderSummaryBillingTopProps;
+
 const __BillingTop = BillingTop_OrderSummaryBillingTop;
+
 export interface BillingOrderSummaryProps {
   theme?: Parameters<typeof __BillingTop>[0]["theme"];
   payment?: boolean;
@@ -218,6 +235,7 @@ export interface BillingOrderSummaryProps {
   billingPosition?: "top" | "inline";
   appearance?: "plain" | "bordered";
 }
+
 const billingVariant = ({
   appearance,
   billingPosition,
@@ -239,6 +257,7 @@ const billingVariant = ({
   }
   return payment ? `${prefix}-with-payment` : prefix;
 };
+
 export const BillingOrderSummary = ({
   theme,
   payment,
@@ -264,6 +283,7 @@ export const BillingOrderSummary = ({
     />
   );
 };
+
 BillingOrderSummary.PreviewProps = {
   appearance: "plain",
   billingPosition: "top",

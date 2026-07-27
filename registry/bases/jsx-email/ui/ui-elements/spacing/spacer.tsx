@@ -11,6 +11,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
+
 const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
   <Section
     style={{ fontSize: 0, height: `${height}px`, lineHeight: `${height}px` }}
@@ -18,6 +19,7 @@ const VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (
     &zwj;
   </Section>
 );
+
 const SpacingEmailShell = ({
   children,
   preview,
@@ -39,10 +41,12 @@ const SpacingEmailShell = ({
     </Body>
   </Html>
 );
+
 interface Spacer_VerticalSpacerProps {
   height?: number;
   theme?: EmailThemeTokens;
 }
+
 const Spacer_VerticalSpacer = ({
   height = 24,
   theme = defaultTheme,
@@ -51,16 +55,21 @@ const Spacer_VerticalSpacer = ({
     <VerticalSpacerSection height={height} />
   </SpacingEmailShell>
 );
+
 Spacer_VerticalSpacer.PreviewProps = {
   height: 48,
   theme: defaultTheme,
 } satisfies Spacer_VerticalSpacerProps;
+
 const __Spacer = Spacer_VerticalSpacer;
+
 export interface SpacerProps {
   theme?: Parameters<typeof __Spacer>[0]["theme"];
   height?: number;
 }
+
 export const Spacer = (props: SpacerProps) => <__Spacer {...props} />;
+
 Spacer.PreviewProps = {
   height: 64,
 } satisfies SpacerProps;
