@@ -16,6 +16,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type SocialLinksContent = "full" | "lead" | "title" | "minimal";
@@ -49,27 +50,27 @@ const SimpleSocials_defaultItems: SimpleSocials_SimpleSocialLogoItem[] = [
   {
     alt: "LinkedIn",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-linkedin.png",
+    src: emailAsset("social/icon-linkedin.png"),
   },
   {
     alt: "X",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-x.png",
+    src: emailAsset("social/icon-x.png"),
   },
   {
     alt: "YouTube",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-youtube.png",
+    src: emailAsset("social/icon-youtube.png"),
   },
   {
     alt: "Instagram",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-instagram.png",
+    src: emailAsset("social/icon-instagram.png"),
   },
   {
     alt: "Discord",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-discord.png",
+    src: emailAsset("social/icon-discord.png"),
   },
 ];
 
@@ -262,27 +263,27 @@ const SocialLogos_defaultItems: SocialLogos_SocialLogoItem[] = [
   {
     alt: "LinkedIn",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-linkedin.png",
+    src: emailAsset("social/icon-linkedin.png"),
   },
   {
     alt: "X",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-x.png",
+    src: emailAsset("social/icon-x.png"),
   },
   {
     alt: "YouTube",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-youtube.png",
+    src: emailAsset("social/icon-youtube.png"),
   },
   {
     alt: "Instagram",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-instagram.png",
+    src: emailAsset("social/icon-instagram.png"),
   },
   {
     alt: "Discord",
     href: "https://example.com",
-    src: "https://emailcn.vercel.app/api/email-assets/social/icon-discord.png",
+    src: emailAsset("social/icon-discord.png"),
   },
 ];
 
@@ -535,7 +536,7 @@ const SocialLabels_stackedItems: SocialLabels_LabeledSocialItem[] = [
   alt: label,
   href: "https://example.com",
   label,
-  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+  src: emailAsset(`social/${file}`),
 }));
 
 const SocialLabels_inlineItems: SocialLabels_LabeledSocialItem[] = [
@@ -547,7 +548,7 @@ const SocialLabels_inlineItems: SocialLabels_LabeledSocialItem[] = [
   alt: label,
   href: "https://example.com",
   label,
-  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+  src: emailAsset(`social/${file}`),
 }));
 
 const SocialLabels_getItemStyle = (index: number, stacked: boolean) => {
@@ -779,7 +780,7 @@ const SocialTileLabels_stackedItems: SocialTileLabels_TiledSocialItem[] = [
   alt: label,
   href: "https://example.com",
   label,
-  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+  src: emailAsset(`social/${file}`),
 }));
 
 const SocialTileLabels_inlineItems: SocialTileLabels_TiledSocialItem[] = [
@@ -791,7 +792,7 @@ const SocialTileLabels_inlineItems: SocialTileLabels_TiledSocialItem[] = [
   alt: label,
   href: "https://example.com",
   label,
-  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+  src: emailAsset(`social/${file}`),
 }));
 
 const SocialTileLabels_SocialsWithTileLabelsSection = ({

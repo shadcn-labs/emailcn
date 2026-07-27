@@ -1,6 +1,7 @@
 // Subject: [{issueNumber}] {_action} — {_targetName}
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
@@ -38,9 +39,8 @@ export const NotificationLinear = ({
 
 NotificationLinear.PreviewProps = {
   _action: "commented on",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Linear",
   _targetName: "Bug in login flow",
   actorName: "Sarah",

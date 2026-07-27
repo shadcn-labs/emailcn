@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type SplitProductDetailVariant =
@@ -54,10 +55,6 @@ interface ProductDetailContentOverrides {
   ctaLabel?: string;
   ctaHref?: string;
 }
-
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
-
-const PRODUCT_ASSET_ROOT = `${ASSET_ROOT}/product-detail`;
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -235,7 +232,7 @@ const Star = ({ icon }: { icon: RatingIcon }) => (
   <Column style={{ paddingRight: "4px" }}>
     <Img
       alt=""
-      src={`${ASSET_ROOT}/icon-star-${icon}.png`}
+      src={emailAsset(`icon-star-${icon}.png`)}
       style={{ display: "block" }}
       width="16"
     />
@@ -306,7 +303,7 @@ const CallToAction = ({ href, label }: { href: string; label: string }) => (
       <span>
         <Img
           alt=""
-          src={`${ASSET_ROOT}/icon-arrow-right.png`}
+          src={emailAsset(`icon-arrow-right.png`)}
           style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           width="12"
         />
@@ -354,8 +351,10 @@ const splitData = (variant: SplitProductDetailVariant): ProductDetailData => {
       description:
         "A statement piece from the iconic collaboration between Off-White™ and Nike. Featuring signature zip-tie detailing and industrial text graphics.",
       imageUrls: [
-        `${PRODUCT_ASSET_ROOT}/stacked-1.jpg`,
-        `${PRODUCT_ASSET_ROOT}/${variant === "stacked-left" ? "stacked-2" : "stacked-3"}.jpg`,
+        emailAsset(`product-detail/stacked-1.jpg`),
+        emailAsset(
+          `product-detail/${variant === "stacked-left" ? "stacked-2" : "stacked-3"}.jpg`
+        ),
       ],
       name: "Off-White™ Air Force 1 - Yellow",
       price: "$240",
@@ -371,7 +370,7 @@ const splitData = (variant: SplitProductDetailVariant): ProductDetailData => {
       colors: [],
       description:
         "Inspired by Vietnamese heritage, this premium cotton tee blends minimalist design with cultural typography. Soft, breathable, and built for everyday comfort.",
-      imageUrls: [`${PRODUCT_ASSET_ROOT}/single-portrait-bleed.jpg`],
+      imageUrls: [emailAsset(`product-detail/single-portrait-bleed.jpg`)],
       name: "Omakase - Tay Sơn Graphic Tee",
       price: "$39.99",
       ratingIcons: ["solid", "solid", "solid", "half", "outline"],
@@ -383,7 +382,9 @@ const splitData = (variant: SplitProductDetailVariant): ProductDetailData => {
     description:
       "Made from a bamboo-linen blend, this shirt is breathable, eco-friendly, and effortlessly refined for everyday wear. Hand made in France.",
     imageUrls: [
-      `${PRODUCT_ASSET_ROOT}/${variant.startsWith("rating") ? "rating-below" : "single-portrait"}.jpg`,
+      emailAsset(
+        `product-detail/${variant.startsWith("rating") ? "rating-below" : "single-portrait"}.jpg`
+      ),
     ],
     name: "Hand-made Bio Bamboo Shirt",
     price: "$59.99",

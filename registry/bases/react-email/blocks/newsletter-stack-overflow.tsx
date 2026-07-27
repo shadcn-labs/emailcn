@@ -14,6 +14,7 @@ import {
 
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface Article {
@@ -90,7 +91,7 @@ export const NewsletterStackOverflow = ({
 
 NewsletterStackOverflow.PreviewProps = {
   _logoAlt: "Stack Overflow",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stack Overflow",
   articles: [
     {

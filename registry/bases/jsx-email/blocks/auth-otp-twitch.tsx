@@ -12,6 +12,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
 import { twitchTheme } from "@/registry/themes/twitch";
 
 interface Props {
@@ -116,7 +117,7 @@ export const AuthOtpTwitch = ({
 
 AuthOtpTwitch.PreviewProps = {
   _logoAlt: "Twitch",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Twitch",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

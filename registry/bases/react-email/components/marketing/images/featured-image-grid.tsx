@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant =
@@ -85,8 +86,7 @@ const TwoColumnFeatureGrid_defaults = {
   featureHeading: "Arlo Bar Chair",
   featureImageAlt: "",
   featureImageHref: "https://example.com",
-  featureImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-4.jpg",
+  featureImageSrc: emailAsset("image-grids/full-width-4.jpg"),
   featureSubtext: "Wood / Upholstered Seat",
   headingColor: "#fffffe",
   imageAlt1: "",
@@ -95,10 +95,8 @@ const TwoColumnFeatureGrid_defaults = {
   imageHeading2: "Nova Dining Chair",
   imageHref1: "https://example.com",
   imageHref2: "https://example.com",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-3.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-4.jpg",
+  imageSrc1: emailAsset("image-grids/2-col-landscape-3.jpg"),
+  imageSrc2: emailAsset("image-grids/2-col-landscape-4.jpg"),
   imageSubtext1: "Velvet / Solid Wood Frame",
   imageSubtext2: "Curved Wood / Fabric Seat",
   pageBackgroundColor: "#f1f5f9",
@@ -492,8 +490,7 @@ const ThreeColumnFeatureGrid_defaults = {
   featureHeading: "Island Escape",
   featureImageAlt: "",
   featureImageHref: "https://example.com",
-  featureImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-6.jpg",
+  featureImageSrc: emailAsset("image-grids/full-width-6.jpg"),
   featureSubtext: "Private Paradise",
   heading1: "Aqua Retreat",
   heading2: "Ocean Spa",
@@ -505,12 +502,9 @@ const ThreeColumnFeatureGrid_defaults = {
   imageHref1: "https://example.com",
   imageHref2: "https://example.com",
   imageHref3: "https://example.com",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-4.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-5.jpg",
-  imageSrc3:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-6.jpg",
+  imageSrc1: emailAsset("image-grids/3-col-square-4.jpg"),
+  imageSrc2: emailAsset("image-grids/3-col-square-5.jpg"),
+  imageSrc3: emailAsset("image-grids/3-col-square-6.jpg"),
   pageBackgroundColor: "#f1f5f9",
   subtext1: "Private pools",
   subtext2: "Relax & restore",

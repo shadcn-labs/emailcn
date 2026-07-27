@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Cta_CTAWithTopLargeImageProps {
@@ -62,8 +63,7 @@ const Cta_defaultSectionProps = {
   heading: "Built for the journey ahead.",
   headingColor: "#030712",
   imageAlt: "",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/cta/cta-with-image-1.jpg",
+  imageSrc: emailAsset("cta/cta-with-image-1.jpg"),
   pageBackgroundColor: "#f1f5f9",
   subtext:
     "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",

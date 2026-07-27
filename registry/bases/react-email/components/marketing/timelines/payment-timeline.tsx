@@ -15,6 +15,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type PaymentTimelineVariant = "3-steps" | "4-steps";
@@ -70,7 +71,7 @@ const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
     {checked ? (
       <Img
         alt=""
-        src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check-white.png"
+        src={emailAsset("timelines/icon-check-white.png")}
         style={{ marginBottom: "1px" }}
         width="8"
       />

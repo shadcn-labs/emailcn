@@ -17,6 +17,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type FullWidthImage_FullWidthImageVariant =
@@ -205,7 +206,7 @@ const FullWidthImage_SideSpacer = ({
 );
 
 const FullWidthImage_FullWidthImageSection = ({
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
+  imageSrc = emailAsset("image-grids/full-width.jpg"),
   imageAlt = "",
   pageBackgroundColor = "#f1f5f9",
   spacerBackgroundColor = "#fffffe",
@@ -608,7 +609,7 @@ const FullWidthOverlay_OverlayImage = ({
 );
 
 const FullWidthOverlay_FullWidthImageWithOverlaySection = ({
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-2.jpg",
+  imageSrc = emailAsset("image-grids/full-width-2.jpg"),
   heading = "Nike",
   subtext = "Shoes and accessories",
   headingColor = "#fffffe",

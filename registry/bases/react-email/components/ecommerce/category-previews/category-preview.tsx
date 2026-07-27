@@ -17,6 +17,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type CategoryCards_CategoryPreviewCardsVariant =
@@ -131,7 +132,7 @@ const CategoryCards_ShopButton = ({
     <span style={{ marginRight: "8px" }}>{label}</span>
     <Img
       alt=""
-      src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
+      src={emailAsset("icon-arrow-right.png")}
       style={{ maxWidth: "100%", verticalAlign: "baseline" }}
       width="12"
     />
@@ -248,8 +249,8 @@ const CategoryCards_CategoryPreviewCardsSection = ({
   description1 = "Soft, breathable, and effortlessly stylish. Made for comfort and everyday wear with a clean, minimal edge.",
   description2 = "Designed for comfort and movement with a refined fit and modern silhouette — your go-to for everyday versatility.",
   heading = "Our products",
-  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/category-previews/landscape-1.jpg",
-  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/category-previews/landscape-2.jpg",
+  imageSrc1 = emailAsset("category-previews/landscape-1.jpg"),
+  imageSrc2 = emailAsset("category-previews/landscape-2.jpg"),
   intro = "Style meets purpose in every piece. Designed with attention to detail and built for everyday comfort, our collection brings together modern design, timeless quality, and effortlessness.",
   name1 = "Sweatshirts",
   name2 = "Pants",
@@ -495,7 +496,7 @@ const CategoryRows_ShopButton = ({
     <span style={{ marginRight: "8px" }}>{label}</span>
     <Img
       alt=""
-      src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
+      src={emailAsset("icon-arrow-right.png")}
       style={{ maxWidth: "100%", verticalAlign: "baseline" }}
       width="12"
     />
@@ -630,8 +631,8 @@ const CategoryRows_CategoryPreviewRowsSection = ({
   description1 = "Soft, breathable, and effortlessly stylish. Made for comfort and everyday wear with a clean, minimal edge.",
   description2 = "Designed for comfort and movement with a refined fit and modern silhouette — your go-to for everyday versatility.",
   heading = "Our products",
-  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/category-previews/portrait-1.jpg",
-  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/category-previews/portrait-2.jpg",
+  imageSrc1 = emailAsset("category-previews/portrait-1.jpg"),
+  imageSrc2 = emailAsset("category-previews/portrait-2.jpg"),
   intro = "Style meets purpose in every piece. Designed with attention to detail and built for everyday comfort, our collection brings together modern design, timeless quality, and effortlessness.",
   name1 = "Sweatshirts",
   name2 = "Pants",

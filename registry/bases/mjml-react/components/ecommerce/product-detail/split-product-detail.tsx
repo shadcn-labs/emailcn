@@ -16,6 +16,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type SplitProductDetailVariant =
@@ -41,9 +42,6 @@ interface ProductDetailContentOverrides {
   ctaHref?: string;
 }
 
-const PRODUCT_ASSET_ROOT =
-  "https://emailcn.vercel.app/api/email-assets/product-detail";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -62,8 +60,8 @@ const detailDefaults: Record<
     colors: ["Yellow", "Black"],
     description:
       "A statement piece featuring signature detailing and a bold finish that redefines street luxury.",
-    imageUrls: [1, 2, 3, 4].map(
-      (index) => `${PRODUCT_ASSET_ROOT}/four-images-${index}.jpg`
+    imageUrls: [1, 2, 3, 4].map((index) =>
+      emailAsset(`product-detail/four-images-${index}.jpg`)
     ),
     name: "Off-White™ Air Force 1 - Yellow",
     price: "$249.00",
@@ -73,7 +71,7 @@ const detailDefaults: Record<
     colors: ["Black", "White", "Gray"],
     description:
       "A refined everyday essential crafted for comfort, durability, and a clean modern silhouette.",
-    imageUrls: [`${PRODUCT_ASSET_ROOT}/single-image.jpg`],
+    imageUrls: [emailAsset(`product-detail/single-image.jpg`)],
     name: "Minimal Everyday Sneaker",
     price: "$149.00",
     sizes: ["7", "8", "9", "10", "11"],
@@ -82,8 +80,8 @@ const detailDefaults: Record<
     colors: ["White", "Gray"],
     description:
       "A balanced mix of comfort and statement styling, designed for effortless daily wear.",
-    imageUrls: [1, 2, 3].map(
-      (index) => `${PRODUCT_ASSET_ROOT}/three-images-${index}.jpg`
+    imageUrls: [1, 2, 3].map((index) =>
+      emailAsset(`product-detail/three-images-${index}.jpg`)
     ),
     name: "Signature Runner",
     price: "$219.00",
@@ -93,8 +91,8 @@ const detailDefaults: Record<
     colors: ["Black", "White"],
     description:
       "Premium materials and considered detailing bring a modern finish to this versatile design.",
-    imageUrls: [1, 2].map(
-      (index) => `${PRODUCT_ASSET_ROOT}/two-images-${index}.jpg`
+    imageUrls: [1, 2].map((index) =>
+      emailAsset(`product-detail/two-images-${index}.jpg`)
     ),
     name: "Premium Low Sneaker",
     price: "$189.00",
@@ -213,7 +211,7 @@ const SplitProductDetailSection = ({
   const data = resolveData("single", {
     ...overrides,
     imageUrls: overrides.imageUrls ?? [
-      `${PRODUCT_ASSET_ROOT}/split-product.jpg`,
+      emailAsset(`product-detail/split-product.jpg`),
     ],
   });
   const imageRight = variant.endsWith("right");

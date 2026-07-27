@@ -14,6 +14,7 @@ import {
 
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/components/marketing/content/content";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Article {
@@ -89,7 +90,7 @@ export const NewsletterDefault = ({
 
 NewsletterDefault.PreviewProps = {
   _logoAlt: "Newsletter",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme Newsletter",
   articles: [
     {

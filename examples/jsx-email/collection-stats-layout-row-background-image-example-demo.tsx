@@ -1,4 +1,5 @@
 import { CollectionStats } from "@/registry/bases/jsx-email/components/marketing/stats/collection-stats";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function CollectionStatsLayoutRowBackgroundImageExampleDemo() {
   return (
@@ -6,7 +7,7 @@ export default function CollectionStatsLayoutRowBackgroundImageExampleDemo() {
       layout="row"
       backgroundImage={{
         alt: "Background",
-        src: "https://emailcn.vercel.app/api/email-assets/images/image-landscape-1.jpg",
+        src: emailAsset("images/image-landscape-1.jpg"),
       }}
     />
   );

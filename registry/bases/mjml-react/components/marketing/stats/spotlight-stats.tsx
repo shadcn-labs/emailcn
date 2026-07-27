@@ -12,6 +12,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type RollingStats_RollingStatsVariant =
@@ -205,7 +206,7 @@ const SingleStat_valueColors: Record<
 };
 
 const SingleStat_SingleStatWithBackgroundImageSection = ({
-  backgroundImageSrc = "https://emailcn.vercel.app/api/email-assets/stats/single-stat.jpg",
+  backgroundImageSrc = emailAsset("stats/single-stat.jpg"),
   eyebrow = "Mapped trails",
   eyebrowColor = "#d1d5db",
   label = "Tracked by active users",

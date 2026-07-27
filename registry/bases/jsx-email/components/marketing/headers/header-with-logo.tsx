@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type HeaderWithLogoVariant = "minimal" | "with-text";
@@ -52,7 +53,7 @@ const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   pageBackgroundColor: "#f1f5f9",
   text: "Medium, rare, but mostly well-done\nHTML email components.",
   textColor: "#030712",

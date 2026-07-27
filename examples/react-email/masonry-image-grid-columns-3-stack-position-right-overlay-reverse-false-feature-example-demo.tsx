@@ -1,4 +1,5 @@
 import { MasonryImageGrid } from "@/registry/bases/react-email/components/marketing/images/masonry-image-grid";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function MasonryImageGridColumns3StackPositionRightOverlayReverseFalseFeatureExampleDemo() {
   return (
@@ -9,7 +10,7 @@ export default function MasonryImageGridColumns3StackPositionRightOverlayReverse
       reverse={false}
       feature={{
         alt: "Featured collection",
-        src: "https://emailcn.vercel.app/api/email-assets/images/image-landscape-1.jpg",
+        src: emailAsset("images/image-landscape-1.jpg"),
       }}
     />
   );

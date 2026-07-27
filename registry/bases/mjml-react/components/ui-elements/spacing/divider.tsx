@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type DividerVariant = "center" | "left" | "right";
@@ -365,7 +366,7 @@ const DividerLogo_DividerWithLogo = ({
 
 DividerLogo_DividerWithLogo.PreviewProps = {
   logoAlt: "emailcn",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
+  logoSrc: emailAsset("emailcn-logo.png"),
   theme: defaultTheme,
   variant: "center",
 } satisfies DividerLogo_DividerWithLogoProps;

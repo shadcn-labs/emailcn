@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type AlignedHero_HeroAlignedOverlayVariant =
@@ -50,9 +51,6 @@ interface AlignedHero_HeroAlignedOverlayProps {
 
 const AlignedHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const AlignedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const AlignedHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-aligned-overlay-start {
@@ -84,10 +82,10 @@ const AlignedHero_variantImages: Record<
   AlignedHero_HeroAlignedOverlayVariant,
   string
 > = {
-  "content-left": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-1.png`,
-  "content-left-reversed": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-4.png`,
-  "content-right": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-2.png`,
-  "content-right-reversed": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-3.png`,
+  "content-left": emailAsset(`hero/aligned-overlay-bg-1.png`),
+  "content-left-reversed": emailAsset(`hero/aligned-overlay-bg-4.png`),
+  "content-right": emailAsset(`hero/aligned-overlay-bg-2.png`),
+  "content-right-reversed": emailAsset(`hero/aligned-overlay-bg-3.png`),
 };
 
 type AlignedHero_SectionProps = Required<
@@ -190,7 +188,7 @@ const AlignedHero_HeroAlignedOverlaySection = ({
           <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
           <Img
             alt=""
-            src={`${AlignedHero_assetRoot}/icon-arrow-right.png`}
+            src={emailAsset(`icon-arrow-right.png`)}
             width="12"
             style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           />
@@ -266,7 +264,7 @@ const AlignedHero_HeroAlignedOverlay = ({
   imageSrc,
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${AlignedHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   pageBackgroundColor = "#f1f5f9",
   textColor = "#f9fafb",
   theme = defaultTheme,
@@ -333,7 +331,7 @@ AlignedHero_HeroAlignedOverlay.PreviewProps = {
   imageAlt: "Travel window collage",
   logoAlt: "emailcn",
   logoHref: "https://example.com",
-  logoSrc: `${AlignedHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc: emailAsset(`emailcn-logo-light.png`),
   pageBackgroundColor: "#f1f5f9",
   textColor: "#f9fafb",
   theme: defaultTheme,
@@ -376,9 +374,6 @@ interface BlockHero_HeroBlockOverlayProps {
 
 const BlockHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const BlockHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const BlockHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-block-overlay-gap {
@@ -434,7 +429,7 @@ const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
     variant,
   } = {
     backgroundColor: "#030712",
-    backgroundImageSrc: `${BlockHero_assetRoot}/hero/block-overlay-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/block-overlay-bg.jpg`),
     buttonBackgroundColor: "#4f46e5",
     buttonTextColor: "#fffffe",
     ctaHref: "https://example.com",
@@ -446,7 +441,7 @@ const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
     imageAlt: "Entrepreneur using a SumUp payment terminal",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${BlockHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     overlayColor: "rgba(3, 7, 18, 0.8)",
     pageBackgroundColor: "#f1f5f9",
     subheading: "Powering Modern Entrepreneurs",
@@ -539,7 +534,7 @@ const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
                   <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
                   <Img
                     alt=""
-                    src={`${BlockHero_assetRoot}/icon-arrow-right.png`}
+                    src={emailAsset(`icon-arrow-right.png`)}
                     style={{ maxWidth: "100%", verticalAlign: "baseline" }}
                     width="12"
                   />
@@ -691,9 +686,6 @@ interface BlockBleedHero_HeroBlockWithBleedProps {
 
 const BlockBleedHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const BlockBleedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const BlockBleedHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-block-bleed-spacer {
@@ -753,7 +745,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = (
     variant,
   } = {
     backgroundColor: "#030712",
-    backgroundImageSrc: `${BlockBleedHero_assetRoot}/hero/block-with-bleed-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/block-with-bleed-bg.jpg`),
     buttonBackgroundColor: "#4f46e5",
     buttonTextColor: "#fffffe",
     ctaHref: "https://example.com",
@@ -765,7 +757,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = (
     imageAlt: "Golden dunes beneath distant mountains",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${BlockBleedHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     overlayColor: "rgba(3, 7, 18, 0.8)",
     pageBackgroundColor: "#f1f5f9",
     subheading: "Take action today.",
@@ -876,7 +868,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = (
                               </span>
                               <Img
                                 alt=""
-                                src={`${BlockBleedHero_assetRoot}/icon-arrow-right.png`}
+                                src={emailAsset(`icon-arrow-right.png`)}
                                 style={{
                                   maxWidth: "100%",
                                   verticalAlign: "baseline",
@@ -1049,9 +1041,6 @@ interface GradientHero_HeroWithOverlayGradientProps {
 
 const GradientHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const GradientHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const GradientHero_responsiveStyles = `
     @media only screen and (max-width: 599px) {
       .hero-overlay-gradient-heading {
@@ -1094,7 +1083,7 @@ const GradientHero_HeroWithOverlayGradientSection = (
     variant,
   } = {
     backgroundColor: "#030712",
-    backgroundImageSrc: `${GradientHero_assetRoot}/hero/overlay-gradient-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlay-gradient-bg.jpg`),
     buttonBackgroundColor: "#4f46e5",
     buttonTextColor: "#fffffe",
     ctaHref: "https://example.com",
@@ -1106,7 +1095,7 @@ const GradientHero_HeroWithOverlayGradientSection = (
     imageAlt: "Forclaz backpack in Yosemite",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${GradientHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     overlayColor: "rgba(3, 7, 18, 0.6)",
     pageBackgroundColor: "#f1f5f9",
     price: "Starts at $129.99",
@@ -1285,7 +1274,7 @@ const GradientHero_HeroWithOverlayGradientSection = (
                                   </span>
                                   <Img
                                     alt=""
-                                    src={`${GradientHero_assetRoot}/icon-arrow-right.png`}
+                                    src={emailAsset(`icon-arrow-right.png`)}
                                     style={{
                                       maxWidth: "100%",
                                       verticalAlign: "baseline",

@@ -15,6 +15,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type ReviewsVariant =
@@ -53,9 +54,6 @@ interface InternalReviewItem {
 }
 
 type ReviewsLayout = "full-width" | "masonry-grid" | "two-columns";
-
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -63,33 +61,33 @@ const reviewsResponsiveStyles = "";
 
 const defaultReviews: InternalReviewItem[] = [
   {
-    avatarUrl: `${ASSET_ROOT}/reviews/avatar.jpg`,
+    avatarUrl: emailAsset(`reviews/avatar.jpg`),
     company: "Monarch",
     date: "August 16, 2025",
     logoAlt: "Monarch",
-    logoUrl: `${ASSET_ROOT}/reviews/logo-monarch.png`,
+    logoUrl: emailAsset(`reviews/logo-monarch.png`),
     logoWidth: 145,
     name: "Jenna Hendricks",
     rating: 4.5,
     text: "This tool made it incredibly easy to launch polished projects. The components are flexible, clean, and work perfectly across platforms.",
   },
   {
-    avatarUrl: `${ASSET_ROOT}/reviews/avatar-3.jpg`,
+    avatarUrl: emailAsset(`reviews/avatar-3.jpg`),
     company: "Accentic",
     date: "October 7, 2025",
     logoAlt: "Accentic",
-    logoUrl: `${ASSET_ROOT}/reviews/logo-accentic.png`,
+    logoUrl: emailAsset(`reviews/logo-accentic.png`),
     logoWidth: 165,
     name: "Ella James",
     rating: 4.5,
     text: "Great set of templates. I saved hours of dev time and everything came out looking professional and well executed, even in tricky environments.",
   },
   {
-    avatarUrl: `${ASSET_ROOT}/reviews/avatar-4.jpg`,
+    avatarUrl: emailAsset(`reviews/avatar-4.jpg`),
     company: "Amada",
     date: "June 2, 2025",
     logoAlt: "Amada",
-    logoUrl: `${ASSET_ROOT}/reviews/logo-amada.png`,
+    logoUrl: emailAsset(`reviews/logo-amada.png`),
     logoWidth: 137,
     name: "Roderick Adams",
     rating: 3.5,
@@ -101,7 +99,7 @@ const twoColumnReviews: InternalReviewItem[] = [
   defaultReviews[0],
   {
     ...defaultReviews[1],
-    avatarUrl: `${ASSET_ROOT}/reviews/avatar-2.jpg`,
+    avatarUrl: emailAsset(`reviews/avatar-2.jpg`),
     date: "October 9, 2025",
     name: "Adam Johnson",
     rating: 5,

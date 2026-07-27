@@ -1,6 +1,7 @@
 // Subject: Your verification code for {_productName}
 
 import { AuthOtpBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { twitchTheme } from "@/registry/themes/twitch";
 
 interface Props {
@@ -27,7 +28,7 @@ export const AuthOtpTwitch = ({
 
 AuthOtpTwitch.PreviewProps = {
   _logoAlt: "Twitch",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Twitch",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

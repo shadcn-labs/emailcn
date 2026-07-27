@@ -17,6 +17,7 @@ import { NavigationFooterSection as FooterSection } from "@/registry/bases/react
 import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/components/marketing/headers/header-with-logo-and-menu";
 import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/components/marketing/hero/split-hero";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
@@ -85,8 +86,7 @@ export const OnboardingVercel = ({
 OnboardingVercel.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Vercel",
-  _senderAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Vercel Team",
   _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",

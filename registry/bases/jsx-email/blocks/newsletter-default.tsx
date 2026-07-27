@@ -15,6 +15,7 @@ import {
   Text,
 } from "jsx-email";
 
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface ContentGridProps {
@@ -194,7 +195,7 @@ export const NewsletterDefault = ({
 
 NewsletterDefault.PreviewProps = {
   _logoAlt: "Newsletter",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme Newsletter",
   articles: [
     {

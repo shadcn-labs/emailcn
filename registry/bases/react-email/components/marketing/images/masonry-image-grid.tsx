@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
@@ -86,12 +87,9 @@ const TwoColumnMasonryThree_defaultSectionStyles = {
   imageHref1: "https://example.com",
   imageHref2: "https://example.com",
   imageHref3: "https://example.com",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-5.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-6.jpg",
-  imageSrc3:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-4.jpg",
+  imageSrc1: emailAsset("image-grids/2-col-landscape-5.jpg"),
+  imageSrc2: emailAsset("image-grids/2-col-landscape-6.jpg"),
+  imageSrc3: emailAsset("image-grids/2-col-portrait-4.jpg"),
   pageBackgroundColor: "#f1f5f9",
   subtext1: "Eco-Friendly",
   subtext2: "Sport & Travel",
@@ -464,8 +462,7 @@ const TwoColumnMasonryFour_defaults = {
   featureHeading: "Nemora",
   featureImageAlt: "",
   featureImageHref: "https://example.com",
-  featureImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-3.jpg",
+  featureImageSrc: emailAsset("image-grids/full-width-3.jpg"),
   featureSubtext: "Pants and shirts",
   headingColor: "#fffffe",
   landscapeHeading1: "Reckless",
@@ -474,18 +471,15 @@ const TwoColumnMasonryFour_defaults = {
   landscapeImageAlt2: "",
   landscapeImageHref1: "https://example.com",
   landscapeImageHref2: "https://example.com",
-  landscapeImageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
-  landscapeImageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape-2.jpg",
+  landscapeImageSrc1: emailAsset("image-grids/2-col-landscape.jpg"),
+  landscapeImageSrc2: emailAsset("image-grids/2-col-landscape-2.jpg"),
   landscapeSubtext1: "Accessories",
   landscapeSubtext2: "Shoes and accessories",
   pageBackgroundColor: "#f1f5f9",
   portraitHeading: "Omakase",
   portraitImageAlt: "",
   portraitImageHref: "https://example.com",
-  portraitImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-3.jpg",
+  portraitImageSrc: emailAsset("image-grids/2-col-portrait-3.jpg"),
   portraitSubtext: "T-shirts and sweats",
   textColor: "#fffffe",
 };
@@ -922,18 +916,15 @@ const ThreeColumnMasonry_defaults = {
   stackImageAlt2: "",
   stackImageHref1: "https://example.com",
   stackImageHref2: "https://example.com",
-  stackImageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack.jpg",
-  stackImageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack-2.jpg",
+  stackImageSrc1: emailAsset("image-grids/3-col-masonry-stack.jpg"),
+  stackImageSrc2: emailAsset("image-grids/3-col-masonry-stack-2.jpg"),
   stackSubtext1: "Ikura / Citrus Zest",
   stackSubtext2: "Yellowtail / Herb Dressing",
   textColor: "#fffffe",
   wideHeading: "Nigiri Selection",
   wideImageAlt: "",
   wideImageHref: "https://example.com",
-  wideImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry.jpg",
+  wideImageSrc: emailAsset("image-grids/3-col-masonry.jpg"),
   wideSubtext: "Premium Cuts / Seasonal Fish",
 };
 
@@ -1311,8 +1302,7 @@ const ThreeColumnMasonryFeature_defaults = {
   featureHeading: "Slope Lines",
   featureImageAlt: "",
   featureImageHref: "https://example.com",
-  featureImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-5.jpg",
+  featureImageSrc: emailAsset("image-grids/full-width-5.jpg"),
   featureSubtext: "Optical Ski Illustration",
   headingColor: "#fffffe",
   pageBackgroundColor: "#f1f5f9",
@@ -1322,18 +1312,15 @@ const ThreeColumnMasonryFeature_defaults = {
   stackImageAlt2: "",
   stackImageHref1: "https://example.com",
   stackImageHref2: "https://example.com",
-  stackImageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack-3.jpg",
-  stackImageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-stack-4.jpg",
+  stackImageSrc1: emailAsset("image-grids/3-col-masonry-stack-3.jpg"),
+  stackImageSrc2: emailAsset("image-grids/3-col-masonry-stack-4.jpg"),
   stackSubtext1: "Typography",
   stackSubtext2: "Fluid form",
   textColor: "#fffffe",
   wideHeading: "Mod Blocks",
   wideImageAlt: "",
   wideImageHref: "https://example.com",
-  wideImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-masonry-2.jpg",
+  wideImageSrc: emailAsset("image-grids/3-col-masonry-2.jpg"),
   wideSubtext: "Monochrome Geometric Pattern",
 };
 

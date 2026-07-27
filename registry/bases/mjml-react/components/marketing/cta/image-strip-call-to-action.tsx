@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -168,34 +169,30 @@ interface Cta_CTAWithImageStripProps {
 }
 
 const Cta_sharedAssets = {
-  imageSrc2: "https://emailcn.vercel.app/api/email-assets/cta/strip-2.jpg",
-  imageSrc4: "https://emailcn.vercel.app/api/email-assets/cta/strip-4.jpg",
-  imageSrc5: "https://emailcn.vercel.app/api/email-assets/cta/strip-5.jpg",
+  imageSrc2: emailAsset("cta/strip-2.jpg"),
+  imageSrc4: emailAsset("cta/strip-4.jpg"),
+  imageSrc5: emailAsset("cta/strip-5.jpg"),
 };
 
 const Cta_variantAssets = {
   "boxed-left": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-1.jpg",
-    imageSrc3:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-2.jpg",
+    imageSrc1: emailAsset("cta/strip-cut-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-cut-2.jpg"),
     ...Cta_sharedAssets,
   },
   "boxed-right": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-1.jpg",
-    imageSrc3:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-2.jpg",
+    imageSrc1: emailAsset("cta/strip-cut-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-cut-2.jpg"),
     ...Cta_sharedAssets,
   },
   "full-left": {
-    imageSrc1: "https://emailcn.vercel.app/api/email-assets/cta/strip-1.jpg",
-    imageSrc3: "https://emailcn.vercel.app/api/email-assets/cta/strip-3.jpg",
+    imageSrc1: emailAsset("cta/strip-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-3.jpg"),
     ...Cta_sharedAssets,
   },
   "full-right": {
-    imageSrc1: "https://emailcn.vercel.app/api/email-assets/cta/strip-1.jpg",
-    imageSrc3: "https://emailcn.vercel.app/api/email-assets/cta/strip-3.jpg",
+    imageSrc1: emailAsset("cta/strip-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-3.jpg"),
     ...Cta_sharedAssets,
   },
 } as const;

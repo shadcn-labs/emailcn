@@ -13,6 +13,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export const HeaderEmailShell = ({
@@ -116,7 +117,7 @@ export const HeaderWithUserDetailsSection = (
     initials: "JD",
     logoAlt: "Maizzle",
     logoHref: "https://example.com",
-    logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+    logoSrc: emailAsset("maizzle-insignia.png"),
     mutedTextColor: "#6b7280",
     ...props,
   };
@@ -131,8 +132,8 @@ export const HeaderWithUserDetailsSection = (
   const resolvedAvatar =
     avatarSrc ??
     (imageOnRight
-      ? "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg"
-      : "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg");
+      ? emailAsset("reviews/avatar.jpg")
+      : emailAsset("reviews/avatar-2.jpg"));
   const logo = (
     <MjmlColumn padding="0" verticalAlign="middle" width="15%">
       <HeaderLogo

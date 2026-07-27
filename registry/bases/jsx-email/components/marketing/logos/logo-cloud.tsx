@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type BasicLogoCloud_BasicLogoCloudVariant =
@@ -59,27 +60,27 @@ const BasicLogoCloud_responsiveStyles = `
 const BasicLogoCloud_defaultLogos = [
   {
     alt: "Stripe",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
+    src: emailAsset("logos/logo-stripe.png"),
     width: 57,
   },
   {
     alt: "Apple Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
+    src: emailAsset("logos/logo-apple-pay.png"),
     width: 60,
   },
   {
     alt: "Mastercard",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
+    src: emailAsset("logos/logo-mastercard.png"),
     width: 40,
   },
   {
     alt: "Visa",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
+    src: emailAsset("logos/logo-visa.png"),
     width: 50,
   },
   {
     alt: "Klarna",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-klarna.png",
+    src: emailAsset("logos/logo-klarna.png"),
     width: 70,
   },
 ];
@@ -314,19 +315,19 @@ const FeaturedLogoGrid_defaults = {
     "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
   featuredLogo: {
     alt: "Monarch",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-1.png",
+    src: emailAsset("logos/logo-mock-1.png"),
     width: 167,
   },
   pageBackgroundColor: "#f1f5f9",
   supportingLogos: [
     {
       alt: "Accentic",
-      src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-2.png",
+      src: emailAsset("logos/logo-mock-2.png"),
       width: 71,
     },
     {
       alt: "Amada",
-      src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-3.png",
+      src: emailAsset("logos/logo-mock-3.png"),
       width: 78,
     },
   ],
@@ -641,27 +642,27 @@ const BorderedLogoCloud_responsiveStyles = `
 const BorderedLogoCloud_defaultLogos = [
   {
     alt: "Stripe",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
+    src: emailAsset("logos/logo-stripe.png"),
     width: 57,
   },
   {
     alt: "Apple Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
+    src: emailAsset("logos/logo-apple-pay.png"),
     width: 60,
   },
   {
     alt: "Mastercard",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
+    src: emailAsset("logos/logo-mastercard.png"),
     width: 40,
   },
   {
     alt: "Visa",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
+    src: emailAsset("logos/logo-visa.png"),
     width: 50,
   },
   {
     alt: "Klarna",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-klarna.png",
+    src: emailAsset("logos/logo-klarna.png"),
     width: 70,
   },
 ];
@@ -1071,27 +1072,27 @@ const LogoCloud_responsiveStyles = `
 const LogoCloud_defaultLogos = [
   {
     alt: "Stripe",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
+    src: emailAsset("logos/logo-stripe.png"),
     width: 57,
   },
   {
     alt: "Apple Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
+    src: emailAsset("logos/logo-apple-pay.png"),
     width: 60,
   },
   {
     alt: "Mastercard",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
+    src: emailAsset("logos/logo-mastercard.png"),
     width: 40,
   },
   {
     alt: "Visa",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
+    src: emailAsset("logos/logo-visa.png"),
     width: 50,
   },
   {
     alt: "Klarna",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-klarna.png",
+    src: emailAsset("logos/logo-klarna.png"),
     width: 70,
   },
 ];
@@ -1457,32 +1458,32 @@ const LogosGrid_responsiveStyles = `
 const LogosGrid_defaultLogos = [
   {
     alt: "Stripe",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
+    src: emailAsset("logos/logo-stripe.png"),
     width: 57,
   },
   {
     alt: "Apple Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-apple-pay.png",
+    src: emailAsset("logos/logo-apple-pay.png"),
     width: 60,
   },
   {
     alt: "Mastercard",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mastercard.png",
+    src: emailAsset("logos/logo-mastercard.png"),
     width: 40,
   },
   {
     alt: "Visa",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
+    src: emailAsset("logos/logo-visa.png"),
     width: 50,
   },
   {
     alt: "Google Pay",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-google-pay.png",
+    src: emailAsset("logos/logo-google-pay.png"),
     width: 60,
   },
   {
     alt: "Klarna",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-klarna.png",
+    src: emailAsset("logos/logo-klarna.png"),
     width: 70,
   },
 ];

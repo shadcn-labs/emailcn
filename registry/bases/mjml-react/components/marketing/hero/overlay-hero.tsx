@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -263,16 +264,14 @@ interface AlignedHero_HeroAlignedOverlayProps {
   variant?: AlignedHero_HeroAlignedOverlayVariant;
 }
 
-const AlignedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const AlignedHero_variantImages: Record<
   AlignedHero_HeroAlignedOverlayVariant,
   string
 > = {
-  "content-left": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-1.png`,
-  "content-left-reversed": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-4.png`,
-  "content-right": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-2.png`,
-  "content-right-reversed": `${AlignedHero_assetRoot}/hero/aligned-overlay-bg-3.png`,
+  "content-left": emailAsset(`hero/aligned-overlay-bg-1.png`),
+  "content-left-reversed": emailAsset(`hero/aligned-overlay-bg-4.png`),
+  "content-right": emailAsset(`hero/aligned-overlay-bg-2.png`),
+  "content-right-reversed": emailAsset(`hero/aligned-overlay-bg-3.png`),
 };
 
 const AlignedHero_HeroAlignedOverlaySection = ({
@@ -289,7 +288,7 @@ const AlignedHero_HeroAlignedOverlaySection = ({
   imageSrc,
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${AlignedHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   textColor = "#f9fafb",
   variant = "content-left",
 }: Omit<AlignedHero_HeroAlignedOverlayProps, "theme">) => (
@@ -366,8 +365,6 @@ interface BlockHero_HeroBlockOverlayProps {
   variant?: BlockHero_HeroBlockOverlayVariant;
 }
 
-const BlockHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const BlockHero_HeroBlockOverlaySection = (
   props: Omit<BlockHero_HeroBlockOverlayProps, "theme">
 ) => {
@@ -390,7 +387,7 @@ const BlockHero_HeroBlockOverlaySection = (
     variant,
   } = {
     backgroundColor: "#030712",
-    backgroundImageSrc: `${BlockHero_assetRoot}/hero/block-overlay-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/block-overlay-bg.jpg`),
     buttonBackgroundColor: "#4f46e5",
     buttonTextColor: "#fffffe",
     ctaHref: "https://example.com",
@@ -401,7 +398,7 @@ const BlockHero_HeroBlockOverlaySection = (
     heading: "SumUp",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${BlockHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     overlayColor: "rgba(3, 7, 18, 0.8)",
     subheading: "Powering Modern Entrepreneurs",
     textColor: "#f9fafb",
@@ -492,11 +489,9 @@ interface BlockBleedHero_HeroBlockWithBleedProps {
   variant?: BlockBleedHero_HeroBlockWithBleedVariant;
 }
 
-const BlockBleedHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const BlockBleedHero_HeroBlockWithBleedSection = ({
   backgroundColor = "#030712",
-  backgroundImageSrc = `${BlockBleedHero_assetRoot}/hero/block-with-bleed-bg.jpg`,
+  backgroundImageSrc = emailAsset(`hero/block-with-bleed-bg.jpg`),
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
   ctaHref = "https://example.com",
@@ -506,7 +501,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = ({
   heading = "Preserve the planet we share",
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${BlockBleedHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   overlayColor = "rgba(3, 7, 18, 0.8)",
   subheading = "Take action today.",
   textColor = "#f9fafb",
@@ -587,11 +582,9 @@ interface GradientHero_HeroWithOverlayGradientProps {
   variant?: GradientHero_HeroWithOverlayGradientVariant;
 }
 
-const GradientHero_assetRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const GradientHero_HeroWithOverlayGradientSection = ({
   backgroundColor = "#030712",
-  backgroundImageSrc = `${GradientHero_assetRoot}/hero/overlay-gradient-bg.jpg`,
+  backgroundImageSrc = emailAsset(`hero/overlay-gradient-bg.jpg`),
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
   ctaHref = "https://example.com",
@@ -601,7 +594,7 @@ const GradientHero_HeroWithOverlayGradientSection = ({
   heading = "Forclaz 50L",
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${GradientHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   overlayColor = "rgba(3, 7, 18, 0.6)",
   price = "Starts at $129.99",
   subheading = "Easyfit Version",

@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type ProductListVariant =
@@ -40,8 +41,6 @@ export interface ProductListItem {
   reviewCount?: number;
   href?: string;
 }
-
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -114,7 +113,9 @@ const Rating = ({
                   <Column key={index} style={{ paddingRight: "4px" }}>
                     <Img
                       alt=""
-                      src={`${ASSET_ROOT}/icon-star-${index === 4 && !allSolid ? "half" : "solid"}.png`}
+                      src={emailAsset(
+                        `icon-star-${index === 4 && !allSolid ? "half" : "solid"}.png`
+                      )}
                       style={{ display: "block" }}
                       width="16"
                     />
@@ -278,7 +279,7 @@ const Discover = ({ href }: { href: string }) => (
       <span>
         <Img
           alt=""
-          src={`${ASSET_ROOT}/icon-arrow-right-indigo.png`}
+          src={emailAsset(`icon-arrow-right-indigo.png`)}
           style={{
             maxWidth: "100%",
             verticalAlign: "baseline",
@@ -296,7 +297,7 @@ const defaultProducts: ProductListItem[] = [
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort...",
     details: "Black, White, Gray +5 more | S,M,L,XL",
     href: "https://example.com/thsirts",
-    imageUrl: `${ASSET_ROOT}/product-lists/product-list-1.jpg`,
+    imageUrl: emailAsset(`product-lists/product-list-1.jpg`),
     name: "Stark Graphic T",
     price: "$9.99",
     reviewCount: 18,
@@ -304,7 +305,7 @@ const defaultProducts: ProductListItem[] = [
   {
     details: "Black, White, Gray +5 more | S,M,L,XL",
     href: "https://example.com",
-    imageUrl: `${ASSET_ROOT}/product-lists/product-list-2.jpg`,
+    imageUrl: emailAsset(`product-lists/product-list-2.jpg`),
     name: "Intricate Lifestyle Cotton T",
     price: "$9.99",
     reviewCount: 42,

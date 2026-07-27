@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type CouponsWithCenteredTextVariant =
@@ -59,11 +60,9 @@ const responsiveStyles = `
 `;
 
 const defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
+  arrowIconSrc: emailAsset("icon-arrow-right.png"),
   backgroundColor: "#fffffe",
-  backgroundImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
+  backgroundImageSrc: emailAsset("coupons/pattern.png"),
   buttonBackgroundColor: "#4f46e5",
   buttonColor: "#fffffe",
   buttonHref: "https://example.com",

@@ -16,6 +16,7 @@ import type { ReactNode, CSSProperties } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type AppStoreFooter_FooterWithAppStoreButtonsVariant =
@@ -61,7 +62,7 @@ const AppStoreFooter_AppButtons = ({
           <Link href="https://www.apple.com/app-store/">
             <Img
               alt="Download on the App Store"
-              src="https://emailcn.vercel.app/api/email-assets/badge-app-store.png"
+              src={emailAsset("badge-app-store.png")}
               style={{ maxWidth: "100%", verticalAlign: "middle" }}
               width={120}
             />
@@ -72,7 +73,7 @@ const AppStoreFooter_AppButtons = ({
           <Link href="https://play.google.com/store/apps">
             <Img
               alt="Get it on Google Play"
-              src="https://emailcn.vercel.app/api/email-assets/badge-google-play.png"
+              src={emailAsset("badge-google-play.png")}
               style={{ maxWidth: "100%", verticalAlign: "middle" }}
               width={135}
             />
@@ -434,7 +435,7 @@ const BackgroundFooter_Socials = ({ dark = false }: { dark?: boolean }) => (
             <Link href={href}>
               <Img
                 alt={label}
-                src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}${dark ? "-dark" : ""}.png`}
+                src={emailAsset(`icon-${icon}${dark ? "-dark" : ""}.png`)}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
@@ -643,7 +644,7 @@ const BackgroundFooter_ImageCta = ({
                         Visit website&nbsp;&nbsp;
                         <Img
                           alt=""
-                          src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
+                          src={emailAsset("icon-arrow-right.png")}
                           style={{
                             maxWidth: "100%",
                             verticalAlign: "baseline",
@@ -948,9 +949,9 @@ const BackgroundFooter_TopImageFooterContent = ({
 const BackgroundFooter_FooterWithBackgroundImageSection = ({
   variant = "bottom-image-content",
   logoPosition = "left",
-  bottomImageSrc = "https://emailcn.vercel.app/api/email-assets/footers/bg-image-1.jpg",
-  topImageSrc = "https://emailcn.vercel.app/api/email-assets/footers/bg-image-2.jpg",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  bottomImageSrc = emailAsset("footers/bg-image-1.jpg"),
+  topImageSrc = emailAsset("footers/bg-image-2.jpg"),
+  logoSrc = emailAsset("maizzle-insignia.png"),
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
   primaryColor = "#4f46e5",
@@ -1223,7 +1224,7 @@ const LocationsFooter_SocialLinks = () => (
             <Link href={href}>
               <Img
                 alt={label}
-                src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
+                src={emailAsset(`${icon}`)}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
@@ -1238,7 +1239,7 @@ const LocationsFooter_SocialLinks = () => (
 const LocationsFooter_FooterWithCompanyLocationsSection = ({
   variant = "stacked",
   locations,
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc = emailAsset("maizzle-insignia.png"),
   logoAlt = "Maizzle",
   logoHref = "https://example.com",
   pageBackgroundColor = "#f1f5f9",
@@ -1592,27 +1593,27 @@ const LegalFooter_defaults = {
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
+      iconSrc: emailAsset("icon-facebook.png"),
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+      iconSrc: emailAsset("icon-github.png"),
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+      iconSrc: emailAsset("icon-linkedin.png"),
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
+      iconSrc: emailAsset("icon-youtube.png"),
       label: "YouTube",
     },
     {
       href: "https://x.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
+      iconSrc: emailAsset("icon-x.png"),
       label: "X",
     },
   ],
@@ -1896,33 +1897,33 @@ const AddressFooter_defaults = {
   legalText: "We're sending you this because you subscribed.",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
+      iconSrc: emailAsset("icon-facebook.png"),
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+      iconSrc: emailAsset("icon-github.png"),
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+      iconSrc: emailAsset("icon-linkedin.png"),
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
+      iconSrc: emailAsset("icon-youtube.png"),
       label: "YouTube",
     },
     {
       href: "https://x.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
+      iconSrc: emailAsset("icon-x.png"),
       label: "X",
     },
   ],
@@ -2286,33 +2287,33 @@ const SimpleSocialFooter_defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   socials: [
     {
       href: "https://facebook.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
+      iconSrc: emailAsset("icon-facebook.png"),
       label: "Facebook",
     },
     {
       href: "https://github.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+      iconSrc: emailAsset("icon-github.png"),
       label: "GitHub",
     },
     {
       href: "https://linkedin.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+      iconSrc: emailAsset("icon-linkedin.png"),
       label: "LinkedIn",
     },
     {
       href: "https://youtube.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
+      iconSrc: emailAsset("icon-youtube.png"),
       label: "YouTube",
     },
     {
       href: "https://x.com",
-      iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
+      iconSrc: emailAsset("icon-x.png"),
       label: "X",
     },
   ],

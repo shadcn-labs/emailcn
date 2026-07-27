@@ -14,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -167,10 +168,10 @@ interface Cta_CTAWithTeamAvatarsProps {
 }
 
 const Cta_avatarSources = [
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg",
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-4.jpg",
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-5.jpg",
+  emailAsset("reviews/avatar-2.jpg"),
+  emailAsset("reviews/avatar.jpg"),
+  emailAsset("reviews/avatar-4.jpg"),
+  emailAsset("reviews/avatar-5.jpg"),
 ] as const;
 
 const Cta_variantContent = {

@@ -16,12 +16,10 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type AvatarAlignment = "center" | "left" | "right";
-
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -49,7 +47,7 @@ const AvatarShell = ({ children }: { children: ReactNode }) => (
 
 const AvatarWithDetailsSection = ({
   align = "center",
-  avatarUrl = `${ASSET_ROOT}/avatar-2.jpg`,
+  avatarUrl = emailAsset(`reviews/avatar-2.jpg`),
   email = "johnadams@example.com",
   mjmlCompensation = false,
   name = "John Adams",
@@ -157,7 +155,7 @@ const Avatar_AvatarWithDetails = ({
 
 Avatar_AvatarWithDetails.PreviewProps = {
   align: "center",
-  avatarUrl: "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
+  avatarUrl: emailAsset("reviews/avatar-2.jpg"),
   email: "johnadams@example.com",
   name: "John Adams",
   theme: defaultTheme,

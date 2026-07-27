@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type TwoColumnGrid_TwoColumnsImageGridVariant =
@@ -78,34 +79,26 @@ const TwoColumnGrid_responsiveStyles = `
 
 const TwoColumnGrid_variantContent = {
   "portrait-images": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-2.jpg",
+    imageSrc1: emailAsset("image-grids/2-col-portrait.jpg"),
+    imageSrc2: emailAsset("image-grids/2-col-portrait-2.jpg"),
     overlay: false,
     portrait: true,
   },
   "portrait-overlay": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-portrait-2.jpg",
+    imageSrc1: emailAsset("image-grids/2-col-portrait.jpg"),
+    imageSrc2: emailAsset("image-grids/2-col-portrait-2.jpg"),
     overlay: true,
     portrait: true,
   },
   "square-images": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square-2.jpg",
+    imageSrc1: emailAsset("image-grids/2-col-square.jpg"),
+    imageSrc2: emailAsset("image-grids/2-col-square-2.jpg"),
     overlay: false,
     portrait: false,
   },
   "square-overlay": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-square-2.jpg",
+    imageSrc1: emailAsset("image-grids/2-col-square.jpg"),
+    imageSrc2: emailAsset("image-grids/2-col-square-2.jpg"),
     overlay: true,
     portrait: false,
   },
@@ -458,15 +451,15 @@ const ThreeColumnGrid_responsiveStyles = `
   `;
 
 const ThreeColumnGrid_squareImages = [
-  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square.jpg",
-  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-2.jpg",
-  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-square-3.jpg",
+  emailAsset("image-grids/3-col-square.jpg"),
+  emailAsset("image-grids/3-col-square-2.jpg"),
+  emailAsset("image-grids/3-col-square-3.jpg"),
 ] as const;
 
 const ThreeColumnGrid_portraitImages = [
-  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait.jpg",
-  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-2.jpg",
-  "https://emailcn.vercel.app/api/email-assets/image-grids/3-col-portrait-3.jpg",
+  emailAsset("image-grids/3-col-portrait.jpg"),
+  emailAsset("image-grids/3-col-portrait-2.jpg"),
+  emailAsset("image-grids/3-col-portrait-3.jpg"),
 ] as const;
 
 const ThreeColumnGrid_variantContent = {

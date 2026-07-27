@@ -15,6 +15,7 @@ import {
   Text,
 } from "jsx-email";
 
+import { emailAsset } from "@/registry/email-assets";
 import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
@@ -157,8 +158,8 @@ export const NotificationLinear = ({
 
 NotificationLinear.PreviewProps = {
   _action: "commented on",
-  _actorAvatarUrl: "https://example.com/avatar.jpg",
-  _logoUrl: "https://example.com/logo.png",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Linear",
   _targetName: "Bug in login flow",
   actorName: "Sarah",

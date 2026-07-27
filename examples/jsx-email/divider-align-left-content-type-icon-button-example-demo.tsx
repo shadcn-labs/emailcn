@@ -1,4 +1,5 @@
 import { Divider } from "@/registry/bases/jsx-email/components/ui-elements/spacing/divider";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function DividerAlignLeftContentTypeIconButtonExampleDemo() {
   return (
@@ -6,8 +7,7 @@ export default function DividerAlignLeftContentTypeIconButtonExampleDemo() {
       align="left"
       content={{
         action: { href: "https://example.com", label: "Continue" },
-        iconSrc:
-          "https://emailcn.vercel.app/api/email-assets/logos/logo-stripe.png",
+        iconSrc: emailAsset("logos/logo-stripe.png"),
         type: "icon-button",
       }}
     />

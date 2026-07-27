@@ -16,6 +16,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type ImageGridHero_HeroWithImageGridVariant =
@@ -76,7 +77,7 @@ const ImageGridHero_responsiveStyles = `
 const ImageGridHero_regularImages: ImageGridHero_HeroWithImageGridImage[] =
   Array.from({ length: 7 }, (_, index) => ({
     alt: `Image ${index + 1}`,
-    src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${index + 1}.jpg`,
+    src: emailAsset(`hero/mosaic-${index + 1}.jpg`),
   }));
 
 const ImageGridHero_offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
@@ -84,7 +85,7 @@ const ImageGridHero_offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
 const ImageGridHero_offsetImages: ImageGridHero_HeroWithImageGridImage[] =
   ImageGridHero_offsetImageNumbers.map((imageNumber, index) => ({
     alt: `Image ${index + 1}`,
-    src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${imageNumber}.jpg`,
+    src: emailAsset(`hero/mosaic-${imageNumber}.jpg`),
   }));
 
 const ImageGridHero_Spacer = ({ height }: { height: number }) => (
@@ -267,7 +268,7 @@ const ImageGridHero_HeroWithImageGridSection = ({
             <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
             <Img
               alt=""
-              src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
+              src={emailAsset("icon-arrow-right.png")}
               width="12"
               style={{
                 display: "inline-block",
@@ -294,7 +295,7 @@ const ImageGridHero_HeroWithImageGrid = ({
   images = [],
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
+  logoSrc = emailAsset("emailcn-logo.png"),
   pageBackgroundColor = "#f1f5f9",
   subheading = "The evolution of the sneaker",
   theme = defaultTheme,
@@ -358,7 +359,7 @@ ImageGridHero_HeroWithImageGrid.PreviewProps = {
   images: [],
   logoAlt: "emailcn",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
+  logoSrc: emailAsset("emailcn-logo.png"),
   pageBackgroundColor: "#f1f5f9",
   subheading: "The evolution of the sneaker",
   theme: defaultTheme,

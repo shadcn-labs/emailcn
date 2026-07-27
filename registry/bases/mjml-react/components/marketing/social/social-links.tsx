@@ -14,6 +14,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type SocialLinksContent = "full" | "lead" | "title" | "minimal";
@@ -46,7 +47,7 @@ const SimpleSocials_defaultItems: SimpleSocials_SimpleSocialLogoItem[] = [
 ].map(([alt, file]) => ({
   alt,
   href: "https://example.com",
-  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+  src: emailAsset(`social/${file}`),
 }));
 
 const SimpleSocials_SimpleSocialLogosRowSection = ({
@@ -175,7 +176,7 @@ const SocialLogos_defaultItems: SocialLogos_SocialLogoItem[] = [
 ].map(([alt, file]) => ({
   alt,
   href: "https://example.com",
-  src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+  src: emailAsset(`social/${file}`),
 }));
 
 const SocialLogos_SocialLogosSection = ({
@@ -308,7 +309,7 @@ const SocialLabels_makeItems = (
     alt: label,
     href: "https://example.com",
     label,
-    src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+    src: emailAsset(`social/${file}`),
   }));
 
 const SocialLabels_stackedItems = SocialLabels_makeItems([
@@ -463,7 +464,7 @@ const SocialTileLabels_makeItems = (
     alt: label,
     href: "https://example.com",
     label,
-    src: `https://emailcn.vercel.app/api/email-assets/social/${file}`,
+    src: emailAsset(`social/${file}`),
   }));
 
 const SocialTileLabels_stackedItems = SocialTileLabels_makeItems([

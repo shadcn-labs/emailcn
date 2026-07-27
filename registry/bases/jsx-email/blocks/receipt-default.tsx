@@ -17,6 +17,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface ProductCardProps {
@@ -307,13 +308,13 @@ ReceiptDefault.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/product1.jpg",
+      imageUrl: emailAsset("products/product-1.jpg"),
       name: "Premium Sneakers",
       price: "$149.00",
       quantity: 1,
     },
     {
-      imageUrl: "https://example.com/product2.jpg",
+      imageUrl: emailAsset("products/product-2.jpg"),
       name: "Running Socks",
       price: "$25.00",
       quantity: 2,

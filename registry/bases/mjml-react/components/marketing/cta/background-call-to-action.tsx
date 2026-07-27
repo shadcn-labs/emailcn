@@ -13,6 +13,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -157,8 +158,7 @@ interface BackgroundCta_CTAWithBackgroundImageProps {
 
 const BackgroundCta_variantContent = {
   boxed: {
-    backgroundSrc:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-2.jpg",
+    backgroundSrc: emailAsset("cta/cta-bg-2.jpg"),
     ctaLabel: "Sign up now",
     emphasis: "",
     heading: "Your upgrade starts here!",
@@ -167,8 +167,7 @@ const BackgroundCta_variantContent = {
       "Step into the next generation of innovation. Sleek design, pro-level performance, and features that keep you ahead of the curve.",
   },
   flush: {
-    backgroundSrc:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-1.jpg",
+    backgroundSrc: emailAsset("cta/cta-bg-1.jpg"),
     ctaLabel: "Shop gear now",
     emphasis: "",
     heading: "Ready for your next summit?",
@@ -177,8 +176,7 @@ const BackgroundCta_variantContent = {
       "Gear up with performance equipment built for the climb. From durable packs to weatherproof layers, everything you need to take on the wild with confidence.",
   },
   padded: {
-    backgroundSrc:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-3.jpg",
+    backgroundSrc: emailAsset("cta/cta-bg-3.jpg"),
     ctaLabel: "Plan your trip",
     emphasis: "Book your next getaway and enjoy 20% off with code.",
     heading: "Your island escape awaits!",
@@ -289,7 +287,7 @@ interface BoxedBackgroundCta_BoxedCTAWithBackgroundImageProps {
 }
 
 const BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection = ({
-  backgroundImageSrc = "https://emailcn.vercel.app/api/email-assets/cta/cta-bg-glow.png",
+  backgroundImageSrc = emailAsset("cta/cta-bg-glow.png"),
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#f8fafc",
   ctaHref = "https://example.com/",

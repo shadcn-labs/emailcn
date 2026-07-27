@@ -13,6 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
@@ -69,7 +70,7 @@ export const AuthPasswordResetDefault = ({
 
 AuthPasswordResetDefault.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

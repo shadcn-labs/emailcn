@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type CtaBundle_CTAWithTitleAndActionLeadVariant =
@@ -48,8 +49,7 @@ interface CtaBundle_CTAWithTitleAndActionLeadProps {
 const CtaBundle_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const CtaBundle_arrowSrc =
-  "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png";
+const CtaBundle_arrowSrc = emailAsset("icon-arrow-right.png");
 
 const CtaBundle_responsiveStyles = `
     @media only screen and (max-width: 430px) {

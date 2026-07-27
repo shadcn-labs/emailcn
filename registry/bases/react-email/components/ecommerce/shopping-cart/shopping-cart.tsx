@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type ShoppingCartVariant =
@@ -40,8 +41,6 @@ export interface ShoppingCartItem {
   size?: string;
 }
 
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -63,7 +62,7 @@ const defaultItems: ShoppingCartItem[] = [
     description:
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort...",
     editHref: "https://example.com/cart/edit",
-    imageUrl: `${ASSET_ROOT}/shopping-cart/shopping-cart-1.jpg`,
+    imageUrl: emailAsset(`shopping-cart/shopping-cart-1.jpg`),
     name: "Bio Bamboo Indigo Shirt",
     price: "$9.99",
     quantity: 2,
@@ -74,7 +73,7 @@ const defaultItems: ShoppingCartItem[] = [
     description:
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort...",
     editHref: "https://example.com/cart/edit",
-    imageUrl: `${ASSET_ROOT}/shopping-cart/shopping-cart-2.jpg`,
+    imageUrl: emailAsset(`shopping-cart/shopping-cart-2.jpg`),
     name: "Bio Bamboo Earth Shirt",
     price: "$9.99",
     quantity: 2,
@@ -85,7 +84,7 @@ const defaultItems: ShoppingCartItem[] = [
     description:
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort...",
     editHref: "https://example.com/cart/edit",
-    imageUrl: `${ASSET_ROOT}/shopping-cart/shopping-cart-3.jpg`,
+    imageUrl: emailAsset(`shopping-cart/shopping-cart-3.jpg`),
     name: "Bio Bamboo Natural Shirt",
     price: "$9.99",
     quantity: 1,
@@ -96,7 +95,7 @@ const defaultItems: ShoppingCartItem[] = [
     description:
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort...",
     editHref: "https://example.com/cart/edit",
-    imageUrl: `${ASSET_ROOT}/shopping-cart/shopping-cart-4.jpg`,
+    imageUrl: emailAsset(`shopping-cart/shopping-cart-4.jpg`),
     name: "Bio Bamboo Basic Shirt",
     price: "$9.99",
     quantity: 3,
@@ -138,7 +137,7 @@ const EditLink = ({ align, href }: { align?: "right"; href: string }) => (
       <span style={msoRaise6}>
         <Img
           alt=""
-          src={`${ASSET_ROOT}/icon-edit-indigo.png`}
+          src={emailAsset(`icon-edit-indigo.png`)}
           style={{
             maxWidth: "100%",
             verticalAlign: "text-top",

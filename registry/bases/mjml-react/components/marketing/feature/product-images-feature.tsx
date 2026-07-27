@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -164,7 +165,7 @@ const Feature_FeatureWithMultipleProductImagesSection = (
     largeImageAlt: "Product Image 1",
     linkColor: "#4f46e5",
     logoAlt: "Visa",
-    logoSrc: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
+    logoSrc: emailAsset("logos/logo-visa.png"),
     middleImageAlt: "Product Image 2",
     smallImageAlt: "Product Image 3",
     textColor: "#4b5563",
@@ -179,30 +180,18 @@ const Feature_FeatureWithMultipleProductImagesSection = (
           body ??
           "Accepting cards should be quick, secure, and seamless. Discover our tools that simplify every transaction.",
         heading: heading ?? "Built for the journey ahead.",
-        large:
-          largeImageSrc ??
-          "https://emailcn.vercel.app/api/email-assets/feature/feature-2-lg.jpg",
-        middle:
-          middleImageSrc ??
-          "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
-        small:
-          smallImageSrc ??
-          "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
+        large: largeImageSrc ?? emailAsset("feature/feature-2-lg.jpg"),
+        middle: middleImageSrc ?? emailAsset("feature/feature-2-sm.jpg"),
+        small: smallImageSrc ?? emailAsset("feature/feature-2-sm.jpg"),
       }
     : {
         body:
           body ??
           "Explore durable layers that balance insulation, breathability, and all-day comfort.",
         heading: heading ?? "Outdoor essentials redefined.",
-        large:
-          largeImageSrc ??
-          "https://emailcn.vercel.app/api/email-assets/feature/feature-2-lg-2.jpg",
-        middle:
-          middleImageSrc ??
-          "https://emailcn.vercel.app/api/email-assets/feature/feature-2-md.jpg",
-        small:
-          smallImageSrc ??
-          "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm-2.jpg",
+        large: largeImageSrc ?? emailAsset("feature/feature-2-lg-2.jpg"),
+        middle: middleImageSrc ?? emailAsset("feature/feature-2-md.jpg"),
+        small: smallImageSrc ?? emailAsset("feature/feature-2-sm-2.jpg"),
       };
   const artwork = (
     <MjmlColumn padding="0" verticalAlign="top" width="50%">

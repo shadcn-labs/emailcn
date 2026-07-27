@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -139,11 +140,11 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = ({
   buttonLabel = "Discover more",
   heading = "Discover the Monarch Collection.",
   headingColor = "#030712",
-  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-1.jpg",
-  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-2.jpg",
+  imageSrc1 = emailAsset("feature/stripes-bg-1.jpg"),
+  imageSrc2 = emailAsset("feature/stripes-bg-2.jpg"),
   linkColor = "#4f46e5",
   logoAlt = "Monarch",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-1.png",
+  logoSrc = emailAsset("feature/logo-stripes-1.png"),
   textColor = "#4b5563",
   variant = "logo-top-left",
 }: Omit<
@@ -204,11 +205,7 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = ({
         alt=""
         borderRadius="4px"
         padding="0"
-        src={
-          contentRight
-            ? "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-3.jpg"
-            : imageSrc2
-        }
+        src={contentRight ? emailAsset("feature/stripes-bg-3.jpg") : imageSrc2}
         width="132px"
       />
     </MjmlColumn>,
@@ -280,11 +277,11 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = ({
   buttonLabel = "Discover more",
   heading = "Science-led skincare essentials.",
   headingColor = "#030712",
-  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-4.jpg",
-  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-5.jpg",
+  imageSrc1 = emailAsset("feature/stripes-bg-4.jpg"),
+  imageSrc2 = emailAsset("feature/stripes-bg-5.jpg"),
   linkColor = "#4f46e5",
   logoAlt = "Monarch",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-2.png",
+  logoSrc = emailAsset("feature/logo-stripes-2.png"),
   textColor = "#4b5563",
   variant = "logo-bottom-left",
 }: Omit<

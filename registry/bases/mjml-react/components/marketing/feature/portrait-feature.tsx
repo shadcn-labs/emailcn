@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -163,8 +164,7 @@ const Feature_FeatureWithLargePortraitImageSection = (
     headingColor: "#030712",
     linkColor: "#4f46e5",
     logoAlt: "The North Face",
-    logoSrc:
-      "https://emailcn.vercel.app/api/email-assets/feature/logo-north-face.png",
+    logoSrc: emailAsset("feature/logo-north-face.png"),
     portraitImageAlt: "Product Image",
     secondaryImageAlt: "Product Image 2",
     textColor: "#4b5563",
@@ -185,13 +185,13 @@ const Feature_FeatureWithLargePortraitImageSection = (
         portrait:
           portraitImageSrc ??
           (variant.startsWith("content-top-")
-            ? "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-3.jpg"
-            : "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-2.jpg"),
+            ? emailAsset("feature/feature-3-lg-3.jpg")
+            : emailAsset("feature/feature-3-lg-2.jpg")),
         secondary:
           secondaryImageSrc ??
           (variant.startsWith("content-top-")
-            ? "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-2.jpg"
-            : "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg"),
+            ? emailAsset("feature/feature-3-sm-2.jpg")
+            : emailAsset("feature/feature-3-sm-1.jpg")),
       };
     }
     return {
@@ -199,12 +199,8 @@ const Feature_FeatureWithLargePortraitImageSection = (
         body ??
         "Find advanced outerwear engineered to handle wind, rain, and sudden shifts in the elements.",
       heading: heading ?? "Explore without limits.",
-      portrait:
-        portraitImageSrc ??
-        "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-1.jpg",
-      secondary:
-        secondaryImageSrc ??
-        "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
+      portrait: portraitImageSrc ?? emailAsset("feature/feature-3-lg-1.jpg"),
+      secondary: secondaryImageSrc ?? emailAsset("feature/feature-3-sm-1.jpg"),
     };
   })();
   const media = (

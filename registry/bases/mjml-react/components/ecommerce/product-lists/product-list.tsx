@@ -17,6 +17,7 @@ import {
 import { Fragment } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type ProductListVariant =
@@ -40,8 +41,6 @@ export interface ProductListItem {
   href?: string;
 }
 
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -53,7 +52,7 @@ const defaultProducts: ProductListItem[] = [
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort...",
     details: "Black, White, Gray +5 more | S,M,L,XL",
     href: "https://example.com/thsirts",
-    imageUrl: `${ASSET_ROOT}/product-lists/product-list-1.jpg`,
+    imageUrl: emailAsset(`product-lists/product-list-1.jpg`),
     name: "Stark Graphic T",
     price: "$9.99",
     reviewCount: 18,
@@ -61,7 +60,7 @@ const defaultProducts: ProductListItem[] = [
   {
     details: "Black, White, Gray +5 more | S,M,L,XL",
     href: "https://example.com",
-    imageUrl: `${ASSET_ROOT}/product-lists/product-list-2.jpg`,
+    imageUrl: emailAsset(`product-lists/product-list-2.jpg`),
     name: "Intricate Lifestyle Cotton T",
     price: "$9.99",
     reviewCount: 42,

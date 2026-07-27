@@ -16,6 +16,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface TwoColumnPricing_PricingPlanFeature {
@@ -190,7 +191,9 @@ const TwoColumnPricing_PlanCard = ({
                   >
                     <Img
                       alt=""
-                      src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                      src={emailAsset(
+                        `icon-check-${feature.muted ? "muted" : "brand"}.png`
+                      )}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={16}
                     />
@@ -513,7 +516,9 @@ const SinglePricing_FullWidthSinglePricingSection = ({
                                   >
                                     <Img
                                       alt=""
-                                      src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                                      src={emailAsset(
+                                        `icon-check-${feature.muted ? "muted" : "brand"}.png`
+                                      )}
                                       style={{
                                         maxWidth: "100%",
                                         verticalAlign: "middle",

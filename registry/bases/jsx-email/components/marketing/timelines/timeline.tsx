@@ -15,6 +15,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type CardsTimeline_CardsTimelineVariant =
@@ -51,7 +52,7 @@ const CardsTimeline_CardsTimelineSection = (
     date: "Monday",
     description: "Description of event",
     imageAlt: "One workspace. Every team.",
-    imageSrc: "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
+    imageSrc: emailAsset("timelines/cards.jpg"),
     title: "Miles traveled",
     variant: "default",
     ...props,
@@ -144,7 +145,9 @@ const CardsTimeline_CardsTimelineSection = (
                                               {withCheck ? (
                                                 <Img
                                                   alt=""
-                                                  src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
+                                                  src={emailAsset(
+                                                    "timelines/icon-check.png"
+                                                  )}
                                                   style={{
                                                     marginBottom: "1px",
                                                   }}
@@ -903,7 +906,9 @@ const SplitTimeline_EventCard = ({
                                   {accent ? (
                                     <Img
                                       alt=""
-                                      src="https://emailcn.vercel.app/api/email-assets/timelines/icon-check.png"
+                                      src={emailAsset(
+                                        "timelines/icon-check.png"
+                                      )}
                                       style={{ marginBottom: "1px" }}
                                       width="8"
                                     />
@@ -993,7 +998,7 @@ const SplitTimeline_SplitCardsSection = ({
   date = "Monday",
   description = "Description of event",
   imageAlt = "Placeholder image",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
+  imageSrc = emailAsset("timelines/cards.jpg"),
   index = "01",
   label = "Miles traveled",
   title = "Miles traveled",

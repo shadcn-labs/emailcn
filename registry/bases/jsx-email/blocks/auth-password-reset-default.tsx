@@ -13,6 +13,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
@@ -111,7 +112,7 @@ export const AuthPasswordResetDefault = ({
 
 AuthPasswordResetDefault.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

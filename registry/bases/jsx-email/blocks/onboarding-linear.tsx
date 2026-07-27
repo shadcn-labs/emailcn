@@ -17,6 +17,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 import { linearTheme } from "@/registry/themes/linear";
 
@@ -492,7 +493,7 @@ export const OnboardingLinear = ({
 OnboardingLinear.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Linear",
-  _senderAvatarUrl: "https://example.com/avatar.jpg",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Linear Team",
   _senderTitle: "Team",
   ctaHref: "https://linear.app",

@@ -17,10 +17,8 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
-
-const BENTO_ASSET_ROOT =
-  "https://emailcn.vercel.app/api/email-assets/bento-grids";
 
 const BENTO_CHART_ROOT = "https://emailcn.vercel.app/email-assets/bento-grids";
 
@@ -744,7 +742,7 @@ const TwoThirdsStatsGrid = (
       title: "Low latency. High reliability.",
     },
     imageAlt: "",
-    imageSrc: `${BENTO_ASSET_ROOT}/bento-1.jpg`,
+    imageSrc: emailAsset(`bento-grids/bento-1.jpg`),
     metric: {
       change: "25%",
       period: "/month",
@@ -788,7 +786,7 @@ const EvenSplitStatsGrid = (
           title: "Low latency. High reliability.",
         },
     imageAlt: "",
-    imageSrc: `${BENTO_ASSET_ROOT}/${text ? "bento-4" : "bento-3"}.jpg`,
+    imageSrc: emailAsset(`bento-grids/${text ? "bento-4" : "bento-3"}.jpg`),
     metric: text ? textMetric : chartMetric,
     stat: defaultStat,
   };
@@ -817,7 +815,7 @@ const ThreeColumnStatsGrid = (
   const text = props.style === "text";
   const defaults = {
     imageAlt: "",
-    imageSrc: `${BENTO_ASSET_ROOT}/${text ? "bento-5" : "bento-2"}.jpg`,
+    imageSrc: emailAsset(`bento-grids/${text ? "bento-5" : "bento-2"}.jpg`),
     metric: text ? textMetric : chartMetric,
     stats: threeStats,
   };

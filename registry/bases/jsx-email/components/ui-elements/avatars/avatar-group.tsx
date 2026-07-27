@@ -11,6 +11,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
@@ -20,16 +21,14 @@ interface InternalAvatarItem {
   url?: string;
 }
 
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets/reviews";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
 const defaultAvatars: InternalAvatarItem[] = [
-  { name: "John Adams", url: `${ASSET_ROOT}/avatar-2.jpg` },
-  { name: "Sarah Wilson", url: `${ASSET_ROOT}/avatar.jpg` },
-  { name: "Michael Chen", url: `${ASSET_ROOT}/avatar-4.jpg` },
-  { name: "Emily Davis", url: `${ASSET_ROOT}/avatar-5.jpg` },
+  { name: "John Adams", url: emailAsset(`reviews/avatar-2.jpg`) },
+  { name: "Sarah Wilson", url: emailAsset(`reviews/avatar.jpg`) },
+  { name: "Michael Chen", url: emailAsset(`reviews/avatar-4.jpg`) },
+  { name: "Emily Davis", url: emailAsset(`reviews/avatar-5.jpg`) },
 ];
 
 const avatarSizes: Record<

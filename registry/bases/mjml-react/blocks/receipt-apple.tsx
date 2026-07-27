@@ -1,6 +1,7 @@
 // Subject: Your receipt from Apple
 
 import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
@@ -48,7 +49,7 @@ ReceiptApple.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://static.photos/technology/640x640/2",
+      imageUrl: emailAsset("products/product-1.jpg"),
       name: "iPhone 15 Pro",
       price: "$999.00",
       quantity: 1,

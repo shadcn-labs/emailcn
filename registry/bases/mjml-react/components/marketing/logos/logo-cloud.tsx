@@ -13,6 +13,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type BasicLogoCloud_BasicLogoCloudVariant =
@@ -48,7 +49,7 @@ const BasicLogoCloud_defaultLogos = [
   ["Klarna", "logo-klarna.png", 70],
 ].map(([alt, file, width]) => ({
   alt: String(alt),
-  src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
+  src: emailAsset(`logos/${file}`),
   width: Number(width),
 }));
 
@@ -187,19 +188,19 @@ const FeaturedLogoGrid_fontFamily =
 
 const FeaturedLogoGrid_defaultFeaturedLogo = {
   alt: "Monarch",
-  src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-1.png",
+  src: emailAsset("logos/logo-mock-1.png"),
   width: 167,
 };
 
 const FeaturedLogoGrid_defaultSupportingLogos = [
   {
     alt: "Accentic",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-2.png",
+    src: emailAsset("logos/logo-mock-2.png"),
     width: 71,
   },
   {
     alt: "Amada",
-    src: "https://emailcn.vercel.app/api/email-assets/logos/logo-mock-3.png",
+    src: emailAsset("logos/logo-mock-3.png"),
     width: 78,
   },
 ];
@@ -352,7 +353,7 @@ const BorderedLogoCloud_defaultLogos = [
   ["Klarna", "logo-klarna.png", 70],
 ].map(([alt, file, width]) => ({
   alt: String(alt),
-  src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
+  src: emailAsset(`logos/${file}`),
   width: Number(width),
 }));
 
@@ -501,7 +502,7 @@ const LogoCloud_defaultLogos = [
   ["Klarna", "logo-klarna.png", 70],
 ].map(([alt, file, width]) => ({
   alt: String(alt),
-  src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
+  src: emailAsset(`logos/${file}`),
   width: Number(width),
 }));
 
@@ -652,7 +653,7 @@ const LogosGrid_defaultLogos = [
   ["Klarna", "logo-klarna.png", 70],
 ].map(([alt, file, width]) => ({
   alt: String(alt),
-  src: `https://emailcn.vercel.app/api/email-assets/logos/${file}`,
+  src: emailAsset(`logos/${file}`),
   width: Number(width),
 }));
 

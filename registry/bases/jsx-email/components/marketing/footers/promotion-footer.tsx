@@ -16,6 +16,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type ContentCtaFooter_FooterWithContentAndCtaVariant =
@@ -55,7 +56,7 @@ const ContentCtaFooter_defaults = {
   heading: "Start sending professionally\ndesigned emails today",
   headingColor: "#030712",
   logoAlt: "Maizzle",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   subtext:
@@ -164,7 +165,7 @@ const ContentCtaFooter_FooterWithContentAndCtaSection = (
                         <span style={{ msoTextRaise: "14px" }}>
                           <Img
                             alt=""
-                            src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
+                            src={emailAsset("icon-arrow-right.png")}
                             style={{
                               maxWidth: "100%",
                               verticalAlign: "baseline",
@@ -319,7 +320,7 @@ const LargeTitleFooter_FooterWithLargeTitleAndButtonsSection = ({
                   <Link href="https://example.com">
                     <Img
                       alt="Maizzle"
-                      src="https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
+                      src={emailAsset("maizzle-insignia.png")}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={64}
                     />
@@ -636,7 +637,7 @@ const FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaSection = ({
                       <span>{ctaText}</span>
                       <Img
                         alt="→"
-                        src="https://emailcn.vercel.app/api/email-assets/icon-chevron-right.png"
+                        src={emailAsset("icon-chevron-right.png")}
                         style={{
                           float: "right",
                           maxWidth: "100%",
@@ -663,7 +664,7 @@ const FullWidthCtaFooter_FooterWithMenuAndFullWidthCtaSection = ({
                               <Link href={href}>
                                 <Img
                                   alt={label}
-                                  src={`https://emailcn.vercel.app/api/email-assets/${icon}`}
+                                  src={emailAsset(`${icon}`)}
                                   style={{
                                     maxWidth: "100%",
                                     verticalAlign: "middle",
@@ -902,7 +903,7 @@ const OverlapFooter_Socials = () => (
             <Link href={href}>
               <Img
                 alt={label}
-                src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}.png`}
+                src={emailAsset(`icon-${icon}.png`)}
                 style={{ maxWidth: "100%", verticalAlign: "middle" }}
                 width={20}
               />
@@ -1090,7 +1091,7 @@ const OverlapFooter_OverlappedHero = ({
                         Visit website&nbsp;&nbsp;
                         <Img
                           alt=""
-                          src="https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png"
+                          src={emailAsset("icon-arrow-right.png")}
                           style={{
                             maxWidth: "100%",
                             verticalAlign: "baseline",
@@ -1461,8 +1462,8 @@ const OverlapFooter_FooterContent = ({
 const OverlapFooter_FooterWithOverlappedCtaSection = ({
   variant = "content",
   logoPosition = "left",
-  backgroundImageSrc = "https://emailcn.vercel.app/api/email-assets/footers/bg-image-3.jpg",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  backgroundImageSrc = emailAsset("footers/bg-image-3.jpg"),
+  logoSrc = emailAsset("maizzle-insignia.png"),
   pageBackgroundColor = "#f1f5f9",
   backgroundColor = "#fffffe",
   primaryColor = "#4f46e5",

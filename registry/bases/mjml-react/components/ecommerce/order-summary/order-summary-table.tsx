@@ -15,6 +15,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type OrderSummaryAlignment = "left" | "right" | "centered" | "justified";
@@ -89,7 +90,7 @@ const PaymentMethod = () => (
       align="left"
       alt="Visa"
       padding="0"
-      src="https://emailcn.vercel.app/api/email-assets/icon-card-visa.png"
+      src={emailAsset("icon-card-visa.png")}
       width="40px"
     />
     <MjmlText

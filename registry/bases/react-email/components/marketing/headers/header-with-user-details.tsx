@@ -16,6 +16,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type HeaderWithUserDetailsAlignment = "left" | "right";
@@ -53,7 +54,7 @@ const sharedDefaults = {
   initials: "JD",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   mutedTextColor: "#6b7280",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
@@ -183,8 +184,8 @@ export const HeaderWithUserDetailsSection = (props: SectionProps) => {
   const resolved = {
     ...sharedDefaults,
     avatarSrc: imageOnRight
-      ? "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg"
-      : "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
+      ? emailAsset("reviews/avatar.jpg")
+      : emailAsset("reviews/avatar-2.jpg"),
     userEmail,
     userName: imageOnRight ? "Joanne Smith" : "John Adams",
     ...props,

@@ -13,6 +13,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type CouponsWithCenteredTextVariant =
@@ -66,8 +67,7 @@ export const CouponsWithCenteredTextSection = (
     variant,
   } = {
     backgroundColor: "#fffffe",
-    backgroundImageSrc:
-      "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
+    backgroundImageSrc: emailAsset("coupons/pattern.png"),
     buttonBackgroundColor: "#4f46e5",
     buttonColor: "#fffffe",
     buttonHref: "https://example.com",

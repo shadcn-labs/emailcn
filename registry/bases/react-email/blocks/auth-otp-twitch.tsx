@@ -12,6 +12,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { twitchTheme } from "@/registry/themes/twitch";
 
 interface Props {
@@ -68,7 +69,7 @@ export const AuthOtpTwitch = ({
 
 AuthOtpTwitch.PreviewProps = {
   _logoAlt: "Twitch",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Twitch",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

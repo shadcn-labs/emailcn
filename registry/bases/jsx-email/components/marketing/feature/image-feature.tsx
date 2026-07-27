@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type Feature_FeatureWithProductImageVariant = "image-left" | "image-right";
@@ -59,8 +60,7 @@ const Feature_responsiveStyles = `
   `;
 
 const Feature_defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
+  arrowIconSrc: emailAsset("icon-arrow-right-brand.png"),
   backgroundColor: "#fffffe",
   body: "Discover tools that make accepting payments faster, easier, and more reliable, wherever you serve customers.",
   buttonHref: "https://example.com",
@@ -68,7 +68,7 @@ const Feature_defaults = {
   heading: "Powering every payment.",
   headingColor: "#030712",
   imageAlt: "Product Image",
-  imageSrc: "https://emailcn.vercel.app/api/email-assets/feature/feature-1.jpg",
+  imageSrc: emailAsset("feature/feature-1.jpg"),
   linkColor: "#4f46e5",
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",

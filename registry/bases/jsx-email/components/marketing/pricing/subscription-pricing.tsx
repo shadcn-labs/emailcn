@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface TwoColumnPricing_PricingPlanFeature {
@@ -189,7 +190,9 @@ const TwoColumnPricing_PlanCard = ({
                   >
                     <Img
                       alt=""
-                      src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                      src={emailAsset(
+                        `icon-check-${feature.muted ? "muted" : "brand"}.png`
+                      )}
                       style={{ maxWidth: "100%", verticalAlign: "middle" }}
                       width={16}
                     />
@@ -512,7 +515,9 @@ const SinglePricing_FullWidthSinglePricingSection = ({
                                   >
                                     <Img
                                       alt=""
-                                      src={`https://emailcn.vercel.app/api/email-assets/icon-check-${feature.muted ? "muted" : "brand"}.png`}
+                                      src={emailAsset(
+                                        `icon-check-${feature.muted ? "muted" : "brand"}.png`
+                                      )}
                                       style={{
                                         maxWidth: "100%",
                                         verticalAlign: "middle",

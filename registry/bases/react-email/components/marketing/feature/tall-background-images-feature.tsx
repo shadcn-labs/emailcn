@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
@@ -75,8 +76,7 @@ const TallFeatureSplit_responsiveStyles = `
   `;
 
 const TallFeatureSplit_defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
+  arrowIconSrc: emailAsset("icon-arrow-right-brand.png"),
   backgroundColor: "#fffffe",
   body: "Premium footwear, outerwear, and lifestyle pieces chosen for quality, comfort, and everyday performance.",
   buttonHref: "https://example.com",
@@ -84,15 +84,12 @@ const TallFeatureSplit_defaults = {
   heading: "Discover the Monarch Collection.",
   headingColor: "#030712",
   imageBackgroundColor: "#f3f4f6",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-1.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-2.jpg",
+  imageSrc1: emailAsset("feature/stripes-bg-1.jpg"),
+  imageSrc2: emailAsset("feature/stripes-bg-2.jpg"),
   linkColor: "#4f46e5",
   logoAlt: "Monarch",
   logoBackgroundColor: "#030712",
-  logoSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-1.png",
+  logoSrc: emailAsset("feature/logo-stripes-1.png"),
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
@@ -287,8 +284,7 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = (
     ...TallFeatureSplit_defaults,
     ...(contentRight
       ? {
-          imageSrc2:
-            "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-3.jpg",
+          imageSrc2: emailAsset("feature/stripes-bg-3.jpg"),
         }
       : {}),
     ...props,
@@ -429,8 +425,7 @@ const TallFeatureFull_responsiveStyles = `
   `;
 
 const TallFeatureFull_defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
+  arrowIconSrc: emailAsset("icon-arrow-right-brand.png"),
   backgroundColor: "#fffffe",
   body: "Discover clinically proven formulas designed to target concerns with precision and clarity.",
   buttonHref: "https://example.com",
@@ -438,15 +433,12 @@ const TallFeatureFull_defaults = {
   heading: "Science-led skincare essentials.",
   headingColor: "#030712",
   imageBackgroundColor: "#f3f4f6",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-4.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/feature/stripes-bg-5.jpg",
+  imageSrc1: emailAsset("feature/stripes-bg-4.jpg"),
+  imageSrc2: emailAsset("feature/stripes-bg-5.jpg"),
   linkColor: "#4f46e5",
   logoAlt: "Monarch",
   logoBackgroundColor: "#f3f4f6",
-  logoSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/logo-stripes-2.png",
+  logoSrc: emailAsset("feature/logo-stripes-2.png"),
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };

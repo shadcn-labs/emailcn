@@ -13,6 +13,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type CouponsWithContentOverlayedVariant =
@@ -43,11 +44,9 @@ const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
 const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
-  centered:
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-6.jpg",
-  "code-bottom":
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-4.jpg",
-  split: "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-5.jpg",
+  centered: emailAsset("coupons/bg-image-6.jpg"),
+  "code-bottom": emailAsset("coupons/bg-image-4.jpg"),
+  split: emailAsset("coupons/bg-image-5.jpg"),
 };
 
 export const CouponsWithContentOverlayedSection = ({

@@ -14,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -182,7 +183,7 @@ interface ImageGridHero_HeroWithImageGridProps {
 const ImageGridHero_regularImages: ImageGridHero_HeroWithImageGridImage[] =
   Array.from({ length: 7 }, (_, index) => ({
     alt: `Image ${index + 1}`,
-    src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${index + 1}.jpg`,
+    src: emailAsset(`hero/mosaic-${index + 1}.jpg`),
   }));
 
 const ImageGridHero_offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
@@ -190,7 +191,7 @@ const ImageGridHero_offsetImageNumbers = [1, 2, 7, 10, 4, 6, 8, 9, 5, 11];
 const ImageGridHero_offsetImages = ImageGridHero_offsetImageNumbers.map(
   (number, index) => ({
     alt: `Image ${index + 1}`,
-    src: `https://emailcn.vercel.app/api/email-assets/hero/mosaic-${number}.jpg`,
+    src: emailAsset(`hero/mosaic-${number}.jpg`),
   })
 );
 
@@ -206,7 +207,7 @@ const ImageGridHero_HeroWithImageGridSection = ({
   images = [],
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
+  logoSrc = emailAsset("emailcn-logo.png"),
   subheading = "The evolution of the sneaker",
   variant = "images-bottom",
 }: Omit<ImageGridHero_HeroWithImageGridProps, "theme">) => {

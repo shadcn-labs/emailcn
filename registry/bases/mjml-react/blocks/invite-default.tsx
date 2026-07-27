@@ -1,6 +1,7 @@
 // Subject: You're invited to join {teamName}
 
 import { InviteBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
@@ -31,8 +32,7 @@ export const InviteDefault = ({
 InviteDefault.PreviewProps = {
   ctaHref: "https://example.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  inviterAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   inviterName: "Sarah",
   teamName: "Acme Team",
 } satisfies Props;

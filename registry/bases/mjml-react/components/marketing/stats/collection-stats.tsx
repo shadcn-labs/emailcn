@@ -12,6 +12,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type SimpleStats_SimpleStatsVariant =
@@ -424,8 +425,7 @@ const OverlayStats_variants: Record<
   OverlayStats_OverlayDefaults
 > = {
   bento: {
-    backgroundImageSrc:
-      "https://emailcn.vercel.app/api/email-assets/stats/overlay-3.jpg",
+    backgroundImageSrc: emailAsset("stats/overlay-3.jpg"),
     featuredLabel: "Active explorers worldwide",
     featuredStat: "98k+",
     stats: [
@@ -435,8 +435,7 @@ const OverlayStats_variants: Record<
     ],
   },
   "bento-reversed": {
-    backgroundImageSrc:
-      "https://emailcn.vercel.app/api/email-assets/stats/overlay-4.jpg",
+    backgroundImageSrc: emailAsset("stats/overlay-4.jpg"),
     featuredLabel: "Average fulfillment time",
     featuredStat: "48hr",
     stats: [
@@ -446,8 +445,7 @@ const OverlayStats_variants: Record<
     ],
   },
   default: {
-    backgroundImageSrc:
-      "https://emailcn.vercel.app/api/email-assets/stats/overlay-1.jpg",
+    backgroundImageSrc: emailAsset("stats/overlay-1.jpg"),
     featuredLabel: "Active users globally",
     featuredStat: "120k+",
     stats: [
@@ -457,8 +455,7 @@ const OverlayStats_variants: Record<
     ],
   },
   "three-columns": {
-    backgroundImageSrc:
-      "https://emailcn.vercel.app/api/email-assets/stats/overlay-2.jpg",
+    backgroundImageSrc: emailAsset("stats/overlay-2.jpg"),
     featuredLabel: "Monthly builds",
     featuredStat: "1m+",
     stats: [

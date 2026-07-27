@@ -1,11 +1,12 @@
 import { UtilityFooter } from "@/registry/bases/mjml-react/components/marketing/footers/utility-footer";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function UtilityFooterBackgroundImagePositionTopVariantTopImageLogoBottomLogoPositionLeftExampleDemo() {
   return (
     <UtilityFooter
       backgroundImage={{
         position: "top",
-        src: "https://emailcn.vercel.app/api/email-assets/images/image-landscape-1.jpg",
+        src: emailAsset("images/image-landscape-1.jpg"),
       }}
       variant="top-image-logo-bottom"
       logoPosition="left"

@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -189,15 +190,12 @@ interface OverlapContentHero_VariantPreset {
   textColor: string;
 }
 
-const OverlapContentHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const OverlapContentHero_variantPresets: Record<
   OverlapContentHero_HeroWithOverlappedContentVariant,
   OverlapContentHero_VariantPreset
 > = {
   basic: {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-1.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-1.jpg`),
     backgroundPosition: "top",
     contentBackgroundColor: "#fffffe",
     description:
@@ -209,7 +207,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#030712",
   },
   "basic-with-gradient": {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-3.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-3.jpg`),
     backgroundPosition: "top",
     contentBackgroundColor: "#fffffe",
     description:
@@ -221,7 +219,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#030712",
   },
   reversed: {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-2.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-2.jpg`),
     backgroundPosition: "bottom",
     contentBackgroundColor: "#fffffe",
     description:
@@ -233,7 +231,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#030712",
   },
   "reversed-with-gradient": {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-4.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-4.jpg`),
     backgroundPosition: "bottom",
     contentBackgroundColor: "#030712",
     description:
@@ -278,7 +276,7 @@ const OverlapContentHero_HeroWithOverlappedContentSection = (
     ctaLabel: "Discover now",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${OverlapContentHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     variant: "basic" as OverlapContentHero_HeroWithOverlappedContentVariant,
     ...props,
   };
@@ -423,47 +421,44 @@ interface OverlapImageHero_VariantPreset {
   topSpacer: number;
 }
 
-const OverlapImageHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const OverlapImageHero_variantPresets: Record<
   OverlapImageHero_HeroWithOverlappedImageVariant,
   OverlapImageHero_VariantPreset
 > = {
   default: {
-    backgroundImageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-image-bg.jpg`),
     contentBackgroundColor: "#000001",
     description:
       "Born on the curb and rebuilt in premium materials, Vault Old Skool delivers that unmistakable side-stripe style with modern comfort. Clean lines, easy colorways, and proven board feel: a timeless staple ready for your rotation.",
     eyebrow: "VANS",
     heading: "Vault Old Skool",
-    imageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image.png`,
+    imageSrc: emailAsset(`hero/overlapped-image.png`),
     mutedTextColor: "#d1d5db",
     subheading: "Classic skate icon, rebuilt for today.",
     textColor: "#f9fafb",
     topSpacer: 220,
   },
   "slanted-left": {
-    backgroundImageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-2-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-image-2-bg.jpg`),
     contentBackgroundColor: "#fffffe",
     description:
       "From trail to tide, GoPro 9.0 locks in buttery-smooth footage with advanced stabilization and crystal-clear detail. A rugged, waterproof build means fewer worries and more moments captured, while intuitive controls make quick work of clips and time-lapses. Mount it, tap record, and jump in.",
     eyebrow: "Introducing",
     heading: "Hero 9 5K Ultra HD",
-    imageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-2.png`,
+    imageSrc: emailAsset(`hero/overlapped-image-2.png`),
     mutedTextColor: "#4b5563",
     subheading: "Stabilized action, simple controls.",
     textColor: "#030712",
     topSpacer: 180,
   },
   "slanted-right": {
-    backgroundImageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-3-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-image-3-bg.jpg`),
     contentBackgroundColor: "#000001",
     description:
       "Hydrate without the hassle. This vacuum-insulated stainless bottle keeps drinks cold for hours and hot through long commutes, with a leak-proof lid that tosses easily into bags. A powder-coat finish resists scratches, the slim profile fits cup holders, and the wide mouth makes cleaning simple.",
     eyebrow: "Made in Sweden",
     heading: "Bluewater",
-    imageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-3.png`,
+    imageSrc: emailAsset(`hero/overlapped-image-3.png`),
     mutedTextColor: "#d1d5db",
     subheading: "Insulated bottle for all-day carry.",
     textColor: "#f9fafb",
@@ -490,7 +485,7 @@ const OverlapImageHero_HeroWithOverlappedImageSection = ({
   imageSrc,
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${OverlapImageHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   mutedTextColor,
   subheading,
   textColor,

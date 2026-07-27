@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export const HeaderEmailShell = ({
@@ -86,17 +87,17 @@ const defaultSocials: HeaderSocialLink[] = [
   {
     alt: "GitHub",
     href: "https://github.com",
-    src: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+    src: emailAsset("icon-github.png"),
   },
   {
     alt: "LinkedIn",
     href: "https://linkedin.com",
-    src: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+    src: emailAsset("icon-linkedin.png"),
   },
   {
     alt: "X",
     href: "https://x.com",
-    src: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
+    src: emailAsset("icon-x.png"),
   },
 ];
 
@@ -105,7 +106,7 @@ export const HeaderWithLogoAndSocialIconsSection = ({
   backgroundColor = "#fffffe",
   logoAlt = "Maizzle",
   logoHref = "https://example.com",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc = emailAsset("maizzle-insignia.png"),
   socials = defaultSocials,
 }: Omit<HeaderWithLogoAndSocialIconsProps, "theme">) => {
   const logo = (

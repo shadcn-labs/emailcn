@@ -18,6 +18,7 @@ import type { ReactElement } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type Cta_CTAWithImageStripVariant =
@@ -89,37 +90,33 @@ const Cta_responsiveStyles = `
   `;
 
 const Cta_sharedStripAssets = {
-  imageSrc2: "https://emailcn.vercel.app/api/email-assets/cta/strip-2.jpg",
-  imageSrc4: "https://emailcn.vercel.app/api/email-assets/cta/strip-4.jpg",
-  imageSrc5: "https://emailcn.vercel.app/api/email-assets/cta/strip-5.jpg",
+  imageSrc2: emailAsset("cta/strip-2.jpg"),
+  imageSrc4: emailAsset("cta/strip-4.jpg"),
+  imageSrc5: emailAsset("cta/strip-5.jpg"),
 };
 
 const Cta_variantContent = {
   "boxed-left": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-1.jpg",
-    imageSrc3:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-2.jpg",
+    imageSrc1: emailAsset("cta/strip-cut-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-cut-2.jpg"),
     stripBackgroundColor: "#030712",
     ...Cta_sharedStripAssets,
   },
   "boxed-right": {
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-1.jpg",
-    imageSrc3:
-      "https://emailcn.vercel.app/api/email-assets/cta/strip-cut-2.jpg",
+    imageSrc1: emailAsset("cta/strip-cut-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-cut-2.jpg"),
     stripBackgroundColor: "#e5e7eb",
     ...Cta_sharedStripAssets,
   },
   "full-left": {
-    imageSrc1: "https://emailcn.vercel.app/api/email-assets/cta/strip-1.jpg",
-    imageSrc3: "https://emailcn.vercel.app/api/email-assets/cta/strip-3.jpg",
+    imageSrc1: emailAsset("cta/strip-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-3.jpg"),
     stripBackgroundColor: "#fffffe",
     ...Cta_sharedStripAssets,
   },
   "full-right": {
-    imageSrc1: "https://emailcn.vercel.app/api/email-assets/cta/strip-1.jpg",
-    imageSrc3: "https://emailcn.vercel.app/api/email-assets/cta/strip-3.jpg",
+    imageSrc1: emailAsset("cta/strip-1.jpg"),
+    imageSrc3: emailAsset("cta/strip-3.jpg"),
     stripBackgroundColor: "#fffffe",
     ...Cta_sharedStripAssets,
   },

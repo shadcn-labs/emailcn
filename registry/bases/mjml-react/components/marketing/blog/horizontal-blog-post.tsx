@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const colors = {
@@ -362,7 +363,7 @@ const HorizontalPlain_SinglePostHorizontalSection = ({
   author = "John Doe",
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc = emailAsset("image-grids/2-col-landscape.jpg"),
   title = "A practical guide to better email",
 }: Omit<HorizontalPlain_SinglePostHorizontalProps, "theme">) => {
   const posts = [
@@ -386,7 +387,7 @@ const HorizontalPlain_SinglePostHorizontal = ({
   author = "John Doe",
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc = emailAsset("image-grids/2-col-landscape.jpg"),
   title = "A practical guide to better email",
 }: HorizontalPlain_SinglePostHorizontalProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -404,8 +405,7 @@ HorizontalPlain_SinglePostHorizontal.PreviewProps = {
   author: "John Doe",
   excerpt: "A concise summary of the ideas explored in this article.",
   imageAlt: "Mountain landscape",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc: emailAsset("image-grids/2-col-landscape.jpg"),
   theme: defaultTheme,
   title: "A practical guide to better email",
 } satisfies HorizontalPlain_SinglePostHorizontalProps;
@@ -423,7 +423,7 @@ interface HorizontalBoxed_BlogPostHorizontalBoxedProps {
 const HorizontalBoxed_BlogPostHorizontalBoxedSection = ({
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc = emailAsset("image-grids/2-col-landscape.jpg"),
   title = "A practical guide to better email",
 }: Omit<HorizontalBoxed_BlogPostHorizontalBoxedProps, "theme">) => {
   const posts = [
@@ -445,7 +445,7 @@ const HorizontalBoxed_BlogPostHorizontalBoxed = ({
   theme = defaultTheme,
   excerpt = "A concise summary of the ideas explored in this article.",
   imageAlt = "Mountain landscape",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc = emailAsset("image-grids/2-col-landscape.jpg"),
   title = "A practical guide to better email",
 }: HorizontalBoxed_BlogPostHorizontalBoxedProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -461,8 +461,7 @@ const HorizontalBoxed_BlogPostHorizontalBoxed = ({
 HorizontalBoxed_BlogPostHorizontalBoxed.PreviewProps = {
   excerpt: "A concise summary of the ideas explored in this article.",
   imageAlt: "Mountain landscape",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc: emailAsset("image-grids/2-col-landscape.jpg"),
   theme: defaultTheme,
   title: "A practical guide to better email",
 } satisfies HorizontalBoxed_BlogPostHorizontalBoxedProps;
@@ -483,8 +482,8 @@ const HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesSection = ({
   excerpt = "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1 = "Mountain landscape",
   imageAlt2 = "Coastal landscape",
-  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-1.jpg",
-  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-2.jpg",
+  imageSrc1 = emailAsset("bento-grids/bento-1.jpg"),
+  imageSrc2 = emailAsset("bento-grids/bento-2.jpg"),
   title = "Two perspectives, one story",
 }: Omit<
   HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps,
@@ -512,8 +511,8 @@ const HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages = ({
   excerpt = "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1 = "Mountain landscape",
   imageAlt2 = "Coastal landscape",
-  imageSrc1 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-1.jpg",
-  imageSrc2 = "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-2.jpg",
+  imageSrc1 = emailAsset("bento-grids/bento-1.jpg"),
+  imageSrc2 = emailAsset("bento-grids/bento-2.jpg"),
   title = "Two perspectives, one story",
 }: HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -532,10 +531,8 @@ HorizontalSplit_BlogPostHorizontalBoxedWithSplitImages.PreviewProps = {
   excerpt: "A thoughtful look at the places and ideas shaping our work.",
   imageAlt1: "Mountain landscape",
   imageAlt2: "Coastal landscape",
-  imageSrc1:
-    "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-1.jpg",
-  imageSrc2:
-    "https://emailcn.vercel.app/api/email-assets/bento-grids/bento-2.jpg",
+  imageSrc1: emailAsset("bento-grids/bento-1.jpg"),
+  imageSrc2: emailAsset("bento-grids/bento-2.jpg"),
   theme: defaultTheme,
   title: "Two perspectives, one story",
 } satisfies HorizontalSplit_BlogPostHorizontalBoxedWithSplitImagesProps;

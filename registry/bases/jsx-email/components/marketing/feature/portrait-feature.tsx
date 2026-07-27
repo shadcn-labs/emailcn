@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type Feature_FeatureWithLargePortraitImageVariant =
@@ -64,8 +65,7 @@ const Feature_responsiveStyles = `
   `;
 
 const Feature_sharedDefaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
+  arrowIconSrc: emailAsset("icon-arrow-right-brand.png"),
   backgroundColor: "#fffffe",
   buttonHref: "https://example.com",
   buttonLabel: "Discover more",
@@ -73,8 +73,7 @@ const Feature_sharedDefaults = {
   linkColor: "#4f46e5",
   logoAlt: "Visa",
   logoBackgroundColor: "#f3f4f6",
-  logoSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/logo-north-face.png",
+  logoSrc: emailAsset("feature/logo-north-face.png"),
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
@@ -83,29 +82,23 @@ const Feature_logoDefaults = {
   body: "Find advanced outerwear engineered to handle wind, rain, and sudden shifts in the elements.",
   heading: "Explore without limits.",
   portraitImageAlt: "Product Image",
-  portraitImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-1.jpg",
+  portraitImageSrc: emailAsset("feature/feature-3-lg-1.jpg"),
   secondaryImageAlt: "Product Image 2",
-  secondaryImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
+  secondaryImageSrc: emailAsset("feature/feature-3-sm-1.jpg"),
 };
 
 const Feature_contentDefaults = {
   body: "Experience cutting-edge performance, from dual-frequency GPS to pro-grade health insights.",
   heading: "Innovation on your wrist.",
   portraitImageAlt: "Product Image 1",
-  portraitImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-2.jpg",
+  portraitImageSrc: emailAsset("feature/feature-3-lg-2.jpg"),
   secondaryImageAlt: "Product Image 2",
-  secondaryImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-1.jpg",
+  secondaryImageSrc: emailAsset("feature/feature-3-sm-1.jpg"),
 };
 
 const Feature_contentTopRightDefaults = {
-  portraitImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-lg-3.jpg",
-  secondaryImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-3-sm-2.jpg",
+  portraitImageSrc: emailAsset("feature/feature-3-lg-3.jpg"),
+  secondaryImageSrc: emailAsset("feature/feature-3-sm-2.jpg"),
 };
 
 type Feature_SectionProps = Omit<

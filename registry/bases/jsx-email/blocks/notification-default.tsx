@@ -15,6 +15,7 @@ import {
   Text,
 } from "jsx-email";
 
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
@@ -130,8 +131,8 @@ export const NotificationDefault = ({
 
 NotificationDefault.PreviewProps = {
   _action: "commented on your post",
-  _actorAvatarUrl: "https://example.com/avatar.jpg",
-  _logoUrl: "https://example.com/logo.png",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   _targetName: "New comment on your project",
   actorName: "Sarah",

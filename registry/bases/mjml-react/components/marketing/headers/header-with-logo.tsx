@@ -14,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export const HeaderEmailShell = ({
@@ -87,7 +88,7 @@ export const HeaderWithLogoSection = ({
   backgroundColor = "#fffffe",
   logoAlt = "Maizzle",
   logoHref = "https://example.com",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc = emailAsset("maizzle-insignia.png"),
   text = "Medium, rare, but mostly well-done\nHTML email components.",
   textColor = "#030712",
   variant = "minimal",

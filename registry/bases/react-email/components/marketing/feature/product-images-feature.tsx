@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type Feature_FeatureWithMultipleProductImagesVariant =
@@ -80,8 +81,7 @@ const Feature_responsiveStyles = `
   `;
 
 const Feature_sharedDefaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right-brand.png",
+  arrowIconSrc: emailAsset("icon-arrow-right-brand.png"),
   backgroundColor: "#fffffe",
   buttonHref: "https://example.com",
   buttonLabel: "Discover more",
@@ -89,7 +89,7 @@ const Feature_sharedDefaults = {
   linkColor: "#4f46e5",
   logoAlt: "Visa",
   logoBackgroundColor: "#f3f4f6",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/logos/logo-visa.png",
+  logoSrc: emailAsset("logos/logo-visa.png"),
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
@@ -98,28 +98,22 @@ const Feature_logoDefaults = {
   body: "Accepting cards should be quick, secure, and seamless. Discover our tools that simplify every transaction.",
   heading: "Built for the journey ahead.",
   largeImageAlt: "Product Image 1",
-  largeImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-lg.jpg",
+  largeImageSrc: emailAsset("feature/feature-2-lg.jpg"),
   middleImageAlt: "Product Image 2",
-  middleImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
+  middleImageSrc: emailAsset("feature/feature-2-sm.jpg"),
   smallImageAlt: "Product Image 2",
-  smallImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm.jpg",
+  smallImageSrc: emailAsset("feature/feature-2-sm.jpg"),
 };
 
 const Feature_imagesDefaults = {
   body: "Explore durable layers that balance insulation, breathability, and all-day comfort.",
   heading: "Outdoor essentials redefined.",
   largeImageAlt: "Product Image 1",
-  largeImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-lg-2.jpg",
+  largeImageSrc: emailAsset("feature/feature-2-lg-2.jpg"),
   middleImageAlt: "Product Image 2",
-  middleImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-md.jpg",
+  middleImageSrc: emailAsset("feature/feature-2-md.jpg"),
   smallImageAlt: "Product Image 3",
-  smallImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/feature/feature-2-sm-2.jpg",
+  smallImageSrc: emailAsset("feature/feature-2-sm-2.jpg"),
 };
 
 type Feature_SectionProps = Omit<

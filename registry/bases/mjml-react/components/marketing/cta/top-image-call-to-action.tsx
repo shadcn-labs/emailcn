@@ -15,6 +15,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -158,7 +159,7 @@ const Cta_CTAWithTopLargeImageSection = ({
   heading = "Built for the journey ahead.",
   headingColor = "#030712",
   imageAlt = "",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/cta/cta-with-image-1.jpg",
+  imageSrc = emailAsset("cta/cta-with-image-1.jpg"),
   subtext = "You’re one step away from exploring our latest outdoor essentials. Confirm your email to complete your setup and get 10% off your first order.",
   textColor = "#4b5563",
 }: Omit<Cta_CTAWithTopLargeImageProps, "theme">) => (

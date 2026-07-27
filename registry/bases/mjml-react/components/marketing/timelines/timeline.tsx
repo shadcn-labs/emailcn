@@ -14,6 +14,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type CardsTimeline_CardsTimelineVariant =
@@ -45,7 +46,7 @@ const CardsTimeline_CardsTimelineSection = (
     date: "Monday",
     description: "Description of event",
     imageAlt: "One workspace. Every team.",
-    imageSrc: "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
+    imageSrc: emailAsset("timelines/cards.jpg"),
     title: "Miles traveled",
     variant: "default",
     ...props,
@@ -378,7 +379,7 @@ const SplitTimeline_SplitCardsSection = (
     date: "Monday",
     description: "Description of event",
     imageAlt: "Placeholder image",
-    imageSrc: "https://emailcn.vercel.app/api/email-assets/timelines/cards.jpg",
+    imageSrc: emailAsset("timelines/cards.jpg"),
     index: "01",
     label: "Miles traveled",
     title: "Miles traveled",

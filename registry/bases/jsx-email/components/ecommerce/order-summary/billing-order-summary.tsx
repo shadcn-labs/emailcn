@@ -17,6 +17,7 @@ import type { ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type BillingTopVariant =
@@ -108,7 +109,7 @@ const CardMethod = () => (
         <Column>
           <Img
             alt=""
-            src="https://emailcn.vercel.app/api/email-assets/icon-card-visa.png"
+            src={emailAsset("icon-card-visa.png")}
             style={{ maxWidth: "100%", verticalAlign: "middle" }}
             width="40"
           />
@@ -303,7 +304,7 @@ const FedExShipping = () => (
     <Section>
       <Img
         alt="FedEx"
-        src="https://emailcn.vercel.app/api/email-assets/order-summary/logo-fedex.png"
+        src={emailAsset("order-summary/logo-fedex.png")}
         width="78"
       />
     </Section>

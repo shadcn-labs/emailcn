@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type Cta_CTAWithTeamAvatarsVariant =
@@ -85,10 +86,10 @@ const Cta_responsiveStyles = `
   `;
 
 const Cta_avatarSources = [
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg",
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar.jpg",
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-4.jpg",
-  "https://emailcn.vercel.app/api/email-assets/reviews/avatar-5.jpg",
+  emailAsset("reviews/avatar-2.jpg"),
+  emailAsset("reviews/avatar.jpg"),
+  emailAsset("reviews/avatar-4.jpg"),
+  emailAsset("reviews/avatar-5.jpg"),
 ] as const;
 
 const Cta_variantContent = {

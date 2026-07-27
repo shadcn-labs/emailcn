@@ -14,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -131,7 +132,7 @@ const Feature_FeatureWithProductImageSection = ({
   heading = "Powering every payment.",
   headingColor = "#030712",
   imageAlt = "Product Image",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/feature/feature-1.jpg",
+  imageSrc = emailAsset("feature/feature-1.jpg"),
   linkColor = "#4f46e5",
   textColor = "#4b5563",
   variant = "image-left",

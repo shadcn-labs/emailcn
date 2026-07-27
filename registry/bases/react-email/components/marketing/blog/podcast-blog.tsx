@@ -17,6 +17,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const colors = {
@@ -483,7 +484,7 @@ const PodcastSplit_PodcastBlogSplitSection = ({
   excerpt = "A conversation about emerging email trends and technologies.",
   host = "Jane Smith",
   imageAlt = "Podcast studio",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/hero/mosaic-1.jpg",
+  imageSrc = emailAsset("hero/mosaic-1.jpg"),
   title = "The future of email",
 }: Omit<PodcastSplit_PodcastBlogSplitProps, "theme">) => {
   const posts = [
@@ -509,7 +510,7 @@ const PodcastSplit_PodcastBlogSplit = ({
   excerpt = "A conversation about emerging email trends and technologies.",
   host = "Jane Smith",
   imageAlt = "Podcast studio",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/hero/mosaic-1.jpg",
+  imageSrc = emailAsset("hero/mosaic-1.jpg"),
   title = "The future of email",
 }: PodcastSplit_PodcastBlogSplitProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -529,7 +530,7 @@ PodcastSplit_PodcastBlogSplit.PreviewProps = {
   excerpt: "A conversation about emerging email trends and technologies.",
   host: "Jane Smith",
   imageAlt: "Podcast studio",
-  imageSrc: "https://emailcn.vercel.app/api/email-assets/hero/mosaic-1.jpg",
+  imageSrc: emailAsset("hero/mosaic-1.jpg"),
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastSplit_PodcastBlogSplitProps;
@@ -549,7 +550,7 @@ const PodcastFull_PodcastFullWidthSection = ({
   episode = "Episode 42",
   excerpt = "A conversation about emerging email trends and technologies.",
   imageAlt = "Podcast studio",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-3.jpg",
+  imageSrc = emailAsset("image-grids/full-width-3.jpg"),
   title = "The future of email",
 }: Omit<PodcastFull_PodcastFullWidthProps, "theme">) => {
   const posts = [
@@ -573,7 +574,7 @@ const PodcastFull_PodcastFullWidth = ({
   episode = "Episode 42",
   excerpt = "A conversation about emerging email trends and technologies.",
   imageAlt = "Podcast studio",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-3.jpg",
+  imageSrc = emailAsset("image-grids/full-width-3.jpg"),
   title = "The future of email",
 }: PodcastFull_PodcastFullWidthProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -591,8 +592,7 @@ PodcastFull_PodcastFullWidth.PreviewProps = {
   episode: "Episode 42",
   excerpt: "A conversation about emerging email trends and technologies.",
   imageAlt: "Podcast studio",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-3.jpg",
+  imageSrc: emailAsset("image-grids/full-width-3.jpg"),
   theme: defaultTheme,
   title: "The future of email",
 } satisfies PodcastFull_PodcastFullWidthProps;

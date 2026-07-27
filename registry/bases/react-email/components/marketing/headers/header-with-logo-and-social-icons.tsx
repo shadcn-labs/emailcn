@@ -15,6 +15,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type HeaderWithLogoAndSocialIconsAlignment = "left" | "center" | "right";
@@ -43,17 +44,17 @@ const defaultSocials: HeaderSocialLink[] = [
   {
     alt: "GitHub",
     href: "https://github.com",
-    src: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+    src: emailAsset("icon-github.png"),
   },
   {
     alt: "LinkedIn",
     href: "https://linkedin.com",
-    src: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+    src: emailAsset("icon-linkedin.png"),
   },
   {
     alt: "X",
     href: "https://x.com",
-    src: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
+    src: emailAsset("icon-x.png"),
   },
 ];
 
@@ -61,7 +62,7 @@ const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
   logoHref: "https://example.com",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   pageBackgroundColor: "#f1f5f9",
   socials: defaultSocials,
 };

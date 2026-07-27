@@ -1,4 +1,5 @@
 import { AvatarCallToAction } from "@/registry/bases/mjml-react/components/marketing/cta/avatar-call-to-action";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function AvatarCallToActionPlacementInlineAvatarsExampleDemo() {
   return (
@@ -7,7 +8,7 @@ export default function AvatarCallToActionPlacementInlineAvatarsExampleDemo() {
       avatars={[
         {
           alt: "Team member",
-          src: "https://emailcn.vercel.app/api/email-assets/avatars/avatar-1.jpg",
+          src: emailAsset("avatars/avatar-1.jpg"),
         },
       ]}
     />

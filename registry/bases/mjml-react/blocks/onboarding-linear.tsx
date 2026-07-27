@@ -1,6 +1,7 @@
 // Subject: Welcome to {_productName} — let's get you started
 
 import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { linearTheme } from "@/registry/themes/linear";
 
 interface Props {
@@ -30,8 +31,7 @@ export const OnboardingLinear = ({
 OnboardingLinear.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Linear",
-  _senderAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Linear Team",
   _senderTitle: "Team",
   ctaHref: "https://linear.app",

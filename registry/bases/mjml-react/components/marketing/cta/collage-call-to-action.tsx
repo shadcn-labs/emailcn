@@ -14,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -165,10 +166,10 @@ const Cta_variantContent = {
   collage: {
     heading: "Be an Explorer",
     images: [
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-1.jpg",
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-2.jpg",
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-3.jpg",
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-4.jpg",
+      emailAsset("cta/cta-collage-1.jpg"),
+      emailAsset("cta/cta-collage-2.jpg"),
+      emailAsset("cta/cta-collage-3.jpg"),
+      emailAsset("cta/cta-collage-4.jpg"),
     ],
     subtext:
       "Be part of a network that lives for the outdoors. Confirm your email to stay connected, get new gear updates, and access member rewards.",
@@ -176,8 +177,8 @@ const Cta_variantContent = {
   "flush-side-images": {
     heading: "Join your team!",
     images: [
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-split-avatars-1.png",
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-split-avatars-2.png",
+      emailAsset("cta/cta-split-avatars-1.png"),
+      emailAsset("cta/cta-split-avatars-2.png"),
       "",
       "",
     ],
@@ -187,8 +188,8 @@ const Cta_variantContent = {
   "images-offset": {
     heading: "Be an Explorer",
     images: [
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-1.jpg",
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-2.jpg",
+      emailAsset("cta/cta-outwear-1.jpg"),
+      emailAsset("cta/cta-outwear-2.jpg"),
       "",
       "",
     ],
@@ -198,8 +199,8 @@ const Cta_variantContent = {
   "images-offset-alt": {
     heading: "Be an Explorer",
     images: [
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-1.jpg",
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-2.jpg",
+      emailAsset("cta/cta-outwear-1.jpg"),
+      emailAsset("cta/cta-outwear-2.jpg"),
       "",
       "",
     ],

@@ -1,6 +1,7 @@
 // Subject: You're invited to join {teamName}
 
 import { InviteBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
@@ -31,8 +32,7 @@ export const InviteVercel = ({
 InviteVercel.PreviewProps = {
   ctaHref: "https://vercel.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  inviterAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   inviterName: "Sarah",
   teamName: "Vercel",
 } satisfies Props;

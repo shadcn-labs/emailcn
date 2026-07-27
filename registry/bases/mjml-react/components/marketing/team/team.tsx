@@ -16,6 +16,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -174,8 +175,8 @@ interface TeamCardsDetails_TwoColumnTeamCardsWithDetailsProps {
 const TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-lg.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-lg.jpg",
+  avatarSrc1 = emailAsset("teams/member-1-lg.jpg"),
+  avatarSrc2 = emailAsset("teams/member-2-lg.jpg"),
   bio1 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
   bio2 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
   email1 = "jadam@example.com",
@@ -305,16 +306,14 @@ const TeamCards_TwoColumnTeamCardsSection = ({
       name: name1,
       role: role1,
       src:
-        avatarSrc1 ??
-        `https://emailcn.vercel.app/api/email-assets/teams/member-1-${rounded ? "md" : "lg"}.jpg`,
+        avatarSrc1 ?? emailAsset(`teams/member-1-${rounded ? "md" : "lg"}.jpg`),
     },
     {
       alt: avatarAlt2,
       name: name2,
       role: role2,
       src:
-        avatarSrc2 ??
-        `https://emailcn.vercel.app/api/email-assets/teams/member-2-${rounded ? "md" : "lg"}.jpg`,
+        avatarSrc2 ?? emailAsset(`teams/member-2-${rounded ? "md" : "lg"}.jpg`),
     },
   ];
   return (
@@ -385,8 +384,8 @@ const TeamCompact_fontFamily =
 const TeamCompact_TwoColumnsCompactSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-md.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-md.jpg",
+  avatarSrc1 = emailAsset("teams/member-1-md.jpg"),
+  avatarSrc2 = emailAsset("teams/member-2-md.jpg"),
   name1 = "Jason Adam",
   name2 = "Henrik Petersson",
   role1 = "Senior Developer",
@@ -551,19 +550,13 @@ const TeamGrid_ThreeColumnsTeamGridSection = (
     avatarAlt4: "",
     avatarAlt5: "",
     avatarAlt6: "",
-    avatarSrc1:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-1.jpg",
-    avatarSrc2:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-2.jpg",
-    avatarSrc3:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-3.jpg",
-    avatarSrc4:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-4.jpg",
-    avatarSrc5:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-5.jpg",
-    avatarSrc6:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-6.jpg",
-    heroImageSrc: "https://emailcn.vercel.app/api/email-assets/teams/hero.jpg",
+    avatarSrc1: emailAsset("teams/member-1.jpg"),
+    avatarSrc2: emailAsset("teams/member-2.jpg"),
+    avatarSrc3: emailAsset("teams/member-3.jpg"),
+    avatarSrc4: emailAsset("teams/member-4.jpg"),
+    avatarSrc5: emailAsset("teams/member-5.jpg"),
+    avatarSrc6: emailAsset("teams/member-6.jpg"),
+    heroImageSrc: emailAsset("teams/hero.jpg"),
     name1: "Jason Adam",
     name2: "Henrik Petersson",
     name3: "Ella Roustek",
@@ -725,8 +718,8 @@ const TeamBios_fontFamily =
 const TeamBios_HorizontalTeamMemberBiosSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-md.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-md.jpg",
+  avatarSrc1 = emailAsset("teams/member-1-md.jpg"),
+  avatarSrc2 = emailAsset("teams/member-2-md.jpg"),
   bio1 = "Imagination is more important than knowledge. For knowledge is limited.",
   bio2 = "Imagination is more important than knowledge. For knowledge is limited.",
   name1 = "Jason Adam",

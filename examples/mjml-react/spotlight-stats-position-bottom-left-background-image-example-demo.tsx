@@ -1,4 +1,5 @@
 import { SpotlightStats } from "@/registry/bases/mjml-react/components/marketing/stats/spotlight-stats";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function SpotlightStatsPositionBottomLeftBackgroundImageExampleDemo() {
   return (
@@ -6,7 +7,7 @@ export default function SpotlightStatsPositionBottomLeftBackgroundImageExampleDe
       position="bottom-left"
       backgroundImage={{
         alt: "Background",
-        src: "https://emailcn.vercel.app/api/email-assets/images/image-landscape-1.jpg",
+        src: emailAsset("images/image-landscape-1.jpg"),
       }}
     />
   );

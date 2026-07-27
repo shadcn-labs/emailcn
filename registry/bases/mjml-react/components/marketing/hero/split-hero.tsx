@@ -18,6 +18,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -263,9 +264,6 @@ interface OverlaySplitHero_HeroOverlayedSplitProps {
   variant?: OverlaySplitHero_HeroOverlayedSplitVariant;
 }
 
-const OverlaySplitHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const OverlaySplitHero_HeroOverlayedSplitSection = ({
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
@@ -274,10 +272,10 @@ const OverlaySplitHero_HeroOverlayedSplitSection = ({
   description = "From the first pour to the final sip, coffee is more than a drink — it’s a pause, a rhythm, a story in every cup. Discover how moments of calm begin with Sarina.",
   eyebrow = "Brew Stories",
   heading = "The Art of the Morning Ritual",
-  imageSrc = `${OverlaySplitHero_assetRoot}/hero/overlayed-split-bg.jpg`,
+  imageSrc = emailAsset(`hero/overlayed-split-bg.jpg`),
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${OverlaySplitHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   overlayColor = "rgba(3, 7, 18, 0.8)",
   subheading = "January 31, 2025",
   textColor = "#f9fafb",
@@ -359,9 +357,6 @@ interface ContainedSplitHero_HeroSplitContainedProps {
   variant?: ContainedSplitHero_HeroSplitContainedVariant;
 }
 
-const ContainedSplitHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const ContainedSplitHero_presets = {
   portraitBottom: {
     backgroundColor: "#030712",
@@ -370,9 +365,9 @@ const ContainedSplitHero_presets = {
       "Fluffy steamed buns filled with rich, savory flavors and made fresh daily. A taste of authentic street food, crafted with passion and served with warmth, right in the heart of London.",
     eyebrow: "Taiwanese Steamed Shop",
     heading: "Gua Bao",
-    logoSrc: `${ContainedSplitHero_assetRoot}/emailcn-logo-light.png`,
-    primaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-landscape-top.jpg`,
-    secondaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-portrait-bottom.jpg`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
+    primaryImageSrc: emailAsset(`hero/split-contained-landscape-top.jpg`),
+    secondaryImageSrc: emailAsset(`hero/split-contained-portrait-bottom.jpg`),
     subheading: "53 Lexington St. London",
     textColor: "#f9fafb",
   },
@@ -383,9 +378,9 @@ const ContainedSplitHero_presets = {
       "Handcrafted blends made with care, bottled to preserve freshness and flavor. A perfect balance of tradition and quality, designed to bring a touch of refinement to your everyday rituals.",
     eyebrow: "Es Kopi Susu",
     heading: "Sarina",
-    logoSrc: `${ContainedSplitHero_assetRoot}/emailcn-logo.png`,
-    primaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-portrait-top.jpg`,
-    secondaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-landscape-bottom.jpg`,
+    logoSrc: emailAsset(`emailcn-logo.png`),
+    primaryImageSrc: emailAsset(`hero/split-contained-portrait-top.jpg`),
+    secondaryImageSrc: emailAsset(`hero/split-contained-landscape-bottom.jpg`),
     subheading: "Americano Grape Fruit",
     textColor: "#030712",
   },
@@ -396,8 +391,8 @@ const ContainedSplitHero_presets = {
       "A refreshing blend of cooling salt and soothing vanilla, this toothpaste brings a clean, calming experience to your everyday ritual. Gentle yet effective, it's designed to leave your smile brighter.",
     eyebrow: "Toothpaste",
     heading: "Salt.",
-    logoSrc: `${ContainedSplitHero_assetRoot}/emailcn-logo.png`,
-    primaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-bg.jpg`,
+    logoSrc: emailAsset(`emailcn-logo.png`),
+    primaryImageSrc: emailAsset(`hero/split-contained-bg.jpg`),
     secondaryImageSrc: "",
     subheading: "Dusk | French Vanilla",
     textColor: "#030712",
@@ -409,9 +404,9 @@ const ContainedSplitHero_presets = {
       "A targeted solution that works deep to unclog pores, reduce excess oil, and calm irritation. Lightweight and powerful, this formula supports clearer, healthier-looking skin",
     eyebrow: "THE",
     heading: "Ordinary.",
-    logoSrc: `${ContainedSplitHero_assetRoot}/emailcn-logo-light.png`,
-    primaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-square-1.jpg`,
-    secondaryImageSrc: `${ContainedSplitHero_assetRoot}/hero/split-contained-square-2.jpg`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
+    primaryImageSrc: emailAsset(`hero/split-contained-square-1.jpg`),
+    secondaryImageSrc: emailAsset(`hero/split-contained-square-2.jpg`),
     subheading: "For blemish-prone skin",
     textColor: "#f9fafb",
   },
@@ -730,9 +725,9 @@ const FullBleedSplitHero_HeroSplitFullBleed = ({
   eyebrow = "Coffee",
   heading = "Sarina",
   imageAlt = "Sarina coffee bottle",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/hero/split-full-bleed-bg.jpg",
+  imageSrc = emailAsset("hero/split-full-bleed-bg.jpg"),
   logoAlt = "emailcn",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
+  logoSrc = emailAsset("emailcn-logo.png"),
   pageBackgroundColor = "#f1f5f9",
   price = "From $14.99",
   subheading = "Americano Grape Fruit",
@@ -818,10 +813,9 @@ FullBleedSplitHero_HeroSplitFullBleed.PreviewProps = {
   eyebrow: "Coffee",
   heading: "Sarina",
   imageAlt: "Sarina coffee bottle",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/hero/split-full-bleed-bg.jpg",
+  imageSrc: emailAsset("hero/split-full-bleed-bg.jpg"),
   logoAlt: "emailcn",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/emailcn-logo.png",
+  logoSrc: emailAsset("emailcn-logo.png"),
   pageBackgroundColor: "#f1f5f9",
   price: "From $14.99",
   subheading: "Americano Grape Fruit",
@@ -860,9 +854,6 @@ interface OverlayContentHeroBundle_HeroWithOverlayedContentProps {
   variant?: OverlayContentHeroBundle_HeroWithOverlayedContentVariant;
 }
 
-const OverlayContentHeroBundle_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const OverlayContentHeroBundle_HeroWithOverlayedContentSection = ({
   accentColor = "#D34A36",
   buttonBackgroundColor = "#D34A36",
@@ -873,10 +864,10 @@ const OverlayContentHeroBundle_HeroWithOverlayedContentSection = ({
   eyebrow = "Fresh Drop",
   heading = "Mid ‘77 Vintage",
   headingAccent = "Blazer",
-  imageSrc = `${OverlayContentHeroBundle_assetRoot}/hero/overlayed/hero-overlayed-bg.jpg`,
+  imageSrc = emailAsset(`hero/overlayed/hero-overlayed-bg.jpg`),
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${OverlayContentHeroBundle_assetRoot}/emailcn-insignia-mono.png`,
+  logoSrc = emailAsset(`emailcn-insignia-mono.png`),
   slantColor = "#fffffe",
   subheading = "Only One Pair Left",
   textColor = "#030712",
@@ -960,9 +951,6 @@ interface SlantedSplitHero_HeroWithSlantedSplitProps {
   variant?: SlantedSplitHero_HeroWithSlantedSplitVariant;
 }
 
-const SlantedSplitHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const SlantedSplitHero_HeroWithSlantedSplitSection = ({
   buttonBackgroundColor = "#4f46e5",
   buttonTextColor = "#fffffe",
@@ -973,10 +961,10 @@ const SlantedSplitHero_HeroWithSlantedSplitSection = ({
   eyebrow = "Independent Publishing",
   heading = "Bob Cut",
   imageAlt = "Independent publishing photography",
-  imageSrc = `${SlantedSplitHero_assetRoot}/hero/split-slanted-bg.jpg`,
+  imageSrc = emailAsset(`hero/split-slanted-bg.jpg`),
   logoAlt = "emailcn",
   logoHref = "https://example.com",
-  logoSrc = `${SlantedSplitHero_assetRoot}/emailcn-logo-light.png`,
+  logoSrc = emailAsset(`emailcn-logo-light.png`),
   subheading = "January Edition",
   textColor = "#030712",
   variant = "left-slanted-down",

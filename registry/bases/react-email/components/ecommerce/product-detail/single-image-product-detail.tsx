@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type ProductDetailWithDetailsVariant =
@@ -52,10 +53,6 @@ interface ProductDetailContentOverrides {
   ctaLabel?: string;
   ctaHref?: string;
 }
-
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
-
-const PRODUCT_ASSET_ROOT = `${ASSET_ROOT}/product-detail`;
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -191,7 +188,7 @@ const Star = ({ icon }: { icon: RatingIcon }) => (
   <Column style={{ paddingRight: "4px" }}>
     <Img
       alt=""
-      src={`${ASSET_ROOT}/icon-star-${icon}.png`}
+      src={emailAsset(`icon-star-${icon}.png`)}
       style={{ display: "block" }}
       width="16"
     />
@@ -262,7 +259,7 @@ const CallToAction = ({ href, label }: { href: string; label: string }) => (
       <span>
         <Img
           alt=""
-          src={`${ASSET_ROOT}/icon-arrow-right.png`}
+          src={emailAsset(`icon-arrow-right.png`)}
           style={{ maxWidth: "100%", verticalAlign: "baseline" }}
           width="12"
         />
@@ -424,8 +421,8 @@ const detailData: Record<ProductDetailImageLayout, ProductDetailData> = {
     colors: ["#FACC15", "#030712"],
     description:
       "A statement piece from the iconic collaboration between Off-White™ and Nike. Featuring signature zip-tie detailing, industrial text graphics, and a bold metallic Swoosh — these sneakers redefine street luxury with precision and attitude.",
-    imageUrls: [1, 2, 3, 4].map(
-      (index) => `${PRODUCT_ASSET_ROOT}/four-images-${index}.jpg`
+    imageUrls: [1, 2, 3, 4].map((index) =>
+      emailAsset(`product-detail/four-images-${index}.jpg`)
     ),
     name: "Off-White™ Air Force 1 - Yellow",
     price: "$249.00",
@@ -436,7 +433,7 @@ const detailData: Record<ProductDetailImageLayout, ProductDetailData> = {
     colors: ["#030712", "#e5e7eb"],
     description:
       "Crafted from a soft bamboo-linen blend, this shirt combines breathability, comfort, and effortless style. Naturally hypoallergenic and eco-friendly, it’s designed for everyday wear with a refined, minimal edge.",
-    imageUrls: [`${PRODUCT_ASSET_ROOT}/single-landscape.jpg`],
+    imageUrls: [emailAsset(`product-detail/single-landscape.jpg`)],
     name: "Bio Bamboo Indigo Shirt",
     price: "$59.99",
     ratingIcons: ["solid", "solid", "solid", "solid", "outline"],
@@ -446,8 +443,8 @@ const detailData: Record<ProductDetailImageLayout, ProductDetailData> = {
     colors: ["#030712", "#ED5845", "#FCC045"],
     description:
       "Built for performance and style, this shell delivers GORE-TEX protection, bold color blocking, and all-weather versatility. Designed to handle mountain conditions — and look good doing it.",
-    imageUrls: [1, 2, 3].map(
-      (index) => `${PRODUCT_ASSET_ROOT}/three-images-${index}.jpg`
+    imageUrls: [1, 2, 3].map((index) =>
+      emailAsset(`product-detail/three-images-${index}.jpg`)
     ),
     name: "Men's Summit Series Mountain GORE-TEX®",
     price: "$59.99",
@@ -458,8 +455,8 @@ const detailData: Record<ProductDetailImageLayout, ProductDetailData> = {
     colors: ["#030712", "#e5e7eb"],
     description:
       "Inspired by Vietnamese heritage, this premium cotton tee blends minimalist design with cultural typography. Soft, breathable, and built for everyday comfort, a refined staple for modern wardrobes.",
-    imageUrls: [1, 2].map(
-      (index) => `${PRODUCT_ASSET_ROOT}/two-images-${index}.jpg`
+    imageUrls: [1, 2].map((index) =>
+      emailAsset(`product-detail/two-images-${index}.jpg`)
     ),
     name: "Omakase - Tay Sơn Graphic Tee",
     price: "$39.99",

@@ -14,6 +14,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type CardCouponsVariant =
@@ -51,14 +52,10 @@ const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
 const backgrounds: Partial<Record<CardCouponsVariant, string>> = {
-  "background-image-header":
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-3.jpg",
-  "with-background-image":
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-2.jpg",
-  "with-overlay":
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-1.jpg",
-  "with-pattern":
-    "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
+  "background-image-header": emailAsset("coupons/bg-image-3.jpg"),
+  "with-background-image": emailAsset("coupons/bg-image-2.jpg"),
+  "with-overlay": emailAsset("coupons/bg-image-1.jpg"),
+  "with-pattern": emailAsset("coupons/pattern.png"),
 };
 
 export const CardCouponsSection = (props: Omit<CardCouponsProps, "theme">) => {
@@ -108,8 +105,8 @@ export const CardCouponsSection = (props: Omit<CardCouponsProps, "theme">) => {
   const resolvedLogo =
     logoSrc ??
     (variant === "with-name"
-      ? "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
-      : "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-light-lg.png");
+      ? emailAsset("maizzle-insignia.png")
+      : emailAsset("maizzle-insignia-light-lg.png"));
   const showDescription = [
     "with-name",
     "with-pattern",

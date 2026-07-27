@@ -1,6 +1,7 @@
 // Subject: Welcome to {_productName} — let's get you started
 
 import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
@@ -30,8 +31,7 @@ export const OnboardingVercel = ({
 OnboardingVercel.PreviewProps = {
   _firstName: "Aniket",
   _productName: "Vercel",
-  _senderAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  _senderAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   _senderName: "Vercel Team",
   _senderTitle: "Team",
   ctaHref: "https://vercel.com/dashboard",

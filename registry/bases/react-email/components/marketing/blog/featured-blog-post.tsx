@@ -17,6 +17,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const colors = {
@@ -483,7 +484,7 @@ const Featured_FeaturedBlogPostSection = ({
   badge = "Featured",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
+  imageSrc = emailAsset("image-grids/full-width.jpg"),
   title = "Featured article",
 }: Omit<Featured_FeaturedBlogPostProps, "theme">) => {
   const posts = [
@@ -509,7 +510,7 @@ const Featured_FeaturedBlogPost = ({
   badge = "Featured",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
+  imageSrc = emailAsset("image-grids/full-width.jpg"),
   title = "Featured article",
 }: Featured_FeaturedBlogPostProps) => (
   <BlogEmailShell preview={title} theme={theme}>
@@ -529,8 +530,7 @@ Featured_FeaturedBlogPost.PreviewProps = {
   badge: "Featured",
   excerpt: "A compelling excerpt from the featured article.",
   imageAlt: "Editorial feature",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
+  imageSrc: emailAsset("image-grids/full-width.jpg"),
   theme: defaultTheme,
   title: "Featured article",
 } satisfies Featured_FeaturedBlogPostProps;
@@ -551,7 +551,7 @@ const FeaturedDate_FeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc = emailAsset("image-grids/2-col-landscape.jpg"),
   month = "MAR",
   title = "Featured article",
 }: Omit<FeaturedDate_FeaturedPostWithLargeDateProps, "theme">) => {
@@ -577,7 +577,7 @@ const FeaturedDate_FeaturedPostWithLargeDate = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc = emailAsset("image-grids/2-col-landscape.jpg"),
   month = "MAR",
   title = "Featured article",
 }: FeaturedDate_FeaturedPostWithLargeDateProps) => (
@@ -597,8 +597,7 @@ FeaturedDate_FeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "A compelling excerpt from the featured article.",
   imageAlt: "Editorial feature",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/2-col-landscape.jpg",
+  imageSrc: emailAsset("image-grids/2-col-landscape.jpg"),
   month: "MAR",
   theme: defaultTheme,
   title: "Featured article",
@@ -620,7 +619,7 @@ const FeaturedDateFull_FullWidthFeaturedPostWithLargeDateSection = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-4.jpg",
+  imageSrc = emailAsset("image-grids/full-width-4.jpg"),
   month = "MAR",
   title = "Featured article",
 }: Omit<FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps, "theme">) => {
@@ -646,7 +645,7 @@ const FeaturedDateFull_FullWidthFeaturedPostWithLargeDate = ({
   date = "15",
   excerpt = "A compelling excerpt from the featured article.",
   imageAlt = "Editorial feature",
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-4.jpg",
+  imageSrc = emailAsset("image-grids/full-width-4.jpg"),
   month = "MAR",
   title = "Featured article",
 }: FeaturedDateFull_FullWidthFeaturedPostWithLargeDateProps) => (
@@ -666,8 +665,7 @@ FeaturedDateFull_FullWidthFeaturedPostWithLargeDate.PreviewProps = {
   date: "15",
   excerpt: "A compelling excerpt from the featured article.",
   imageAlt: "Editorial feature",
-  imageSrc:
-    "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-4.jpg",
+  imageSrc: emailAsset("image-grids/full-width-4.jpg"),
   month: "MAR",
   theme: defaultTheme,
   title: "Featured article",

@@ -1,6 +1,7 @@
 // Subject: Your receipt from Nike
 
 import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
 import { nikeTheme } from "@/registry/themes/nike";
 
 interface ReceiptItem {
@@ -26,7 +27,7 @@ export const ReceiptNike = ({
   customerName = "John",
   items = [
     {
-      imageUrl: "https://static.photos/technology/640x640/2",
+      imageUrl: emailAsset("products/product-1.jpg"),
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,
@@ -55,7 +56,7 @@ ReceiptNike.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://static.photos/technology/640x640/3",
+      imageUrl: emailAsset("products/product-2.jpg"),
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,

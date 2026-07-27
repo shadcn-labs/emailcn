@@ -17,6 +17,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type TeamCardsDetails_TwoColumnTeamCardsWithDetailsVariant =
@@ -73,7 +74,7 @@ const TeamCardsDetails_SocialLinks = ({
                 <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <Img
                     alt=""
-                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
+                    src={emailAsset(`icon-${icon}-${suffix}.png`)}
                     width="16"
                   />
                 </Link>
@@ -229,8 +230,8 @@ const TeamCardsDetails_DetailsCard = ({
 const TeamCardsDetails_TwoColumnTeamCardsWithDetailsSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-lg.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-lg.jpg",
+  avatarSrc1 = emailAsset("teams/member-1-lg.jpg"),
+  avatarSrc2 = emailAsset("teams/member-2-lg.jpg"),
   bio1 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
   bio2 = "Imagination is more important than knowledge. For knowledge is limited, whereas imagination embraces.",
   email1 = "jadam@example.com",
@@ -369,22 +370,16 @@ const TeamCards_responsiveStyles = `
 
 const TeamCards_socialIcons = {
   dark: {
-    facebook:
-      "https://emailcn.vercel.app/api/email-assets/icon-facebook-dark.png",
-    instagram:
-      "https://emailcn.vercel.app/api/email-assets/icon-instagram-dark.png",
-    linkedin:
-      "https://emailcn.vercel.app/api/email-assets/icon-linkedin-dark.png",
-    x: "https://emailcn.vercel.app/api/email-assets/icon-x-dark.png",
+    facebook: emailAsset("icon-facebook-dark.png"),
+    instagram: emailAsset("icon-instagram-dark.png"),
+    linkedin: emailAsset("icon-linkedin-dark.png"),
+    x: emailAsset("icon-x-dark.png"),
   },
   light: {
-    facebook:
-      "https://emailcn.vercel.app/api/email-assets/icon-facebook-light.png",
-    instagram:
-      "https://emailcn.vercel.app/api/email-assets/icon-instagram-light.png",
-    linkedin:
-      "https://emailcn.vercel.app/api/email-assets/icon-linkedin-light.png",
-    x: "https://emailcn.vercel.app/api/email-assets/icon-x-light.png",
+    facebook: emailAsset("icon-facebook-light.png"),
+    instagram: emailAsset("icon-instagram-light.png"),
+    linkedin: emailAsset("icon-linkedin-light.png"),
+    x: emailAsset("icon-x-light.png"),
   },
 };
 
@@ -616,7 +611,9 @@ const TeamCards_TwoColumnTeamCardsSection = ({
                         avatarAlt={avatarAlt1}
                         avatarSrc={
                           avatarSrc1 ??
-                          `https://emailcn.vercel.app/api/email-assets/teams/member-1-${rounded ? "md" : "lg"}.jpg`
+                          emailAsset(
+                            `teams/member-1-${rounded ? "md" : "lg"}.jpg`
+                          )
                         }
                         lastIcon="linkedin"
                         name={name1}
@@ -639,7 +636,9 @@ const TeamCards_TwoColumnTeamCardsSection = ({
                         avatarAlt={avatarAlt2}
                         avatarSrc={
                           avatarSrc2 ??
-                          `https://emailcn.vercel.app/api/email-assets/teams/member-2-${rounded ? "md" : "lg"}.jpg`
+                          emailAsset(
+                            `teams/member-2-${rounded ? "md" : "lg"}.jpg`
+                          )
                         }
                         lastIcon="instagram"
                         name={name2}
@@ -731,7 +730,7 @@ const TeamCompact_SocialLinks = ({
                 <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <Img
                     alt=""
-                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-dark.png`}
+                    src={emailAsset(`icon-${icon}-dark.png`)}
                     width="16"
                   />
                 </Link>
@@ -860,8 +859,8 @@ const TeamCompact_CompactCard = ({
 const TeamCompact_TwoColumnsCompactSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-md.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-md.jpg",
+  avatarSrc1 = emailAsset("teams/member-1-md.jpg"),
+  avatarSrc2 = emailAsset("teams/member-2-md.jpg"),
   name1 = "Jason Adam",
   name2 = "Henrik Petersson",
   role1 = "Senior Developer",
@@ -1035,7 +1034,7 @@ const TeamGrid_SocialLinks = ({
                 <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <Img
                     alt=""
-                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
+                    src={emailAsset(`icon-${icon}-${suffix}.png`)}
                     width="16"
                   />
                 </Link>
@@ -1218,19 +1217,13 @@ const TeamGrid_ThreeColumnsTeamGridSection = (
     avatarAlt4: "",
     avatarAlt5: "",
     avatarAlt6: "",
-    avatarSrc1:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-1.jpg",
-    avatarSrc2:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-2.jpg",
-    avatarSrc3:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-3.jpg",
-    avatarSrc4:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-4.jpg",
-    avatarSrc5:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-5.jpg",
-    avatarSrc6:
-      "https://emailcn.vercel.app/api/email-assets/teams/member-6.jpg",
-    heroImageSrc: "https://emailcn.vercel.app/api/email-assets/teams/hero.jpg",
+    avatarSrc1: emailAsset("teams/member-1.jpg"),
+    avatarSrc2: emailAsset("teams/member-2.jpg"),
+    avatarSrc3: emailAsset("teams/member-3.jpg"),
+    avatarSrc4: emailAsset("teams/member-4.jpg"),
+    avatarSrc5: emailAsset("teams/member-5.jpg"),
+    avatarSrc6: emailAsset("teams/member-6.jpg"),
+    heroImageSrc: emailAsset("teams/hero.jpg"),
     name1: "Jason Adam",
     name2: "Henrik Petersson",
     name3: "Ella Roustek",
@@ -1467,7 +1460,7 @@ const TeamBios_SocialLinks = ({
                 <Link href={`https://${icon === "x" ? "x" : icon}.com`}>
                   <Img
                     alt=""
-                    src={`https://emailcn.vercel.app/api/email-assets/icon-${icon}-${suffix}.png`}
+                    src={emailAsset(`icon-${icon}-${suffix}.png`)}
                     width="16"
                   />
                 </Link>
@@ -1619,8 +1612,8 @@ const TeamBios_HorizontalCard = ({
 const TeamBios_HorizontalTeamMemberBiosSection = ({
   avatarAlt1 = "",
   avatarAlt2 = "",
-  avatarSrc1 = "https://emailcn.vercel.app/api/email-assets/teams/member-1-md.jpg",
-  avatarSrc2 = "https://emailcn.vercel.app/api/email-assets/teams/member-2-md.jpg",
+  avatarSrc1 = emailAsset("teams/member-1-md.jpg"),
+  avatarSrc2 = emailAsset("teams/member-2-md.jpg"),
   bio1 = "Imagination is more important than knowledge. For knowledge is limited.",
   bio2 = "Imagination is more important than knowledge. For knowledge is limited.",
   name1 = "Jason Adam",

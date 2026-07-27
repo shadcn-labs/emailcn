@@ -13,6 +13,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type ButtonsVariant =
@@ -31,9 +32,6 @@ type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 type EmailCssProperties = CSSProperties & {
   msoTextRaise?: string;
 };
-
-const ASSET_ROOT = "https://emailcn.vercel.app/api/email-assets";
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -176,7 +174,7 @@ const Icon = ({
   return (
     <Img
       alt=""
-      src={`${ASSET_ROOT}/${prefix}${suffix}.png`}
+      src={emailAsset(`${prefix}${suffix}.png`)}
       style={{
         lineHeight: `${lineHeight}px`,
         maxWidth: "100%",

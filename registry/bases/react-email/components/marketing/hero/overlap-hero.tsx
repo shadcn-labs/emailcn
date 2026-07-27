@@ -19,6 +19,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type OverlapContentHero_HeroWithOverlappedContentVariant =
@@ -64,16 +65,12 @@ interface OverlapContentHero_VariantPreset {
 
 const OverlapContentHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const OverlapContentHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const OverlapContentHero_variantPresets: Record<
   OverlapContentHero_HeroWithOverlappedContentVariant,
   OverlapContentHero_VariantPreset
 > = {
   basic: {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-1.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-1.jpg`),
     backgroundPosition: "top",
     backgroundSize: "600px 630px",
     contentBackgroundColor: "#fffffe",
@@ -87,7 +84,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#030712",
   },
   "basic-with-gradient": {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-3.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-3.jpg`),
     backgroundPosition: "top",
     backgroundSize: "600px 630px",
     contentBackgroundColor:
@@ -102,7 +99,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#030712",
   },
   reversed: {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-2.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-2.jpg`),
     backgroundPosition: "bottom",
     backgroundSize: "600px 687px",
     contentBackgroundColor: "#fffffe",
@@ -116,7 +113,7 @@ const OverlapContentHero_variantPresets: Record<
     textColor: "#030712",
   },
   "reversed-with-gradient": {
-    backgroundImageSrc: `${OverlapContentHero_assetRoot}/hero/overlapped-content-bg-4.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-content-bg-4.jpg`),
     backgroundPosition: "bottom",
     backgroundSize: "600px 687px",
     contentBackgroundColor:
@@ -177,7 +174,7 @@ const OverlapContentHero_HeroWithOverlappedContentSection = (
     ctaLabel: "Discover now",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${OverlapContentHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     pageBackgroundColor: "#f1f5f9",
     variant: "basic" as OverlapContentHero_HeroWithOverlappedContentVariant,
     ...props,
@@ -273,7 +270,7 @@ const OverlapContentHero_HeroWithOverlappedContentSection = (
                 <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
                 <Img
                   alt=""
-                  src={`${OverlapContentHero_assetRoot}/icon-arrow-right.png`}
+                  src={emailAsset(`icon-arrow-right.png`)}
                   style={{ maxWidth: "100%", verticalAlign: "baseline" }}
                   width="12"
                 />
@@ -457,23 +454,19 @@ interface OverlapImageHero_VariantPreset {
 
 const OverlapImageHero_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
-const OverlapImageHero_assetRoot =
-  "https://emailcn.vercel.app/api/email-assets";
-
 const OverlapImageHero_variantPresets: Record<
   OverlapImageHero_HeroWithOverlappedImageVariant,
   OverlapImageHero_VariantPreset
 > = {
   default: {
-    backgroundImageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-image-bg.jpg`),
     contentBackgroundColor: "#000001",
     description:
       "Born on the curb and rebuilt in premium materials, Vault Old Skool delivers that unmistakable side-stripe style with modern comfort. Clean lines, easy colorways, and proven board feel: a timeless staple ready for your rotation.",
     eyebrow: "VANS",
     heading: "Vault Old Skool",
     imageSpacer: 165,
-    imageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image.png`,
+    imageSrc: emailAsset(`hero/overlapped-image.png`),
     mobileImageSpacer: 128,
     mobileTopSpacer: 144,
     mutedTextColor: "#d1d5db",
@@ -482,14 +475,14 @@ const OverlapImageHero_variantPresets: Record<
     topSpacer: 244,
   },
   "slanted-left": {
-    backgroundImageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-2-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-image-2-bg.jpg`),
     contentBackgroundColor: "#fffffe",
     description:
       "From trail to tide, GoPro 9.0 locks in buttery-smooth footage with advanced stabilization and crystal-clear detail. A rugged, waterproof build means fewer worries and more moments captured, while intuitive controls make quick work of clips and time-lapses. Mount it, tap record, and jump in.",
     eyebrow: "Introducing",
     heading: "Hero 9 5K Ultra HD",
     imageSpacer: 96,
-    imageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-2.png`,
+    imageSrc: emailAsset(`hero/overlapped-image-2.png`),
     mobileTopSpacer: 144,
     mutedTextColor: "#4b5563",
     subheading: "Stabilized action, simple controls.",
@@ -497,14 +490,14 @@ const OverlapImageHero_variantPresets: Record<
     topSpacer: 190,
   },
   "slanted-right": {
-    backgroundImageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-3-bg.jpg`,
+    backgroundImageSrc: emailAsset(`hero/overlapped-image-3-bg.jpg`),
     contentBackgroundColor: "#000001",
     description:
       "Hydrate without the hassle. This vacuum-insulated stainless bottle keeps drinks cold for hours and hot through long commutes, with a leak-proof lid that tosses easily into bags. A powder-coat finish resists scratches, the slim profile fits cup holders, and the wide mouth makes cleaning simple.",
     eyebrow: "Made in Sweden",
     heading: "Bluewater",
     imageSpacer: 96,
-    imageSrc: `${OverlapImageHero_assetRoot}/hero/overlapped-image-3.png`,
+    imageSrc: emailAsset(`hero/overlapped-image-3.png`),
     mobileTopSpacer: 144,
     mutedTextColor: "#d1d5db",
     subheading: "Insulated bottle for all-day carry.",
@@ -580,7 +573,7 @@ const OverlapImageHero_HeroWithOverlappedImageSection = (
     imageAlt: "Hero image",
     logoAlt: "emailcn",
     logoHref: "https://example.com",
-    logoSrc: `${OverlapImageHero_assetRoot}/emailcn-logo-light.png`,
+    logoSrc: emailAsset(`emailcn-logo-light.png`),
     pageBackgroundColor: "#f1f5f9",
     variant: "default" as OverlapImageHero_HeroWithOverlappedImageVariant,
     ...props,
@@ -774,7 +767,7 @@ const OverlapImageHero_HeroWithOverlappedImageSection = (
                         <span style={{ marginRight: "8px" }}>{ctaLabel}</span>
                         <Img
                           alt=""
-                          src={`${OverlapImageHero_assetRoot}/icon-arrow-right.png`}
+                          src={emailAsset(`icon-arrow-right.png`)}
                           style={{
                             maxWidth: "100%",
                             verticalAlign: "baseline",

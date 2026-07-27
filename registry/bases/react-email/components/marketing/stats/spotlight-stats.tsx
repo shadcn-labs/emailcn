@@ -15,6 +15,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type RollingStats_RollingStatsVariant =
@@ -257,8 +258,7 @@ const SingleStat_fontFamily =
 
 const SingleStat_defaults = {
   backgroundColor: "#fffffe",
-  backgroundImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/stats/single-stat.jpg",
+  backgroundImageSrc: emailAsset("stats/single-stat.jpg"),
   eyebrow: "Mapped trails",
   eyebrowColor: "#d1d5db",
   label: "Tracked by active users",

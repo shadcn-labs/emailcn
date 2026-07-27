@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type CouponsWithCenteredTextVariant =
@@ -60,11 +61,9 @@ const responsiveStyles = `
 `;
 
 const defaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
+  arrowIconSrc: emailAsset("icon-arrow-right.png"),
   backgroundColor: "#fffffe",
-  backgroundImageSrc:
-    "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
+  backgroundImageSrc: emailAsset("coupons/pattern.png"),
   buttonBackgroundColor: "#4f46e5",
   buttonColor: "#fffffe",
   buttonHref: "https://example.com",

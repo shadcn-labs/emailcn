@@ -14,10 +14,8 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
-
-const BENTO_ASSET_ROOT =
-  "https://emailcn.vercel.app/api/email-assets/bento-grids";
 
 type BentoPaddedVariant =
   | "padded-left"
@@ -294,7 +292,7 @@ const product = (
 ): ProductTileData => ({
   description,
   imageAlt: title,
-  imageSrc: `${BENTO_ASSET_ROOT}/${image}.jpg`,
+  imageSrc: emailAsset(`bento-grids/${image}.jpg`),
   price,
   title,
 });

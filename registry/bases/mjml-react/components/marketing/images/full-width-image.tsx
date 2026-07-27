@@ -13,6 +13,7 @@ import {
 } from "@faire/mjml-react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type FullWidthImage_FullWidthImageVariant =
@@ -63,7 +64,7 @@ const FullWidthImage_variantPadding: Record<
 };
 
 const FullWidthImage_FullWidthImageSection = ({
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width.jpg",
+  imageSrc = emailAsset("image-grids/full-width.jpg"),
   imageAlt = "",
   spacerBackgroundColor = "#fffffe",
   variant = "default",
@@ -161,7 +162,7 @@ const FullWidthOverlay_variantPadding: Record<
 };
 
 const FullWidthOverlay_FullWidthImageWithOverlaySection = ({
-  imageSrc = "https://emailcn.vercel.app/api/email-assets/image-grids/full-width-2.jpg",
+  imageSrc = emailAsset("image-grids/full-width-2.jpg"),
   heading = "Nike",
   subtext = "Shoes and accessories",
   headingColor = "#fffffe",

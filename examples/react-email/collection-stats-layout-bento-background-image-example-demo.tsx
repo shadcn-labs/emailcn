@@ -1,4 +1,5 @@
 import { CollectionStats } from "@/registry/bases/react-email/components/marketing/stats/collection-stats";
+import { emailAsset } from "@/registry/email-assets";
 
 export default function CollectionStatsLayoutBentoBackgroundImageExampleDemo() {
   return (
@@ -6,7 +7,7 @@ export default function CollectionStatsLayoutBentoBackgroundImageExampleDemo() {
       layout="bento"
       backgroundImage={{
         alt: "Background",
-        src: "https://emailcn.vercel.app/api/email-assets/images/image-landscape-1.jpg",
+        src: emailAsset("images/image-landscape-1.jpg"),
       }}
     />
   );

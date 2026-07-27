@@ -18,6 +18,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type CouponsWithContentOverlayedVariant =
@@ -58,8 +59,7 @@ const responsiveStyles = `
 `;
 
 const sharedDefaults = {
-  arrowIconSrc:
-    "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
+  arrowIconSrc: emailAsset("icon-arrow-right.png"),
   buttonBackgroundColor: "#030712",
   buttonColor: "#fffffe",
   buttonHref: "https://example.com",
@@ -75,11 +75,9 @@ const sharedDefaults = {
 };
 
 const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
-  centered:
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-6.jpg",
-  "code-bottom":
-    "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-4.jpg",
-  split: "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-5.jpg",
+  centered: emailAsset("coupons/bg-image-6.jpg"),
+  "code-bottom": emailAsset("coupons/bg-image-4.jpg"),
+  split: emailAsset("coupons/bg-image-5.jpg"),
 };
 
 type SectionProps = Omit<CouponsWithContentOverlayedProps, "theme">;

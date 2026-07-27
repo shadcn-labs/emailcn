@@ -17,6 +17,7 @@ import {
 
 import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/components/ecommerce/product-lists/product-list";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { appleTheme } from "@/registry/themes/apple";
 
 interface ReceiptItem {
@@ -139,7 +140,7 @@ ReceiptApple.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://static.photos/technology/640x640/2",
+      imageUrl: emailAsset("products/product-1.jpg"),
       name: "iPhone 15 Pro",
       price: "$999.00",
       quantity: 1,

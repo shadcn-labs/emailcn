@@ -16,6 +16,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
 import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
@@ -174,7 +175,7 @@ export const InviteVercel = ({
 InviteVercel.PreviewProps = {
   ctaHref: "https://vercel.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl: "https://example.com/avatar.jpg",
+  inviterAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   inviterName: "Sarah",
   teamName: "Vercel",
 } satisfies Props;

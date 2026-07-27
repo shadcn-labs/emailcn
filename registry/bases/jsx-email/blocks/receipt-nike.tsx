@@ -17,6 +17,7 @@ import {
 } from "jsx-email";
 
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 import { nikeTheme } from "@/registry/themes/nike";
 
@@ -136,7 +137,7 @@ export const ReceiptNike = ({
   customerName = "John",
   items = [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: emailAsset("products/shoe-1.jpg"),
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,
@@ -312,7 +313,7 @@ ReceiptNike.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: emailAsset("products/shoe-1.jpg"),
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,

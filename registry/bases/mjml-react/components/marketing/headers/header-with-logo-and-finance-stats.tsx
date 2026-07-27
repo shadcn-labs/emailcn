@@ -14,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export const HeaderEmailShell = ({
@@ -95,14 +96,14 @@ const defaultStats: HeaderFinanceStat[] = [
     change: "+23.5%",
     label: "BTC",
     positive: true,
-    src: "https://emailcn.vercel.app/api/email-assets/btc-logo.png",
+    src: emailAsset("btc-logo.png"),
   },
   {
     alt: "ETH",
     change: "-13.2%",
     label: "ETH",
     positive: false,
-    src: "https://emailcn.vercel.app/api/email-assets/eth-logo.png",
+    src: emailAsset("eth-logo.png"),
   },
 ];
 
@@ -144,7 +145,7 @@ export const HeaderWithLogoAndFinanceStatsSection = ({
   backgroundColor = "#fffffe",
   logoAlt = "Maizzle",
   logoHref = "https://example.com",
-  logoSrc = "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc = emailAsset("maizzle-insignia.png"),
   stats = defaultStats,
 }: Omit<HeaderWithLogoAndFinanceStatsProps, "theme">) => {
   const logo = (

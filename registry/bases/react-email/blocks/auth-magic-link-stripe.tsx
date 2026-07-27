@@ -13,6 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { stripeTheme } from "@/registry/themes/stripe";
 
 interface Props {
@@ -74,7 +75,7 @@ export const AuthMagicLinkStripe = ({
 
 AuthMagicLinkStripe.PreviewProps = {
   _logoAlt: "Stripe",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stripe",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

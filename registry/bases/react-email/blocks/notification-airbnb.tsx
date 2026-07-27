@@ -13,6 +13,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { airbnbTheme } from "@/registry/themes/airbnb";
 
 interface Props {
@@ -82,9 +83,8 @@ export const NotificationAirbnb = ({
 
 NotificationAirbnb.PreviewProps = {
   _action: "completed their stay",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Airbnb",
   _targetName: "your place",
   actorName: "John",

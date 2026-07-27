@@ -16,6 +16,7 @@ import {
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 export type ContentAlignment = "left" | "center" | "right";
@@ -53,8 +54,8 @@ const fontFamily =
   'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
 const defaultIconSources = [
-  "https://cdn.simpleicons.org/github/111827",
-  "https://cdn.simpleicons.org/slack/4A154B",
+  emailAsset("social/icon-github.png"),
+  emailAsset("social/icon-slack.png"),
 ] as const;
 
 const getImageMargin = (alignment: ContentAlignment) => {

@@ -17,6 +17,7 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
 import { EmailTailwind } from "@/registry/bases/jsx-email/themes/email-theme";
 import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 type Cta_CTAWithShiftedImagesVariant =
@@ -93,23 +94,17 @@ const Cta_responsiveStyles = `
 const Cta_variantContent = {
   collage: {
     heading: "Be an Explorer",
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-1.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-2.jpg",
-    imageSrc3:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-3.jpg",
-    imageSrc4:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-collage-4.jpg",
+    imageSrc1: emailAsset("cta/cta-collage-1.jpg"),
+    imageSrc2: emailAsset("cta/cta-collage-2.jpg"),
+    imageSrc3: emailAsset("cta/cta-collage-3.jpg"),
+    imageSrc4: emailAsset("cta/cta-collage-4.jpg"),
     subtext:
       "Be part of a network that lives for the outdoors. Confirm your email to stay connected, get new gear updates, and access member rewards.",
   },
   "flush-side-images": {
     heading: "Join your team!",
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-split-avatars-1.png",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-split-avatars-2.png",
+    imageSrc1: emailAsset("cta/cta-split-avatars-1.png"),
+    imageSrc2: emailAsset("cta/cta-split-avatars-2.png"),
     imageSrc3: "",
     imageSrc4: "",
     subtext:
@@ -117,10 +112,8 @@ const Cta_variantContent = {
   },
   "images-offset": {
     heading: "Be an Explorer",
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-1.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-2.jpg",
+    imageSrc1: emailAsset("cta/cta-outwear-1.jpg"),
+    imageSrc2: emailAsset("cta/cta-outwear-2.jpg"),
     imageSrc3: "",
     imageSrc4: "",
     subtext:
@@ -128,10 +121,8 @@ const Cta_variantContent = {
   },
   "images-offset-alt": {
     heading: "Be an Explorer",
-    imageSrc1:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-1.jpg",
-    imageSrc2:
-      "https://emailcn.vercel.app/api/email-assets/cta/cta-outwear-2.jpg",
+    imageSrc1: emailAsset("cta/cta-outwear-1.jpg"),
+    imageSrc2: emailAsset("cta/cta-outwear-2.jpg"),
     imageSrc3: "",
     imageSrc4: "",
     subtext:

@@ -16,6 +16,7 @@ import {
 } from "react-email";
 
 import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
@@ -100,8 +101,7 @@ export const InviteDefault = ({
 InviteDefault.PreviewProps = {
   ctaHref: "https://example.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  inviterAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   inviterName: "Sarah",
   teamName: "Acme Team",
 } satisfies Props;

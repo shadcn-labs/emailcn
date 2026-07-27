@@ -19,6 +19,7 @@ import {
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
@@ -297,7 +298,7 @@ const ContentCtaFooter_defaults = {
   heading: "Start sending professionally\ndesigned emails today",
   headingColor: "#030712",
   logoAlt: "Maizzle",
-  logoSrc: "https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png",
+  logoSrc: emailAsset("maizzle-insignia.png"),
   mutedTextColor: "#d1d5db",
   pageBackgroundColor: "#f1f5f9",
   subtext:
@@ -417,7 +418,7 @@ const LargeTitleFooter_FooterWithLargeTitleAndButtonsSection = ({
           align="center"
           alt="Maizzle"
           href="https://example.com"
-          src="https://emailcn.vercel.app/api/email-assets/maizzle-insignia.png"
+          src={emailAsset("maizzle-insignia.png")}
           width="64px"
         />
         <FooterCopy
@@ -517,27 +518,27 @@ const FullWidthCtaFooter_links = [
 const FullWidthCtaFooter_socials = [
   {
     href: "https://facebook.com",
-    iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-facebook.png",
+    iconSrc: emailAsset("icon-facebook.png"),
     label: "Facebook",
   },
   {
     href: "https://github.com",
-    iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-github.png",
+    iconSrc: emailAsset("icon-github.png"),
     label: "GitHub",
   },
   {
     href: "https://linkedin.com",
-    iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-linkedin.png",
+    iconSrc: emailAsset("icon-linkedin.png"),
     label: "LinkedIn",
   },
   {
     href: "https://youtube.com",
-    iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-youtube.png",
+    iconSrc: emailAsset("icon-youtube.png"),
     label: "YouTube",
   },
   {
     href: "https://x.com",
-    iconSrc: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
+    iconSrc: emailAsset("icon-x.png"),
     label: "X",
   },
 ];
@@ -639,33 +640,30 @@ const OverlapFooter_legalLinks = [
   { href: "https://example.com/terms", label: "Terms of Service" },
   { href: "https://example.com/returns", label: "Returns" },
 ];
-
-const OverlapFooter_iconRoot = "https://emailcn.vercel.app/api/email-assets";
-
 const OverlapFooter_socials = [
   {
     href: "https://facebook.com",
-    iconSrc: `${OverlapFooter_iconRoot}/icon-facebook.png`,
+    iconSrc: emailAsset(`icon-facebook.png`),
     label: "Facebook",
   },
   {
     href: "https://github.com",
-    iconSrc: `${OverlapFooter_iconRoot}/icon-github.png`,
+    iconSrc: emailAsset(`icon-github.png`),
     label: "GitHub",
   },
   {
     href: "https://linkedin.com",
-    iconSrc: `${OverlapFooter_iconRoot}/icon-linkedin.png`,
+    iconSrc: emailAsset(`icon-linkedin.png`),
     label: "LinkedIn",
   },
   {
     href: "https://youtube.com",
-    iconSrc: `${OverlapFooter_iconRoot}/icon-youtube.png`,
+    iconSrc: emailAsset(`icon-youtube.png`),
     label: "YouTube",
   },
   {
     href: "https://x.com",
-    iconSrc: `${OverlapFooter_iconRoot}/icon-x.png`,
+    iconSrc: emailAsset(`icon-x.png`),
     label: "X",
   },
 ];
@@ -685,9 +683,9 @@ const OverlapFooter_FooterWithOverlappedCtaSection = (
     unsubscribeHref,
   } = {
     backgroundColor: "#fffffe",
-    backgroundImageSrc: `${OverlapFooter_iconRoot}/footers/bg-image-3.jpg`,
+    backgroundImageSrc: emailAsset(`footers/bg-image-3.jpg`),
     logoPosition: "left" as OverlapFooter_FooterOverlappedLogoPosition,
-    logoSrc: `${OverlapFooter_iconRoot}/maizzle-insignia.png`,
+    logoSrc: emailAsset(`maizzle-insignia.png`),
     mutedTextColor: "#d1d5db",
     primaryColor: "#4f46e5",
     textColor: "#6b7280",
