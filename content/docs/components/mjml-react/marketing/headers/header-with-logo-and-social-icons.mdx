@@ -18,7 +18,7 @@ description: "Header With Logo And Social Icons rendered with email-safe, render
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/header-with-logo-and-social-icons
+npx shadcn@latest add @emailcn/mjml-react/header-with-logo-and-social-icons
 ```
 
 </TabsContent>
@@ -38,9 +38,14 @@ npm install @faire/mjml-react mjml
     title="components/email/header-with-logo-and-social-icons.tsx"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/theme-default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"

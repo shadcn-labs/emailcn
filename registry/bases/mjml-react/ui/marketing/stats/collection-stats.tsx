@@ -11,8 +11,8 @@ import {
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
 
 type SimpleStats_SimpleStatsVariant =
   | "default"

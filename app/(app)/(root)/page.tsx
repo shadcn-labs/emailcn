@@ -10,7 +10,6 @@ export const revalidate = false;
 interface ShowcaseItem {
   className: string;
   name: DemoName;
-  previewScale?: number;
   title: string;
 }
 
@@ -23,7 +22,6 @@ export const showcaseItems: readonly ShowcaseItem[] = [
   {
     className: "md:col-span-2",
     name: "team-bios-with-right-images-example-demo",
-    previewScale: 0.72,
     title: "Team",
   },
   {
@@ -73,7 +71,6 @@ export default function IndexPage() {
               centerPreview
               height={410}
               name={item.name}
-              previewScale={item.previewScale}
               showTitleBar
               title={item.title}
               className={item.className}

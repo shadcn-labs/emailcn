@@ -1,7 +1,7 @@
 import type { TailwindConfig } from "react-email";
 import plugin from "tailwindcss/plugin";
 
-import type { EmailThemeTokens } from "@/registry/themes/types";
+import type { EmailThemeTokens } from "@/components/email/email-theme-types";
 
 const fontScale = {
   "11": {

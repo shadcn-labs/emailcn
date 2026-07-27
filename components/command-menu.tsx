@@ -337,7 +337,7 @@ export const CommandMenu = ({
       const parsed = parseDocPageUrl(item.url);
       if (parsed.kind === "theme") {
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/theme-${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/theme-${parsed.slug}`
         );
         return;
       }
@@ -347,21 +347,23 @@ export const CommandMenu = ({
       }
       if (parsed.kind === "component" || parsed.kind === "template") {
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/${parsed.slug}`
         );
         return;
       }
       setCopyPayload("");
     },
-    [packageManager]
+    [currentBase, packageManager]
   );
 
   const handleBlockHighlight = useCallback(
     (block: { name: string; description: string; categories: string[] }) => {
       setShowGoToPage(true);
-      setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
+      setCopyPayload(
+        `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/${block.name}`
+      );
     },
-    [packageManager]
+    [currentBase, packageManager]
   );
 
   const runCommand = useCallback((command: () => unknown) => {

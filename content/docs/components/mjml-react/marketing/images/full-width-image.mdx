@@ -15,7 +15,7 @@ description: "Full Width Image rendered with email-safe, renderer-native compone
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/full-width-image
+npx shadcn@latest add @emailcn/mjml-react/full-width-image
 ```
 
 </TabsContent>
@@ -35,9 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/full-width-image.tsx"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/theme-default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"

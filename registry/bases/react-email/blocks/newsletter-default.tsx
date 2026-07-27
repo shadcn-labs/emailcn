@@ -12,8 +12,8 @@ import {
   Text,
 } from "react-email";
 
+import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
-import { defaultTheme } from "@/registry/themes/react-email/default";
 
 interface Article {
   title: string;

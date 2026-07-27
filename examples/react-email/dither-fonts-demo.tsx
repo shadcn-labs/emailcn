@@ -1,4 +1,4 @@
-import { DitherFonts } from "@/registry/bases/react-email/fonts/dither-fonts";
+import { DitherFonts } from "@/registry/bases/react-email/fonts/font-dither";
 
 export default function DitherFontsDemo() {
   return <DitherFonts />;

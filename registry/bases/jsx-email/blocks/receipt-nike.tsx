@@ -16,9 +16,9 @@ import {
   Link,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import { nikeTheme } from "@/registry/themes/definitions/nike";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
+import { nikeTheme } from "@/registry/bases/jsx-email/themes/theme-nike";
 
 interface ProductCardProps {
   imageUrl?: string;

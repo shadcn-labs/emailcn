@@ -15,7 +15,7 @@ import {
   Text,
 } from "react-email";
 
-import { linearTheme } from "@/registry/themes/react-email/linear";
+import { linearTheme } from "@/registry/bases/react-email/themes/theme-linear";
 
 interface Props {
   _logoUrl?: string;

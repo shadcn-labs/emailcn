@@ -1,7 +1,7 @@
 // Subject: You're invited to join {teamName}
 
 import { InviteBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { vercelTheme } from "@/registry/themes/definitions/vercel";
+import { vercelTheme } from "@/registry/bases/mjml-react/themes/theme-vercel";
 
 interface Props {
   inviterName?: string;

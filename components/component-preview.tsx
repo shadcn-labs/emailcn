@@ -13,7 +13,6 @@ interface ComponentPreviewProps {
   hideNav?: boolean;
   hideCode?: boolean;
   height?: number;
-  previewScale?: number;
   showTitleBar?: boolean;
 }
 
@@ -26,7 +25,6 @@ export const ComponentPreview = async ({
   hideNav = false,
   hideCode = false,
   height,
-  previewScale,
   showTitleBar = false,
 }: ComponentPreviewProps) => {
   let html = "";
@@ -57,7 +55,6 @@ export const ComponentPreview = async ({
         html={html}
         iframeTitle={title ?? name}
         plainText={plainText}
-        previewScale={previewScale}
         showTitleBar={showTitleBar}
         title={title}
         viewUrl={`/view/${encodeURIComponent(base)}/${encodeURIComponent(name)}`}

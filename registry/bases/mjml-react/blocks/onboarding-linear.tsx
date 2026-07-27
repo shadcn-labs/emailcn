@@ -1,7 +1,7 @@
 // Subject: Welcome to {_productName} — let's get you started
 
 import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { linearTheme } from "@/registry/themes/definitions/linear";
+import { linearTheme } from "@/registry/bases/mjml-react/themes/theme-linear";
 
 interface Props {
   _firstName?: string;

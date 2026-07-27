@@ -1,7 +1,7 @@
 // Subject: Your receipt from {_productName}
 
 import { ReceiptBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { defaultTheme } from "@/registry/themes/definitions/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
 
 interface ReceiptItem {
   name: string;

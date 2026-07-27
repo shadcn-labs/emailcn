@@ -15,7 +15,7 @@ description: "Milestone Stats rendered with email-safe, renderer-native componen
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/milestone-stats
+npx shadcn@latest add @emailcn/mjml-react/milestone-stats
 ```
 
 </TabsContent>
@@ -35,9 +35,14 @@ npm install @faire/mjml-react mjml
     title="components/email/milestone-stats.tsx"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/theme-default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"

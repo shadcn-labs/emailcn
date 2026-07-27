@@ -15,7 +15,7 @@ description: "Podcast Blog rendered with email-safe, renderer-native components.
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/podcast-blog
+npx shadcn@latest add @emailcn/jsx-email/podcast-blog
 ```
 
 </TabsContent>
@@ -35,14 +35,19 @@ npm install jsx-email
     title="components/email/podcast-blog.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/fonts/default.tsx"
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
     base="jsx-email"
-    title="components/email/default.tsx"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/theme-default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
   />
   <ComponentSource
     src="registry/themes/definitions/default.ts"
     base="jsx-email"
-    title="components/email/theme-default.ts"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"

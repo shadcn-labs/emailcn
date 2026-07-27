@@ -12,9 +12,9 @@ import {
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
+import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
 
 const colors = {
   border: "#e5e7eb",

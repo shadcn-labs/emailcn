@@ -12,7 +12,7 @@ import {
   Text,
 } from "react-email";
 
-import { notionTheme } from "@/registry/themes/react-email/notion";
+import { notionTheme } from "@/registry/bases/react-email/themes/theme-notion";
 
 interface Props {
   _logoUrl?: string;

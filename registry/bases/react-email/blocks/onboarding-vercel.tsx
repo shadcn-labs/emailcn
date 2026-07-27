@@ -11,12 +11,12 @@ import {
   Text,
 } from "react-email";
 
+import { vercelTheme } from "@/registry/bases/react-email/themes/theme-vercel";
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
 import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/call-to-action";
 import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/navigation-footer";
 import { HeaderWithLogoAndMenuSection as LogoHeaderSection } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu";
 import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/split-hero";
-import { vercelTheme } from "@/registry/themes/react-email/vercel";
 
 interface Props {
   _firstName?: string;

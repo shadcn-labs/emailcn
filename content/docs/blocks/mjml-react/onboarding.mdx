@@ -16,7 +16,7 @@ description: "Pre-built onboarding email templates for new users."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/block-onboarding-default
+npx shadcn@latest add @emailcn/mjml-react/block-onboarding-default
 ```
 
 </TabsContent>
@@ -42,9 +42,14 @@ npm install @faire/mjml-react mjml
     title="components/email/block-shared.tsx"
   />
   <ComponentSource
-    src="registry/themes/definitions/default.ts"
+    src="registry/bases/mjml-react/themes/theme-default.ts"
     base="mjml-react"
     title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/themes/definitions/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"

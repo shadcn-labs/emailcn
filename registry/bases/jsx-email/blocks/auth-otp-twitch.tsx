@@ -11,8 +11,8 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { twitchTheme } from "@/registry/themes/definitions/twitch";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { twitchTheme } from "@/registry/bases/jsx-email/themes/theme-twitch";
 
 interface Props {
   _logoUrl?: string;

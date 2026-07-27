@@ -1,4 +1,4 @@
-import type { EmailThemeTokens } from "@/registry/themes/types";
+import type { EmailThemeTokens } from "@/components/email/email-theme-types";
 
 export const vercelTheme = {
   borderRadius: "6px",

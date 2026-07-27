@@ -12,8 +12,8 @@ import {
   MjmlText,
 } from "@faire/mjml-react";
 
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
+import { defaultTheme } from "@/registry/bases/mjml-react/themes/theme-default";
+import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/theme-default";
 
 type FullWidthImage_FullWidthImageVariant =
   | "default"

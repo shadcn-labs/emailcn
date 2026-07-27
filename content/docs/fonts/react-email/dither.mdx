@@ -16,7 +16,7 @@ description: "IBM Plex Sans Condensed + Inter font stack for compact email templ
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/dither-fonts
+npx shadcn@latest add @emailcn/react-email/dither-fonts
 ```
 
 </TabsContent>
@@ -32,9 +32,9 @@ npm install react-email
 
   <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/fonts/dither-fonts.tsx"
+    src="registry/bases/react-email/fonts/font-dither.tsx"
     base="react-email"
-    title="components/email/dither-fonts.tsx"
+    title="components/email/font-dither.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -46,7 +46,7 @@ npm install react-email
 ## Usage
 
 ```tsx
-import { DitherFonts } from "@/components/email/dither-fonts";
+import { DitherFonts } from "@/components/email/font-dither";
 
 export default function Email() {
   return (
@@ -62,10 +62,9 @@ export default function Email() {
 
 ## Font Details
 
-| Property       | Value                                                                                                                   |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Primary Font   | IBM Plex Sans Condensed                                                                                                 |
-| Secondary Font | Inter                                                                                                                   |
-| Fallback       | Arial, sans-serif                                                                                                       |
-| Weights        | 300, 400, 500 (Inter) / 500 (IBM Plex Sans Condensed)                                                                   |
-| Source         | [Resend Protocol demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/03-Protocol/dither-fonts.tsx) |
+| Property       | Value                                                 |
+| -------------- | ----------------------------------------------------- |
+| Primary Font   | IBM Plex Sans Condensed                               |
+| Secondary Font | Inter                                                 |
+| Fallback       | Arial, sans-serif                                     |
+| Weights        | 300, 400, 500 (Inter) / 500 (IBM Plex Sans Condensed) |

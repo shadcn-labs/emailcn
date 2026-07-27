@@ -1,7 +1,7 @@
 // Subject: You're now part of the {teamName} workspace
 
 import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { slackTheme } from "@/registry/themes/definitions/slack";
+import { slackTheme } from "@/registry/bases/mjml-react/themes/theme-slack";
 
 interface Props {
   _logoUrl?: string;

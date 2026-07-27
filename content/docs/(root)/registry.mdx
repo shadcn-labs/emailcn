@@ -3,26 +3,16 @@ title: "Registry"
 description: "Learn how to use the emailcn registry with the shadcn CLI."
 ---
 
-The **emailcn** registry ships components, blocks, themes, and font helpers in the [shadcn registry format](https://ui.shadcn.com/docs/registry), in three **styles**: `react-email`, `mjml-react`, and `jsx-email`. Every item has the same name in every style — the style you configure decides which implementation you get.
+The **emailcn** registry ships components, blocks, themes, and font helpers in the [shadcn registry format](https://ui.shadcn.com/docs/registry). Items are namespaced by framework: `react-email/`, `mjml-react/`, or `jsx-email/`.
 
 ## Setup
 
-Add a **registries** entry for this site, pointing at the style you want. See the [shadcn registry documentation](https://ui.shadcn.com/docs/registry) for all `components.json` fields and behaviors.
+Add a **registries** entry for this site. See the [shadcn registry documentation](https://ui.shadcn.com/docs/registry) for all `components.json` fields and behaviors.
 
 ```json
 {
   "registries": {
-    "@emailcn": "https://emailcn.vercel.app/r/react-email/{name}.json"
-  }
-}
-```
-
-Swap `react-email` for `mjml-react` or `jsx-email` to use those styles:
-
-```json
-{
-  "registries": {
-    "@emailcn": "https://emailcn.vercel.app/r/jsx-email/{name}.json"
+    "@emailcn": "https://emailcn.vercel.app/r/{name}.json"
   }
 }
 ```
@@ -31,34 +21,34 @@ You can replace `@emailcn` with another namespace; it only needs to match what y
 
 ## Usage
 
-Item names are identical across styles, with **no** prefix:
+Prefix each item with its framework:
 
 ```bash
-npx shadcn@latest add @emailcn/buttons
+npx shadcn@latest add @emailcn/react-email/button
 ```
 
 **Themes** are `theme-<id>`:
 
 ```bash
-npx shadcn@latest add @emailcn/theme-stripe
+npx shadcn@latest add @emailcn/react-email/theme-stripe
 ```
 
 **Blocks** are `block-<id>`:
 
 ```bash
-npx shadcn@latest add @emailcn/block-onboarding-default
+npx shadcn@latest add @emailcn/react-email/block-onboarding-default
 ```
 
 **Fonts** (React Email and JSX Email styles) — e.g. `default-fonts`, `tech-fonts`:
 
 ```bash
-npx shadcn@latest add @emailcn/default-fonts
+npx shadcn@latest add @emailcn/react-email/default-fonts
 ```
 
-Without a registry alias, use the full per-style URL:
+Without a registry alias, use the full item URL:
 
 ```bash
-npx shadcn@latest add https://emailcn.vercel.app/r/react-email/buttons.json
+npx shadcn@latest add https://emailcn.vercel.app/r/react-email/button.json
 ```
 
-Each style also serves its full index at `https://emailcn.vercel.app/r/<style>/registry.json`.
+The complete registry index is available at `https://emailcn.vercel.app/r/registry.json`.

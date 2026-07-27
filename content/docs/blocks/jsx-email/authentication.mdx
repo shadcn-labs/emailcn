@@ -16,7 +16,7 @@ description: "Pre-built authentication email templates for various use cases."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/block-auth-otp-default
+npx shadcn@latest add @emailcn/jsx-email/block-auth-otp-default
 ```
 
 </TabsContent>
@@ -37,14 +37,19 @@ npm install jsx-email
     title="components/email/auth-otp-default.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/fonts/default.tsx"
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
     base="jsx-email"
-    title="components/email/default.tsx"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/theme-default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
   />
   <ComponentSource
     src="registry/themes/definitions/default.ts"
     base="jsx-email"
-    title="components/email/theme-default.ts"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"

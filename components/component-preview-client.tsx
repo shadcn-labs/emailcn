@@ -89,7 +89,6 @@ interface ComponentPreviewClientProps {
   className?: string;
   hideNav?: boolean;
   height?: number;
-  previewScale?: number;
   showTitleBar?: boolean;
   viewUrl?: string;
 }
@@ -102,15 +101,11 @@ export const ComponentPreviewClient = ({
   className,
   hideNav = false,
   height = 640,
-  previewScale,
   showTitleBar = false,
   viewUrl,
 }: ComponentPreviewClientProps) => {
   const [activeTab, setActiveTab] = useState("preview");
   const [viewport] = useViewportToggle();
-  const scaledPreviewHeight = previewScale
-    ? Math.ceil(height / previewScale)
-    : height;
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
@@ -152,25 +147,13 @@ export const ComponentPreviewClient = ({
               {title}
             </div>
           ) : null}
-          <div
-            className={cn(
-              "bg-muted/40 flex justify-center",
-              previewScale ? "overflow-hidden" : "overflow-x-auto"
-            )}
-            style={previewScale ? { height } : undefined}
-          >
+          <div className="bg-muted/40 flex justify-center overflow-x-auto">
             <iframe
-              className={cn(
-                "block bg-transparent transition-[width] duration-200 ease-out",
-                previewScale ? "shrink-0 origin-top" : "max-w-full"
-              )}
-              height={scaledPreviewHeight}
+              className="block max-w-full bg-transparent transition-[width] duration-200 ease-out"
+              height={height}
               sandbox=""
               srcDoc={html}
-              style={{
-                transform: previewScale ? `scale(${previewScale})` : undefined,
-                width: previewScale ? "600px" : viewportWidths[viewport],
-              }}
+              style={{ width: viewportWidths[viewport] }}
               title={iframeTitle}
             />
           </div>

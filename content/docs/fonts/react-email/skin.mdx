@@ -16,7 +16,7 @@ description: "Instrument Serif + Inter font stack for editorial email templates.
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/skin-fonts
+npx shadcn@latest add @emailcn/react-email/skin-fonts
 ```
 
 </TabsContent>
@@ -32,9 +32,9 @@ npm install react-email
 
   <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/react-email/fonts/skin-fonts.tsx"
+    src="registry/bases/react-email/fonts/font-skin.tsx"
     base="react-email"
-    title="components/email/skin-fonts.tsx"
+    title="components/email/font-skin.tsx"
   />
   <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
@@ -46,7 +46,7 @@ npm install react-email
 ## Usage
 
 ```tsx
-import { SkinFonts } from "@/components/email/skin-fonts";
+import { SkinFonts } from "@/components/email/font-skin";
 
 export default function Email() {
   return (
@@ -62,10 +62,9 @@ export default function Email() {
 
 ## Font Details
 
-| Property       | Value                                                                                                             |
-| -------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Primary Font   | Instrument Serif                                                                                                  |
-| Secondary Font | Inter                                                                                                             |
-| Fallback       | Georgia, Times New Roman, serif (Instrument Serif) / Arial, sans-serif (Inter)                                    |
-| Weights        | 400, 500, 600                                                                                                     |
-| Source         | [Resend Arcane demo](https://github.com/resend/react-email/blob/canary/apps/demo/emails/04-Arcane/skin-fonts.tsx) |
+| Property       | Value                                                                          |
+| -------------- | ------------------------------------------------------------------------------ |
+| Primary Font   | Instrument Serif                                                               |
+| Secondary Font | Inter                                                                          |
+| Fallback       | Georgia, Times New Roman, serif (Instrument Serif) / Arial, sans-serif (Inter) |
+| Weights        | 400, 500, 600                                                                  |

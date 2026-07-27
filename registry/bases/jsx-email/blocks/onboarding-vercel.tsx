@@ -16,9 +16,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import { vercelTheme } from "@/registry/themes/definitions/vercel";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
+import { vercelTheme } from "@/registry/bases/jsx-email/themes/theme-vercel";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;

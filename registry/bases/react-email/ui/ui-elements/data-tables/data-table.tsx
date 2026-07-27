@@ -14,8 +14,8 @@ import {
 } from "react-email";
 import type { TailwindConfig } from "react-email";
 
-import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/react-email/default";
+import { DefaultFonts } from "@/registry/bases/react-email/fonts/font-default";
+import { defaultTheme } from "@/registry/bases/react-email/themes/theme-default";
 
 const colors = {
   border: "#e5e7eb",

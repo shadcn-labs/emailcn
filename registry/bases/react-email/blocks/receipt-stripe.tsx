@@ -15,8 +15,8 @@ import {
   Link,
 } from "react-email";
 
+import { stripeTheme } from "@/registry/bases/react-email/themes/theme-stripe";
 import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list";
-import { stripeTheme } from "@/registry/themes/react-email/stripe";
 
 interface ReceiptItem {
   name: string;

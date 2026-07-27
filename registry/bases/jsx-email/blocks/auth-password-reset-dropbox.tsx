@@ -12,8 +12,8 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { dropboxTheme } from "@/registry/themes/definitions/dropbox";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { dropboxTheme } from "@/registry/bases/jsx-email/themes/theme-dropbox";
 
 interface Props {
   _logoUrl?: string;

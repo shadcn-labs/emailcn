@@ -1,7 +1,7 @@
 // Subject: Reset your password for {_productName}
 
 import { PasswordResetBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { notionTheme } from "@/registry/themes/definitions/notion";
+import { notionTheme } from "@/registry/bases/mjml-react/themes/theme-notion";
 
 interface Props {
   _logoUrl?: string;

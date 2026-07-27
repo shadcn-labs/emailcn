@@ -12,8 +12,8 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { stripeTheme } from "@/registry/themes/definitions/stripe";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { stripeTheme } from "@/registry/bases/jsx-email/themes/theme-stripe";
 
 interface Props {
   _logoUrl?: string;

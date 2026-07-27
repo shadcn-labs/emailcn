@@ -1,6 +1,6 @@
-import type { EmailThemeTokens } from "@/registry/themes/types";
+import type { EmailThemeTokens } from "@/components/email/email-theme-types";
 
-export type { EmailThemeTokens } from "@/registry/themes/types";
+export type { EmailThemeTokens } from "@/components/email/email-theme-types";
 
 export const defaultTheme: EmailThemeTokens = {
   borderRadius: "6px",

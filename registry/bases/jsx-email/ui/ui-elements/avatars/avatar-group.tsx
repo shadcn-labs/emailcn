@@ -8,9 +8,9 @@ import {
 } from "jsx-email";
 import type { ReactNode } from "react";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/themes/definitions/default";
-import type { EmailThemeTokens } from "@/registry/themes/definitions/default";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { defaultTheme } from "@/registry/bases/jsx-email/themes/theme-default";
+import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/theme-default";
 
 type AvatarSize = "2xl" | "lg" | "md" | "sm" | "xl" | "xs";
 

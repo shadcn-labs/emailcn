@@ -1,7 +1,7 @@
 // Subject: Welcome to {_productName} — let's get you started
 
 import { OnboardingBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
-import { vercelTheme } from "@/registry/themes/definitions/vercel";
+import { vercelTheme } from "@/registry/bases/mjml-react/themes/theme-vercel";
 
 interface Props {
   _firstName?: string;

@@ -15,7 +15,7 @@ description: "Image Strip Call To Action rendered with email-safe, renderer-nati
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/image-strip-call-to-action
+npx shadcn@latest add @emailcn/jsx-email/image-strip-call-to-action
 ```
 
 </TabsContent>
@@ -35,14 +35,19 @@ npm install jsx-email
     title="components/email/image-strip-call-to-action.tsx"
   />
   <ComponentSource
-    src="registry/bases/jsx-email/fonts/default.tsx"
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
     base="jsx-email"
-    title="components/email/default.tsx"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/theme-default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
   />
   <ComponentSource
     src="registry/themes/definitions/default.ts"
     base="jsx-email"
-    title="components/email/theme-default.ts"
+    title="components/email/theme-default-tokens.ts"
   />
   <ComponentSource
     src="registry/themes/types.ts"
