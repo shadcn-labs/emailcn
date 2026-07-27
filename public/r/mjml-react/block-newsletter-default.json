@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-react/block-newsletter-default",
+  "title": "Newsletter — Default (MJML)",
+  "description": "Default newsletter email with article grid",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/blocks/newsletter-default.tsx",
+      "content": "// Subject: {preheader}\n\nimport { NewsletterBlock } from \"@/components/email/block-shared\";\nimport { defaultTheme } from \"@/components/email/theme-default\";\n\ninterface Article {\n  title: string;\n  summary: string;\n  href: string;\n  imageUrl?: string;\n}\n\ninterface Props {\n  _logoUrl?: string;\n  _logoAlt?: string;\n  issueNumber?: string;\n  preheader?: string;\n  articles?: Article[];\n  _productName?: string;\n}\n\nexport const NewsletterDefault = ({\n  issueNumber = \"1\",\n  preheader = \"Your weekly update\",\n  articles = [\n    { href: \"#\", summary: \"Summary of article 1\", title: \"Article 1\" },\n    { href: \"#\", summary: \"Summary of article 2\", title: \"Article 2\" },\n    { href: \"#\", summary: \"Summary of article 3\", title: \"Article 3\" },\n  ],\n  _productName = \"Newsletter\",\n}: Props) => (\n  <NewsletterBlock\n    articles={articles}\n    issueNumber={issueNumber}\n    preheader={preheader}\n    productName={_productName}\n    theme={defaultTheme}\n  />\n);\n\nNewsletterDefault.PreviewProps = {\n  _logoAlt: \"Newsletter\",\n  _logoUrl: \"https://static.photos/business/320x80/2\",\n  _productName: \"Acme Newsletter\",\n  articles: [\n    {\n      href: \"#\",\n      summary: \"How to get the most out of our platform\",\n      title: \"Getting Started\",\n    },\n    {\n      href: \"#\",\n      summary: \"Check out what we just shipped\",\n      title: \"New Features\",\n    },\n    { href: \"#\", summary: \"Become a power user\", title: \"Tips & Tricks\" },\n  ],\n  issueNumber: \"42\",\n  preheader: \"Your weekly update from Acme\",\n} satisfies Props;\n",
+      "type": "registry:component",
+      "target": "components/email/newsletter-default.tsx"
+    }
+  ],
+  "categories": [
+    "newsletter"
+  ],
+  "type": "registry:block"
+}

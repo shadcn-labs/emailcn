@@ -1,6 +1,3 @@
-import { readdir, readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
-
 import { transformIcons, transformMenu, transformRender } from "shadcn/utils";
 import { Project, ScriptKind } from "ts-morph";
 import type { SourceFile } from "ts-morph";
@@ -46,7 +43,7 @@ type DisplayTransformer = (opts: {
   config: ReturnType<typeof buildDisplayConfig>;
 }) => Promise<unknown>;
 
-export const normalizeComponentSource = (code: string) => {
+const normalizeComponentSource = (code: string) => {
   let formattedCode = code;
   for (const base of BASES) {
     formattedCode = formattedCode.replaceAll(
@@ -100,45 +97,3 @@ export const formatCode = async (code: string) => {
     return code;
   }
 };
-
-const getJsonFiles = async (directory: string): Promise<string[]> => {
-  const entries = await readdir(directory, { withFileTypes: true });
-  const files = await Promise.all(
-    entries.map((entry) => {
-      const entryPath = resolve(directory, entry.name);
-      if (entry.isDirectory()) {
-        return getJsonFiles(entryPath);
-      }
-      return entry.name.endsWith(".json") ? [entryPath] : [];
-    })
-  );
-
-  return files.flat();
-};
-
-export const normalizeRegistryArtifacts = async (directory: string) => {
-  for (const filePath of await getJsonFiles(directory)) {
-    const registryItem = JSON.parse(await readFile(filePath, "utf-8")) as {
-      files?: { content?: string }[];
-    };
-
-    for (const file of registryItem.files ?? []) {
-      if (file.content) {
-        file.content = normalizeComponentSource(file.content);
-      }
-    }
-
-    await writeFile(
-      filePath,
-      `${JSON.stringify(registryItem, null, 2)}\n`,
-      "utf-8"
-    );
-  }
-};
-
-const isCommandLine =
-  process.argv[1] && resolve(process.argv[1]) === import.meta.filename;
-
-if (isCommandLine && process.argv[2] === "--registry") {
-  await normalizeRegistryArtifacts(resolve(process.argv[3] ?? "public/r"));
-}

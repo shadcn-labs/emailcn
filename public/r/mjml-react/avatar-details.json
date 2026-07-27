@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-react/avatar-details",
+  "title": "Avatar Details",
+  "description": "Avatar Details email component",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/ui/ui-elements/avatars/avatar-details.tsx",
+      "content": "import {\n  MjmlColumn,\n  MjmlGroup,\n  MjmlImage,\n  MjmlSection,\n  MjmlSpacer,\n  MjmlText,\n  Mjml,\n  MjmlBody,\n  MjmlFont,\n  MjmlHead,\n  MjmlPreview,\n  MjmlStyle,\n  MjmlWrapper,\n} from \"@faire/mjml-react\";\nimport type { ReactNode } from \"react\";\n\nimport { defaultTheme } from \"@/components/email/theme-default\";\nimport type { EmailThemeTokens } from \"@/components/email/theme-default\";\n\ntype AvatarAlignment = \"center\" | \"left\" | \"right\";\n\nconst ASSET_ROOT = \"https://emailcn.vercel.app/api/email-assets/reviews\";\n\nconst fontFamily =\n  'Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif';\n\nconst avatarResponsiveStyles = `\n  .emailcn-avatar-group-left { margin-left: 0 !important; margin-right: auto !important; }\n  .emailcn-avatar-group-center { margin-left: auto !important; margin-right: auto !important; }\n  .emailcn-avatar-group-right { margin-left: auto !important; margin-right: 0 !important; }\n`;\n\nconst AvatarShell = ({ children }: { children: ReactNode }) => (\n  <>\n    <MjmlSection padding=\"0\">\n      <MjmlColumn padding=\"0\">\n        <MjmlSpacer height=\"100px\" />\n      </MjmlColumn>\n    </MjmlSection>\n    <MjmlSection backgroundColor=\"#fffffe\" padding=\"44px 24px\">\n      {children}\n    </MjmlSection>\n    <MjmlSection padding=\"0\">\n      <MjmlColumn padding=\"0\">\n        <MjmlSpacer height=\"100px\" />\n      </MjmlColumn>\n    </MjmlSection>\n  </>\n);\n\nconst AvatarWithDetailsSection = ({\n  align = \"center\",\n  avatarUrl = `${ASSET_ROOT}/avatar-2.jpg`,\n  email = \"johnadams@example.com\",\n  name = \"John Adams\",\n}: {\n  align?: AvatarAlignment;\n  avatarUrl?: string;\n  email?: string;\n  mjmlCompensation?: boolean;\n  name?: string;\n}) => (\n  <AvatarShell>\n    <MjmlGroup\n      cssClass={`emailcn-avatar-group-${align}`}\n      verticalAlign=\"middle\"\n      width=\"260px\"\n    >\n      <MjmlColumn padding=\"0 12px 0 0\" verticalAlign=\"middle\" width=\"60px\">\n        <MjmlImage\n          alt={name}\n          borderRadius=\"9999px\"\n          height=\"48px\"\n          padding=\"0\"\n          src={avatarUrl}\n          width=\"48px\"\n        />\n      </MjmlColumn>\n      <MjmlColumn padding=\"0\" verticalAlign=\"middle\" width=\"200px\">\n        <MjmlText\n          align=\"left\"\n          color=\"#030712\"\n          fontFamily={fontFamily}\n          fontSize=\"14px\"\n          fontWeight=\"500\"\n          lineHeight=\"20px\"\n          padding=\"0\"\n        >\n          {name}\n        </MjmlText>\n        <MjmlText\n          align=\"left\"\n          color=\"#6b7280\"\n          fontFamily={fontFamily}\n          fontSize=\"14px\"\n          lineHeight=\"20px\"\n          padding=\"0\"\n        >\n          {email}\n        </MjmlText>\n      </MjmlColumn>\n    </MjmlGroup>\n  </AvatarShell>\n);\n\ninterface Avatar_AvatarWithDetailsProps {\n  align?: AvatarAlignment;\n  avatarUrl?: string;\n  email?: string;\n  name?: string;\n  theme?: EmailThemeTokens;\n}\n\nconst Avatar_AvatarWithDetails = ({\n  theme = defaultTheme,\n  ...props\n}: Avatar_AvatarWithDetailsProps) => (\n  <Mjml>\n    <MjmlHead>\n      <MjmlPreview>Avatar with details</MjmlPreview>\n      <MjmlFont href=\"https://rsms.me/inter/inter.css\" name=\"Inter\" />\n      <MjmlStyle>{avatarResponsiveStyles}</MjmlStyle>\n    </MjmlHead>\n    <MjmlBody backgroundColor=\"#f1f5f9\" width={theme.containerWidth}>\n      <MjmlWrapper padding=\"0\">\n        <AvatarWithDetailsSection mjmlCompensation {...props} />\n      </MjmlWrapper>\n    </MjmlBody>\n  </Mjml>\n);\n\nAvatar_AvatarWithDetails.PreviewProps = {\n  align: \"center\",\n  avatarUrl: \"https://emailcn.vercel.app/api/email-assets/reviews/avatar-2.jpg\",\n  email: \"johnadams@example.com\",\n  name: \"John Adams\",\n  theme: defaultTheme,\n} satisfies Avatar_AvatarWithDetailsProps;\n\nconst __Avatar = Avatar_AvatarWithDetails;\n\nexport interface AvatarDetailsProps {\n  theme?: Parameters<typeof __Avatar>[0][\"theme\"];\n  avatar?: {\n    name: string;\n    url?: string;\n  };\n  name?: string;\n  email?: string;\n  align?: \"left\" | \"center\" | \"right\";\n}\n\nexport const AvatarDetails = ({\n  theme,\n  avatar,\n  name,\n  email,\n  align,\n}: AvatarDetailsProps) => (\n  <__Avatar\n    align={align}\n    avatarUrl={avatar?.url}\n    email={email}\n    name={name ?? avatar?.name}\n    theme={theme}\n  />\n);\n\nAvatarDetails.PreviewProps = {} satisfies AvatarDetailsProps;\n",
+      "type": "registry:component",
+      "target": "components/email/avatar-details.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}

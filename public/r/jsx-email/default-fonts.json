@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "jsx-email/default-fonts",
+  "title": "Email Default Fonts",
+  "description": "Inter webfont declarations for JSX Email templates (use inside Head)",
+  "dependencies": [
+    "jsx-email"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/jsx-email/fonts/font-default.tsx",
+      "content": "import { Font } from \"jsx-email\";\n\nexport const DefaultFonts = () => (\n  <>\n    <style\n      dangerouslySetInnerHTML={{\n        __html: `@import url('https://rsms.me/inter/inter.css');`,\n      }}\n    />\n    <Font\n      fontFamily=\"Inter\"\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf\",\n      }}\n      fontWeight={400}\n      fontStyle=\"normal\"\n    />\n    <Font\n      fontFamily=\"Inter\"\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf\",\n      }}\n      fontWeight={500}\n      fontStyle=\"normal\"\n    />\n    <Font\n      fontFamily=\"Inter\"\n      fallbackFontFamily={[\"Arial\", \"sans-serif\"]}\n      webFont={{\n        format: \"truetype\",\n        url: \"https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf\",\n      }}\n      fontWeight={600}\n      fontStyle=\"normal\"\n    />\n  </>\n);\n",
+      "type": "registry:file",
+      "target": "components/email/font-default.tsx"
+    }
+  ],
+  "categories": [
+    "email-font"
+  ],
+  "type": "registry:file"
+}

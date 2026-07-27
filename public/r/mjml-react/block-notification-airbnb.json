@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mjml-react/block-notification-airbnb",
+  "title": "Notification — Airbnb (MJML)",
+  "description": "Airbnb review request notification",
+  "dependencies": [
+    "@faire/mjml-react",
+    "mjml"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
+    "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/mjml-react/blocks/notification-airbnb.tsx",
+      "content": "// Subject: Share your experience at {_targetName}\n\nimport { NotificationBlock } from \"@/components/email/block-shared\";\nimport { airbnbTheme } from \"@/components/email/theme-airbnb\";\n\ninterface Props {\n  _logoUrl?: string;\n  actorName?: string;\n  _actorAvatarUrl?: string;\n  _action?: string;\n  _targetName?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  _productName?: string;\n}\n\nexport const NotificationAirbnb = ({\n  actorName = \"Host\",\n  _targetName = \"your place\",\n  ctaLabel = \"Leave a Review\",\n  ctaHref = \"#\",\n}: Props) => (\n  <NotificationBlock\n    actorName={actorName}\n    body=\"Your review helps other travelers and supports your host.\"\n    ctaHref={ctaHref}\n    ctaLabel={ctaLabel}\n    heading=\"How was your trip?\"\n    preview=\"Share your experience\"\n    targetName={`${actorName} recently stayed at ${_targetName}, and we’d love to hear about their experience.`}\n    theme={airbnbTheme}\n  />\n);\n\nNotificationAirbnb.PreviewProps = {\n  _action: \"completed their stay\",\n  _actorAvatarUrl:\n    \"https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128\",\n  _logoUrl: \"https://static.photos/business/320x80/3\",\n  _productName: \"Airbnb\",\n  _targetName: \"your place\",\n  actorName: \"John\",\n  ctaHref: \"https://airbnb.com/reviews\",\n  ctaLabel: \"Leave a Review\",\n} satisfies Props;\n",
+      "type": "registry:component",
+      "target": "components/email/notification-airbnb.tsx"
+    }
+  ],
+  "categories": [
+    "notification"
+  ],
+  "type": "registry:block"
+}

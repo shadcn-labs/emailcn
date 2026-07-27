@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "react-email/spacer",
+  "title": "Spacer",
+  "description": "Spacer email component",
+  "dependencies": [
+    "react-email"
+  ],
+  "registryDependencies": [
+    "https://emailcn.vercel.app/r/react-email/default-fonts.json",
+    "https://emailcn.vercel.app/r/react-email/theme-default.json"
+  ],
+  "files": [
+    {
+      "path": "registry/bases/react-email/ui/ui-elements/spacing/spacer.tsx",
+      "content": "import type { ReactNode } from \"react\";\nimport {\n  Body,\n  Container,\n  Head as EmailHead,\n  Html,\n  Preview,\n  Tailwind,\n  Section,\n} from \"react-email\";\nimport type { TailwindConfig } from \"react-email\";\n\nimport { DefaultFonts } from \"@/components/email/font-default\";\nimport { defaultTheme } from \"@/components/email/theme-default\";\n\nconst dividerColors = {\n  border: \"#e5e7eb\",\n  muted: \"#6b7280\",\n  mutedBackground: \"#f3f4f6\",\n  surface: \"#ffffff\",\n  text: \"#111827\",\n  white: \"#ffffff\",\n} as const;\n\nconst VerticalSpacerSection = ({ height = 24 }: { height?: number }) => (\n  <Section\n    style={{ fontSize: 0, height: `${height}px`, lineHeight: `${height}px` }}\n  >\n    &zwj;\n  </Section>\n);\n\nconst SpacingEmailShell = ({\n  children,\n  preview,\n  theme,\n}: {\n  children: ReactNode;\n  preview: string;\n  theme: TailwindConfig;\n}) => (\n  <Html>\n    <EmailHead>\n      <DefaultFonts />\n    </EmailHead>\n    <Preview>{preview}</Preview>\n    <Tailwind config={theme}>\n      <Body style={{ backgroundColor: dividerColors.surface, margin: 0 }}>\n        <Container style={{ margin: \"0 auto\", maxWidth: \"600px\" }}>\n          {children}\n        </Container>\n      </Body>\n    </Tailwind>\n  </Html>\n);\n\ninterface Spacer_VerticalSpacerProps {\n  height?: number;\n  theme?: TailwindConfig;\n}\n\nconst Spacer_VerticalSpacer = ({\n  height = 24,\n  theme = defaultTheme,\n}: Spacer_VerticalSpacerProps) => (\n  <SpacingEmailShell preview=\"Vertical spacer\" theme={theme}>\n    <VerticalSpacerSection height={height} />\n  </SpacingEmailShell>\n);\n\nSpacer_VerticalSpacer.PreviewProps = {\n  height: 48,\n  theme: defaultTheme,\n} satisfies Spacer_VerticalSpacerProps;\n\nconst __Spacer = Spacer_VerticalSpacer;\n\nexport interface SpacerProps {\n  theme?: Parameters<typeof __Spacer>[0][\"theme\"];\n  height?: number;\n}\n\nexport const Spacer = (props: SpacerProps) => <__Spacer {...props} />;\n\nSpacer.PreviewProps = {\n  height: 64,\n} satisfies SpacerProps;\n",
+      "type": "registry:component",
+      "target": "components/email/spacer.tsx"
+    }
+  ],
+  "categories": [
+    "email-component"
+  ],
+  "type": "registry:component"
+}
