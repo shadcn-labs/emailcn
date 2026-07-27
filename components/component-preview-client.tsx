@@ -5,6 +5,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import { CopyButton } from "@/components/copy-button";
+import { EmailViewportToggle } from "@/components/email-viewport-toggle";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -12,8 +13,16 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import type { EmailViewport } from "@/hooks/use-viewport-toggle";
+import { useViewportToggle } from "@/hooks/use-viewport-toggle";
 import { trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
+
+const viewportWidths: Record<EmailViewport, string> = {
+  desktop: "100%",
+  mobile: "375px",
+  tablet: "768px",
+};
 
 const CodeTab = ({
   code,
@@ -81,6 +90,7 @@ interface ComponentPreviewClientProps {
   hideNav?: boolean;
   height?: number;
   showTitleBar?: boolean;
+  viewUrl?: string;
 }
 
 export const ComponentPreviewClient = ({
@@ -92,8 +102,10 @@ export const ComponentPreviewClient = ({
   hideNav = false,
   height = 640,
   showTitleBar = false,
+  viewUrl,
 }: ComponentPreviewClientProps) => {
   const [activeTab, setActiveTab] = useState("preview");
+  const [viewport] = useViewportToggle();
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
@@ -103,7 +115,7 @@ export const ComponentPreviewClient = ({
 
       <Tabs className="mt-4" value={activeTab} onValueChange={setActiveTab}>
         {!hideNav && (
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex w-full items-center gap-2">
             <TabsList className="h-8">
               <TabsTrigger className="h-6 px-2.5 text-xs" value="preview">
                 Preview
@@ -119,6 +131,11 @@ export const ComponentPreviewClient = ({
                 </TabsTrigger>
               ) : null}
             </TabsList>
+            <EmailViewportToggle
+              className="ml-auto"
+              onViewportChange={() => setActiveTab("preview")}
+              viewUrl={viewUrl}
+            />
           </div>
         )}
         <TabsContent
@@ -130,12 +147,13 @@ export const ComponentPreviewClient = ({
               {title}
             </div>
           ) : null}
-          <div className="bg-muted/40">
+          <div className="bg-muted/40 flex justify-center overflow-x-auto">
             <iframe
-              className="block w-full bg-transparent"
+              className="block max-w-full bg-transparent transition-[width] duration-200 ease-out"
               height={height}
               sandbox=""
               srcDoc={html}
+              style={{ width: viewportWidths[viewport] }}
               title={iframeTitle}
             />
           </div>
