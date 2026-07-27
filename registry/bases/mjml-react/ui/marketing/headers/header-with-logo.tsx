@@ -1,20 +1,66 @@
 import {
+  Mjml,
+  MjmlBody,
+  MjmlFont,
+  MjmlHead,
+  MjmlImage,
+  MjmlPreview,
+  MjmlWrapper,
   MjmlColumn,
   MjmlSection,
   MjmlSpacer,
   MjmlText,
 } from "@faire/mjml-react";
+import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import {
-  HeaderEmailShell,
-  HeaderLogo,
-} from "@/registry/bases/mjml-react/ui/marketing/headers/header-shared";
-
+export const HeaderEmailShell = ({
+  children,
+  pageBackgroundColor,
+  preview,
+  theme,
+}: {
+  children: ReactNode;
+  pageBackgroundColor: string;
+  preview: string;
+  theme: EmailThemeTokens;
+}) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>{preview}</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={pageBackgroundColor}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">{children}</MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
+export const HeaderLogo = ({
+  align = "left",
+  alt,
+  href,
+  src,
+}: {
+  align?: "center" | "left" | "right";
+  alt: string;
+  href: string;
+  src: string;
+}) => (
+  <MjmlImage
+    align={align}
+    alt={alt}
+    href={href}
+    padding="0"
+    src={src}
+    width="55px"
+  />
+);
 export type HeaderWithLogoVariant = "minimal" | "with-text";
 export type HeaderWithLogoAlignment = "left" | "center" | "right";
-
 export interface HeaderWithLogoProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -27,10 +73,8 @@ export interface HeaderWithLogoProps {
   variant?: HeaderWithLogoVariant;
   alignment?: HeaderWithLogoAlignment;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 export const HeaderWithLogoSection = ({
   alignment = "left",
   backgroundColor = "#fffffe",
@@ -57,7 +101,6 @@ export const HeaderWithLogoSection = ({
       {text.replaceAll("\n", " ")}
     </MjmlText>
   );
-
   if (variant === "minimal") {
     return (
       <MjmlSection backgroundColor={backgroundColor} padding="24px">
@@ -76,7 +119,6 @@ export const HeaderWithLogoSection = ({
       </MjmlSection>
     );
   }
-
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="24px">
       <MjmlColumn padding="0" verticalAlign="middle" width="30%">
@@ -88,7 +130,6 @@ export const HeaderWithLogoSection = ({
     </MjmlSection>
   );
 };
-
 export const HeaderWithLogo = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -102,7 +143,6 @@ export const HeaderWithLogo = ({
     <HeaderWithLogoSection {...props} />
   </HeaderEmailShell>
 );
-
 HeaderWithLogo.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

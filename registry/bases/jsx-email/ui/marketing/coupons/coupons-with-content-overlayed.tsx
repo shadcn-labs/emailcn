@@ -1,7 +1,7 @@
 import {
   Body,
   Container,
-  Head,
+  Head as EmailHead,
   Html,
   Img,
   Preview,
@@ -17,12 +17,10 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
-
 export type CouponsWithContentOverlayedVariant =
   | "split"
   | "centered"
   | "code-bottom";
-
 export interface CouponsWithContentOverlayedProps {
   theme?: EmailThemeTokens;
   overline?: string;
@@ -41,10 +39,8 @@ export interface CouponsWithContentOverlayedProps {
   buttonColor?: string;
   variant?: CouponsWithContentOverlayedVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
     .coupon-overlay-impact { font-size: 60px !important; }
@@ -54,7 +50,6 @@ const responsiveStyles = `
     .coupon-overlay-bottom-space { line-height: 160px !important; }
   }
 `;
-
 const sharedDefaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
@@ -71,7 +66,6 @@ const sharedDefaults = {
   overline: "Our biggest sale of the year",
   pageBackgroundColor: "#f1f5f9",
 };
-
 const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
   centered:
     "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-6.jpg",
@@ -79,10 +73,8 @@ const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
     "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-4.jpg",
   split: "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-5.jpg",
 };
-
 type SectionProps = Omit<CouponsWithContentOverlayedProps, "theme">;
 type ResolvedProps = typeof sharedDefaults & SectionProps;
-
 const Overline = ({
   bold,
   dark,
@@ -113,7 +105,6 @@ const Overline = ({
     )}
   </Text>
 );
-
 const CodeBlock = ({ props }: { props: ResolvedProps }) => (
   <>
     <Text
@@ -150,7 +141,6 @@ const CodeBlock = ({ props }: { props: ResolvedProps }) => (
     </Section>
   </>
 );
-
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
   <Section style={{ textAlign: "center" }}>
     <Link
@@ -184,7 +174,6 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
     </Link>
   </Section>
 );
-
 export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
   const variant = props.variant ?? "code-bottom";
   const resolved = {
@@ -194,7 +183,6 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
   } as ResolvedProps;
   const centered = variant === "centered";
   const split = variant === "split";
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -233,47 +221,52 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
               <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             ) : null}
             <Overline bold={!centered} dark={centered} props={resolved} />
-            {split ? (
-              <Heading
-                className="coupon-overlay-inline"
-                style={{
-                  color: resolved.headingColor,
-                  fontFamily,
-                  fontSize: "48px",
-                  fontWeight: 500,
-                  lineHeight: "normal",
-                  margin: 0,
-                  textAlign: "center",
-                }}
-                as="h3"
-              >
-                {resolved.discount === sharedDefaults.discount
-                  ? "An extra 20% OFF"
-                  : resolved.discount}
-              </Heading>
-            ) : (
-              <Heading
-                className="coupon-overlay-impact"
-                style={{
-                  color: centered ? "#030712" : resolved.headingColor,
-                  fontFamily,
-                  fontSize: "96px",
-                  fontWeight: 500,
-                  lineHeight: "normal",
-                  margin: 0,
-                  textAlign: "center",
-                }}
-                as="h3"
-              >
-                {centered && resolved.discount === sharedDefaults.discount ? (
-                  <>
-                    20% <span style={{ fontWeight: 100 }}>OFF</span>
-                  </>
-                ) : (
-                  resolved.discount
-                )}
-              </Heading>
-            )}
+            {(() => {
+              if (split) {
+                return (
+                  <Heading
+                    className="coupon-overlay-inline"
+                    style={{
+                      color: resolved.headingColor,
+                      fontFamily,
+                      fontSize: "48px",
+                      fontWeight: 500,
+                      lineHeight: "normal",
+                      margin: 0,
+                      textAlign: "center",
+                    }}
+                    as="h3"
+                  >
+                    {resolved.discount === sharedDefaults.discount
+                      ? "An extra 20% OFF"
+                      : resolved.discount}
+                  </Heading>
+                );
+              }
+              return (
+                <Heading
+                  className="coupon-overlay-impact"
+                  style={{
+                    color: centered ? "#030712" : resolved.headingColor,
+                    fontFamily,
+                    fontSize: "96px",
+                    fontWeight: 500,
+                    lineHeight: "normal",
+                    margin: 0,
+                    textAlign: "center",
+                  }}
+                  as="h3"
+                >
+                  {centered && resolved.discount === sharedDefaults.discount ? (
+                    <>
+                      20% <span style={{ fontWeight: 100 }}>OFF</span>
+                    </>
+                  ) : (
+                    resolved.discount
+                  )}
+                </Heading>
+              );
+            })()}
             {centered ? (
               <Text
                 style={{
@@ -290,18 +283,23 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
             ) : (
               <CodeBlock props={resolved} />
             )}
-            {split ? (
-              <Section
-                className="coupon-overlay-split-space"
-                style={{ lineHeight: "274px" }}
-              >
-                &zwj;
-              </Section>
-            ) : (
-              <Section style={{ lineHeight: centered ? "24px" : "44px" }}>
-                &zwj;
-              </Section>
-            )}
+            {(() => {
+              if (split) {
+                return (
+                  <Section
+                    className="coupon-overlay-split-space"
+                    style={{ lineHeight: "274px" }}
+                  >
+                    &zwj;
+                  </Section>
+                );
+              }
+              return (
+                <Section style={{ lineHeight: centered ? "24px" : "44px" }}>
+                  &zwj;
+                </Section>
+              );
+            })()}
             {split ? (
               <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             ) : null}
@@ -323,7 +321,6 @@ export const CouponsWithContentOverlayedSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const CouponsWithContentOverlayed = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -331,10 +328,10 @@ export const CouponsWithContentOverlayed = ({
   ...props
 }: CouponsWithContentOverlayedProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
+    </EmailHead>
     <Preview>Our biggest sale of the year</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -351,7 +348,6 @@ export const CouponsWithContentOverlayed = ({
     </Body>
   </Html>
 );
-
 CouponsWithContentOverlayed.PreviewProps = {
   theme: defaultTheme,
   variant: "code-bottom",

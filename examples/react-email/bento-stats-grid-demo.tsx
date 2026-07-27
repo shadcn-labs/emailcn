@@ -1,6 +1,11 @@
 import { BentoStatsGrid } from "@/registry/bases/react-email/ui/marketing/bento-grids/bento-stats-grid";
-import type { BentoStatsGridProps } from "@/registry/bases/react-email/ui/marketing/bento-grids/bento-stats-grid";
 
-export default function BentoStatsGridDemo(props: BentoStatsGridProps) {
-  return <BentoStatsGrid {...props} />;
+export default function BentoStatsGridDemo() {
+  return (
+    <BentoStatsGrid
+      variant="even-split"
+      style="chart"
+      placement="image-top-right"
+    />
+  );
 }

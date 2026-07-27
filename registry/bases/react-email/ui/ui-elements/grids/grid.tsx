@@ -3,7 +3,7 @@ import {
   Body,
   Column,
   Container,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Row,
@@ -15,7 +15,6 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type GridVariant =
   | "one-column"
   | "two-columns"
@@ -23,9 +22,7 @@ export type GridVariant =
   | "four-columns"
   | "one-three-split"
   | "three-one-split";
-
 export type GridAlign = "center" | "left" | "right";
-
 const GRID_WIDTHS: Record<GridVariant, readonly string[]> = {
   "four-columns": ["25%", "25%", "25%", "25%"],
   "one-column": ["100%"],
@@ -34,7 +31,6 @@ const GRID_WIDTHS: Record<GridVariant, readonly string[]> = {
   "three-one-split": ["75%", "25%"],
   "two-columns": ["50%", "50%"],
 };
-
 const textStyle: CSSProperties = {
   color: "#111827",
   fontFamily:
@@ -45,14 +41,12 @@ const textStyle: CSSProperties = {
   lineHeight: "24px",
   margin: 0,
 };
-
 export interface GridProps {
   align?: GridAlign;
   cells?: string[];
   theme?: TailwindConfig;
   variant?: GridVariant;
 }
-
 export const GridSection = ({
   align = "center",
   cells = [],
@@ -75,7 +69,6 @@ export const GridSection = ({
     </Row>
   </Section>
 );
-
 export const Grid = ({
   align = "center",
   cells = [],
@@ -83,7 +76,7 @@ export const Grid = ({
   variant = "two-columns",
 }: GridProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style
         dangerouslySetInnerHTML={{
@@ -94,7 +87,7 @@ export const Grid = ({
           `,
         }}
       />
-    </Head>
+    </EmailHead>
     <Preview>Grid</Preview>
     <Tailwind config={theme}>
       <Body style={{ backgroundColor: "#ffffff", margin: 0 }}>
@@ -105,7 +98,6 @@ export const Grid = ({
     </Tailwind>
   </Html>
 );
-
 Grid.PreviewProps = {
   align: "center",
   cells: [

@@ -14,13 +14,15 @@ import { Fragment } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-
 export type StackedStatsVariant = "left" | "center" | "right";
-
 export interface StackedStatsProps {
   theme?: EmailThemeTokens;
   variant?: StackedStatsVariant;
-  stats?: { heading: string; value: string; description: string }[];
+  stats?: {
+    heading: string;
+    value: string;
+    description: string;
+  }[];
   pageBackgroundColor?: string;
   backgroundColor?: string;
   accentColor?: string;
@@ -28,10 +30,8 @@ export interface StackedStatsProps {
   textColor?: string;
   dividerColor?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const defaultStats = [
   {
     description: "For the month of January",
@@ -49,7 +49,6 @@ const defaultStats = [
     value: "5h 34min",
   },
 ];
-
 export const StackedStatsSection = ({
   accentColor = "#f97316",
   backgroundColor = "#fffffe",
@@ -60,7 +59,6 @@ export const StackedStatsSection = ({
   variant = "left",
 }: Omit<StackedStatsProps, "theme">) => {
   const align = variant === "center" ? "center" : variant;
-
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
       <MjmlColumn padding="0">
@@ -111,7 +109,6 @@ export const StackedStatsSection = ({
     </MjmlSection>
   );
 };
-
 export const StackedStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -132,7 +129,6 @@ export const StackedStats = ({
     </MjmlBody>
   </Mjml>
 );
-
 StackedStats.PreviewProps = {
   theme: defaultTheme,
   variant: "left",

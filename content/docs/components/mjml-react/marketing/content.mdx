@@ -1,14 +1,13 @@
 ---
 title: "Content"
-description: "Title and paragraph content blocks with one or two columns, optional icons, and padding control."
+description: "Content rendered with email-safe, renderer-native components."
 ---
 
-<ComponentPreview base="mjml-react" name="title-with-regular-padding-demo" />
+<ComponentPreview base="mjml-react" name="content-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -20,29 +19,30 @@ npx shadcn@latest add @emailcn/content
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install @faire/mjml-react mjml
 ```
 
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/content/content.tsx"
-  base="mjml-react"
-  title="components/email/content.tsx"
-/>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/content/content.tsx"
+    base="mjml-react"
+    title="components/email/content.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
@@ -52,76 +52,36 @@ import { Content } from "@/components/email/content";
 ```
 
 ```tsx
-<Content type="title" title="Section Title" />
-<Content type="paragraph" text="A single column of body copy." />
-<Content type="paragraph" columns={2} column1="Left" column2="Right" />
-<Content
-  type="paragraph"
-  columns={2}
-  withIcons
-  iconSrc1="/icon-1.png"
-  iconSrc2="/icon-2.png"
-  column1="Left"
-  column2="Right"
-/>
+<Content type="title" columns={1} padding="regular" />
 ```
 
 ## Examples
 
-### Title with Large Padding
+### Two columns
 
-<ComponentPreview base="mjml-react" name="title-with-large-padding-demo" />
+<ComponentPreview base="mjml-react" name="content-two-columns-example-demo" />
 
-### Paragraph
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-with-regular-padding-demo"
-/>
-
-### Paragraph with Large Padding
-
-<ComponentPreview base="mjml-react" name="paragraph-with-large-padding-demo" />
-
-### Two Columns
+### Two columns with icons
 
 <ComponentPreview
   base="mjml-react"
-  name="paragraph-2-columns-with-regular-padding-demo"
-/>
-
-### Two Columns with Large Padding
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-large-padding-demo"
-/>
-
-### Two Columns with Icons
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
-/>
-
-### Two Columns with Icons and Large Padding
-
-<ComponentPreview
-  base="mjml-react"
-  name="paragraph-2-columns-with-icons-and-large-padding-demo"
+  name="content-two-columns-with-icons-example-demo"
 />
 
 ## API Reference
 
-| Prop                    | Type                     | Default        | Description                                |
-| ----------------------- | ------------------------ | -------------- | ------------------------------------------ |
-| `type`                  | `"title" \| "paragraph"` | `"paragraph"`  | Content style                              |
-| `columns`               | `1 \| 2`                 | `1`            | Column count (paragraph only)              |
-| `withIcons`             | `boolean`                | `false`        | Show an icon above each column (2 columns) |
-| `padding`               | `"regular" \| "large"`   | `"regular"`    | Vertical padding                           |
-| `title`                 | `string`                 | -              | Heading text (when `type="title"`)         |
-| `text`                  | `string`                 | -              | Body text (single column)                  |
-| `column1` / `column2`   | `string`                 | -              | Column text (when `columns={2}`)           |
-| `iconSrc1` / `iconAlt1` | `string`                 | -              | First column icon (when `withIcons`)       |
-| `iconSrc2` / `iconAlt2` | `string`                 | -              | Second column icon (when `withIcons`)      |
-| `theme`                 | `EmailThemeTokens`       | `defaultTheme` | Email theme styling                        |
+| Prop        | Type                     | Default           | Description                           |
+| ----------- | ------------------------ | ----------------- | ------------------------------------- |
+| `theme`     | `EmailThemeTokens`       | Component default | Renderer theme configuration.         |
+| `type`      | `"title" \| "paragraph"` | Component default | Configures the component's type.      |
+| `columns`   | `1 \| 2`                 | Component default | Configures the component's columns.   |
+| `withIcons` | `boolean`                | Component default | Configures the component's withicons. |
+| `padding`   | `"regular" \| "large"`   | Component default | Configures the component's padding.   |
+| `title`     | `string`                 | Component default | Configures the component's title.     |
+| `text`      | `string`                 | Component default | Configures the component's text.      |
+| `column1`   | `string`                 | Component default | Configures the component's column1.   |
+| `column2`   | `string`                 | Component default | Configures the component's column2.   |
+| `iconSrc1`  | `string`                 | Component default | Configures the component's iconsrc1.  |
+| `iconAlt1`  | `string`                 | Component default | Configures the component's iconalt1.  |
+| `iconSrc2`  | `string`                 | Component default | Configures the component's iconsrc2.  |
+| `iconAlt2`  | `string`                 | Component default | Configures the component's iconalt2.  |

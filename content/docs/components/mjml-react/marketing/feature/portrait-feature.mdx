@@ -1,0 +1,86 @@
+---
+title: "Portrait"
+description: "Portrait Feature rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="portrait-feature-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/portrait-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/feature/portrait-feature.tsx"
+    base="mjml-react"
+    title="components/email/portrait-feature.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PortraitFeature } from "@/components/email/portrait-feature";
+```
+
+```tsx
+<PortraitFeature placement="right" contentPosition="top" />
+```
+
+## Examples
+
+### Portrait on the left
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-portrait-on-the-left-example-demo"
+/>
+
+### Content at bottom
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-content-at-bottom-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                | Default           | Description                                 |
+| ----------------- | --------------------------------------------------- | ----------------- | ------------------------------------------- |
+| `theme`           | `Parameters<typeof __Feature>[0]["theme"]`          | Component default | Renderer theme configuration.               |
+| `heading`         | `string`                                            | Component default | Configures the component's heading.         |
+| `body`            | `string`                                            | Component default | Configures the component's body.            |
+| `primaryImage`    | `{ src: string; alt?: string }`                     | Component default | Configures the component's primaryimage.    |
+| `secondaryImage`  | `{ src: string; alt?: string }`                     | Component default | Configures the component's secondaryimage.  |
+| `logo`            | `{ src: string; alt?: string }`                     | Component default | Configures the component's logo.            |
+| `action`          | `{ href: string; label: string; iconSrc?: string }` | Component default | Configures the component's action.          |
+| `placement`       | `"left" \| "right"`                                 | Component default | Configures the component's placement.       |
+| `contentPosition` | `"top" \| "bottom"`                                 | Component default | Configures the component's contentposition. |

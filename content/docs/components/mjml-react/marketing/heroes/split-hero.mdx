@@ -1,0 +1,86 @@
+---
+title: "Split"
+description: "Split Hero rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="split-hero-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/split-hero
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/split-hero.tsx"
+    base="mjml-react"
+    title="components/email/split-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SplitHero } from "@/components/email/split-hero";
+```
+
+```tsx
+<SplitHero treatment="contained" imagePosition="right" />
+```
+
+## Examples
+
+### Full bleed left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-hero-full-bleed-left-example-demo"
+/>
+
+### Slanted
+
+<ComponentPreview base="mjml-react" name="split-hero-slanted-example-demo" />
+
+### Overlay
+
+<ComponentPreview base="mjml-react" name="split-hero-overlay-example-demo" />
+
+## API Reference
+
+| Prop             | Type                                                    | Default           | Description                                |
+| ---------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------ |
+| `theme`          | `Parameters<typeof __ContainedSplitHero>[0]["theme"]`   | Component default | Renderer theme configuration.              |
+| `content`        | `HeroContent`                                           | Component default | Configures the component's content.        |
+| `images`         | `HeroImage[]`                                           | Component default | Configures the component's images.         |
+| `brand`          | `HeroBrand`                                             | Component default | Configures the component's brand.          |
+| `treatment`      | `"contained" \| "full-bleed" \| "overlay" \| "slanted"` | Component default | Configures the component's treatment.      |
+| `imagePosition`  | `"left" \| "right"`                                     | Component default | Configures the component's imageposition.  |
+| `slant`          | `"up" \| "down"`                                        | Component default | Configures the component's slant.          |
+| `overlayContent` | `boolean`                                               | Component default | Configures the component's overlaycontent. |

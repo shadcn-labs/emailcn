@@ -13,9 +13,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-
 export type PaymentTimelineVariant = "3-steps" | "4-steps";
-
 export interface PaymentTimelineProps {
   theme?: EmailThemeTokens;
   variant?: PaymentTimelineVariant;
@@ -25,10 +23,8 @@ export interface PaymentTimelineProps {
   thirdDate?: string;
   fourthDate?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 export const PaymentTimelineSection = ({
   amount = "$9.99",
   firstDate = "Paid: 17/11",
@@ -41,7 +37,6 @@ export const PaymentTimelineSection = ({
     variant === "4-steps"
       ? [firstDate, secondDate, thirdDate, fourthDate]
       : [firstDate, secondDate, thirdDate];
-
   return (
     <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
       {dates.map((date, index) => (
@@ -94,7 +89,6 @@ export const PaymentTimelineSection = ({
     </MjmlSection>
   );
 };
-
 export const PaymentTimeline = ({
   theme = defaultTheme,
   ...props
@@ -111,7 +105,6 @@ export const PaymentTimeline = ({
     </MjmlBody>
   </Mjml>
 );
-
 PaymentTimeline.PreviewProps = {
   theme: defaultTheme,
   variant: "3-steps",

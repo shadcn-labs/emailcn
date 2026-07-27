@@ -24,55 +24,49 @@ npx shadcn@latest add @emailcn/block-onboarding-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install react-email
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/email/theme-default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/email/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="hero"
-  title="components/email/hero.tsx"
-/>
-
-<ComponentSource
-  base="react-email"
-  name="content-grid"
-  title="components/email/content-grid.tsx"
-/>
-
-<ComponentSource
-  base="react-email"
-  name="cta-banner"
-  title="components/email/cta-banner.tsx"
-/>
-
-<ComponentSource
-  base="react-email"
-  name="footer"
-  title="components/email/footer.tsx"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/blocks/onboarding-default.tsx"
-  title="components/email/onboarding-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/blocks/onboarding-default.tsx"
+    base="react-email"
+    title="components/email/onboarding-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/cta/call-to-action.tsx"
+    base="react-email"
+    title="components/email/call-to-action.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/content/content.tsx"
+    base="react-email"
+    title="components/email/content.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/footers/navigation-footer.tsx"
+    base="react-email"
+    title="components/email/navigation-footer.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/hero/split-hero.tsx"
+    base="react-email"
+    title="components/email/split-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>

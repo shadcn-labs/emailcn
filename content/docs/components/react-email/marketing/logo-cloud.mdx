@@ -1,0 +1,97 @@
+---
+title: "Logo Cloud"
+description: "Logo Cloud rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="logo-cloud-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/logo-cloud
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/logos/logo-cloud.tsx"
+    base="react-email"
+    title="components/email/logo-cloud.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { LogoCloud } from "@/components/email/logo-cloud";
+```
+
+```tsx
+<LogoCloud layout="cloud" appearance="plain" alignment="center" />
+```
+
+## Examples
+
+### Bordered grid
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-bordered-grid-example-demo"
+/>
+
+### Featured logo
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-featured-logo-example-demo"
+/>
+
+### Boxed cloud
+
+<ComponentPreview
+  base="react-email"
+  name="logo-cloud-boxed-cloud-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                              | Default           | Description                               |
+| --------------- | ------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `theme`         | `Parameters<typeof __BasicLogoCloud>[0]["theme"]` | Component default | Renderer theme configuration.             |
+| `title`         | `string`                                          | Component default | Configures the component's title.         |
+| `description`   | `string`                                          | Component default | Configures the component's description.   |
+| `logos`         | `LogoItem[]`                                      | Component default | Configures the component's logos.         |
+| `layout`        | `"cloud" \| "grid" \| "featured"`                 | Component default | Configures the component's layout.        |
+| `appearance`    | `"plain" \| "boxed" \| "outlined" \| "bordered"`  | Component default | Configures the component's appearance.    |
+| `alignment`     | `"left" \| "center" \| "right"`                   | Component default | Configures the component's alignment.     |
+| `featuredIndex` | `number`                                          | Component default | Configures the component's featuredindex. |

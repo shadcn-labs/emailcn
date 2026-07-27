@@ -1,0 +1,92 @@
+---
+title: "Testimonial"
+description: "Testimonial rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="testimonial-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/testimonial
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/testimonials/testimonial.tsx"
+    base="react-email"
+    title="components/email/testimonial.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Testimonial } from "@/components/email/testimonial";
+```
+
+```tsx
+<Testimonial layout="full-width" avatarTreatment="inline" />
+```
+
+## Examples
+
+### Overlapping avatar
+
+<ComponentPreview
+  base="react-email"
+  name="testimonial-overlapping-avatar-example-demo"
+/>
+
+### Centered CTA
+
+<ComponentPreview
+  base="react-email"
+  name="testimonial-centered-cta-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                    | Default           | Description                                 |
+| ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------- |
+| `theme`           | `Parameters<typeof __FullWidthTestimonial>[0]["theme"]` | Component default | Renderer theme configuration.               |
+| `quote`           | `string`                                                | Component default | Configures the component's quote.           |
+| `author`          | `string`                                                | Component default | Configures the component's author.          |
+| `role`            | `string`                                                | Component default | Configures the component's role.            |
+| `company`         | `string`                                                | Component default | Configures the component's company.         |
+| `avatar`          | `{ src: string; alt?: string }`                         | Component default | Configures the component's avatar.          |
+| `logo`            | `{ src: string; alt?: string }`                         | Component default | Configures the component's logo.            |
+| `layout`          | `"full-width" \| "centered" \| "split"`                 | Component default | Configures the component's layout.          |
+| `avatarTreatment` | `"inline" \| "overlapping"`                             | Component default | Configures the component's avatartreatment. |
+| `action`          | `{ href: string; label: string }`                       | Component default | Configures the component's action.          |

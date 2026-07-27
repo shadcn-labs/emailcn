@@ -1,0 +1,94 @@
+---
+title: "FAQ"
+description: "Faq rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="faq-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/faq
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/faq/faq.tsx"
+    base="jsx-email"
+    title="components/email/faq.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Faq } from "@/components/email/faq";
+```
+
+```tsx
+<Faq layout="boxed" marker="number" answerPosition="stacked" />
+```
+
+## Examples
+
+### Collapsed with icons
+
+<ComponentPreview
+  base="jsx-email"
+  name="faq-collapsed-with-icons-example-demo"
+/>
+
+### Expanded offset answers
+
+<ComponentPreview
+  base="jsx-email"
+  name="faq-expanded-offset-answers-example-demo"
+/>
+
+### Alternating boxes
+
+<ComponentPreview base="jsx-email" name="faq-alternating-boxes-example-demo" />
+
+## API Reference
+
+| Prop             | Type                                             | Default           | Description                                |
+| ---------------- | ------------------------------------------------ | ----------------- | ------------------------------------------ |
+| `theme`          | `Parameters<typeof __BoxedNumbered>[0]["theme"]` | Component default | Renderer theme configuration.              |
+| `heading`        | `string`                                         | Component default | Configures the component's heading.        |
+| `items`          | `FaqItem[]`                                      | Component default | Configures the component's items.          |
+| `layout`         | `"boxed" \| "collapsed" \| "expanded"`           | Component default | Configures the component's layout.         |
+| `marker`         | `"none" \| "number" \| "icon"`                   | Component default | Configures the component's marker.         |
+| `alternating`    | `boolean`                                        | Component default | Configures the component's alternating.    |
+| `answerPosition` | `"stacked" \| "offset"`                          | Component default | Configures the component's answerposition. |
+| `action`         | `FaqAction`                                      | Component default | Configures the component's action.         |

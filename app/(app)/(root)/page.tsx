@@ -9,21 +9,25 @@ export const revalidate = false;
 export const showcaseItems = [
   {
     className: "md:col-span-2",
-    name: "full-width-testimonial-with-overlapping-avatar-demo",
+    name: "testimonial-overlapping-avatar-example-demo",
+    title: "Testimonial",
   },
   {
     className: "md:col-span-2",
-    name: "horizontal-team-member-bios-demo",
+    name: "team-bios-with-right-images-example-demo",
+    title: "Team",
   },
   {
     className: "md:col-span-2",
-    name: "product-list-with-rows-demo",
+    name: "product-list-demo",
+    title: "Product List",
   },
   {
     className: "md:col-span-2",
-    name: "shopping-cart-row-items-demo",
+    name: "shopping-cart-demo",
+    title: "Shopping Cart",
   },
-];
+] as const;
 
 export default function IndexPage() {
   return (
@@ -57,8 +61,11 @@ export default function IndexPage() {
               key={item.name}
               hideNav
               hideCode
+              centerPreview
               height={410}
               name={item.name}
+              showTitleBar
+              title={item.title}
               className={item.className}
             />
           ))}

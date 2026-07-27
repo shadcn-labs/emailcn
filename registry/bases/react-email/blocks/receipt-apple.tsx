@@ -16,7 +16,7 @@ import {
 } from "react-email";
 
 import { appleTheme } from "@/registry/bases/react-email/themes/apple";
-import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
+import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list";
 
 interface ReceiptItem {
   name: string;

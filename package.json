@@ -11,7 +11,7 @@
     "registry:sync": "node scripts/sync-registry-items.mjs",
     "registry:build": "pnpm registry:sync && shadcn build registry-react-email.json --output ./public/r/react-email && shadcn build registry-mjml-react.json --output ./public/r/mjml-react && shadcn build registry-jsx-email.json --output ./public/r/jsx-email && node scripts/normalize-registry-artifacts.mjs",
     "postinstall": "fumadocs-mdx",
-    "sync:component-previews": "node scripts/sync-docs-bases.mjs && node scripts/sync-component-preview-demos.mjs && oxfmt examples",
+    "sync:component-previews": "node scripts/sync-docs-bases.mjs && node scripts/sync-component-preview-demos.mjs && oxfmt examples content/docs",
     "check": "ultracite check",
     "fix": "ultracite fix",
     "prepare": "lefthook install"

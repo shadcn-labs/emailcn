@@ -1,0 +1,80 @@
+---
+title: "Group"
+description: "Avatar Group rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="avatar-group-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/avatar-group
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/avatars/avatar-group.tsx"
+    base="react-email"
+    title="components/email/avatar-group.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AvatarGroup } from "@/components/email/avatar-group";
+```
+
+```tsx
+<AvatarGroup size="md" align="left" />
+```
+
+## Examples
+
+### Overlapped with count
+
+<ComponentPreview
+  base="react-email"
+  name="avatar-group-overlapped-with-count-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                            | Default           | Description                           |
+| ----------- | ----------------------------------------------- | ----------------- | ------------------------------------- |
+| `theme`     | `Parameters<typeof __Avatar>[0]["theme"]`       | Component default | Renderer theme configuration.         |
+| `avatars`   | `AvatarItem[]`                                  | Component default | Configures the component's avatars.   |
+| `plusCount` | `number`                                        | Component default | Configures the component's pluscount. |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | Component default | Configures the component's size.      |
+| `align`     | `"left" \| "center" \| "right"`                 | Component default | Configures the component's align.     |

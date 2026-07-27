@@ -1,0 +1,86 @@
+---
+title: "Horizontal Post"
+description: "Horizontal Blog Post rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="horizontal-blog-post-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/horizontal-blog-post
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/blog/horizontal-blog-post.tsx"
+    base="react-email"
+    title="components/email/horizontal-blog-post.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HorizontalBlogPost } from "@/components/email/horizontal-blog-post";
+```
+
+```tsx
+<HorizontalBlogPost surface="plain" media="single" />
+```
+
+## Examples
+
+### Boxed
+
+<ComponentPreview
+  base="react-email"
+  name="horizontal-blog-post-boxed-example-demo"
+/>
+
+### Split media
+
+<ComponentPreview
+  base="react-email"
+  name="horizontal-blog-post-split-media-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                               | Default           | Description                         |
+| --------- | -------------------------------------------------- | ----------------- | ----------------------------------- |
+| `theme`   | `Parameters<typeof __HorizontalPlain>[0]["theme"]` | Component default | Renderer theme configuration.       |
+| `post`    | `BlogPost`                                         | Component default | Configures the component's post.    |
+| `surface` | `"plain" \| "boxed"`                               | Component default | Configures the component's surface. |
+| `media`   | `"single" \| "split"`                              | Component default | Configures the component's media.   |

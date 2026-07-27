@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import {
   Body,
   Container,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Tailwind,
@@ -15,13 +15,15 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type StackedStatsVariant = "left" | "center" | "right";
-
 export interface StackedStatsProps {
   theme?: TailwindConfig;
   variant?: StackedStatsVariant;
-  stats?: { heading: string; value: string; description: string }[];
+  stats?: {
+    heading: string;
+    value: string;
+    description: string;
+  }[];
   pageBackgroundColor?: string;
   backgroundColor?: string;
   accentColor?: string;
@@ -29,10 +31,8 @@ export interface StackedStatsProps {
   textColor?: string;
   dividerColor?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const defaults = {
   accentColor: "#f97316",
   backgroundColor: "#fffffe",
@@ -58,10 +58,8 @@ const defaults = {
   ],
   textColor: "#4b5563",
 };
-
 type SectionProps = Omit<StackedStatsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
-
 export const StackedStatsSection = (props: SectionProps) => {
   const variant = props.variant ?? "left";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -161,7 +159,6 @@ export const StackedStatsSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const StackedStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -169,9 +166,9 @@ export const StackedStats = ({
   ...props
 }: StackedStatsProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
-    </Head>
+    </EmailHead>
     <Preview>10 active days</Preview>
     <Tailwind config={theme}>
       <Body
@@ -190,7 +187,6 @@ export const StackedStats = ({
     </Tailwind>
   </Html>
 );
-
 StackedStats.PreviewProps = {
   theme: defaultTheme,
   variant: "left",

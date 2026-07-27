@@ -1,0 +1,82 @@
+---
+title: "Grid"
+description: "Image Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/images/image-grid.tsx"
+    base="mjml-react"
+    title="components/email/image-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageGrid } from "@/components/email/image-grid";
+```
+
+```tsx
+<ImageGrid columns={2} aspect="square" overlay={false} />
+```
+
+## Examples
+
+### Three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="image-grid-three-columns-example-demo"
+/>
+
+### Portrait overlays
+
+<ComponentPreview
+  base="mjml-react"
+  name="image-grid-portrait-overlays-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                             | Default           | Description                         |
+| --------- | ------------------------------------------------ | ----------------- | ----------------------------------- |
+| `theme`   | `Parameters<typeof __TwoColumnGrid>[0]["theme"]` | Component default | Renderer theme configuration.       |
+| `images`  | `GalleryImage[]`                                 | Component default | Configures the component's images.  |
+| `columns` | `2 \| 3`                                         | Component default | Configures the component's columns. |
+| `aspect`  | `"square" \| "portrait"`                         | Component default | Configures the component's aspect.  |
+| `overlay` | `boolean`                                        | Component default | Configures the component's overlay. |

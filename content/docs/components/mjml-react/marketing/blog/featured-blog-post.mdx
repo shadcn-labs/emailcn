@@ -1,6 +1,6 @@
 ---
-title: "Featured Blog Post"
-description: "A blog layout implemented with shared email-safe primitives."
+title: "Featured Post"
+description: "Featured Blog Post rendered with email-safe, renderer-native components."
 ---
 
 <ComponentPreview base="mjml-react" name="featured-blog-post-demo" />
@@ -22,31 +22,24 @@ npx shadcn@latest add @emailcn/featured-blog-post
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the renderer dependency:</Step>
-
-```bash
-npm install react-email
-```
-
-<Step>Copy the shared blog primitives into your project.</Step>
-<ComponentSource
-  src="registry/bases/mjml-react/ui/marketing/blog/blog-shared.tsx"
-  base="mjml-react"
-  title="components/email/blog-shared.tsx"
-/>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install @faire/mjml-react mjml
 ```
 
-<Step>Copy the component source into your project.</Step>
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
     src="registry/bases/mjml-react/ui/marketing/blog/featured-blog-post.tsx"
     base="mjml-react"
     title="components/email/featured-blog-post.tsx"
   />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -59,15 +52,30 @@ import { FeaturedBlogPost } from "@/components/email/featured-blog-post";
 ```
 
 ```tsx
-<FeaturedBlogPost {...FeaturedBlogPost.PreviewProps} />
+<FeaturedBlogPost width="contained" dateStyle="none" />
 ```
+
+## Examples
+
+### Large date
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-blog-post-large-date-example-demo"
+/>
+
+### Full width with large date
+
+<ComponentPreview
+  base="mjml-react"
+  name="featured-blog-post-full-width-with-large-date-example-demo"
+/>
 
 ## API Reference
 
-| Prop                      | Type               | Default         | Description                                     |
-| ------------------------- | ------------------ | --------------- | ----------------------------------------------- |
-| `theme`                   | `EmailThemeTokens` | `defaultTheme`  | Renderer theme configuration.                   |
-| `heading`                 | `string`           | Layout-specific | Optional section heading where supported.       |
-| `imageSrc*` / `imageAlt*` | `string`           | Example imagery | Post image sources and labels.                  |
-| `title*` / `excerpt*`     | `string`           | Example copy    | Post titles and supporting excerpts.            |
-| Metadata props            | `string`           | Layout-specific | Author, host, episode, badge, or date metadata. |
+| Prop        | Type                                        | Default           | Description                           |
+| ----------- | ------------------------------------------- | ----------------- | ------------------------------------- |
+| `theme`     | `Parameters<typeof __Featured>[0]["theme"]` | Component default | Renderer theme configuration.         |
+| `post`      | `BlogPost`                                  | Component default | Configures the component's post.      |
+| `width`     | `"contained" \| "full"`                     | Component default | Configures the component's width.     |
+| `dateStyle` | `"none" \| "large"`                         | Component default | Configures the component's datestyle. |

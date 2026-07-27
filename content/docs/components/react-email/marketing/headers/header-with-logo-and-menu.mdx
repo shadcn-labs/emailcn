@@ -1,0 +1,84 @@
+---
+title: "Menu"
+description: "Header With Logo And Menu rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="header-with-logo-and-menu-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo-and-menu
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/headers/header-with-logo-and-menu.tsx"
+    base="react-email"
+    title="components/email/header-with-logo-and-menu.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndMenu } from "@/components/email/header-with-logo-and-menu";
+```
+
+```tsx
+<HeaderWithLogoAndMenu variant="menu-right" />
+```
+
+## Examples
+
+### Stacked
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-menu-stacked-example-demo"
+/>
+
+## API Reference
+
+| Prop                  | Type                           | Default           | Description                                     |
+| --------------------- | ------------------------------ | ----------------- | ----------------------------------------------- |
+| `theme`               | `TailwindConfig`               | Component default | Renderer theme configuration.                   |
+| `logoSrc`             | `string`                       | Component default | Configures the component's logosrc.             |
+| `logoAlt`             | `string`                       | Component default | Configures the component's logoalt.             |
+| `logoHref`            | `string`                       | Component default | Configures the component's logohref.            |
+| `links`               | `HeaderMenuLink[]`             | Component default | Configures the component's links.               |
+| `pageBackgroundColor` | `string`                       | Component default | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                       | Component default | Configures the component's backgroundcolor.     |
+| `textColor`           | `string`                       | Component default | Configures the component's textcolor.           |
+| `variant`             | `HeaderWithLogoAndMenuVariant` | Component default | Configures the component's variant.             |

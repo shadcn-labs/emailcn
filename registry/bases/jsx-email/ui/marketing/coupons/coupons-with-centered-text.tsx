@@ -1,7 +1,7 @@
 import {
   Body,
   Container,
-  Head,
+  Head as EmailHead,
   Html,
   Img,
   Preview,
@@ -17,13 +17,11 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
-
 export type CouponsWithCenteredTextVariant =
   | "impact"
   | "inline"
   | "impact-alt"
   | "impact-background";
-
 export interface CouponsWithCenteredTextProps {
   theme?: EmailThemeTokens;
   overline?: string;
@@ -44,10 +42,8 @@ export interface CouponsWithCenteredTextProps {
   buttonColor?: string;
   variant?: CouponsWithCenteredTextVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
     .coupon-centered-description { padding-left: 24px !important; padding-right: 24px !important; }
@@ -56,7 +52,6 @@ const responsiveStyles = `
     .coupon-centered-code { margin-top: 16px !important; }
   }
 `;
-
 const defaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
@@ -78,10 +73,8 @@ const defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#4b5563",
 };
-
 type SectionProps = Omit<CouponsWithCenteredTextProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
-
 const Overline = ({
   light,
   props,
@@ -110,7 +103,6 @@ const Overline = ({
     )}
   </Text>
 );
-
 const ImpactHeading = ({
   alt,
   light,
@@ -142,7 +134,6 @@ const ImpactHeading = ({
     )}
   </Heading>
 );
-
 const Description = ({
   light,
   props,
@@ -176,7 +167,6 @@ const Description = ({
     </Fragment>
   </Section>
 );
-
 const CodeBox = ({ props }: { props: ResolvedProps }) => (
   <Section
     align="center"
@@ -202,7 +192,6 @@ const CodeBox = ({ props }: { props: ResolvedProps }) => (
     </Fragment>
   </Section>
 );
-
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
   <Section style={{ textAlign: "center" }}>
     <Link
@@ -236,14 +225,12 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
     </Link>
   </Section>
 );
-
 export const CouponsWithCenteredTextSection = (props: SectionProps) => {
   const variant = props.variant ?? "impact";
   const resolved = { ...defaults, ...props } as ResolvedProps;
   const background = variant === "impact-background";
   const inline = variant === "inline";
   const alt = variant === "impact-alt";
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -270,31 +257,36 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
           >
             <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
             <Overline light={background} props={resolved} />
-            {inline ? (
-              <Heading
-                className="coupon-centered-inline"
-                style={{
-                  color: resolved.headingColor,
-                  fontFamily,
-                  fontSize: "48px",
-                  fontWeight: 500,
-                  lineHeight: "normal",
-                  margin: 0,
-                  textAlign: "center",
-                }}
-                as="h3"
-              >
-                {resolved.discount === defaults.discount
-                  ? "An extra 20% OFF"
-                  : resolved.discount}
-              </Heading>
-            ) : (
-              <ImpactHeading
-                alt={alt || background}
-                light={background}
-                props={resolved}
-              />
-            )}
+            {(() => {
+              if (inline) {
+                return (
+                  <Heading
+                    className="coupon-centered-inline"
+                    style={{
+                      color: resolved.headingColor,
+                      fontFamily,
+                      fontSize: "48px",
+                      fontWeight: 500,
+                      lineHeight: "normal",
+                      margin: 0,
+                      textAlign: "center",
+                    }}
+                    as="h3"
+                  >
+                    {resolved.discount === defaults.discount
+                      ? "An extra 20% OFF"
+                      : resolved.discount}
+                  </Heading>
+                );
+              }
+              return (
+                <ImpactHeading
+                  alt={alt || background}
+                  light={background}
+                  props={resolved}
+                />
+              );
+            })()}
             {alt ? (
               <Text
                 style={{
@@ -326,7 +318,6 @@ export const CouponsWithCenteredTextSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const CouponsWithCenteredText = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -334,10 +325,10 @@ export const CouponsWithCenteredText = ({
   ...props
 }: CouponsWithCenteredTextProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
+    </EmailHead>
     <Preview>Our biggest sale of the year</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -354,7 +345,6 @@ export const CouponsWithCenteredText = ({
     </Body>
   </Html>
 );
-
 CouponsWithCenteredText.PreviewProps = {
   theme: defaultTheme,
   variant: "impact",

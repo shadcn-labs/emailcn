@@ -1,0 +1,89 @@
+---
+title: "Masonry Images"
+description: "Masonry Product Detail rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="masonry-product-detail-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/masonry-product-detail
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/product-detail/masonry-product-detail.tsx"
+    base="mjml-react"
+    title="components/email/masonry-product-detail.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MasonryProductDetail } from "@/components/email/masonry-product-detail";
+```
+
+```tsx
+<MasonryProductDetail ratingPosition="bottom" headerPosition="default" />
+```
+
+## Examples
+
+### Rating at the top
+
+<ComponentPreview
+  base="mjml-react"
+  name="masonry-product-detail-rating-at-the-top-example-demo"
+/>
+
+### Rating aside
+
+<ComponentPreview
+  base="mjml-react"
+  name="masonry-product-detail-rating-aside-example-demo"
+/>
+
+### Header at the top
+
+<ComponentPreview
+  base="mjml-react"
+  name="masonry-product-detail-header-at-the-top-example-demo"
+/>
+
+## API Reference
+
+| Prop             | Type                                             | Default           | Description                                |
+| ---------------- | ------------------------------------------------ | ----------------- | ------------------------------------------ |
+| `theme`          | `Parameters<typeof __ProductDetail>[0]["theme"]` | Component default | Renderer theme configuration.              |
+| `product`        | `ProductDetails`                                 | Component default | Configures the component's product.        |
+| `images`         | `Array<{ src: string; alt?: string }>`           | Component default | Configures the component's images.         |
+| `ratingPosition` | `"top" \| "bottom" \| "aside"`                   | Component default | Configures the component's ratingposition. |
+| `headerPosition` | `"default" \| "top"`                             | Component default | Configures the component's headerposition. |

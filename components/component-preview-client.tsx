@@ -75,25 +75,29 @@ const CodeTab = ({
 interface ComponentPreviewClientProps {
   html: string;
   plainText: string | null;
+  iframeTitle: string;
   title?: string;
   className?: string;
   hideNav?: boolean;
   height?: number;
+  showTitleBar?: boolean;
 }
 
 export const ComponentPreviewClient = ({
   html,
   plainText,
+  iframeTitle,
   title,
   className,
   hideNav = false,
   height = 640,
+  showTitleBar = false,
 }: ComponentPreviewClientProps) => {
   const [activeTab, setActiveTab] = useState("preview");
 
   return (
     <div className={cn("w-full scroll-mt-24", className)}>
-      {title ? (
+      {title && !showTitleBar ? (
         <h3 className="mb-3 text-base font-semibold tracking-tight">{title}</h3>
       ) : null}
 
@@ -117,14 +121,24 @@ export const ComponentPreviewClient = ({
             </TabsList>
           </div>
         )}
-        <TabsContent className="m-0 rounded-xl border bg-card" value="preview">
-          <iframe
-            className="w-full bg-white rounded-xl"
-            height={height}
-            sandbox=""
-            srcDoc={html}
-            title={title}
-          />
+        <TabsContent
+          className="m-0 overflow-hidden rounded-xl border bg-card"
+          value="preview"
+        >
+          {showTitleBar && title ? (
+            <div className="flex h-10 items-center border-b px-4 text-sm font-medium">
+              {title}
+            </div>
+          ) : null}
+          <div className="bg-muted/40">
+            <iframe
+              className="block w-full bg-transparent"
+              height={height}
+              sandbox=""
+              srcDoc={html}
+              title={iframeTitle}
+            />
+          </div>
         </TabsContent>
         {html ? <CodeTab language="html" code={html} value="html" /> : null}
         {plainText ? (

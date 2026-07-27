@@ -1,0 +1,91 @@
+---
+title: "Background"
+description: "Background Call To Action rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="background-call-to-action-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/background-call-to-action
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/cta/background-call-to-action.tsx"
+    base="react-email"
+    title="components/email/background-call-to-action.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BackgroundCallToAction } from "@/components/email/background-call-to-action";
+```
+
+```tsx
+<BackgroundCallToAction width="flush" appearance="light" />
+```
+
+## Examples
+
+### Dark boxed
+
+<ComponentPreview
+  base="react-email"
+  name="background-call-to-action-dark-boxed-example-demo"
+/>
+
+### Content card
+
+<ComponentPreview
+  base="react-email"
+  name="background-call-to-action-content-card-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                             | Default           | Description                                 |
+| ----------------- | ------------------------------------------------ | ----------------- | ------------------------------------------- |
+| `theme`           | `Parameters<typeof __BackgroundCta>[0]["theme"]` | Component default | Renderer theme configuration.               |
+| `heading`         | `string`                                         | Component default | Configures the component's heading.         |
+| `description`     | `string`                                         | Component default | Configures the component's description.     |
+| `emphasis`        | `string`                                         | Component default | Configures the component's emphasis.        |
+| `actions`         | `Array<{ href: string; label: string }>`         | Component default | Configures the component's actions.         |
+| `backgroundImage` | `{ src: string; alt?: string }`                  | Component default | Configures the component's backgroundimage. |
+| `width`           | `"flush" \| "boxed" \| "padded"`                 | Component default | Configures the component's width.           |
+| `contentCard`     | `boolean`                                        | Component default | Configures the component's contentcard.     |
+| `appearance`      | `"light" \| "dark"`                              | Component default | Configures the component's appearance.      |

@@ -8,7 +8,8 @@ import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const EXAMPLES = path.join(ROOT, "examples");
-const PREVIEW_DOCS = [
+const PREVIEW_SOURCES = [
+  path.join(ROOT, "app"),
   path.join(ROOT, "content/docs/components"),
   path.join(ROOT, "content/docs/fonts"),
 ];
@@ -85,15 +86,18 @@ const attributeValue = (tag, name) => {
 const validatePreviewReferences = () => {
   const missing = [];
 
-  for (const docsRoot of PREVIEW_DOCS) {
-    for (const file of walk(docsRoot).filter((entry) =>
-      entry.endsWith(".mdx")
+  for (const sourceRoot of PREVIEW_SOURCES) {
+    for (const file of walk(sourceRoot).filter(
+      (entry) => entry.endsWith(".mdx") || entry.endsWith(".tsx")
     )) {
       const source = fs.readFileSync(file, "utf-8");
       for (const match of source.matchAll(COMPONENT_PREVIEW_PATTERN)) {
         const [tag] = match;
         const name = attributeValue(tag, "name");
         if (!name) {
+          if (/\bname=\{/.test(tag)) {
+            continue;
+          }
           missing.push(`${path.relative(ROOT, file)}: missing preview name`);
           continue;
         }
@@ -137,12 +141,16 @@ const generateIndex = () => {
 
   const output = `${imports.join("\n")}
 
-export const demos: Record<
+export const demos = {
+${maps.join("\n")}
+} satisfies Record<
   "jsx-email" | "mjml-react" | "react-email",
   Record<string, ComponentType>
-> = {
-${maps.join("\n")}
-};
+>;
+
+export type DemoName = {
+  [Base in keyof typeof demos]: keyof (typeof demos)[Base];
+}[keyof typeof demos];
 `;
   fs.writeFileSync(path.join(EXAMPLES, "__index__.tsx"), output);
 };

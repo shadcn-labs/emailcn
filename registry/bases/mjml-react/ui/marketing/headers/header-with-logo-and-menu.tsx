@@ -1,18 +1,65 @@
 import {
+  Mjml,
+  MjmlBody,
+  MjmlFont,
+  MjmlHead,
+  MjmlImage,
+  MjmlPreview,
+  MjmlWrapper,
   MjmlColumn,
   MjmlNavbar,
   MjmlNavbarLink,
   MjmlSection,
   MjmlSpacer,
 } from "@faire/mjml-react";
+import type { ReactNode } from "react";
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import {
-  HeaderEmailShell,
-  HeaderLogo,
-} from "@/registry/bases/mjml-react/ui/marketing/headers/header-shared";
-
+export const HeaderEmailShell = ({
+  children,
+  pageBackgroundColor,
+  preview,
+  theme,
+}: {
+  children: ReactNode;
+  pageBackgroundColor: string;
+  preview: string;
+  theme: EmailThemeTokens;
+}) => (
+  <Mjml>
+    <MjmlHead>
+      <MjmlPreview>{preview}</MjmlPreview>
+      <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+    </MjmlHead>
+    <MjmlBody
+      backgroundColor={pageBackgroundColor}
+      width={theme.containerWidth}
+    >
+      <MjmlWrapper padding="0">{children}</MjmlWrapper>
+    </MjmlBody>
+  </Mjml>
+);
+export const HeaderLogo = ({
+  align = "left",
+  alt,
+  href,
+  src,
+}: {
+  align?: "center" | "left" | "right";
+  alt: string;
+  href: string;
+  src: string;
+}) => (
+  <MjmlImage
+    align={align}
+    alt={alt}
+    href={href}
+    padding="0"
+    src={src}
+    width="55px"
+  />
+);
 export type HeaderWithLogoAndMenuVariant =
   | "menu-right"
   | "menu-left"
@@ -20,12 +67,10 @@ export type HeaderWithLogoAndMenuVariant =
   | "stacked-left"
   | "stacked-center"
   | "stacked-right";
-
 export interface HeaderMenuLink {
   href: string;
   label: string;
 }
-
 export interface HeaderWithLogoAndMenuProps {
   theme?: EmailThemeTokens;
   logoSrc?: string;
@@ -37,10 +82,8 @@ export interface HeaderWithLogoAndMenuProps {
   textColor?: string;
   variant?: HeaderWithLogoAndMenuVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const defaultLinks: HeaderMenuLink[] = [
   { href: "https://example.com", label: "Home" },
   { href: "https://example.com/about", label: "About us" },
@@ -49,7 +92,6 @@ const defaultLinks: HeaderMenuLink[] = [
   { href: "https://example.com/returns", label: "Returns" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
-
 const Menu = ({
   align,
   links,
@@ -74,7 +116,6 @@ const Menu = ({
     ))}
   </MjmlNavbar>
 );
-
 export const HeaderWithLogoAndMenuSection = ({
   backgroundColor = "#fffffe",
   links = defaultLinks,
@@ -104,7 +145,6 @@ export const HeaderWithLogoAndMenuSection = ({
       </MjmlSection>
     );
   }
-
   if (variant === "menu-around") {
     const midpoint = Math.ceil(links.length / 2);
     return (
@@ -134,7 +174,6 @@ export const HeaderWithLogoAndMenuSection = ({
       </MjmlSection>
     );
   }
-
   const menuLeft = variant === "menu-left";
   const logo = (
     <MjmlColumn padding="0" verticalAlign="middle" width="22%">
@@ -155,7 +194,6 @@ export const HeaderWithLogoAndMenuSection = ({
       />
     </MjmlColumn>
   );
-
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="24px">
       {menuLeft ? menu : logo}
@@ -163,7 +201,6 @@ export const HeaderWithLogoAndMenuSection = ({
     </MjmlSection>
   );
 };
-
 export const HeaderWithLogoAndMenu = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -177,7 +214,6 @@ export const HeaderWithLogoAndMenu = ({
     <HeaderWithLogoAndMenuSection {...props} />
   </HeaderEmailShell>
 );
-
 HeaderWithLogoAndMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "menu-right",

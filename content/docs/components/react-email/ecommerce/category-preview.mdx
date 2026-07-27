@@ -1,0 +1,88 @@
+---
+title: "Category Preview"
+description: "Category Preview rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="category-preview-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/category-preview
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/category-previews/category-preview.tsx"
+    base="react-email"
+    title="components/email/category-preview.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CategoryPreview } from "@/components/email/category-preview";
+```
+
+```tsx
+<CategoryPreview layout="cards" detailLevel="name" />
+```
+
+## Examples
+
+### Rows with full details
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-rows-with-full-details-example-demo"
+/>
+
+### Cards with prices
+
+<ComponentPreview
+  base="react-email"
+  name="category-preview-cards-with-prices-example-demo"
+/>
+
+## API Reference
+
+| Prop          | Type                                                   | Default           | Description                             |
+| ------------- | ------------------------------------------------------ | ----------------- | --------------------------------------- |
+| `theme`       | `Parameters<typeof __CategoryCards>[0]["theme"]`       | Component default | Renderer theme configuration.           |
+| `layout`      | `"cards" \| "rows"`                                    | Component default | Configures the component's layout.      |
+| `detailLevel` | `"name" \| "description" \| "price" \| "full"`         | Component default | Configures the component's detaillevel. |
+| `header`      | `{     heading: string;     description?: string;   }` | Component default | Configures the component's header.      |
+| `items`       | `CategoryPreviewItem[]`                                | Component default | Configures the component's items.       |
+| `actionLabel` | `string`                                               | Component default | Configures the component's actionlabel. |

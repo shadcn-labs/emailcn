@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {
   Body,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Link,
@@ -14,7 +14,6 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type HeaderWithLogoAndMenuVariant =
   | "menu-right"
   | "menu-left"
@@ -22,12 +21,10 @@ export type HeaderWithLogoAndMenuVariant =
   | "stacked-left"
   | "stacked-center"
   | "stacked-right";
-
 export interface HeaderMenuLink {
   href: string;
   label: string;
 }
-
 export interface HeaderWithLogoAndMenuProps {
   theme?: TailwindConfig;
   logoSrc?: string;
@@ -39,10 +36,8 @@ export interface HeaderWithLogoAndMenuProps {
   textColor?: string;
   variant?: HeaderWithLogoAndMenuVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .header-menu-stack { display: block !important; width: 100% !important; }",
@@ -58,7 +53,6 @@ const responsiveStyles = [
   "  .header-menu-around-mobile { display: block !important; padding-top: 24px !important; width: 100% !important; }",
   "}",
 ].join("\n");
-
 const defaultLinks: HeaderMenuLink[] = [
   { href: "https://example.com", label: "Home" },
   { href: "https://example.com/about", label: "About us" },
@@ -67,7 +61,6 @@ const defaultLinks: HeaderMenuLink[] = [
   { href: "https://example.com/returns", label: "Returns" },
   { href: "https://example.com/contact", label: "Contact us" },
 ];
-
 const defaults = {
   backgroundColor: "#fffffe",
   links: defaultLinks,
@@ -77,10 +70,8 @@ const defaults = {
   pageBackgroundColor: "#f1f5f9",
   textColor: "#6b7280",
 };
-
 type SectionProps = Omit<HeaderWithLogoAndMenuProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
-
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -91,7 +82,6 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
-
 const MenuLinks = ({
   links,
   margin,
@@ -140,7 +130,6 @@ const MenuLinks = ({
     })}
   </>
 );
-
 const MenuRight = ({ props }: { props: ResolvedProps }) => (
   <Section width="100%">
     <Fragment>
@@ -167,7 +156,6 @@ const MenuRight = ({ props }: { props: ResolvedProps }) => (
     </Fragment>
   </Section>
 );
-
 const MenuLeft = ({ props }: { props: ResolvedProps }) => (
   <Section className="header-menu-left-row" width="100%">
     <Fragment>
@@ -193,7 +181,6 @@ const MenuLeft = ({ props }: { props: ResolvedProps }) => (
     </Fragment>
   </Section>
 );
-
 const MenuAround = ({ props }: { props: ResolvedProps }) => (
   <Section className="header-menu-around-row" width="100%">
     <Fragment>
@@ -234,7 +221,6 @@ const MenuAround = ({ props }: { props: ResolvedProps }) => (
     </Fragment>
   </Section>
 );
-
 const StackedMenu = ({
   alignment,
   props,
@@ -248,7 +234,6 @@ const StackedMenu = ({
   } else if (alignment === "center") {
     margin = "around";
   }
-
   return (
     <Section width="100%">
       <Fragment>
@@ -267,7 +252,6 @@ const StackedMenu = ({
     </Section>
   );
 };
-
 export const HeaderWithLogoAndMenuSection = (props: SectionProps) => {
   const variant = props.variant ?? "menu-right";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -288,7 +272,6 @@ export const HeaderWithLogoAndMenuSection = (props: SectionProps) => {
   } else {
     content = <MenuRight props={resolved} />;
   }
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -319,7 +302,6 @@ export const HeaderWithLogoAndMenuSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const HeaderWithLogoAndMenu = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -327,10 +309,10 @@ export const HeaderWithLogoAndMenu = ({
   ...props
 }: HeaderWithLogoAndMenuProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
+    </EmailHead>
     <Preview>Home About us Shop FAQs Returns Contact us</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -343,7 +325,6 @@ export const HeaderWithLogoAndMenu = ({
     </Body>
   </Html>
 );
-
 HeaderWithLogoAndMenu.PreviewProps = {
   theme: defaultTheme,
   variant: "menu-right",

@@ -1,0 +1,88 @@
+---
+title: "Reviews"
+description: "Reviews rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="reviews-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/reviews
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/reviews/reviews.tsx"
+    base="jsx-email"
+    title="components/email/reviews.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Reviews } from "@/components/email/reviews";
+```
+
+```tsx
+<Reviews layout="full-width" identity="text" divider="none" />
+```
+
+## Examples
+
+### Two columns with avatars
+
+<ComponentPreview
+  base="jsx-email"
+  name="reviews-two-columns-with-avatars-example-demo"
+/>
+
+### Masonry with logos
+
+<ComponentPreview
+  base="jsx-email"
+  name="reviews-masonry-with-logos-example-demo"
+/>
+
+## API Reference
+
+| Prop       | Type                                                                                                                 | Default           | Description                          |
+| ---------- | -------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------ |
+| `theme`    | `Parameters<typeof __FullWidthReviews>[0]["theme"]`                                                                  | Component default | Renderer theme configuration.        |
+| `items`    | `ReviewItem[]`                                                                                                       | Component default | Configures the component's items.    |
+| `layout`   | `"full-width" \| "two-columns" \| "masonry"`                                                                         | Component default | Configures the component's layout.   |
+| `identity` | `\| "text"     \| "logo"     \| "avatar-inline"     \| "avatar-centered"     \| "avatar-logo"     \| "avatar-aside"` | Component default | Configures the component's identity. |
+| `divider`  | `"none" \| "top" \| "between" \| "bottom"`                                                                           | Component default | Configures the component's divider.  |
+| `reverse`  | `boolean`                                                                                                            | Component default | Configures the component's reverse.  |

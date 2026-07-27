@@ -1,0 +1,87 @@
+---
+title: "Progress"
+description: "Progress rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="progress-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/progress
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/progress-bars/progress.tsx"
+    base="react-email"
+    title="components/email/progress.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/email/progress";
+```
+
+```tsx
+<Progress layout="single" padding="none" content="minimal" />
+```
+
+## Examples
+
+### Padded group
+
+<ComponentPreview
+  base="react-email"
+  name="progress-padded-group-example-demo"
+/>
+
+### Columns with descriptions
+
+<ComponentPreview
+  base="react-email"
+  name="progress-columns-with-descriptions-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                  | Default           | Description                         |
+| --------- | ----------------------------------------------------- | ----------------- | ----------------------------------- |
+| `theme`   | `Parameters<typeof __ProgressFull>[0]["theme"]`       | Component default | Renderer theme configuration.       |
+| `items`   | `ProgressItem[]`                                      | Component default | Configures the component's items.   |
+| `layout`  | `"single" \| "group" \| "columns"`                    | Component default | Configures the component's layout.  |
+| `padding` | `"none" \| "padded"`                                  | Component default | Configures the component's padding. |
+| `content` | `"minimal" \| "title" \| "description" \| "text-top"` | Component default | Configures the component's content. |

@@ -1,0 +1,83 @@
+---
+title: "Table"
+description: "Order Summary Table rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="order-summary-table-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/order-summary-table
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/ecommerce/order-summary/order-summary-table.tsx"
+    base="mjml-react"
+    title="components/email/order-summary-table.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OrderSummaryTable } from "@/components/email/order-summary-table";
+```
+
+```tsx
+<OrderSummaryTable appearance="bordered" totalPosition="bottom" />
+```
+
+## Examples
+
+### Boxed total at the top
+
+<ComponentPreview
+  base="mjml-react"
+  name="order-summary-table-boxed-total-at-the-top-example-demo"
+/>
+
+### With card details
+
+<ComponentPreview
+  base="mjml-react"
+  name="order-summary-table-with-card-details-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                              | Default           | Description                                     |
+| --------------- | ------------------------------------------------- | ----------------- | ----------------------------------------------- |
+| `theme`         | `Parameters<typeof __BorderedBottom>[0]["theme"]` | Component default | Renderer theme configuration.                   |
+| `alignment`     | `"left" \| "center" \| "right" \| "justified"`    | `"left"`          | Aligns the order-summary values.                |
+| `appearance`    | `"bordered" \| "boxed"`                           | `"bordered"`      | Selects the bordered or boxed presentation.     |
+| `filled`        | `boolean`                                         | `false`           | Uses the filled table treatment when supported. |
+| `totalPosition` | `"top" \| "bottom"`                               | `"bottom"`        | Places the order total above or below rows.     |
+| `cardDetails`   | `boolean`                                         | `false`           | Shows the card-details treatment.               |

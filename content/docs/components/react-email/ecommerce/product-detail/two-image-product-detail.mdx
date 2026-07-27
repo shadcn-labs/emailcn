@@ -1,0 +1,94 @@
+---
+title: "Two Images"
+description: "Two Image Product Detail rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="two-image-product-detail-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/two-image-product-detail
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-detail/two-image-product-detail.tsx"
+    base="react-email"
+    title="components/email/two-image-product-detail.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TwoImageProductDetail } from "@/components/email/two-image-product-detail";
+```
+
+```tsx
+<TwoImageProductDetail ratingPosition="bottom" headerPosition="default" />
+```
+
+## Examples
+
+### Rating at the top
+
+<ComponentPreview
+  base="react-email"
+  name="two-image-product-detail-rating-at-the-top-example-demo"
+/>
+
+### Rating aside
+
+<ComponentPreview
+  base="react-email"
+  name="two-image-product-detail-rating-aside-example-demo"
+/>
+
+### Header at the top
+
+<ComponentPreview
+  base="react-email"
+  name="two-image-product-detail-header-at-the-top-example-demo"
+/>
+
+## API Reference
+
+| Prop             | Type                                                                          | Default           | Description                                |
+| ---------------- | ----------------------------------------------------------------------------- | ----------------- | ------------------------------------------ |
+| `theme`          | `Parameters<typeof __ProductDetail>[0]["theme"]`                              | Component default | Renderer theme configuration.              |
+| `product`        | `ProductDetails`                                                              | Component default | Configures the component's product.        |
+| `images`         | `[     { src: string; alt?: string },     { src: string; alt?: string },   ]` | Component default | Configures the component's images.         |
+| `ratingPosition` | `"top" \| "bottom" \| "aside"`                                                | Component default | Configures the component's ratingposition. |
+| `headerPosition` | `"default" \| "top"`                                                          | Component default | Configures the component's headerposition. |

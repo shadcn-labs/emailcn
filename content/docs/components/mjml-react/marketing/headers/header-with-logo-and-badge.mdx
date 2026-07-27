@@ -1,0 +1,83 @@
+---
+title: "Badge"
+description: "Header With Logo And Badge rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="header-with-logo-and-badge-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo-and-badge
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-badge.tsx"
+    base="mjml-react"
+    title="components/email/header-with-logo-and-badge.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndBadge } from "@/components/email/header-with-logo-and-badge";
+```
+
+```tsx
+<HeaderWithLogoAndBadge alignment="left" />
+```
+
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-badge-centered-example-demo"
+/>
+
+## API Reference
+
+| Prop                   | Type                              | Default           | Description                                      |
+| ---------------------- | --------------------------------- | ----------------- | ------------------------------------------------ |
+| `theme`                | `EmailThemeTokens`                | Component default | Renderer theme configuration.                    |
+| `logoSrc`              | `string`                          | Component default | Configures the component's logosrc.              |
+| `logoAlt`              | `string`                          | Component default | Configures the component's logoalt.              |
+| `logoHref`             | `string`                          | Component default | Configures the component's logohref.             |
+| `badgeLabel`           | `string`                          | Component default | Configures the component's badgelabel.           |
+| `message`              | `string`                          | Component default | Configures the component's message.              |
+| `alignment`            | `HeaderWithLogoAndBadgeAlignment` | Component default | Configures the component's alignment.            |
+| `pageBackgroundColor`  | `string`                          | Component default | Configures the component's pagebackgroundcolor.  |
+| `backgroundColor`      | `string`                          | Component default | Configures the component's backgroundcolor.      |
+| `badgeBackgroundColor` | `string`                          | Component default | Configures the component's badgebackgroundcolor. |
+| `badgeBorderColor`     | `string`                          | Component default | Configures the component's badgebordercolor.     |
+| `badgeColor`           | `string`                          | Component default | Configures the component's badgecolor.           |
+| `badgeTextColor`       | `string`                          | Component default | Configures the component's badgetextcolor.       |

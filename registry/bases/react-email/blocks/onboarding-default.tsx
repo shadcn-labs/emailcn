@@ -13,9 +13,9 @@ import {
 
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
 import { ContentSection as ContentGridSection } from "@/registry/bases/react-email/ui/marketing/content/content";
-import { CTAWithTitleAndActionLeadSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/cta-with-title-and-action-lead";
-import { FooterWithTextMenuAndSocialsSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/footer-with-text-menu-and-socials";
-import { HeroWithOverlayedContentSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/hero-with-overlayed-content";
+import { CallToActionSection as CTABannerSection } from "@/registry/bases/react-email/ui/marketing/cta/call-to-action";
+import { NavigationFooterSection as FooterSection } from "@/registry/bases/react-email/ui/marketing/footers/navigation-footer";
+import { SplitHeroSection as HeroSection } from "@/registry/bases/react-email/ui/marketing/hero/split-hero";
 
 interface Props {
   _firstName?: string;

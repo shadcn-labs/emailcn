@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {
   Body,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Link,
@@ -14,9 +14,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type HeaderWithLogoAndBadgeAlignment = "left" | "center" | "right";
-
 export interface HeaderWithLogoAndBadgeProps {
   theme?: TailwindConfig;
   logoSrc?: string;
@@ -32,10 +30,8 @@ export interface HeaderWithLogoAndBadgeProps {
   badgeColor?: string;
   badgeTextColor?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .header-badge-stack { display: block !important; width: 100% !important; }",
@@ -45,7 +41,6 @@ const responsiveStyles = [
   "  .header-badge-mobile-logo { text-align: left !important; }",
   "}",
 ].join("\n");
-
 const defaults = {
   backgroundColor: "#fffffe",
   badgeBackgroundColor: "#eff6ff",
@@ -59,10 +54,8 @@ const defaults = {
   message: "On orders over $65",
   pageBackgroundColor: "#f1f5f9",
 };
-
 type SectionProps = Omit<HeaderWithLogoAndBadgeProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
-
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -73,7 +66,6 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
-
 const Badge = ({
   align,
   props,
@@ -81,13 +73,17 @@ const Badge = ({
   align?: "center" | "right";
   props: ResolvedProps;
 }) => {
-  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
+  let tableStyle:
+    | {
+        marginLeft: string;
+        marginRight?: string;
+      }
+    | undefined;
   if (align === "center") {
     tableStyle = { marginLeft: "auto", marginRight: "auto" };
   } else if (align === "right") {
     tableStyle = { marginLeft: "auto" };
   }
-
   return (
     <Section
       align={align}
@@ -133,7 +129,6 @@ const Badge = ({
     </Section>
   );
 };
-
 export const HeaderWithLogoAndBadgeSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "left";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -188,7 +183,6 @@ export const HeaderWithLogoAndBadgeSection = (props: SectionProps) => {
       </Section>
     );
   }
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -219,7 +213,6 @@ export const HeaderWithLogoAndBadgeSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const HeaderWithLogoAndBadge = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -227,10 +220,10 @@ export const HeaderWithLogoAndBadge = ({
   ...props
 }: HeaderWithLogoAndBadgeProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
+    </EmailHead>
     <Preview>FREE SHIPPING On orders over $65</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -243,7 +236,6 @@ export const HeaderWithLogoAndBadge = ({
     </Body>
   </Html>
 );
-
 HeaderWithLogoAndBadge.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

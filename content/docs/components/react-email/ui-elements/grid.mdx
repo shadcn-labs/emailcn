@@ -1,0 +1,80 @@
+---
+title: "Grid"
+description: "Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/grids/grid.tsx"
+    base="react-email"
+    title="components/email/grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Grid } from "@/components/email/grid";
+```
+
+```tsx
+<Grid variant="two-columns" align="center" />
+```
+
+## Examples
+
+### Three columns
+
+<ComponentPreview base="react-email" name="grid-three-columns-example-demo" />
+
+### One-three split
+
+<ComponentPreview base="react-email" name="grid-one-three-split-example-demo" />
+
+## API Reference
+
+| Prop      | Type             | Default           | Description                         |
+| --------- | ---------------- | ----------------- | ----------------------------------- |
+| `align`   | `GridAlign`      | Component default | Configures the component's align.   |
+| `cells`   | `string[]`       | Component default | Configures the component's cells.   |
+| `theme`   | `TailwindConfig` | Component default | Renderer theme configuration.       |
+| `variant` | `GridVariant`    | Component default | Configures the component's variant. |

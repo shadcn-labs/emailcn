@@ -1,0 +1,101 @@
+---
+title: "Content Overlay"
+description: "Coupons With Content Overlayed rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-content-overlayed-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/coupons-with-content-overlayed
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/coupons/coupons-with-content-overlayed.tsx"
+    base="react-email"
+    title="components/email/coupons-with-content-overlayed.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CouponsWithContentOverlayed } from "@/components/email/coupons-with-content-overlayed";
+```
+
+```tsx
+<CouponsWithContentOverlayed variant="split" />
+```
+
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-content-overlayed-centered-example-demo"
+/>
+
+### Code at bottom
+
+<ComponentPreview
+  base="react-email"
+  name="coupons-with-content-overlayed-code-at-bottom-example-demo"
+/>
+
+## API Reference
+
+| Prop                    | Type                                 | Default           | Description                                       |
+| ----------------------- | ------------------------------------ | ----------------- | ------------------------------------------------- |
+| `theme`                 | `TailwindConfig`                     | Component default | Renderer theme configuration.                     |
+| `overline`              | `string`                             | Component default | Configures the component's overline.              |
+| `discount`              | `string`                             | Component default | Configures the component's discount.              |
+| `code`                  | `string`                             | Component default | Configures the component's code.                  |
+| `expiry`                | `string`                             | Component default | Configures the component's expiry.                |
+| `backgroundImageSrc`    | `string`                             | Component default | Configures the component's backgroundimagesrc.    |
+| `buttonLabel`           | `string`                             | Component default | Configures the component's buttonlabel.           |
+| `buttonHref`            | `string`                             | Component default | Configures the component's buttonhref.            |
+| `arrowIconSrc`          | `string`                             | Component default | Configures the component's arrowiconsrc.          |
+| `pageBackgroundColor`   | `string`                             | Component default | Configures the component's pagebackgroundcolor.   |
+| `headingColor`          | `string`                             | Component default | Configures the component's headingcolor.          |
+| `codeBackgroundColor`   | `string`                             | Component default | Configures the component's codebackgroundcolor.   |
+| `codeColor`             | `string`                             | Component default | Configures the component's codecolor.             |
+| `buttonBackgroundColor` | `string`                             | Component default | Configures the component's buttonbackgroundcolor. |
+| `buttonColor`           | `string`                             | Component default | Configures the component's buttoncolor.           |
+| `variant`               | `CouponsWithContentOverlayedVariant` | Component default | Configures the component's variant.               |

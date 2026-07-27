@@ -1,7 +1,7 @@
 import {
   Body,
   Container,
-  Head,
+  Head as EmailHead,
   Html,
   Img,
   Preview,
@@ -17,14 +17,12 @@ import { Fragment } from "react";
 import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/jsx-email/themes/default";
-
 export type CardCouponsVariant =
   | "with-name"
   | "with-pattern"
   | "with-overlay"
   | "with-background-image"
   | "background-image-header";
-
 export interface CardCouponsProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -48,10 +46,8 @@ export interface CardCouponsProps {
   buttonColor?: string;
   variant?: CardCouponsVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = `
   @media only screen and (max-width: 599px) {
     .coupon-card-logo { width: 88px !important; }
@@ -65,7 +61,6 @@ const responsiveStyles = `
     .coupon-card-shell { padding-left: 24px !important; padding-right: 24px !important; }
   }
 `;
-
 const sharedDefaults = {
   arrowIconSrc:
     "https://emailcn.vercel.app/api/email-assets/icon-arrow-right.png",
@@ -86,7 +81,6 @@ const sharedDefaults = {
   recipient: "Jenna Adams",
   textColor: "#4b5563",
 };
-
 const variantDefaults: Record<CardCouponsVariant, Partial<CardCouponsProps>> = {
   "background-image-header": {
     backgroundImageSrc:
@@ -124,10 +118,8 @@ const variantDefaults: Record<CardCouponsVariant, Partial<CardCouponsProps>> = {
       "https://emailcn.vercel.app/api/email-assets/maizzle-insignia-light-lg.png",
   },
 };
-
 type SectionProps = Omit<CardCouponsProps, "theme">;
 type ResolvedProps = typeof sharedDefaults & SectionProps;
-
 const Logo = ({
   props,
   width = 100,
@@ -143,7 +135,6 @@ const Logo = ({
     width={width}
   />
 );
-
 const getCodeBackgroundColor = ({
   dark,
   props,
@@ -161,7 +152,6 @@ const getCodeBackgroundColor = ({
   }
   return props.codeBackgroundColor;
 };
-
 const CodeBox = ({
   dark = false,
   props,
@@ -192,7 +182,6 @@ const CodeBox = ({
     </Fragment>
   </Section>
 );
-
 const OfferHeading = ({ props }: { props: ResolvedProps }) => (
   <Heading
     className="coupon-card-heading"
@@ -210,7 +199,6 @@ const OfferHeading = ({ props }: { props: ResolvedProps }) => (
     {props.heading}
   </Heading>
 );
-
 const StandardCardContent = ({
   codeStyle,
   props,
@@ -237,7 +225,6 @@ const StandardCardContent = ({
     </Section>
   </>
 );
-
 const CouponCard = ({
   props,
   variant,
@@ -279,7 +266,6 @@ const CouponCard = ({
       </Section>
     );
   }
-
   if (variant === "background-image-header") {
     return (
       <Section width="100%">
@@ -351,7 +337,6 @@ const CouponCard = ({
       </Section>
     );
   }
-
   const card = (
     <Column
       style={{
@@ -365,26 +350,30 @@ const CouponCard = ({
         padding: variant === "with-overlay" ? "12px 10px" : "0 10px",
       }}
     >
-      {variant === "with-overlay" ? (
-        <Section
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent, rgba(3,7,18,0.6))",
-            backgroundColor: "rgba(3,7,18,0.6)",
-            borderRadius: "4px",
-          }}
-        >
-          <StandardCardContent codeStyle="dark" props={props} />
-        </Section>
-      ) : (
-        <StandardCardContent
-          codeStyle={variant === "with-pattern" ? "dark" : "white"}
-          props={props}
-        />
-      )}
+      {(() => {
+        if (variant === "with-overlay") {
+          return (
+            <Section
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(3,7,18,0.6))",
+                backgroundColor: "rgba(3,7,18,0.6)",
+                borderRadius: "4px",
+              }}
+            >
+              <StandardCardContent codeStyle="dark" props={props} />
+            </Section>
+          );
+        }
+        return (
+          <StandardCardContent
+            codeStyle={variant === "with-pattern" ? "dark" : "white"}
+            props={props}
+          />
+        );
+      })()}
     </Column>
   );
-
   return (
     <Section width="100%">
       <Fragment>
@@ -393,7 +382,6 @@ const CouponCard = ({
     </Section>
   );
 };
-
 const Description = ({ props }: { props: ResolvedProps }) => (
   <Section width="100%">
     <Fragment>
@@ -421,7 +409,6 @@ const Description = ({ props }: { props: ResolvedProps }) => (
     </Fragment>
   </Section>
 );
-
 const CouponButton = ({ props }: { props: ResolvedProps }) => (
   <Section style={{ textAlign: "center" }}>
     <Link
@@ -455,7 +442,6 @@ const CouponButton = ({ props }: { props: ResolvedProps }) => (
     </Link>
   </Section>
 );
-
 export const CardCouponsSection = (props: SectionProps) => {
   const variant = props.variant ?? "with-overlay";
   const resolved = {
@@ -467,7 +453,6 @@ export const CardCouponsSection = (props: SectionProps) => {
     variant === "with-name" ||
     variant === "with-pattern" ||
     variant === "with-overlay";
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -517,7 +502,6 @@ export const CardCouponsSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const CardCoupons = ({
   pageBackgroundColor = "#f1f5f9",
   theme: _theme = defaultTheme,
@@ -525,10 +509,10 @@ export const CardCoupons = ({
   ...props
 }: CardCouponsProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
+    </EmailHead>
     <Preview>An extra 20% OFF</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -545,7 +529,6 @@ export const CardCoupons = ({
     </Body>
   </Html>
 );
-
 CardCoupons.PreviewProps = {
   theme: defaultTheme,
   variant: "with-overlay",

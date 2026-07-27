@@ -74,6 +74,20 @@ const normalizeItem = (item) => {
 
 for (const style of STYLES) {
   const outDir = path.join(outRoot, style);
+  const registry = JSON.parse(
+    fs.readFileSync(path.join(outDir, "registry.json"), "utf-8")
+  );
+  const expectedFiles = new Set([
+    "registry.json",
+    ...registry.items.map((item) => `${item.name}.json`),
+  ]);
+
+  for (const fileName of fs.readdirSync(outDir)) {
+    if (fileName.endsWith(".json") && !expectedFiles.has(fileName)) {
+      fs.rmSync(path.join(outDir, fileName));
+    }
+  }
+
   for (const fileName of fs.readdirSync(outDir)) {
     if (!fileName.endsWith(".json")) {
       continue;

@@ -14,12 +14,10 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-
 export type CouponsWithContentOverlayedVariant =
   | "split"
   | "centered"
   | "code-bottom";
-
 export interface CouponsWithContentOverlayedProps {
   theme?: EmailThemeTokens;
   overline?: string;
@@ -38,7 +36,6 @@ export interface CouponsWithContentOverlayedProps {
   buttonColor?: string;
   variant?: CouponsWithContentOverlayedVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
@@ -48,7 +45,6 @@ const backgrounds: Record<CouponsWithContentOverlayedVariant, string> = {
     "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-4.jpg",
   split: "https://emailcn.vercel.app/api/email-assets/coupons/bg-image-5.jpg",
 };
-
 export const CouponsWithContentOverlayedSection = ({
   overline = "Our biggest sale of the year",
   discount = "20% OFF",
@@ -124,7 +120,6 @@ export const CouponsWithContentOverlayedSection = ({
     </MjmlColumn>
   </MjmlSection>
 );
-
 export const CouponsWithContentOverlayed = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -150,7 +145,6 @@ export const CouponsWithContentOverlayed = ({
     </MjmlBody>
   </Mjml>
 );
-
 CouponsWithContentOverlayed.PreviewProps = {
   theme: defaultTheme,
   variant: "code-bottom",

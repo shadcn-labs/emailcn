@@ -15,14 +15,12 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-
 export type CardCouponsVariant =
   | "with-name"
   | "with-pattern"
   | "with-overlay"
   | "with-background-image"
   | "background-image-header";
-
 export interface CardCouponsProps {
   theme?: EmailThemeTokens;
   heading?: string;
@@ -46,7 +44,6 @@ export interface CardCouponsProps {
   buttonColor?: string;
   variant?: CardCouponsVariant;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 const backgrounds: Partial<Record<CardCouponsVariant, string>> = {
@@ -59,7 +56,6 @@ const backgrounds: Partial<Record<CardCouponsVariant, string>> = {
   "with-pattern":
     "https://emailcn.vercel.app/api/email-assets/coupons/pattern.png",
 };
-
 export const CardCouponsSection = (props: Omit<CardCouponsProps, "theme">) => {
   const {
     heading,
@@ -99,7 +95,6 @@ export const CardCouponsSection = (props: Omit<CardCouponsProps, "theme">) => {
     variant: "with-overlay" as CardCouponsVariant,
     ...props,
   };
-
   const resolvedHeading =
     heading ??
     (variant === "with-background-image" || variant === "with-overlay"
@@ -115,7 +110,6 @@ export const CardCouponsSection = (props: Omit<CardCouponsProps, "theme">) => {
     "with-pattern",
     "with-overlay",
   ].includes(variant);
-
   return (
     <>
       <MjmlSection
@@ -206,7 +200,6 @@ export const CardCouponsSection = (props: Omit<CardCouponsProps, "theme">) => {
     </>
   );
 };
-
 export const CardCoupons = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -232,7 +225,6 @@ export const CardCoupons = ({
     </MjmlBody>
   </Mjml>
 );
-
 CardCoupons.PreviewProps = {
   theme: defaultTheme,
   variant: "with-overlay",

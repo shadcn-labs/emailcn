@@ -1,0 +1,5 @@
+import { Reviews } from "@/registry/bases/jsx-email/ui/ecommerce/reviews/reviews";
+
+export default function ReviewsMasonryWithLogosDemo() {
+  return <Reviews layout="masonry" identity="logo" divider="bottom" />;
+}

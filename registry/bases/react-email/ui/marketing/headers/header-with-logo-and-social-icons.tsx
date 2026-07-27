@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {
   Body,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Link,
@@ -14,15 +14,12 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type HeaderWithLogoAndSocialIconsAlignment = "left" | "center" | "right";
-
 export interface HeaderSocialLink {
   alt: string;
   href: string;
   src: string;
 }
-
 export interface HeaderWithLogoAndSocialIconsProps {
   theme?: TailwindConfig;
   logoSrc?: string;
@@ -33,10 +30,8 @@ export interface HeaderWithLogoAndSocialIconsProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const defaultSocials: HeaderSocialLink[] = [
   {
     alt: "GitHub",
@@ -54,7 +49,6 @@ const defaultSocials: HeaderSocialLink[] = [
     src: "https://emailcn.vercel.app/api/email-assets/icon-x.png",
   },
 ];
-
 const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
@@ -63,10 +57,8 @@ const defaults = {
   pageBackgroundColor: "#f1f5f9",
   socials: defaultSocials,
 };
-
 type SectionProps = Omit<HeaderWithLogoAndSocialIconsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
-
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -77,7 +69,6 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
-
 const Socials = ({
   align,
   props,
@@ -85,13 +76,17 @@ const Socials = ({
   align?: "center" | "right";
   props: ResolvedProps;
 }) => {
-  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
+  let tableStyle:
+    | {
+        marginLeft: string;
+        marginRight?: string;
+      }
+    | undefined;
   if (align === "center") {
     tableStyle = { marginLeft: "auto", marginRight: "auto" };
   } else if (align === "right") {
     tableStyle = { marginLeft: "auto" };
   }
-
   return (
     <Section align={align} style={tableStyle}>
       <Fragment>
@@ -118,7 +113,6 @@ const Socials = ({
     </Section>
   );
 };
-
 export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "left";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -170,7 +164,6 @@ export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
       </Section>
     );
   }
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -201,7 +194,6 @@ export const HeaderWithLogoAndSocialIconsSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const HeaderWithLogoAndSocialIcons = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -209,9 +201,9 @@ export const HeaderWithLogoAndSocialIcons = ({
   ...props
 }: HeaderWithLogoAndSocialIconsProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
-    </Head>
+    </EmailHead>
     <Preview>Maizzle on GitHub, LinkedIn, and X</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -224,7 +216,6 @@ export const HeaderWithLogoAndSocialIcons = ({
     </Body>
   </Html>
 );
-
 HeaderWithLogoAndSocialIcons.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

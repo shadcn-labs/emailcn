@@ -1,0 +1,79 @@
+---
+title: "Grid"
+description: "Blog Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="blog-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/blog-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/blog/blog-grid.tsx"
+    base="mjml-react"
+    title="components/email/blog-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BlogGrid } from "@/components/email/blog-grid";
+```
+
+```tsx
+<BlogGrid content="image" masonry={false} />
+```
+
+## Examples
+
+### Boxed posts
+
+<ComponentPreview base="mjml-react" name="blog-grid-boxed-posts-example-demo" />
+
+### Masonry posts
+
+<ComponentPreview
+  base="mjml-react"
+  name="blog-grid-masonry-posts-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                         | Default           | Description                         |
+| --------- | -------------------------------------------- | ----------------- | ----------------------------------- |
+| `theme`   | `Parameters<typeof __GridImage>[0]["theme"]` | Component default | Renderer theme configuration.       |
+| `heading` | `string`                                     | Component default | Configures the component's heading. |
+| `posts`   | `BlogPost[]`                                 | Component default | Configures the component's posts.   |
+| `masonry` | `boolean`                                    | `false`           | Uses the masonry layout.            |
+| `content` | `"image" \| "image-text" \| "boxed"`         | `"image"`         | Selects the post-card treatment.    |

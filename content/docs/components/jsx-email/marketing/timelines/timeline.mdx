@@ -1,0 +1,89 @@
+---
+title: "General"
+description: "Timeline rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="timeline-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/timeline
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/timelines/timeline.tsx"
+    base="jsx-email"
+    title="components/email/timeline.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Timeline } from "@/components/email/timeline";
+```
+
+```tsx
+<Timeline layout="line" alignment="left" appearance="basic" />
+```
+
+## Examples
+
+### Boxed
+
+<ComponentPreview base="jsx-email" name="timeline-boxed-example-demo" />
+
+### Cards
+
+<ComponentPreview base="jsx-email" name="timeline-cards-example-demo" />
+
+### Split reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="timeline-split-reversed-example-demo"
+/>
+
+## API Reference
+
+| Prop         | Type                                         | Default           | Description                            |
+| ------------ | -------------------------------------------- | ----------------- | -------------------------------------- |
+| `theme`      | `Parameters<typeof __Changelog>[0]["theme"]` | Component default | Renderer theme configuration.          |
+| `items`      | `TimelineItem[]`                             | Component default | Configures the component's items.      |
+| `layout`     | `"line" \| "boxed" \| "cards" \| "split"`    | Component default | Configures the component's layout.     |
+| `alignment`  | `"left" \| "right"`                          | Component default | Configures the component's alignment.  |
+| `appearance` | `"muted" \| "basic" \| "accent"`             | Component default | Configures the component's appearance. |
+| `reverse`    | `boolean`                                    | Component default | Configures the component's reverse.    |

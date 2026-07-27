@@ -1,0 +1,77 @@
+---
+title: "Product Images"
+description: "Product Images Feature rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="product-images-feature-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/product-images-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/feature/product-images-feature.tsx"
+    base="mjml-react"
+    title="components/email/product-images-feature.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductImagesFeature } from "@/components/email/product-images-feature";
+```
+
+```tsx
+<ProductImagesFeature placement="right" />
+```
+
+## Examples
+
+### Images on the left
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-images-feature-images-on-the-left-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                | Default           | Description                           |
+| ----------- | --------------------------------------------------- | ----------------- | ------------------------------------- |
+| `theme`     | `Parameters<typeof __Feature>[0]["theme"]`          | Component default | Renderer theme configuration.         |
+| `heading`   | `string`                                            | Component default | Configures the component's heading.   |
+| `body`      | `string`                                            | Component default | Configures the component's body.      |
+| `images`    | `Array<{ src: string; alt?: string }>`              | Component default | Configures the component's images.    |
+| `logo`      | `{ src: string; alt?: string }`                     | Component default | Configures the component's logo.      |
+| `action`    | `{ href: string; label: string; iconSrc?: string }` | Component default | Configures the component's action.    |
+| `placement` | `"left" \| "right"`                                 | Component default | Configures the component's placement. |

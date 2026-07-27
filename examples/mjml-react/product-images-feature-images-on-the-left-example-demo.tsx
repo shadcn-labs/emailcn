@@ -1,0 +1,5 @@
+import { ProductImagesFeature } from "@/registry/bases/mjml-react/ui/marketing/feature/product-images-feature";
+
+export default function ProductImagesFeatureImagesOnTheLeftDemo() {
+  return <ProductImagesFeature placement="left" />;
+}

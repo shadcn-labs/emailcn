@@ -325,16 +325,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce category-previews variant for email templates",
+      "description": "Category Preview email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/category-previews/category-preview-with-cards.tsx",
-          "target": "components/email/category-preview-with-cards.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/category-previews/category-preview.tsx",
+          "target": "components/email/category-preview.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "category-preview-with-cards",
-      "title": "Category Preview With Cards",
+      "name": "category-preview",
+      "title": "Category Preview",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -348,16 +348,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce category-previews variant for email templates",
+      "description": "Billing Order Summary email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/category-previews/category-preview-with-rows.tsx",
-          "target": "components/email/category-preview-with-rows.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/billing-order-summary.tsx",
+          "target": "components/email/billing-order-summary.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "category-preview-with-rows",
-      "title": "Category Preview With Rows",
+      "name": "billing-order-summary",
+      "title": "Billing Order Summary",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -371,23 +371,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce order-summary variant for email templates",
+      "description": "Order Summary Table email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-card-details.tsx",
-          "target": "components/email/bordered-order-summary-with-card-details.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-table.tsx",
+          "target": "components/email/order-summary-table.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "bordered-order-summary-with-card-details",
-      "title": "Bordered Order Summary With Card Details",
+      "name": "order-summary-table",
+      "title": "Order Summary Table",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -395,23 +394,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce order-summary variant for email templates",
+      "description": "Masonry Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-bottom.tsx",
-          "target": "components/email/bordered-order-summary-with-total-bottom.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/masonry-product-detail.tsx",
+          "target": "components/email/masonry-product-detail.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "bordered-order-summary-with-total-bottom",
-      "title": "Bordered Order Summary With Total Bottom",
+      "name": "masonry-product-detail",
+      "title": "Masonry Product Detail",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -419,301 +417,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce order-summary variant for email templates",
+      "description": "Single Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/bordered-order-summary-with-total-top.tsx",
-          "target": "components/email/bordered-order-summary-with-total-top.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail.tsx",
+          "target": "components/email/single-image-product-detail.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "bordered-order-summary-with-total-top",
-      "title": "Bordered Order Summary With Total Top",
+      "name": "single-image-product-detail",
+      "title": "Single Image Product Detail",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce order-summary variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-bottom.tsx",
-          "target": "components/email/boxed-order-summary-with-card-details-and-total-bottom.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-order-summary-with-card-details-and-total-bottom",
-      "title": "Boxed Order Summary With Card Details And Total Bottom",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce order-summary variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/boxed-order-summary-with-card-details-and-total-top.tsx",
-          "target": "components/email/boxed-order-summary-with-card-details-and-total-top.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-order-summary-with-card-details-and-total-top",
-      "title": "Boxed Order Summary With Card Details And Total Top",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce order-summary variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-bottom.tsx",
-          "target": "components/email/boxed-order-summary-with-total-bottom.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-order-summary-with-total-bottom",
-      "title": "Boxed Order Summary With Total Bottom",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce order-summary variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/boxed-order-summary-with-total-top.tsx",
-          "target": "components/email/boxed-order-summary-with-total-top.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-order-summary-with-total-top",
-      "title": "Boxed Order Summary With Total Top",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Order Summary Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-shared.tsx",
-          "target": "components/email/order-summary-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "order-summary-shared",
-      "title": "Order Summary Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce order-summary variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-inline.tsx",
-          "target": "components/email/order-summary-with-billing-details-and-payment-method-inline.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "order-summary-with-billing-details-and-payment-method-inline",
-      "title": "Order Summary With Billing Details And Payment Method Inline",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce order-summary variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/order-summary/order-summary-with-billing-details-and-payment-method-top.tsx",
-          "target": "components/email/order-summary-with-billing-details-and-payment-method-top.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "order-summary-with-billing-details-and-payment-method-top",
-      "title": "Order Summary With Billing Details And Payment Method Top",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/order-summary-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Product Detail Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/product-detail-shared.tsx",
-          "target": "components/email/product-detail-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "product-detail-shared",
-      "title": "Product Detail Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce product-detail variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/product-detail-with-masonry-image-grid-and-details.tsx",
-          "target": "components/email/product-detail-with-masonry-image-grid-and-details.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "product-detail-with-masonry-image-grid-and-details",
-      "title": "Product Detail With Masonry Image Grid And Details",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/product-detail-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce product-detail variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/product-detail-with-three-images-and-details.tsx",
-          "target": "components/email/product-detail-with-three-images-and-details.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "product-detail-with-three-images-and-details",
-      "title": "Product Detail With Three Images And Details",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/product-detail-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce product-detail variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/product-detail-with-two-images-and-details.tsx",
-          "target": "components/email/product-detail-with-two-images-and-details.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "product-detail-with-two-images-and-details",
-      "title": "Product Detail With Two Images And Details",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/product-detail-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce product-detail variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail-with-details.tsx",
-          "target": "components/email/single-image-product-detail-with-details.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "single-image-product-detail-with-details",
-      "title": "Single Image Product Detail With Details",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -737,7 +456,6 @@
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/product-detail-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -745,42 +463,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Product List With Rows Shared email component",
+      "description": "Three Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-lists/product-list-with-rows-shared.tsx",
-          "target": "components/email/product-list-with-rows-shared.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/three-image-product-detail.tsx",
+          "target": "components/email/three-image-product-detail.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "product-list-with-rows-shared",
-      "title": "Product List With Rows Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce product-lists variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/product-lists/product-list-with-rows.tsx",
-          "target": "components/email/product-list-with-rows.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "product-list-with-rows",
-      "title": "Product List With Rows",
+      "name": "three-image-product-detail",
+      "title": "Three Image Product Detail",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/product-list-with-rows-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -788,23 +486,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce reviews variant for email templates",
+      "description": "Two Image Product Detail email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/reviews/full-width-reviews.tsx",
-          "target": "components/email/full-width-reviews.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/product-detail/two-image-product-detail.tsx",
+          "target": "components/email/two-image-product-detail.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "full-width-reviews",
-      "title": "Full Width Reviews",
+      "name": "two-image-product-detail",
+      "title": "Two Image Product Detail",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/reviews-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -812,23 +509,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Ecommerce reviews variant for email templates",
+      "description": "Product List email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/reviews/masonry-grid-reviews.tsx",
-          "target": "components/email/masonry-grid-reviews.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/product-lists/product-list.tsx",
+          "target": "components/email/product-list.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "masonry-grid-reviews",
-      "title": "Masonry Grid Reviews",
+      "name": "product-list",
+      "title": "Product List",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/reviews-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -836,42 +532,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Reviews Shared email component",
+      "description": "Reviews email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/reviews/reviews-shared.tsx",
-          "target": "components/email/reviews-shared.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/reviews/reviews.tsx",
+          "target": "components/email/reviews.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "reviews-shared",
-      "title": "Reviews Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce reviews variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/reviews/two-columns-reviews.tsx",
-          "target": "components/email/two-columns-reviews.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "two-columns-reviews",
-      "title": "Two Columns Reviews",
+      "name": "reviews",
+      "title": "Reviews",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/reviews-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -879,81 +555,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Shopping Cart Shared email component",
+      "description": "Shopping Cart email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ecommerce/shopping-cart/shopping-cart-shared.tsx",
-          "target": "components/email/shopping-cart-shared.tsx",
+          "path": "registry/bases/jsx-email/ui/ecommerce/shopping-cart/shopping-cart.tsx",
+          "target": "components/email/shopping-cart.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "shopping-cart-shared",
-      "title": "Shopping Cart Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Ecommerce shopping-cart variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ecommerce/shopping-cart/shopping-cart-with-row-items.tsx",
-          "target": "components/email/shopping-cart-with-row-items.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "shopping-cart-with-row-items",
-      "title": "Shopping Cart With Row Items",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/shopping-cart-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Bento Grid Layouts email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-layouts.tsx",
-          "target": "components/email/bento-grid-layouts.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-layouts",
-      "title": "Bento Grid Layouts",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Bento Grid Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/bento-grids/bento-grid-shared.tsx",
-          "target": "components/email/bento-grid-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "bento-grid-shared",
-      "title": "Bento Grid Shared",
+      "name": "shopping-cart",
+      "title": "Shopping Cart",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -982,8 +593,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -1006,8 +616,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -1030,168 +639,6 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-layouts.json",
-        "https://emailcn.vercel.app/r/jsx-email/bento-grid-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/2-columns-blog-with-images-and-boxed-content.tsx",
-          "target": "components/email/2-columns-blog-with-images-and-boxed-content.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-blog-with-images-and-boxed-content",
-      "title": "2 Columns Blog With Images And Boxed Content",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/2-columns-blog-with-images-and-text.tsx",
-          "target": "components/email/2-columns-blog-with-images-and-text.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-blog-with-images-and-text",
-      "title": "2 Columns Blog With Images And Text",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/2-columns-blog-with-images.tsx",
-          "target": "components/email/2-columns-blog-with-images.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-blog-with-images",
-      "title": "2 Columns Blog With Images",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/2-columns-masonry-blog-with-boxed-content.tsx",
-          "target": "components/email/2-columns-masonry-blog-with-boxed-content.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-masonry-blog-with-boxed-content",
-      "title": "2 Columns Masonry Blog With Boxed Content",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/blog-post-horizontal-boxed-with-split-images.tsx",
-          "target": "components/email/blog-post-horizontal-boxed-with-split-images.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "blog-post-horizontal-boxed-with-split-images",
-      "title": "Blog Post Horizontal Boxed With Split Images",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/blog-post-horizontal-boxed.tsx",
-          "target": "components/email/blog-post-horizontal-boxed.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "blog-post-horizontal-boxed",
-      "title": "Blog Post Horizontal Boxed",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Blog Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/blog-shared.tsx",
-          "target": "components/email/blog-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "blog-shared",
-      "title": "Blog Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
@@ -1200,22 +647,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing blog variant for email templates",
+      "description": "Blog Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/blog-with-images-and-2-columns-masonry.tsx",
-          "target": "components/email/blog-with-images-and-2-columns-masonry.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/blog/blog-grid.tsx",
+          "target": "components/email/blog-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "blog-with-images-and-2-columns-masonry",
-      "title": "Blog With Images And 2 Columns Masonry",
+      "name": "blog-grid",
+      "title": "Blog Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -1238,7 +685,7 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -1246,22 +693,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing blog variant for email templates",
+      "description": "Horizontal Blog Post email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/featured-post-with-large-date.tsx",
-          "target": "components/email/featured-post-with-large-date.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/blog/horizontal-blog-post.tsx",
+          "target": "components/email/horizontal-blog-post.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "featured-post-with-large-date",
-      "title": "Featured Post With Large Date",
+      "name": "horizontal-blog-post",
+      "title": "Horizontal Blog Post",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -1269,91 +716,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing blog variant for email templates",
+      "description": "Podcast Blog email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/full-width-featured-post-with-large-date.tsx",
-          "target": "components/email/full-width-featured-post-with-large-date.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/blog/podcast-blog.tsx",
+          "target": "components/email/podcast-blog.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "full-width-featured-post-with-large-date",
-      "title": "Full Width Featured Post With Large Date",
+      "name": "podcast-blog",
+      "title": "Podcast Blog",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/podcast-blog-split.tsx",
-          "target": "components/email/podcast-blog-split.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "podcast-blog-split",
-      "title": "Podcast Blog Split",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/podcast-full-width.tsx",
-          "target": "components/email/podcast-full-width.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "podcast-full-width",
-      "title": "Podcast Full Width",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing blog variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/blog/single-post-horizontal.tsx",
-          "target": "components/email/single-post-horizontal.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "single-post-horizontal",
-      "title": "Single Post Horizontal",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/blog-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -1453,16 +831,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Avatar Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/boxed-cta-with-background-image.tsx",
-          "target": "components/email/boxed-cta-with-background-image.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/cta/avatar-call-to-action.tsx",
+          "target": "components/email/avatar-call-to-action.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "boxed-cta-with-background-image",
-      "title": "Boxed Cta With Background Image",
+      "name": "avatar-call-to-action",
+      "title": "Avatar Call To Action",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1476,16 +854,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Background Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-background-image.tsx",
-          "target": "components/email/cta-with-background-image.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/cta/background-call-to-action.tsx",
+          "target": "components/email/background-call-to-action.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "cta-with-background-image",
-      "title": "Cta With Background Image",
+      "name": "background-call-to-action",
+      "title": "Background Call To Action",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1499,16 +877,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-image-strip.tsx",
-          "target": "components/email/cta-with-image-strip.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/cta/call-to-action.tsx",
+          "target": "components/email/call-to-action.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "cta-with-image-strip",
-      "title": "Cta With Image Strip",
+      "name": "call-to-action",
+      "title": "Call To Action",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1522,16 +900,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Collage Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-shifted-images.tsx",
-          "target": "components/email/cta-with-shifted-images.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/cta/collage-call-to-action.tsx",
+          "target": "components/email/collage-call-to-action.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "cta-with-shifted-images",
-      "title": "Cta With Shifted Images",
+      "name": "collage-call-to-action",
+      "title": "Collage Call To Action",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1545,16 +923,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Image Strip Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-team-avatars.tsx",
-          "target": "components/email/cta-with-team-avatars.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/cta/image-strip-call-to-action.tsx",
+          "target": "components/email/image-strip-call-to-action.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "cta-with-team-avatars",
-      "title": "Cta With Team Avatars",
+      "name": "image-strip-call-to-action",
+      "title": "Image Strip Call To Action",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1568,16 +946,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Top Image Call To Action email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-title-and-action-lead.tsx",
-          "target": "components/email/cta-with-title-and-action-lead.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/cta/top-image-call-to-action.tsx",
+          "target": "components/email/top-image-call-to-action.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "cta-with-title-and-action-lead",
-      "title": "Cta With Title And Action Lead",
+      "name": "top-image-call-to-action",
+      "title": "Top Image Call To Action",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1591,16 +969,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing cta variant for email templates",
+      "description": "Faq email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/cta/cta-with-top-large-image.tsx",
-          "target": "components/email/cta-with-top-large-image.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/faq/faq.tsx",
+          "target": "components/email/faq.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "cta-with-top-large-image",
-      "title": "Cta With Top Large Image",
+      "name": "faq",
+      "title": "Faq",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1614,177 +992,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing faq variant for email templates",
+      "description": "Image Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/boxed-faq-with-numbered-questions.tsx",
-          "target": "components/email/boxed-faq-with-numbered-questions.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/feature/image-feature.tsx",
+          "target": "components/email/image-feature.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "boxed-faq-with-numbered-questions",
-      "title": "Boxed Faq With Numbered Questions",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing faq variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
-          "target": "components/email/boxed-faq-with-numbers-and-alternating-background-colors.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "boxed-faq-with-numbers-and-alternating-background-colors",
-      "title": "Boxed Faq With Numbers And Alternating Background Colors",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing faq variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/collapsed-faq-with-expanded-section-and-icons.tsx",
-          "target": "components/email/collapsed-faq-with-expanded-section-and-icons.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "collapsed-faq-with-expanded-section-and-icons",
-      "title": "Collapsed Faq With Expanded Section And Icons",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing faq variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/collapsed-faq-with-inline-cta.tsx",
-          "target": "components/email/collapsed-faq-with-inline-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "collapsed-faq-with-inline-cta",
-      "title": "Collapsed Faq With Inline Cta",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing faq variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/collapsed-faq-with-numbers.tsx",
-          "target": "components/email/collapsed-faq-with-numbers.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "collapsed-faq-with-numbers",
-      "title": "Collapsed Faq With Numbers",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing faq variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/expanded-faq-with-numbers.tsx",
-          "target": "components/email/expanded-faq-with-numbers.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "expanded-faq-with-numbers",
-      "title": "Expanded Faq With Numbers",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing faq variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/expanded-faq-with-offset-answers.tsx",
-          "target": "components/email/expanded-faq-with-offset-answers.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "expanded-faq-with-offset-answers",
-      "title": "Expanded Faq With Offset Answers",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/faq-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Faq Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/faq/faq-shared.tsx",
-          "target": "components/email/faq-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "faq-shared",
-      "title": "Faq Shared",
+      "name": "image-feature",
+      "title": "Image Feature",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1798,16 +1015,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing feature variant for email templates",
+      "description": "Portrait Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/feature-with-double-tall-background-images.tsx",
-          "target": "components/email/feature-with-double-tall-background-images.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/feature/portrait-feature.tsx",
+          "target": "components/email/portrait-feature.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "feature-with-double-tall-background-images",
-      "title": "Feature With Double Tall Background Images",
+      "name": "portrait-feature",
+      "title": "Portrait Feature",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1821,16 +1038,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing feature variant for email templates",
+      "description": "Product Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/feature-with-full-title-and-tall-background-images.tsx",
-          "target": "components/email/feature-with-full-title-and-tall-background-images.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/feature/product-images-feature.tsx",
+          "target": "components/email/product-images-feature.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "feature-with-full-title-and-tall-background-images",
-      "title": "Feature With Full Title And Tall Background Images",
+      "name": "product-images-feature",
+      "title": "Product Images Feature",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1844,16 +1061,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing feature variant for email templates",
+      "description": "Tall Background Images Feature email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/feature-with-large-portrait-image.tsx",
-          "target": "components/email/feature-with-large-portrait-image.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/feature/tall-background-images-feature.tsx",
+          "target": "components/email/tall-background-images-feature.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "feature-with-large-portrait-image",
-      "title": "Feature With Large Portrait Image",
+      "name": "tall-background-images-feature",
+      "title": "Tall Background Images Feature",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1867,16 +1084,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing feature variant for email templates",
+      "description": "Navigation Footer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/feature-with-multiple-product-images.tsx",
-          "target": "components/email/feature-with-multiple-product-images.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/footers/navigation-footer.tsx",
+          "target": "components/email/navigation-footer.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "feature-with-multiple-product-images",
-      "title": "Feature With Multiple Product Images",
+      "name": "navigation-footer",
+      "title": "Navigation Footer",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1890,16 +1107,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing feature variant for email templates",
+      "description": "Promotion Footer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/feature/feature-with-product-image.tsx",
-          "target": "components/email/feature-with-product-image.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/footers/promotion-footer.tsx",
+          "target": "components/email/promotion-footer.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "feature-with-product-image",
-      "title": "Feature With Product Image",
+      "name": "promotion-footer",
+      "title": "Promotion Footer",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -1913,361 +1130,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing footers variant for email templates",
+      "description": "Utility Footer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-centered-with-menu-and-socials.tsx",
-          "target": "components/email/footer-centered-with-menu-and-socials.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/footers/utility-footer.tsx",
+          "target": "components/email/utility-footer.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "footer-centered-with-menu-and-socials",
-      "title": "Footer Centered With Menu And Socials",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "two-column menu footer with divider and mirrored logo variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-2-column-menu-and-divider.tsx",
-          "target": "components/email/footer-with-2-column-menu-and-divider.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-2-column-menu-and-divider",
-      "title": "Footer With 2 Column Menu And Divider",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-2-column-menu.tsx",
-          "target": "components/email/footer-with-2-column-menu.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-2-column-menu",
-      "title": "Footer With 2 Column Menu",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-3-col-menu.tsx",
-          "target": "components/email/footer-with-3-col-menu.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-3-col-menu",
-      "title": "Footer With 3 Col Menu",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "app-store footer with centered, two-column, and title variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-app-store-buttons.tsx",
-          "target": "components/email/footer-with-app-store-buttons.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-app-store-buttons",
-      "title": "Footer With App Store Buttons",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Nine background-image footer families consolidated into layout variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-background-image.tsx",
-          "target": "components/email/footer-with-background-image.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-background-image",
-      "title": "Footer With Background Image",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "company-locations footer with stacked and grid variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-company-locations.tsx",
-          "target": "components/email/footer-with-company-locations.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-company-locations",
-      "title": "Footer With Company Locations",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-content-and-cta.tsx",
-          "target": "components/email/footer-with-content-and-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-content-and-cta",
-      "title": "Footer With Content And Cta",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "full-menu footers with oversized-logo and bordered variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-full-menu.tsx",
-          "target": "components/email/footer-with-full-menu.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-full-menu",
-      "title": "Footer With Full Menu",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "footer with large title, paired buttons, assistance, and legal content",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-large-title-and-buttons.tsx",
-          "target": "components/email/footer-with-large-title-and-buttons.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-large-title-and-buttons",
-      "title": "Footer With Large Title And Buttons",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-legal-text.tsx",
-          "target": "components/email/footer-with-legal-text.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-legal-text",
-      "title": "Footer With Legal Text",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "footer with menu, full-width CTA, socials, and legal content",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-menu-and-full-width-cta.tsx",
-          "target": "components/email/footer-with-menu-and-full-width-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-menu-and-full-width-cta",
-      "title": "Footer With Menu And Full Width Cta",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Seven overlapped-CTA footer families consolidated into layout variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-overlapped-cta.tsx",
-          "target": "components/email/footer-with-overlapped-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-overlapped-cta",
-      "title": "Footer With Overlapped Cta",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-social-icons-and-address.tsx",
-          "target": "components/email/footer-with-social-icons-and-address.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-social-icons-and-address",
-      "title": "Footer With Social Icons And Address",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/footer-with-text-menu-and-socials.tsx",
-          "target": "components/email/footer-with-text-menu-and-socials.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "footer-with-text-menu-and-socials",
-      "title": "Footer With Text Menu And Socials",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing footers variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/footers/simple-footer-with-social-icons.tsx",
-          "target": "components/email/simple-footer-with-social-icons.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "simple-footer-with-social-icons",
-      "title": "Simple Footer With Social Icons",
+      "name": "utility-footer",
+      "title": "Utility Footer",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2419,16 +1291,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing hero variant for email templates",
+      "description": "Image Grid Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-aligned-overlay.tsx",
-          "target": "components/email/hero-aligned-overlay.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/hero/image-grid-hero.tsx",
+          "target": "components/email/image-grid-hero.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "hero-aligned-overlay",
-      "title": "Hero Aligned Overlay",
+      "name": "image-grid-hero",
+      "title": "Image Grid Hero",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2442,16 +1314,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing hero variant for email templates",
+      "description": "Overlap Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-block-overlay.tsx",
-          "target": "components/email/hero-block-overlay.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/hero/overlap-hero.tsx",
+          "target": "components/email/overlap-hero.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "hero-block-overlay",
-      "title": "Hero Block Overlay",
+      "name": "overlap-hero",
+      "title": "Overlap Hero",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2465,16 +1337,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing hero variant for email templates",
+      "description": "Overlay Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-block-with-bleed.tsx",
-          "target": "components/email/hero-block-with-bleed.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/hero/overlay-hero.tsx",
+          "target": "components/email/overlay-hero.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "hero-block-with-bleed",
-      "title": "Hero Block With Bleed",
+      "name": "overlay-hero",
+      "title": "Overlay Hero",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2488,16 +1360,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing hero variant for email templates",
+      "description": "Split Hero email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-overlayed-split.tsx",
-          "target": "components/email/hero-overlayed-split.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/hero/split-hero.tsx",
+          "target": "components/email/split-hero.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "hero-overlayed-split",
-      "title": "Hero Overlayed Split",
+      "name": "split-hero",
+      "title": "Split Hero",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2511,384 +1383,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing hero variant for email templates",
+      "description": "Featured Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-split-contained.tsx",
-          "target": "components/email/hero-split-contained.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/images/featured-image-grid.tsx",
+          "target": "components/email/featured-image-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "hero-split-contained",
-      "title": "Hero Split Contained",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-split-full-bleed.tsx",
-          "target": "components/email/hero-split-full-bleed.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-split-full-bleed",
-      "title": "Hero Split Full Bleed",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-with-image-grid.tsx",
-          "target": "components/email/hero-with-image-grid.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-with-image-grid",
-      "title": "Hero With Image Grid",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-with-overlapped-content.tsx",
-          "target": "components/email/hero-with-overlapped-content.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-with-overlapped-content",
-      "title": "Hero With Overlapped Content",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-with-overlapped-image.tsx",
-          "target": "components/email/hero-with-overlapped-image.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-with-overlapped-image",
-      "title": "Hero With Overlapped Image",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-with-overlay-gradient.tsx",
-          "target": "components/email/hero-with-overlay-gradient.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-with-overlay-gradient",
-      "title": "Hero With Overlay Gradient",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-with-overlayed-content.tsx",
-          "target": "components/email/hero-with-overlayed-content.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-with-overlayed-content",
-      "title": "Hero With Overlayed Content",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing hero variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/hero/hero-with-slanted-split.tsx",
-          "target": "components/email/hero-with-slanted-split.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "hero-with-slanted-split",
-      "title": "Hero With Slanted Split",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/2-columns-image-grid-with-full-width-feature.tsx",
-          "target": "components/email/2-columns-image-grid-with-full-width-feature.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-image-grid-with-full-width-feature",
-      "title": "2 Columns Image Grid With Full Width Feature",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/2-columns-image-grid.tsx",
-          "target": "components/email/2-columns-image-grid.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-image-grid",
-      "title": "2 Columns Image Grid",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/2-columns-masonry-image-grid-with-3-images.tsx",
-          "target": "components/email/2-columns-masonry-image-grid-with-3-images.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-masonry-image-grid-with-3-images",
-      "title": "2 Columns Masonry Image Grid With 3 Images",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/2-columns-masonry-image-grid-with-4-images.tsx",
-          "target": "components/email/2-columns-masonry-image-grid-with-4-images.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-masonry-image-grid-with-4-images",
-      "title": "2 Columns Masonry Image Grid With 4 Images",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/3-columns-image-grid-with-full-width-feature.tsx",
-          "target": "components/email/3-columns-image-grid-with-full-width-feature.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "3-columns-image-grid-with-full-width-feature",
-      "title": "3 Columns Image Grid With Full Width Feature",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/3-columns-image-grid.tsx",
-          "target": "components/email/3-columns-image-grid.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "3-columns-image-grid",
-      "title": "3 Columns Image Grid",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/3-columns-masonry-image-grid-with-full-width-feature.tsx",
-          "target": "components/email/3-columns-masonry-image-grid-with-full-width-feature.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "3-columns-masonry-image-grid-with-full-width-feature",
-      "title": "3 Columns Masonry Image Grid With Full Width Feature",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/3-columns-masonry-image-grid.tsx",
-          "target": "components/email/3-columns-masonry-image-grid.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "3-columns-masonry-image-grid",
-      "title": "3 Columns Masonry Image Grid",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing images variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/images/full-width-image-with-overlay.tsx",
-          "target": "components/email/full-width-image-with-overlay.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "full-width-image-with-overlay",
-      "title": "Full Width Image With Overlay",
+      "name": "featured-image-grid",
+      "title": "Featured Image Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2925,16 +1429,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing logos variant for email templates",
+      "description": "Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/logos/basic-logo-cloud.tsx",
-          "target": "components/email/basic-logo-cloud.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/images/image-grid.tsx",
+          "target": "components/email/image-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "basic-logo-cloud",
-      "title": "Basic Logo Cloud",
+      "name": "image-grid",
+      "title": "Image Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -2948,39 +1452,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing logos variant for email templates",
+      "description": "Masonry Image Grid email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/logos/featured-brands-logo-grid.tsx",
-          "target": "components/email/featured-brands-logo-grid.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/images/masonry-image-grid.tsx",
+          "target": "components/email/masonry-image-grid.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "featured-brands-logo-grid",
-      "title": "Featured Brands Logo Grid",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing logos variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/logos/logo-cloud-with-borders.tsx",
-          "target": "components/email/logo-cloud-with-borders.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "logo-cloud-with-borders",
-      "title": "Logo Cloud With Borders",
+      "name": "masonry-image-grid",
+      "title": "Masonry Image Grid",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3017,16 +1498,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing logos variant for email templates",
+      "description": "Purchase Pricing email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/logos/logos-grid.tsx",
-          "target": "components/email/logos-grid.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/pricing/purchase-pricing.tsx",
+          "target": "components/email/purchase-pricing.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "logos-grid",
-      "title": "Logos Grid",
+      "name": "purchase-pricing",
+      "title": "Purchase Pricing",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3040,16 +1521,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing pricing variant for email templates",
+      "description": "Subscription Pricing email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/pricing/2-columns-pricing-table-with-gaps.tsx",
-          "target": "components/email/2-columns-pricing-table-with-gaps.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/pricing/subscription-pricing.tsx",
+          "target": "components/email/subscription-pricing.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "2-columns-pricing-table-with-gaps",
-      "title": "2 Columns Pricing Table With Gaps",
+      "name": "subscription-pricing",
+      "title": "Subscription Pricing",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3063,16 +1544,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing pricing variant for email templates",
+      "description": "Social Links email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/pricing/2-columns-pricing-table.tsx",
-          "target": "components/email/2-columns-pricing-table.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/social/social-links.tsx",
+          "target": "components/email/social-links.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "2-columns-pricing-table",
-      "title": "2 Columns Pricing Table",
+      "name": "social-links",
+      "title": "Social Links",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3086,131 +1567,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing pricing variant for email templates",
+      "description": "Collection Stats email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/pricing/full-width-single-pricing.tsx",
-          "target": "components/email/full-width-single-pricing.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/stats/collection-stats.tsx",
+          "target": "components/email/collection-stats.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "full-width-single-pricing",
-      "title": "Full Width Single Pricing",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Simple centered social logo row",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/social/simple-social-logos-row.tsx",
-          "target": "components/email/simple-social-logos-row.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "simple-social-logos-row",
-      "title": "Simple Social Logos Row",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Social Logos email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/social/social-logos.tsx",
-          "target": "components/email/social-logos.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "social-logos",
-      "title": "Social Logos",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Social links with stacked and inline label variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/social/socials-with-labels.tsx",
-          "target": "components/email/socials-with-labels.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "socials-with-labels",
-      "title": "Socials With Labels",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Social tiles with stacked and inline label variants",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/social/socials-with-tile-labels.tsx",
-          "target": "components/email/socials-with-tile-labels.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "socials-with-tile-labels",
-      "title": "Socials With Tile Labels",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Grid Stats email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/grid-stats.tsx",
-          "target": "components/email/grid-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "grid-stats",
-      "title": "Grid Stats",
+      "name": "collection-stats",
+      "title": "Collection Stats",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3247,85 +1613,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing stats variant for email templates",
+      "description": "Spotlight Stats email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/overlay-stats.tsx",
-          "target": "components/email/overlay-stats.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/stats/spotlight-stats.tsx",
+          "target": "components/email/spotlight-stats.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "overlay-stats",
-      "title": "Overlay Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/rolling-stats.tsx",
-          "target": "components/email/rolling-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "rolling-stats",
-      "title": "Rolling Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/simple-stats.tsx",
-          "target": "components/email/simple-stats.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "simple-stats",
-      "title": "Simple Stats",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing stats variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/stats/single-stat-with-background-image.tsx",
-          "target": "components/email/single-stat-with-background-image.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "single-stat-with-background-image",
-      "title": "Single Stat With Background Image",
+      "name": "spotlight-stats",
+      "title": "Spotlight Stats",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3362,16 +1659,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing team variant for email templates",
+      "description": "Team email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/team/2-column-team-cards-with-details.tsx",
-          "target": "components/email/2-column-team-cards-with-details.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/team/team.tsx",
+          "target": "components/email/team.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "2-column-team-cards-with-details",
-      "title": "2 Column Team Cards With Details",
+      "name": "team",
+      "title": "Team",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3385,201 +1682,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing team variant for email templates",
+      "description": "Testimonial email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/team/2-column-team-cards.tsx",
-          "target": "components/email/2-column-team-cards.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/testimonials/testimonial.tsx",
+          "target": "components/email/testimonial.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "2-column-team-cards",
-      "title": "2 Column Team Cards",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing team variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/team/2-columns-compact.tsx",
-          "target": "components/email/2-columns-compact.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "2-columns-compact",
-      "title": "2 Columns Compact",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing team variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/team/3-columns-team-grid.tsx",
-          "target": "components/email/3-columns-team-grid.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "3-columns-team-grid",
-      "title": "3 Columns Team Grid",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing team variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/team/horizontal-team-member-bios.tsx",
-          "target": "components/email/horizontal-team-member-bios.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "horizontal-team-member-bios",
-      "title": "Horizontal Team Member Bios",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing testimonials variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/testimonials/full-width-testimonial.tsx",
-          "target": "components/email/full-width-testimonial.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "full-width-testimonial",
-      "title": "Full Width Testimonial",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing testimonials variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/testimonials/testimonial-with-cta.tsx",
-          "target": "components/email/testimonial-with-cta.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "testimonial-with-cta",
-      "title": "Testimonial With CTA",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing timelines variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/cards-timeline.tsx",
-          "target": "components/email/cards-timeline.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "cards-timeline",
-      "title": "Cards Timeline",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing timelines variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/changelog-boxed.tsx",
-          "target": "components/email/changelog-boxed.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "changelog-boxed",
-      "title": "Changelog Boxed",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/changelog.json",
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Marketing timelines variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/changelog.tsx",
-          "target": "components/email/changelog.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "changelog",
-      "title": "Changelog",
+      "name": "testimonial",
+      "title": "Testimonial",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3616,16 +1728,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing timelines variant for email templates",
+      "description": "Timeline email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/split-cards.tsx",
-          "target": "components/email/split-cards.tsx",
+          "path": "registry/bases/jsx-email/ui/marketing/timelines/timeline.tsx",
+          "target": "components/email/timeline.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "split-cards",
-      "title": "Split Cards",
+      "name": "timeline",
+      "title": "Timeline",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3639,16 +1751,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Marketing timelines variant for email templates",
+      "description": "Avatar Details email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/marketing/timelines/stacked-timeline.tsx",
-          "target": "components/email/stacked-timeline.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/avatar-details.tsx",
+          "target": "components/email/avatar-details.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "stacked-timeline",
-      "title": "Stacked Timeline",
+      "name": "avatar-details",
+      "title": "Avatar Details",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -3662,41 +1774,21 @@
       "categories": [
         "email-component"
       ],
-      "description": "Avatar Shared email component",
+      "description": "Avatar Group email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/avatar-shared.tsx",
-          "target": "components/email/avatar-shared.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/avatar-group.tsx",
+          "target": "components/email/avatar-group.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "avatar-shared",
-      "title": "Avatar Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements avatars variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/avatar-with-details.tsx",
-          "target": "components/email/avatar-with-details.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "avatar-with-details",
-      "title": "Avatar With Details",
+      "name": "avatar-group",
+      "title": "Avatar Group",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/avatar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
@@ -3705,109 +1797,23 @@
       "categories": [
         "email-component"
       ],
-      "description": "UI Elements avatars variant for email templates",
+      "description": "Button email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars-with-plus-count.tsx",
-          "target": "components/email/grouped-overlapped-avatars-with-plus-count.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/buttons/button.tsx",
+          "target": "components/email/button.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "grouped-overlapped-avatars-with-plus-count",
-      "title": "Grouped Overlapped Avatars With Plus Count",
+      "name": "button",
+      "title": "Button",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/grouped-overlapped-avatars.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements avatars variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/avatars/grouped-overlapped-avatars.tsx",
-          "target": "components/email/grouped-overlapped-avatars.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "grouped-overlapped-avatars",
-      "title": "Grouped Overlapped Avatars",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/avatar-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Buttons Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/buttons/buttons-shared.tsx",
-          "target": "components/email/buttons-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "buttons-shared",
-      "title": "Buttons Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements buttons variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/buttons/buttons.tsx",
-          "target": "components/email/buttons.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "buttons",
-      "title": "Buttons",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/buttons-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Container Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/containers/container-shared.tsx",
-          "target": "components/email/container-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "container-shared",
-      "title": "Container Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
       ]
     },
     {
@@ -3829,7 +1835,6 @@
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/container-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
@@ -3838,183 +1843,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "Data Table Basic email component",
+      "description": "Data Table email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-basic.tsx",
-          "target": "components/email/data-table-basic.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table.tsx",
+          "target": "components/email/data-table.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "data-table-basic",
-      "title": "Data Table Basic",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-shared.tsx",
-          "target": "components/email/data-table-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-shared",
-      "title": "Data Table Shared",
+      "name": "data-table",
+      "title": "Data Table",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
         "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table With 4 Columns email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-4-columns.tsx",
-          "target": "components/email/data-table-with-4-columns.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-with-4-columns",
-      "title": "Data Table With 4 Columns",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table With Change Indicator Pills email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-change-indicator-pills.tsx",
-          "target": "components/email/data-table-with-change-indicator-pills.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-with-change-indicator-pills",
-      "title": "Data Table With Change Indicator Pills",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table With Edit Button email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-edit-button.tsx",
-          "target": "components/email/data-table-with-edit-button.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-with-edit-button",
-      "title": "Data Table With Edit Button",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table With Logos And Action Links email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-logos-and-action-links.tsx",
-          "target": "components/email/data-table-with-logos-and-action-links.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-with-logos-and-action-links",
-      "title": "Data Table With Logos And Action Links",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table With Pills email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-pills.tsx",
-          "target": "components/email/data-table-with-pills.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-with-pills",
-      "title": "Data Table With Pills",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Data Table With Progress Bar email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/data-tables/data-table-with-progress-bar.tsx",
-          "target": "components/email/data-table-with-progress-bar.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "data-table-with-progress-bar",
-      "title": "Data Table With Progress Bar",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/data-table-shared.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4045,128 +1889,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Basic Pills Shared email component",
+      "description": "Pills email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/pills/basic-pills-shared.tsx",
-          "target": "components/email/basic-pills-shared.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/pills/pills.tsx",
+          "target": "components/email/pills.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "basic-pills-shared",
-      "title": "Basic Pills Shared",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements pills variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/pills/basic-pills-with-status-colors.tsx",
-          "target": "components/email/basic-pills-with-status-colors.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "basic-pills-with-status-colors",
-      "title": "Basic Pills With Status Colors",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/basic-pills-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements progress-bars variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/full-width-progress-bar.tsx",
-          "target": "components/email/full-width-progress-bar.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "full-width-progress-bar",
-      "title": "Full Width Progress Bar",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/progress-bar-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements progress-bars variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/progress-bar-columns.tsx",
-          "target": "components/email/progress-bar-columns.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "progress-bar-columns",
-      "title": "Progress Bar Columns",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/progress-bar-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements progress-bars variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/progress-bar-group.tsx",
-          "target": "components/email/progress-bar-group.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "progress-bar-group",
-      "title": "Progress Bar Group",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/progress-bar-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "Progress Bar Shared email component",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/progress-bar-shared.tsx",
-          "target": "components/email/progress-bar-shared.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "progress-bar-shared",
-      "title": "Progress Bar Shared",
+      "name": "pills",
+      "title": "Pills",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -4180,16 +1912,16 @@
       "categories": [
         "email-component"
       ],
-      "description": "Divider Shared email component",
+      "description": "Progress email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-shared.tsx",
-          "target": "components/email/divider-shared.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/progress-bars/progress.tsx",
+          "target": "components/email/progress.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "divider-shared",
-      "title": "Divider Shared",
+      "name": "progress",
+      "title": "Progress",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
@@ -4203,22 +1935,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "UI Elements spacing variant for email templates",
+      "description": "Divider email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-button.tsx",
-          "target": "components/email/divider-with-button.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider.tsx",
+          "target": "components/email/divider.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "divider-with-button",
-      "title": "Divider With Button",
+      "name": "divider",
+      "title": "Divider",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },
@@ -4226,183 +1958,22 @@
       "categories": [
         "email-component"
       ],
-      "description": "UI Elements spacing variant for email templates",
+      "description": "Spacer email component",
       "files": [
         {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-file-type.tsx",
-          "target": "components/email/divider-with-file-type.tsx",
+          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/spacer.tsx",
+          "target": "components/email/spacer.tsx",
           "type": "registry:component"
         }
       ],
-      "name": "divider-with-file-type",
-      "title": "Divider With File Type",
+      "name": "spacer",
+      "title": "Spacer",
       "type": "registry:component",
       "dependencies": [
         "jsx-email"
       ],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-icon-and-button.tsx",
-          "target": "components/email/divider-with-icon-and-button.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "divider-with-icon-and-button",
-      "title": "Divider With Icon And Button",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-icon.tsx",
-          "target": "components/email/divider-with-icon.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "divider-with-icon",
-      "title": "Divider With Icon",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-logo.tsx",
-          "target": "components/email/divider-with-logo.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "divider-with-logo",
-      "title": "Divider With Logo",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-social-icons.tsx",
-          "target": "components/email/divider-with-social-icons.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "divider-with-social-icons",
-      "title": "Divider With Social Icons",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/divider-with-title.tsx",
-          "target": "components/email/divider-with-title.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "divider-with-title",
-      "title": "Divider With Title",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/line-divider.tsx",
-          "target": "components/email/line-divider.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "line-divider",
-      "title": "Line Divider",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
-      ]
-    },
-    {
-      "categories": [
-        "email-component"
-      ],
-      "description": "UI Elements spacing variant for email templates",
-      "files": [
-        {
-          "path": "registry/bases/jsx-email/ui/ui-elements/spacing/vertical-spacer.tsx",
-          "target": "components/email/vertical-spacer.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "name": "vertical-spacer",
-      "title": "Vertical Spacer",
-      "type": "registry:component",
-      "dependencies": [
-        "jsx-email"
-      ],
-      "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/divider-shared.json",
+        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
         "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
       ]
     },

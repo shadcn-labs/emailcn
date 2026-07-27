@@ -1,0 +1,95 @@
+---
+title: "Overlap"
+description: "Overlap Hero rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="overlap-hero-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/overlap-hero
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/hero/overlap-hero.tsx"
+    base="jsx-email"
+    title="components/email/overlap-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OverlapHero } from "@/components/email/overlap-hero";
+```
+
+```tsx
+<OverlapHero target="content" direction="left" />
+```
+
+## Examples
+
+### Overlapped image
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-overlapped-image-example-demo"
+/>
+
+### Slanted split
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-slanted-split-example-demo"
+/>
+
+### Gradient
+
+<ComponentPreview base="jsx-email" name="overlap-hero-gradient-example-demo" />
+
+## API Reference
+
+| Prop              | Type                                                  | Default           | Description                                 |
+| ----------------- | ----------------------------------------------------- | ----------------- | ------------------------------------------- |
+| `theme`           | `Parameters<typeof __OverlapContentHero>[0]["theme"]` | Component default | Renderer theme configuration.               |
+| `content`         | `HeroContent`                                         | Component default | Configures the component's content.         |
+| `images`          | `HeroImage[]`                                         | Component default | Configures the component's images.          |
+| `backgroundImage` | `HeroImage`                                           | Component default | Configures the component's backgroundimage. |
+| `brand`           | `HeroBrand`                                           | Component default | Configures the component's brand.           |
+| `target`          | `"content" \| "image"`                                | Component default | Configures the component's target.          |
+| `direction`       | `"left" \| "right"`                                   | Component default | Configures the component's direction.       |
+| `gradient`        | `boolean`                                             | Component default | Configures the component's gradient.        |
+| `slanted`         | `boolean`                                             | Component default | Configures the component's slanted.         |

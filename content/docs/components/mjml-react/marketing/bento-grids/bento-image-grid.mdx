@@ -1,0 +1,89 @@
+---
+title: "Image Grid"
+description: "Bento Image Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="bento-image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/bento-grids/bento-image-grid.tsx"
+    base="mjml-react"
+    title="components/email/bento-image-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoImageGrid } from "@/components/email/bento-image-grid";
+```
+
+```tsx
+<BentoImageGrid
+  variant="alternating"
+  style="captions"
+  placement="captions-top"
+/>
+```
+
+## Examples
+
+### Reversed alternating details
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-image-grid-reversed-alternating-details-example-demo"
+/>
+
+### Padded three column
+
+<ComponentPreview
+  base="mjml-react"
+  name="bento-image-grid-padded-three-column-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                                                                                                                                                                       | Default            | Description                                              |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------- |
+| `theme`     | `BentoImageGridProps["theme"]`                                                                                                                                                                             | Component default  | Renderer theme configuration.                            |
+| `variant`   | `"alternating" \| "three-column"`                                                                                                                                                                          | `"alternating"`    | Selects the alternating or three-column layout.          |
+| `style`     | `"captions" \| "details" \| "flush" \| "padded"`                                                                                                                                                           | Variant dependent  | Selects the card treatment supported by the layout.      |
+| `placement` | `"captions-top" \| "captions-top-reverse" \| "captions-bottom" \| "captions-bottom-reverse" \| "captions-top-alt" \| "captions-top-alt-reverse" \| "captions-bottom-alt" \| "captions-bottom-alt-reverse"` | Variant dependent  | Controls caption placement and reversal.                 |
+| `data`      | `BentoImageGridProps["data"]`                                                                                                                                                                              | Component defaults | Replaces the image data for the selected layout variant. |
+
+`BentoImageGridProps` is a discriminated union. The selected `variant` narrows
+the supported `style`, `placement`, and `data` shape.

@@ -1,0 +1,105 @@
+---
+title: "Navigation"
+description: "Navigation Footer rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="navigation-footer-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/navigation-footer
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/footers/navigation-footer.tsx"
+    base="react-email"
+    title="components/email/navigation-footer.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { NavigationFooter } from "@/components/email/navigation-footer";
+```
+
+```tsx
+<NavigationFooter
+  columns={2}
+  alignment="left"
+  logoPosition="left"
+  divider={false}
+/>
+```
+
+## Examples
+
+### Centered single column
+
+<ComponentPreview
+  base="react-email"
+  name="navigation-footer-centered-single-column-example-demo"
+/>
+
+### Three columns
+
+<ComponentPreview
+  base="react-email"
+  name="navigation-footer-three-columns-example-demo"
+/>
+
+### With divider
+
+<ComponentPreview
+  base="react-email"
+  name="navigation-footer-with-divider-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                               | Default           | Description                               |
+| --------------- | -------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `theme`         | `Parameters<typeof __TwoColumnFooter>[0]["theme"]` | Component default | Renderer theme configuration.             |
+| `brand`         | `FooterBrand`                                      | Component default | Configures the component's brand.         |
+| `description`   | `string`                                           | Component default | Configures the component's description.   |
+| `menus`         | `FooterMenu[]`                                     | Component default | Configures the component's menus.         |
+| `socials`       | `FooterSocial[]`                                   | Component default | Configures the component's socials.       |
+| `legal`         | `FooterLegal`                                      | Component default | Configures the component's legal.         |
+| `columns`       | `1 \| 2 \| 3`                                      | Component default | Configures the component's columns.       |
+| `alignment`     | `"left" \| "center" \| "right"`                    | Component default | Configures the component's alignment.     |
+| `logoPosition`  | `"left" \| "right" \| "top" \| "bottom"`           | Component default | Configures the component's logoposition.  |
+| `divider`       | `boolean`                                          | Component default | Configures the component's divider.       |
+| `oversizedLogo` | `boolean`                                          | Component default | Configures the component's oversizedlogo. |

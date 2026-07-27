@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {
   Body,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Tailwind,
@@ -15,9 +15,7 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type PaymentTimelineVariant = "3-steps" | "4-steps";
-
 export interface PaymentTimelineProps {
   theme?: TailwindConfig;
   variant?: PaymentTimelineVariant;
@@ -27,10 +25,8 @@ export interface PaymentTimelineProps {
   thirdDate?: string;
   fourthDate?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = `
   .payment-timeline-mobile { display: none; }
   @media only screen and (max-width: 430px) {
@@ -38,12 +34,10 @@ const responsiveStyles = `
     .payment-timeline-mobile { display: block !important; }
   }
 `;
-
 const textStyle = {
   fontFamily,
   margin: 0,
 } as const;
-
 const getDateAlignment = (
   index: number,
   length: number
@@ -53,7 +47,6 @@ const getDateAlignment = (
   }
   return index === length - 1 ? "right" : "center";
 };
-
 const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
   <Section
     style={{
@@ -78,7 +71,6 @@ const Dot = ({ checked, dark }: { checked?: boolean; dark: boolean }) => (
     )}
   </Section>
 );
-
 export const PaymentTimelineSection = ({
   amount = "$9.99",
   firstDate = "Paid: 17/11",
@@ -91,7 +83,6 @@ export const PaymentTimelineSection = ({
     variant === "4-steps"
       ? [firstDate, secondDate, thirdDate, fourthDate]
       : [firstDate, secondDate, thirdDate];
-
   return (
     <>
       <style>{responsiveStyles}</style>
@@ -124,20 +115,25 @@ export const PaymentTimelineSection = ({
                                   <Fragment>
                                     <Row>
                                       <Column>
-                                        {index === 0 ? null : (
-                                          <Section
-                                            style={{
-                                              backgroundColor:
-                                                index <= 1
-                                                  ? "#030712"
-                                                  : "#d1d5db",
-                                              height: "1px",
-                                              lineHeight: "1px",
-                                            }}
-                                          >
-                                            &zwj;
-                                          </Section>
-                                        )}
+                                        {(() => {
+                                          if (index === 0) {
+                                            return null;
+                                          }
+                                          return (
+                                            <Section
+                                              style={{
+                                                backgroundColor:
+                                                  index <= 1
+                                                    ? "#030712"
+                                                    : "#d1d5db",
+                                                height: "1px",
+                                                lineHeight: "1px",
+                                              }}
+                                            >
+                                              &zwj;
+                                            </Section>
+                                          );
+                                        })()}
                                       </Column>
                                       <Column style={{ width: "16px" }}>
                                         <Dot
@@ -146,20 +142,25 @@ export const PaymentTimelineSection = ({
                                         />
                                       </Column>
                                       <Column>
-                                        {index === dates.length - 1 ? null : (
-                                          <Section
-                                            style={{
-                                              backgroundColor:
-                                                index === 0
-                                                  ? "#030712"
-                                                  : "#d1d5db",
-                                              height: "1px",
-                                              lineHeight: "1px",
-                                            }}
-                                          >
-                                            &zwj;
-                                          </Section>
-                                        )}
+                                        {(() => {
+                                          if (index === dates.length - 1) {
+                                            return null;
+                                          }
+                                          return (
+                                            <Section
+                                              style={{
+                                                backgroundColor:
+                                                  index === 0
+                                                    ? "#030712"
+                                                    : "#d1d5db",
+                                                height: "1px",
+                                                lineHeight: "1px",
+                                              }}
+                                            >
+                                              &zwj;
+                                            </Section>
+                                          );
+                                        })()}
                                       </Column>
                                     </Row>
                                   </Fragment>
@@ -220,17 +221,22 @@ export const PaymentTimelineSection = ({
                               <Section style={{ margin: "2px 0" }}>
                                 <Dot checked={index === 0} dark={index <= 1} />
                               </Section>
-                              {index === dates.length - 1 ? null : (
-                                <Section
-                                  style={{
-                                    backgroundColor:
-                                      index === 0 ? "#030712" : "#d1d5db",
-                                    height: "48px",
-                                    margin: "0 auto",
-                                    width: "1px",
-                                  }}
-                                />
-                              )}
+                              {(() => {
+                                if (index === dates.length - 1) {
+                                  return null;
+                                }
+                                return (
+                                  <Section
+                                    style={{
+                                      backgroundColor:
+                                        index === 0 ? "#030712" : "#d1d5db",
+                                      height: "48px",
+                                      margin: "0 auto",
+                                      width: "1px",
+                                    }}
+                                  />
+                                );
+                              })()}
                             </Section>
                             <Section style={{ paddingLeft: "8px" }}>
                               <Text
@@ -270,15 +276,14 @@ export const PaymentTimelineSection = ({
     </>
   );
 };
-
 export const PaymentTimeline = ({
   theme = defaultTheme,
   ...props
 }: PaymentTimelineProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
-    </Head>
+    </EmailHead>
     <Preview>Payment timeline</Preview>
     <Tailwind config={theme}>
       <Body className="m-0 bg-background font-sans">
@@ -287,7 +292,6 @@ export const PaymentTimeline = ({
     </Tailwind>
   </Html>
 );
-
 PaymentTimeline.PreviewProps = {
   theme: defaultTheme,
   variant: "3-steps",

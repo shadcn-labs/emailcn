@@ -1,0 +1,89 @@
+---
+title: "Overlay"
+description: "Overlay Hero rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="overlay-hero-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/overlay-hero
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/hero/overlay-hero.tsx"
+    base="mjml-react"
+    title="components/email/overlay-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OverlayHero } from "@/components/email/overlay-hero";
+```
+
+```tsx
+<OverlayHero treatment="block" position="center-left" />
+```
+
+## Examples
+
+### Aligned right
+
+<ComponentPreview
+  base="mjml-react"
+  name="overlay-hero-aligned-right-example-demo"
+/>
+
+### Gradient
+
+<ComponentPreview base="mjml-react" name="overlay-hero-gradient-example-demo" />
+
+### Content card
+
+<ComponentPreview
+  base="mjml-react"
+  name="overlay-hero-content-card-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                                                                                     | Default           | Description                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------- | ------------------------------------------- |
+| `theme`           | `Parameters<typeof __BlockHero>[0]["theme"]`                                                                             | Component default | Renderer theme configuration.               |
+| `content`         | `HeroContent`                                                                                                            | Component default | Configures the component's content.         |
+| `backgroundImage` | `HeroImage`                                                                                                              | Component default | Configures the component's backgroundimage. |
+| `brand`           | `HeroBrand`                                                                                                              | Component default | Configures the component's brand.           |
+| `treatment`       | `"aligned" \| "block" \| "gradient" \| "content-card"`                                                                   | Component default | Configures the component's treatment.       |
+| `position`        | `\| "top-left"     \| "center-left"     \| "bottom-left"     \| "top-right"     \| "center-right"     \| "bottom-right"` | Component default | Configures the component's position.        |
+| `bleed`           | `boolean`                                                                                                                | Component default | Configures the component's bleed.           |
+| `reverse`         | `boolean`                                                                                                                | Component default | Configures the component's reverse.         |

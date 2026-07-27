@@ -24,26 +24,24 @@ npx shadcn@latest add @emailcn/block-notification-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/email/theme-default.ts"
-/>
-<ComponentSource
-  src="registry/bases/jsx-email/blocks/notification-default.tsx"
-  title="components/email/notification-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/blocks/notification-default.tsx"
+    base="jsx-email"
+    title="components/email/notification-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>

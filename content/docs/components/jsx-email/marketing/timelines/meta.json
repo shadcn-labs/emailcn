@@ -1,11 +1,4 @@
 {
   "title": "Timelines",
-  "pages": [
-    "cards-timeline",
-    "changelog-boxed",
-    "changelog",
-    "payment-timeline",
-    "split-cards",
-    "stacked-timeline"
-  ]
+  "pages": ["timeline", "payment-timeline"]
 }

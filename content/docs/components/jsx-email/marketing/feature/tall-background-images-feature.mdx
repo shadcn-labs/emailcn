@@ -1,0 +1,90 @@
+---
+title: "Tall Background Images"
+description: "Tall Background Images Feature rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="tall-background-images-feature-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/tall-background-images-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/feature/tall-background-images-feature.tsx"
+    base="jsx-email"
+    title="components/email/tall-background-images-feature.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TallBackgroundImagesFeature } from "@/components/email/tall-background-images-feature";
+```
+
+```tsx
+<TallBackgroundImagesFeature logoPosition="top-left" titleWidth="split" />
+```
+
+## Examples
+
+### Logo at bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-logo-at-bottom-right-example-demo"
+/>
+
+### Full width title
+
+<ComponentPreview
+  base="jsx-email"
+  name="tall-background-images-feature-full-width-title-example-demo"
+/>
+
+## API Reference
+
+| Prop           | Type                                                             | Default           | Description                              |
+| -------------- | ---------------------------------------------------------------- | ----------------- | ---------------------------------------- |
+| `theme`        | `Parameters<typeof __TallFeatureSplit>[0]["theme"]`              | Component default | Renderer theme configuration.            |
+| `heading`      | `string`                                                         | Component default | Configures the component's heading.      |
+| `body`         | `string`                                                         | Component default | Configures the component's body.         |
+| `images`       | `[{ src: string; alt?: string }, { src: string; alt?: string }]` | Component default | Configures the component's images.       |
+| `logo`         | `{ src: string; alt?: string }`                                  | Component default | Configures the component's logo.         |
+| `action`       | `{ href: string; label: string; iconSrc?: string }`              | Component default | Configures the component's action.       |
+| `logoPosition` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"`   | Component default | Configures the component's logoposition. |
+| `titleWidth`   | `"split" \| "full"`                                              | Component default | Configures the component's titlewidth.   |

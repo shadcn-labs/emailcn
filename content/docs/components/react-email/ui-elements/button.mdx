@@ -1,0 +1,84 @@
+---
+title: "Button"
+description: "Button rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="button-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/button
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/buttons/button.tsx"
+    base="react-email"
+    title="components/email/button.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Button } from "@/components/email/button";
+```
+
+```tsx
+<Button variant="primary" size="md" align="center" />
+```
+
+## Examples
+
+### Secondary
+
+<ComponentPreview base="react-email" name="button-secondary-example-demo" />
+
+### Text
+
+<ComponentPreview base="react-email" name="button-text-example-demo" />
+
+## API Reference
+
+| Prop           | Type                                            | Default           | Description                              |
+| -------------- | ----------------------------------------------- | ----------------- | ---------------------------------------- |
+| `theme`        | `Parameters<typeof __Buttons>[0]["theme"]`      | Component default | Renderer theme configuration.            |
+| `label`        | `string`                                        | Component default | Configures the component's label.        |
+| `href`         | `string`                                        | Component default | Configures the component's href.         |
+| `variant`      | `"primary" \| "secondary" \| "text"`            | Component default | Configures the component's variant.      |
+| `size`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "all"` | Component default | Configures the component's size.         |
+| `icon`         | `Parameters<typeof __Buttons>[0]["icon"]`       | Component default | Configures the component's icon.         |
+| `iconPosition` | `"leading" \| "trailing"`                       | Component default | Configures the component's iconposition. |
+| `align`        | `"left" \| "center" \| "right"`                 | Component default | Configures the component's align.        |

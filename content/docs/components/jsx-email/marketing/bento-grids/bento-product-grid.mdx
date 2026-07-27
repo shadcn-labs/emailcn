@@ -1,0 +1,94 @@
+---
+title: "Product Grid"
+description: "Bento Product Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="bento-product-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-product-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/bento-grids/bento-product-grid.tsx"
+    base="jsx-email"
+    title="components/email/bento-product-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoProductGrid } from "@/components/email/bento-product-grid";
+```
+
+```tsx
+<BentoProductGrid
+  variant="two-row-three-column"
+  style="sides"
+  placement="normal"
+/>
+```
+
+## Examples
+
+### Reversed two row grid
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-product-grid-reversed-two-row-grid-example-demo"
+/>
+
+### Full width split
+
+<ComponentPreview
+  base="jsx-email"
+  name="bento-product-grid-full-width-split-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                | Default                  | Description                                                |
+| ----------- | --------------------------------------------------- | ------------------------ | ---------------------------------------------------------- |
+| `theme`     | `BentoProductGridProps["theme"]`                    | Component default        | Renderer theme configuration.                              |
+| `variant`   | `"two-row-three-column" \| "even-split-two-thirds"` | `"two-row-three-column"` | Selects the product-grid layout.                           |
+| `style`     | `"full" \| "left" \| "right" \| "sides"`            | `"full"`                 | Controls which product cards use padded treatment.         |
+| `placement` | `"normal" \| "reverse"`                             | `"normal"`               | Keeps or reverses the row treatment.                       |
+| `data`      | `BentoProductGridProps["data"]`                     | Component defaults       | Replaces the product data for the selected layout variant. |
+
+`BentoProductGridProps` is a discriminated union. The selected `variant`
+narrows the accepted `data` shape.

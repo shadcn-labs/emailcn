@@ -1,4 +1,4 @@
 {
   "title": "Bento Grids",
-  "pages": ["image-grid", "product-grid", "stats-grid"]
+  "pages": ["bento-image-grid", "bento-product-grid", "bento-stats-grid"]
 }

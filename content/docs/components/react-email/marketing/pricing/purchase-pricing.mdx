@@ -1,0 +1,77 @@
+---
+title: "Purchase"
+description: "Purchase Pricing rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="purchase-pricing-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/purchase-pricing
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/pricing/purchase-pricing.tsx"
+    base="react-email"
+    title="components/email/purchase-pricing.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PurchasePricing } from "@/components/email/purchase-pricing";
+```
+
+```tsx
+<PurchasePricing />
+```
+
+## Examples
+
+### Custom plans
+
+<ComponentPreview
+  base="react-email"
+  name="purchase-pricing-custom-plans-example-demo"
+/>
+
+## API Reference
+
+| Prop    | Type                                               | Default           | Description                       |
+| ------- | -------------------------------------------------- | ----------------- | --------------------------------- |
+| `theme` | `Parameters<typeof __PurchasePricing>[0]["theme"]` | Component default | Renderer theme configuration.     |
+| `plans` | `PurchasePlan[]`                                   | Component default | Configures the component's plans. |

@@ -10,32 +10,64 @@ import type { ComponentType } from "react";
 import { ComponentPreviewClient } from "@/components/component-preview-client";
 import { ComponentSource } from "@/components/component-source";
 import { demos } from "@/examples/__index__";
+import type { DemoName } from "@/examples/__index__";
 import type { BaseName } from "@/registry/bases";
 
 interface ComponentPreviewProps {
   base?: BaseName;
-  name: string;
+  name: DemoName;
   title?: string;
   className?: string;
+  centerPreview?: boolean;
   hideNav?: boolean;
   hideCode?: boolean;
   height?: number;
+  showTitleBar?: boolean;
 }
 
 type PreviewDemo = ComponentType & {
   PreviewHeight?: number;
 };
 
+const centeredPreviewStyles = `
+  <style data-emailcn-centered-preview>
+    html {
+      min-height: 100%;
+      background: #f1f5f9;
+    }
+
+    body {
+      box-sizing: border-box;
+      min-height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: safe center !important;
+    }
+
+    body > * {
+      flex-shrink: 0;
+    }
+  </style>
+`;
+
+const centerPreviewDocument = (html: string) =>
+  html.includes("</head>")
+    ? html.replace("</head>", `${centeredPreviewStyles}</head>`)
+    : `${centeredPreviewStyles}${html}`;
+
 export const ComponentPreview = async ({
   base = "react-email",
   name,
   title,
   className,
+  centerPreview = false,
   hideNav = false,
   hideCode = false,
   height,
+  showTitleBar = false,
 }: ComponentPreviewProps) => {
-  const Demo = demos[base][name] as PreviewDemo | undefined;
+  const Demo = (demos[base] as Partial<Record<DemoName, PreviewDemo>>)[name];
 
   let html = "";
   let plainText: string | null = null;
@@ -72,8 +104,10 @@ export const ComponentPreview = async ({
         className={className}
         height={height ?? Demo?.PreviewHeight ?? 640}
         hideNav={hideNav}
-        html={html}
+        html={centerPreview ? centerPreviewDocument(html) : html}
+        iframeTitle={title ?? name}
         plainText={plainText}
+        showTitleBar={showTitleBar}
         title={title}
       />
       {!hideCode && (

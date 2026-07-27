@@ -1,0 +1,89 @@
+---
+title: "Masonry Grid"
+description: "Masonry Image Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="masonry-image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/masonry-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/images/masonry-image-grid.tsx"
+    base="jsx-email"
+    title="components/email/masonry-image-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MasonryImageGrid } from "@/components/email/masonry-image-grid";
+```
+
+```tsx
+<MasonryImageGrid columns={2} stackPosition="left" />
+```
+
+## Examples
+
+### Stack on the right
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-image-grid-stack-on-the-right-example-demo"
+/>
+
+### Reversed overlays
+
+<ComponentPreview
+  base="jsx-email"
+  name="masonry-image-grid-reversed-overlays-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                                     | Default           | Description                               |
+| --------------- | -------------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `theme`         | `Parameters<typeof __TwoColumnMasonryThree>[0]["theme"]` | Component default | Renderer theme configuration.             |
+| `images`        | `GalleryImage[]`                                         | Component default | Configures the component's images.        |
+| `feature`       | `GalleryImage`                                           | Component default | Configures the component's feature.       |
+| `columns`       | `2 \| 3`                                                 | Component default | Configures the component's columns.       |
+| `stackPosition` | `"left" \| "right"`                                      | Component default | Configures the component's stackposition. |
+| `reverse`       | `boolean`                                                | Component default | Configures the component's reverse.       |
+| `overlay`       | `boolean`                                                | Component default | Configures the component's overlay.       |

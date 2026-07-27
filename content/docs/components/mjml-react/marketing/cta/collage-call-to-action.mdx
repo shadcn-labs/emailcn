@@ -1,0 +1,83 @@
+---
+title: "Collage"
+description: "Collage Call To Action rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="collage-call-to-action-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/collage-call-to-action
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/ui/marketing/cta/collage-call-to-action.tsx"
+    base="mjml-react"
+    title="components/email/collage-call-to-action.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CollageCallToAction } from "@/components/email/collage-call-to-action";
+```
+
+```tsx
+<CollageCallToAction treatment="side" />
+```
+
+## Examples
+
+### Offset images
+
+<ComponentPreview
+  base="mjml-react"
+  name="collage-call-to-action-offset-images-example-demo"
+/>
+
+### Collage
+
+<ComponentPreview
+  base="mjml-react"
+  name="collage-call-to-action-collage-example-demo"
+/>
+
+## API Reference
+
+| Prop          | Type                                           | Default           | Description                             |
+| ------------- | ---------------------------------------------- | ----------------- | --------------------------------------- |
+| `theme`       | `Parameters<typeof __Cta>[0]["theme"]`         | Component default | Renderer theme configuration.           |
+| `heading`     | `string`                                       | Component default | Configures the component's heading.     |
+| `description` | `string`                                       | Component default | Configures the component's description. |
+| `action`      | `{ href: string; label: string }`              | Component default | Configures the component's action.      |
+| `images`      | `Array<{ src: string; alt?: string }>`         | Component default | Configures the component's images.      |
+| `treatment`   | `"offset" \| "shifted" \| "side" \| "collage"` | Component default | Configures the component's treatment.   |

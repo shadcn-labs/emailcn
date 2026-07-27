@@ -1,15 +1,5 @@
 import { PaymentTimeline } from "@/registry/bases/react-email/ui/marketing/timelines/payment-timeline";
-import type { PaymentTimelineVariant } from "@/registry/bases/react-email/ui/marketing/timelines/payment-timeline";
 
-export default function PaymentTimelineDemo({
-  variant,
-}: {
-  variant?: PaymentTimelineVariant;
-}) {
-  return (
-    <PaymentTimeline
-      {...PaymentTimeline.PreviewProps}
-      variant={variant ?? PaymentTimeline.PreviewProps.variant}
-    />
-  );
+export default function PaymentTimelineDemo() {
+  return <PaymentTimeline variant="3-steps" />;
 }

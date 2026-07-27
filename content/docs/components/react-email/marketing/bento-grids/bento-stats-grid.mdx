@@ -1,0 +1,94 @@
+---
+title: "Stats Grid"
+description: "Bento Stats Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="bento-stats-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/bento-stats-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/bento-grids/bento-stats-grid.tsx"
+    base="react-email"
+    title="components/email/bento-stats-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BentoStatsGrid } from "@/components/email/bento-stats-grid";
+```
+
+```tsx
+<BentoStatsGrid
+  variant="even-split"
+  style="chart"
+  placement="image-top-right"
+/>
+```
+
+## Examples
+
+### Image bottom left
+
+<ComponentPreview
+  base="react-email"
+  name="bento-stats-grid-image-bottom-left-example-demo"
+/>
+
+### Reversed two thirds
+
+<ComponentPreview
+  base="react-email"
+  name="bento-stats-grid-reversed-two-thirds-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                                                   | Default             | Description                                              |
+| ----------- | -------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------- |
+| `theme`     | `BentoStatsGridProps["theme"]`                                                         | Component default   | Renderer theme configuration.                            |
+| `variant`   | `"two-thirds" \| "even-split" \| "three-column"`                                       | `"two-thirds"`      | Selects the stats-grid layout.                           |
+| `style`     | `"compact" \| "chart" \| "text"`                                                       | Variant dependent   | Selects the metric-card treatment supported by layout.   |
+| `placement` | `"image-top-right" \| "image-top-left" \| "image-bottom-right" \| "image-bottom-left"` | `"image-top-right"` | Positions the image card in the selected layout.         |
+| `data`      | `BentoStatsGridProps["data"]`                                                          | Component defaults  | Replaces the stats data for the selected layout variant. |
+
+`BentoStatsGridProps` is a discriminated union. The selected `variant` narrows
+the supported `style` and `data` shape.

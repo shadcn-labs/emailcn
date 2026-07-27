@@ -16,7 +16,7 @@ import {
 } from "react-email";
 
 import { nikeTheme } from "@/registry/bases/react-email/themes/nike";
-import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
+import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list";
 
 interface ReceiptItem {
   name: string;

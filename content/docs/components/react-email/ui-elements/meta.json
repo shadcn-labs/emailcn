@@ -2,12 +2,12 @@
   "title": "UI Elements",
   "pages": [
     "avatars",
-    "buttons",
-    "containers",
-    "data-tables",
-    "grids",
+    "button",
+    "container",
+    "data-table",
+    "grid",
     "pills",
-    "progress-bars",
+    "progress",
     "spacing"
   ]
 }

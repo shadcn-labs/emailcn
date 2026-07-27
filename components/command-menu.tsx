@@ -87,28 +87,35 @@ const SUBCATEGORY_ICONS: Record<string, LucideIcon> = {
   avatars: CircleUserRoundIcon,
   "bento-grids": LayoutGridIcon,
   blog: NewspaperIcon,
-  "category-previews": PanelsTopLeftIcon,
   coupons: TicketPercentIcon,
   cta: MousePointerClickIcon,
-  "data-tables": Table2Icon,
-  faq: CircleHelpIcon,
   feature: SparklesIcon,
   footers: PanelBottomIcon,
   headers: PanelTopIcon,
   heroes: GalleryHorizontalEndIcon,
   images: ImagesIcon,
-  logos: ShapesIcon,
   "order-summary": ReceiptTextIcon,
   pricing: BadgeDollarSignIcon,
   "product-detail": PackageSearchIcon,
-  "progress-bars": ChartNoAxesGanttIcon,
-  reviews: MessageSquareQuoteIcon,
-  social: Share2Icon,
   spacing: BetweenHorizontalStartIcon,
   stats: ChartNoAxesColumnIncreasingIcon,
-  team: UsersIcon,
-  testimonials: MessagesSquareIcon,
   timelines: ListTreeIcon,
+};
+
+const COMPONENT_ICONS: Record<string, LucideIcon> = {
+  button: MousePointerClickIcon,
+  "category-preview": PanelsTopLeftIcon,
+  container: BetweenHorizontalStartIcon,
+  "data-table": Table2Icon,
+  faq: CircleHelpIcon,
+  grid: LayoutGridIcon,
+  "logo-cloud": ShapesIcon,
+  pills: TicketPercentIcon,
+  progress: ChartNoAxesGanttIcon,
+  reviews: MessageSquareQuoteIcon,
+  "social-links": Share2Icon,
+  team: UsersIcon,
+  testimonial: MessagesSquareIcon,
 };
 
 const parseDocPageUrl = (url: string): DocUrlKind => {
@@ -204,11 +211,11 @@ const DocPageLeadingIcon = ({
     );
   }
   if (parsed.kind === "component") {
-    const SubcategoryIcon = subcategory
+    const ComponentIcon = subcategory
       ? SUBCATEGORY_ICONS[subcategory]
-      : undefined;
-    if (SubcategoryIcon) {
-      return <SubcategoryIcon className="size-4 shrink-0 opacity-70" />;
+      : COMPONENT_ICONS[parsed.slug];
+    if (ComponentIcon) {
+      return <ComponentIcon className="size-4 shrink-0 opacity-70" />;
     }
     return <CircleDashedIcon />;
   }
@@ -339,12 +346,8 @@ export const CommandMenu = ({
         return;
       }
       if (parsed.kind === "component" || parsed.kind === "template") {
-        const registryName =
-          parsed.kind === "component" && item.subcategory === "bento-grids"
-            ? `bento-${parsed.slug}`
-            : parsed.slug;
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${registryName}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
         );
         return;
       }

@@ -1,0 +1,87 @@
+---
+title: "Basic"
+description: "Call To Action rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="call-to-action-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/call-to-action
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/cta/call-to-action.tsx"
+    base="jsx-email"
+    title="components/email/call-to-action.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CallToAction } from "@/components/email/call-to-action";
+```
+
+```tsx
+<CallToAction />
+```
+
+## Examples
+
+### With signoff
+
+<ComponentPreview
+  base="jsx-email"
+  name="call-to-action-with-signoff-example-demo"
+/>
+
+### Two actions
+
+<ComponentPreview
+  base="jsx-email"
+  name="call-to-action-two-actions-example-demo"
+/>
+
+## API Reference
+
+| Prop          | Type                                     | Default           | Description                             |
+| ------------- | ---------------------------------------- | ----------------- | --------------------------------------- |
+| `theme`       | `Parameters<typeof __Cta>[0]["theme"]`   | Component default | Renderer theme configuration.           |
+| `heading`     | `string`                                 | Component default | Configures the component's heading.     |
+| `description` | `string`                                 | Component default | Configures the component's description. |
+| `signoff`     | `string`                                 | Component default | Shows the title-and-lead treatment.     |
+| `actions`     | `Array<{ href: string; label: string }>` | Component default | Configures up to two actions.           |

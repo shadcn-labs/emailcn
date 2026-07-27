@@ -1,6 +1,11 @@
 import { BentoProductGrid } from "@/registry/bases/jsx-email/ui/marketing/bento-grids/bento-product-grid";
-import type { BentoProductGridProps } from "@/registry/bases/jsx-email/ui/marketing/bento-grids/bento-product-grid";
 
-export default function BentoProductGridDemo(props: BentoProductGridProps) {
-  return <BentoProductGrid {...props} />;
+export default function BentoProductGridDemo() {
+  return (
+    <BentoProductGrid
+      variant="two-row-three-column"
+      style="sides"
+      placement="normal"
+    />
+  );
 }

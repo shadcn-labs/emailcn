@@ -1,0 +1,131 @@
+---
+title: "Data Table"
+description: "Data Table rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="data-table-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/data-table
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ui-elements/data-tables/data-table.tsx"
+    base="jsx-email"
+    title="components/email/data-table.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DataTable } from "@/components/email/data-table";
+```
+
+```tsx
+<DataTable
+  columns={[
+    { header: "Name", key: "name" },
+    { header: "Status", key: "status", align: "right" },
+  ]}
+  rows={[
+    { name: "Ada", status: "Active" },
+    { name: "Linus", status: "Pending" },
+  ]}
+/>
+```
+
+## Examples
+
+### Three columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="data-table-three-columns-example-demo"
+/>
+
+### Four columns
+
+<ComponentPreview
+  base="jsx-email"
+  name="data-table-four-columns-example-demo"
+/>
+
+### Change indicators
+
+<ComponentPreview
+  base="jsx-email"
+  name="data-table-change-indicators-example-demo"
+/>
+
+### Edit actions
+
+<ComponentPreview
+  base="jsx-email"
+  name="data-table-edit-actions-example-demo"
+/>
+
+### Logo actions
+
+<ComponentPreview
+  base="jsx-email"
+  name="data-table-logo-actions-example-demo"
+/>
+
+### Status pills
+
+<ComponentPreview
+  base="jsx-email"
+  name="data-table-status-pills-example-demo"
+/>
+
+### Progress
+
+<ComponentPreview base="jsx-email" name="data-table-progress-example-demo" />
+
+## API Reference
+
+| Prop      | Type                                                                                                                                              | Default            | Description                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------- |
+| `theme`   | `Parameters<typeof __BasicTable>[0]["theme"]`                                                                                                     | Component default  | Renderer theme configuration.                      |
+| `variant` | `"basic" \| "four-columns" \| "change-indicators" \| "edit-actions" \| "logo-actions" \| "status-pills" \| "progress"`                            | `"basic"`          | Selects one of the original data-table treatments. |
+| `columns` | `DataTableColumn<Row>[]`                                                                                                                          | Required for basic | Defines generic table columns and custom cells.    |
+| `headers` | `string[]`                                                                                                                                        | Variant default    | Overrides the specialized variant's header labels. |
+| `rows`    | `Row[] \| string[][] \| DataTableChangeRow[] \| DataTableEditRow[] \| DataTableLogoActionRow[] \| DataTableStatusRow[] \| DataTableProgressRow[]` | Variant dependent  | Supplies rows using the selected variant's shape.  |
+
+`DataTableProps` is a discriminated union, so TypeScript narrows `rows` and the
+other available props from the selected `variant`.

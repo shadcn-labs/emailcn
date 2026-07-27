@@ -1,0 +1,79 @@
+---
+title: "Divider"
+description: "Divider rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="divider-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/divider
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/ui-elements/spacing/divider.tsx"
+    base="react-email"
+    title="components/email/divider.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Divider } from "@/components/email/divider";
+```
+
+```tsx
+<Divider align="center" />
+```
+
+## Examples
+
+### With title
+
+<ComponentPreview base="react-email" name="divider-with-title-example-demo" />
+
+### With button
+
+<ComponentPreview base="react-email" name="divider-with-button-example-demo" />
+
+## API Reference
+
+| Prop      | Type                                           | Default           | Description                         |
+| --------- | ---------------------------------------------- | ----------------- | ----------------------------------- |
+| `theme`   | `Parameters<typeof __LineDivider>[0]["theme"]` | Component default | Renderer theme configuration.       |
+| `align`   | `"left" \| "center" \| "right"`                | Component default | Configures the component's align.   |
+| `content` | `DividerContent`                               | Component default | Configures the component's content. |

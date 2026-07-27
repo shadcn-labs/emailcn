@@ -1,0 +1,96 @@
+---
+title: "Team"
+description: "Team rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="team-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/team
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/team/team.tsx"
+    base="react-email"
+    title="components/email/team.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Team } from "@/components/email/team";
+```
+
+```tsx
+<Team layout="cards" columns={2} appearance="plain" />
+```
+
+## Examples
+
+### Compact bordered
+
+<ComponentPreview
+  base="react-email"
+  name="team-compact-bordered-example-demo"
+/>
+
+### Three column grid
+
+<ComponentPreview
+  base="react-email"
+  name="team-three-column-grid-example-demo"
+/>
+
+### Bios with right images
+
+<ComponentPreview
+  base="react-email"
+  name="team-bios-with-right-images-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                                        | Default           | Description                               |
+| --------------- | ----------------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `theme`         | `Parameters<typeof __TeamCards>[0]["theme"]`                | Component default | Renderer theme configuration.             |
+| `members`       | `TeamMember[]`                                              | Component default | Configures the component's members.       |
+| `layout`        | `"cards" \| "compact" \| "grid" \| "bios"`                  | Component default | Configures the component's layout.        |
+| `columns`       | `2 \| 3`                                                    | Component default | Configures the component's columns.       |
+| `appearance`    | `"plain" \| "boxed" \| "bordered" \| "accent" \| "rounded"` | Component default | Configures the component's appearance.    |
+| `imagePosition` | `"left" \| "right"`                                         | Component default | Configures the component's imageposition. |
+| `heroImage`     | `{     src: string;     alt?: string;   }`                  | Component default | Configures the component's heroimage.     |

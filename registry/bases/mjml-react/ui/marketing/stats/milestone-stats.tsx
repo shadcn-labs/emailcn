@@ -14,9 +14,7 @@ import {
 
 import { defaultTheme } from "@/registry/bases/mjml-react/themes/default";
 import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-
 export type MilestoneStatsVariant = "default" | "boxed" | "accent";
-
 export interface MilestoneStatsProps {
   theme?: EmailThemeTokens;
   variant?: MilestoneStatsVariant;
@@ -36,10 +34,8 @@ export interface MilestoneStatsProps {
   progressTrackColor?: string;
   progressColor?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 export const MilestoneStatsSection = (
   props: Omit<MilestoneStatsProps, "theme">
 ) => {
@@ -77,7 +73,6 @@ export const MilestoneStatsSection = (
     variant: "default",
     ...props,
   };
-
   const accent = variant === "accent";
   let panel = backgroundColor;
   if (accent) {
@@ -86,7 +81,6 @@ export const MilestoneStatsSection = (
     panel = cardBackgroundColor;
   }
   const primary = accent ? "#fffffe" : headingColor;
-
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
       <MjmlColumn
@@ -153,7 +147,6 @@ export const MilestoneStatsSection = (
     </MjmlSection>
   );
 };
-
 export const MilestoneStats = ({
   pageBackgroundColor = "#f1f5f9",
   theme = defaultTheme,
@@ -174,7 +167,6 @@ export const MilestoneStats = ({
     </MjmlBody>
   </Mjml>
 );
-
 MilestoneStats.PreviewProps = {
   theme: defaultTheme,
   variant: "default",

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {
   Body,
-  Head,
+  Head as EmailHead,
   Html,
   Preview,
   Link,
@@ -14,12 +14,10 @@ import type { TailwindConfig } from "react-email";
 
 import { DefaultFonts } from "@/registry/bases/react-email/fonts/default";
 import { defaultTheme } from "@/registry/bases/react-email/themes/default";
-
 export type HeaderWithLogoAndFinanceStatsAlignment =
   | "left"
   | "center"
   | "right";
-
 export interface HeaderFinanceStat {
   alt: string;
   change: string;
@@ -27,7 +25,6 @@ export interface HeaderFinanceStat {
   positive: boolean;
   src: string;
 }
-
 export interface HeaderWithLogoAndFinanceStatsProps {
   theme?: TailwindConfig;
   logoSrc?: string;
@@ -38,10 +35,8 @@ export interface HeaderWithLogoAndFinanceStatsProps {
   pageBackgroundColor?: string;
   backgroundColor?: string;
 }
-
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
-
 const responsiveStyles = [
   "@media only screen and (max-width: 599px) {",
   "  .header-finance-stack { display: block !important; width: 100% !important; }",
@@ -56,7 +51,6 @@ const responsiveStyles = [
   "  .header-finance-centered .header-finance-item { margin-left: 6px !important; margin-right: 6px !important; }",
   "}",
 ].join("\n");
-
 const defaultStats: HeaderFinanceStat[] = [
   {
     alt: "BTC",
@@ -73,7 +67,6 @@ const defaultStats: HeaderFinanceStat[] = [
     src: "https://emailcn.vercel.app/api/email-assets/eth-logo.png",
   },
 ];
-
 const defaults = {
   backgroundColor: "#fffffe",
   logoAlt: "Maizzle",
@@ -82,10 +75,8 @@ const defaults = {
   pageBackgroundColor: "#f1f5f9",
   stats: defaultStats,
 };
-
 type SectionProps = Omit<HeaderWithLogoAndFinanceStatsProps, "theme">;
 type ResolvedProps = typeof defaults & SectionProps;
-
 const Logo = ({ props }: { props: ResolvedProps }) => (
   <Link href={props.logoHref}>
     <Img
@@ -96,7 +87,6 @@ const Logo = ({ props }: { props: ResolvedProps }) => (
     />
   </Link>
 );
-
 const FinanceStats = ({
   align,
   centered = false,
@@ -106,13 +96,17 @@ const FinanceStats = ({
   centered?: boolean;
   props: ResolvedProps;
 }) => {
-  let tableStyle: { marginLeft: string; marginRight?: string } | undefined;
+  let tableStyle:
+    | {
+        marginLeft: string;
+        marginRight?: string;
+      }
+    | undefined;
   if (align === "center") {
     tableStyle = { marginLeft: "auto", marginRight: "auto" };
   } else if (align === "right") {
     tableStyle = { marginLeft: "auto" };
   }
-
   return (
     <Section
       align={align}
@@ -173,7 +167,6 @@ const FinanceStats = ({
     </Section>
   );
 };
-
 export const HeaderWithLogoAndFinanceStatsSection = (props: SectionProps) => {
   const alignment = props.alignment ?? "left";
   const resolved = { ...defaults, ...props } as ResolvedProps;
@@ -228,7 +221,6 @@ export const HeaderWithLogoAndFinanceStatsSection = (props: SectionProps) => {
       </Section>
     );
   }
-
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -259,7 +251,6 @@ export const HeaderWithLogoAndFinanceStatsSection = (props: SectionProps) => {
     </Section>
   );
 };
-
 export const HeaderWithLogoAndFinanceStats = ({
   alignment = "left",
   pageBackgroundColor = "#f1f5f9",
@@ -267,10 +258,10 @@ export const HeaderWithLogoAndFinanceStats = ({
   ...props
 }: HeaderWithLogoAndFinanceStatsProps) => (
   <Html>
-    <Head>
+    <EmailHead>
       <DefaultFonts />
       <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
-    </Head>
+    </EmailHead>
     <Preview>BTC +23.5% ETH -13.2%</Preview>
     <Body
       style={{ backgroundColor: pageBackgroundColor, fontFamily, margin: 0 }}
@@ -283,7 +274,6 @@ export const HeaderWithLogoAndFinanceStats = ({
     </Body>
   </Html>
 );
-
 HeaderWithLogoAndFinanceStats.PreviewProps = {
   alignment: "left",
   theme: defaultTheme,

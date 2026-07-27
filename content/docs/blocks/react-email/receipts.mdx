@@ -24,37 +24,34 @@ npx shadcn@latest add @emailcn/block-receipt-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install react-email
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/email/theme-default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/email/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="product-card"
-  title="components/email/product-card.tsx"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/blocks/receipt-default.tsx"
-  title="components/email/receipt-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/blocks/receipt-default.tsx"
+    base="react-email"
+    title="components/email/receipt-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/ui/ecommerce/product-lists/product-list.tsx"
+    base="react-email"
+    title="components/email/product-list.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>

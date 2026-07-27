@@ -1,0 +1,87 @@
+---
+title: "Billing Details"
+description: "Billing Order Summary rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="billing-order-summary-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/billing-order-summary
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/ecommerce/order-summary/billing-order-summary.tsx"
+    base="jsx-email"
+    title="components/email/billing-order-summary.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BillingOrderSummary } from "@/components/email/billing-order-summary";
+```
+
+```tsx
+<BillingOrderSummary billingPosition="top" appearance="plain" />
+```
+
+## Examples
+
+### Inline and bordered
+
+<ComponentPreview
+  base="jsx-email"
+  name="billing-order-summary-inline-and-bordered-example-demo"
+/>
+
+### Inline with notes
+
+<ComponentPreview
+  base="jsx-email"
+  name="billing-order-summary-inline-with-notes-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                          | Default           | Description                                 |
+| ----------------- | --------------------------------------------- | ----------------- | ------------------------------------------- |
+| `theme`           | `Parameters<typeof __BillingTop>[0]["theme"]` | Component default | Renderer theme configuration.               |
+| `payment`         | `boolean`                                     | `false`           | Shows the payment-method treatment.         |
+| `notes`           | `boolean`                                     | `false`           | Shows the notes treatment.                  |
+| `billingPosition` | `"top" \| "inline"`                           | `"top"`           | Positions billing details above or inline.  |
+| `appearance`      | `"plain" \| "bordered"`                       | `"plain"`         | Selects the plain or bordered presentation. |

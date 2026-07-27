@@ -1,0 +1,86 @@
+---
+title: "Finance Stats"
+description: "Header With Logo And Finance Stats rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-finance-stats-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/header-with-logo-and-finance-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/ui/marketing/headers/header-with-logo-and-finance-stats.tsx"
+    base="react-email"
+    title="components/email/header-with-logo-and-finance-stats.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/default.tsx"
+    base="react-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndFinanceStats } from "@/components/email/header-with-logo-and-finance-stats";
+```
+
+```tsx
+<HeaderWithLogoAndFinanceStats alignment="left" />
+```
+
+## Examples
+
+### Stats first
+
+<ComponentPreview
+  base="react-email"
+  name="header-with-logo-and-finance-stats-stats-first-example-demo"
+/>
+
+## API Reference
+
+| Prop                  | Type                                     | Default           | Description                                     |
+| --------------------- | ---------------------------------------- | ----------------- | ----------------------------------------------- |
+| `theme`               | `TailwindConfig`                         | Component default | Renderer theme configuration.                   |
+| `logoSrc`             | `string`                                 | Component default | Configures the component's logosrc.             |
+| `logoAlt`             | `string`                                 | Component default | Configures the component's logoalt.             |
+| `logoHref`            | `string`                                 | Component default | Configures the component's logohref.            |
+| `stats`               | `HeaderFinanceStat[]`                    | Component default | Configures the component's stats.               |
+| `alignment`           | `HeaderWithLogoAndFinanceStatsAlignment` | Component default | Configures the component's alignment.           |
+| `pageBackgroundColor` | `string`                                 | Component default | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                                 | Component default | Configures the component's backgroundcolor.     |

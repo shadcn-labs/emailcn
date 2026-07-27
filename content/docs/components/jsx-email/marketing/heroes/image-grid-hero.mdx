@@ -1,0 +1,88 @@
+---
+title: "Image Grid"
+description: "Image Grid Hero rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="image-grid-hero-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/image-grid-hero
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/ui/marketing/hero/image-grid-hero.tsx"
+    base="jsx-email"
+    title="components/email/image-grid-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/default.tsx"
+    base="jsx-email"
+    title="components/email/default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageGridHero } from "@/components/email/image-grid-hero";
+```
+
+```tsx
+<ImageGridHero imagePosition="bottom" offset={false} />
+```
+
+## Examples
+
+### Images on top
+
+<ComponentPreview
+  base="jsx-email"
+  name="image-grid-hero-images-on-top-example-demo"
+/>
+
+### Offset images
+
+<ComponentPreview
+  base="jsx-email"
+  name="image-grid-hero-offset-images-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                             | Default           | Description                               |
+| --------------- | ------------------------------------------------ | ----------------- | ----------------------------------------- |
+| `theme`         | `Parameters<typeof __ImageGridHero>[0]["theme"]` | Component default | Renderer theme configuration.             |
+| `content`       | `HeroContent`                                    | Component default | Configures the component's content.       |
+| `images`        | `HeroImage[]`                                    | Component default | Configures the component's images.        |
+| `brand`         | `HeroBrand`                                      | Component default | Configures the component's brand.         |
+| `imagePosition` | `"top" \| "bottom"`                              | Component default | Configures the component's imageposition. |
+| `offset`        | `boolean`                                        | Component default | Configures the component's offset.        |
