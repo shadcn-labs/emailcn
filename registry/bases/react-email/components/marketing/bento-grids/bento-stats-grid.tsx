@@ -20,7 +20,7 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
-const BENTO_CHART_ROOT = "https://emailcn.vercel.app/email-assets/bento-grids";
+const BENTO_CHART_ROOT = "https://emailcn.run/email-assets/bento-grids";
 
 type BentoImagePlacementVariant =
   | "image-top-right"

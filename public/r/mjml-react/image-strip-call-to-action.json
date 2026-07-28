@@ -8,7 +8,7 @@
     "mjml"
   ],
   "registryDependencies": [
-    "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+    "https://emailcn.run/r/mjml-react/theme-default.json"
   ],
   "files": [
     {

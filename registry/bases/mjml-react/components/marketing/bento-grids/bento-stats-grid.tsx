@@ -20,7 +20,7 @@ import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
 const TREND_CHART_URL =
-  "https://emailcn.vercel.app/email-assets/bento-grids/trend.png";
+  "https://emailcn.run/email-assets/bento-grids/trend.png";
 
 type BentoImagePlacementVariant =
   | "image-top-right"

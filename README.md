@@ -16,9 +16,9 @@
 </p>
 
 <p align="center">
-  <a href="https://emailcn.vercel.app/docs">Get Started</a> ·
-  <a href="https://emailcn.vercel.app/docs/installation">Installation</a> ·
-  <a href="https://emailcn.vercel.app/docs/components">Components</a>
+  <a href="https://emailcn.run/docs">Get Started</a> ·
+  <a href="https://emailcn.run/docs/installation">Installation</a> ·
+  <a href="https://emailcn.run/docs/components">Components</a>
 </p>
 
 ## Features

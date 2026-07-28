@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "homepage": "https://emailcn.vercel.app",
+  "homepage": "https://emailcn.run",
   "items": [
     {
       "categories": ["theme"],
@@ -377,8 +377,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -401,8 +401,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -425,8 +425,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -449,8 +449,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -473,8 +473,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -497,8 +497,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -521,8 +521,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -545,8 +545,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -569,8 +569,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -593,8 +593,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -617,8 +617,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -641,8 +641,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -665,8 +665,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -689,8 +689,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -713,8 +713,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -737,8 +737,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -761,8 +761,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -785,8 +785,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -809,8 +809,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -833,8 +833,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -857,8 +857,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -881,8 +881,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -905,8 +905,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -929,8 +929,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -953,8 +953,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -977,8 +977,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1001,8 +1001,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1025,8 +1025,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1044,8 +1044,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1068,8 +1068,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1092,8 +1092,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1116,8 +1116,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1140,8 +1140,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1164,8 +1164,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1188,8 +1188,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1212,8 +1212,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1236,8 +1236,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1260,8 +1260,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1284,8 +1284,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1308,8 +1308,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1332,8 +1332,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1356,8 +1356,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1380,8 +1380,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1404,8 +1404,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1428,8 +1428,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1452,8 +1452,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1476,8 +1476,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1500,8 +1500,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1524,8 +1524,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1548,8 +1548,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1572,8 +1572,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1591,8 +1591,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1615,8 +1615,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1639,8 +1639,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1663,8 +1663,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1682,8 +1682,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1706,8 +1706,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1725,8 +1725,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1749,8 +1749,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1773,8 +1773,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1797,8 +1797,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1821,8 +1821,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1845,8 +1845,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1869,8 +1869,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1893,8 +1893,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1912,8 +1912,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1931,8 +1931,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1950,8 +1950,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1969,8 +1969,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -1988,8 +1988,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2012,8 +2012,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2031,8 +2031,8 @@
       "type": "registry:component",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/default-fonts.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2055,7 +2055,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2078,7 +2078,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-raycast.json"
+        "https://emailcn.run/r/react-email/theme-raycast.json"
       ]
     },
     {
@@ -2101,7 +2101,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-stripe.json"
+        "https://emailcn.run/r/react-email/theme-stripe.json"
       ]
     },
     {
@@ -2124,7 +2124,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2147,7 +2147,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-twitch.json"
+        "https://emailcn.run/r/react-email/theme-twitch.json"
       ]
     },
     {
@@ -2170,7 +2170,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2193,7 +2193,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-dropbox.json"
+        "https://emailcn.run/r/react-email/theme-dropbox.json"
       ]
     },
     {
@@ -2216,7 +2216,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-notion.json"
+        "https://emailcn.run/r/react-email/theme-notion.json"
       ]
     },
     {
@@ -2239,7 +2239,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2262,7 +2262,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-vercel.json"
+        "https://emailcn.run/r/react-email/theme-vercel.json"
       ]
     },
     {
@@ -2285,8 +2285,8 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/content.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/content.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2309,8 +2309,8 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/content.json",
-        "https://emailcn.vercel.app/r/react-email/theme-stack-overflow.json"
+        "https://emailcn.run/r/react-email/content.json",
+        "https://emailcn.run/r/react-email/theme-stack-overflow.json"
       ]
     },
     {
@@ -2333,7 +2333,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-airbnb.json"
+        "https://emailcn.run/r/react-email/theme-airbnb.json"
       ]
     },
     {
@@ -2356,7 +2356,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2379,7 +2379,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-linear.json"
+        "https://emailcn.run/r/react-email/theme-linear.json"
       ]
     },
     {
@@ -2402,7 +2402,7 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/theme-slack.json"
+        "https://emailcn.run/r/react-email/theme-slack.json"
       ]
     },
     {
@@ -2425,11 +2425,11 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/call-to-action.json",
-        "https://emailcn.vercel.app/r/react-email/content.json",
-        "https://emailcn.vercel.app/r/react-email/navigation-footer.json",
-        "https://emailcn.vercel.app/r/react-email/split-hero.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/call-to-action.json",
+        "https://emailcn.run/r/react-email/content.json",
+        "https://emailcn.run/r/react-email/navigation-footer.json",
+        "https://emailcn.run/r/react-email/split-hero.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2452,12 +2452,12 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/call-to-action.json",
-        "https://emailcn.vercel.app/r/react-email/content.json",
-        "https://emailcn.vercel.app/r/react-email/header-with-logo-and-menu.json",
-        "https://emailcn.vercel.app/r/react-email/navigation-footer.json",
-        "https://emailcn.vercel.app/r/react-email/split-hero.json",
-        "https://emailcn.vercel.app/r/react-email/theme-linear.json"
+        "https://emailcn.run/r/react-email/call-to-action.json",
+        "https://emailcn.run/r/react-email/content.json",
+        "https://emailcn.run/r/react-email/header-with-logo-and-menu.json",
+        "https://emailcn.run/r/react-email/navigation-footer.json",
+        "https://emailcn.run/r/react-email/split-hero.json",
+        "https://emailcn.run/r/react-email/theme-linear.json"
       ]
     },
     {
@@ -2480,12 +2480,12 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/call-to-action.json",
-        "https://emailcn.vercel.app/r/react-email/content.json",
-        "https://emailcn.vercel.app/r/react-email/header-with-logo-and-menu.json",
-        "https://emailcn.vercel.app/r/react-email/navigation-footer.json",
-        "https://emailcn.vercel.app/r/react-email/split-hero.json",
-        "https://emailcn.vercel.app/r/react-email/theme-vercel.json"
+        "https://emailcn.run/r/react-email/call-to-action.json",
+        "https://emailcn.run/r/react-email/content.json",
+        "https://emailcn.run/r/react-email/header-with-logo-and-menu.json",
+        "https://emailcn.run/r/react-email/navigation-footer.json",
+        "https://emailcn.run/r/react-email/split-hero.json",
+        "https://emailcn.run/r/react-email/theme-vercel.json"
       ]
     },
     {
@@ -2508,8 +2508,8 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/product-list.json",
-        "https://emailcn.vercel.app/r/react-email/theme-apple.json"
+        "https://emailcn.run/r/react-email/product-list.json",
+        "https://emailcn.run/r/react-email/theme-apple.json"
       ]
     },
     {
@@ -2532,8 +2532,8 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/product-list.json",
-        "https://emailcn.vercel.app/r/react-email/theme-default.json"
+        "https://emailcn.run/r/react-email/product-list.json",
+        "https://emailcn.run/r/react-email/theme-default.json"
       ]
     },
     {
@@ -2556,8 +2556,8 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/product-list.json",
-        "https://emailcn.vercel.app/r/react-email/theme-nike.json"
+        "https://emailcn.run/r/react-email/product-list.json",
+        "https://emailcn.run/r/react-email/theme-nike.json"
       ]
     },
     {
@@ -2575,8 +2575,8 @@
       "type": "registry:block",
       "dependencies": ["react-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/react-email/product-list.json",
-        "https://emailcn.vercel.app/r/react-email/theme-stripe.json"
+        "https://emailcn.run/r/react-email/product-list.json",
+        "https://emailcn.run/r/react-email/theme-stripe.json"
       ]
     },
     {
@@ -2865,7 +2865,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2883,7 +2883,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2906,7 +2906,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2934,7 +2934,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2962,7 +2962,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -2990,7 +2990,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3018,7 +3018,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3046,7 +3046,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3069,7 +3069,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3092,7 +3092,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3115,7 +3115,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3138,7 +3138,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3161,7 +3161,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3184,7 +3184,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3207,7 +3207,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3230,7 +3230,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3253,7 +3253,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3276,7 +3276,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3299,7 +3299,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3322,7 +3322,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3345,7 +3345,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3368,7 +3368,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3391,7 +3391,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3414,7 +3414,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3432,7 +3432,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3455,7 +3455,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3478,7 +3478,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3501,7 +3501,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3519,7 +3519,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3542,7 +3542,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3565,7 +3565,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3588,7 +3588,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3611,7 +3611,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3634,7 +3634,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3657,7 +3657,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3680,7 +3680,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3703,7 +3703,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3726,7 +3726,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3749,7 +3749,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3772,7 +3772,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3795,7 +3795,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3818,7 +3818,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3841,7 +3841,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3864,7 +3864,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3887,7 +3887,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3910,7 +3910,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3933,7 +3933,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3956,7 +3956,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -3979,7 +3979,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4002,7 +4002,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4025,7 +4025,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4043,7 +4043,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4061,7 +4061,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4084,7 +4084,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4107,7 +4107,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4125,7 +4125,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4148,7 +4148,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4166,7 +4166,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4189,7 +4189,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4212,7 +4212,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4230,7 +4230,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4253,7 +4253,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4276,7 +4276,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4299,7 +4299,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4317,7 +4317,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4335,7 +4335,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4353,7 +4353,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4371,7 +4371,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4389,7 +4389,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4407,7 +4407,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4430,7 +4430,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4448,7 +4448,7 @@
       "type": "registry:component",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4471,7 +4471,7 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4494,8 +4494,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-raycast.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json",
+        "https://emailcn.run/r/mjml-react/theme-raycast.json"
       ]
     },
     {
@@ -4518,8 +4518,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-stripe.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json",
+        "https://emailcn.run/r/mjml-react/theme-stripe.json"
       ]
     },
     {
@@ -4542,8 +4542,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4566,8 +4566,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-twitch.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-twitch.json"
       ]
     },
     {
@@ -4590,8 +4590,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4614,8 +4614,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-dropbox.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-dropbox.json"
       ]
     },
     {
@@ -4638,8 +4638,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-notion.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-notion.json"
       ]
     },
     {
@@ -4657,7 +4657,7 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4680,8 +4680,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4704,8 +4704,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-vercel.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-vercel.json"
       ]
     },
     {
@@ -4728,8 +4728,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4752,8 +4752,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-stack-overflow.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-stack-overflow.json"
       ]
     },
     {
@@ -4776,8 +4776,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-airbnb.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-airbnb.json"
       ]
     },
     {
@@ -4800,8 +4800,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4824,8 +4824,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-linear.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-linear.json"
       ]
     },
     {
@@ -4848,8 +4848,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-slack.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-slack.json"
       ]
     },
     {
@@ -4872,8 +4872,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4896,8 +4896,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-linear.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-linear.json"
       ]
     },
     {
@@ -4920,8 +4920,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-vercel.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-vercel.json"
       ]
     },
     {
@@ -4944,8 +4944,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-apple.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-apple.json"
       ]
     },
     {
@@ -4968,8 +4968,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-default.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-default.json"
       ]
     },
     {
@@ -4992,8 +4992,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-nike.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-nike.json"
       ]
     },
     {
@@ -5011,8 +5011,8 @@
       "type": "registry:block",
       "dependencies": ["@faire/mjml-react", "mjml"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/mjml-react/block-shared.json",
-        "https://emailcn.vercel.app/r/mjml-react/theme-stripe.json"
+        "https://emailcn.run/r/mjml-react/block-shared.json",
+        "https://emailcn.run/r/mjml-react/theme-stripe.json"
       ]
     },
     {
@@ -5390,8 +5390,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5414,8 +5414,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5438,8 +5438,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5462,8 +5462,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5486,8 +5486,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5510,8 +5510,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5534,8 +5534,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5558,8 +5558,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5582,8 +5582,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5606,8 +5606,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5630,8 +5630,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5654,8 +5654,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5678,8 +5678,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5702,8 +5702,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5726,8 +5726,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5750,8 +5750,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5774,8 +5774,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5798,8 +5798,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5822,8 +5822,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5846,8 +5846,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5870,8 +5870,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5894,8 +5894,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5918,8 +5918,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5942,8 +5942,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5966,8 +5966,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -5990,8 +5990,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6014,8 +6014,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6038,8 +6038,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6057,8 +6057,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6081,8 +6081,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6105,8 +6105,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6129,8 +6129,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6153,8 +6153,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6177,8 +6177,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6201,8 +6201,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6225,8 +6225,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6249,8 +6249,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6273,8 +6273,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6297,8 +6297,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6321,8 +6321,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6345,8 +6345,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6369,8 +6369,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6393,8 +6393,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6417,8 +6417,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6441,8 +6441,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6465,8 +6465,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6489,8 +6489,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6513,8 +6513,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6537,8 +6537,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6561,8 +6561,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6585,8 +6585,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6604,8 +6604,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6628,8 +6628,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6652,8 +6652,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6676,8 +6676,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6695,8 +6695,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6719,8 +6719,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6738,8 +6738,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6762,8 +6762,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6786,8 +6786,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6810,8 +6810,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6834,8 +6834,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6858,8 +6858,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6882,8 +6882,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6906,8 +6906,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6925,8 +6925,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6944,8 +6944,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6963,8 +6963,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -6982,8 +6982,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7001,8 +7001,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7025,8 +7025,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7044,8 +7044,8 @@
       "type": "registry:component",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7068,8 +7068,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7092,8 +7092,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-raycast.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-raycast.json"
       ]
     },
     {
@@ -7116,8 +7116,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-stripe.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-stripe.json"
       ]
     },
     {
@@ -7140,8 +7140,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7164,8 +7164,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-twitch.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-twitch.json"
       ]
     },
     {
@@ -7188,8 +7188,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7212,8 +7212,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-dropbox.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-dropbox.json"
       ]
     },
     {
@@ -7236,8 +7236,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-notion.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-notion.json"
       ]
     },
     {
@@ -7260,8 +7260,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7284,8 +7284,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-vercel.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-vercel.json"
       ]
     },
     {
@@ -7308,7 +7308,7 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7331,8 +7331,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-stack-overflow.json"
+        "https://emailcn.run/r/jsx-email/theme-default.json",
+        "https://emailcn.run/r/jsx-email/theme-stack-overflow.json"
       ]
     },
     {
@@ -7355,7 +7355,7 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-airbnb.json"
+        "https://emailcn.run/r/jsx-email/theme-airbnb.json"
       ]
     },
     {
@@ -7378,7 +7378,7 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7401,7 +7401,7 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-linear.json"
+        "https://emailcn.run/r/jsx-email/theme-linear.json"
       ]
     },
     {
@@ -7424,7 +7424,7 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/theme-slack.json"
+        "https://emailcn.run/r/jsx-email/theme-slack.json"
       ]
     },
     {
@@ -7447,8 +7447,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7471,9 +7471,9 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-linear.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json",
+        "https://emailcn.run/r/jsx-email/theme-linear.json"
       ]
     },
     {
@@ -7496,9 +7496,9 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-vercel.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json",
+        "https://emailcn.run/r/jsx-email/theme-vercel.json"
       ]
     },
     {
@@ -7521,9 +7521,9 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-apple.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-apple.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7546,8 +7546,8 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json"
       ]
     },
     {
@@ -7570,9 +7570,9 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-nike.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json",
+        "https://emailcn.run/r/jsx-email/theme-nike.json"
       ]
     },
     {
@@ -7590,9 +7590,9 @@
       "type": "registry:block",
       "dependencies": ["jsx-email"],
       "registryDependencies": [
-        "https://emailcn.vercel.app/r/jsx-email/default-fonts.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-default.json",
-        "https://emailcn.vercel.app/r/jsx-email/theme-stripe.json"
+        "https://emailcn.run/r/jsx-email/default-fonts.json",
+        "https://emailcn.run/r/jsx-email/theme-default.json",
+        "https://emailcn.run/r/jsx-email/theme-stripe.json"
       ]
     }
   ],
