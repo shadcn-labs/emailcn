@@ -12,7 +12,9 @@ import {
   Text,
 } from "react-email";
 
-import { dropboxTheme } from "@/registry/bases/react-email/themes/dropbox";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { dropboxTheme } from "@/registry/themes/dropbox";
 
 interface Props {
   _logoUrl?: string;
@@ -33,7 +35,7 @@ export const AuthPasswordResetDropbox = ({
     <Html>
       <Head />
       <Preview>Reset your password</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -72,7 +74,7 @@ export const AuthPasswordResetDropbox = ({
 
 AuthPasswordResetDropbox.PreviewProps = {
   _logoAlt: "Dropbox",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Dropbox",
   expiresInMinutes: 60,
   resetHref: "https://example.com/reset?token=abc123",

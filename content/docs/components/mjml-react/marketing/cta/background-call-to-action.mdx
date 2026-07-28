@@ -1,0 +1,130 @@
+---
+title: "Background"
+description: "Background Call To Action rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="background-call-to-action-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/background-call-to-action
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/cta/background-call-to-action.tsx"
+    base="mjml-react"
+    title="components/email/background-call-to-action.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BackgroundCallToAction } from "@/components/email/background-call-to-action";
+```
+
+```tsx
+<BackgroundCallToAction width="flush" appearance="light" />
+```
+
+## Examples
+
+### CTA with background image
+
+#### flush
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-width-flush-appearance-light-example-demo"
+/>
+
+#### boxed
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-content-card-false-width-boxed-appearance-light-example-demo"
+/>
+
+#### padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-content-card-false-width-padded-appearance-light-example-demo"
+/>
+
+### Boxed CTA with background image
+
+#### flush light
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-content-card-width-flush-appearance-light-example-demo"
+/>
+
+#### flush dark
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-content-card-width-flush-appearance-dark-example-demo"
+/>
+
+#### padded light
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-content-card-width-padded-appearance-light-example-demo"
+/>
+
+#### padded dark
+
+<ComponentPreview
+  base="mjml-react"
+  name="background-call-to-action-content-card-width-padded-appearance-dark-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                     | Default                       | Description                                 |
+| ----------------- | ---------------------------------------- | ----------------------------- | ------------------------------------------- |
+| `theme`           | `EmailTheme`                             | `defaultTheme`                | Renderer theme configuration.               |
+| `heading`         | `string`                                 | `"Welcome to Your Workspace"` | Configures the component's heading.         |
+| `description`     | `string`                                 | -                             | Configures the component's description.     |
+| `emphasis`        | `string`                                 | -                             | Configures the component's emphasis.        |
+| `actions`         | `Array<{ href: string; label: string }>` | -                             | Configures the component's actions.         |
+| `backgroundImage` | `{ src: string; alt?: string }`          | -                             | Configures the component's backgroundimage. |
+| `width`           | `"flush" \| "boxed" \| "padded"`         | `"flush"`                     | Configures the component's width.           |
+| `contentCard`     | `boolean`                                | `false`                       | Configures the component's contentcard.     |
+| `appearance`      | `"light" \| "dark"`                      | `"light"`                     | Configures the component's appearance.      |

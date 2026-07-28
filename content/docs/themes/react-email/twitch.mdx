@@ -14,7 +14,7 @@ description: "Dark theme with purple accents for React Email."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/theme-twitch
+npx shadcn@latest add @emailcn/react-email/theme-twitch
 ```
 
 </TabsContent>
@@ -22,22 +22,24 @@ npx shadcn@latest add @emailcn/theme-twitch
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install react-email
+npm install react-email tailwindcss
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/twitch.ts"
-  title="components/emails/themes/twitch.ts"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/themes/twitch.ts"
+    base="react-email"
+    title="components/email/theme-twitch.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -48,7 +50,10 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { twitchTheme } from "@/components/emails/themes/twitch";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
+import { twitchTheme } from "@/components/email/theme-twitch";
 
-<Tailwind config={twitchTheme}>{/* Your email content */}</Tailwind>;
+<Tailwind config={createEmailTailwindConfig(twitchTheme)}>
+  {/* Your email content */}
+</Tailwind>;
 ```

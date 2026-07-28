@@ -1,54 +1,50 @@
-// MJML parity block — mirrored from react-email (notification-linear.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: [{issueNumber}] {_action} — {_targetName}
 
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
-import { linearTheme } from "@/registry/bases/mjml-react/themes/linear";
+import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
+import { linearTheme } from "@/registry/themes/linear";
 
-type Props = Record<string, never>;
+interface Props {
+  _logoUrl?: string;
+  actorName?: string;
+  _actorAvatarUrl?: string;
+  _action?: string;
+  _targetName?: string;
+  issueNumber?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  _productName?: string;
+}
 
-export const NotificationLinear = (_props: Props) => {
-  const theme: EmailThemeTokens = linearTheme;
+export const NotificationLinear = ({
+  actorName = "Someone",
+  _actorAvatarUrl,
+  _action = "commented",
+  _targetName = "your issue",
+  issueNumber = "123",
+  ctaLabel = "View Issue",
+  ctaHref = "#",
+}: Props) => (
+  <NotificationBlock
+    action={_action}
+    actorAvatarUrl={_actorAvatarUrl}
+    actorName={actorName}
+    ctaHref={ctaHref}
+    ctaLabel={ctaLabel}
+    heading={_targetName}
+    issueNumber={issueNumber}
+    theme={linearTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for notification-linear.tsx — replace
-                with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-NotificationLinear.PreviewProps = {} satisfies Props;
+NotificationLinear.PreviewProps = {
+  _action: "commented on",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
+  _productName: "Linear",
+  _targetName: "Bug in login flow",
+  actorName: "Sarah",
+  ctaHref: "https://linear.app/issue/42",
+  ctaLabel: "View Issue",
+  issueNumber: "42",
+} satisfies Props;

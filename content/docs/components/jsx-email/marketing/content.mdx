@@ -1,62 +1,13 @@
 ---
 title: "Content"
-description: "Title and paragraph content blocks with one or two columns, optional icons, and padding control."
+description: "Content rendered with email-safe, renderer-native components."
 ---
 
-One `Content` component covers titles and paragraphs. Choose `type`, set
-`columns` to `1` or `2`, toggle `withIcons` for icon-topped columns, and pick a
-`padding` size.
-
-## Examples
-
-### Title
-
-<ComponentPreview base="jsx-email" name="title-with-regular-padding-demo" />
-
-### Title with Large Padding
-
-<ComponentPreview base="jsx-email" name="title-with-large-padding-demo" />
-
-### Paragraph
-
-<ComponentPreview base="jsx-email" name="paragraph-with-regular-padding-demo" />
-
-### Paragraph with Large Padding
-
-<ComponentPreview base="jsx-email" name="paragraph-with-large-padding-demo" />
-
-### Two Columns
-
-<ComponentPreview
-  base="jsx-email"
-  name="paragraph-2-columns-with-regular-padding-demo"
-/>
-
-### Two Columns with Large Padding
-
-<ComponentPreview
-  base="jsx-email"
-  name="paragraph-2-columns-with-large-padding-demo"
-/>
-
-### Two Columns with Icons
-
-<ComponentPreview
-  base="jsx-email"
-  name="paragraph-2-columns-with-icons-and-regular-padding-demo"
-/>
-
-### Two Columns with Icons and Large Padding
-
-<ComponentPreview
-  base="jsx-email"
-  name="paragraph-2-columns-with-icons-and-large-padding-demo"
-/>
+<ComponentPreview base="jsx-email" name="content-demo" />
 
 ## Installation
 
 <CodeTabs>
-
 <TabsList>
   <TabsTrigger value="cli">Command</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -64,67 +15,424 @@ One `Content` component covers titles and paragraphs. Choose `type`, set
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/content
+npx shadcn@latest add @emailcn/jsx-email/content
 ```
 
 </TabsContent>
-
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
-
-<ComponentSource
-  src="registry/bases/jsx-email/ui/marketing/content/content.tsx"
-  base="jsx-email"
-  title="components/emails/marketing/content/content.tsx"
-/>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/content/content.tsx"
+    base="jsx-email"
+    title="components/email/content.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
-
 </CodeTabs>
 
 ## Usage
 
 ```tsx
-import { Content } from "@/components/emails/marketing/content/content";
+import { Content } from "@/components/email/content";
 ```
 
 ```tsx
-<Content type="title" title="Section Title" />
-<Content type="paragraph" text="A single column of body copy." />
-<Content type="paragraph" columns={2} column1="Left" column2="Right" />
-<Content
-  type="paragraph"
-  columns={2}
-  withIcons
-  iconSrc1="/icon-1.png"
-  iconSrc2="/icon-2.png"
-  column1="Left"
-  column2="Right"
-/>
+<Content alignment="center" layout="title" padding="regular" variant="small" />
 ```
+
+## Examples
+
+### Title with regular padding
+
+#### Left small
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-regular-alignment-left-variant-small-example-demo"
+/>
+
+#### Left large
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-regular-alignment-left-variant-large-example-demo"
+/>
+
+#### Centered small
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-alignment-center-layout-title-padding-regular-variant-small-example-demo"
+/>
+
+#### Centered large
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-regular-alignment-center-variant-large-example-demo"
+/>
+
+#### Right small
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-regular-alignment-right-variant-small-example-demo"
+/>
+
+#### Right large
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-regular-alignment-right-variant-large-example-demo"
+/>
+
+### Title with large padding
+
+#### Left small
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-large-alignment-left-variant-small-example-demo"
+/>
+
+#### Left large
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-large-alignment-left-variant-large-example-demo"
+/>
+
+#### Centered small
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-large-alignment-center-variant-small-example-demo"
+/>
+
+#### Centered large
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-large-alignment-center-variant-large-example-demo"
+/>
+
+#### Right small
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-large-alignment-right-variant-small-example-demo"
+/>
+
+#### Right large
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-title-padding-large-alignment-right-variant-large-example-demo"
+/>
+
+### Paragraph with regular padding
+
+#### Lead left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-regular-alignment-left-variant-lead-example-demo"
+/>
+
+#### Body left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-regular-alignment-left-variant-body-example-demo"
+/>
+
+#### Lead centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-regular-alignment-center-variant-lead-example-demo"
+/>
+
+#### Body centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-regular-alignment-center-variant-body-example-demo"
+/>
+
+#### Lead right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-regular-alignment-right-variant-lead-example-demo"
+/>
+
+#### Body right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-regular-alignment-right-variant-body-example-demo"
+/>
+
+### Paragraph with large padding
+
+#### Lead left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-large-alignment-left-variant-lead-example-demo"
+/>
+
+#### Body left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-large-alignment-left-variant-body-example-demo"
+/>
+
+#### Lead centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-large-alignment-center-variant-lead-example-demo"
+/>
+
+#### Body centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-large-alignment-center-variant-body-example-demo"
+/>
+
+#### Lead right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-large-alignment-right-variant-lead-example-demo"
+/>
+
+#### Body right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-paragraph-padding-large-alignment-right-variant-body-example-demo"
+/>
+
+### Paragraph 2 columns with regular padding
+
+#### Lead left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-regular-alignment-left-variant-lead-example-demo"
+/>
+
+#### Body left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-regular-alignment-left-variant-body-example-demo"
+/>
+
+#### Lead centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-regular-alignment-center-variant-lead-example-demo"
+/>
+
+#### Body centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-regular-alignment-center-variant-body-example-demo"
+/>
+
+#### Lead right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-regular-alignment-right-variant-lead-example-demo"
+/>
+
+#### Body right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-regular-alignment-right-variant-body-example-demo"
+/>
+
+### Paragraph 2 columns with large padding
+
+#### Lead left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-large-alignment-left-variant-lead-example-demo"
+/>
+
+#### Body left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-large-alignment-left-variant-body-example-demo"
+/>
+
+#### Lead centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-large-alignment-center-variant-lead-example-demo"
+/>
+
+#### Body centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-large-alignment-center-variant-body-example-demo"
+/>
+
+#### Lead right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-large-alignment-right-variant-lead-example-demo"
+/>
+
+#### Body right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-padding-large-alignment-right-variant-body-example-demo"
+/>
+
+### Paragraph 2 columns with icons and regular padding
+
+#### Lead left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-regular-alignment-left-variant-lead-example-demo"
+/>
+
+#### Body left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-regular-alignment-left-variant-body-example-demo"
+/>
+
+#### Lead centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-regular-alignment-center-variant-lead-example-demo"
+/>
+
+#### Body centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-regular-alignment-center-variant-body-example-demo"
+/>
+
+#### Lead right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-regular-alignment-right-variant-lead-example-demo"
+/>
+
+#### Body right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-regular-alignment-right-variant-body-example-demo"
+/>
+
+### Paragraph 2 columns with icons and large padding
+
+#### Lead left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-large-alignment-left-variant-lead-example-demo"
+/>
+
+#### Body left
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-large-alignment-left-variant-body-example-demo"
+/>
+
+#### Lead centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-large-alignment-center-variant-lead-example-demo"
+/>
+
+#### Body centered
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-large-alignment-center-variant-body-example-demo"
+/>
+
+#### Lead right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-large-alignment-right-variant-lead-example-demo"
+/>
+
+#### Body right
+
+<ComponentPreview
+  base="jsx-email"
+  name="content-layout-two-columns-with-icons-padding-large-alignment-right-variant-body-example-demo"
+/>
 
 ## API Reference
 
-| Prop                    | Type                     | Default        | Description                                |
-| ----------------------- | ------------------------ | -------------- | ------------------------------------------ |
-| `type`                  | `"title" \| "paragraph"` | `"paragraph"`  | Content style                              |
-| `columns`               | `1 \| 2`                 | `1`            | Column count (paragraph only)              |
-| `withIcons`             | `boolean`                | `false`        | Show an icon above each column (2 columns) |
-| `padding`               | `"regular" \| "large"`   | `"regular"`    | Vertical padding                           |
-| `title`                 | `string`                 | -              | Heading text (when `type="title"`)         |
-| `text`                  | `string`                 | -              | Body text (single column)                  |
-| `column1` / `column2`   | `string`                 | -              | Column text (when `columns={2}`)           |
-| `iconSrc1` / `iconAlt1` | `string`                 | -              | First column icon (when `withIcons`)       |
-| `iconSrc2` / `iconAlt2` | `string`                 | -              | Second column icon (when `withIcons`)      |
-| `theme`                 | `EmailThemeTokens`       | `defaultTheme` | Email theme styling                        |
+| Prop        | Type                                                                  | Default                                                                         | Description                                                   |
+| ----------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `theme`     | `EmailTheme`                                                          | `defaultTheme`                                                                  | Renderer theme configuration.                                 |
+| `layout`    | `"title" \| "paragraph" \| "two-columns" \| "two-columns-with-icons"` | `"paragraph"`                                                                   | Selects one of the four structural content layouts.           |
+| `padding`   | `"regular" \| "large"`                                                | `"regular"`                                                                     | Uses 24px or 64px horizontal padding.                         |
+| `alignment` | `"left" \| "center" \| "right"`                                       | `"center"`                                                                      | Aligns the title, paragraph, columns, and optional icons.     |
+| `variant`   | `"small" \| "large" \| "lead" \| "body"`                              | `"lead"` for paragraph layouts; `"small"` for title                             | Selects the valid typography treatment for the chosen layout. |
+| `title`     | `string`                                                              | `"Stay in the loop by following us across our social channels."`                | Title-layout text.                                            |
+| `text`      | `string`                                                              | `"Lead text introduces the reader to the key message of an email..."`           | Single-paragraph text.                                        |
+| `column1`   | `string`                                                              | `"A brief introduction that highlights the key idea in a clear, engaging way."` | First column text.                                            |
+| `column2`   | `string`                                                              | `"A brief introduction that highlights the key idea in a clear, engaging way."` | Second column text.                                           |
+| `iconSrc1`  | `string`                                                              | `"https://cdn.simpleicons.org/github/111827"`                                   | First icon source for the icon layout.                        |
+| `iconAlt1`  | `string`                                                              | `"GitHub"`                                                                      | First icon alternative text.                                  |
+| `iconSrc2`  | `string`                                                              | `"https://cdn.simpleicons.org/slack/4A154B"`                                    | Second icon source for the icon layout.                       |
+| `iconAlt2`  | `string`                                                              | `"Slack"`                                                                       | Second icon alternative text.                                 |

@@ -1,0 +1,109 @@
+---
+title: "Image Grid"
+description: "Image Grid Hero rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="react-email" name="image-grid-hero-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/react-email/image-grid-hero
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install react-email tailwindcss
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/components/marketing/hero/image-grid-hero.tsx"
+    base="react-email"
+    title="components/email/image-grid-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-default.tsx"
+    base="react-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageGridHero } from "@/components/email/image-grid-hero";
+```
+
+```tsx
+<ImageGridHero imagePosition="bottom" offset={false} />
+```
+
+## Examples
+
+### Hero with image grid
+
+#### images bottom
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-hero-image-position-bottom-offset-false-example-demo"
+/>
+
+#### images top
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-hero-image-position-top-offset-false-example-demo"
+/>
+
+#### offset images bottom
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-hero-image-position-bottom-offset-example-demo"
+/>
+
+#### offset images top
+
+<ComponentPreview
+  base="react-email"
+  name="image-grid-hero-image-position-top-offset-example-demo"
+/>
+
+## API Reference
+
+| Prop            | Type                                                                                                                                                                     | Default        | Description                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------------------------------------- |
+| `theme`         | `EmailTheme`                                                                                                                                                             | `defaultTheme` | Renderer theme configuration.             |
+| `content`       | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }` | -              | Configures the component's content.       |
+| `images`        | `Array<{ src: string; alt?: string }>`                                                                                                                                   | -              | Configures the component's images.        |
+| `brand`         | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                 | -              | Configures the component's brand.         |
+| `imagePosition` | `"top" \| "bottom"`                                                                                                                                                      | `"bottom"`     | Configures the component's imageposition. |
+| `offset`        | `boolean`                                                                                                                                                                | `false`        | Configures the component's offset.        |

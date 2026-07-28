@@ -1,0 +1,5 @@
+import { Testimonial } from "@/registry/bases/react-email/components/marketing/testimonials/testimonial";
+
+export default function TestimonialLayoutSplitPlacementRightExampleDemo() {
+  return <Testimonial layout="split" placement="right" />;
+}

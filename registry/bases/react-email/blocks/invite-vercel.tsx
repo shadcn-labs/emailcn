@@ -15,7 +15,9 @@ import {
   Text,
 } from "react-email";
 
-import { vercelTheme } from "@/registry/bases/react-email/themes/vercel";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { vercelTheme } from "@/registry/themes/vercel";
 
 interface Props {
   inviterName?: string;
@@ -38,7 +40,7 @@ export const InviteVercel = ({
     <Html>
       <Head />
       <Preview>You&apos;re invited to join {teamName}</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -99,8 +101,7 @@ export const InviteVercel = ({
 InviteVercel.PreviewProps = {
   ctaHref: "https://vercel.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
+  inviterAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   inviterName: "Sarah",
   teamName: "Vercel",
 } satisfies Props;

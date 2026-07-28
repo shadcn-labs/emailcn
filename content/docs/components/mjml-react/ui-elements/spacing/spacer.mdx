@@ -1,0 +1,84 @@
+---
+title: "Spacer"
+description: "Spacer rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="spacer-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/spacer
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ui-elements/spacing/spacer.tsx"
+    base="mjml-react"
+    title="components/email/spacer.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Spacer } from "@/components/email/spacer";
+```
+
+```tsx
+<Spacer height={64} />
+```
+
+## Examples
+
+### Vertical spacer
+
+#### 24px
+
+<ComponentPreview base="mjml-react" name="spacer-height-24-example-demo" />
+
+#### 48px
+
+<ComponentPreview base="mjml-react" name="spacer-height-48-example-demo" />
+
+#### 64px
+
+<ComponentPreview base="mjml-react" name="spacer-height-64-example-demo" />
+
+## API Reference
+
+| Prop     | Type         | Default        | Description                        |
+| -------- | ------------ | -------------- | ---------------------------------- |
+| `theme`  | `EmailTheme` | `defaultTheme` | Renderer theme configuration.      |
+| `height` | `number`     | `24`           | Configures the component's height. |

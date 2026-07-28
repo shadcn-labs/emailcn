@@ -1,12 +1,11 @@
 {
-  "title": "CTA Banner",
+  "title": "Cta",
   "pages": [
-    "boxed-with-background-image",
-    "background-image",
-    "image-strip",
-    "shifted-images",
-    "team-avatars",
-    "title-action-lead",
-    "top-large-image"
+    "call-to-action",
+    "background-call-to-action",
+    "top-image-call-to-action",
+    "image-strip-call-to-action",
+    "collage-call-to-action",
+    "avatar-call-to-action"
   ]
 }

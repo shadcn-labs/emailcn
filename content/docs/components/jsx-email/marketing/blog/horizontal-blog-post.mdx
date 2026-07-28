@@ -1,0 +1,104 @@
+---
+title: "Horizontal Post"
+description: "Horizontal Blog Post rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="horizontal-blog-post-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/horizontal-blog-post
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/blog/horizontal-blog-post.tsx"
+    base="jsx-email"
+    title="components/email/horizontal-blog-post.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HorizontalBlogPost } from "@/components/email/horizontal-blog-post";
+```
+
+```tsx
+<HorizontalBlogPost surface="plain" media="single" />
+```
+
+## Examples
+
+### Single post horizontal
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="horizontal-blog-post-surface-plain-media-single-example-demo"
+/>
+
+### Blog post horizontal boxed
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="horizontal-blog-post-surface-boxed-media-single-example-demo"
+/>
+
+### Blog post horizontal boxed with split images
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="horizontal-blog-post-surface-boxed-media-split-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                                                                                                                                          | Default        | Description                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailTheme`                                                                                                                                                                  | `defaultTheme` | Renderer theme configuration.       |
+| `post`    | `{ title: string; excerpt?: string; image?: { alt?: string; src: string }; author?: string; badge?: string; date?: string; month?: string; episode?: string; host?: string }` | -              | Configures the component's post.    |
+| `surface` | `"plain" \| "boxed"`                                                                                                                                                          | `"plain"`      | Configures the component's surface. |
+| `media`   | `"single" \| "split"`                                                                                                                                                         | `"single"`     | Configures the component's media.   |

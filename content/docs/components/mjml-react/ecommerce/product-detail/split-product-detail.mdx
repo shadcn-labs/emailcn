@@ -1,75 +1,9 @@
 ---
-title: "Split Product Detail"
-description: "Split Product Detail with every Mailviews layout variant."
+title: "Split"
+description: "Split Product Detail rendered with email-safe, renderer-native components."
 ---
 
-This public component matches the corresponding Mailviews family. Its placement and rating changes are typed variants backed by the shared Product Detail layout core.
-
-## Examples
-
-### Stacked Left
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="stacked-left"
-/>
-
-### Stacked Right
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="stacked-right"
-/>
-
-### Image Left
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="image-left"
-/>
-
-### Image Right
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="image-right"
-/>
-
-### Rating Left
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="rating-left"
-/>
-
-### Rating Right
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="rating-right"
-/>
-
-### Bleed Left
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="bleed-left"
-/>
-
-### Bleed Right
-
-<ComponentPreview
-  base="mjml-react"
-  name="split-product-detail-demo"
-  variant="bleed-right"
-/>
+<ComponentPreview base="mjml-react" name="split-product-detail-demo" />
 
 ## Installation
 
@@ -81,19 +15,36 @@ This public component matches the corresponding Mailviews family. Its placement 
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/split-product-detail
+npx shadcn@latest add @emailcn/mjml-react/split-product-detail
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/mjml-react/ui/ecommerce/product-detail/split-product-detail.tsx"
+    src="registry/bases/mjml-react/components/ecommerce/product-detail/split-product-detail.tsx"
     base="mjml-react"
-    title="components/emails/ecommerce/product-detail/split-product-detail.tsx"
+    title="components/email/split-product-detail.tsx"
   />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -102,19 +53,79 @@ npx shadcn@latest add @emailcn/split-product-detail
 ## Usage
 
 ```tsx
-import { SplitProductDetail } from "@/components/emails/ecommerce/product-detail/split-product-detail";
+import { SplitProductDetail } from "@/components/email/split-product-detail";
 ```
 
 ```tsx
-<SplitProductDetail
-  {...SplitProductDetail.PreviewProps}
-  variant="stacked-left"
-/>
+<SplitProductDetail treatment="stacked" placement="left" />
 ```
+
+## Examples
+
+### Split product detail
+
+#### stacked left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-stacked-placement-left-example-demo"
+/>
+
+#### stacked right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-stacked-placement-right-example-demo"
+/>
+
+#### side left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-side-placement-left-example-demo"
+/>
+
+#### side right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-side-placement-right-example-demo"
+/>
+
+#### rating left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-rating-placement-left-example-demo"
+/>
+
+#### rating right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-rating-placement-right-example-demo"
+/>
+
+#### bleed left
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-bleed-placement-left-example-demo"
+/>
+
+#### bleed right
+
+<ComponentPreview
+  base="mjml-react"
+  name="split-product-detail-treatment-bleed-placement-right-example-demo"
+/>
 
 ## API Reference
 
-| Prop      | Type                                                                                                                                     | Default          | Description              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------ |
-| `variant` | `"stacked-left" \| "stacked-right" \| "image-left" \| "image-right" \| "rating-left" \| "rating-right" \| "bleed-left" \| "bleed-right"` | `"stacked-left"` | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`                                                                                                                       | `defaultTheme`   | Email theme styling      |
+| Prop        | Type                                                                                                                                                     | Default        | Description                           |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------- |
+| `theme`     | `EmailTheme`                                                                                                                                             | `defaultTheme` | Renderer theme configuration.         |
+| `product`   | `{ name?: string; price?: string; description?: string; features?: string[]; colors?: string[]; sizes?: string[]; ctaLabel?: string; ctaHref?: string }` | -              | Configures the component's product.   |
+| `images`    | `Array<{ src: string; alt?: string }>`                                                                                                                   | -              | Configures the component's images.    |
+| `treatment` | `"stacked" \| "side" \| "rating" \| "bleed"`                                                                                                             | `"stacked"`    | Configures the component's treatment. |
+| `placement` | `"left" \| "right"`                                                                                                                                      | `"left"`       | Configures the component's placement. |

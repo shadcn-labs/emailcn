@@ -1,0 +1,95 @@
+---
+title: "Badge"
+description: "Header With Logo And Badge rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="header-with-logo-and-badge-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/header-with-logo-and-badge
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-badge.tsx"
+    base="mjml-react"
+    title="components/email/header-with-logo-and-badge.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndBadge } from "@/components/email/header-with-logo-and-badge";
+```
+
+```tsx
+<HeaderWithLogoAndBadge alignment="left" />
+```
+
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-badge-centered-example-demo"
+/>
+
+### Right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-badge-alignment-right-example-demo"
+/>
+
+## API Reference
+
+| Prop                   | Type                            | Default                                                                   | Description                                      |
+| ---------------------- | ------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------ |
+| `theme`                | `EmailTheme`                    | `defaultTheme`                                                            | Renderer theme configuration.                    |
+| `logoSrc`              | `string`                        | `"https://placehold.co/320x96/0F766E/FFFFFF.png?text=Maizzle%20Insignia"` | Configures the component's logosrc.              |
+| `logoAlt`              | `string`                        | `"Maizzle"`                                                               | Configures the component's logoalt.              |
+| `logoHref`             | `string`                        | `"https://example.com"`                                                   | Configures the component's logohref.             |
+| `badgeLabel`           | `string`                        | `"FREE SHIPPING"`                                                         | Configures the component's badgelabel.           |
+| `message`              | `string`                        | `"On orders over $65"`                                                    | Configures the component's message.              |
+| `alignment`            | `"left" \| "center" \| "right"` | `"left"`                                                                  | Configures the component's alignment.            |
+| `pageBackgroundColor`  | `string`                        | `"#f1f5f9"`                                                               | Configures the component's pagebackgroundcolor.  |
+| `backgroundColor`      | `string`                        | `"#fffffe"`                                                               | Configures the component's backgroundcolor.      |
+| `badgeBackgroundColor` | `string`                        | `"#eff6ff"`                                                               | Configures the component's badgebackgroundcolor. |
+| `badgeBorderColor`     | `string`                        | `"#dbeafe"`                                                               | Configures the component's badgebordercolor.     |
+| `badgeColor`           | `string`                        | `"#2563eb"`                                                               | Configures the component's badgecolor.           |
+| `badgeTextColor`       | `string`                        | `"#4b5563"`                                                               | Configures the component's badgetextcolor.       |

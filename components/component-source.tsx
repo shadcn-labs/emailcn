@@ -72,7 +72,7 @@ export const ComponentSource = async ({
     return null;
   }
 
-  code = await formatCode(code);
+  code = await formatCode(code, src);
   code = code.replaceAll(
     "/* eslint-disable no-nested-ternary, no-unused-vars, complexity, no-negated-condition, no-empty-pattern */\n",
     ""

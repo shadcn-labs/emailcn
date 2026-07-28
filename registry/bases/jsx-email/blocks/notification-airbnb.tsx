@@ -12,7 +12,8 @@ import {
   Text,
 } from "jsx-email";
 
-import { airbnbTheme } from "@/registry/bases/jsx-email/themes/airbnb";
+import { emailAsset } from "@/registry/email-assets";
+import { airbnbTheme } from "@/registry/themes/airbnb";
 
 interface Props {
   _logoUrl?: string;
@@ -124,8 +125,8 @@ export const NotificationAirbnb = ({
 
 NotificationAirbnb.PreviewProps = {
   _action: "completed their stay",
-  _actorAvatarUrl: "https://example.com/avatar.jpg",
-  _logoUrl: "https://example.com/logo.png",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Airbnb",
   _targetName: "your place",
   actorName: "John",

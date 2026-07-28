@@ -15,7 +15,9 @@ import {
   Text,
 } from "react-email";
 
-import { defaultTheme } from "@/registry/bases/react-email/themes/default";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -42,7 +44,7 @@ export const NotificationDefault = ({
     <Html>
       <Head />
       <Preview>New notification</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -90,9 +92,8 @@ export const NotificationDefault = ({
 
 NotificationDefault.PreviewProps = {
   _action: "commented on your post",
-  _actorAvatarUrl:
-    "https://api.dicebear.com/9.x/lorelei/png?seed=preview-avatar-1&size=128",
-  _logoUrl: "https://static.photos/business/320x80/3",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
   _productName: "Acme",
   _targetName: "New comment on your project",
   actorName: "Sarah",

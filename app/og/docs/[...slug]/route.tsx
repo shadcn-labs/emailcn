@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 
 import { LogoMark } from "@/components/logo";
+import { isHiddenDocPath, isHiddenDocUrl } from "@/lib/docs";
 import { getPageImage, source } from "@/lib/source";
 
 export const revalidate = false;
@@ -11,7 +12,12 @@ export const GET = async (
   { params }: RouteContext<"/og/docs/[...slug]">
 ) => {
   const { slug } = await params;
-  const page = source.getPage(slug.slice(0, -1));
+  const pageSlug = slug.slice(0, -1);
+  if (isHiddenDocPath(pageSlug)) {
+    notFound();
+  }
+
+  const page = source.getPage(pageSlug);
   if (!page) {
     notFound();
   }
@@ -58,7 +64,10 @@ export const GET = async (
 };
 
 export const generateStaticParams = () =>
-  source.getPages().map((page) => ({
-    lang: page.locale,
-    slug: getPageImage(page).segments,
-  }));
+  source
+    .getPages()
+    .filter((page) => !isHiddenDocUrl(page.url))
+    .map((page) => ({
+      lang: page.locale,
+      slug: getPageImage(page).segments,
+    }));

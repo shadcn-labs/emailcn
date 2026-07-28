@@ -18,11 +18,13 @@ export const SITE = {
     TWITTER: "@alaymanguy",
   },
   DESCRIPTION: {
-    LONG: "A collection of beautifully designed, accessible, and customizable email components. Built on React Email. Works with shadcn/ui.",
+    LONG: "A collection of beautifully designed, accessible, and customizable email components for React Email, MJML React, and JSX Email. Works with shadcn/ui.",
     SHORT: "Beautiful emails, made simple",
   },
   KEYWORDS: [
     "react-email",
+    "mjml-react",
+    "jsx-email",
     "shadcn",
     "email components",
     "transactional email",

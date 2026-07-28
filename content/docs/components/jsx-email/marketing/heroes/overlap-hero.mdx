@@ -1,0 +1,136 @@
+---
+title: "Overlap"
+description: "Overlap Hero rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="overlap-hero-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/overlap-hero
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/hero/overlap-hero.tsx"
+    base="jsx-email"
+    title="components/email/overlap-hero.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { OverlapHero } from "@/components/email/overlap-hero";
+```
+
+```tsx
+<OverlapHero target="content" direction="left" />
+```
+
+## Examples
+
+### Hero with overlapped content
+
+#### basic
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-content-direction-left-example-demo"
+/>
+
+#### basic-with-gradient
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-content-variant-basic-with-gradient-example-demo"
+/>
+
+#### reversed
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-content-variant-reversed-example-demo"
+/>
+
+#### reversed-with-gradient
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-content-variant-reversed-with-gradient-example-demo"
+/>
+
+### Hero with overlapped image
+
+#### default
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-image-variant-default-example-demo"
+/>
+
+#### slanted-left
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-image-variant-slanted-left-example-demo"
+/>
+
+#### slanted-right
+
+<ComponentPreview
+  base="jsx-email"
+  name="overlap-hero-target-image-variant-slanted-right-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                                                                                                                                     | Default                      | Description                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | ------------------------------------------------ |
+| `theme`           | `EmailTheme`                                                                                                                                                             | `defaultTheme`               | Renderer theme configuration.                    |
+| `content`         | `{ eyebrow?: string; heading?: string; emphasis?: string; subheading?: string; description?: string; price?: string; actions?: Array<{ href: string; label: string }> }` | -                            | Configures the component's content.              |
+| `images`          | `Array<{ src: string; alt?: string }>`                                                                                                                                   | -                            | Configures the component's images.               |
+| `backgroundImage` | `{ src: string; alt?: string }`                                                                                                                                          | -                            | Configures the component's backgroundimage.      |
+| `brand`           | `{ logo: { src: string; alt?: string }; href?: string }`                                                                                                                 | -                            | Configures the component's brand.                |
+| `target`          | `"content" \| "image"`                                                                                                                                                   | `"content"`                  | Configures the component's target.               |
+| `direction`       | `"left" \| "right"`                                                                                                                                                      | `"left"`                     | Configures the component's direction.            |
+| `gradient`        | `boolean`                                                                                                                                                                | `false`                      | Configures the component's gradient.             |
+| `slanted`         | `boolean`                                                                                                                                                                | `false`                      | Configures the component's slanted.              |
+| `variant`         | `"basic" \| "reversed" \| "basic-with-gradient" \| "reversed-with-gradient" \| "default" \| "slanted-left" \| "slanted-right"`                                           | Derived from the other props | Selects an exact legacy composition when needed. |

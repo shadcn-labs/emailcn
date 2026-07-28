@@ -12,8 +12,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { raycastTheme } from "@/registry/bases/jsx-email/themes/raycast";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { raycastTheme } from "@/registry/themes/raycast";
 
 interface Props {
   _logoUrl?: string;
@@ -122,7 +123,7 @@ export const AuthMagicLinkRaycast = ({
 
 AuthMagicLinkRaycast.PreviewProps = {
   _logoAlt: "Raycast",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Raycast",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

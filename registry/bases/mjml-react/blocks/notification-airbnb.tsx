@@ -1,54 +1,45 @@
-// MJML parity block — mirrored from react-email (notification-airbnb.tsx)
-import {
-  Mjml,
-  MjmlAll,
-  MjmlAttributes,
-  MjmlBody,
-  MjmlColumn,
-  MjmlHead,
-  MjmlPreview,
-  MjmlSection,
-  MjmlText,
-  MjmlWrapper,
-} from "@faire/mjml-react";
+// Subject: Share your experience at {_targetName}
 
-import { airbnbTheme } from "@/registry/bases/mjml-react/themes/airbnb";
-import type { EmailThemeTokens } from "@/registry/bases/mjml-react/themes/default";
+import { NotificationBlock } from "@/registry/bases/mjml-react/blocks/block-shared";
+import { emailAsset } from "@/registry/email-assets";
+import { airbnbTheme } from "@/registry/themes/airbnb";
 
-type Props = Record<string, never>;
+interface Props {
+  _logoUrl?: string;
+  actorName?: string;
+  _actorAvatarUrl?: string;
+  _action?: string;
+  _targetName?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  _productName?: string;
+}
 
-export const NotificationAirbnb = (_props: Props) => {
-  const theme: EmailThemeTokens = airbnbTheme;
+export const NotificationAirbnb = ({
+  actorName = "Host",
+  _targetName = "your place",
+  ctaLabel = "Leave a Review",
+  ctaHref = "#",
+}: Props) => (
+  <NotificationBlock
+    actorName={actorName}
+    body="Your review helps other travelers and supports your host."
+    ctaHref={ctaHref}
+    ctaLabel={ctaLabel}
+    heading="How was your trip?"
+    preview="Share your experience"
+    targetName={`${actorName} recently stayed at ${_targetName}, and we’d love to hear about their experience.`}
+    theme={airbnbTheme}
+  />
+);
 
-  return (
-    <Mjml>
-      <MjmlHead>
-        <MjmlPreview>Email preview</MjmlPreview>
-        <MjmlAttributes>
-          <MjmlAll color={theme.colorText} fontFamily={theme.fontFamily} />
-          <MjmlText
-            fontSize={theme.fontSizeBase}
-            lineHeight={theme.lineHeightBase}
-          />
-        </MjmlAttributes>
-      </MjmlHead>
-      <MjmlBody
-        backgroundColor={theme.colorBackground}
-        width={theme.containerWidth}
-      >
-        <MjmlWrapper padding="0">
-          <MjmlSection padding={`${theme.spacingXl ?? "24px"} 0`}>
-            <MjmlColumn>
-              <MjmlText color={theme.colorText} fontFamily={theme.fontFamily}>
-                MJML parity placeholder for notification-airbnb.tsx — replace
-                with full markup.
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
-        </MjmlWrapper>
-      </MjmlBody>
-    </Mjml>
-  );
-};
-
-NotificationAirbnb.PreviewProps = {} satisfies Props;
+NotificationAirbnb.PreviewProps = {
+  _action: "completed their stay",
+  _actorAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
+  _logoUrl: emailAsset("logos/logo-company.png"),
+  _productName: "Airbnb",
+  _targetName: "your place",
+  actorName: "John",
+  ctaHref: "https://airbnb.com/reviews",
+  ctaLabel: "Leave a Review",
+} satisfies Props;

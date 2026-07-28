@@ -1,0 +1,182 @@
+---
+title: "Button"
+description: "Button rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="button-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/button
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ui-elements/buttons/button.tsx"
+    base="mjml-react"
+    title="components/email/button.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Button } from "@/components/email/button";
+```
+
+```tsx
+<Button variant="primary" size="md" align="center" />
+```
+
+## Examples
+
+### Buttons
+
+#### primary
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-md-align-center-example-demo"
+/>
+
+#### primary leading icon
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-icon--icon-position-leading-example-demo"
+/>
+
+#### primary trailing icon
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-icon--icon-position-trailing-example-demo"
+/>
+
+#### secondary
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-secondary-example-demo"
+/>
+
+#### secondary leading icon
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-secondary-icon--icon-position-leading-example-demo"
+/>
+
+#### secondary trailing icon
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-secondary-icon--icon-position-trailing-example-demo"
+/>
+
+#### text
+
+<ComponentPreview base="mjml-react" name="button-variant-text-example-demo" />
+
+#### text leading icon
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-text-icon--icon-position-leading-example-demo"
+/>
+
+#### text trailing icon
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-text-icon--icon-position-trailing-example-demo"
+/>
+
+### Button sizes
+
+#### xs
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-xs-example-demo"
+/>
+
+#### sm
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-sm-example-demo"
+/>
+
+#### md
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-md-example-demo"
+/>
+
+#### lg
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-lg-example-demo"
+/>
+
+#### xl
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-xl-example-demo"
+/>
+
+#### all
+
+<ComponentPreview
+  base="mjml-react"
+  name="button-variant-primary-size-all-example-demo"
+/>
+
+## API Reference
+
+| Prop           | Type                                            | Default                         | Description                              |
+| -------------- | ----------------------------------------------- | ------------------------------- | ---------------------------------------- |
+| `theme`        | `EmailTheme`                                    | `defaultTheme`                  | Renderer theme configuration.            |
+| `label`        | `string`                                        | Variant-specific label          | Configures the component's label.        |
+| `href`         | `string`                                        | `"https://example.com"`         | Configures the component's href.         |
+| `variant`      | `"primary" \| "secondary" \| "text"`            | `"primary"`                     | Configures the component's variant.      |
+| `size`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "all"` | `"all"`                         | Configures the component's size.         |
+| `icon`         | `ReactNode`                                     | Built-in icon for icon variants | Configures the component's icon.         |
+| `iconPosition` | `"leading" \| "trailing"`                       | `"leading"`                     | Configures the component's iconposition. |
+| `align`        | `"left" \| "center" \| "right"`                 | `"center"`                      | Configures the component's align.        |

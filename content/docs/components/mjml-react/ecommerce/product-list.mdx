@@ -1,0 +1,126 @@
+---
+title: "Product List"
+description: "Product List rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="product-list-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/product-list
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ecommerce/product-lists/product-list.tsx"
+    base="mjml-react"
+    title="components/email/product-list.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProductList } from "@/components/email/product-list";
+```
+
+```tsx
+<ProductList variant="basic" />
+```
+
+## Examples
+
+### Product list with rows
+
+#### Basic
+
+The default demo above covers this original component variant.
+
+#### With descriptions
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-with-descriptions-example-demo"
+/>
+
+#### Full details
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-full-details-example-demo"
+/>
+
+#### Reviews at the top
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-reviews-at-top-example-demo"
+/>
+
+#### With intro
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-with-intro-example-demo"
+/>
+
+#### With details
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-with-details-example-demo"
+/>
+
+#### Details with reviews at the top
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-details-reviews-at-top-example-demo"
+/>
+
+#### Full details with reviews at the top
+
+<ComponentPreview
+  base="mjml-react"
+  name="product-list-full-reviews-at-top-example-demo"
+/>
+
+## API Reference
+
+| Prop       | Type                                                                                                                                                        | Default           | Description                               |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------------------------------- |
+| `theme`    | `EmailTheme`                                                                                                                                                | `defaultTheme`    | Renderer theme configuration.             |
+| `products` | `Array<{ imageUrl?: string; name: string; price: string; quantity?: number; description?: string; details?: string; reviewCount?: number; href?: string }>` | Built-in products | Supplies the products displayed in rows.  |
+| `variant`  | `"basic" \| "reviews-top" \| "with-description" \| "with-intro" \| "with-details" \| "details-reviews-top" \| "full-details" \| "full-reviews-top"`         | `"basic"`         | Selects the product-row detail treatment. |

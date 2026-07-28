@@ -11,8 +11,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   _logoUrl?: string;
@@ -116,7 +117,7 @@ export const AuthOtpDefault = ({
 
 AuthOtpDefault.PreviewProps = {
   _logoAlt: "Acme",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Acme",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

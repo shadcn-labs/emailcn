@@ -1,0 +1,238 @@
+---
+title: "Divider"
+description: "Divider rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="divider-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/divider
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ui-elements/spacing/divider.tsx"
+    base="mjml-react"
+    title="components/email/divider.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Divider } from "@/components/email/divider";
+```
+
+```tsx
+<Divider align="center" />
+```
+
+## Examples
+
+### Line divider
+
+#### default
+
+<ComponentPreview base="mjml-react" name="divider-align-center-example-demo" />
+
+### Divider with title
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-title-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-title-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-title-example-demo"
+/>
+
+### Divider with file type
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-file-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-file-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-file-example-demo"
+/>
+
+### Divider with icon
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-icon-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-icon-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-icon-example-demo"
+/>
+
+### Divider with logo
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-logo-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-logo-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-logo-example-demo"
+/>
+
+### Divider with social icons
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-socials-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-socials-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-socials-example-demo"
+/>
+
+### Divider with icon and button
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-icon-button-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-icon-button-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-icon-button-example-demo"
+/>
+
+### Divider with button
+
+#### left
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-left-content-type-button-example-demo"
+/>
+
+#### center
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-center-content-type-button-example-demo"
+/>
+
+#### right
+
+<ComponentPreview
+  base="mjml-react"
+  name="divider-align-right-content-type-button-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                                                                                                                                                                                                                                                                                                           | Default        | Description                         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailTheme`                                                                                                                                                                                                                                                                                                                                   | `defaultTheme` | Renderer theme configuration.       |
+| `align`   | `"left" \| "center" \| "right"`                                                                                                                                                                                                                                                                                                                | `"center"`     | Configures the component's align.   |
+| `content` | `{ type: "title"; title: string } \| { type: "file"; fileType: string } \| { type: "icon"; src: string } \| { type: "logo"; image: { src: string; alt?: string } } \| { type: "socials" } \| { type: "button"; action: { href: string; label: string } } \| { type: "icon-button"; iconSrc: string; action: { href: string; label: string } }` | -              | Configures the component's content. |

@@ -1,15 +1,11 @@
-import { HeaderWithLogoAndBadge } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-badge";
-import type { HeaderWithLogoAndBadgeAlignment } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-badge";
+import { HeaderWithLogoAndBadge } from "@/registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-badge";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function HeaderWithLogoAndBadgeDemo({
-  variant,
-}: {
-  variant?: HeaderWithLogoAndBadgeAlignment;
-}) {
+export default function HeaderWithLogoAndBadgeDemo() {
   return (
     <HeaderWithLogoAndBadge
-      {...HeaderWithLogoAndBadge.PreviewProps}
-      alignment={variant ?? HeaderWithLogoAndBadge.PreviewProps.alignment}
+      alignment="left"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

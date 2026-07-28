@@ -1,0 +1,139 @@
+---
+title: "Featured Grid"
+description: "Featured Image Grid rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="featured-image-grid-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/featured-image-grid
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/images/featured-image-grid.tsx"
+    base="jsx-email"
+    title="components/email/featured-image-grid.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FeaturedImageGrid } from "@/components/email/featured-image-grid";
+```
+
+```tsx
+<FeaturedImageGrid columns={2} featurePosition="top" />
+```
+
+## Examples
+
+### 2-column image grid with full-width feature
+
+#### feature top
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-2-feature-position-top-example-demo"
+/>
+
+#### feature top overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-2-feature-position-top-overlay-example-demo"
+/>
+
+#### feature bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-2-feature-position-bottom-overlay-false-example-demo"
+/>
+
+#### feature bottom overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-2-feature-position-bottom-overlay-example-demo"
+/>
+
+### 3-column image grid with full-width feature
+
+#### feature top
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-3-feature-position-top-overlay-false-example-demo"
+/>
+
+#### feature top overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-3-feature-position-top-overlay-example-demo"
+/>
+
+#### feature bottom
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-3-feature-position-bottom-overlay-false-example-demo"
+/>
+
+#### feature bottom overlay
+
+<ComponentPreview
+  base="jsx-email"
+  name="featured-image-grid-columns-3-feature-position-bottom-overlay-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                                                      | Default        | Description                                 |
+| ----------------- | ----------------------------------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailTheme`                                                                              | `defaultTheme` | Renderer theme configuration.               |
+| `images`          | `Array<{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }>` | -              | Configures the component's images.          |
+| `feature`         | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }`        | -              | Configures the component's feature.         |
+| `columns`         | `2 \| 3`                                                                                  | `2`            | Configures the component's columns.         |
+| `featurePosition` | `"top" \| "bottom"`                                                                       | `"top"`        | Configures the component's featureposition. |
+| `overlay`         | `boolean`                                                                                 | `false`        | Configures the component's overlay.         |

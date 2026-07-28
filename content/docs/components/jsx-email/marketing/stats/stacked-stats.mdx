@@ -1,21 +1,9 @@
 ---
-title: "Stacked Stats"
-description: "Mailviews aligned stacked-stats family"
+title: "Stacked"
+description: "Stacked Stats rendered with email-safe, renderer-native components."
 ---
 
-## Examples
-
-### Left
-
-<ComponentPreview base="jsx-email" name="stacked-stats-demo" variant="left" />
-
-### Center
-
-<ComponentPreview base="jsx-email" name="stacked-stats-demo" variant="center" />
-
-### Right
-
-<ComponentPreview base="jsx-email" name="stacked-stats-demo" variant="right" />
+<ComponentPreview base="jsx-email" name="stacked-stats-demo" />
 
 ## Installation
 
@@ -27,19 +15,41 @@ description: "Mailviews aligned stacked-stats family"
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/stacked-stats
+npx shadcn@latest add @emailcn/jsx-email/stacked-stats
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Copy the component source into your project.</Step>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/stats/stacked-stats.tsx"
+    src="registry/bases/jsx-email/components/marketing/stats/stacked-stats.tsx"
     base="jsx-email"
-    title="components/emails/marketing/stats/stacked-stats.tsx"
+    title="components/email/stacked-stats.tsx"
   />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -48,14 +58,36 @@ npx shadcn@latest add @emailcn/stacked-stats
 ## Usage
 
 ```tsx
-import { StackedStats } from "@/components/emails/marketing/stats/stacked-stats";
-
-<StackedStats variant="center" />;
+import { StackedStats } from "@/components/email/stacked-stats";
 ```
+
+```tsx
+<StackedStats variant="left" />
+```
+
+## Examples
+
+### Centered
+
+<ComponentPreview base="jsx-email" name="stacked-stats-centered-example-demo" />
+
+### Right aligned
+
+<ComponentPreview
+  base="jsx-email"
+  name="stacked-stats-right-aligned-example-demo"
+/>
 
 ## API Reference
 
-| Prop      | Type                            | Default        | Description              |
-| --------- | ------------------------------- | -------------- | ------------------------ |
-| `variant` | `"left" \| "center" \| "right"` | `"left"`       | Mailviews layout variant |
-| `theme`   | `EmailThemeTokens`              | `defaultTheme` | Email theme styling      |
+| Prop                  | Type                                                             | Default        | Description                                     |
+| --------------------- | ---------------------------------------------------------------- | -------------- | ----------------------------------------------- |
+| `theme`               | `EmailTheme`                                                     | `defaultTheme` | Renderer theme configuration.                   |
+| `variant`             | `"left" \| "center" \| "right"`                                  | `"left"`       | Configures the component's variant.             |
+| `stats`               | `Array<{ heading: string; value: string; description: string }>` | -              | Configures the component's stats.               |
+| `pageBackgroundColor` | `string`                                                         | `"#f1f5f9"`    | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                                                         | `"#fffffe"`    | Configures the component's backgroundcolor.     |
+| `accentColor`         | `string`                                                         | `"#f97316"`    | Configures the component's accentcolor.         |
+| `headingColor`        | `string`                                                         | `"#030712"`    | Configures the component's headingcolor.        |
+| `textColor`           | `string`                                                         | `"#4b5563"`    | Configures the component's textcolor.           |
+| `dividerColor`        | `string`                                                         | `"#cbd5e1"`    | Configures the component's dividercolor.        |

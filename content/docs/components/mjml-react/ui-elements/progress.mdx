@@ -1,0 +1,205 @@
+---
+title: "Progress"
+description: "Progress rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="progress-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/progress
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ui-elements/progress-bars/progress.tsx"
+    base="mjml-react"
+    title="components/email/progress.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/email/progress";
+```
+
+```tsx
+<Progress layout="single" padding="none" content="minimal" />
+```
+
+## Examples
+
+### Full-width progress bar
+
+#### minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-single-padding-none-content-minimal-example-demo"
+/>
+
+#### title
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-single-padding-none-content-title-example-demo"
+/>
+
+#### description
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-single-padding-none-content-description-example-demo"
+/>
+
+#### text-top
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-single-padding-none-content-text-top-example-demo"
+/>
+
+### Progress bar group
+
+#### minimal
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-none-content-minimal-example-demo"
+/>
+
+#### minimal padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-padded-content-minimal-example-demo"
+/>
+
+#### title
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-none-content-title-example-demo"
+/>
+
+#### title padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-padded-content-title-example-demo"
+/>
+
+#### description
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-none-content-description-example-demo"
+/>
+
+#### description padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-padded-content-description-example-demo"
+/>
+
+#### text-top
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-none-content-text-top-example-demo"
+/>
+
+#### text-top padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-group-padding-padded-content-text-top-example-demo"
+/>
+
+### Progress bar columns
+
+#### title
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-columns-padding-none-content-title-example-demo"
+/>
+
+#### title padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-columns-padding-padded-content-title-example-demo"
+/>
+
+#### description
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-columns-padding-none-content-description-example-demo"
+/>
+
+#### description padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-columns-padding-padded-content-description-example-demo"
+/>
+
+#### text-top
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-columns-padding-none-content-text-top-example-demo"
+/>
+
+#### text-top padded
+
+<ComponentPreview
+  base="mjml-react"
+  name="progress-layout-columns-padding-padded-content-text-top-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                                             | Default        | Description                         |
+| --------- | -------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailTheme`                                                                     | `defaultTheme` | Renderer theme configuration.       |
+| `items`   | `Array<{ title?: string; description?: string; value: number; color?: string }>` | Built-in items | Configures the component's items.   |
+| `layout`  | `"single" \| "group" \| "columns"`                                               | `"single"`     | Configures the component's layout.  |
+| `padding` | `"none" \| "padded"`                                                             | `"none"`       | Configures the component's padding. |
+| `content` | `"minimal" \| "title" \| "description" \| "text-top"`                            | `"minimal"`    | Configures the component's content. |

@@ -1,15 +1,11 @@
-import { HeaderWithLogoAndSocialIcons } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-social-icons";
-import type { HeaderWithLogoAndSocialIconsAlignment } from "@/registry/bases/react-email/ui/marketing/headers/header-with-logo-and-social-icons";
+import { HeaderWithLogoAndSocialIcons } from "@/registry/bases/react-email/components/marketing/headers/header-with-logo-and-social-icons";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function HeaderWithLogoAndSocialIconsDemo({
-  variant,
-}: {
-  variant?: HeaderWithLogoAndSocialIconsAlignment;
-}) {
+export default function HeaderWithLogoAndSocialIconsDemo() {
   return (
     <HeaderWithLogoAndSocialIcons
-      {...HeaderWithLogoAndSocialIcons.PreviewProps}
-      alignment={variant ?? HeaderWithLogoAndSocialIcons.PreviewProps.alignment}
+      alignment="left"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

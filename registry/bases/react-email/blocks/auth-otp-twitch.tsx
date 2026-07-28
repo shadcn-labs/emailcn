@@ -11,7 +11,9 @@ import {
   Text,
 } from "react-email";
 
-import { twitchTheme } from "@/registry/bases/react-email/themes/twitch";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { twitchTheme } from "@/registry/themes/twitch";
 
 interface Props {
   _logoUrl?: string;
@@ -34,7 +36,7 @@ export const AuthOtpTwitch = ({
     <Html>
       <Head />
       <Preview>Your verification code</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -67,7 +69,7 @@ export const AuthOtpTwitch = ({
 
 AuthOtpTwitch.PreviewProps = {
   _logoAlt: "Twitch",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Twitch",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 10,

@@ -16,7 +16,7 @@ description: "Pre-built receipt and invoice email templates."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/block-receipt-default
+npx shadcn@latest add @emailcn/mjml-react/block-receipt-default
 ```
 
 </TabsContent>
@@ -24,26 +24,34 @@ npx shadcn@latest add @emailcn/block-receipt-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install @faire/mjml-react
+npm install @faire/mjml-react mjml
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
-  src="registry/bases/mjml-react/blocks/receipt-default.tsx"
-  title="components/emails/receipt-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/blocks/receipt-default.tsx"
+    base="mjml-react"
+    title="components/email/receipt-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/blocks/block-shared.tsx"
+    base="mjml-react"
+    title="components/email/block-shared.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -53,7 +61,7 @@ npm install @faire/mjml-react
 ## Usage
 
 ```tsx
-import { ReceiptDefault } from "@/components/emails/receipt-default";
+import { ReceiptDefault } from "@/components/email/receipt-default";
 ```
 
 ```tsx

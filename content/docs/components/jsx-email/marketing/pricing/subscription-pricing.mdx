@@ -1,0 +1,89 @@
+---
+title: "Subscription"
+description: "Subscription Pricing rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="subscription-pricing-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/subscription-pricing
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/marketing/pricing/subscription-pricing.tsx"
+    base="jsx-email"
+    title="components/email/subscription-pricing.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SubscriptionPricing } from "@/components/email/subscription-pricing";
+```
+
+```tsx
+<SubscriptionPricing columns={2} />
+```
+
+## Examples
+
+### 2-column pricing table
+
+The default demo above covers this original component.
+
+### Full-width single pricing
+
+#### Single plan
+
+<ComponentPreview
+  base="jsx-email"
+  name="subscription-pricing-single-plan-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                                                                                                                                                              | Default        | Description                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailTheme`                                                                                                                                                                                      | `defaultTheme` | Renderer theme configuration.       |
+| `plans`   | `Array<{ name: string; description?: string; price: string; currency?: string; period?: string; features?: Array<{ label: string; muted?: boolean }>; action: { href: string; label: string } }>` | Built-in plans | Configures the component's plans.   |
+| `columns` | `1 \| 2`                                                                                                                                                                                          | `2`            | Configures the component's columns. |

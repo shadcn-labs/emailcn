@@ -12,7 +12,9 @@ import {
   Text,
 } from "react-email";
 
-import { raycastTheme } from "@/registry/bases/react-email/themes/raycast";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { emailAsset } from "@/registry/email-assets";
+import { raycastTheme } from "@/registry/themes/raycast";
 
 interface Props {
   _logoUrl?: string;
@@ -34,7 +36,7 @@ export const AuthMagicLinkRaycast = ({
     <Html>
       <Head />
       <Preview>Your login link</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -73,7 +75,7 @@ export const AuthMagicLinkRaycast = ({
 
 AuthMagicLinkRaycast.PreviewProps = {
   _logoAlt: "Raycast",
-  _logoUrl: "https://static.photos/business/320x80/2",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Raycast",
   _recipientEmail: "you@example.com",
   expiresInMinutes: 30,

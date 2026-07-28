@@ -2,11 +2,36 @@
 
 import {
   ArrowRightIcon,
+  BadgeDollarSignIcon,
+  BetweenHorizontalStartIcon,
+  ChartNoAxesColumnIncreasingIcon,
+  ChartNoAxesGanttIcon,
+  CircleHelpIcon,
   CircleDashedIcon,
+  CircleUserRoundIcon,
   CornerDownLeftIcon,
-  LayoutGrid,
+  GalleryHorizontalEndIcon,
+  ImagesIcon,
+  LayoutGridIcon,
+  ListTreeIcon,
+  MessageSquareQuoteIcon,
+  MessagesSquareIcon,
+  MousePointerClickIcon,
+  NewspaperIcon,
+  PackageSearchIcon,
+  PanelBottomIcon,
+  PanelsTopLeftIcon,
+  PanelTopIcon,
+  ReceiptTextIcon,
+  ShapesIcon,
+  Share2Icon,
+  SparklesIcon,
   SquareDashedIcon,
+  Table2Icon,
+  TicketPercentIcon,
+  UsersIcon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
@@ -58,6 +83,41 @@ type DocUrlKind =
 const GROUP_HEADING_CLS =
   "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
 
+const SUBCATEGORY_ICONS: Record<string, LucideIcon> = {
+  avatars: CircleUserRoundIcon,
+  "bento-grids": LayoutGridIcon,
+  blog: NewspaperIcon,
+  coupons: TicketPercentIcon,
+  cta: MousePointerClickIcon,
+  feature: SparklesIcon,
+  footers: PanelBottomIcon,
+  headers: PanelTopIcon,
+  heroes: GalleryHorizontalEndIcon,
+  images: ImagesIcon,
+  "order-summary": ReceiptTextIcon,
+  pricing: BadgeDollarSignIcon,
+  "product-detail": PackageSearchIcon,
+  spacing: BetweenHorizontalStartIcon,
+  stats: ChartNoAxesColumnIncreasingIcon,
+  timelines: ListTreeIcon,
+};
+
+const COMPONENT_ICONS: Record<string, LucideIcon> = {
+  button: MousePointerClickIcon,
+  "category-preview": PanelsTopLeftIcon,
+  container: BetweenHorizontalStartIcon,
+  "data-table": Table2Icon,
+  faq: CircleHelpIcon,
+  grid: LayoutGridIcon,
+  "logo-cloud": ShapesIcon,
+  pills: TicketPercentIcon,
+  progress: ChartNoAxesGanttIcon,
+  reviews: MessageSquareQuoteIcon,
+  "social-links": Share2Icon,
+  team: UsersIcon,
+  testimonial: MessagesSquareIcon,
+};
+
 const parseDocPageUrl = (url: string): DocUrlKind => {
   const parts = url.split("/").filter(Boolean);
   const themesIdx = parts.indexOf("themes");
@@ -82,24 +142,35 @@ const parseDocPageUrl = (url: string): DocUrlKind => {
 const asText = (name: React.ReactNode) =>
   typeof name === "string" ? name : String(name);
 
+const getSlugFromUrl = (url: string) => url.match(/\/([^/]+)\/?$/)?.[1] ?? "";
+
 /**
- * Flatten a folder one nesting level deep, prefixing pages inside component
- * family folders with the family name (e.g. "Bento Grids: Images with
- * Captions") so search results stay unambiguous.
+ * Flatten a folder one nesting level deep. Component pages retain their
+ * document title for display while the parent subcategory remains available
+ * for search keywords and icon selection.
  */
 const getSearchablePages = (folder: PageTreeFolder) => {
-  const pages: { name: string; url: string }[] = [];
+  const pages: {
+    name: string;
+    subcategory?: string;
+    url: string;
+  }[] = [];
   for (const item of getFolderItems(folder)) {
     if (item.type === "page") {
       pages.push({ name: asText(item.page.name), url: item.page.url });
       continue;
     }
-    const family = asText(item.name);
-    if (item.index) {
-      pages.push({ name: family, url: item.index.url });
+    const folderSlug = item.$id?.split("/").at(-1) ?? "";
+    let subcategory = folderSlug || undefined;
+    if (folderSlug.length === 0 && item.index) {
+      subcategory = getSlugFromUrl(item.index.url);
     }
     for (const page of item.pages) {
-      pages.push({ name: `${family}: ${asText(page.name)}`, url: page.url });
+      pages.push({
+        name: asText(page.name),
+        subcategory,
+        url: page.url,
+      });
     }
   }
   return pages;
@@ -122,7 +193,13 @@ const buildDocPageKeywords = (
   ...searchKeywordsFromUrl(url),
 ];
 
-const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
+const DocPageLeadingIcon = ({
+  parsed,
+  subcategory,
+}: {
+  parsed: DocUrlKind;
+  subcategory?: string;
+}) => {
   if (parsed.kind === "theme") {
     const color = THEME_PRIMARY_BY_NAME[parsed.slug as RegistryThemeName];
     return (
@@ -134,10 +211,16 @@ const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
     );
   }
   if (parsed.kind === "component") {
+    const ComponentIcon = subcategory
+      ? SUBCATEGORY_ICONS[subcategory]
+      : COMPONENT_ICONS[parsed.slug];
+    if (ComponentIcon) {
+      return <ComponentIcon className="size-4 shrink-0 opacity-70" />;
+    }
     return <CircleDashedIcon />;
   }
   if (parsed.kind === "block") {
-    return <LayoutGrid className="size-4 shrink-0 opacity-70" />;
+    return <LayoutGridIcon className="size-4 shrink-0 opacity-70" />;
   }
   if (parsed.kind === "template") {
     return <SquareDashedIcon />;
@@ -215,8 +298,14 @@ export const CommandMenu = ({
   });
 
   const treeGroups = useMemo(() => {
-    const groups: { label: string; pages: { url: string; name: string }[] }[] =
-      [];
+    const groups: {
+      label: string;
+      pages: {
+        name: string;
+        subcategory?: string;
+        url: string;
+      }[];
+    }[] = [];
     for (const item of tree.children) {
       if (item.type !== "folder") {
         continue;
@@ -243,12 +332,12 @@ export const CommandMenu = ({
   }, [tree, currentBase]);
 
   const handleDocPageHighlight = useCallback(
-    (item: { url: string; name?: string }) => {
+    (item: { url: string; name?: string; subcategory?: string }) => {
       setShowGoToPage(true);
       const parsed = parseDocPageUrl(item.url);
       if (parsed.kind === "theme") {
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/theme-${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/theme-${parsed.slug}`
         );
         return;
       }
@@ -258,21 +347,23 @@ export const CommandMenu = ({
       }
       if (parsed.kind === "component" || parsed.kind === "template") {
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
+          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/${parsed.slug}`
         );
         return;
       }
       setCopyPayload("");
     },
-    [packageManager]
+    [currentBase, packageManager]
   );
 
   const handleBlockHighlight = useCallback(
     (block: { name: string; description: string; categories: string[] }) => {
       setShowGoToPage(true);
-      setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
+      setCopyPayload(
+        `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${currentBase}/${block.name}`
+      );
     },
-    [packageManager]
+    [currentBase, packageManager]
   );
 
   const runCommand = useCallback((command: () => unknown) => {
@@ -296,7 +387,8 @@ export const CommandMenu = ({
   const renderDocPageItem = (
     title: string,
     url: string,
-    breadcrumb: string[]
+    breadcrumb: string[],
+    subcategory?: string
   ) => {
     const parsed = parseDocPageUrl(url);
     return (
@@ -304,10 +396,12 @@ export const CommandMenu = ({
         key={url}
         keywords={buildDocPageKeywords(parsed, url, breadcrumb)}
         value={[...breadcrumb, title].filter(Boolean).join(" ")}
-        onHighlight={() => handleDocPageHighlight({ name: title, url })}
+        onHighlight={() =>
+          handleDocPageHighlight({ name: title, subcategory, url })
+        }
         onSelect={() => runCommand(() => router.push(url))}
       >
-        <DocPageLeadingIcon parsed={parsed} />
+        <DocPageLeadingIcon parsed={parsed} subcategory={subcategory} />
         {title}
       </CommandMenuItem>
     );
@@ -407,7 +501,12 @@ export const CommandMenu = ({
                 heading={group.label}
               >
                 {group.pages.map((page) =>
-                  renderDocPageItem(page.name, page.url, [group.label])
+                  renderDocPageItem(
+                    page.name,
+                    page.url,
+                    [group.label, page.subcategory ?? ""],
+                    page.subcategory
+                  )
                 )}
               </CommandGroup>
             ))}

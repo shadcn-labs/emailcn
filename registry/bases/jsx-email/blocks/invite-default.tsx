@@ -15,8 +15,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
 
 interface Props {
   inviterName?: string;
@@ -174,7 +175,7 @@ export const InviteDefault = ({
 InviteDefault.PreviewProps = {
   ctaHref: "https://example.com/invite/abc123",
   expiresInHours: 72,
-  inviterAvatarUrl: "https://example.com/avatar.jpg",
+  inviterAvatarUrl: emailAsset("avatars/avatar-1.jpg"),
   inviterName: "Sarah",
   teamName: "Acme Team",
 } satisfies Props;

@@ -1,0 +1,93 @@
+---
+title: "Social Icons"
+description: "Header With Logo And Social Icons rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-social-icons-demo"
+/>
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/header-with-logo-and-social-icons
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-social-icons.tsx"
+    base="mjml-react"
+    title="components/email/header-with-logo-and-social-icons.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { HeaderWithLogoAndSocialIcons } from "@/components/email/header-with-logo-and-social-icons";
+```
+
+```tsx
+<HeaderWithLogoAndSocialIcons alignment="left" />
+```
+
+## Examples
+
+### Centered
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-social-icons-centered-example-demo"
+/>
+
+### Right logo
+
+<ComponentPreview
+  base="mjml-react"
+  name="header-with-logo-and-social-icons-alignment-right-example-demo"
+/>
+
+## API Reference
+
+| Prop                  | Type                                                | Default                                                                   | Description                                     |
+| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------- |
+| `theme`               | `EmailTheme`                                        | `defaultTheme`                                                            | Renderer theme configuration.                   |
+| `logoSrc`             | `string`                                            | `"https://placehold.co/320x96/0F766E/FFFFFF.png?text=Maizzle%20Insignia"` | Configures the component's logosrc.             |
+| `logoAlt`             | `string`                                            | `"Maizzle"`                                                               | Configures the component's logoalt.             |
+| `logoHref`            | `string`                                            | `"https://example.com"`                                                   | Configures the component's logohref.            |
+| `socials`             | `Array<{ alt: string; href: string; src: string }>` | Built-in socials                                                          | Configures the component's socials.             |
+| `alignment`           | `"left" \| "center" \| "right"`                     | `"left"`                                                                  | Configures the component's alignment.           |
+| `pageBackgroundColor` | `string`                                            | `"#f1f5f9"`                                                               | Configures the component's pagebackgroundcolor. |
+| `backgroundColor`     | `string`                                            | `"#fffffe"`                                                               | Configures the component's backgroundcolor.     |

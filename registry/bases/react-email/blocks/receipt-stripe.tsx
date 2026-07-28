@@ -12,10 +12,12 @@ import {
   Section,
   Tailwind,
   Text,
+  Link,
 } from "react-email";
 
-import { stripeTheme } from "@/registry/bases/react-email/themes/stripe";
-import { ProductListWithRowsSection as ProductCardSection } from "@/registry/bases/react-email/ui/ecommerce/product-lists/product-list-with-rows";
+import { ProductListSection as ProductCardSection } from "@/registry/bases/react-email/components/ecommerce/product-lists/product-list";
+import { createEmailTailwindConfig } from "@/registry/bases/react-email/themes/email-theme";
+import { stripeTheme } from "@/registry/themes/stripe";
 
 interface ReceiptItem {
   name: string;
@@ -53,7 +55,7 @@ export const ReceiptStripe = ({
     <Html>
       <Head />
       <Preview>Your receipt</Preview>
-      <Tailwind config={t}>
+      <Tailwind config={createEmailTailwindConfig(t)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container p-8">
             <Section className="py-12">
@@ -121,9 +123,9 @@ export const ReceiptStripe = ({
 
             <Text className="mt-8 text-sm text-foreground-muted">
               Need help?{" "}
-              <a href={supportHref} className="text-foreground underline">
+              <Link href={supportHref} className="text-foreground underline">
                 Contact support
-              </a>
+              </Link>
             </Text>
           </Container>
         </Body>

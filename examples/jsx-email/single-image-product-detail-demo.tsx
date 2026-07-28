@@ -1,13 +1,12 @@
-import { SingleImageProductDetail } from "@/registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail-with-details";
-import type { SingleImageProductDetailProps } from "@/registry/bases/jsx-email/ui/ecommerce/product-detail/single-image-product-detail-with-details";
+import { SingleImageProductDetail } from "@/registry/bases/jsx-email/components/ecommerce/product-detail/single-image-product-detail";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function SingleImageProductDetailDemo({
-  variant,
-}: Pick<SingleImageProductDetailProps, "variant">) {
+export default function SingleImageProductDetailDemo() {
   return (
     <SingleImageProductDetail
-      {...SingleImageProductDetail.PreviewProps}
-      variant={variant ?? SingleImageProductDetail.PreviewProps.variant}
+      ratingPosition="bottom"
+      headerPosition="default"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

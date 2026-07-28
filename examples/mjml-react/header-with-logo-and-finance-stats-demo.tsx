@@ -1,17 +1,11 @@
-import { HeaderWithLogoAndFinanceStats } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-finance-stats";
-import type { HeaderWithLogoAndFinanceStatsAlignment } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-finance-stats";
+import { HeaderWithLogoAndFinanceStats } from "@/registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-finance-stats";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function HeaderWithLogoAndFinanceStatsDemo({
-  variant,
-}: {
-  variant?: HeaderWithLogoAndFinanceStatsAlignment;
-}) {
+export default function HeaderWithLogoAndFinanceStatsDemo() {
   return (
     <HeaderWithLogoAndFinanceStats
-      {...HeaderWithLogoAndFinanceStats.PreviewProps}
-      alignment={
-        variant ?? HeaderWithLogoAndFinanceStats.PreviewProps.alignment
-      }
+      alignment="left"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

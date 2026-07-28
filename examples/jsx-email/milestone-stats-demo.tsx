@@ -1,15 +1,11 @@
-import { MilestoneStats } from "@/registry/bases/jsx-email/ui/marketing/stats/milestone-stats";
-import type { MilestoneStatsVariant } from "@/registry/bases/jsx-email/ui/marketing/stats/milestone-stats";
+import { MilestoneStats } from "@/registry/bases/jsx-email/components/marketing/stats/milestone-stats";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function MilestoneStatsDemo({
-  variant,
-}: {
-  variant?: MilestoneStatsVariant;
-}) {
+export default function MilestoneStatsDemo() {
   return (
     <MilestoneStats
-      {...MilestoneStats.PreviewProps}
-      variant={variant ?? MilestoneStats.PreviewProps.variant}
+      variant="default"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

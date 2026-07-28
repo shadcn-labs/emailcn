@@ -1,25 +1,12 @@
-import { HeaderWithUserDetails } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-user-details";
+import { HeaderWithUserDetails } from "@/registry/bases/mjml-react/components/marketing/headers/header-with-user-details";
+import { defaultTheme } from "@/registry/themes/default";
 
-const variants = {
-  "image-left": { alignment: "left", avatar: "image" },
-  "image-right": { alignment: "right", avatar: "image" },
-  "initials-left": { alignment: "left", avatar: "initials" },
-  "initials-right": { alignment: "right", avatar: "initials" },
-} as const;
-
-type HeaderWithUserDetailsExampleVariant = keyof typeof variants;
-
-export default function HeaderWithUserDetailsDemo({
-  variant,
-}: {
-  variant?: HeaderWithUserDetailsExampleVariant;
-}) {
-  const selected = variants[variant ?? "initials-left"];
+export default function HeaderWithUserDetailsDemo() {
   return (
     <HeaderWithUserDetails
-      {...HeaderWithUserDetails.PreviewProps}
-      alignment={selected.alignment}
-      avatar={selected.avatar}
+      alignment="right"
+      avatar="initials"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

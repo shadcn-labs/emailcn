@@ -1,72 +1,46 @@
-import { renderToMjml } from "@faire/mjml-react/utils/renderToMjml";
-import { render as renderReactEmail, toPlainText } from "@react-email/render";
-import {
-  render as renderJsxEmail,
-  renderPlainText as renderJsxEmailPlainText,
-} from "jsx-email";
-import mjml2html from "mjml-browser";
-import type { ComponentType } from "react";
-
 import { ComponentPreviewClient } from "@/components/component-preview-client";
 import { ComponentSource } from "@/components/component-source";
-import { demos } from "@/examples/__index__";
+import type { DemoName } from "@/examples/__index__";
 import { getEmailHtmlForColorMode } from "@/lib/email-color-mode";
+import { renderEmailPreview } from "@/lib/render-email-preview";
 import type { BaseName } from "@/registry/bases";
 
 interface ComponentPreviewProps {
   base?: BaseName;
-  name: string;
-  variant?: string;
+  name: DemoName;
   title?: string;
   className?: string;
+  centerPreview?: boolean;
   hideNav?: boolean;
   hideCode?: boolean;
   height?: number;
-  [demoProp: string]: unknown;
+  showTitleBar?: boolean;
 }
 
 export const ComponentPreview = async ({
   base = "react-email",
   name,
-  variant,
   title,
   className,
+  centerPreview = false,
   hideNav = false,
   hideCode = false,
-  height = 640,
-  ...demoProps
+  height,
+  showTitleBar = false,
 }: ComponentPreviewProps) => {
-  const Demo = demos[base][name];
-
   let html = "";
   let darkHtml = "";
   let plainText: string | null = null;
+  let previewHeight = 640;
 
   try {
-    if (!Demo) {
+    const preview = await renderEmailPreview({ base, centerPreview, name });
+
+    if (!preview) {
       throw new Error(`No demo named "${name}" for base "${base}"`);
     }
-    const DemoWithProps = Demo as ComponentType<Record<string, unknown>>;
-    const preview = (
-      <DemoWithProps
-        {...demoProps}
-        {...(variant === undefined ? {} : { variant })}
-      />
-    );
-    if (base === "react-email") {
-      const result = await renderReactEmail(preview, { pretty: true });
-      html = result;
-      plainText = toPlainText(html);
-    } else if (base === "jsx-email") {
-      html = await renderJsxEmail(preview, { pretty: true });
-      plainText = await renderJsxEmailPlainText(preview);
-    } else {
-      const result = await mjml2html(renderToMjml(preview), {
-        keepComments: false,
-        validationLevel: "soft",
-      });
-      ({ html } = result);
-    }
+
+    ({ height: previewHeight, html, plainText } = preview);
     darkHtml = getEmailHtmlForColorMode(html, "dark");
     html = getEmailHtmlForColorMode(html, "light");
   } catch (error) {
@@ -77,26 +51,22 @@ export const ComponentPreview = async ({
     darkHtml = html;
   }
 
-  const sourceName = name.replace(/-demo$/, "");
-
   return (
     <>
       <ComponentPreviewClient
         className={className}
         darkHtml={darkHtml}
-        height={height}
+        height={height ?? previewHeight}
         hideNav={hideNav}
         html={html}
+        iframeTitle={title ?? name}
         plainText={plainText}
+        showTitleBar={showTitleBar}
         title={title}
+        viewUrl={`/view/${encodeURIComponent(base)}/${encodeURIComponent(name)}`}
       />
       {!hideCode && (
-        <ComponentSource
-          className="mt-6"
-          base={base}
-          name={sourceName}
-          title={`${sourceName}.tsx`}
-        />
+        <ComponentSource className="mt-6" base={base} name={name} />
       )}
     </>
   );

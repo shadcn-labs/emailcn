@@ -1,0 +1,228 @@
+---
+title: "Collection"
+description: "Collection Stats rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="collection-stats-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/collection-stats
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/stats/collection-stats.tsx"
+    base="mjml-react"
+    title="components/email/collection-stats.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CollectionStats } from "@/components/email/collection-stats";
+```
+
+```tsx
+<CollectionStats layout="row" appearance="simple" />
+```
+
+## Examples
+
+### Simple stats
+
+#### simple
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-row-appearance-simple-example-demo"
+/>
+
+#### outlined
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-row-appearance-outlined-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-row-appearance-bordered-example-demo"
+/>
+
+#### boxed
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-row-appearance-boxed-example-demo"
+/>
+
+### Grid stats
+
+#### simple three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-three-columns-appearance-simple-example-demo"
+/>
+
+#### boxed three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-three-columns-appearance-boxed-example-demo"
+/>
+
+#### boxed bento
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-appearance-boxed-example-demo"
+/>
+
+#### boxed bento reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-reverse-appearance-boxed-example-demo"
+/>
+
+#### accent column three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-three-columns-appearance-accent-example-demo"
+/>
+
+#### accent column bento
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-appearance-accent-example-demo"
+/>
+
+#### accent column bento reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-reverse-appearance-accent-example-demo"
+/>
+
+#### bordered three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-three-columns-appearance-bordered-example-demo"
+/>
+
+#### bordered bento
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-appearance-bordered-example-demo"
+/>
+
+#### bordered bento reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-reverse-appearance-bordered-example-demo"
+/>
+
+#### outlined three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-three-columns-appearance-outlined-example-demo"
+/>
+
+#### outlined bento
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-appearance-outlined-example-demo"
+/>
+
+#### outlined bento reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-reverse-appearance-outlined-example-demo"
+/>
+
+### Overlay stats
+
+#### default
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-row-background-image-example-demo"
+/>
+
+#### three columns
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-three-columns-background-image-example-demo"
+/>
+
+#### bento
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-background-image-example-demo"
+/>
+
+#### bento reversed
+
+<ComponentPreview
+  base="mjml-react"
+  name="collection-stats-layout-bento-reverse-background-image-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                            | Default        | Description                                 |
+| ----------------- | --------------------------------------------------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailTheme`                                                    | `defaultTheme` | Renderer theme configuration.               |
+| `items`           | `Array<{ label: string; value: string; description?: string }>` | -              | Configures the component's items.           |
+| `featured`        | `{ label: string; value: string; description?: string }`        | -              | Configures the component's featured.        |
+| `layout`          | `"row" \| "three-columns" \| "bento"`                           | `"row"`        | Configures the component's layout.          |
+| `reverse`         | `boolean`                                                       | `false`        | Configures the component's reverse.         |
+| `appearance`      | `"simple" \| "outlined" \| "bordered" \| "boxed" \| "accent"`   | `"simple"`     | Configures the component's appearance.      |
+| `backgroundImage` | `{ src: string; alt?: string }`                                 | -              | Configures the component's backgroundimage. |

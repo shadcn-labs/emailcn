@@ -1,0 +1,90 @@
+---
+title: "Image"
+description: "Image Feature rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="image-feature-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/image-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/feature/image-feature.tsx"
+    base="mjml-react"
+    title="components/email/image-feature.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageFeature } from "@/components/email/image-feature";
+```
+
+```tsx
+<ImageFeature placement="right" />
+```
+
+## Examples
+
+### Feature with product image
+
+#### image left
+
+<ComponentPreview
+  base="mjml-react"
+  name="image-feature-placement-left-example-demo"
+/>
+
+#### image right
+
+<ComponentPreview
+  base="mjml-react"
+  name="image-feature-placement-right-example-demo"
+/>
+
+## API Reference
+
+| Prop        | Type                                                | Default                                                                                                          | Description                           |
+| ----------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `theme`     | `EmailTheme`                                        | `defaultTheme`                                                                                                   | Renderer theme configuration.         |
+| `heading`   | `string`                                            | `"Powering every payment."`                                                                                      | Configures the component's heading.   |
+| `body`      | `string`                                            | `"Discover tools that make accepting payments faster, easier, and more reliable, wherever you serve customers."` | Configures the component's body.      |
+| `image`     | `{ src: string; alt?: string }`                     | -                                                                                                                | Configures the component's image.     |
+| `action`    | `{ href: string; label: string; iconSrc?: string }` | -                                                                                                                | Configures the component's action.    |
+| `placement` | `"left" \| "right"`                                 | `"right"`                                                                                                        | Configures the component's placement. |

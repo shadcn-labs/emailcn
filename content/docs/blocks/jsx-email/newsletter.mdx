@@ -16,7 +16,7 @@ description: "Pre-built newsletter email templates for updates and announcements
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/block-newsletter-default
+npx shadcn@latest add @emailcn/jsx-email/block-newsletter-default
 ```
 
 </TabsContent>
@@ -24,26 +24,29 @@ npx shadcn@latest add @emailcn/block-newsletter-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-<ComponentSource
-  src="registry/bases/jsx-email/blocks/newsletter-default.tsx"
-  title="components/emails/newsletter-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/blocks/newsletter-default.tsx"
+    base="jsx-email"
+    title="components/email/newsletter-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -53,7 +56,7 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { NewsletterDefault } from "@/components/emails/newsletter-default";
+import { NewsletterDefault } from "@/components/email/newsletter-default";
 ```
 
 ```tsx

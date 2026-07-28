@@ -13,11 +13,13 @@ import {
   Section,
   Tailwind,
   Text,
+  Link,
 } from "jsx-email";
 
-import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/default";
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import { nikeTheme } from "@/registry/bases/jsx-email/themes/nike";
+import { DefaultFonts } from "@/registry/bases/jsx-email/fonts/font-default";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
+import { nikeTheme } from "@/registry/themes/nike";
 
 interface ProductCardProps {
   imageUrl?: string;
@@ -94,7 +96,7 @@ const ProductCardSection = ({
         </Text>
         {ctaLabel ? (
           <Text style={{ marginTop: "8px" }}>
-            <a
+            <Link
               href={ctaHref}
               style={{
                 color: defaultTheme.colorPrimary,
@@ -104,7 +106,7 @@ const ProductCardSection = ({
               }}
             >
               {ctaLabel}
-            </a>
+            </Link>
           </Text>
         ) : null}
       </Column>
@@ -135,7 +137,7 @@ export const ReceiptNike = ({
   customerName = "John",
   items = [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: emailAsset("products/shoe-1.jpg"),
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,
@@ -292,12 +294,12 @@ export const ReceiptNike = ({
               }}
             >
               Need help?{" "}
-              <a
+              <Link
                 href={supportHref}
                 style={{ color: t.colorText, textDecoration: "underline" }}
               >
                 Contact Nike Support
-              </a>
+              </Link>
             </Text>
           </Container>
         </Body>
@@ -311,7 +313,7 @@ ReceiptNike.PreviewProps = {
   customerName: "John Doe",
   items: [
     {
-      imageUrl: "https://example.com/nike.jpg",
+      imageUrl: emailAsset("products/shoe-1.jpg"),
       name: "Air Max 90",
       price: "$149.00",
       quantity: 1,

@@ -1,0 +1,210 @@
+---
+title: "Progress"
+description: "Progress rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="jsx-email" name="progress-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/jsx-email/progress
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install jsx-email
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/jsx-email/components/ui-elements/progress-bars/progress.tsx"
+    base="jsx-email"
+    title="components/email/progress.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/email/progress";
+```
+
+```tsx
+<Progress layout="single" padding="none" content="minimal" />
+```
+
+## Examples
+
+### Full-width progress bar
+
+#### minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-single-padding-none-content-minimal-example-demo"
+/>
+
+#### title
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-single-padding-none-content-title-example-demo"
+/>
+
+#### description
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-single-padding-none-content-description-example-demo"
+/>
+
+#### text-top
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-single-padding-none-content-text-top-example-demo"
+/>
+
+### Progress bar group
+
+#### minimal
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-none-content-minimal-example-demo"
+/>
+
+#### minimal padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-padded-content-minimal-example-demo"
+/>
+
+#### title
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-none-content-title-example-demo"
+/>
+
+#### title padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-padded-content-title-example-demo"
+/>
+
+#### description
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-none-content-description-example-demo"
+/>
+
+#### description padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-padded-content-description-example-demo"
+/>
+
+#### text-top
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-none-content-text-top-example-demo"
+/>
+
+#### text-top padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-group-padding-padded-content-text-top-example-demo"
+/>
+
+### Progress bar columns
+
+#### title
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-columns-padding-none-content-title-example-demo"
+/>
+
+#### title padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-columns-padding-padded-content-title-example-demo"
+/>
+
+#### description
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-columns-padding-none-content-description-example-demo"
+/>
+
+#### description padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-columns-padding-padded-content-description-example-demo"
+/>
+
+#### text-top
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-columns-padding-none-content-text-top-example-demo"
+/>
+
+#### text-top padded
+
+<ComponentPreview
+  base="jsx-email"
+  name="progress-layout-columns-padding-padded-content-text-top-example-demo"
+/>
+
+## API Reference
+
+| Prop      | Type                                                                             | Default        | Description                         |
+| --------- | -------------------------------------------------------------------------------- | -------------- | ----------------------------------- |
+| `theme`   | `EmailTheme`                                                                     | `defaultTheme` | Renderer theme configuration.       |
+| `items`   | `Array<{ title?: string; description?: string; value: number; color?: string }>` | Built-in items | Configures the component's items.   |
+| `layout`  | `"single" \| "group" \| "columns"`                                               | `"single"`     | Configures the component's layout.  |
+| `padding` | `"none" \| "padded"`                                                             | `"none"`       | Configures the component's padding. |
+| `content` | `"minimal" \| "title" \| "description" \| "text-top"`                            | `"minimal"`    | Configures the component's content. |

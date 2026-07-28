@@ -16,7 +16,7 @@ description: "Pre-built newsletter email templates for updates and announcements
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/block-newsletter-default
+npx shadcn@latest add @emailcn/react-email/block-newsletter-default
 ```
 
 </TabsContent>
@@ -24,37 +24,39 @@ npx shadcn@latest add @emailcn/block-newsletter-default
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install react-email
+npm install react-email tailwindcss
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/default.ts"
-  title="components/emails/themes/default.ts"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/fonts/default.tsx"
-  title="components/emails/fonts/default.tsx"
-/>
-<ComponentSource
-  base="react-email"
-  name="content-grid"
-  title="components/emails/content-grid.tsx"
-/>
-
-<ComponentSource
-  src="registry/bases/react-email/blocks/newsletter-default.tsx"
-  title="components/emails/newsletter-default.tsx"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/react-email/blocks/newsletter-default.tsx"
+    base="react-email"
+    title="components/email/newsletter-default.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/components/marketing/content/content.tsx"
+    base="react-email"
+    title="components/email/content.tsx"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/fonts/font-default.tsx"
+    base="react-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="react-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -64,7 +66,7 @@ npm install react-email
 ## Usage
 
 ```tsx
-import { NewsletterDefault } from "@/components/emails/newsletter-default";
+import { NewsletterDefault } from "@/components/email/newsletter-default";
 ```
 
 ```tsx

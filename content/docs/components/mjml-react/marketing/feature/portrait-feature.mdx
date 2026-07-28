@@ -1,0 +1,136 @@
+---
+title: "Portrait"
+description: "Portrait Feature rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="portrait-feature-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/portrait-feature
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/marketing/feature/portrait-feature.tsx"
+    base="mjml-react"
+    title="components/email/portrait-feature.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { PortraitFeature } from "@/components/email/portrait-feature";
+```
+
+```tsx
+<PortraitFeature placement="right" contentPosition="top" />
+```
+
+## Examples
+
+### Feature with large portrait image
+
+#### content top left
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-content-position-top-placement-left-example-demo"
+/>
+
+#### content top right
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-content-position-top-placement-right-example-demo"
+/>
+
+#### content bottom left
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-content-position-bottom-placement-left-example-demo"
+/>
+
+#### content bottom right
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-content-position-bottom-placement-right-example-demo"
+/>
+
+#### logo top-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-logo-position-top-left-example-demo"
+/>
+
+#### logo top-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-logo-position-top-right-example-demo"
+/>
+
+#### logo bottom-left
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-logo-position-bottom-left-example-demo"
+/>
+
+#### logo bottom-right
+
+<ComponentPreview
+  base="mjml-react"
+  name="portrait-feature-logo-position-bottom-right-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                                                           | Default                  | Description                                           |
+| ----------------- | -------------------------------------------------------------- | ------------------------ | ----------------------------------------------------- |
+| `theme`           | `EmailTheme`                                                   | `defaultTheme`           | Renderer theme configuration.                         |
+| `heading`         | `string`                                                       | -                        | Configures the component's heading.                   |
+| `body`            | `string`                                                       | -                        | Configures the component's body.                      |
+| `primaryImage`    | `{ src: string; alt?: string }`                                | -                        | Configures the component's primaryimage.              |
+| `secondaryImage`  | `{ src: string; alt?: string }`                                | -                        | Configures the component's secondaryimage.            |
+| `logo`            | `{ src: string; alt?: string }`                                | -                        | Configures the component's logo.                      |
+| `action`          | `{ href: string; label: string; iconSrc?: string }`            | -                        | Configures the component's action.                    |
+| `placement`       | `"left" \| "right"`                                            | `"right"`                | Configures the component's placement.                 |
+| `contentPosition` | `"top" \| "bottom"`                                            | -                        | Configures the component's contentposition.           |
+| `logoPosition`    | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"` | Derived from `placement` | Positions the logo when `contentPosition` is not set. |

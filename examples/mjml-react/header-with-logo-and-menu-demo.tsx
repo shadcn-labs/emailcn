@@ -1,15 +1,11 @@
-import { HeaderWithLogoAndMenu } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-menu";
-import type { HeaderWithLogoAndMenuVariant } from "@/registry/bases/mjml-react/ui/marketing/headers/header-with-logo-and-menu";
+import { HeaderWithLogoAndMenu } from "@/registry/bases/mjml-react/components/marketing/headers/header-with-logo-and-menu";
+import { defaultTheme } from "@/registry/themes/default";
 
-export default function HeaderWithLogoAndMenuDemo({
-  variant,
-}: {
-  variant?: HeaderWithLogoAndMenuVariant;
-}) {
+export default function HeaderWithLogoAndMenuDemo() {
   return (
     <HeaderWithLogoAndMenu
-      {...HeaderWithLogoAndMenu.PreviewProps}
-      variant={variant ?? HeaderWithLogoAndMenu.PreviewProps.variant}
+      variant="menu-right"
+      theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );
 }

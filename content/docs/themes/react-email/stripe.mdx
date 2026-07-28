@@ -14,7 +14,7 @@ description: "Theme inspired by Stripe's branding for React Email."
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/theme-stripe
+npx shadcn@latest add @emailcn/react-email/theme-stripe
 ```
 
 </TabsContent>
@@ -22,22 +22,24 @@ npx shadcn@latest add @emailcn/theme-stripe
 <TabsContent value="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
-npm install react-email
+npm install react-email tailwindcss
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource
-  src="registry/themes/stripe.ts"
-  title="components/emails/themes/stripe.ts"
-/>
-
-<Step>Update the import paths to match your project setup.</Step>
-
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/themes/stripe.ts"
+    base="react-email"
+    title="components/email/theme-stripe.ts"
+  />
+  <ComponentSource
+    src="registry/bases/react-email/themes/email-theme.ts"
+    base="react-email"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -48,7 +50,10 @@ npm install react-email
 
 ```tsx
 import { Tailwind } from "react-email";
-import { stripeTheme } from "@/components/emails/themes/stripe";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
+import { stripeTheme } from "@/components/email/theme-stripe";
 
-<Tailwind config={stripeTheme}>{/* Your email content */}</Tailwind>;
+<Tailwind config={createEmailTailwindConfig(stripeTheme)}>
+  {/* Your email content */}
+</Tailwind>;
 ```

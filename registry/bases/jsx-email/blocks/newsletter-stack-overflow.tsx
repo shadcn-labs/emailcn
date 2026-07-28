@@ -15,8 +15,9 @@ import {
   Text,
 } from "jsx-email";
 
-import { defaultTheme } from "@/registry/bases/jsx-email/themes/default";
-import { stackOverflowTheme } from "@/registry/bases/jsx-email/themes/stack-overflow";
+import { emailAsset } from "@/registry/email-assets";
+import { defaultTheme } from "@/registry/themes/default";
+import { stackOverflowTheme } from "@/registry/themes/stack-overflow";
 
 interface ContentGridProps {
   columnCount?: 2 | 3;
@@ -195,7 +196,7 @@ export const NewsletterStackOverflow = ({
 
 NewsletterStackOverflow.PreviewProps = {
   _logoAlt: "Stack Overflow",
-  _logoUrl: "https://example.com/logo.png",
+  _logoUrl: emailAsset("logos/logo-emailcn.png"),
   _productName: "Stack Overflow",
   articles: [
     {

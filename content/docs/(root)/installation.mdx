@@ -6,17 +6,17 @@ description: "Install email components, blocks, themes, and font helpers from th
 ## Prerequisites
 
 - **React Email** templates: a project with **`react-email`** installed.
-- **MJML** templates: a project with **`@faire/mjml-react`** installed.
+- **MJML React** templates: a project with **`@faire/mjml-react`** installed.
 - **JSX Email** templates: a project with **`jsx-email`** installed.
 
-Configure the `@emailcn` namespace for your preferred style first — see [Registry](/docs/registry).
+Configure the `@emailcn` namespace first, then select the framework in the item path — see [Registry](/docs/registry).
 
 ## Installation
 
 Run the following command to add any component or block:
 
 ```bash
-npx shadcn@latest add @emailcn/block-onboarding-default
+npx shadcn@latest add @emailcn/react-email/block-onboarding-default
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ npx shadcn@latest add @emailcn/block-onboarding-default
 Import and use the component:
 
 ```tsx
-import { OnboardingDefault } from "@/components/emails/onboarding-default";
+import { OnboardingDefault } from "@/components/email/onboarding-default";
 
 export function WelcomeEmail() {
   return <OnboardingDefault _firstName="Ada" _productName="Acme" />;
@@ -35,9 +35,10 @@ Components install with a `*Section` export you can compose inside your own docu
 
 ```tsx
 import { Body, Container, Head, Html, Preview, Tailwind } from "react-email";
-import { DefaultFonts } from "@/components/emails/fonts/default";
-import { defaultTheme } from "@/components/emails/themes/theme-default";
-import { ButtonsSection } from "@/components/emails/ui-elements/buttons/buttons";
+import { createEmailTailwindConfig } from "@/components/email/email-theme";
+import { DefaultFonts } from "@/components/email/font-default";
+import { defaultTheme } from "@/components/email/theme-default";
+import { ButtonsSection } from "@/components/email/buttons";
 
 export function WelcomeEmail() {
   return (
@@ -46,7 +47,7 @@ export function WelcomeEmail() {
         <DefaultFonts />
       </Head>
       <Preview>Welcome</Preview>
-      <Tailwind config={defaultTheme}>
+      <Tailwind config={createEmailTailwindConfig(defaultTheme)}>
         <Body className="bg-background font-sans">
           <Container className="mx-auto max-w-container">
             <ButtonsSection label="Get Started" href="https://example.com" />
@@ -58,4 +59,4 @@ export function WelcomeEmail() {
 }
 ```
 
-For **theming** and **font presets**, see [Theming](/docs/theming) and for **registry URLs**, see [Registry](/docs/registry).
+For registry URLs and namespace configuration, see [Registry](/docs/registry).

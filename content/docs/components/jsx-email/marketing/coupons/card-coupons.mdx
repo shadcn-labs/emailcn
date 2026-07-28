@@ -1,6 +1,6 @@
 ---
-title: "Card Coupons"
-description: "Marketing coupons variant for email templates"
+title: "Card"
+description: "Card Coupons rendered with email-safe, renderer-native components."
 ---
 
 <ComponentPreview base="jsx-email" name="card-coupons-demo" />
@@ -15,25 +15,41 @@ description: "Marketing coupons variant for email templates"
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/card-coupons
+npx shadcn@latest add @emailcn/jsx-email/card-coupons
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-<Step>Copy the component source into your project.</Step>
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/coupons/card-coupons.tsx"
+    src="registry/bases/jsx-email/components/marketing/coupons/card-coupons.tsx"
     base="jsx-email"
-    title="components/emails/marketing/coupons/card-coupons.tsx"
+    title="components/email/card-coupons.tsx"
   />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -42,65 +58,59 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { CardCoupons } from "@/components/emails/marketing/coupons/card-coupons";
+import { CardCoupons } from "@/components/email/card-coupons";
 ```
 
 ```tsx
-<CardCoupons {...CardCoupons.PreviewProps} />
+<CardCoupons variant="with-name" />
 ```
 
 ## Examples
 
-### With Name
+### Pattern
+
+<ComponentPreview base="jsx-email" name="card-coupons-pattern-example-demo" />
+
+### Background image
 
 <ComponentPreview
   base="jsx-email"
-  name="card-coupons-demo"
-  variant="with-name"
-  hideCode
+  name="card-coupons-background-image-example-demo"
 />
 
-### With Pattern
+### Overlay
+
+<ComponentPreview base="jsx-email" name="card-coupons-overlay-example-demo" />
+
+### Background image header
 
 <ComponentPreview
   base="jsx-email"
-  name="card-coupons-demo"
-  variant="with-pattern"
-  hideCode
-/>
-
-### With Overlay
-
-<ComponentPreview
-  base="jsx-email"
-  name="card-coupons-demo"
-  variant="with-overlay"
-  hideCode
-/>
-
-### With Background Image
-
-<ComponentPreview
-  base="jsx-email"
-  name="card-coupons-demo"
-  variant="with-background-image"
-  hideCode
-/>
-
-### Background Image Header
-
-<ComponentPreview
-  base="jsx-email"
-  name="card-coupons-demo"
-  variant="background-image-header"
-  hideCode
+  name="card-coupons-background-image-header-example-demo"
 />
 
 ## API Reference
 
-| Prop          | Type                 | Default          | Description                                       |
-| ------------- | -------------------- | ---------------- | ------------------------------------------------- |
-| `theme`       | Renderer theme       | `defaultTheme`   | Renderer theme configuration                      |
-| `variant`     | `CardCouponsVariant` | `"with-overlay"` | Selects the corresponding Mailviews coupon layout |
-| Content props | `string`             | Mailviews data   | Coupon copy, code, imagery, and action content    |
-| Color props   | `string`             | Mailviews colors | Canvas, card, copy, code, and action colors       |
+| Prop                    | Type                                                                                                      | Default                                                                                                           | Description                                       |
+| ----------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `theme`                 | `EmailTheme`                                                                                              | `defaultTheme`                                                                                                    | Renderer theme configuration.                     |
+| `heading`               | `string`                                                                                                  | -                                                                                                                 | Configures the component's heading.               |
+| `recipient`             | `string`                                                                                                  | `"Jenna Adams"`                                                                                                   | Configures the component's recipient.             |
+| `code`                  | `string`                                                                                                  | `"WINTER20OFF"`                                                                                                   | Configures the component's code.                  |
+| `description`           | `string`                                                                                                  | `"Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order."` | Configures the component's description.           |
+| `logoSrc`               | `string`                                                                                                  | -                                                                                                                 | Configures the component's logosrc.               |
+| `logoAlt`               | `string`                                                                                                  | `"Maizzle"`                                                                                                       | Configures the component's logoalt.               |
+| `backgroundImageSrc`    | `string`                                                                                                  | -                                                                                                                 | Configures the component's backgroundimagesrc.    |
+| `buttonLabel`           | `string`                                                                                                  | `"Shop now"`                                                                                                      | Configures the component's buttonlabel.           |
+| `buttonHref`            | `string`                                                                                                  | `"https://example.com"`                                                                                           | Configures the component's buttonhref.            |
+| `arrowIconSrc`          | `string`                                                                                                  | `"https://placehold.co/64x64/C2410C/FFFFFF.png?text=Arrow%20Right"`                                               | Configures the component's arrowiconsrc.          |
+| `pageBackgroundColor`   | `string`                                                                                                  | `"#f1f5f9"`                                                                                                       | Configures the component's pagebackgroundcolor.   |
+| `backgroundColor`       | `string`                                                                                                  | `"#fffffe"`                                                                                                       | Configures the component's backgroundcolor.       |
+| `cardBackgroundColor`   | `string`                                                                                                  | `"#1f2937"`                                                                                                       | Configures the component's cardbackgroundcolor.   |
+| `codeBackgroundColor`   | `string`                                                                                                  | `"#f3f4f6"`                                                                                                       | Configures the component's codebackgroundcolor.   |
+| `headingColor`          | `string`                                                                                                  | `"#fffffe"`                                                                                                       | Configures the component's headingcolor.          |
+| `textColor`             | `string`                                                                                                  | `"#4b5563"`                                                                                                       | Configures the component's textcolor.             |
+| `mutedTextColor`        | `string`                                                                                                  | `"#9ca3af"`                                                                                                       | Configures the component's mutedtextcolor.        |
+| `buttonBackgroundColor` | `string`                                                                                                  | `"#4f46e5"`                                                                                                       | Configures the component's buttonbackgroundcolor. |
+| `buttonColor`           | `string`                                                                                                  | `"#fffffe"`                                                                                                       | Configures the component's buttoncolor.           |
+| `variant`               | `"with-name" \| "with-pattern" \| "with-overlay" \| "with-background-image" \| "background-image-header"` | `"with-overlay"`                                                                                                  | Configures the component's variant.               |

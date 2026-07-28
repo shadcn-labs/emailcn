@@ -1,6 +1,6 @@
 ---
-title: "Full Width Image"
-description: "A full-width image with Mailviews edge-padding and cutout variants"
+title: "Full Width"
+description: "Full Width Image rendered with email-safe, renderer-native components."
 ---
 
 <ComponentPreview base="jsx-email" name="full-width-image-demo" />
@@ -15,25 +15,41 @@ description: "A full-width image with Mailviews edge-padding and cutout variants
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @emailcn/full-width-image
+npx shadcn@latest add @emailcn/jsx-email/full-width-image
 ```
 
 </TabsContent>
 <TabsContent value="manual">
 
 <Steps>
-  <Step>Install the following dependencies:</Step>
+  <Step>**Install the following dependencies:**</Step>
 
 ```bash
 npm install jsx-email
 ```
 
-  <Step>Copy the component source into your project.</Step>
+  <Step>**Copy and paste the following code into your project.**</Step>
   <ComponentSource
-    src="registry/bases/jsx-email/ui/marketing/images/full-width-image.tsx"
+    src="registry/bases/jsx-email/components/marketing/images/full-width-image.tsx"
     base="jsx-email"
-    title="components/emails/marketing/images/full-width-image.tsx"
+    title="components/email/full-width-image.tsx"
   />
+  <ComponentSource
+    src="registry/bases/jsx-email/fonts/font-default.tsx"
+    base="jsx-email"
+    title="components/email/font-default.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="jsx-email"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/jsx-email/themes/email-theme.tsx"
+    base="jsx-email"
+    title="components/email/email-theme.tsx"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
 </Steps>
 
 </TabsContent>
@@ -42,156 +58,235 @@ npm install jsx-email
 ## Usage
 
 ```tsx
-import { FullWidthImage } from "@/components/emails/marketing/images/full-width-image";
+import { FullWidthImage } from "@/components/email/full-width-image";
 ```
 
 ```tsx
-<FullWidthImage {...FullWidthImage.PreviewProps} />
+<FullWidthImage frame="none" frameStyle="padding" overlay={false} />
 ```
 
 ## Examples
 
-### Default
+### Full-width image
+
+#### Default
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="default"
-  hideCode
+  name="full-width-image-overlay-false-frame-none-frame-style-padding-example-demo"
 />
 
-### Top Padding
+#### Top padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="top-padding"
-  hideCode
+  name="full-width-image-overlay-false-frame-top-frame-style-padding-example-demo"
 />
 
-### Top Right
+#### Top right
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="top-right"
-  hideCode
+  name="full-width-image-overlay-false-frame-top-frame-style-alternate-example-demo"
 />
 
-### Top Left
+#### Top left
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="top-left"
-  hideCode
+  name="full-width-image-overlay-false-frame-top-frame-style-split-example-demo"
 />
 
-### Top and Sides
+#### Top + sides
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="top-sides"
-  hideCode
+  name="full-width-image-overlay-false-frame-top-frame-style-sides-example-demo"
 />
 
-### Right Padding
+#### Right padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="right-padding"
-  hideCode
+  name="full-width-image-overlay-false-frame-right-frame-style-padding-example-demo"
 />
 
-### Right Alternative
+#### Right alt
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="right-alt"
-  hideCode
+  name="full-width-image-overlay-false-frame-right-frame-style-alternate-example-demo"
 />
 
-### Bottom Padding
+#### Bottom padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="bottom-padding"
-  hideCode
+  name="full-width-image-overlay-false-frame-bottom-frame-style-padding-example-demo"
 />
 
-### Bottom Right
+#### Bottom right
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="bottom-right"
-  hideCode
+  name="full-width-image-overlay-false-frame-bottom-frame-style-alternate-example-demo"
 />
 
-### Bottom Left
+#### Bottom left
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="bottom-left"
-  hideCode
+  name="full-width-image-overlay-false-frame-bottom-frame-style-split-example-demo"
 />
 
-### Bottom and Sides
+#### Bottom + sides
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="bottom-sides"
-  hideCode
+  name="full-width-image-overlay-false-frame-bottom-frame-style-sides-example-demo"
 />
 
-### Left Padding
+#### Left padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="left-padding"
-  hideCode
+  name="full-width-image-overlay-false-frame-left-frame-style-padding-example-demo"
 />
 
-### Left Alternative
+#### Left alt
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="left-alt"
-  hideCode
+  name="full-width-image-overlay-false-frame-left-frame-style-alternate-example-demo"
 />
 
-### Sides Padding
+#### Sides padding
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="sides-padding"
-  hideCode
+  name="full-width-image-overlay-false-frame-sides-frame-style-padding-example-demo"
 />
 
-### Sides Alternative
+#### Sides alt
 
 <ComponentPreview
   base="jsx-email"
-  name="full-width-image-demo"
-  variant="sides-alt"
-  hideCode
+  name="full-width-image-overlay-false-frame-sides-frame-style-alternate-example-demo"
+/>
+
+### Full-width image with overlay
+
+#### Default
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-none-frame-style-padding-example-demo"
+/>
+
+#### Top padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-padding-example-demo"
+/>
+
+#### Top right
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-alternate-example-demo"
+/>
+
+#### Top left
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-split-example-demo"
+/>
+
+#### Top + sides
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-top-frame-style-sides-example-demo"
+/>
+
+#### Right padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-right-frame-style-padding-example-demo"
+/>
+
+#### Right alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-right-frame-style-alternate-example-demo"
+/>
+
+#### Bottom padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-padding-example-demo"
+/>
+
+#### Bottom right
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-alternate-example-demo"
+/>
+
+#### Bottom left
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-split-example-demo"
+/>
+
+#### Bottom + sides
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-bottom-frame-style-sides-example-demo"
+/>
+
+#### Left padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-left-frame-style-padding-example-demo"
+/>
+
+#### Left alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-left-frame-style-alternate-example-demo"
+/>
+
+#### Sides padding
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-sides-frame-style-padding-example-demo"
+/>
+
+#### Sides alt
+
+<ComponentPreview
+  base="jsx-email"
+  name="full-width-image-overlay-frame-sides-frame-style-alternate-example-demo"
 />
 
 ## API Reference
 
-| Prop                    | Type                    | Default         | Description                                     |
-| ----------------------- | ----------------------- | --------------- | ----------------------------------------------- |
-| `theme`                 | `EmailThemeTokens`      | `defaultTheme`  | JSX Email theme tokens                          |
-| `variant`               | `FullWidthImageVariant` | `"default"`     | Selects the exact Mailviews edge treatment      |
-| `imageSrc` / `imageAlt` | `string`                | Mailviews image | Image URL and alternative text                  |
-| `pageBackgroundColor`   | `string`                | `"#f1f5f9"`     | Canvas and cutout color                         |
-| `spacerBackgroundColor` | `string`                | `"#fffffe"`     | Color used for padding and side spacer surfaces |
+| Prop         | Type                                                                               | Default        | Description                            |
+| ------------ | ---------------------------------------------------------------------------------- | -------------- | -------------------------------------- |
+| `theme`      | `EmailTheme`                                                                       | `defaultTheme` | Renderer theme configuration.          |
+| `image`      | `{ src: string; alt?: string; href?: string; heading?: string; subtext?: string }` | -              | Configures the component's image.      |
+| `overlay`    | `boolean`                                                                          | `false`        | Configures the component's overlay.    |
+| `frame`      | `"none" \| "top" \| "right" \| "bottom" \| "left" \| "sides"`                      | `"none"`       | Configures the component's frame.      |
+| `frameStyle` | `"padding" \| "split" \| "alternate" \| "sides"`                                   | `"padding"`    | Configures the component's framestyle. |

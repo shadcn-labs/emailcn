@@ -1,0 +1,161 @@
+---
+title: "Billing Details"
+description: "Billing Order Summary rendered with email-safe, renderer-native components."
+---
+
+<ComponentPreview base="mjml-react" name="billing-order-summary-demo" />
+
+## Installation
+
+<CodeTabs>
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @emailcn/mjml-react/billing-order-summary
+```
+
+</TabsContent>
+<TabsContent value="manual">
+
+<Steps>
+  <Step>**Install the following dependencies:**</Step>
+
+```bash
+npm install @faire/mjml-react mjml
+```
+
+  <Step>**Copy and paste the following code into your project.**</Step>
+  <ComponentSource
+    src="registry/bases/mjml-react/components/ecommerce/order-summary/billing-order-summary.tsx"
+    base="mjml-react"
+    title="components/email/billing-order-summary.tsx"
+  />
+  <ComponentSource
+    src="registry/themes/default.ts"
+    base="mjml-react"
+    title="components/email/theme-default.ts"
+  />
+  <ComponentSource
+    src="registry/bases/mjml-react/themes/email-theme.ts"
+    base="mjml-react"
+    title="components/email/email-theme.ts"
+  />
+  <Step>**Update the import paths to match your project setup.**</Step>
+</Steps>
+
+</TabsContent>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BillingOrderSummary } from "@/components/email/billing-order-summary";
+```
+
+```tsx
+<BillingOrderSummary billingPosition="top" appearance="plain" />
+```
+
+## Examples
+
+### Order summary with billing details and payment method at the top
+
+#### basic
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-plain-example-demo"
+/>
+
+#### basic with payment
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-plain-payment-example-demo"
+/>
+
+#### basic with notes
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-plain-notes-example-demo"
+/>
+
+#### basic full details
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-plain-payment-notes-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-bordered-example-demo"
+/>
+
+#### bordered with payment
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-bordered-payment-example-demo"
+/>
+
+#### bordered with notes
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-bordered-notes-example-demo"
+/>
+
+#### bordered full details
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-top-appearance-bordered-payment-notes-example-demo"
+/>
+
+### Order summary with billing details and payment method inline
+
+#### basic
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-inline-appearance-plain-example-demo"
+/>
+
+#### basic with notes
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-inline-appearance-plain-notes-example-demo"
+/>
+
+#### bordered
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-inline-appearance-bordered-example-demo"
+/>
+
+#### bordered with notes
+
+<ComponentPreview
+  base="mjml-react"
+  name="billing-order-summary-billing-position-inline-appearance-bordered-notes-example-demo"
+/>
+
+## API Reference
+
+| Prop              | Type                    | Default        | Description                                 |
+| ----------------- | ----------------------- | -------------- | ------------------------------------------- |
+| `theme`           | `EmailTheme`            | `defaultTheme` | Renderer theme configuration.               |
+| `payment`         | `boolean`               | -              | Shows the payment-method treatment.         |
+| `notes`           | `boolean`               | -              | Shows the notes treatment.                  |
+| `billingPosition` | `"top" \| "inline"`     | `"top"`        | Positions billing details above or inline.  |
+| `appearance`      | `"plain" \| "bordered"` | `"plain"`      | Selects the plain or bordered presentation. |
