@@ -1,6 +1,7 @@
 "use client";
 
 import { DownloadIcon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -82,6 +83,7 @@ const CodeTab = ({
 };
 
 interface ComponentPreviewClientProps {
+  darkHtml: string;
   html: string;
   plainText: string | null;
   iframeTitle: string;
@@ -94,6 +96,7 @@ interface ComponentPreviewClientProps {
 }
 
 export const ComponentPreviewClient = ({
+  darkHtml,
   html,
   plainText,
   iframeTitle,
@@ -105,6 +108,9 @@ export const ComponentPreviewClient = ({
   viewUrl,
 }: ComponentPreviewClientProps) => {
   const [activeTab, setActiveTab] = useState("preview");
+  const { resolvedTheme } = useTheme();
+  const colorMode = resolvedTheme === "dark" ? "dark" : "light";
+  const resolvedHtml = colorMode === "dark" ? darkHtml : html;
   const [viewport] = useViewportToggle();
 
   return (
@@ -120,7 +126,7 @@ export const ComponentPreviewClient = ({
               <TabsTrigger className="h-6 px-2.5 text-xs" value="preview">
                 Preview
               </TabsTrigger>
-              {html ? (
+              {resolvedHtml ? (
                 <TabsTrigger className="h-6 px-2.5 text-xs" value="html">
                   HTML
                 </TabsTrigger>
@@ -152,13 +158,15 @@ export const ComponentPreviewClient = ({
               className="block max-w-full bg-transparent transition-[width] duration-200 ease-out"
               height={height}
               sandbox=""
-              srcDoc={html}
+              srcDoc={resolvedHtml}
               style={{ width: viewportWidths[viewport] }}
               title={iframeTitle}
             />
           </div>
         </TabsContent>
-        {html ? <CodeTab language="html" code={html} value="html" /> : null}
+        {resolvedHtml ? (
+          <CodeTab language="html" code={resolvedHtml} value="html" />
+        ) : null}
         {plainText ? (
           <CodeTab language="text" code={plainText} value="text" />
         ) : null}

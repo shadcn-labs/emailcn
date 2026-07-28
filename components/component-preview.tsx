@@ -1,6 +1,7 @@
 import { ComponentPreviewClient } from "@/components/component-preview-client";
 import { ComponentSource } from "@/components/component-source";
 import type { DemoName } from "@/examples/__index__";
+import { getEmailHtmlForColorMode } from "@/lib/email-color-mode";
 import { renderEmailPreview } from "@/lib/render-email-preview";
 import type { BaseName } from "@/registry/bases";
 
@@ -28,6 +29,7 @@ export const ComponentPreview = async ({
   showTitleBar = false,
 }: ComponentPreviewProps) => {
   let html = "";
+  let darkHtml = "";
   let plainText: string | null = null;
   let previewHeight = 640;
 
@@ -39,17 +41,21 @@ export const ComponentPreview = async ({
     }
 
     ({ height: previewHeight, html, plainText } = preview);
+    darkHtml = getEmailHtmlForColorMode(html, "dark");
+    html = getEmailHtmlForColorMode(html, "light");
   } catch (error) {
     html = `<div style="padding: 40px; text-align: center; color: #666;">
       <p>Preview unavailable</p>
       <pre style="font-size: 12px; color: #999;">${error instanceof Error ? error.message : "Unknown error"}</pre>
     </div>`;
+    darkHtml = html;
   }
 
   return (
     <>
       <ComponentPreviewClient
         className={className}
+        darkHtml={darkHtml}
         height={height ?? previewHeight}
         hideNav={hideNav}
         html={html}
