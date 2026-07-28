@@ -153,22 +153,14 @@ export const ComponentPreviewClient = ({
               {title}
             </div>
           ) : null}
-          <div
-            className={cn(
-              "bg-muted/40 flex justify-center",
-              hideNav ? "overflow-hidden" : "overflow-x-auto"
-            )}
-          >
+          <div className="bg-muted/40 flex justify-center overflow-x-auto">
             <iframe
-              className={cn(
-                "block shrink-0 bg-transparent transition-[width] duration-200 ease-out",
-                hideNav ? "w-full max-w-none sm:w-[600px]" : "max-w-full"
-              )}
+              className="block max-w-full bg-transparent transition-[width] duration-200 ease-out"
               height={height}
               sandbox=""
               srcDoc={resolvedHtml}
               style={{
-                width: hideNav ? undefined : viewportWidths[viewport],
+                width: viewportWidths[viewport],
               }}
               title={iframeTitle}
             />
