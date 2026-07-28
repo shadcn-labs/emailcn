@@ -11,7 +11,7 @@ export default function PurchasePricingDemo() {
           purchasePrice: "$149",
         },
       ]}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

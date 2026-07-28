@@ -132,7 +132,11 @@ const CategoryCards_ShopButton = ({
     <Img
       alt=""
       src={emailAsset("icon-arrow-right.png")}
-      style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+      style={{
+        display: "inline-block",
+        maxWidth: "100%",
+        verticalAlign: "baseline",
+      }}
       width="12"
     />
   </Link>
@@ -496,7 +500,11 @@ const CategoryRows_ShopButton = ({
     <Img
       alt=""
       src={emailAsset("icon-arrow-right.png")}
-      style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+      style={{
+        display: "inline-block",
+        maxWidth: "100%",
+        verticalAlign: "baseline",
+      }}
       width="12"
     />
   </Link>

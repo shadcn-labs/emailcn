@@ -2,10 +2,5 @@ import { CollageCallToAction } from "@/registry/bases/mjml-react/components/mark
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function CollageCallToActionDemo() {
-  return (
-    <CollageCallToAction
-      treatment="side"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <CollageCallToAction treatment="side" theme={defaultTheme} />;
 }

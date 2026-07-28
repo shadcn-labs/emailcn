@@ -17,6 +17,23 @@ import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme"
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -185,7 +202,7 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesSection = (
     "theme"
   >
 ) => {
-  const resolved = { ...TwoColumnMasonryThree_defaults, ...props };
+  const resolved = resolveDefaultProps(TwoColumnMasonryThree_defaults, props);
   const variant = resolved.variant ?? "stacked-left";
   const overlay = variant.endsWith("overlay");
   const stackedLeft = variant.startsWith("stacked-left");
@@ -348,7 +365,7 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesSection = (
     "theme"
   >
 ) => {
-  const resolved = { ...TwoColumnMasonryFour_defaults, ...props };
+  const resolved = resolveDefaultProps(TwoColumnMasonryFour_defaults, props);
   const variant = resolved.variant ?? "stacked-left";
   const overlay = variant.includes("overlay");
   const reverse = variant.endsWith("reverse");
@@ -520,7 +537,7 @@ const ThreeColumnMasonry_defaults = {
 const ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection = (
   props: Omit<ThreeColumnMasonry_ThreeColumnsMasonryImageGridProps, "theme">
 ) => {
-  const resolved = { ...ThreeColumnMasonry_defaults, ...props };
+  const resolved = resolveDefaultProps(ThreeColumnMasonry_defaults, props);
   const variant = resolved.variant ?? "stacked-left";
   const overlay = variant.endsWith("overlay");
   const stackedLeft = variant.startsWith("stacked-left");
@@ -681,7 +698,10 @@ const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeature
       "theme"
     >
   ) => {
-    const resolved = { ...ThreeColumnMasonryFeature_defaults, ...props };
+    const resolved = resolveDefaultProps(
+      ThreeColumnMasonryFeature_defaults,
+      props
+    );
     const variant = resolved.variant ?? "stacked-left";
     const overlay = variant.includes("overlay");
     const reverse = variant.endsWith("reverse");

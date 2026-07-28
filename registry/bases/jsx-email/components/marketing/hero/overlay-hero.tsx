@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type AlignedHero_HeroAlignedOverlayVariant =
   | "content-left"
   | "content-left-reversed"
@@ -189,7 +206,11 @@ const AlignedHero_HeroAlignedOverlaySection = ({
             alt=""
             src={emailAsset(`icon-arrow-right.png`)}
             width="12"
-            style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+            style={{
+              display: "inline-block",
+              maxWidth: "100%",
+              verticalAlign: "baseline",
+            }}
           />
         </Link>
       ) : null}
@@ -426,28 +447,30 @@ const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
     subheading,
     textColor,
     variant,
-  } = {
-    backgroundColor: "#030712",
-    backgroundImageSrc: emailAsset(`hero/block-overlay-bg.jpg`),
-    buttonBackgroundColor: "#4f46e5",
-    buttonTextColor: "#fffffe",
-    ctaHref: "https://example.com",
-    ctaLabel: "Discover how",
-    description:
-      "SumUp is a global fintech leader transforming the way businesses accept payments. From mobile card readers to POS systems, we equip over 4 million merchants across 35+ countries with streamlined, secure tools that help them scale.",
-    eyebrow: "Transaction fees as low as 0.89%",
-    heading: "SumUp",
-    imageAlt: "Entrepreneur using a SumUp payment terminal",
-    logoAlt: "emailcn",
-    logoHref: "https://example.com",
-    logoSrc: emailAsset(`emailcn-logo-light.png`),
-    overlayColor: "rgba(3, 7, 18, 0.8)",
-    pageBackgroundColor: "#f1f5f9",
-    subheading: "Powering Modern Entrepreneurs",
-    textColor: "#f9fafb",
-    variant: "left-centered",
-    ...props,
-  };
+  } = resolveDefaultProps(
+    {
+      backgroundColor: "#030712",
+      backgroundImageSrc: emailAsset(`hero/block-overlay-bg.jpg`),
+      buttonBackgroundColor: "#4f46e5",
+      buttonTextColor: "#fffffe",
+      ctaHref: "https://example.com",
+      ctaLabel: "Discover how",
+      description:
+        "SumUp is a global fintech leader transforming the way businesses accept payments. From mobile card readers to POS systems, we equip over 4 million merchants across 35+ countries with streamlined, secure tools that help them scale.",
+      eyebrow: "Transaction fees as low as 0.89%",
+      heading: "SumUp",
+      imageAlt: "Entrepreneur using a SumUp payment terminal",
+      logoAlt: "emailcn",
+      logoHref: "https://example.com",
+      logoSrc: emailAsset(`emailcn-logo-light.png`),
+      overlayColor: "rgba(3, 7, 18, 0.8)",
+      pageBackgroundColor: "#f1f5f9",
+      subheading: "Powering Modern Entrepreneurs",
+      textColor: "#f9fafb",
+      variant: "left-centered" as BlockHero_HeroBlockOverlayVariant,
+    },
+    props
+  );
   const isLeft = variant.startsWith("left-");
   const placement = variant.replace(/^(left|right)-/, "");
   const showsLogo = placement === "centered" || placement === "bottom";
@@ -534,7 +557,11 @@ const BlockHero_HeroBlockOverlaySection = (props: BlockHero_SectionProps) => {
                   <Img
                     alt=""
                     src={emailAsset(`icon-arrow-right.png`)}
-                    style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+                    style={{
+                      display: "inline-block",
+                      maxWidth: "100%",
+                      verticalAlign: "baseline",
+                    }}
                     width="12"
                   />
                 </Link>
@@ -742,28 +769,30 @@ const BlockBleedHero_HeroBlockWithBleedSection = (
     subheading,
     textColor,
     variant,
-  } = {
-    backgroundColor: "#030712",
-    backgroundImageSrc: emailAsset(`hero/block-with-bleed-bg.jpg`),
-    buttonBackgroundColor: "#4f46e5",
-    buttonTextColor: "#fffffe",
-    ctaHref: "https://example.com",
-    ctaLabel: "Discover how",
-    description:
-      "Where golden dunes meet the distant peaks, nature speaks in silence. These fragile landscapes remind us how balance sustains beauty — and how every action we take can help protect it.",
-    eyebrow: "Lush oasis, Our Wonderworld.",
-    heading: "Preserve the planet we share",
-    imageAlt: "Golden dunes beneath distant mountains",
-    logoAlt: "emailcn",
-    logoHref: "https://example.com",
-    logoSrc: emailAsset(`emailcn-logo-light.png`),
-    overlayColor: "rgba(3, 7, 18, 0.8)",
-    pageBackgroundColor: "#f1f5f9",
-    subheading: "Take action today.",
-    textColor: "#f9fafb",
-    variant: "left-centered",
-    ...props,
-  };
+  } = resolveDefaultProps(
+    {
+      backgroundColor: "#030712",
+      backgroundImageSrc: emailAsset(`hero/block-with-bleed-bg.jpg`),
+      buttonBackgroundColor: "#4f46e5",
+      buttonTextColor: "#fffffe",
+      ctaHref: "https://example.com",
+      ctaLabel: "Discover how",
+      description:
+        "Where golden dunes meet the distant peaks, nature speaks in silence. These fragile landscapes remind us how balance sustains beauty — and how every action we take can help protect it.",
+      eyebrow: "Lush oasis, Our Wonderworld.",
+      heading: "Preserve the planet we share",
+      imageAlt: "Golden dunes beneath distant mountains",
+      logoAlt: "emailcn",
+      logoHref: "https://example.com",
+      logoSrc: emailAsset(`emailcn-logo-light.png`),
+      overlayColor: "rgba(3, 7, 18, 0.8)",
+      pageBackgroundColor: "#f1f5f9",
+      subheading: "Take action today.",
+      textColor: "#f9fafb",
+      variant: "left-centered" as BlockBleedHero_HeroBlockWithBleedVariant,
+    },
+    props
+  );
   const isLeft = variant.startsWith("left-");
   const placement = variant.replace(/^(left|right)-/, "");
   const showsLogo = placement === "centered" || placement === "bottom";
@@ -869,6 +898,7 @@ const BlockBleedHero_HeroBlockWithBleedSection = (
                                 alt=""
                                 src={emailAsset(`icon-arrow-right.png`)}
                                 style={{
+                                  display: "inline-block",
                                   maxWidth: "100%",
                                   verticalAlign: "baseline",
                                 }}
@@ -1080,29 +1110,31 @@ const GradientHero_HeroWithOverlayGradientSection = (
     subheading,
     textColor,
     variant,
-  } = {
-    backgroundColor: "#030712",
-    backgroundImageSrc: emailAsset(`hero/overlay-gradient-bg.jpg`),
-    buttonBackgroundColor: "#4f46e5",
-    buttonTextColor: "#fffffe",
-    ctaHref: "https://example.com",
-    ctaLabel: "Shop now",
-    description:
-      "Inspired by the granite giants of Yosemite, our latest pack is made for those who roam. Durable, weather-ready, and crafted for every climb, it’s built to carry your story, wherever the trail leads.",
-    eyebrow: "Yosemite Collection",
-    heading: "Forclaz 50L",
-    imageAlt: "Forclaz backpack in Yosemite",
-    logoAlt: "emailcn",
-    logoHref: "https://example.com",
-    logoSrc: emailAsset(`emailcn-logo-light.png`),
-    overlayColor: "rgba(3, 7, 18, 0.6)",
-    pageBackgroundColor: "#f1f5f9",
-    price: "Starts at $129.99",
-    subheading: "Easyfit Version",
-    textColor: "#f9fafb",
-    variant: "split-with-logo",
-    ...props,
-  };
+  } = resolveDefaultProps(
+    {
+      backgroundColor: "#030712",
+      backgroundImageSrc: emailAsset(`hero/overlay-gradient-bg.jpg`),
+      buttonBackgroundColor: "#4f46e5",
+      buttonTextColor: "#fffffe",
+      ctaHref: "https://example.com",
+      ctaLabel: "Shop now",
+      description:
+        "Inspired by the granite giants of Yosemite, our latest pack is made for those who roam. Durable, weather-ready, and crafted for every climb, it’s built to carry your story, wherever the trail leads.",
+      eyebrow: "Yosemite Collection",
+      heading: "Forclaz 50L",
+      imageAlt: "Forclaz backpack in Yosemite",
+      logoAlt: "emailcn",
+      logoHref: "https://example.com",
+      logoSrc: emailAsset(`emailcn-logo-light.png`),
+      overlayColor: "rgba(3, 7, 18, 0.6)",
+      pageBackgroundColor: "#f1f5f9",
+      price: "Starts at $129.99",
+      subheading: "Easyfit Version",
+      textColor: "#f9fafb",
+      variant: "split-with-logo" as GradientHero_HeroWithOverlayGradientVariant,
+    },
+    props
+  );
   const hasLogo = variant.endsWith("with-logo");
   const isSplit = variant.startsWith("split-");
   const title = (
@@ -1275,6 +1307,7 @@ const GradientHero_HeroWithOverlayGradientSection = (
                                     alt=""
                                     src={emailAsset(`icon-arrow-right.png`)}
                                     style={{
+                                      display: "inline-block",
                                       maxWidth: "100%",
                                       verticalAlign: "baseline",
                                     }}
@@ -1461,18 +1494,18 @@ export const OverlayHero = ({
   if (treatment === "gradient") {
     return (
       <__GradientHero
+        backgroundImageSrc={backgroundValues.src}
         ctaHref={contentValues.ctaHref}
         ctaLabel={contentValues.ctaLabel}
         description={contentValues.description}
         eyebrow={contentValues.eyebrow}
         heading={contentValues.heading}
-        price={content?.price}
-        subheading={contentValues.subheading}
-        backgroundImageSrc={backgroundValues.src}
         imageAlt={backgroundValues.alt}
         logoAlt={brandValues.logoAlt}
         logoHref={brandValues.logoHref}
         logoSrc={brandValues.logoSrc}
+        price={content?.price}
+        subheading={contentValues.subheading}
         theme={theme}
         variant={
           (variantOverride ??
@@ -1486,17 +1519,17 @@ export const OverlayHero = ({
   const Component = bleed ? __BlockBleedHero : __BlockHero;
   return (
     <Component
+      backgroundImageSrc={backgroundValues.src}
       ctaHref={contentValues.ctaHref}
       ctaLabel={contentValues.ctaLabel}
       description={contentValues.description}
       eyebrow={contentValues.eyebrow}
       heading={contentValues.heading}
-      subheading={contentValues.subheading}
-      backgroundImageSrc={backgroundValues.src}
       imageAlt={backgroundValues.alt}
       logoAlt={brandValues.logoAlt}
       logoHref={brandValues.logoHref}
       logoSrc={brandValues.logoSrc}
+      subheading={contentValues.subheading}
       theme={theme}
       variant={
         (variantOverride ?? blockPosition(position)) as Parameters<

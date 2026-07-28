@@ -6,7 +6,7 @@ export default function ReviewsDemo() {
     <Reviews
       layout="full-width"
       identity="text"
-      divider="none"
+      divider="between"
       theme={{ ...defaultTheme, containerWidth: "640px" }}
     />
   );

@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesVariant =
   | "stacked-left"
   | "stacked-right"
@@ -276,10 +293,10 @@ const TwoColumnMasonryThree_TwoColumnsMasonryImageGridWith3ImagesSection = (
   props: TwoColumnMasonryThree_SectionProps
 ) => {
   const variant = props.variant ?? "stacked-left";
-  const resolved = {
-    ...TwoColumnMasonryThree_defaultSectionStyles,
-    ...props,
-  } as TwoColumnMasonryThree_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    TwoColumnMasonryThree_defaultSectionStyles,
+    props
+  ) as TwoColumnMasonryThree_ResolvedProps;
   const overlay = variant.endsWith("overlay");
   const stackedLeft = variant.startsWith("stacked-left");
   const stacked = (
@@ -761,10 +778,10 @@ const TwoColumnMasonryFour_TwoColumnsMasonryImageGridWith4ImagesSection = (
   props: TwoColumnMasonryFour_SectionProps
 ) => {
   const variant = props.variant ?? "stacked-left";
-  const resolved = {
-    ...TwoColumnMasonryFour_defaults,
-    ...props,
-  } as TwoColumnMasonryFour_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    TwoColumnMasonryFour_defaults,
+    props
+  ) as TwoColumnMasonryFour_ResolvedProps;
   const overlay = variant.includes("overlay");
   const reverse = variant.endsWith("reverse");
   const stackedLeft = variant.startsWith("stacked-left");
@@ -1121,10 +1138,10 @@ const ThreeColumnMasonry_ThreeColumnsMasonryImageGridSection = (
   props: ThreeColumnMasonry_SectionProps
 ) => {
   const variant = props.variant ?? "stacked-left";
-  const resolved = {
-    ...ThreeColumnMasonry_defaults,
-    ...props,
-  } as ThreeColumnMasonry_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    ThreeColumnMasonry_defaults,
+    props
+  ) as ThreeColumnMasonry_ResolvedProps;
   const overlay = variant.endsWith("overlay");
   const stackedLeft = variant.startsWith("stacked-left");
   const stack = (
@@ -1624,10 +1641,10 @@ const ThreeColumnMasonryFeature_MasonryRow = ({
 const ThreeColumnMasonryFeature_ThreeColumnsMasonryImageGridWithFullWidthFeatureSection =
   (props: ThreeColumnMasonryFeature_SectionProps) => {
     const variant = props.variant ?? "stacked-left";
-    const resolved = {
-      ...ThreeColumnMasonryFeature_defaults,
-      ...props,
-    } as ThreeColumnMasonryFeature_ResolvedProps;
+    const resolved = resolveDefaultProps(
+      ThreeColumnMasonryFeature_defaults,
+      props
+    ) as ThreeColumnMasonryFeature_ResolvedProps;
     const overlay = variant.includes("overlay");
     const reverse = variant.endsWith("reverse");
     const stackedLeft = variant.startsWith("stacked-left");

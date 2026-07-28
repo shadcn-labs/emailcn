@@ -7,7 +7,7 @@ export default function UtilityFooterDemo() {
       content="socials"
       alignment="center"
       columns={1}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

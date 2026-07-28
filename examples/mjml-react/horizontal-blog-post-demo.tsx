@@ -3,10 +3,6 @@ import { defaultTheme } from "@/registry/themes/default";
 
 export default function HorizontalBlogPostDemo() {
   return (
-    <HorizontalBlogPost
-      surface="plain"
-      media="single"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
+    <HorizontalBlogPost surface="plain" media="single" theme={defaultTheme} />
   );
 }

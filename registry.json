@@ -2919,6 +2919,11 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/email/product-detail-shared.tsx",
+          "type": "registry:file"
+        },
+        {
           "path": "registry/email-assets.ts",
           "target": "components/email/email-assets.ts",
           "type": "registry:file"
@@ -2940,6 +2945,11 @@
           "path": "registry/bases/mjml-react/components/ecommerce/product-detail/single-image-product-detail.tsx",
           "target": "components/email/single-image-product-detail.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/email/product-detail-shared.tsx",
+          "type": "registry:file"
         },
         {
           "path": "registry/email-assets.ts",
@@ -2965,6 +2975,11 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/email/product-detail-shared.tsx",
+          "type": "registry:file"
+        },
+        {
           "path": "registry/email-assets.ts",
           "target": "components/email/email-assets.ts",
           "type": "registry:file"
@@ -2988,6 +3003,11 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/email/product-detail-shared.tsx",
+          "type": "registry:file"
+        },
+        {
           "path": "registry/email-assets.ts",
           "target": "components/email/email-assets.ts",
           "type": "registry:file"
@@ -3009,6 +3029,11 @@
           "path": "registry/bases/mjml-react/components/ecommerce/product-detail/two-image-product-detail.tsx",
           "target": "components/email/two-image-product-detail.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/bases/mjml-react/components/ecommerce/product-detail/product-detail-shared.tsx",
+          "target": "components/email/product-detail-shared.tsx",
+          "type": "registry:file"
         },
         {
           "path": "registry/email-assets.ts",

@@ -16,6 +16,23 @@ import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme"
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -229,7 +246,7 @@ const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureSection = (
     "theme"
   >
 ) => {
-  const resolved = { ...TwoColumnFeatureGrid_defaults, ...props };
+  const resolved = resolveDefaultProps(TwoColumnFeatureGrid_defaults, props);
   const variant = resolved.variant ?? "full-width-top";
   const overlay = variant.endsWith("overlay");
   const feature = (
@@ -374,7 +391,10 @@ const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureSection =
       "theme"
     >
   ) => {
-    const resolved = { ...ThreeColumnFeatureGrid_defaults, ...props };
+    const resolved = resolveDefaultProps(
+      ThreeColumnFeatureGrid_defaults,
+      props
+    );
     const variant = resolved.variant ?? "full-width-top";
     const overlay = variant.endsWith("overlay");
     const feature = (
@@ -492,35 +512,57 @@ export const FeaturedImageGrid = ({
   featurePosition = "top",
   overlay = false,
 }: FeaturedImageGridProps) => {
-  const Component =
-    columns === 3 ? __ThreeColumnFeatureGrid : __TwoColumnFeatureGrid;
   const [first, second, third] = images ?? [];
   const featureItem = featuredImageGridItem(feature);
   const image1 = featuredImageGridItem(first);
   const image2 = featuredImageGridItem(second);
   const image3 = featuredImageGridItem(third);
+  if (columns === 3) {
+    return (
+      <__ThreeColumnFeatureGrid
+        featureHeading={featureItem.heading}
+        featureImageAlt={featureItem.alt}
+        featureImageHref={featureItem.href}
+        featureImageSrc={featureItem.src}
+        featureSubtext={featureItem.subtext}
+        heading1={image1.heading}
+        heading2={image2.heading}
+        heading3={image3.heading}
+        imageAlt1={image1.alt}
+        imageAlt2={image2.alt}
+        imageAlt3={image3.alt}
+        imageHref1={image1.href}
+        imageHref2={image2.href}
+        imageHref3={image3.href}
+        imageSrc1={image1.src}
+        imageSrc2={image2.src}
+        imageSrc3={image3.src}
+        subtext1={image1.subtext}
+        subtext2={image2.subtext}
+        subtext3={image3.subtext}
+        theme={theme}
+        variant={`full-width-${featurePosition}${overlay ? "-overlay" : ""}`}
+      />
+    );
+  }
+
   return (
-    <Component
+    <__TwoColumnFeatureGrid
       featureHeading={featureItem.heading}
       featureImageAlt={featureItem.alt}
       featureImageHref={featureItem.href}
       featureImageSrc={featureItem.src}
       featureSubtext={featureItem.subtext}
       imageAlt1={image1.alt}
-      imageHref1={image1.href}
-      imageSrc1={image1.src}
-      heading1={image1.heading}
-      subtext1={image1.subtext}
       imageAlt2={image2.alt}
+      imageHeading1={image1.heading}
+      imageHeading2={image2.heading}
+      imageHref1={image1.href}
       imageHref2={image2.href}
+      imageSrc1={image1.src}
       imageSrc2={image2.src}
-      heading2={image2.heading}
-      subtext2={image2.subtext}
-      imageAlt3={image3.alt}
-      imageHref3={image3.href}
-      imageSrc3={image3.src}
-      heading3={image3.heading}
-      subtext3={image3.subtext}
+      imageSubtext1={image1.subtext}
+      imageSubtext2={image2.subtext}
       theme={theme}
       variant={`full-width-${featurePosition}${overlay ? "-overlay" : ""}`}
     />

@@ -2,11 +2,5 @@ import { Container } from "@/registry/bases/mjml-react/components/ui-elements/co
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function ContainerDemo() {
-  return (
-    <Container
-      mobile="gutters"
-      align="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <Container mobile="gutters" align="left" theme={defaultTheme} />;
 }

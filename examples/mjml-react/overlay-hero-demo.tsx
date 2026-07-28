@@ -6,7 +6,7 @@ export default function OverlayHeroDemo() {
     <OverlayHero
       treatment="block"
       position="center-left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

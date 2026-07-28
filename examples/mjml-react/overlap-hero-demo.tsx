@@ -2,11 +2,5 @@ import { OverlapHero } from "@/registry/bases/mjml-react/components/marketing/he
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function OverlapHeroDemo() {
-  return (
-    <OverlapHero
-      target="content"
-      direction="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <OverlapHero target="content" direction="left" theme={defaultTheme} />;
 }

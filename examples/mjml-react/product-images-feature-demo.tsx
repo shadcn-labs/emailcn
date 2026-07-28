@@ -6,7 +6,7 @@ export default function ProductImagesFeatureDemo() {
     <ProductImagesFeature
       placement="right"
       presentation="logo"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

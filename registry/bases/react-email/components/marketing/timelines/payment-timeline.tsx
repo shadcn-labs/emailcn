@@ -119,64 +119,25 @@ export const PaymentTimelineSection = ({
                       >
                         <Fragment>
                           <Row>
-                            {dates.map((date, index) => (
-                              <Column key={date}>
-                                <Section style={{ width: "100%" }}>
-                                  <Fragment>
-                                    <Row>
-                                      <Column>
-                                        {(() => {
-                                          if (index === 0) {
-                                            return null;
-                                          }
-                                          return (
-                                            <Section
-                                              style={{
-                                                backgroundColor:
-                                                  index <= 1
-                                                    ? "#030712"
-                                                    : "#d1d5db",
-                                                height: "1px",
-                                                lineHeight: "1px",
-                                              }}
-                                            >
-                                              &zwj;
-                                            </Section>
-                                          );
-                                        })()}
-                                      </Column>
-                                      <Column style={{ width: "16px" }}>
-                                        <Dot
-                                          checked={index === 0}
-                                          dark={index <= 1}
-                                        />
-                                      </Column>
-                                      <Column>
-                                        {(() => {
-                                          if (index === dates.length - 1) {
-                                            return null;
-                                          }
-                                          return (
-                                            <Section
-                                              style={{
-                                                backgroundColor:
-                                                  index === 0
-                                                    ? "#030712"
-                                                    : "#d1d5db",
-                                                height: "1px",
-                                                lineHeight: "1px",
-                                              }}
-                                            >
-                                              &zwj;
-                                            </Section>
-                                          );
-                                        })()}
-                                      </Column>
-                                    </Row>
-                                  </Fragment>
-                                </Section>
-                              </Column>
-                            ))}
+                            {dates.flatMap((date, index) => [
+                              index > 0 ? (
+                                <Column key={`${date}-line`}>
+                                  <Section
+                                    style={{
+                                      backgroundColor:
+                                        index === 1 ? "#030712" : "#d1d5db",
+                                      height: "1px",
+                                      lineHeight: "1px",
+                                    }}
+                                  >
+                                    &zwj;
+                                  </Section>
+                                </Column>
+                              ) : null,
+                              <Column key={date} style={{ width: "12px" }}>
+                                <Dot checked={index === 0} dark={index <= 1} />
+                              </Column>,
+                            ])}
                           </Row>
                           <Row>
                             <Column
@@ -196,6 +157,7 @@ export const PaymentTimelineSection = ({
                                     dates.length
                                   ),
                                   verticalAlign: "top",
+                                  width: `${100 / dates.length}%`,
                                 }}
                               >
                                 <Text

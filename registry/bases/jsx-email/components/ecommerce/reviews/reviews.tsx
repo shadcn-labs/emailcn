@@ -122,8 +122,13 @@ const Divider = ({ centered = false }: { centered?: boolean }) => (
     align={centered ? "center" : undefined}
     style={
       centered
-        ? { margin: 0, marginLeft: "auto", marginRight: "auto" }
-        : undefined
+        ? {
+            margin: 0,
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "96px",
+          }
+        : { width: "96px" }
     }
   >
     <Fragment>
@@ -153,7 +158,7 @@ const getRatingIcon = (rating: number, index: number) => {
 };
 
 const Rating = ({ rating, size }: { rating: number; size: 16 | 24 }) => (
-  <Section>
+  <Section align="left" style={{ width: `${size * 5 + 16}px` }}>
     <Fragment>
       <Row>
         {[0, 1, 2, 3, 4].map((index) => {
@@ -183,7 +188,12 @@ const CenteredRating = ({
 }) => (
   <Section
     align="center"
-    style={{ margin: 0, marginLeft: "auto", marginRight: "auto" }}
+    style={{
+      margin: 0,
+      marginLeft: "auto",
+      marginRight: "auto",
+      width: `${size * 5 + 16}px`,
+    }}
   >
     <Fragment>
       <Row>

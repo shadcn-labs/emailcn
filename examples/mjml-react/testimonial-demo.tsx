@@ -7,7 +7,7 @@ export default function TestimonialDemo() {
       layout="full-width"
       alignment="left"
       appearance="plain"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

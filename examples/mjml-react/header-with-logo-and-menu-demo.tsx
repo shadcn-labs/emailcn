@@ -2,10 +2,5 @@ import { HeaderWithLogoAndMenu } from "@/registry/bases/mjml-react/components/ma
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function HeaderWithLogoAndMenuDemo() {
-  return (
-    <HeaderWithLogoAndMenu
-      variant="menu-right"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <HeaderWithLogoAndMenu variant="menu-right" theme={defaultTheme} />;
 }

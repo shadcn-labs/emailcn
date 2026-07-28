@@ -2,10 +2,5 @@ import { ProductList } from "@/registry/bases/mjml-react/components/ecommerce/pr
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function ProductListDemo() {
-  return (
-    <ProductList
-      variant="basic"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <ProductList variant="basic" theme={defaultTheme} />;
 }

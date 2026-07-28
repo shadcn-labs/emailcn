@@ -7,7 +7,7 @@ export default function TimelineDemo() {
       layout="line"
       alignment="left"
       appearance="basic"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

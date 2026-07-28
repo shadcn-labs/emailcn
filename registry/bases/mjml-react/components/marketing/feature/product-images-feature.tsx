@@ -8,15 +8,31 @@ import {
   MjmlText,
   MjmlWrapper,
   MjmlColumn,
-  MjmlImage,
   MjmlSection,
-  MjmlSpacer,
+  MjmlTable,
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
+
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -60,7 +76,7 @@ const FeatureCopy = ({
   body: string;
   buttonHref: string;
   buttonLabel: string;
-  heading: string;
+  heading: ReactNode;
   headingColor: string;
   linkColor: string;
   textColor: string;
@@ -104,6 +120,28 @@ const FeatureCopy = ({
       {buttonLabel} →
     </MjmlButton>
   </>
+);
+
+const FeatureProductImage = ({
+  alt,
+  src,
+  width,
+}: {
+  alt: string;
+  src: string;
+  width: number;
+}) => (
+  <img
+    alt={alt}
+    src={src}
+    style={{
+      borderRadius: "4px",
+      display: "inline-block",
+      maxWidth: "100%",
+      verticalAlign: "middle",
+    }}
+    width={width}
+  />
 );
 
 type Feature_FeatureWithMultipleProductImagesVariant =
@@ -157,21 +195,23 @@ const Feature_FeatureWithMultipleProductImagesSection = (
     smallImageSrc,
     textColor,
     variant,
-  } = {
-    backgroundColor: "#fffffe",
-    buttonHref: "https://example.com",
-    buttonLabel: "Discover more",
-    headingColor: "#030712",
-    largeImageAlt: "Product Image 1",
-    linkColor: "#4f46e5",
-    logoAlt: "Visa",
-    logoSrc: emailAsset("logos/logo-visa.png"),
-    middleImageAlt: "Product Image 2",
-    smallImageAlt: "Product Image 3",
-    textColor: "#4b5563",
-    variant: "logo-left",
-    ...props,
-  };
+  } = resolveDefaultProps(
+    {
+      backgroundColor: "#fffffe",
+      buttonHref: "https://example.com",
+      buttonLabel: "Discover more",
+      headingColor: "#030712",
+      largeImageAlt: "Product Image 1",
+      linkColor: "#4f46e5",
+      logoAlt: "Visa",
+      logoSrc: emailAsset("logos/logo-visa.png"),
+      middleImageAlt: "Product Image 2",
+      smallImageAlt: "Product Image 3",
+      textColor: "#4b5563",
+      variant: "logo-left" as Feature_FeatureWithMultipleProductImagesVariant,
+    },
+    props
+  );
   const logoVariant = variant.startsWith("logo-");
   const artworkRight = variant.endsWith("-right");
   const resolved = logoVariant
@@ -194,60 +234,115 @@ const Feature_FeatureWithMultipleProductImagesSection = (
         small: smallImageSrc ?? emailAsset("feature/feature-2-sm-2.jpg"),
       };
   const artwork = (
-    <MjmlColumn padding="0" verticalAlign="top" width="50%">
-      {logoVariant ? (
-        <>
-          <MjmlImage
-            align="center"
-            alt={logoAlt}
-            padding="24px"
-            src={logoSrc}
-            width="120px"
-          />
-          <MjmlSpacer height="16px" />
-        </>
-      ) : null}
-      <MjmlImage
-        alt={largeImageAlt}
-        borderRadius="4px"
-        padding="0"
-        src={resolved.large}
-        width="254px"
-      />
-      <MjmlSpacer height="16px" />
-      <MjmlImage
-        alt={middleImageAlt}
-        borderRadius="4px"
-        padding="0"
-        src={resolved.middle}
-        width="160px"
-      />
-      <MjmlSpacer height="12px" />
-      <MjmlImage
-        alt={smallImageAlt}
-        borderRadius="4px"
-        padding="0"
-        src={resolved.small}
-        width="96px"
-      />
+    <MjmlColumn padding="0" verticalAlign="top" width="256px">
+      <MjmlTable cellpadding="0" cellspacing="0" padding="0" width="100%">
+        {logoVariant ? (
+          <>
+            <tr>
+              <td style={{ verticalAlign: "bottom", width: "144px" }}>
+                <FeatureProductImage
+                  alt={largeImageAlt}
+                  src={resolved.large}
+                  width={144}
+                />
+              </td>
+              <td style={{ width: "16px" }}>&nbsp;</td>
+              <td
+                style={{
+                  backgroundColor: "#f3f4f6",
+                  borderRadius: "4px",
+                  height: "96px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                  width: "96px",
+                }}
+              >
+                <FeatureProductImage alt={logoAlt} src={logoSrc} width={50} />
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} style={{ height: "16px", lineHeight: "16px" }}>
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} style={{ textAlign: "center" }}>
+                <FeatureProductImage
+                  alt={smallImageAlt}
+                  src={resolved.small}
+                  width={112}
+                />
+              </td>
+            </tr>
+          </>
+        ) : (
+          <tr>
+            <td style={{ textAlign: "right", width: "144px" }}>
+              <FeatureProductImage
+                alt={largeImageAlt}
+                src={resolved.large}
+                width={144}
+              />
+              <div style={{ height: "16px", lineHeight: "16px" }}>&nbsp;</div>
+              <FeatureProductImage
+                alt={middleImageAlt}
+                src={resolved.middle}
+                width={112}
+              />
+            </td>
+            <td style={{ width: "16px" }}>&nbsp;</td>
+            <td
+              style={{
+                textAlign: "center",
+                verticalAlign: "middle",
+                width: "96px",
+              }}
+            >
+              <FeatureProductImage
+                alt={smallImageAlt}
+                src={resolved.small}
+                width={112}
+              />
+            </td>
+          </tr>
+        )}
+      </MjmlTable>
     </MjmlColumn>
   );
   const copy = (
-    <MjmlColumn padding="0 0 0 32px" verticalAlign="middle" width="50%">
+    <MjmlColumn
+      padding="0"
+      verticalAlign={logoVariant ? "top" : "middle"}
+      width="252px"
+    >
       <FeatureCopy
         body={resolved.body}
         buttonHref={buttonHref}
         buttonLabel={buttonLabel}
-        heading={resolved.heading}
+        heading={
+          logoVariant && resolved.heading === "Built for the journey ahead." ? (
+            <>
+              Built for the <br /> journey ahead.
+            </>
+          ) : (
+            resolved.heading
+          )
+        }
         headingColor={headingColor}
         linkColor={linkColor}
         textColor={textColor}
       />
     </MjmlColumn>
   );
+  const gap = (
+    <MjmlColumn padding="0" width="44px">
+      <MjmlText padding="0">&nbsp;</MjmlText>
+    </MjmlColumn>
+  );
   return (
     <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
       {artworkRight ? copy : artwork}
+      {gap}
       {artworkRight ? artwork : copy}
     </MjmlSection>
   );
@@ -323,14 +418,16 @@ export const ProductImagesFeature = ({
   placement = "right",
   presentation = "images",
 }: ProductImagesFeatureProps) => {
-  const values = productImagesFeatureValues({ action, images, logo });
+  const values = {
+    ...productImagesFeatureValues({ action, images, logo }),
+    body,
+    heading,
+    theme,
+  };
 
   return (
     <__Feature
       {...values}
-      body={body}
-      heading={heading}
-      theme={theme}
       variant={
         presentation === "logo" ? `logo-${placement}` : `images-${placement}`
       }

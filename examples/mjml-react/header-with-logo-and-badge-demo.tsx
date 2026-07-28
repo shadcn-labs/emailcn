@@ -2,10 +2,5 @@ import { HeaderWithLogoAndBadge } from "@/registry/bases/mjml-react/components/m
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function HeaderWithLogoAndBadgeDemo() {
-  return (
-    <HeaderWithLogoAndBadge
-      alignment="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <HeaderWithLogoAndBadge alignment="left" theme={defaultTheme} />;
 }

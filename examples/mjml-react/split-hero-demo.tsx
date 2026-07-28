@@ -6,7 +6,7 @@ export default function SplitHeroDemo() {
     <SplitHero
       treatment="contained"
       imagePosition="right"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

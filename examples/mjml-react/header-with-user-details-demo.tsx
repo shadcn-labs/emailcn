@@ -6,7 +6,7 @@ export default function HeaderWithUserDetailsDemo() {
     <HeaderWithUserDetails
       alignment="right"
       avatar="initials"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

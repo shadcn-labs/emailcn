@@ -7,7 +7,7 @@ export default function ProgressDemo() {
       layout="single"
       padding="none"
       content="minimal"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

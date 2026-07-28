@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type TwoColumnGrid_TwoColumnsImageGridVariant =
   | "square-images"
   | "portrait-images"
@@ -257,11 +274,13 @@ const TwoColumnGrid_TwoColumnsImageGridSection = (
   props: TwoColumnGrid_SectionProps
 ) => {
   const variant = props.variant ?? "square-images";
-  const resolved = {
-    ...TwoColumnGrid_defaultSectionStyles,
-    ...TwoColumnGrid_variantContent[variant],
-    ...props,
-  } as TwoColumnGrid_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...TwoColumnGrid_defaultSectionStyles,
+      ...TwoColumnGrid_variantContent[variant],
+    },
+    props
+  ) as TwoColumnGrid_ResolvedProps;
   const stackClass = resolved.overlay
     ? "two-grid-overlay-stack"
     : "two-grid-plain-stack";
@@ -662,20 +681,22 @@ const ThreeColumnGrid_ThreeColumnsImageGridSection = (
 ) => {
   const variant = props.variant ?? "square-images";
   const variantDefaults = ThreeColumnGrid_variantContent[variant];
-  const resolved = {
-    ...ThreeColumnGrid_defaults,
-    ...variantDefaults,
-    heading1: variantDefaults.headings[0],
-    heading2: variantDefaults.headings[1],
-    heading3: variantDefaults.headings[2],
-    imageSrc1: variantDefaults.imageSources[0],
-    imageSrc2: variantDefaults.imageSources[1],
-    imageSrc3: variantDefaults.imageSources[2],
-    subtext1: variantDefaults.subtexts[0],
-    subtext2: variantDefaults.subtexts[1],
-    subtext3: variantDefaults.subtexts[2],
-    ...props,
-  } as ThreeColumnGrid_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...ThreeColumnGrid_defaults,
+      ...variantDefaults,
+      heading1: variantDefaults.headings[0],
+      heading2: variantDefaults.headings[1],
+      heading3: variantDefaults.headings[2],
+      imageSrc1: variantDefaults.imageSources[0],
+      imageSrc2: variantDefaults.imageSources[1],
+      imageSrc3: variantDefaults.imageSources[2],
+      subtext1: variantDefaults.subtexts[0],
+      subtext2: variantDefaults.subtexts[1],
+      subtext3: variantDefaults.subtexts[2],
+    },
+    props
+  ) as ThreeColumnGrid_ResolvedProps;
   const stackClass = resolved.overlay
     ? "three-grid-overlay-stack"
     : "three-grid-plain-stack";
@@ -842,20 +863,20 @@ export const ImageGrid = ({
   const image3 = imageGridItem(third);
   return (
     <Component
-      imageAlt1={image1.alt}
-      imageHref1={image1.href}
-      imageSrc1={image1.src}
       heading1={image1.heading}
-      subtext1={image1.subtext}
-      imageAlt2={image2.alt}
-      imageHref2={image2.href}
-      imageSrc2={image2.src}
       heading2={image2.heading}
-      subtext2={image2.subtext}
-      imageAlt3={image3.alt}
-      imageHref3={image3.href}
-      imageSrc3={image3.src}
       heading3={image3.heading}
+      imageAlt1={image1.alt}
+      imageAlt2={image2.alt}
+      imageAlt3={image3.alt}
+      imageHref1={image1.href}
+      imageHref2={image2.href}
+      imageHref3={image3.href}
+      imageSrc1={image1.src}
+      imageSrc2={image2.src}
+      imageSrc3={image3.src}
+      subtext1={image1.subtext}
+      subtext2={image2.subtext}
       subtext3={image3.subtext}
       theme={theme}
       variant={`${aspect}-${overlay ? "overlay" : "images"}`}

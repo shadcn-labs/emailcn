@@ -21,6 +21,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureVariant =
   | "full-width-top"
   | "full-width-bottom"
@@ -317,10 +334,10 @@ const TwoColumnFeatureGrid_TwoColumnsImageGridWithFullWidthFeatureSection = (
   props: TwoColumnFeatureGrid_SectionProps
 ) => {
   const variant = props.variant ?? "full-width-top";
-  const resolved = {
-    ...TwoColumnFeatureGrid_defaults,
-    ...props,
-  } as TwoColumnFeatureGrid_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    TwoColumnFeatureGrid_defaults,
+    props
+  ) as TwoColumnFeatureGrid_ResolvedProps;
   const overlay = variant.endsWith("overlay");
   const featureBottom = variant.startsWith("full-width-bottom");
   const feature = (
@@ -770,10 +787,10 @@ const ThreeColumnFeatureGrid_GridRow = ({
 const ThreeColumnFeatureGrid_ThreeColumnsImageGridWithFullWidthFeatureSection =
   (props: ThreeColumnFeatureGrid_SectionProps) => {
     const variant = props.variant ?? "full-width-top";
-    const resolved = {
-      ...ThreeColumnFeatureGrid_defaults,
-      ...props,
-    } as ThreeColumnFeatureGrid_ResolvedProps;
+    const resolved = resolveDefaultProps(
+      ThreeColumnFeatureGrid_defaults,
+      props
+    ) as ThreeColumnFeatureGrid_ResolvedProps;
     const overlay = variant.endsWith("overlay");
     const featureBottom = variant.startsWith("full-width-bottom");
     const feature = (
@@ -888,35 +905,58 @@ export const FeaturedImageGrid = ({
   featurePosition = "top",
   overlay = false,
 }: FeaturedImageGridProps) => {
-  const Component =
-    columns === 3 ? __ThreeColumnFeatureGrid : __TwoColumnFeatureGrid;
   const [first, second, third] = images ?? [];
   const featureItem = featuredImageGridItem(feature);
   const image1 = featuredImageGridItem(first);
   const image2 = featuredImageGridItem(second);
   const image3 = featuredImageGridItem(third);
+
+  if (columns === 3) {
+    return (
+      <__ThreeColumnFeatureGrid
+        featureHeading={featureItem.heading}
+        featureImageAlt={featureItem.alt}
+        featureImageHref={featureItem.href}
+        featureImageSrc={featureItem.src}
+        featureSubtext={featureItem.subtext}
+        heading1={image1.heading}
+        heading2={image2.heading}
+        heading3={image3.heading}
+        imageAlt1={image1.alt}
+        imageAlt2={image2.alt}
+        imageAlt3={image3.alt}
+        imageHref1={image1.href}
+        imageHref2={image2.href}
+        imageHref3={image3.href}
+        imageSrc1={image1.src}
+        imageSrc2={image2.src}
+        imageSrc3={image3.src}
+        subtext1={image1.subtext}
+        subtext2={image2.subtext}
+        subtext3={image3.subtext}
+        theme={theme}
+        variant={`full-width-${featurePosition}${overlay ? "-overlay" : ""}`}
+      />
+    );
+  }
+
   return (
-    <Component
+    <__TwoColumnFeatureGrid
       featureHeading={featureItem.heading}
       featureImageAlt={featureItem.alt}
       featureImageHref={featureItem.href}
       featureImageSrc={featureItem.src}
       featureSubtext={featureItem.subtext}
       imageAlt1={image1.alt}
-      imageHref1={image1.href}
-      imageSrc1={image1.src}
-      heading1={image1.heading}
-      subtext1={image1.subtext}
       imageAlt2={image2.alt}
+      imageHeading1={image1.heading}
+      imageHeading2={image2.heading}
+      imageHref1={image1.href}
       imageHref2={image2.href}
+      imageSrc1={image1.src}
       imageSrc2={image2.src}
-      heading2={image2.heading}
-      subtext2={image2.subtext}
-      imageAlt3={image3.alt}
-      imageHref3={image3.href}
-      imageSrc3={image3.src}
-      heading3={image3.heading}
-      subtext3={image3.subtext}
+      imageSubtext1={image1.subtext}
+      imageSubtext2={image2.subtext}
       theme={theme}
       variant={`full-width-${featurePosition}${overlay ? "-overlay" : ""}`}
     />

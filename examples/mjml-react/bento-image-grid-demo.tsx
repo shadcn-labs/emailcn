@@ -7,7 +7,7 @@ export default function BentoImageGridDemo() {
       variant="alternating"
       style="captions"
       placement="captions-top"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

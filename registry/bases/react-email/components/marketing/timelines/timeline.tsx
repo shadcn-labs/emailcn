@@ -1173,6 +1173,7 @@ const StackedTimeline_TimelineMeta = ({
         color: muted ? "#9ca3af" : "#030712",
         fontSize: "60px",
         fontWeight: 600,
+        lineHeight: "64px",
       }}
     >
       {index}

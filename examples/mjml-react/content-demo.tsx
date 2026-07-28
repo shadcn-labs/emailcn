@@ -7,7 +7,7 @@ export default function ContentDemo() {
       alignment="center"
       layout="title"
       variant="small"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

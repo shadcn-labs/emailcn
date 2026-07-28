@@ -9,7 +9,7 @@ export default function PillsDemo() {
         { label: "Needs review", status: "warning" },
         { label: "Blocked", status: "danger" },
       ]}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

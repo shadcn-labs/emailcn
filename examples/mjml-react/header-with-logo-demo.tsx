@@ -3,10 +3,6 @@ import { defaultTheme } from "@/registry/themes/default";
 
 export default function HeaderWithLogoDemo() {
   return (
-    <HeaderWithLogo
-      alignment="left"
-      variant="minimal"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
+    <HeaderWithLogo alignment="left" variant="minimal" theme={defaultTheme} />
   );
 }

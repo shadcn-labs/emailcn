@@ -12,7 +12,7 @@ export default function DataTableDemo() {
         { name: "Ada", status: "Active" },
         { name: "Linus", status: "Pending" },
       ]}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

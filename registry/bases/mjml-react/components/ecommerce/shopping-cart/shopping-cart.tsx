@@ -11,6 +11,7 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlPreview,
+  MjmlStyle,
   MjmlTable,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -43,6 +44,10 @@ export interface ShoppingCartItem {
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const shoppingCartResponsiveStyles = `
+  .shopping-cart-full-table table { width: 100% !important; }
+`;
 
 const defaultItems: ShoppingCartItem[] = [
   {
@@ -159,6 +164,7 @@ const EditLink = ({
 const Header = ({ item }: { item: ShoppingCartItem }) => (
   <MjmlTable
     cellpadding="0"
+    cssClass="shopping-cart-full-table"
     cellspacing="0"
     padding="0"
     role="presentation"
@@ -202,6 +208,7 @@ const Header = ({ item }: { item: ShoppingCartItem }) => (
 const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
   <MjmlTable
     cellpadding="0"
+    cssClass="shopping-cart-full-table"
     cellspacing="0"
     color="#4b5563"
     fontFamily={fontFamily}
@@ -223,6 +230,7 @@ const BasicInfo = ({ item }: { item: ShoppingCartItem }) => (
           style={{
             textAlign: "right",
             verticalAlign: "top",
+            whiteSpace: "nowrap",
             width: "96px",
           }}
         >
@@ -268,6 +276,7 @@ const Options = ({
   <MjmlTable
     align="left"
     cellpadding="0"
+    cssClass="shopping-cart-full-table"
     cellspacing="0"
     color="#4b5563"
     fontFamily={fontFamily}
@@ -496,6 +505,7 @@ const ShoppingCart_ShoppingCartRowItems = ({
     <MjmlHead>
       <MjmlPreview>Shopping cart</MjmlPreview>
       <MjmlFont href="https://rsms.me/inter/inter.css" name="Inter" />
+      <MjmlStyle>{shoppingCartResponsiveStyles}</MjmlStyle>
     </MjmlHead>
     <MjmlBody backgroundColor="#f1f5f9" width={theme.containerWidth}>
       <MjmlWrapper padding="0">

@@ -7,7 +7,7 @@ export default function LogoCloudDemo() {
       layout="cloud"
       appearance="plain"
       alignment="center"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

@@ -6,7 +6,7 @@ export default function TopImageCallToActionDemo() {
     <TopImageCallToAction
       description="See the latest improvements, workflows, and resources in one place."
       heading="Everything new this month"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

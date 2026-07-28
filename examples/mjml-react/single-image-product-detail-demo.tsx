@@ -6,7 +6,7 @@ export default function SingleImageProductDetailDemo() {
     <SingleImageProductDetail
       ratingPosition="bottom"
       headerPosition="default"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

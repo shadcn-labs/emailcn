@@ -21,6 +21,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type Cta_CTAWithImageStripVariant =
   | "boxed-right"
   | "boxed-left"
@@ -307,11 +324,13 @@ const Cta_ImageStrip = ({
 
 const Cta_CTAWithImageStripSection = (props: Cta_SectionProps) => {
   const variant = props.variant ?? "boxed-right";
-  const resolved = {
-    ...Cta_defaultSectionStyles,
-    ...Cta_variantContent[variant],
-    ...props,
-  } as Cta_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...Cta_defaultSectionStyles,
+      ...Cta_variantContent[variant],
+    },
+    props
+  ) as Cta_ResolvedProps;
   const boxed = variant.startsWith("boxed");
   const left = variant.endsWith("left");
   const contentCell = (

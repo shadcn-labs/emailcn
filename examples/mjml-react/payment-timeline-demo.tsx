@@ -2,10 +2,5 @@ import { PaymentTimeline } from "@/registry/bases/mjml-react/components/marketin
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function PaymentTimelineDemo() {
-  return (
-    <PaymentTimeline
-      variant="3-steps"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <PaymentTimeline variant="3-steps" theme={defaultTheme} />;
 }

@@ -6,7 +6,7 @@ export default function SplitProductDetailDemo() {
     <SplitProductDetail
       treatment="stacked"
       placement="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

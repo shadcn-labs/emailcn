@@ -7,7 +7,7 @@ export default function BentoStatsGridDemo() {
       variant="even-split"
       style="chart"
       placement="image-top-right"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

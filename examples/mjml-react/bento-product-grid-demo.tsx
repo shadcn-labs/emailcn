@@ -7,7 +7,7 @@ export default function BentoProductGridDemo() {
       variant="two-row-three-column"
       style="sides"
       placement="normal"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

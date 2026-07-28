@@ -19,6 +19,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type BasicLogoCloud_BasicLogoCloudVariant =
   | "minimal"
   | "with-title"
@@ -109,10 +126,10 @@ const BasicLogoCloud_BasicLogoCloudSection = (
   props: BasicLogoCloud_SectionProps
 ) => {
   const variant = props.variant ?? "full";
-  const resolved = {
-    ...BasicLogoCloud_defaults,
-    ...props,
-  } as BasicLogoCloud_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    BasicLogoCloud_defaults,
+    props
+  ) as BasicLogoCloud_ResolvedProps;
   const logos = resolved.logos.slice(0, 5);
   const showTitle = variant === "with-title" || variant === "full";
   const showDescription = variant === "with-description" || variant === "full";
@@ -445,10 +462,10 @@ const FeaturedLogoGrid_columnOrders: Record<
 const FeaturedLogoGrid_FeaturedBrandsLogoGridSection = (
   props: FeaturedLogoGrid_SectionProps
 ) => {
-  const resolved = {
-    ...FeaturedLogoGrid_defaults,
-    ...props,
-  } as FeaturedLogoGrid_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    FeaturedLogoGrid_defaults,
+    props
+  ) as FeaturedLogoGrid_ResolvedProps;
   const { tone } = resolved;
   const order = FeaturedLogoGrid_columnOrders[resolved.alignment];
   const renderColumn = (kind: FeaturedLogoGrid_ColumnKind) => {
@@ -835,10 +852,10 @@ const BorderedLogoCloud_LogoCloudWithBordersSection = (
   props: BorderedLogoCloud_SectionProps
 ) => {
   const variant = props.variant ?? "full";
-  const resolved = {
-    ...BorderedLogoCloud_defaults,
-    ...props,
-  } as BorderedLogoCloud_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    BorderedLogoCloud_defaults,
+    props
+  ) as BorderedLogoCloud_ResolvedProps;
   const logos = resolved.logos.slice(0, 5) as BorderedLogoCloud_Logo[];
   const flush = variant === "flush";
   const showTitle = variant === "with-title" || variant === "full" || flush;
@@ -1241,10 +1258,10 @@ const LogoCloud_Description = ({
 const LogoCloud_LogoCloudSection = (props: LogoCloud_SectionProps) => {
   const variant = props.variant ?? "full";
   const tone = props.tone ?? "boxed";
-  const resolved = {
-    ...LogoCloud_defaults,
-    ...props,
-  } as LogoCloud_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    LogoCloud_defaults,
+    props
+  ) as LogoCloud_ResolvedProps;
   const logos = resolved.logos.slice(0, 5) as LogoCloud_Logo[];
   const flush = variant === "flush";
   const showTitle =
@@ -1642,10 +1659,10 @@ const LogosGrid_BorderedRows = ({
 
 const LogosGrid_LogosGridSection = (props: LogosGrid_SectionProps) => {
   const tone = props.tone ?? "boxed";
-  const resolved = {
-    ...LogosGrid_defaults,
-    ...props,
-  } as LogosGrid_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    LogosGrid_defaults,
+    props
+  ) as LogosGrid_ResolvedProps;
   const logos = resolved.logos.slice(0, 6) as LogosGrid_Logo[];
   return (
     <Section
@@ -1808,11 +1825,6 @@ const contentVariant = ({
   return description ? ("with-description" as const) : "minimal";
 };
 
-const logoCloudDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const LogoCloud = ({
   theme,
   title,
@@ -1825,23 +1837,22 @@ export const LogoCloud = ({
   flush = false,
 }: LogoCloudProps) => {
   const resolvedAppearance = appearance;
-  const contentProps = logoCloudDefinedProps({ description, theme, title });
+  const contentProps = { description, theme, title };
   if (layout === "featured") {
     return (
       <__FeaturedLogoGrid
         alignment={alignment}
+        featuredLogo={logos?.[featuredIndex]}
+        supportingLogos={logos?.filter((_, index) => index !== featuredIndex)}
         tone={resolvedAppearance === "boxed" ? "boxed" : "outlined"}
         {...contentProps}
-        {...logoCloudDefinedProps({
-          featuredLogo: logos?.[featuredIndex],
-          supportingLogos: logos?.filter((_, index) => index !== featuredIndex),
-        })}
       />
     );
   }
   if (layout === "grid") {
     return (
       <__LogosGrid
+        logos={logos}
         tone={(() => {
           if (resolvedAppearance === "bordered") {
             return "bordered";
@@ -1852,7 +1863,6 @@ export const LogoCloud = ({
           return "boxed";
         })()}
         {...contentProps}
-        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
@@ -1860,27 +1870,23 @@ export const LogoCloud = ({
   if (resolvedAppearance === "plain") {
     return (
       <__BasicLogoCloud
+        logos={logos}
         variant={variant === "flush" ? "full" : variant}
         {...contentProps}
-        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
   if (resolvedAppearance === "bordered") {
     return (
-      <__BorderedLogoCloud
-        variant={variant}
-        {...contentProps}
-        {...logoCloudDefinedProps({ logos })}
-      />
+      <__BorderedLogoCloud logos={logos} variant={variant} {...contentProps} />
     );
   }
   return (
     <__LogoCloud
+      logos={logos}
       tone={resolvedAppearance === "outlined" ? "outlined" : "boxed"}
       variant={variant}
       {...contentProps}
-      {...logoCloudDefinedProps({ logos })}
     />
   );
 };

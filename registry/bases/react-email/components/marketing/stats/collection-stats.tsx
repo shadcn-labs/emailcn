@@ -678,6 +678,7 @@ const GridStats_GridStatsSection = (props: GridStats_SectionProps) => {
                                         fontFamily: GridStats_fontFamily,
                                         fontSize: "72px",
                                         fontWeight: 500,
+                                        lineHeight: "86px",
                                         margin: 0,
                                         textAlign: "center",
                                       }}

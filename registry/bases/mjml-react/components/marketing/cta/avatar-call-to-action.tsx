@@ -17,6 +17,23 @@ import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme"
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -198,9 +215,38 @@ const Cta_variantContent = {
   },
 } as const;
 
-const Cta_CTAWithTeamAvatarsSection = (
-  props: Omit<Cta_CTAWithTeamAvatarsProps, "theme">
-) => {
+type Cta_SectionProps = Omit<
+  Cta_CTAWithTeamAvatarsProps,
+  "pageBackgroundColor" | "theme"
+>;
+
+const Cta_defaultSectionProps: Omit<
+  Required<Cta_SectionProps>,
+  "ctaLabel" | "heading" | "secondaryCtaLabel" | "subtext"
+> = {
+  avatarAlt1: "",
+  avatarAlt2: "",
+  avatarAlt3: "",
+  avatarAlt4: "",
+  avatarBorderColor: "#fffffe",
+  avatarSrc1: Cta_avatarSources[0],
+  avatarSrc2: Cta_avatarSources[1],
+  avatarSrc3: Cta_avatarSources[2],
+  avatarSrc4: Cta_avatarSources[3],
+  backgroundColor: "#fffffe",
+  ctaHref: "https://example.com/",
+  headingColor: "#030712",
+  primaryButtonBackgroundColor: "#4f46e5",
+  primaryButtonTextColor: "#f8fafc",
+  secondaryButtonBackgroundColor: "#fffffe",
+  secondaryButtonBorderColor: "#d1d5db",
+  secondaryButtonTextColor: "#4b5563",
+  secondaryCtaHref: "https://example.com/",
+  textColor: "#4b5563",
+  variant: "default",
+};
+
+const Cta_CTAWithTeamAvatarsSection = (props: Cta_SectionProps) => {
   const {
     avatarAlt1,
     avatarAlt2,
@@ -224,27 +270,7 @@ const Cta_CTAWithTeamAvatarsSection = (
     subtext,
     textColor,
     variant,
-  } = {
-    avatarAlt1: "",
-    avatarAlt2: "",
-    avatarAlt3: "",
-    avatarAlt4: "",
-    avatarSrc1: Cta_avatarSources[0],
-    avatarSrc2: Cta_avatarSources[1],
-    avatarSrc3: Cta_avatarSources[2],
-    avatarSrc4: Cta_avatarSources[3],
-    backgroundColor: "#fffffe",
-    ctaHref: "https://example.com/",
-    headingColor: "#030712",
-    primaryButtonBackgroundColor: "#4f46e5",
-    primaryButtonTextColor: "#f8fafc",
-    secondaryButtonBorderColor: "#d1d5db",
-    secondaryButtonTextColor: "#4b5563",
-    secondaryCtaHref: "https://example.com/",
-    textColor: "#4b5563",
-    variant: "default" as Cta_CTAWithTeamAvatarsVariant,
-    ...props,
-  };
+  } = resolveDefaultProps(Cta_defaultSectionProps, props);
   const preset = Cta_variantContent[variant];
   const avatars = [
     { alt: avatarAlt1, src: avatarSrc1 },

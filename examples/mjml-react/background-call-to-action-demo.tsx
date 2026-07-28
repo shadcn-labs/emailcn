@@ -6,7 +6,7 @@ export default function BackgroundCallToActionDemo() {
     <BackgroundCallToAction
       width="flush"
       appearance="light"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

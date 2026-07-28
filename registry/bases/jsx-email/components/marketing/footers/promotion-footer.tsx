@@ -19,6 +19,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type ContentCtaFooter_FooterWithContentAndCtaVariant =
   | "centered"
   | "left-aligned"
@@ -88,8 +105,7 @@ const ContentCtaFooter_FooterWithContentAndCtaSection = (
   props: ContentCtaFooter_SectionProps
 ) => {
   const resolved = {
-    ...ContentCtaFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(ContentCtaFooter_defaults, props),
     variant: props.variant ?? "centered",
   } as ContentCtaFooter_ResolvedProps;
   const textAlign = {
@@ -167,6 +183,7 @@ const ContentCtaFooter_FooterWithContentAndCtaSection = (
                             alt=""
                             src={emailAsset("icon-arrow-right.png")}
                             style={{
+                              display: "inline-block",
                               maxWidth: "100%",
                               verticalAlign: "baseline",
                             }}
@@ -1093,6 +1110,7 @@ const OverlapFooter_OverlappedHero = ({
                           alt=""
                           src={emailAsset("icon-arrow-right.png")}
                           style={{
+                            display: "inline-block",
                             maxWidth: "100%",
                             verticalAlign: "baseline",
                           }}
@@ -1645,11 +1663,6 @@ const promotionAlignmentVariant = (
   return "centered";
 };
 
-const promotionFooterDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const PromotionFooter = ({
   theme,
   brand,
@@ -1673,62 +1686,54 @@ export const PromotionFooter = ({
     const variant = promotionOverlapVariant(menuColumns, alignment);
     return (
       <__OverlapFooter
+        backgroundImageSrc={backgroundImageSrc}
+        logoSrc={footerBrand.logoSrc}
         logoPosition={logoPosition}
+        theme={theme}
+        unsubscribeHref={footerLegal.unsubscribeHref}
         variant={
           (variantOverride ?? variant) as Parameters<
             typeof __OverlapFooter
           >[0]["variant"]
         }
-        {...promotionFooterDefinedProps({
-          backgroundImageSrc,
-          logoSrc: footerBrand.logoSrc,
-          theme,
-          unsubscribeHref: footerLegal.unsubscribeHref,
-        })}
       />
     );
   }
   if (placement === "full-width") {
     return (
       <__FullWidthCtaFooter
-        {...promotionFooterDefinedProps({
-          ctaHref: action.href,
-          ctaText: action.label,
-          theme,
-          unsubscribeHref: footerLegal.unsubscribeHref,
-        })}
+        ctaHref={action.href}
+        ctaText={action.label}
+        theme={theme}
+        unsubscribeHref={footerLegal.unsubscribeHref}
       />
     );
   }
   if (placement === "large-title") {
     return (
       <__LargeTitleFooter
-        {...promotionFooterDefinedProps({
-          theme,
-          title: heading,
-          unsubscribeHref: footerLegal.unsubscribeHref,
-        })}
+        theme={theme}
+        title={heading}
+        unsubscribeHref={footerLegal.unsubscribeHref}
       />
     );
   }
   return (
     <__ContentCtaFooter
+      ctaHref={action.href}
+      ctaLabel={action.label}
+      heading={heading}
+      logoAlt={footerBrand.logoAlt}
+      logoSrc={footerBrand.logoSrc}
+      subtext={description}
+      theme={theme}
+      unsubscribeHref={footerLegal.unsubscribeHref}
+      updatePreferencesHref={footerLegal.preferencesHref}
       variant={
         (variantOverride ?? promotionAlignmentVariant(alignment)) as Parameters<
           typeof __ContentCtaFooter
         >[0]["variant"]
       }
-      {...promotionFooterDefinedProps({
-        ctaHref: action.href,
-        ctaLabel: action.label,
-        heading,
-        logoAlt: footerBrand.logoAlt,
-        logoSrc: footerBrand.logoSrc,
-        subtext: description,
-        theme,
-        unsubscribeHref: footerLegal.unsubscribeHref,
-        updatePreferencesHref: footerLegal.preferencesHref,
-      })}
     />
   );
 };

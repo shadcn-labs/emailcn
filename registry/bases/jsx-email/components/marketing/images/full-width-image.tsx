@@ -565,7 +565,7 @@ const FullWidthOverlay_OverlayImage = ({
   >
     <Section
       className="full-overlay-copy-spacer"
-      style={{ lineHeight: "292px" }}
+      style={{ fontSize: 0, lineHeight: "292px" }}
     >
       &zwj;
     </Section>

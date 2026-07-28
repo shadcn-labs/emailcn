@@ -102,7 +102,7 @@ const Rating = ({
   count: number;
   allSolid?: boolean;
 }) => (
-  <Section style={{ width: "184px" }}>
+  <Section align="left" style={{ width: "184px" }}>
     <Fragment>
       <Row>
         <Column>

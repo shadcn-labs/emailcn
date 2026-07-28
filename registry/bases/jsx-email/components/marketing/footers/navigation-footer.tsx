@@ -19,6 +19,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 interface CenteredFooter_CenteredFooterLink {
   href: string;
   label: string;
@@ -111,10 +128,10 @@ const CenteredFooter_CenteredRow = ({ children }: { children: ReactNode }) => (
 const CenteredFooter_FooterCenteredWithMenuAndSocialsSection = (
   props: CenteredFooter_SectionProps
 ) => {
-  const resolved = {
-    ...CenteredFooter_defaults,
-    ...props,
-  } as CenteredFooter_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    CenteredFooter_defaults,
+    props
+  ) as CenteredFooter_ResolvedProps;
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -791,8 +808,7 @@ const TwoColumnFooter_FooterWith2ColumnMenuSection = (
   props: TwoColumnFooter_SectionProps
 ) => {
   const resolved = {
-    ...TwoColumnFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(TwoColumnFooter_defaults, props),
     variant: props.variant ?? "left-logo",
   } as TwoColumnFooter_ResolvedProps;
   const logo = <TwoColumnFooter_LogoCell props={resolved} />;
@@ -1134,8 +1150,7 @@ const ThreeColumnFooter_FooterWith3ColMenuSection = (
   props: ThreeColumnFooter_SectionProps
 ) => {
   const resolved = {
-    ...ThreeColumnFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(ThreeColumnFooter_defaults, props),
     variant: props.variant ?? "left-logo",
   } as ThreeColumnFooter_ResolvedProps;
   const brand = <ThreeColumnFooter_BrandCell props={resolved} />;
@@ -1509,8 +1524,7 @@ const FullMenuFooter_FooterWithFullMenuSection = (
 ) => {
   const variant = props.variant ?? "oversized-logo";
   const resolved = {
-    ...FullMenuFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(FullMenuFooter_defaults, props),
     logoSrc:
       props.logoSrc ??
       (variant === "bordered"
@@ -1838,8 +1852,7 @@ const TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection = (
   props: TextMenuFooterBundle_SectionProps
 ) => {
   const resolved = {
-    ...TextMenuFooterBundle_defaults,
-    ...props,
+    ...resolveDefaultProps(TextMenuFooterBundle_defaults, props),
     copyright:
       props.copyright ?? props.text ?? TextMenuFooterBundle_defaults.copyright,
     variant: props.variant ?? "left-logo",
@@ -2083,11 +2096,6 @@ const sideVariant = (
   logoPosition: NavigationFooterProps["logoPosition"]
 ) => variant ?? (logoPosition === "right" ? "right-logo" : "left-logo");
 
-const navigationFooterDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const NavigationFooter = ({
   theme,
   brand,
@@ -2108,51 +2116,44 @@ export const NavigationFooter = ({
   const quickLinks = footerMenuLinks(quickMenu);
   const connectLinks = footerMenuLinks(connectMenu);
   const legalLinks = footerMenuLinks(legalMenu);
-  const baseProps = navigationFooterDefinedProps({
+  const baseProps = {
     logoAlt: footerBrand.logoAlt,
     logoHref: footerBrand.logoHref,
     logoSrc: footerBrand.logoSrc,
     socials,
     theme,
     unsubscribeHref: footerLegal.unsubscribeHref,
-  });
+  };
   if (oversizedLogo) {
     return (
       <__FullMenuFooter
         {...baseProps}
+        links={menus?.flatMap(({ links }) => links)}
         variant={
           (variantOverride ?? "oversized-logo") as Parameters<
             typeof __FullMenuFooter
           >[0]["variant"]
         }
-        {...navigationFooterDefinedProps({
-          links: menus?.flatMap(({ links }) => links),
-        })}
       />
     );
   }
   if (alignment === "center" && columns === 1) {
     return (
-      <__CenteredFooter
-        {...baseProps}
-        {...navigationFooterDefinedProps({ links: quickLinks, socials })}
-      />
+      <__CenteredFooter {...baseProps} links={quickLinks} socials={socials} />
     );
   }
   if (description) {
     return (
       <__TextMenuFooter
         {...baseProps}
+        copyright={footerLegal.copyright}
         description={description}
+        quickLinks={quickLinks}
         variant={
           sideVariant(variantOverride, logoPosition) as Parameters<
             typeof __TextMenuFooter
           >[0]["variant"]
         }
-        {...navigationFooterDefinedProps({
-          copyright: footerLegal.copyright,
-          quickLinks,
-        })}
       />
     );
   }
@@ -2172,32 +2173,28 @@ export const NavigationFooter = ({
     return (
       <__ThreeColumnFooter
         {...baseProps}
+        connectLinks={connectLinks}
+        legalLinks={legalLinks}
+        quickLinks={quickLinks}
         variant={
           sideVariant(variantOverride, logoPosition) as Parameters<
             typeof __ThreeColumnFooter
           >[0]["variant"]
         }
-        {...navigationFooterDefinedProps({
-          connectLinks,
-          legalLinks,
-          quickLinks,
-        })}
       />
     );
   }
   return (
     <__TwoColumnFooter
       {...baseProps}
+      connectLinks={connectLinks}
+      copyright={footerLegal.copyright}
+      quickLinks={quickLinks}
       variant={
         sideVariant(variantOverride, logoPosition) as Parameters<
           typeof __TwoColumnFooter
         >[0]["variant"]
       }
-      {...navigationFooterDefinedProps({
-        connectLinks,
-        copyright: footerLegal.copyright,
-        quickLinks,
-      })}
     />
   );
 };

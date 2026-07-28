@@ -3,10 +3,6 @@ import { defaultTheme } from "@/registry/themes/default";
 
 export default function CategoryPreviewDemo() {
   return (
-    <CategoryPreview
-      layout="cards"
-      detailLevel="name"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
+    <CategoryPreview layout="cards" detailLevel="name" theme={defaultTheme} />
   );
 }

@@ -1,7 +1,6 @@
 import {
   Mjml,
   MjmlBody,
-  MjmlButton,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
@@ -9,6 +8,7 @@ import {
   MjmlWrapper,
   MjmlColumn,
   MjmlSection,
+  MjmlTable,
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
@@ -96,39 +96,61 @@ const CTACopy = ({
     >
       {subtext}
     </MjmlText>
-    <MjmlButton
-      align={align}
-      backgroundColor={primaryButtonBackgroundColor}
-      borderRadius="8px"
-      color={primaryButtonTextColor}
-      fontFamily={fontFamily}
-      fontSize="16px"
-      fontWeight="500"
-      href={ctaHref}
-      innerPadding="10px 22px"
-      lineHeight="24px"
-      padding="28px 0 0"
-    >
-      {ctaLabel}
-    </MjmlButton>
-    {secondaryCtaLabel ? (
-      <MjmlButton
-        align={align}
-        backgroundColor="transparent"
-        border={`1px solid ${secondaryButtonBorderColor}`}
-        borderRadius="8px"
-        color={secondaryButtonTextColor}
-        fontFamily={fontFamily}
-        fontSize="16px"
-        fontWeight="500"
-        href={secondaryCtaHref}
-        innerPadding="9px 21px"
-        lineHeight="24px"
-        padding="12px 0 0"
-      >
-        {secondaryCtaLabel}
-      </MjmlButton>
-    ) : null}
+    <MjmlTable cellpadding="0" cellspacing="0" padding="28px 0 0" width="100%">
+      <tbody>
+        <tr>
+          <td style={{ textAlign: align }}>
+            <a
+              href={ctaHref}
+              style={{
+                backgroundColor: primaryButtonBackgroundColor,
+                borderRadius: "8px",
+                color: primaryButtonTextColor,
+                display: "inline-block",
+                fontFamily,
+                fontSize: "16px",
+                fontWeight: 500,
+                lineHeight: "24px",
+                padding: "10px 22px",
+                textDecoration: "none",
+              }}
+            >
+              {ctaLabel}
+            </a>
+            {secondaryCtaLabel ? (
+              <>
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: "24px",
+                  }}
+                >
+                  &nbsp;
+                </span>
+                <a
+                  href={secondaryCtaHref}
+                  style={{
+                    backgroundColor: "transparent",
+                    border: `1px solid ${secondaryButtonBorderColor}`,
+                    borderRadius: "8px",
+                    color: secondaryButtonTextColor,
+                    display: "inline-block",
+                    fontFamily,
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    lineHeight: "24px",
+                    padding: "9px 21px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {secondaryCtaLabel}
+                </a>
+              </>
+            ) : null}
+          </td>
+        </tr>
+      </tbody>
+    </MjmlTable>
   </>
 );
 

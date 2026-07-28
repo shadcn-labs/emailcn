@@ -19,6 +19,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type BackgroundCta_CTAWithBackgroundImageVariant = "flush" | "boxed" | "padded";
 
 interface BackgroundCta_CTAWithBackgroundImageProps {
@@ -403,11 +420,13 @@ const BackgroundCta_CTAWithBackgroundImageSection = (
   props: BackgroundCta_SectionProps
 ) => {
   const variant = props.variant ?? "flush";
-  const resolved = {
-    ...BackgroundCta_defaultSectionStyles,
-    ...BackgroundCta_variantContent[variant],
-    ...props,
-  };
+  const resolved = resolveDefaultProps(
+    {
+      ...BackgroundCta_defaultSectionStyles,
+      ...BackgroundCta_variantContent[variant],
+    },
+    props
+  );
   const spacing = BackgroundCta_variantSpacing[variant];
   return (
     <Section
@@ -597,11 +616,13 @@ const BoxedBackgroundCta_BoxedCTAWithBackgroundImageSection = (
   props: BoxedBackgroundCta_SectionProps
 ) => {
   const variant = props.variant ?? "flush-light";
-  const resolved = {
-    ...BoxedBackgroundCta_defaultSectionStyles,
-    ...BoxedBackgroundCta_variantStyles[variant],
-    ...props,
-  };
+  const resolved = resolveDefaultProps(
+    {
+      ...BoxedBackgroundCta_defaultSectionStyles,
+      ...BoxedBackgroundCta_variantStyles[variant],
+    },
+    props
+  );
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}

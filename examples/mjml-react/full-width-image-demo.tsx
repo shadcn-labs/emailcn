@@ -4,10 +4,10 @@ import { defaultTheme } from "@/registry/themes/default";
 export default function FullWidthImageDemo() {
   return (
     <FullWidthImage
-      overlay={false}
+      overlay
       frame="none"
       frameStyle="padding"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

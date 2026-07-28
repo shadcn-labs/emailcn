@@ -2,10 +2,5 @@ import { HeaderWithLogoAndSocialIcons } from "@/registry/bases/mjml-react/compon
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function HeaderWithLogoAndSocialIconsDemo() {
-  return (
-    <HeaderWithLogoAndSocialIcons
-      alignment="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <HeaderWithLogoAndSocialIcons alignment="left" theme={defaultTheme} />;
 }

@@ -15,6 +15,23 @@ import type { ReactNode } from "react";
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -160,8 +177,35 @@ interface CtaBundle_CTAWithTitleAndActionLeadProps {
 const CtaBundle_fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
+type CtaBundle_SectionProps = Omit<
+  CtaBundle_CTAWithTitleAndActionLeadProps,
+  "pageBackgroundColor" | "theme"
+>;
+
+const CtaBundle_defaultSectionProps: Omit<
+  Required<CtaBundle_SectionProps>,
+  "ctaLabel"
+> = {
+  backgroundColor: "#fffffe",
+  ctaHref: "https://example.com/",
+  heading: "Confirm your email",
+  headingColor: "#030712",
+  primaryButtonBackgroundColor: "#4f46e5",
+  primaryButtonTextColor: "#f8fafc",
+  secondaryButtonBackgroundColor: "#fffffe",
+  secondaryButtonBorderColor: "#d1d5db",
+  secondaryButtonTextColor: "#4b5563",
+  secondaryCtaHref: "https://example.com/",
+  secondaryCtaLabel: "Learn more",
+  signoff: "Thank you, the emailcn Team",
+  subtext:
+    "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
+  textColor: "#4b5563",
+  variant: "title-and-lead",
+};
+
 const CtaBundle_CTAWithTitleAndActionLeadSection = (
-  props: Omit<CtaBundle_CTAWithTitleAndActionLeadProps, "theme">
+  props: CtaBundle_SectionProps
 ) => {
   const {
     backgroundColor,
@@ -179,24 +223,7 @@ const CtaBundle_CTAWithTitleAndActionLeadSection = (
     subtext,
     textColor,
     variant,
-  } = {
-    backgroundColor: "#fffffe",
-    ctaHref: "https://example.com/",
-    heading: "Confirm your email",
-    headingColor: "#030712",
-    primaryButtonBackgroundColor: "#4f46e5",
-    primaryButtonTextColor: "#f8fafc",
-    secondaryButtonBorderColor: "#d1d5db",
-    secondaryButtonTextColor: "#4b5563",
-    secondaryCtaHref: "https://example.com/",
-    secondaryCtaLabel: "Learn more",
-    signoff: "Thank you, the emailcn Team",
-    subtext:
-      "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
-    textColor: "#4b5563",
-    variant: "title-and-lead",
-    ...props,
-  };
+  } = resolveDefaultProps(CtaBundle_defaultSectionProps, props);
   let defaultCtaLabel = "Shop now";
   if (variant === "title-and-lead") {
     defaultCtaLabel = "Activate account";
@@ -284,27 +311,28 @@ export const CallToAction = ({
   description,
   signoff,
   actions,
-}: CallToActionProps) => (
-  <__Cta
-    ctaHref={actions?.[0]?.href}
-    ctaLabel={actions?.[0]?.label}
-    heading={heading}
-    secondaryCtaHref={actions?.[1]?.href}
-    secondaryCtaLabel={actions?.[1]?.label}
-    signoff={signoff}
-    subtext={description}
-    theme={theme}
-    variant={(() => {
-      if (actions && actions.length > 1) {
-        return "secondary-button";
-      }
-      if (signoff) {
-        return "title-and-lead";
-      }
-      return "minimal";
-    })()}
-  />
-);
+}: CallToActionProps) => {
+  let variant: Parameters<typeof __Cta>[0]["variant"] = "minimal";
+  if (actions && actions.length > 1) {
+    variant = "secondary-button";
+  } else if (heading || description) {
+    variant = "title-and-lead";
+  }
+
+  return (
+    <__Cta
+      ctaHref={actions?.[0]?.href}
+      ctaLabel={actions?.[0]?.label}
+      heading={heading}
+      secondaryCtaHref={actions?.[1]?.href}
+      secondaryCtaLabel={actions?.[1]?.label}
+      signoff={signoff}
+      subtext={description}
+      theme={theme}
+      variant={variant}
+    />
+  );
+};
 
 export const CallToActionSection = __CallToActionSection;
 

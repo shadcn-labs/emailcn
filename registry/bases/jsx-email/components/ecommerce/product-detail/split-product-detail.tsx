@@ -303,7 +303,11 @@ const CallToAction = ({ href, label }: { href: string; label: string }) => (
         <Img
           alt=""
           src={emailAsset(`icon-arrow-right.png`)}
-          style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+          style={{
+            display: "inline-block",
+            maxWidth: "100%",
+            verticalAlign: "baseline",
+          }}
           width="12"
         />
       </span>

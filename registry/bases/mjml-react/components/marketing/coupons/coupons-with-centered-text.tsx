@@ -54,12 +54,12 @@ export const CouponsWithCenteredTextSection = (
     discount,
     code,
     expiry,
-    description,
     backgroundImageSrc,
     buttonLabel,
     buttonHref,
     backgroundColor,
     codeBackgroundColor,
+    description,
     headingColor,
     textColor,
     buttonBackgroundColor,
@@ -91,7 +91,7 @@ export const CouponsWithCenteredTextSection = (
     <MjmlSection
       backgroundColor={background ? "#111827" : backgroundColor}
       backgroundUrl={background ? backgroundImageSrc : undefined}
-      padding="44px 24px"
+      padding="44px 0"
     >
       <MjmlColumn padding="0">
         <MjmlText
@@ -104,19 +104,36 @@ export const CouponsWithCenteredTextSection = (
           padding="0"
           textTransform="uppercase"
         >
-          {overline}
+          {overline === "Our biggest sale of the year" && !background ? (
+            <>
+              Our <strong>biggest sale</strong> of the year
+            </>
+          ) : (
+            overline
+          )}
         </MjmlText>
-        <MjmlSpacer height="24px" />
         <MjmlText
           align="center"
           color={background ? "#fffffe" : headingColor}
           fontFamily={fontFamily}
-          fontSize={inline ? "36px" : "64px"}
-          fontWeight="700"
-          lineHeight={inline ? "44px" : "68px"}
+          fontSize={inline ? "48px" : "96px"}
+          fontWeight="500"
+          lineHeight={inline ? "58px" : "116px"}
           padding="0"
         >
-          {inline ? `An extra ${discount}` : discount}
+          {(() => {
+            if (inline) {
+              return discount === "20% OFF" ? "An extra 20% OFF" : discount;
+            }
+            if ((alt || background) && discount === "20% OFF") {
+              return (
+                <>
+                  20%<span style={{ fontWeight: 100 }}>OFF</span>
+                </>
+              );
+            }
+            return discount;
+          })()}
         </MjmlText>
         {alt ? (
           <MjmlText
@@ -136,10 +153,10 @@ export const CouponsWithCenteredTextSection = (
             color={headingColor}
             containerBackgroundColor={codeBackgroundColor}
             fontFamily={fontFamily}
-            fontSize="18px"
-            fontWeight="600"
+            fontSize="16px"
+            fontWeight="400"
             lineHeight="24px"
-            padding="12px 18px"
+            padding="8px 16px"
           >
             {code}
           </MjmlText>
@@ -150,8 +167,9 @@ export const CouponsWithCenteredTextSection = (
           color={background ? "#f3f4f6" : textColor}
           fontFamily={fontFamily}
           fontSize="16px"
+          fontWeight="300"
           lineHeight="24px"
-          padding="0"
+          padding="0 44px"
         >
           {description}
         </MjmlText>

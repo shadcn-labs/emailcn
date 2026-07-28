@@ -8,9 +8,9 @@ import {
   MjmlText,
   MjmlWrapper,
   MjmlColumn,
-  MjmlImage,
   MjmlSection,
   MjmlSpacer,
+  MjmlTable,
 } from "@faire/mjml-react";
 import type { ReactNode } from "react";
 
@@ -20,6 +20,14 @@ import { defaultTheme } from "@/registry/themes/default";
 
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+
+const featureCopyBodyPadding = (heading: string, compact: boolean) => {
+  if (!heading) {
+    return "0";
+  }
+
+  return compact ? "12px 0 0" : "16px 0 0";
+};
 
 const FeatureEmailShell = ({
   children,
@@ -51,6 +59,7 @@ const FeatureCopy = ({
   body,
   buttonHref,
   buttonLabel,
+  compact = false,
   heading,
   headingColor,
   linkColor,
@@ -60,6 +69,7 @@ const FeatureCopy = ({
   body: string;
   buttonHref: string;
   buttonLabel: string;
+  compact?: boolean;
   heading: string;
   headingColor: string;
   linkColor: string;
@@ -71,9 +81,9 @@ const FeatureCopy = ({
         align={align}
         color={headingColor}
         fontFamily={fontFamily}
-        fontSize="24px"
+        fontSize={compact ? "20px" : "24px"}
         fontWeight="600"
-        lineHeight="32px"
+        lineHeight={compact ? "28px" : "32px"}
         padding="0"
       >
         {heading}
@@ -83,10 +93,10 @@ const FeatureCopy = ({
       align={align}
       color={textColor}
       fontFamily={fontFamily}
-      fontSize="16px"
+      fontSize={compact ? "14px" : "16px"}
       fontWeight="300"
-      lineHeight="24px"
-      padding={heading ? "16px 0 0" : "0"}
+      lineHeight={compact ? "20px" : "24px"}
+      padding={featureCopyBodyPadding(heading, compact)}
     >
       {body}
     </MjmlText>
@@ -95,15 +105,95 @@ const FeatureCopy = ({
       backgroundColor="transparent"
       color={linkColor}
       fontFamily={fontFamily}
-      fontSize="16px"
+      fontSize={compact ? "14px" : "16px"}
       fontWeight="500"
       href={buttonHref}
-      innerPadding="6px 0"
-      padding="16px 0 0"
+      innerPadding={compact ? "0" : "6px 0"}
+      lineHeight={compact ? "20px" : "24px"}
+      padding={compact ? "12px 0 0" : "16px 0 0"}
     >
       {buttonLabel} →
     </MjmlButton>
   </>
+);
+
+const TallFeatureLogoPanel = ({
+  alt,
+  backgroundColor,
+  height,
+  src,
+}: {
+  alt: string;
+  backgroundColor: string;
+  height: number;
+  src: string;
+}) => (
+  <MjmlTable cellpadding="0" cellspacing="0" padding="0" width="100%">
+    <tbody>
+      <tr>
+        <td
+          style={{
+            backgroundColor,
+            borderRadius: "4px",
+            height: `${height}px`,
+            textAlign: "center",
+            verticalAlign: "middle",
+          }}
+        >
+          <img
+            alt={alt}
+            src={src}
+            style={{
+              display: "inline-block",
+              maxWidth: "100%",
+              verticalAlign: "middle",
+            }}
+            width="139"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const TallFeatureImageColumn = ({
+  backgroundColor,
+  height,
+  imageSrc,
+}: {
+  backgroundColor: string;
+  height: number;
+  imageSrc: string;
+}) => (
+  <MjmlColumn padding="0" verticalAlign="top" width="150px">
+    <MjmlTable cellpadding="0" cellspacing="0" padding="0" width="100%">
+      <tbody>
+        <tr>
+          <td style={{ backgroundColor, borderRadius: "4px" }}>
+            <img
+              alt=""
+              height={height}
+              src={imageSrc}
+              style={{
+                borderRadius: "4px",
+                display: "block",
+                height: `${height}px`,
+                objectFit: "cover",
+                width: "150px",
+              }}
+              width="150"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </MjmlTable>
+  </MjmlColumn>
+);
+
+const TallFeatureGapColumn = () => (
+  <MjmlColumn padding="0" width="24px">
+    <MjmlText padding="0">&nbsp;</MjmlText>
+  </MjmlColumn>
 );
 
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
@@ -154,23 +244,23 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = ({
   const contentRight = variant.endsWith("-right");
   const logoAfter = variant.startsWith("logo-bottom-");
   const copy = (
-    <MjmlColumn padding="0 12px" verticalAlign="top" width="48%">
+    <MjmlColumn padding="0" verticalAlign="top" width="204px">
       {logoAfter ? null : (
         <>
-          <MjmlImage
-            align="left"
+          <TallFeatureLogoPanel
             alt={logoAlt}
-            padding="0"
+            backgroundColor="#030712"
+            height={205}
             src={logoSrc}
-            width="139px"
           />
-          <MjmlSpacer height="24px" />
+          <MjmlSpacer height="24px" padding="0" />
         </>
       )}
       <FeatureCopy
         body={body}
         buttonHref={buttonHref}
         buttonLabel={buttonLabel}
+        compact
         heading={heading}
         headingColor={headingColor}
         linkColor={linkColor}
@@ -178,42 +268,40 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = ({
       />
       {logoAfter ? (
         <>
-          <MjmlSpacer height="24px" />
-          <MjmlImage
-            align="left"
+          <MjmlSpacer height="24px" padding="0" />
+          <TallFeatureLogoPanel
             alt={logoAlt}
-            padding="0"
+            backgroundColor="#030712"
+            height={205}
             src={logoSrc}
-            width="139px"
           />
         </>
       ) : null}
     </MjmlColumn>
   );
-  const images = [
-    <MjmlColumn key="feature-double-1" padding="0 8px" width="26%">
-      <MjmlImage
-        alt=""
-        borderRadius="4px"
-        padding="0"
-        src={imageSrc1}
-        width="132px"
-      />
-    </MjmlColumn>,
-    <MjmlColumn key="feature-double-2" padding="0 8px" width="26%">
-      <MjmlImage
-        alt=""
-        borderRadius="4px"
-        padding="0"
-        src={contentRight ? emailAsset("feature/stripes-bg-3.jpg") : imageSrc2}
-        width="132px"
-      />
-    </MjmlColumn>,
-  ];
+  const firstImage = (
+    <TallFeatureImageColumn
+      backgroundColor="#f3f4f6"
+      height={410}
+      imageSrc={imageSrc1}
+    />
+  );
+  const secondImage = (
+    <TallFeatureImageColumn
+      backgroundColor="#f3f4f6"
+      height={410}
+      imageSrc={
+        contentRight ? emailAsset("feature/stripes-bg-3.jpg") : imageSrc2
+      }
+    />
+  );
   return (
-    <MjmlSection backgroundColor={backgroundColor} padding="44px 12px">
-      {contentRight ? images : copy}
-      {contentRight ? copy : images}
+    <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
+      {contentRight ? firstImage : copy}
+      <TallFeatureGapColumn />
+      {contentRight ? secondImage : firstImage}
+      <TallFeatureGapColumn />
+      {contentRight ? copy : secondImage}
     </MjmlSection>
   );
 };
@@ -291,23 +379,23 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = ({
   const contentRight = variant.endsWith("-right");
   const logoAfter = variant.startsWith("logo-bottom-");
   const content = (
-    <MjmlColumn padding="0 12px" verticalAlign="top" width="48%">
+    <MjmlColumn padding="0" verticalAlign="top" width="204px">
       {logoAfter ? null : (
         <>
-          <MjmlImage
-            align="left"
+          <TallFeatureLogoPanel
             alt={logoAlt}
-            padding="0"
+            backgroundColor="#f3f4f6"
+            height={144}
             src={logoSrc}
-            width="139px"
           />
-          <MjmlSpacer height="24px" />
+          <MjmlSpacer height="24px" padding="0" />
         </>
       )}
       <FeatureCopy
         body={body}
         buttonHref={buttonHref}
         buttonLabel={buttonLabel}
+        compact
         heading=""
         headingColor={headingColor}
         linkColor={linkColor}
@@ -315,41 +403,34 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = ({
       />
       {logoAfter ? (
         <>
-          <MjmlSpacer height="24px" />
-          <MjmlImage
-            align="left"
+          <MjmlSpacer height="24px" padding="0" />
+          <TallFeatureLogoPanel
             alt={logoAlt}
-            padding="0"
+            backgroundColor="#f3f4f6"
+            height={144}
             src={logoSrc}
-            width="139px"
           />
         </>
       ) : null}
     </MjmlColumn>
   );
-  const images = [
-    <MjmlColumn key="feature-full-1" padding="0 8px" width="26%">
-      <MjmlImage
-        alt=""
-        borderRadius="4px"
-        padding="0"
-        src={imageSrc1}
-        width="132px"
-      />
-    </MjmlColumn>,
-    <MjmlColumn key="feature-full-2" padding="0 8px" width="26%">
-      <MjmlImage
-        alt=""
-        borderRadius="4px"
-        padding="0"
-        src={imageSrc2}
-        width="132px"
-      />
-    </MjmlColumn>,
-  ];
+  const firstImage = (
+    <TallFeatureImageColumn
+      backgroundColor="#f3f4f6"
+      height={280}
+      imageSrc={imageSrc1}
+    />
+  );
+  const secondImage = (
+    <TallFeatureImageColumn
+      backgroundColor="#f3f4f6"
+      height={280}
+      imageSrc={imageSrc2}
+    />
+  );
   return (
     <>
-      <MjmlSection backgroundColor={backgroundColor} padding="44px 24px 12px">
+      <MjmlSection backgroundColor={backgroundColor} padding="44px 24px 24px">
         <MjmlColumn padding="0">
           <MjmlText
             color={headingColor}
@@ -363,9 +444,12 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = ({
           </MjmlText>
         </MjmlColumn>
       </MjmlSection>
-      <MjmlSection backgroundColor={backgroundColor} padding="12px 12px 44px">
-        {contentRight ? images : content}
-        {contentRight ? content : images}
+      <MjmlSection backgroundColor={backgroundColor} padding="0 24px 44px">
+        {contentRight ? firstImage : content}
+        <TallFeatureGapColumn />
+        {contentRight ? secondImage : firstImage}
+        <TallFeatureGapColumn />
+        {contentRight ? content : secondImage}
       </MjmlSection>
     </>
   );

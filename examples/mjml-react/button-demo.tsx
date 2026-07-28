@@ -3,11 +3,6 @@ import { defaultTheme } from "@/registry/themes/default";
 
 export default function ButtonDemo() {
   return (
-    <Button
-      variant="primary"
-      size="md"
-      align="center"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
+    <Button variant="primary" size="md" align="center" theme={defaultTheme} />
   );
 }

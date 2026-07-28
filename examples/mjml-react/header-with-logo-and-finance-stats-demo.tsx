@@ -3,9 +3,6 @@ import { defaultTheme } from "@/registry/themes/default";
 
 export default function HeaderWithLogoAndFinanceStatsDemo() {
   return (
-    <HeaderWithLogoAndFinanceStats
-      alignment="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
+    <HeaderWithLogoAndFinanceStats alignment="left" theme={defaultTheme} />
   );
 }

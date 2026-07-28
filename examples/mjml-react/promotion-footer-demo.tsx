@@ -7,7 +7,7 @@ export default function PromotionFooterDemo() {
       placement="inline"
       alignment="center"
       menuColumns={0}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

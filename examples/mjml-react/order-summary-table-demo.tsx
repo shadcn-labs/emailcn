@@ -6,7 +6,7 @@ export default function OrderSummaryTableDemo() {
     <OrderSummaryTable
       appearance="bordered"
       totalPosition="bottom"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

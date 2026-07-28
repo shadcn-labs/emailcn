@@ -6,7 +6,7 @@ export default function PortraitFeatureDemo() {
     <PortraitFeature
       placement="right"
       contentPosition="top"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

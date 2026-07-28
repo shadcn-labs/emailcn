@@ -6,7 +6,7 @@ export default function DividerDemo() {
     <Divider
       align="center"
       content={{ title: "Highlights", type: "title" }}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

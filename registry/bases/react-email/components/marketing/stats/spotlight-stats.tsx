@@ -18,6 +18,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type RollingStats_RollingStatsVariant =
   | "centered"
   | "top-left"
@@ -79,14 +96,16 @@ const RollingStats_RollingStatsSection = (props: RollingStats_SectionProps) => {
   const variant = props.variant ?? "centered";
   const centered = variant === "centered";
   const bottom = variant.startsWith("bottom-");
-  const resolved = {
-    ...RollingStats_defaults,
-    accentColor: RollingStats_accentColors[variant],
-    values: centered
-      ? (["3,117km", "3,118km", "3,119km"] as [string, string, string])
-      : (["14,598", "14,599", "14,600"] as [string, string, string]),
-    ...props,
-  } as RollingStats_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...RollingStats_defaults,
+      accentColor: RollingStats_accentColors[variant],
+      values: centered
+        ? (["3,117km", "3,118km", "3,119km"] as [string, string, string])
+        : (["14,598", "14,599", "14,600"] as [string, string, string]),
+    },
+    props
+  ) as RollingStats_ResolvedProps;
   let align: "center" | "left" | "right" = "left";
   let topSpace = "24px";
   let bottomSpace = "92px";
@@ -293,11 +312,13 @@ const SingleStat_SingleStatWithBackgroundImageSection = (
   props: SingleStat_SectionProps
 ) => {
   const variant = props.variant ?? "centered";
-  const resolved = {
-    ...SingleStat_defaults,
-    valueColor: SingleStat_valueColors[variant],
-    ...props,
-  } as SingleStat_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...SingleStat_defaults,
+      valueColor: SingleStat_valueColors[variant],
+    },
+    props
+  ) as SingleStat_ResolvedProps;
   const centered = variant === "centered";
   const bottom = variant.startsWith("bottom-");
   let align: "center" | "left" | "right" = "left";
@@ -490,11 +511,6 @@ export interface SpotlightStatsProps {
   };
 }
 
-const spotlightStatsDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const SpotlightStats = ({
   theme,
   eyebrow,
@@ -504,14 +520,14 @@ export const SpotlightStats = ({
   backgroundImage,
 }: SpotlightStatsProps) => {
   const variant = position === "center" ? "centered" : position;
-  const contentProps = spotlightStatsDefinedProps({ eyebrow, label, theme });
+  const contentProps = { eyebrow, label, theme };
   if (backgroundImage) {
     return (
       <__SingleStat
         backgroundImageSrc={backgroundImage.src}
         variant={variant}
+        value={values?.[0]}
         {...contentProps}
-        {...spotlightStatsDefinedProps({ value: values?.[0] })}
       />
     );
   }
@@ -519,12 +535,11 @@ export const SpotlightStats = ({
     <__RollingStats
       variant={variant}
       {...contentProps}
-      {...spotlightStatsDefinedProps({
-        values:
-          values && values.length >= 3
-            ? [values[0], values[1], values[2]]
-            : undefined,
-      })}
+      values={
+        values && values.length >= 3
+          ? [values[0], values[1], values[2]]
+          : undefined
+      }
     />
   );
 };

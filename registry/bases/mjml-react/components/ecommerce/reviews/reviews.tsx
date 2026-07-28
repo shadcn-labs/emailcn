@@ -11,6 +11,7 @@ import {
   MjmlHead,
   MjmlPreview,
   MjmlStyle,
+  MjmlTable,
   MjmlWrapper,
 } from "@faire/mjml-react";
 
@@ -109,24 +110,101 @@ const twoColumnReviews: InternalReviewItem[] = [
 const Rating = ({
   centered,
   rating,
+  size,
 }: {
   centered: boolean;
   rating: number;
+  size: 16 | 24;
+}) => {
+  const getIcon = (index: number) => {
+    if (rating >= index + 1) {
+      return "solid";
+    }
+    if (rating >= index + 0.5) {
+      return "half";
+    }
+    return "outline";
+  };
+
+  return (
+    <MjmlTable
+      align={centered ? "center" : "left"}
+      cellpadding="0"
+      cellspacing="0"
+      padding="0"
+      role="presentation"
+      width={`${size * 5 + 16}px`}
+    >
+      <tbody>
+        <tr>
+          {[0, 1, 2, 3, 4].map((index) => (
+            <td
+              key={index}
+              style={{
+                paddingRight: index === 4 ? "0" : "4px",
+                width: `${size}px`,
+              }}
+            >
+              <img
+                alt=""
+                src={emailAsset(`icon-star-${getIcon(index)}.png`)}
+                style={{ display: "block" }}
+                width={size}
+              />
+            </td>
+          ))}
+        </tr>
+      </tbody>
+    </MjmlTable>
+  );
+};
+
+const ReviewCopy = ({
+  centered,
+  featured,
+  item,
+  separateAuthor,
+}: {
+  centered: boolean;
+  featured: boolean;
+  item: InternalReviewItem;
+  separateAuthor?: boolean;
 }) => (
-  <MjmlText
-    align={centered ? "center" : "left"}
-    color="#f59e0b"
-    fontFamily={fontFamily}
-    fontSize="18px"
-    lineHeight="24px"
-    padding="0"
-  >
-    ★ ★ ★ ★ {rating >= 4.5 ? "★" : "☆"}
-  </MjmlText>
+  <>
+    <MjmlText
+      align={centered ? "center" : "left"}
+      color="#4b5563"
+      fontFamily={fontFamily}
+      fontSize={featured ? "20px" : "16px"}
+      lineHeight={featured ? "28px" : "24px"}
+      padding="0"
+    >
+      {item.text}
+    </MjmlText>
+    <MjmlSpacer height="20px" />
+    <MjmlText
+      align={centered ? "center" : "left"}
+      color="#9ca3af"
+      fontFamily={fontFamily}
+      fontSize="16px"
+      fontWeight="600"
+      lineHeight="24px"
+      padding="0"
+    >
+      {separateAuthor ? null : (
+        <>
+          {item.name} - {item.company}
+          <br />
+        </>
+      )}
+      {item.date}
+    </MjmlText>
+  </>
 );
 
-const AccentDivider = () => (
+const AccentDivider = ({ centered = false }: { centered?: boolean }) => (
   <MjmlDivider
+    align={centered ? "center" : "left"}
     borderColor="#6366f1"
     borderWidth="4px"
     padding="0"
@@ -158,9 +236,13 @@ const ReviewLogo = ({
 const ReviewAvatar = ({
   centered,
   item,
+  rating,
+  size,
 }: {
   centered: boolean;
   item: InternalReviewItem;
+  rating: number;
+  size: 16 | 24;
 }) => (
   <>
     <MjmlImage
@@ -183,7 +265,7 @@ const ReviewAvatar = ({
     >
       {item.name}
     </MjmlText>
-    <Rating centered={centered} rating={item.rating} />
+    <Rating centered={centered} rating={rating} size={size} />
     <MjmlSpacer height="24px" />
   </>
 );
@@ -193,25 +275,43 @@ const ReviewTopIdentity = ({
   centered,
   item,
   logoAtTop,
+  rating,
   showRatingOnly,
+  size,
 }: {
   avatarAtTop: boolean;
   centered: boolean;
   item: InternalReviewItem;
   logoAtTop: boolean;
+  rating: number;
   showRatingOnly: boolean;
+  size: 16 | 24;
 }) => {
   if (logoAtTop) {
-    return <ReviewLogo centered={centered} item={item} />;
+    return (
+      <>
+        <ReviewLogo centered={centered} item={item} trailingSpace={false} />
+        <MjmlSpacer height="36px" />
+        <Rating centered={centered} rating={rating} size={size} />
+        <MjmlSpacer height="36px" />
+      </>
+    );
   }
   if (avatarAtTop) {
-    return <ReviewAvatar centered={centered} item={item} />;
+    return (
+      <ReviewAvatar
+        centered={centered}
+        item={item}
+        rating={rating}
+        size={size}
+      />
+    );
   }
   if (showRatingOnly) {
     return (
       <>
-        <Rating centered={centered} rating={item.rating} />
-        <MjmlSpacer height="24px" />
+        <Rating centered={centered} rating={rating} size={size} />
+        <MjmlSpacer height="36px" />
       </>
     );
   }
@@ -222,10 +322,14 @@ const ReviewBottomIdentity = ({
   avatarAtBottom,
   item,
   logoAtBottom,
+  rating,
+  size,
 }: {
   avatarAtBottom: boolean;
   item: InternalReviewItem;
   logoAtBottom: boolean;
+  rating: number;
+  size: 16 | 24;
 }) => {
   if (logoAtBottom) {
     return (
@@ -247,7 +351,7 @@ const ReviewBottomIdentity = ({
           width="64px"
         />
         <MjmlSpacer height="12px" />
-        <Rating centered rating={item.rating} />
+        <Rating centered rating={rating} size={size} />
       </>
     );
   }
@@ -257,10 +361,12 @@ const ReviewBottomIdentity = ({
 const ReviewContent = ({
   featured,
   item,
+  layout,
   variant,
 }: {
   featured: boolean;
   item: InternalReviewItem;
+  layout: ReviewsLayout;
   variant: FullWidthReviewsVariant;
 }) => {
   const centered =
@@ -278,11 +384,41 @@ const ReviewContent = ({
   const logoAtTop = hasLogo && !identityAtBottom;
   const avatarAtTop = hasAvatar && !identityAtBottom;
   const showRatingOnly = !hasLogo && !avatarAtTop;
+  const { rating } = item;
+  const size = layout === "full-width" ? 16 : 24;
+
+  if (!hasAvatar && !hasLogo) {
+    if (variant === "divider-top") {
+      return (
+        <>
+          <AccentDivider centered={centered} />
+          <MjmlSpacer height="24px" />
+          <ReviewCopy centered={centered} featured={featured} item={item} />
+          <MjmlSpacer height="36px" />
+          <Rating centered={centered} rating={rating} size={size} />
+        </>
+      );
+    }
+    return (
+      <>
+        <Rating centered={centered} rating={rating} size={size} />
+        <MjmlSpacer height="36px" />
+        {variant === "with-divider" ? (
+          <>
+            <AccentDivider centered={centered} />
+            <MjmlSpacer height="24px" />
+          </>
+        ) : null}
+        <ReviewCopy centered={centered} featured={featured} item={item} />
+      </>
+    );
+  }
+
   return (
     <>
       {dividerTop ? (
         <>
-          <AccentDivider />
+          <AccentDivider centered={centered} />
           <MjmlSpacer height="24px" />
         </>
       ) : null}
@@ -291,40 +427,28 @@ const ReviewContent = ({
         centered={centered}
         item={item}
         logoAtTop={logoAtTop}
+        rating={rating}
         showRatingOnly={showRatingOnly}
+        size={size}
       />
       {dividerMiddle ? (
         <>
-          <AccentDivider />
+          <AccentDivider centered={centered} />
           <MjmlSpacer height="24px" />
         </>
       ) : null}
-      <MjmlText
-        align={centered ? "center" : "left"}
-        color="#4b5563"
-        fontFamily={fontFamily}
-        fontSize={featured ? "20px" : "16px"}
-        lineHeight={featured ? "28px" : "24px"}
-        padding="0"
-      >
-        {item.text}
-      </MjmlText>
-      <MjmlSpacer height="20px" />
-      <MjmlText
-        align={centered ? "center" : "left"}
-        color="#9ca3af"
-        fontFamily={fontFamily}
-        fontSize="16px"
-        fontWeight="600"
-        lineHeight="24px"
-        padding="0"
-      >
-        {item.name} · {item.company} · {item.date}
-      </MjmlText>
+      <ReviewCopy
+        centered={centered}
+        featured={featured}
+        item={item}
+        separateAuthor={hasAvatar}
+      />
       <ReviewBottomIdentity
         avatarAtBottom={hasAvatar && identityAtBottom}
         item={item}
         logoAtBottom={hasLogo && identityAtBottom}
+        rating={rating}
+        size={size}
       />
     </>
   );
@@ -333,16 +457,23 @@ const ReviewContent = ({
 const ReviewColumn = ({
   featured,
   item,
+  layout,
   variant,
   width,
 }: {
   featured: boolean;
   item: InternalReviewItem;
+  layout: ReviewsLayout;
   variant: FullWidthReviewsVariant;
   width: string;
 }) => (
-  <MjmlColumn padding="0 22px" verticalAlign="top" width={width}>
-    <ReviewContent featured={featured} item={item} variant={variant} />
+  <MjmlColumn padding="0" verticalAlign="top" width={width}>
+    <ReviewContent
+      featured={featured}
+      item={item}
+      layout={layout}
+      variant={variant}
+    />
   </MjmlColumn>
 );
 
@@ -360,7 +491,13 @@ const ReviewsSection = ({
   if (layout === "full-width") {
     return (
       <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
-        <ReviewColumn featured item={items[0]} variant={variant} width="100%" />
+        <ReviewColumn
+          featured
+          item={items[0]}
+          layout={layout}
+          variant={variant}
+          width="552px"
+        />
       </MjmlSection>
     );
   }
@@ -371,22 +508,26 @@ const ReviewsSection = ({
           <ReviewColumn
             featured
             item={items[0]}
+            layout={layout}
             variant={variant}
-            width="100%"
+            width="552px"
           />
         </MjmlSection>
         <MjmlSection backgroundColor="#fffffe" padding="64px 24px 44px">
           <ReviewColumn
             featured={false}
             item={items[1]}
+            layout={layout}
             variant={variant}
-            width="50%"
+            width="254px"
           />
+          <MjmlColumn padding="0" width="44px" />
           <ReviewColumn
             featured={false}
             item={items[2]}
+            layout={layout}
             variant={variant}
-            width="50%"
+            width="254px"
           />
         </MjmlSection>
       </>
@@ -397,14 +538,17 @@ const ReviewsSection = ({
       <ReviewColumn
         featured={false}
         item={items[0]}
+        layout={layout}
         variant={variant}
-        width="50%"
+        width="254px"
       />
+      <MjmlColumn padding="0" width="44px" />
       <ReviewColumn
         featured={false}
         item={items[1]}
+        layout={layout}
         variant={variant}
-        width="50%"
+        width="254px"
       />
     </MjmlSection>
   );

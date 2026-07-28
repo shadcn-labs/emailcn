@@ -22,6 +22,23 @@ import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme"
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -308,7 +325,7 @@ type CenteredFooter_SectionProps = Omit<
 const CenteredFooter_FooterCenteredWithMenuAndSocialsSection = (
   props: CenteredFooter_SectionProps
 ) => {
-  const resolved = { ...CenteredFooter_defaults, ...props };
+  const resolved = resolveDefaultProps(CenteredFooter_defaults, props);
   return (
     <MjmlSection
       backgroundColor={resolved.backgroundColor}
@@ -554,7 +571,7 @@ type TwoColumnFooter_SectionProps = Omit<
 const TwoColumnFooter_FooterWith2ColumnMenuSection = (
   props: TwoColumnFooter_SectionProps
 ) => {
-  const resolved = { ...TwoColumnFooter_defaults, ...props };
+  const resolved = resolveDefaultProps(TwoColumnFooter_defaults, props);
   const brand = (
     <MjmlColumn direction="ltr" width="40%">
       <FooterLogo
@@ -722,7 +739,7 @@ type ThreeColumnFooter_SectionProps = Omit<
 const ThreeColumnFooter_FooterWith3ColMenuSection = (
   props: ThreeColumnFooter_SectionProps
 ) => {
-  const resolved = { ...ThreeColumnFooter_defaults, ...props };
+  const resolved = resolveDefaultProps(ThreeColumnFooter_defaults, props);
   const brand = (
     <MjmlColumn direction="ltr" width="25%">
       <FooterLogo
@@ -882,8 +899,7 @@ const FullMenuFooter_FooterWithFullMenuSection = (
   props: FullMenuFooter_SectionProps
 ) => {
   const resolved = {
-    ...FullMenuFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(FullMenuFooter_defaults, props),
     variant: props.variant ?? "oversized-logo",
   };
   return (
@@ -1030,7 +1046,7 @@ type TextMenuFooterBundle_SectionProps = Omit<
 const TextMenuFooterBundle_FooterWithTextMenuAndSocialsSection = (
   props: TextMenuFooterBundle_SectionProps
 ) => {
-  const resolved = { ...TextMenuFooterBundle_defaults, ...props };
+  const resolved = resolveDefaultProps(TextMenuFooterBundle_defaults, props);
   const brand = (
     <MjmlColumn direction="ltr" width="60%">
       <FooterLogo
@@ -1184,11 +1200,6 @@ const sideVariant = (
   logoPosition: NavigationFooterProps["logoPosition"]
 ) => variant ?? (logoPosition === "right" ? "right-logo" : "left-logo");
 
-const navigationFooterDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const NavigationFooter = ({
   theme,
   brand,
@@ -1209,51 +1220,44 @@ export const NavigationFooter = ({
   const quickLinks = footerMenuLinks(quickMenu);
   const connectLinks = footerMenuLinks(connectMenu);
   const legalLinks = footerMenuLinks(legalMenu);
-  const baseProps = navigationFooterDefinedProps({
+  const baseProps = {
     logoAlt: footerBrand.logoAlt,
     logoHref: footerBrand.logoHref,
     logoSrc: footerBrand.logoSrc,
     socials,
     theme,
     unsubscribeHref: footerLegal.unsubscribeHref,
-  });
+  };
   if (oversizedLogo) {
     return (
       <__FullMenuFooter
         {...baseProps}
+        links={menus?.flatMap(({ links }) => links)}
         variant={
           (variantOverride ?? "oversized-logo") as Parameters<
             typeof __FullMenuFooter
           >[0]["variant"]
         }
-        {...navigationFooterDefinedProps({
-          links: menus?.flatMap(({ links }) => links),
-        })}
       />
     );
   }
   if (alignment === "center" && columns === 1) {
     return (
-      <__CenteredFooter
-        {...baseProps}
-        {...navigationFooterDefinedProps({ links: quickLinks, socials })}
-      />
+      <__CenteredFooter {...baseProps} links={quickLinks} socials={socials} />
     );
   }
   if (description) {
     return (
       <__TextMenuFooter
         {...baseProps}
+        copyright={footerLegal.copyright}
         description={description}
+        quickLinks={quickLinks}
         variant={
           sideVariant(variantOverride, logoPosition) as Parameters<
             typeof __TextMenuFooter
           >[0]["variant"]
         }
-        {...navigationFooterDefinedProps({
-          copyright: footerLegal.copyright,
-          quickLinks,
-        })}
       />
     );
   }
@@ -1273,32 +1277,28 @@ export const NavigationFooter = ({
     return (
       <__ThreeColumnFooter
         {...baseProps}
+        connectLinks={connectLinks}
+        legalLinks={legalLinks}
+        quickLinks={quickLinks}
         variant={
           sideVariant(variantOverride, logoPosition) as Parameters<
             typeof __ThreeColumnFooter
           >[0]["variant"]
         }
-        {...navigationFooterDefinedProps({
-          connectLinks,
-          legalLinks,
-          quickLinks,
-        })}
       />
     );
   }
   return (
     <__TwoColumnFooter
       {...baseProps}
+      connectLinks={connectLinks}
+      copyright={footerLegal.copyright}
+      quickLinks={quickLinks}
       variant={
         sideVariant(variantOverride, logoPosition) as Parameters<
           typeof __TwoColumnFooter
         >[0]["variant"]
       }
-      {...navigationFooterDefinedProps({
-        connectLinks,
-        copyright: footerLegal.copyright,
-        quickLinks,
-      })}
     />
   );
 };

@@ -1,5 +1,4 @@
 import {
-  MjmlButton,
   MjmlColumn,
   MjmlDivider,
   MjmlImage,
@@ -12,9 +11,11 @@ import {
   MjmlHead,
   MjmlPreview,
   MjmlStyle,
+  MjmlTable,
   MjmlWrapper,
 } from "@faire/mjml-react";
 import { Fragment } from "react";
+import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
@@ -67,19 +68,53 @@ const defaultProducts: ProductListItem[] = [
   },
 ];
 
-const Rating = ({ count }: { count: number }) => (
-  <MjmlText
-    color="#4b5563"
-    fontFamily={fontFamily}
-    fontSize="12px"
-    lineHeight="16px"
+const Rating = ({
+  count,
+  allSolid = false,
+}: {
+  count: number;
+  allSolid?: boolean;
+}) => (
+  <MjmlTable
+    align="left"
+    cellpadding="0"
+    cellspacing="0"
     padding="0"
+    role="presentation"
+    width="184px"
   >
-    ★ ★ ★ ★ ★ &nbsp;({count} reviews)
-  </MjmlText>
+    <tbody>
+      <tr>
+        {[0, 1, 2, 3, 4].map((index) => (
+          <td key={index} style={{ paddingRight: "4px", width: "16px" }}>
+            <img
+              alt=""
+              src={emailAsset(
+                `icon-star-${index === 4 && !allSolid ? "half" : "solid"}.png`
+              )}
+              style={{ display: "block" }}
+              width="16"
+            />
+          </td>
+        ))}
+        <td
+          style={{
+            color: "#4b5563",
+            fontFamily,
+            fontSize: "12px",
+            lineHeight: "16px",
+            paddingLeft: "4px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          ({count} reviews)
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
 );
 
-const Copy = ({ children }: { children?: string }) =>
+const Copy = ({ children }: { children?: ReactNode }) =>
   children ? (
     <MjmlText
       color="#4b5563"
@@ -92,6 +127,147 @@ const Copy = ({ children }: { children?: string }) =>
       {children}
     </MjmlText>
   ) : null;
+
+const Header = ({ item }: { item: ProductListItem }) => (
+  <MjmlTable
+    cellpadding="0"
+    cellspacing="0"
+    padding="0"
+    role="presentation"
+    tableLayout="fixed"
+    width="100%"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            color: "#030712",
+            fontFamily,
+            fontSize: "20px",
+            fontWeight: 600,
+            lineHeight: "28px",
+            verticalAlign: "top",
+          }}
+        >
+          {item.name}
+        </td>
+        <td
+          width="80"
+          style={{
+            color: "#030712",
+            fontFamily,
+            fontSize: "20px",
+            fontWeight: 500,
+            lineHeight: "28px",
+            textAlign: "right",
+            verticalAlign: "top",
+            width: "80px",
+          }}
+        >
+          {item.price}
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const ColorSwatches = () => (
+  <>
+    {["#030712", "#fffffe", "#E5E7EB"].map((color) => (
+      <span
+        key={color}
+        style={{
+          display: "inline-block",
+          maxWidth: "12px",
+        }}
+      >
+        <span
+          style={{
+            backgroundColor: color,
+            borderRadius: "9999px",
+            display: "inline-block",
+            height: "16px",
+            verticalAlign: "middle",
+            width: "16px",
+          }}
+        />
+      </span>
+    ))}
+  </>
+);
+
+const ProductOptions = () => (
+  <MjmlTable
+    align="left"
+    cellpadding="0"
+    cellspacing="0"
+    color="#4b5563"
+    fontFamily={fontFamily}
+    fontSize="14px"
+    lineHeight="20px"
+    padding="0"
+    role="presentation"
+    width="auto"
+  >
+    <tbody>
+      <tr>
+        <td style={{ paddingRight: "36px", whiteSpace: "nowrap" }}>
+          <span style={{ marginRight: "8px" }}>Colors:</span>
+          <ColorSwatches />
+        </td>
+        <td style={{ whiteSpace: "nowrap" }}>
+          <span style={{ marginRight: "8px" }}>Sizes:</span>
+          S, M, L, XL
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
+
+const Discover = ({ href }: { href: string }) => (
+  <MjmlTable
+    align="left"
+    cellpadding="0"
+    cellspacing="0"
+    padding="0"
+    role="presentation"
+    width="104px"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={{
+            fontFamily,
+            fontSize: "16px",
+            fontWeight: 500,
+            lineHeight: "16px",
+          }}
+        >
+          <a
+            href={href}
+            style={{
+              color: "#4f46e5",
+              display: "inline-block",
+              padding: "4px 0",
+              textDecoration: "none",
+            }}
+          >
+            <span style={{ marginRight: "8px" }}>Discover</span>
+            <img
+              alt=""
+              src={emailAsset("icon-arrow-right-indigo.png")}
+              style={{
+                display: "inline-block",
+                verticalAlign: "baseline",
+              }}
+              width="16"
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </MjmlTable>
+);
 
 const ProductOptionsBlock = ({
   detailsVariant,
@@ -111,7 +287,7 @@ const ProductOptionsBlock = ({
           borderWidth="1px"
           padding="24px 0 8px"
         />
-        <Copy>Colors: Black, White, Gray · Sizes: S, M, L, XL</Copy>
+        <ProductOptions />
         <MjmlDivider
           borderColor="#d1d5db"
           borderWidth="1px"
@@ -121,7 +297,7 @@ const ProductOptionsBlock = ({
     );
   }
   if (detailsVariant) {
-    return <Copy>Colors: Black, White, Gray · Sizes: S, M, L, XL</Copy>;
+    return <ProductOptions />;
   }
   return null;
 };
@@ -150,20 +326,14 @@ const ProductContent = ({
     <>
       {topReview ? (
         <>
-          <Rating count={item.reviewCount ?? 18} />
+          <Rating
+            allSolid={(item.reviewCount ?? 18) === 42}
+            count={item.reviewCount ?? 18}
+          />
           <MjmlSpacer height="18px" />
         </>
       ) : null}
-      <MjmlText
-        color="#030712"
-        fontFamily={fontFamily}
-        fontSize="20px"
-        fontWeight="600"
-        lineHeight="28px"
-        padding="0"
-      >
-        {item.name} · {item.price}
-      </MjmlText>
+      <Header item={item} />
       <MjmlSpacer height="24px" />
       {descriptionOnly ? <Copy>{item.description}</Copy> : null}
       {!descriptionOnly && !detailsVariant ? <Copy>{item.details}</Copy> : null}
@@ -175,24 +345,14 @@ const ProductContent = ({
       {!topReview && !descriptionOnly ? (
         <>
           <MjmlSpacer height="18px" />
-          <Rating count={item.reviewCount ?? 18} />
+          <Rating
+            allSolid={(item.reviewCount ?? 18) === 42}
+            count={item.reviewCount ?? 18}
+          />
         </>
       ) : null}
       <MjmlSpacer height="18px" />
-      <MjmlButton
-        align="left"
-        backgroundColor="transparent"
-        color="#4f46e5"
-        fontFamily={fontFamily}
-        fontSize="16px"
-        fontWeight="500"
-        href={item.href ?? "https://example.com/thsirts"}
-        innerPadding="4px 0"
-        lineHeight="16px"
-        padding="0"
-      >
-        Discover →
-      </MjmlButton>
+      <Discover href={item.href ?? "https://example.com/thsirts"} />
     </>
   );
 };
@@ -214,7 +374,7 @@ const ProductRow = ({
         width="144px"
       />
     </MjmlColumn>
-    <MjmlColumn padding="0" verticalAlign="top">
+    <MjmlColumn padding="0" verticalAlign="top" width="384px">
       <ProductContent item={item} variant={variant} />
     </MjmlColumn>
   </MjmlSection>
@@ -258,7 +418,8 @@ const ProductListWithRowsSection = ({
                 padding="0"
               >
                 Style meets purpose in every piece. Designed with attention to
-                detail and built for everyday comfort.
+                detail and built for everyday comfort, our collection brings
+                together modern design, timeless quality, and effortlessness.
               </MjmlText>
               <MjmlSpacer height="44px" />
             </>

@@ -2,10 +2,5 @@ import { AvatarCallToAction } from "@/registry/bases/mjml-react/components/marke
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function AvatarCallToActionDemo() {
-  return (
-    <AvatarCallToAction
-      placement="inline"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <AvatarCallToAction placement="inline" theme={defaultTheme} />;
 }

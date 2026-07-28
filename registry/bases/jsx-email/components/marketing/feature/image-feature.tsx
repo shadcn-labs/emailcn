@@ -279,15 +279,15 @@ export const ImageFeature = ({
   placement = "right",
 }: ImageFeatureProps) => (
   <__Feature
-    arrowIconSrc={action?.iconSrc}
-    body={body}
-    buttonHref={action?.href}
-    buttonLabel={action?.label}
-    heading={heading}
-    imageAlt={image?.alt}
-    imageSrc={image?.src}
     theme={theme}
     variant={`image-${placement}`}
+    {...(action?.iconSrc === undefined ? {} : { arrowIconSrc: action.iconSrc })}
+    {...(action?.href === undefined ? {} : { buttonHref: action.href })}
+    {...(action?.label === undefined ? {} : { buttonLabel: action.label })}
+    {...(body === undefined ? {} : { body })}
+    {...(heading === undefined ? {} : { heading })}
+    {...(image?.alt === undefined ? {} : { imageAlt: image.alt })}
+    {...(image?.src === undefined ? {} : { imageSrc: image.src })}
   />
 );
 

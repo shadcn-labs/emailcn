@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type Cta_CTAWithTeamAvatarsVariant =
   | "default"
   | "avatars-top"
@@ -363,11 +380,13 @@ const Cta_VariantContent = ({
 
 const Cta_CTAWithTeamAvatarsSection = (props: Cta_SectionProps) => {
   const variant = props.variant ?? "default";
-  const resolved = {
-    ...Cta_defaultSectionStyles,
-    ...Cta_variantContent[variant],
-    ...props,
-  } as Cta_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...Cta_defaultSectionStyles,
+      ...Cta_variantContent[variant],
+    },
+    props
+  ) as Cta_ResolvedProps;
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}

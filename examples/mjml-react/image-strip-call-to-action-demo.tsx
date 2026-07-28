@@ -6,7 +6,7 @@ export default function ImageStripCallToActionDemo() {
     <ImageStripCallToAction
       placement="right"
       width="boxed"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

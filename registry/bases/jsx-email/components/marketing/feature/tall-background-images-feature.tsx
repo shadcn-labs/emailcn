@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesVariant =
   | "logo-top-right"
   | "logo-top-left"
@@ -279,15 +296,17 @@ const TallFeatureSplit_FeatureWithDoubleTallBackgroundImagesSection = (
   const variant = props.variant ?? "logo-top-left";
   const contentRight = variant.endsWith("-right");
   const logoAfter = variant.startsWith("logo-bottom-");
-  const resolved = {
-    ...TallFeatureSplit_defaults,
-    ...(contentRight
-      ? {
-          imageSrc2: emailAsset("feature/stripes-bg-3.jpg"),
-        }
-      : {}),
-    ...props,
-  } as TallFeatureSplit_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...TallFeatureSplit_defaults,
+      ...(contentRight
+        ? {
+            imageSrc2: emailAsset("feature/stripes-bg-3.jpg"),
+          }
+        : {}),
+    },
+    props
+  ) as TallFeatureSplit_ResolvedProps;
   const content = (
     <TallFeatureSplit_ContentColumn logoAfter={logoAfter} props={resolved} />
   );
@@ -611,10 +630,10 @@ const TallFeatureFull_FeatureWithFullTitleAndTallBackgroundImagesSection = (
   const variant = props.variant ?? "logo-bottom-left";
   const contentRight = variant.endsWith("-right");
   const logoAfter = variant.startsWith("logo-bottom-");
-  const resolved = {
-    ...TallFeatureFull_defaults,
-    ...props,
-  } as TallFeatureFull_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    TallFeatureFull_defaults,
+    props
+  ) as TallFeatureFull_ResolvedProps;
   const content = (
     <TallFeatureFull_ContentColumn logoAfter={logoAfter} props={resolved} />
   );

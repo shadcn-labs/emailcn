@@ -7,7 +7,7 @@ export default function NavigationFooterDemo() {
       columns={2}
       alignment="left"
       logoPosition="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

@@ -2,10 +2,5 @@ import { SubscriptionPricing } from "@/registry/bases/mjml-react/components/mark
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function SubscriptionPricingDemo() {
-  return (
-    <SubscriptionPricing
-      columns={2}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <SubscriptionPricing columns={2} theme={defaultTheme} />;
 }

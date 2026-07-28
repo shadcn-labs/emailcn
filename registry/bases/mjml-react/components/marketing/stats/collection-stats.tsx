@@ -9,6 +9,7 @@ import {
   MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
+import { Fragment } from "react";
 import type { ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
@@ -45,6 +46,18 @@ const SimpleStats_defaultStats = [
   { label: "Monthly churn reduction", value: "18%" },
 ];
 
+const SimpleStats_getCardPadding = (
+  variant: SimpleStats_SimpleStatsVariant
+) => {
+  if (variant === "default") {
+    return "0";
+  }
+  if (variant === "bordered") {
+    return "20px 16px";
+  }
+  return "24px 16px";
+};
+
 const SimpleStats_SimpleStatsSection = ({
   backgroundColor = "#fffffe",
   borderColor = "#d1d5db",
@@ -56,43 +69,54 @@ const SimpleStats_SimpleStatsSection = ({
 }: Omit<SimpleStats_SimpleStatsProps, "theme">) => (
   <MjmlSection backgroundColor={backgroundColor} padding="44px 24px">
     {stats.slice(0, 3).map((stat, index) => (
-      <MjmlColumn
-        backgroundColor={variant === "boxed" ? cardBackgroundColor : undefined}
-        border={
-          variant === "outlined" || variant === "bordered"
-            ? `1px solid ${borderColor}`
-            : undefined
-        }
-        borderRadius={
-          variant === "boxed" || variant === "outlined" ? "8px" : "0"
-        }
-        key={`${stat.value}-${index}`}
-        padding={variant === "default" ? "12px" : "24px 12px"}
-        verticalAlign="top"
-        width="33.333%"
-      >
-        <MjmlText
-          align="center"
-          color={headingColor}
-          fontFamily={SimpleStats_fontFamily}
-          fontSize="36px"
-          fontWeight="300"
-          lineHeight="40px"
-          padding="0"
+      <Fragment key={`${stat.value}-${index}`}>
+        {index > 0 ? (
+          <MjmlColumn padding="0" width="24px">
+            <MjmlText fontSize="1px" lineHeight="1px" padding="0">
+              &zwj;
+            </MjmlText>
+          </MjmlColumn>
+        ) : null}
+        <MjmlColumn
+          backgroundColor={
+            variant === "boxed" ? cardBackgroundColor : undefined
+          }
+          border={
+            variant === "outlined" ? `1px solid ${borderColor}` : undefined
+          }
+          borderRadius={
+            variant === "boxed" || variant === "outlined" ? "8px" : "0"
+          }
+          borderTop={
+            variant === "bordered" ? `4px solid ${headingColor}` : undefined
+          }
+          padding={SimpleStats_getCardPadding(variant)}
+          verticalAlign="top"
+          width="168px"
         >
-          {stat.value}
-        </MjmlText>
-        <MjmlText
-          align="center"
-          color={textColor}
-          fontFamily={SimpleStats_fontFamily}
-          fontSize="16px"
-          lineHeight="24px"
-          padding="8px 0 0"
-        >
-          {stat.label}
-        </MjmlText>
-      </MjmlColumn>
+          <MjmlText
+            align="center"
+            color={headingColor}
+            fontFamily={SimpleStats_fontFamily}
+            fontSize="36px"
+            fontWeight="300"
+            lineHeight="40px"
+            padding="0"
+          >
+            {stat.value}
+          </MjmlText>
+          <MjmlText
+            align="center"
+            color={textColor}
+            fontFamily={SimpleStats_fontFamily}
+            fontSize="16px"
+            lineHeight="24px"
+            padding="8px 0 0"
+          >
+            {stat.label}
+          </MjmlText>
+        </MjmlColumn>
+      </Fragment>
     ))}
   </MjmlSection>
 );
@@ -188,7 +212,119 @@ interface GridStats_StatCardProps {
   value: string;
   variant: GridStats_GridStatsVariant;
   width: string;
+  bento?: boolean;
+  bordered?: boolean;
 }
+
+const GridStats_getCardBackgroundColor = ({
+  accentBackgroundColor,
+  cardBackgroundColor,
+  dark,
+  boxed,
+}: {
+  accentBackgroundColor: string;
+  cardBackgroundColor: string;
+  dark: boolean;
+  boxed: boolean;
+}) => {
+  let backgroundColor: string | undefined;
+
+  if (dark) {
+    backgroundColor = accentBackgroundColor;
+  } else if (boxed) {
+    backgroundColor = cardBackgroundColor;
+  }
+
+  return backgroundColor;
+};
+
+const GridStats_getValueColor = ({
+  accentColor,
+  bento,
+  dark,
+  featured,
+  headingColor,
+}: {
+  accentColor: string;
+  bento: boolean;
+  dark: boolean;
+  featured: boolean;
+  headingColor: string;
+}) => {
+  if (dark) {
+    return bento ? accentColor : "#c7d2fe";
+  }
+
+  if (featured) {
+    return accentColor;
+  }
+
+  return headingColor;
+};
+
+const GridStats_getCardPadding = ({
+  bento,
+  bordered,
+  featured,
+  variant,
+}: {
+  bento: boolean;
+  bordered: boolean;
+  featured: boolean;
+  variant: GridStats_GridStatsVariant;
+}) => {
+  if (variant === "simple") {
+    return "0";
+  }
+
+  if (variant === "bordered") {
+    return bordered ? "20px 16px" : "0 16px";
+  }
+
+  if (bento) {
+    return featured ? "42px 16px" : "54px 16px";
+  }
+
+  return "24px 16px";
+};
+
+const GridStats_getValueTypography = (featured: boolean) => {
+  if (featured) {
+    return {
+      fontSize: "72px",
+      fontWeight: "500",
+      lineHeight: "72px",
+    };
+  }
+
+  return {
+    fontSize: "36px",
+    fontWeight: "300",
+    lineHeight: "40px",
+  };
+};
+
+const GridStats_getLabelTypography = ({
+  bento,
+  featured,
+}: {
+  bento: boolean;
+  featured: boolean;
+}) => {
+  if (featured && !bento) {
+    return {
+      fontSize: "18px",
+      lineHeight: "28px",
+      padding: "8px 0 0",
+    };
+  }
+
+  return {
+    fontSize: "16px",
+    lineHeight: "24px",
+    padding: featured && bento ? "0" : "8px 0 0",
+  };
+};
 
 const GridStats_StatCard = ({
   accent,
@@ -203,31 +339,45 @@ const GridStats_StatCard = ({
   value,
   variant,
   width,
+  bento = false,
+  bordered = false,
 }: GridStats_StatCardProps) => {
   const boxed = variant === "boxed" || variant === "accent-column";
   const outlined = variant === "outlined";
   const dark = accent && variant === "accent-column";
-  let backgroundColor: string | undefined;
-  if (dark) {
-    backgroundColor = accentBackgroundColor;
-  } else if (boxed) {
-    backgroundColor = cardBackgroundColor;
-  }
-  let valueColor = headingColor;
-  if (dark) {
-    valueColor = "#c7d2fe";
-  } else if (featured) {
-    valueColor = accentColor;
-  }
+  const backgroundColor = GridStats_getCardBackgroundColor({
+    accentBackgroundColor,
+    boxed,
+    cardBackgroundColor,
+    dark,
+  });
+  const valueColor = GridStats_getValueColor({
+    accentColor,
+    bento,
+    dark,
+    featured,
+    headingColor,
+  });
+  const padding = GridStats_getCardPadding({
+    bento,
+    bordered,
+    featured,
+    variant,
+  });
+  const valueTypography = GridStats_getValueTypography(featured);
+  const labelTypography = GridStats_getLabelTypography({ bento, featured });
+
   return (
     <MjmlColumn
       backgroundColor={backgroundColor}
       border={outlined ? `1px solid ${borderColor}` : undefined}
       borderRadius={outlined || boxed ? "8px" : "0"}
       borderTop={
-        variant === "bordered" ? `4px solid ${headingColor}` : undefined
+        variant === "bordered" && bordered
+          ? `4px solid ${headingColor}`
+          : undefined
       }
-      padding={variant === "simple" ? "12px" : "24px 16px"}
+      padding={padding}
       verticalAlign="top"
       width={width}
     >
@@ -235,10 +385,8 @@ const GridStats_StatCard = ({
         align="center"
         color={valueColor}
         fontFamily={GridStats_fontFamily}
-        fontSize={featured ? "72px" : "36px"}
-        fontWeight={featured ? "500" : "300"}
-        lineHeight={featured ? "80px" : "40px"}
         padding="0"
+        {...valueTypography}
       >
         {value}
       </MjmlText>
@@ -246,14 +394,179 @@ const GridStats_StatCard = ({
         align="center"
         color={dark ? "#d1d5db" : textColor}
         fontFamily={GridStats_fontFamily}
-        fontSize={featured ? "18px" : "16px"}
-        lineHeight={featured ? "28px" : "24px"}
-        padding="8px 0 0"
+        {...labelTypography}
       >
         {label}
       </MjmlText>
     </MjmlColumn>
   );
+};
+
+type GridStats_CommonCardProps = Omit<
+  GridStats_StatCardProps,
+  "accent" | "bento" | "bordered" | "featured" | "label" | "value" | "width"
+>;
+
+interface GridStats_ThreeColumnLayoutProps {
+  backgroundColor: string;
+  common: GridStats_CommonCardProps;
+  featuredLabel: string;
+  featuredStat: string;
+  stats: {
+    label: string;
+    value: string;
+  }[];
+}
+
+const GridStats_GapColumn = () => (
+  <MjmlColumn padding="0" width="24px">
+    <MjmlText fontSize="1px" lineHeight="1px" padding="0">
+      &zwj;
+    </MjmlText>
+  </MjmlColumn>
+);
+
+const GridStats_ThreeColumnLayout = ({
+  backgroundColor,
+  common,
+  featuredLabel,
+  featuredStat,
+  stats,
+}: GridStats_ThreeColumnLayoutProps) => (
+  <>
+    <MjmlSection backgroundColor={backgroundColor} padding="44px 24px 12px">
+      <GridStats_StatCard
+        {...common}
+        accent
+        featured
+        label={featuredLabel}
+        value={featuredStat}
+        width="100%"
+      />
+    </MjmlSection>
+    <MjmlSection backgroundColor={backgroundColor} padding="12px 24px 44px">
+      {stats.slice(0, 3).map((stat, index) => (
+        <Fragment key={`${stat.label}-${index}`}>
+          {index > 0 ? <GridStats_GapColumn /> : null}
+          <GridStats_StatCard
+            {...common}
+            accent={false}
+            bordered
+            label={stat.label}
+            value={stat.value}
+            width="168px"
+          />
+        </Fragment>
+      ))}
+    </MjmlSection>
+  </>
+);
+
+interface GridStats_BentoLayoutProps {
+  backgroundColor: string;
+  common: GridStats_CommonCardProps;
+  featuredLabel: string;
+  featuredStat: string;
+  layout: Exclude<GridStats_GridStatsLayout, "three-columns">;
+  stats: {
+    label: string;
+    value: string;
+  }[];
+}
+
+const GridStats_BentoLayout = ({
+  backgroundColor,
+  common,
+  featuredLabel,
+  featuredStat,
+  layout,
+  stats,
+}: GridStats_BentoLayoutProps) => {
+  const featured = {
+    label: `${featuredLabel} since 2018`,
+    value: featuredStat,
+  };
+  const firstRow =
+    layout === "bento-reversed" ? [stats[0], featured] : [featured, stats[0]];
+  const secondRow =
+    layout === "bento-reversed" ? [stats[2], stats[1]] : [stats[1], stats[2]];
+
+  return (
+    <>
+      {[firstRow, secondRow].map((row, rowIndex) => (
+        <MjmlSection
+          backgroundColor={backgroundColor}
+          key={`row-${rowIndex}`}
+          padding={rowIndex === 0 ? "44px 24px 12px" : "12px 24px 44px"}
+        >
+          {row.map((stat, index) => {
+            const isPrimary = stat?.value === featuredStat;
+            const isFeatured = isPrimary || stat === stats[1];
+
+            return (
+              <Fragment key={`${stat?.label}-${index}`}>
+                {index > 0 ? <GridStats_GapColumn /> : null}
+                <GridStats_StatCard
+                  {...common}
+                  accent={isPrimary}
+                  bento
+                  bordered={rowIndex === 1}
+                  featured={isFeatured}
+                  label={stat?.label ?? ""}
+                  value={stat?.value ?? ""}
+                  width={isFeatured ? "320px" : "208px"}
+                />
+              </Fragment>
+            );
+          })}
+        </MjmlSection>
+      ))}
+    </>
+  );
+};
+
+const GridStats_getFallbackStats = ({
+  useThreeColumns,
+  variant,
+}: {
+  useThreeColumns: boolean;
+  variant: GridStats_GridStatsVariant;
+}) => {
+  if (variant === "simple") {
+    return GridStats_simpleStats;
+  }
+
+  if (useThreeColumns) {
+    return GridStats_detailedStats;
+  }
+
+  return GridStats_bentoStats;
+};
+
+const GridStats_getAccentColor = ({
+  accentColor,
+  headingColor,
+  layout,
+  variant,
+}: {
+  accentColor: string;
+  headingColor: string;
+  layout: GridStats_GridStatsLayout;
+  variant: GridStats_GridStatsVariant;
+}) => {
+  if (variant === "boxed") {
+    return headingColor;
+  }
+
+  if (layout === "bento") {
+    return "#fbbf24";
+  }
+
+  if (layout === "bento-reversed") {
+    return "#34d399";
+  }
+
+  return accentColor;
 };
 
 const GridStats_GridStatsSection = ({
@@ -271,16 +584,20 @@ const GridStats_GridStatsSection = ({
   variant = "boxed",
 }: Omit<GridStats_GridStatsProps, "theme">) => {
   const useThreeColumns = variant === "simple" || layout === "three-columns";
-  let fallbackStats = GridStats_bentoStats;
-  if (variant === "simple") {
-    fallbackStats = GridStats_simpleStats;
-  } else if (useThreeColumns) {
-    fallbackStats = GridStats_detailedStats;
-  }
+  const fallbackStats = GridStats_getFallbackStats({
+    useThreeColumns,
+    variant,
+  });
   const resolvedStats = stats ?? fallbackStats;
+  const resolvedAccentColor = GridStats_getAccentColor({
+    accentColor,
+    headingColor,
+    layout,
+    variant,
+  });
   const common = {
     accentBackgroundColor,
-    accentColor,
+    accentColor: resolvedAccentColor,
     borderColor,
     cardBackgroundColor,
     headingColor,
@@ -289,70 +606,25 @@ const GridStats_GridStatsSection = ({
   };
   if (useThreeColumns) {
     return (
-      <>
-        <MjmlSection backgroundColor={backgroundColor} padding="44px 24px 12px">
-          <GridStats_StatCard
-            {...common}
-            accent
-            featured
-            label={featuredLabel}
-            value={featuredStat}
-            width="100%"
-          />
-        </MjmlSection>
-        <MjmlSection backgroundColor={backgroundColor} padding="12px 24px 44px">
-          {resolvedStats.slice(0, 3).map((stat, index) => (
-            <GridStats_StatCard
-              {...common}
-              accent={false}
-              key={`${stat.label}-${index}`}
-              label={stat.label}
-              value={stat.value}
-              width="33.333%"
-            />
-          ))}
-        </MjmlSection>
-      </>
+      <GridStats_ThreeColumnLayout
+        backgroundColor={backgroundColor}
+        common={common}
+        featuredLabel={featuredLabel}
+        featuredStat={featuredStat}
+        stats={resolvedStats}
+      />
     );
   }
-  const featured = {
-    label: `${featuredLabel} since 2018`,
-    value: featuredStat,
-  };
-  const firstRow =
-    layout === "bento-reversed"
-      ? [resolvedStats[0], featured]
-      : [featured, resolvedStats[0]];
-  const secondRow =
-    layout === "bento-reversed"
-      ? [resolvedStats[2], resolvedStats[1]]
-      : [resolvedStats[1], resolvedStats[2]];
+
   return (
-    <>
-      {[firstRow, secondRow].map((row, rowIndex) => (
-        <MjmlSection
-          backgroundColor={backgroundColor}
-          key={`row-${rowIndex}`}
-          padding={rowIndex === 0 ? "44px 24px 12px" : "12px 24px 44px"}
-        >
-          {row.map((stat, index) => {
-            const isFeatured =
-              stat?.value === featuredStat || stat === resolvedStats[1];
-            return (
-              <GridStats_StatCard
-                {...common}
-                accent={isFeatured}
-                featured={isFeatured}
-                key={`${stat?.label}-${index}`}
-                label={stat?.label ?? ""}
-                value={stat?.value ?? ""}
-                width={isFeatured ? "60%" : "40%"}
-              />
-            );
-          })}
-        </MjmlSection>
-      ))}
-    </>
+    <GridStats_BentoLayout
+      backgroundColor={backgroundColor}
+      common={common}
+      featuredLabel={featuredLabel}
+      featuredStat={featuredStat}
+      layout={layout}
+      stats={resolvedStats}
+    />
   );
 };
 

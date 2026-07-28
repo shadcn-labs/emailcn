@@ -13,7 +13,7 @@ export default function CollectionStatsDemo() {
       ]}
       layout="bento"
       reverse
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

@@ -6,7 +6,7 @@ export default function TallBackgroundImagesFeatureDemo() {
     <TallBackgroundImagesFeature
       logoPosition="top-left"
       titleWidth="split"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

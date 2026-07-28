@@ -2,10 +2,5 @@ import { AvatarDetails } from "@/registry/bases/mjml-react/components/ui-element
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function AvatarDetailsDemo() {
-  return (
-    <AvatarDetails
-      align="left"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <AvatarDetails align="left" theme={defaultTheme} />;
 }

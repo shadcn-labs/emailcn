@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/jsx-email/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type CtaBundle_CTAWithTitleAndActionLeadVariant =
   | "title-and-lead"
   | "secondary-button"
@@ -76,7 +93,10 @@ type CtaBundle_SectionProps = Omit<
   "theme"
 >;
 
-const CtaBundle_defaultSectionProps = {
+const CtaBundle_defaultSectionProps: Omit<
+  Required<CtaBundle_SectionProps>,
+  "ctaLabel"
+> = {
   backgroundColor: "#fffffe",
   ctaHref: "https://example.com/",
   heading: "Confirm your email",
@@ -94,7 +114,7 @@ const CtaBundle_defaultSectionProps = {
     "We created a personal account for you. Please confirm your e-mail address and use our service to the maximum",
   textColor: "#4b5563",
   variant: "title-and-lead",
-} satisfies CtaBundle_SectionProps;
+};
 
 const CtaBundle_CTAWithTitleAndActionLeadSection = (
   props: CtaBundle_SectionProps
@@ -117,7 +137,7 @@ const CtaBundle_CTAWithTitleAndActionLeadSection = (
     subtext,
     textColor,
     variant,
-  } = { ...CtaBundle_defaultSectionProps, ...props };
+  } = resolveDefaultProps(CtaBundle_defaultSectionProps, props);
   const resolvedCtaLabel =
     ctaLabel ??
     (variant === "title-and-lead" ? "Activate account" : "Shop now");
@@ -146,7 +166,11 @@ const CtaBundle_CTAWithTitleAndActionLeadSection = (
         <Img
           alt=""
           src={CtaBundle_arrowSrc}
-          style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+          style={{
+            display: "inline-block",
+            maxWidth: "100%",
+            verticalAlign: "baseline",
+          }}
           width="12"
         />
       ) : null}
@@ -350,27 +374,28 @@ export const CallToAction = ({
   description,
   signoff,
   actions,
-}: CallToActionProps) => (
-  <__Cta
-    ctaHref={actions?.[0]?.href}
-    ctaLabel={actions?.[0]?.label}
-    heading={heading}
-    secondaryCtaHref={actions?.[1]?.href}
-    secondaryCtaLabel={actions?.[1]?.label}
-    signoff={signoff}
-    subtext={description}
-    theme={theme}
-    variant={(() => {
-      if (actions && actions.length > 1) {
-        return "secondary-button";
-      }
-      if (signoff) {
-        return "title-and-lead";
-      }
-      return "minimal";
-    })()}
-  />
-);
+}: CallToActionProps) => {
+  let variant: Parameters<typeof __Cta>[0]["variant"] = "minimal";
+  if (actions && actions.length > 1) {
+    variant = "secondary-button";
+  } else if (heading || description) {
+    variant = "title-and-lead";
+  }
+
+  return (
+    <__Cta
+      ctaHref={actions?.[0]?.href}
+      ctaLabel={actions?.[0]?.label}
+      heading={heading}
+      secondaryCtaHref={actions?.[1]?.href}
+      secondaryCtaLabel={actions?.[1]?.label}
+      signoff={signoff}
+      subtext={description}
+      theme={theme}
+      variant={variant}
+    />
+  );
+};
 
 export const CallToActionSection = __CallToActionSection;
 

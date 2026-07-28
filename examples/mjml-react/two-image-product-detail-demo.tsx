@@ -6,7 +6,7 @@ export default function TwoImageProductDetailDemo() {
     <TwoImageProductDetail
       ratingPosition="bottom"
       headerPosition="default"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

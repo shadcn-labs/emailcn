@@ -182,7 +182,7 @@ const CategoryCards_CategoryPreviewCardsSection = ({
   const features = CategoryCards_variantFeatures(variant);
   return (
     <>
-      <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
+      <MjmlSection backgroundColor="#fffffe" padding="44px 24px 0">
         <MjmlColumn padding="0">
           {features.header ? (
             <>
@@ -201,16 +201,19 @@ const CategoryCards_CategoryPreviewCardsSection = ({
             </>
           ) : null}
           {features.description ? (
-            <MjmlText
-              align="center"
-              color="#4b5563"
-              fontFamily={CategoryCards_fontFamily}
-              fontSize="18px"
-              lineHeight="28px"
-              padding="0"
-            >
-              {intro}
-            </MjmlText>
+            <>
+              <MjmlText
+                align="center"
+                color="#4b5563"
+                fontFamily={CategoryCards_fontFamily}
+                fontSize="18px"
+                lineHeight="28px"
+                padding="0"
+              >
+                {intro}
+              </MjmlText>
+              <MjmlSpacer height="44px" />
+            </>
           ) : null}
         </MjmlColumn>
       </MjmlSection>
@@ -428,7 +431,7 @@ const CategoryRows_CategoryPreviewRowsSection = ({
   const features = CategoryRows_variantFeatures(variant);
   return (
     <>
-      <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
+      <MjmlSection backgroundColor="#fffffe" padding="44px 24px 0">
         <MjmlColumn padding="0">
           {features.header ? (
             <>
@@ -447,16 +450,19 @@ const CategoryRows_CategoryPreviewRowsSection = ({
             </>
           ) : null}
           {features.description ? (
-            <MjmlText
-              align="center"
-              color="#4b5563"
-              fontFamily={CategoryRows_fontFamily}
-              fontSize="18px"
-              lineHeight="28px"
-              padding="0"
-            >
-              {intro}
-            </MjmlText>
+            <>
+              <MjmlText
+                align="center"
+                color="#4b5563"
+                fontFamily={CategoryRows_fontFamily}
+                fontSize="18px"
+                lineHeight="28px"
+                padding="0"
+              >
+                {intro}
+              </MjmlText>
+              <MjmlSpacer height="44px" />
+            </>
           ) : null}
         </MjmlColumn>
       </MjmlSection>

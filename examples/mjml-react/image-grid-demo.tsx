@@ -7,7 +7,7 @@ export default function ImageGridDemo() {
       columns={2}
       aspect="square"
       overlay={false}
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

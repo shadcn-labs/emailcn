@@ -6,7 +6,7 @@ export default function BillingOrderSummaryDemo() {
     <BillingOrderSummary
       billingPosition="top"
       appearance="plain"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

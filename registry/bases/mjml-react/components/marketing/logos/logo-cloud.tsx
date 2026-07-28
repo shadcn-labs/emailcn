@@ -818,11 +818,6 @@ const contentVariant = ({
   return description ? ("with-description" as const) : "minimal";
 };
 
-const logoCloudDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const LogoCloud = ({
   theme,
   title,
@@ -835,23 +830,22 @@ export const LogoCloud = ({
   flush = false,
 }: LogoCloudProps) => {
   const resolvedAppearance = appearance;
-  const contentProps = logoCloudDefinedProps({ description, theme, title });
+  const contentProps = { description, theme, title };
   if (layout === "featured") {
     return (
       <__FeaturedLogoGrid
         alignment={alignment}
+        featuredLogo={logos?.[featuredIndex]}
+        supportingLogos={logos?.filter((_, index) => index !== featuredIndex)}
         tone={resolvedAppearance === "boxed" ? "boxed" : "outlined"}
         {...contentProps}
-        {...logoCloudDefinedProps({
-          featuredLogo: logos?.[featuredIndex],
-          supportingLogos: logos?.filter((_, index) => index !== featuredIndex),
-        })}
       />
     );
   }
   if (layout === "grid") {
     return (
       <__LogosGrid
+        logos={logos}
         tone={(() => {
           if (resolvedAppearance === "bordered") {
             return "bordered";
@@ -862,7 +856,6 @@ export const LogoCloud = ({
           return "boxed";
         })()}
         {...contentProps}
-        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
@@ -870,27 +863,23 @@ export const LogoCloud = ({
   if (resolvedAppearance === "plain") {
     return (
       <__BasicLogoCloud
+        logos={logos}
         variant={variant === "flush" ? "full" : variant}
         {...contentProps}
-        {...logoCloudDefinedProps({ logos })}
       />
     );
   }
   if (resolvedAppearance === "bordered") {
     return (
-      <__BorderedLogoCloud
-        variant={variant}
-        {...contentProps}
-        {...logoCloudDefinedProps({ logos })}
-      />
+      <__BorderedLogoCloud logos={logos} variant={variant} {...contentProps} />
     );
   }
   return (
     <__LogoCloud
+      logos={logos}
       tone={resolvedAppearance === "outlined" ? "outlined" : "boxed"}
       variant={variant}
       {...contentProps}
-      {...logoCloudDefinedProps({ logos })}
     />
   );
 };

@@ -2,10 +2,5 @@ import { CardCoupons } from "@/registry/bases/mjml-react/components/marketing/co
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function CardCouponsDemo() {
-  return (
-    <CardCoupons
-      variant="with-name"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <CardCoupons variant="with-name" theme={defaultTheme} />;
 }

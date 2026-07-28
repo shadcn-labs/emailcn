@@ -22,6 +22,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type OverlaySplitHero_HeroOverlayedSplitVariant =
   | "overlay-left"
   | "overlay-right";
@@ -184,7 +201,11 @@ const OverlaySplitHero_HeroOverlayedSplitSection = ({
                     alt=""
                     src={emailAsset(`icon-arrow-right.png`)}
                     width="12"
-                    style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+                    style={{
+                      display: "inline-block",
+                      maxWidth: "100%",
+                      verticalAlign: "baseline",
+                    }}
                   />
                 </Link>
               ) : null}
@@ -757,7 +778,11 @@ const ContainedSplitHero_ContentPanel = ({
             alt=""
             src={emailAsset(`icon-arrow-right.png`)}
             width="12"
-            style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+            style={{
+              display: "inline-block",
+              maxWidth: "100%",
+              verticalAlign: "baseline",
+            }}
           />
         </Link>
       ) : null}
@@ -1313,7 +1338,7 @@ const OverlayContentHeroBundle_HeroWithOverlayedContentSection = (
     subheading,
     textColor,
     variant,
-  } = { ...OverlayContentHeroBundle_sectionDefaults, ...props };
+  } = resolveDefaultProps(OverlayContentHeroBundle_sectionDefaults, props);
   return (
     <Section
       aria-label={imageAlt || undefined}
@@ -1425,7 +1450,11 @@ const OverlayContentHeroBundle_HeroWithOverlayedContentSection = (
                   alt=""
                   src={emailAsset(`icon-arrow-right.png`)}
                   width="12"
-                  style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+                  style={{
+                    display: "inline-block",
+                    maxWidth: "100%",
+                    verticalAlign: "baseline",
+                  }}
                 />
               </Link>
             ) : null}
@@ -1478,11 +1507,13 @@ const OverlayContentHeroBundle_HeroWithOverlayedContentSection = (
 const OverlayContentHeroBundle_HeroWithOverlayedContent = (
   props: OverlayContentHeroBundle_HeroWithOverlayedContentProps
 ) => {
-  const { pageBackgroundColor, theme, ...sectionProps } = {
-    ...OverlayContentHeroBundle_sectionDefaults,
-    theme: defaultTheme,
-    ...props,
-  };
+  const { pageBackgroundColor, theme, ...sectionProps } = resolveDefaultProps(
+    {
+      ...OverlayContentHeroBundle_sectionDefaults,
+      theme: defaultTheme,
+    },
+    props
+  );
   return (
     <Html>
       <EmailHead>
@@ -1645,28 +1676,31 @@ const SlantedSplitHero_HeroWithSlantedSplitSection = (
     subheading,
     textColor,
     variant,
-  } = {
-    buttonBackgroundColor: "#4f46e5",
-    buttonTextColor: "#fffffe",
-    contentBackgroundColor: "#fffffe",
-    ctaHref: "https://example.com",
-    ctaLabel: "Discover now",
-    description:
-      "Celebrating creativity, community, and culture in every edition. Bob Cut brings stories to life through design and narrative — a modern take on the timeless power of print.",
-    eyebrow: "Independent Publishing",
-    heading: "Bob Cut",
-    imageAlt: "Independent publishing photography",
-    imageBackgroundColor: "#030712",
-    imageSrc: emailAsset(`hero/split-slanted-bg.jpg`),
-    logoAlt: "emailcn",
-    logoHref: "https://example.com",
-    logoSrc: emailAsset(`emailcn-logo-light.png`),
-    pageBackgroundColor: "#f1f5f9",
-    subheading: "January Edition",
-    textColor: "#030712",
-    variant: "left-slanted-down",
-    ...props,
-  };
+  } = resolveDefaultProps(
+    {
+      buttonBackgroundColor: "#4f46e5",
+      buttonTextColor: "#fffffe",
+      contentBackgroundColor: "#fffffe",
+      ctaHref: "https://example.com",
+      ctaLabel: "Discover now",
+      description:
+        "Celebrating creativity, community, and culture in every edition. Bob Cut brings stories to life through design and narrative — a modern take on the timeless power of print.",
+      eyebrow: "Independent Publishing",
+      heading: "Bob Cut",
+      imageAlt: "Independent publishing photography",
+      imageBackgroundColor: "#030712",
+      imageSrc: emailAsset(`hero/split-slanted-bg.jpg`),
+      logoAlt: "emailcn",
+      logoHref: "https://example.com",
+      logoSrc: emailAsset(`emailcn-logo-light.png`),
+      pageBackgroundColor: "#f1f5f9",
+      subheading: "January Edition",
+      textColor: "#030712",
+      variant:
+        "left-slanted-down" as SlantedSplitHero_HeroWithSlantedSplitVariant,
+    },
+    props
+  );
   const isLeft = variant.startsWith("left-");
   const slantsDown = variant.endsWith("-down");
   const logo = (
@@ -1897,7 +1931,11 @@ const SlantedSplitHero_HeroWithSlantedSplitSection = (
           <Img
             alt=""
             src={emailAsset(`icon-arrow-right.png`)}
-            style={{ maxWidth: "100%", verticalAlign: "baseline" }}
+            style={{
+              display: "inline-block",
+              maxWidth: "100%",
+              verticalAlign: "baseline",
+            }}
             width="12"
           />
         </Link>
@@ -2136,11 +2174,6 @@ const splitHeroVariant = ({
     : `single-image-${imagePosition}`;
 };
 
-const splitHeroDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const SplitHero = ({
   theme,
   content,
@@ -2163,7 +2196,7 @@ export const SplitHero = ({
     treatment,
     variant: variantOverride,
   });
-  const contentProps = splitHeroDefinedProps({
+  const contentProps = {
     ctaHref: contentValues.ctaHref,
     ctaLabel: contentValues.ctaLabel,
     description: contentValues.description,
@@ -2171,85 +2204,75 @@ export const SplitHero = ({
     heading: contentValues.heading,
     subheading: contentValues.subheading,
     theme,
-  });
+  };
   if (overlayContent) {
     return (
       <__OverlayContentHero
+        headingAccent={contentValues.emphasis}
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoHref={brandValues.logoHref}
+        logoSrc={brandValues.logoSrc}
         variant={
           variant as Parameters<typeof __OverlayContentHero>[0]["variant"]
         }
         {...contentProps}
-        {...splitHeroDefinedProps({
-          headingAccent: contentValues.emphasis,
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoHref: brandValues.logoHref,
-          logoSrc: brandValues.logoSrc,
-        })}
       />
     );
   }
   if (treatment === "overlay") {
     return (
       <__OverlaySplitHero
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoHref={brandValues.logoHref}
+        logoSrc={brandValues.logoSrc}
         variant={variant as Parameters<typeof __OverlaySplitHero>[0]["variant"]}
         {...contentProps}
-        {...splitHeroDefinedProps({
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoHref: brandValues.logoHref,
-          logoSrc: brandValues.logoSrc,
-        })}
       />
     );
   }
   if (treatment === "full-bleed") {
     return (
       <__FullBleedSplitHero
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoSrc={brandValues.logoSrc}
+        price={contentValues.price}
         variant={
           variant as Parameters<typeof __FullBleedSplitHero>[0]["variant"]
         }
         {...contentProps}
-        {...splitHeroDefinedProps({
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoSrc: brandValues.logoSrc,
-          price: contentValues.price,
-        })}
       />
     );
   }
   if (treatment === "slanted") {
     return (
       <__SlantedSplitHero
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoHref={brandValues.logoHref}
+        logoSrc={brandValues.logoSrc}
         variant={variant as Parameters<typeof __SlantedSplitHero>[0]["variant"]}
         {...contentProps}
-        {...splitHeroDefinedProps({
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoHref: brandValues.logoHref,
-          logoSrc: brandValues.logoSrc,
-        })}
       />
     );
   }
   return (
     <__ContainedSplitHero
+      logoAlt={brandValues.logoAlt}
+      logoSrc={brandValues.logoSrc}
+      price={contentValues.price}
+      primaryImageAlt={imageValues.primary.alt}
+      primaryImageSrc={imageValues.primary.src}
+      secondaryImageAlt={imageValues.secondary.alt}
+      secondaryImageSrc={imageValues.secondary.src}
       variant={variant as Parameters<typeof __ContainedSplitHero>[0]["variant"]}
       {...contentProps}
-      {...splitHeroDefinedProps({
-        logoAlt: brandValues.logoAlt,
-        logoSrc: brandValues.logoSrc,
-        price: contentValues.price,
-        primaryImageAlt: imageValues.primary.alt,
-        primaryImageSrc: imageValues.primary.src,
-        secondaryImageAlt: imageValues.secondary.alt,
-        secondaryImageSrc: imageValues.secondary.src,
-      })}
     />
   );
 };

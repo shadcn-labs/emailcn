@@ -20,6 +20,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type AppStoreFooter_FooterWithAppStoreButtonsVariant =
   | "centered"
   | "two-columns"
@@ -647,6 +664,7 @@ const BackgroundFooter_ImageCta = ({
                           alt=""
                           src={emailAsset("icon-arrow-right.png")}
                           style={{
+                            display: "inline-block",
                             maxWidth: "100%",
                             verticalAlign: "baseline",
                           }}
@@ -1652,10 +1670,10 @@ const LegalFooter_Divider = ({
 const LegalFooter_FooterWithLegalTextSection = (
   props: LegalFooter_SectionProps
 ) => {
-  const resolved = {
-    ...LegalFooter_defaults,
-    ...props,
-  } as LegalFooter_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    LegalFooter_defaults,
+    props
+  ) as LegalFooter_ResolvedProps;
   return (
     <Section
       style={{ backgroundColor: resolved.pageBackgroundColor }}
@@ -2137,8 +2155,7 @@ const AddressFooter_FooterWithSocialIconsAndAddressSection = (
   props: AddressFooter_SectionProps
 ) => {
   const resolved = {
-    ...AddressFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(AddressFooter_defaults, props),
     variant: props.variant ?? "left-logo",
   } as AddressFooter_ResolvedProps;
   const logo = <AddressFooter_LogoCell props={resolved} />;
@@ -2335,8 +2352,7 @@ const SimpleSocialFooter_SimpleFooterWithSocialIconsSection = (
   props: SimpleSocialFooter_SectionProps
 ) => {
   const resolved = {
-    ...SimpleSocialFooter_defaults,
-    ...props,
+    ...resolveDefaultProps(SimpleSocialFooter_defaults, props),
     variant: props.variant ?? "left-aligned",
   } as SimpleSocialFooter_ResolvedProps;
   const textAlign = {
@@ -2610,11 +2626,6 @@ const utilitySocialVariant = (
   return "centered";
 };
 
-const utilityFooterDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const UtilityFooter = ({
   theme,
   brand,
@@ -2632,15 +2643,26 @@ export const UtilityFooter = ({
 }: UtilityFooterProps) => {
   const footerBrand = footerBrandValues(brand);
   const footerLegal = footerLegalValues(legal);
-  const baseProps = utilityFooterDefinedProps({
+  const baseProps = {
     theme,
     unsubscribeHref: footerLegal.unsubscribeHref,
-  });
+  };
   if (backgroundImage) {
     return (
       <__BackgroundFooter
         {...baseProps}
+        bottomImageSrc={
+          backgroundImage.position === "bottom"
+            ? backgroundImage.src
+            : undefined
+        }
+        logoSrc={footerBrand.logoSrc}
         logoPosition={logoPosition}
+        topImageSrc={
+          backgroundImage.position === "bottom"
+            ? undefined
+            : backgroundImage.src
+        }
         variant={
           (variantOverride ??
             (backgroundImage.position === "bottom"
@@ -2649,17 +2671,6 @@ export const UtilityFooter = ({
             typeof __BackgroundFooter
           >[0]["variant"]
         }
-        {...utilityFooterDefinedProps({
-          bottomImageSrc:
-            backgroundImage.position === "bottom"
-              ? backgroundImage.src
-              : undefined,
-          logoSrc: footerBrand.logoSrc,
-          topImageSrc:
-            backgroundImage.position === "bottom"
-              ? undefined
-              : backgroundImage.src,
-        })}
       />
     );
   }
@@ -2667,18 +2678,16 @@ export const UtilityFooter = ({
     return (
       <__LocationsFooter
         {...baseProps}
+        locations={locations}
+        logoAlt={footerBrand.logoAlt}
+        logoHref={footerBrand.logoHref}
+        logoSrc={footerBrand.logoSrc}
         variant={
           (variantOverride ??
             (columns === 2 ? "grid" : "stacked")) as Parameters<
             typeof __LocationsFooter
           >[0]["variant"]
         }
-        {...utilityFooterDefinedProps({
-          locations,
-          logoAlt: footerBrand.logoAlt,
-          logoHref: footerBrand.logoHref,
-          logoSrc: footerBrand.logoSrc,
-        })}
       />
     );
   }
@@ -2686,13 +2695,13 @@ export const UtilityFooter = ({
     return (
       <__AppStoreFooter
         {...baseProps}
+        title={title}
         variant={
           (variantOverride ??
             utilityAppStoreVariant(title, columns)) as Parameters<
             typeof __AppStoreFooter
           >[0]["variant"]
         }
-        {...utilityFooterDefinedProps({ title })}
       />
     );
   }
@@ -2700,10 +2709,8 @@ export const UtilityFooter = ({
     return (
       <__LegalFooter
         {...baseProps}
-        {...utilityFooterDefinedProps({
-          legalText: footerLegal.text,
-          socials,
-        })}
+        legalText={footerLegal.text}
+        socials={socials}
       />
     );
   }
@@ -2711,37 +2718,33 @@ export const UtilityFooter = ({
     return (
       <__AddressFooter
         {...baseProps}
+        address={address}
+        legalText={footerLegal.text}
+        logoAlt={footerBrand.logoAlt}
+        logoHref={footerBrand.logoHref}
+        logoSrc={footerBrand.logoSrc}
+        socials={socials}
+        title={title}
         variant={
           (variantOverride ?? utilityAddressVariant(alignment)) as Parameters<
             typeof __AddressFooter
           >[0]["variant"]
         }
-        {...utilityFooterDefinedProps({
-          address,
-          legalText: footerLegal.text,
-          logoAlt: footerBrand.logoAlt,
-          logoHref: footerBrand.logoHref,
-          logoSrc: footerBrand.logoSrc,
-          socials,
-          title,
-        })}
       />
     );
   }
   return (
     <__SimpleSocialFooter
       {...baseProps}
+      logoAlt={footerBrand.logoAlt}
+      logoHref={footerBrand.logoHref}
+      logoSrc={footerBrand.logoSrc}
+      socials={socials}
       variant={
         (variantOverride ?? utilitySocialVariant(alignment)) as Parameters<
           typeof __SimpleSocialFooter
         >[0]["variant"]
       }
-      {...utilityFooterDefinedProps({
-        logoAlt: footerBrand.logoAlt,
-        logoHref: footerBrand.logoHref,
-        logoSrc: footerBrand.logoSrc,
-        socials,
-      })}
     />
   );
 };

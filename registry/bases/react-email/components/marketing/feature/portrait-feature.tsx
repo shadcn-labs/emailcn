@@ -21,6 +21,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type Feature_FeatureWithLargePortraitImageVariant =
   | "logo-top-right"
   | "logo-top-left"
@@ -314,14 +331,16 @@ const Feature_FeatureWithLargePortraitImageSection = (
   const variantDefaults = contentVariant
     ? Feature_contentDefaults
     : Feature_logoDefaults;
-  const resolved = {
-    ...Feature_sharedDefaults,
-    ...variantDefaults,
-    ...(variant.startsWith("content-top-")
-      ? Feature_contentTopRightDefaults
-      : {}),
-    ...props,
-  } as Feature_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...Feature_sharedDefaults,
+      ...variantDefaults,
+      ...(variant.startsWith("content-top-")
+        ? Feature_contentTopRightDefaults
+        : {}),
+    },
+    props
+  ) as Feature_ResolvedProps;
   const portraitLeft = variant.endsWith("-right");
   const mediaAfter =
     variant.startsWith("logo-bottom-") || variant.startsWith("content-top-");

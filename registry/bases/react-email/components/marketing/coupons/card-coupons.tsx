@@ -82,7 +82,7 @@ const sharedDefaults = {
   description:
     "Use code: WINTER20OFF at checkout, or click the link below to automatically apply the discount to your order.",
   headingColor: "#fffffe",
-  logoAlt: "Maizzle",
+  logoAlt: "emailcn",
   mutedTextColor: "#9ca3af",
   pageBackgroundColor: "#f1f5f9",
   recipient: "Jenna Adams",
@@ -94,28 +94,28 @@ const variantDefaults: Record<CardCouponsVariant, Partial<CardCouponsProps>> = {
     backgroundImageSrc: emailAsset("coupons/bg-image-3.jpg"),
     code: "JFY20OFF",
     heading: "Just for you - 20% OFF",
-    logoSrc: emailAsset("maizzle-insignia-light-lg.png"),
+    logoSrc: emailAsset("emailcn-insignia-mono-light.png"),
   },
   "with-background-image": {
     backgroundImageSrc: emailAsset("coupons/bg-image-2.jpg"),
     heading: "An extra 20% OFF",
-    logoSrc: emailAsset("maizzle-insignia-light-lg.png"),
+    logoSrc: emailAsset("emailcn-insignia-mono-light.png"),
   },
   "with-name": {
     cardBackgroundColor: "#030712",
     heading: "Just for you - 20% OFF",
-    logoSrc: emailAsset("maizzle-insignia.png"),
+    logoSrc: emailAsset("emailcn-insignia-mono-light.png"),
   },
   "with-overlay": {
     backgroundImageSrc: emailAsset("coupons/bg-image-1.jpg"),
     cardBackgroundColor: "#030712",
     heading: "An extra 20% OFF",
-    logoSrc: emailAsset("maizzle-insignia-light-lg.png"),
+    logoSrc: emailAsset("emailcn-insignia-mono-light.png"),
   },
   "with-pattern": {
     backgroundImageSrc: emailAsset("coupons/pattern.png"),
     heading: "An extra 20% OFF",
-    logoSrc: emailAsset("maizzle-insignia-light-lg.png"),
+    logoSrc: emailAsset("emailcn-insignia-mono-light.png"),
   },
 };
 
@@ -481,16 +481,12 @@ export const CardCouponsSection = (props: SectionProps) => {
             }}
           >
             <Section style={{ lineHeight: "44px" }}>&zwj;</Section>
-            <Section align="center" style={{ margin: "0 auto" }}>
-              <Fragment>
-                <Row>
-                  <Column style={{ maxWidth: "100%", width: "400px" }}>
-                    <Section className="coupon-card-shell">
-                      <CouponCard props={resolved} variant={variant} />
-                    </Section>
-                  </Column>
-                </Row>
-              </Fragment>
+            <Section
+              align="center"
+              className="coupon-card-shell"
+              style={{ margin: "0 auto", padding: "0 100px" }}
+            >
+              <CouponCard props={resolved} variant={variant} />
             </Section>
             {showDescription ? (
               <>

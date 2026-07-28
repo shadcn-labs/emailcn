@@ -6,7 +6,7 @@ export default function CallToActionDemo() {
     <CallToAction
       description="A focused launch message paired with one clear next step."
       heading="Turn product updates into momentum"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

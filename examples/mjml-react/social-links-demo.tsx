@@ -3,10 +3,6 @@ import { defaultTheme } from "@/registry/themes/default";
 
 export default function SocialLinksDemo() {
   return (
-    <SocialLinks
-      presentation="icons"
-      container="none"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
+    <SocialLinks presentation="icons" container="none" theme={defaultTheme} />
   );
 }

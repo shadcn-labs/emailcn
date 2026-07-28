@@ -21,6 +21,23 @@ import type { EmailTheme } from "@/registry/bases/react-email/themes/email-theme
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 type Feature_FeatureWithMultipleProductImagesVariant =
   | "logo-left"
   | "logo-right"
@@ -341,11 +358,13 @@ const Feature_FeatureWithMultipleProductImagesSection = (
   const variant = props.variant ?? "logo-left";
   const logoVariant = variant.startsWith("logo-");
   const defaults = logoVariant ? Feature_logoDefaults : Feature_imagesDefaults;
-  const resolved = {
-    ...Feature_sharedDefaults,
-    ...defaults,
-    ...props,
-  } as Feature_ResolvedProps;
+  const resolved = resolveDefaultProps(
+    {
+      ...Feature_sharedDefaults,
+      ...defaults,
+    },
+    props
+  ) as Feature_ResolvedProps;
   const artworkRight = variant.endsWith("-right");
   const artwork = logoVariant ? (
     <Feature_LogoImageGroup props={resolved} />
@@ -490,14 +509,16 @@ export const ProductImagesFeature = ({
   placement = "right",
   presentation = "images",
 }: ProductImagesFeatureProps) => {
-  const values = productImagesFeatureValues({ action, images, logo });
+  const values = {
+    ...productImagesFeatureValues({ action, images, logo }),
+    body,
+    heading,
+    theme,
+  };
 
   return (
     <__Feature
       {...values}
-      body={body}
-      heading={heading}
-      theme={theme}
       variant={
         presentation === "logo" ? `logo-${placement}` : `images-${placement}`
       }

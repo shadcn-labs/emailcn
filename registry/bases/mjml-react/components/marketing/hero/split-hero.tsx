@@ -21,6 +21,23 @@ import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme"
 import { emailAsset } from "@/registry/email-assets";
 import { defaultTheme } from "@/registry/themes/default";
 
+const resolveDefaultProps = <Defaults extends object, Props extends object>(
+  defaults: Defaults,
+  props: Props
+) => {
+  const supplied = props as Record<string, unknown>;
+  const fallbackEntries = Object.entries(defaults).map(([key, value]) => [
+    key,
+    supplied[key] === undefined ? value : supplied[key],
+  ]);
+
+  return {
+    ...defaults,
+    ...props,
+    ...Object.fromEntries(fallbackEntries),
+  } as Defaults & Props;
+};
+
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
@@ -447,17 +464,19 @@ const ContainedSplitHero_HeroSplitContainedSection = (
     subheading,
     textColor,
     variant,
-  } = {
-    buttonBackgroundColor: "#4f46e5",
-    buttonTextColor: "#fffffe",
-    ctaHref: "https://example.com",
-    logoAlt: "emailcn",
-    primaryImageAlt: "",
-    secondaryImageAlt: "",
-    variant:
-      "single-image-left" as ContainedSplitHero_HeroSplitContainedVariant,
-    ...props,
-  };
+  } = resolveDefaultProps(
+    {
+      buttonBackgroundColor: "#4f46e5",
+      buttonTextColor: "#fffffe",
+      ctaHref: "https://example.com",
+      logoAlt: "emailcn",
+      primaryImageAlt: "",
+      secondaryImageAlt: "",
+      variant:
+        "single-image-left" as ContainedSplitHero_HeroSplitContainedVariant,
+    },
+    props
+  );
   const preset = ContainedSplitHero_getPreset(variant);
   const imageLeft = variant.endsWith("-left");
   const resolvedBackground = backgroundColor ?? preset.backgroundColor;
@@ -1150,11 +1169,6 @@ const splitHeroVariant = ({
     : `single-image-${imagePosition}`;
 };
 
-const splitHeroDefinedProps = <Props extends object>(props: Props) =>
-  Object.fromEntries(
-    Object.entries(props).filter(([, value]) => value !== undefined)
-  ) as Partial<Props>;
-
 export const SplitHero = ({
   theme,
   content,
@@ -1177,7 +1191,7 @@ export const SplitHero = ({
     treatment,
     variant: variantOverride,
   });
-  const contentProps = splitHeroDefinedProps({
+  const contentProps = {
     ctaHref: contentValues.ctaHref,
     ctaLabel: contentValues.ctaLabel,
     description: contentValues.description,
@@ -1185,85 +1199,75 @@ export const SplitHero = ({
     heading: contentValues.heading,
     subheading: contentValues.subheading,
     theme,
-  });
+  };
   if (overlayContent) {
     return (
       <__OverlayContentHero
+        headingAccent={contentValues.emphasis}
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoHref={brandValues.logoHref}
+        logoSrc={brandValues.logoSrc}
         variant={
           variant as Parameters<typeof __OverlayContentHero>[0]["variant"]
         }
         {...contentProps}
-        {...splitHeroDefinedProps({
-          headingAccent: contentValues.emphasis,
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoHref: brandValues.logoHref,
-          logoSrc: brandValues.logoSrc,
-        })}
       />
     );
   }
   if (treatment === "overlay") {
     return (
       <__OverlaySplitHero
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoHref={brandValues.logoHref}
+        logoSrc={brandValues.logoSrc}
         variant={variant as Parameters<typeof __OverlaySplitHero>[0]["variant"]}
         {...contentProps}
-        {...splitHeroDefinedProps({
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoHref: brandValues.logoHref,
-          logoSrc: brandValues.logoSrc,
-        })}
       />
     );
   }
   if (treatment === "full-bleed") {
     return (
       <__FullBleedSplitHero
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoSrc={brandValues.logoSrc}
+        price={contentValues.price}
         variant={
           variant as Parameters<typeof __FullBleedSplitHero>[0]["variant"]
         }
         {...contentProps}
-        {...splitHeroDefinedProps({
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoSrc: brandValues.logoSrc,
-          price: contentValues.price,
-        })}
       />
     );
   }
   if (treatment === "slanted") {
     return (
       <__SlantedSplitHero
+        imageAlt={imageValues.primary.alt}
+        imageSrc={imageValues.primary.src}
+        logoAlt={brandValues.logoAlt}
+        logoHref={brandValues.logoHref}
+        logoSrc={brandValues.logoSrc}
         variant={variant as Parameters<typeof __SlantedSplitHero>[0]["variant"]}
         {...contentProps}
-        {...splitHeroDefinedProps({
-          imageAlt: imageValues.primary.alt,
-          imageSrc: imageValues.primary.src,
-          logoAlt: brandValues.logoAlt,
-          logoHref: brandValues.logoHref,
-          logoSrc: brandValues.logoSrc,
-        })}
       />
     );
   }
   return (
     <__ContainedSplitHero
+      logoAlt={brandValues.logoAlt}
+      logoSrc={brandValues.logoSrc}
+      price={contentValues.price}
+      primaryImageAlt={imageValues.primary.alt}
+      primaryImageSrc={imageValues.primary.src}
+      secondaryImageAlt={imageValues.secondary.alt}
+      secondaryImageSrc={imageValues.secondary.src}
       variant={variant as Parameters<typeof __ContainedSplitHero>[0]["variant"]}
       {...contentProps}
-      {...splitHeroDefinedProps({
-        logoAlt: brandValues.logoAlt,
-        logoSrc: brandValues.logoSrc,
-        price: contentValues.price,
-        primaryImageAlt: imageValues.primary.alt,
-        primaryImageSrc: imageValues.primary.src,
-        secondaryImageAlt: imageValues.secondary.alt,
-        secondaryImageSrc: imageValues.secondary.src,
-      })}
     />
   );
 };

@@ -9,6 +9,7 @@ import {
   MjmlPreview,
   MjmlSection,
   MjmlSpacer,
+  MjmlTable,
   MjmlText,
   MjmlWrapper,
 } from "@faire/mjml-react";
@@ -567,9 +568,8 @@ const StackedTimeline_resolveStackedTimelineStyles = ({
   muted: boolean;
   right: boolean;
 }) => {
-  const borderColor = accent ? "#4f46e5" : "#d1d5db";
   let backgroundColor: string | undefined;
-  let contentPadding = right ? "0 24px 0 0" : "0 0 0 24px";
+  let contentPadding = "0";
   let titleColor = "#030712";
   if (boxed) {
     backgroundColor = accent ? "#030712" : "#f9fafb";
@@ -584,13 +584,10 @@ const StackedTimeline_resolveStackedTimelineStyles = ({
   }
   return {
     backgroundColor,
-    borderLeft: right ? undefined : `2px solid ${borderColor}`,
-    borderRight: right ? `2px solid ${borderColor}` : undefined,
     contentAlign: right ? "right" : "left",
     contentPadding,
     descriptionColor: boxed && accent ? "#d1d5db" : "#4b5563",
     metaAlign: right ? "left" : "right",
-    metaPadding: right ? "0 0 0 16px" : "0 16px 0 0",
     titleColor,
   } as const;
 };
@@ -620,7 +617,7 @@ const StackedTimeline_StackedTimelineSection = (
     right,
   });
   const meta = (
-    <MjmlColumn padding={styles.metaPadding} verticalAlign="top" width="28%">
+    <MjmlColumn padding="0" verticalAlign="top" width="136px">
       <MjmlText
         align={styles.metaAlign}
         color={muted ? "#9ca3af" : "#030712"}
@@ -648,12 +645,10 @@ const StackedTimeline_StackedTimelineSection = (
   const content = (
     <MjmlColumn
       backgroundColor={styles.backgroundColor}
-      borderLeft={styles.borderLeft}
       borderRadius={boxed ? "8px" : "0"}
-      borderRight={styles.borderRight}
       padding={styles.contentPadding}
       verticalAlign="top"
-      width="72%"
+      width="372px"
     >
       <MjmlText
         align={styles.contentAlign}
@@ -678,9 +673,70 @@ const StackedTimeline_StackedTimelineSection = (
       </MjmlText>
     </MjmlColumn>
   );
+  const gap = (
+    <MjmlColumn padding="0" width="16px">
+      <MjmlText padding="0">&nbsp;</MjmlText>
+    </MjmlColumn>
+  );
+  const railColor = accent ? "#030712" : "#d1d5db";
+  const rail = (
+    <MjmlColumn padding="0" verticalAlign="top" width="12px">
+      <MjmlTable cellpadding="0" cellspacing="0" padding="0" width="100%">
+        <tbody>
+          <tr>
+            <td style={{ textAlign: "center" }}>
+              <span
+                style={{
+                  backgroundColor: railColor,
+                  display: "inline-block",
+                  height: boxed ? "24px" : "4px",
+                  width: "2px",
+                }}
+              >
+                &nbsp;
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td style={{ height: "24px", textAlign: "center" }}>
+              <span
+                style={{
+                  backgroundColor: muted ? "#fffffe" : "#4f46e5",
+                  border: muted ? "2px solid #d1d5db" : "0",
+                  borderRadius: "9999px",
+                  display: "inline-block",
+                  height: muted ? "8px" : "12px",
+                  width: muted ? "8px" : "12px",
+                }}
+              >
+                &nbsp;
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td style={{ textAlign: "center" }}>
+              <span
+                style={{
+                  backgroundColor: railColor,
+                  display: "inline-block",
+                  height: "104px",
+                  width: "2px",
+                }}
+              >
+                &nbsp;
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </MjmlTable>
+    </MjmlColumn>
+  );
   return (
     <MjmlSection backgroundColor="#fffffe" padding="24px">
       {right ? content : meta}
+      {gap}
+      {rail}
+      {gap}
       {right ? meta : content}
     </MjmlSection>
   );

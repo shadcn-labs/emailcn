@@ -1,18 +1,16 @@
 import {
-  MjmlButton,
-  MjmlColumn,
-  MjmlDivider,
-  MjmlImage,
-  MjmlSection,
-  MjmlText,
   Mjml,
   MjmlBody,
+  MjmlColumn,
   MjmlFont,
   MjmlHead,
   MjmlPreview,
+  MjmlSection,
   MjmlStyle,
+  MjmlTable,
   MjmlWrapper,
 } from "@faire/mjml-react";
+import type { CSSProperties, ReactNode } from "react";
 
 import type { EmailTheme } from "@/registry/bases/mjml-react/themes/email-theme";
 import { emailAsset } from "@/registry/email-assets";
@@ -49,74 +47,256 @@ type BorderedCardOrderSummaryVariant =
 const fontFamily =
   'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 
-const orderSummaryResponsiveStyles = "";
+const orderSummaryResponsiveStyles = `
+  .order-summary-full-table > table { width: 100% !important; }
+`;
 
-const alignmentFor = (
-  alignment: OrderSummaryAlignment
-): "center" | "left" | "right" => {
-  if (alignment === "centered") {
-    return "center";
+const alignmentStyles = (alignment: OrderSummaryAlignment) => {
+  if (alignment === "left") {
+    return {
+      amountAlign: "left" as const,
+      amountWidth: undefined,
+      labelAlign: "left" as const,
+      labelWidth: "96px",
+    };
   }
-  return alignment === "right" ? "right" : "left";
+  if (alignment === "right") {
+    return {
+      amountAlign: "right" as const,
+      amountWidth: "96px",
+      labelAlign: "right" as const,
+      labelWidth: undefined,
+    };
+  }
+  if (alignment === "centered") {
+    return {
+      amountAlign: "left" as const,
+      amountWidth: "50%",
+      labelAlign: "right" as const,
+      labelWidth: "50%",
+    };
+  }
+  return {
+    amountAlign: "right" as const,
+    amountWidth: "50%",
+    labelAlign: "left" as const,
+    labelWidth: "50%",
+  };
 };
 
-const SummaryLine = ({
+const GapRow = ({ height = 16 }: { height?: number }) => (
+  <tr>
+    <td
+      colSpan={3}
+      style={{
+        fontSize: "0",
+        height: `${height}px`,
+        lineHeight: `${height}px`,
+      }}
+    >
+      &zwj;
+    </td>
+  </tr>
+);
+
+const SummaryRow = ({
   alignment,
   amount,
+  backgroundColor,
   label,
-  total = false,
+  padded,
+  total,
 }: {
   alignment: OrderSummaryAlignment;
   amount: string;
+  backgroundColor?: string;
   label: string;
+  padded: boolean;
   total?: boolean;
-}) => (
-  <MjmlText
-    align={alignmentFor(alignment)}
-    color={total ? "#4f46e5" : "#4b5563"}
-    fontFamily={fontFamily}
-    fontSize={total ? "24px" : "16px"}
-    fontWeight={total ? "600" : "500"}
-    lineHeight={total ? "32px" : "24px"}
-    padding="0 0 16px"
-  >
-    {label} {alignment === "justified" ? "—" : "·"} {amount}
-  </MjmlText>
+}) => {
+  const styles = alignmentStyles(alignment);
+  const sharedStyle: CSSProperties = {
+    backgroundColor,
+    color: total ? "#4f46e5" : "#4b5563",
+    fontFamily,
+    fontSize: "16px",
+    fontWeight: total ? 600 : 500,
+    lineHeight: "24px",
+  };
+
+  return (
+    <tr>
+      <td
+        style={{
+          ...sharedStyle,
+          paddingLeft: padded ? "12px" : undefined,
+          paddingTop: padded ? "12px" : undefined,
+          textAlign: styles.labelAlign,
+          width: styles.labelWidth,
+        }}
+      >
+        {label}
+      </td>
+      <td
+        style={{
+          ...sharedStyle,
+          paddingTop: padded ? "12px" : undefined,
+          width: "16px",
+        }}
+      >
+        &zwj;
+      </td>
+      <td
+        style={{
+          ...sharedStyle,
+          paddingRight: padded ? "12px" : undefined,
+          paddingTop: padded ? "12px" : undefined,
+          textAlign: styles.amountAlign,
+          width: styles.amountWidth,
+        }}
+      >
+        {amount}
+      </td>
+    </tr>
+  );
+};
+
+const DividerRow = ({ margin = 24 }: { margin?: number }) => (
+  <tr>
+    <td colSpan={3}>
+      <div
+        style={{
+          borderTop: "1px solid #d1d5db",
+          fontSize: "0",
+          lineHeight: "1px",
+          margin: `${margin}px 0`,
+        }}
+      >
+        &zwj;
+      </div>
+    </td>
+  </tr>
 );
 
-const PaymentMethod = () => (
-  <>
-    <MjmlImage
-      align="left"
-      alt="Visa"
-      padding="0"
-      src={emailAsset("icon-card-visa.png")}
-      width="40px"
-    />
-    <MjmlText
-      color="#4b5563"
-      fontFamily={fontFamily}
-      fontSize="12px"
-      fontWeight="500"
-      lineHeight="16px"
-      padding="8px 0 0"
+const PaymentMethod = ({ alignment }: { alignment: OrderSummaryAlignment }) => (
+  <table
+    cellPadding="0"
+    cellSpacing="0"
+    role="presentation"
+    style={{
+      margin: alignment === "centered" ? "0 auto" : undefined,
+      width: alignment === "centered" ? "auto" : "100%",
+    }}
+  >
+    <tbody>
+      <tr>
+        <td style={{ width: "40px" }}>
+          <img
+            alt=""
+            src={emailAsset("icon-card-visa.png")}
+            style={{ display: "block" }}
+            width="40"
+          />
+        </td>
+        <td style={{ width: "8px" }}>&zwj;</td>
+        <td
+          style={{
+            color: "#4b5563",
+            fontFamily,
+            fontSize: "12px",
+            fontWeight: 500,
+            lineHeight: "16px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          ****6754
+        </td>
+        <td style={{ width: "8px" }}>&zwj;</td>
+        <td style={{ fontFamily, fontSize: "12px", lineHeight: "16px" }}>|</td>
+        <td style={{ width: "8px" }}>&zwj;</td>
+        <td>
+          <a
+            href="https://example.com"
+            style={{
+              color: "#4f46e5",
+              fontFamily,
+              fontSize: "14px",
+              lineHeight: "20px",
+              textDecoration: "none",
+            }}
+          >
+            Change
+          </a>
+        </td>
+        {alignment === "centered" ? (
+          <>
+            <td style={{ padding: "0 12px" }}>|</td>
+            <td
+              style={{
+                color: "#4b5563",
+                fontFamily,
+                fontSize: "12px",
+                fontWeight: 500,
+                lineHeight: "16px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              $35.98
+            </td>
+          </>
+        ) : (
+          <td
+            style={{
+              color: "#4b5563",
+              fontFamily,
+              fontSize: "12px",
+              fontWeight: 500,
+              lineHeight: "16px",
+              textAlign: "right",
+              whiteSpace: "nowrap",
+              width: "100%",
+            }}
+          >
+            $35.98
+          </td>
+        )}
+      </tr>
+    </tbody>
+  </table>
+);
+
+const CardDetailsRow = ({
+  alignment,
+  boxed,
+}: {
+  alignment: OrderSummaryAlignment;
+  boxed: boolean;
+}) => (
+  <tr>
+    <td
+      colSpan={3}
+      style={{
+        backgroundColor: boxed ? "#fffffe" : undefined,
+        padding: boxed ? "0 12px" : 0,
+      }}
     >
-      Visa ····6754
-    </MjmlText>
-    <MjmlButton
-      align="left"
-      backgroundColor="transparent"
-      color="#4f46e5"
-      fontFamily={fontFamily}
-      fontSize="14px"
-      href="https://example.com"
-      innerPadding="0"
-      lineHeight="20px"
-      padding="4px 0 0"
-    >
-      Change
-    </MjmlButton>
-  </>
+      {boxed ? <div style={{ height: "16px" }}>&zwj;</div> : null}
+      <div
+        style={{
+          color: "#030712",
+          fontFamily,
+          fontSize: "14px",
+          fontWeight: 600,
+          lineHeight: "20px",
+          marginBottom: "8px",
+          textAlign: alignment === "centered" ? "center" : undefined,
+        }}
+      >
+        Amount charged
+      </div>
+      <PaymentMethod alignment={alignment} />
+    </td>
+  </tr>
 );
 
 interface TableSectionProps {
@@ -135,66 +315,81 @@ const OrderSummaryTableSection = ({
   totalPosition,
 }: TableSectionProps) => {
   const boxed = surface === "boxed";
+  const totalBackground = boxed ? "#f3f4f6" : undefined;
+  const summaryBackground = boxed && filled ? "#f9fafb" : undefined;
   const total = (
-    <SummaryLine alignment={alignment} amount="$35.98" label="Total" total />
+    <SummaryRow
+      alignment={alignment}
+      amount="$35.98"
+      backgroundColor={totalBackground}
+      label="Total"
+      padded={boxed}
+      total
+    />
   );
+
+  const summaryRows: ReactNode = (
+    <>
+      <SummaryRow
+        alignment={alignment}
+        amount="$29.99"
+        backgroundColor={summaryBackground}
+        label="Subtotal"
+        padded={boxed && filled && totalPosition === "bottom"}
+      />
+      <GapRow />
+      <SummaryRow
+        alignment={alignment}
+        amount="$5.99"
+        backgroundColor={summaryBackground}
+        label="Tax"
+        padded={false}
+      />
+      <GapRow />
+      <SummaryRow
+        alignment={alignment}
+        amount="FREE"
+        backgroundColor={summaryBackground}
+        label="Shipping"
+        padded={false}
+      />
+    </>
+  );
+
   return (
     <MjmlSection backgroundColor="#fffffe" padding="44px 24px">
-      <MjmlColumn
-        backgroundColor={boxed && filled ? "#f9fafb" : "#fffffe"}
-        border={boxed ? undefined : "1px solid #d1d5db"}
-        borderRadius="4px"
-        padding={boxed ? "20px" : "20px 24px"}
-      >
-        {totalPosition === "top" ? (
-          <>
-            {total}
-            <MjmlDivider
-              borderColor="#d1d5db"
-              borderWidth="1px"
-              padding="8px 0 24px"
-            />
-          </>
-        ) : null}
-        <SummaryLine alignment={alignment} amount="$29.99" label="Subtotal" />
-        <SummaryLine alignment={alignment} amount="$5.99" label="Tax" />
-        <SummaryLine alignment={alignment} amount="FREE" label="Shipping" />
-        {totalPosition === "bottom" ? (
-          <>
-            <MjmlDivider
-              borderColor="#d1d5db"
-              borderWidth="1px"
-              padding="8px 0 24px"
-            />
-            {total}
-          </>
-        ) : null}
-        {(() => {
-          if (cardDetails) {
-            return (
+      <MjmlColumn padding="0" width="552px">
+        <MjmlTable
+          cellpadding="0"
+          cellspacing="0"
+          cssClass="order-summary-full-table"
+          padding="0"
+          role="presentation"
+          tableLayout="fixed"
+          width="100%"
+        >
+          <tbody>
+            {totalPosition === "top" ? (
               <>
-                <MjmlDivider
-                  borderColor="#d1d5db"
-                  borderWidth="1px"
-                  padding="8px 0 16px"
-                />
-                <MjmlText
-                  align={alignment === "centered" ? "center" : "left"}
-                  color="#030712"
-                  fontFamily={fontFamily}
-                  fontSize="14px"
-                  fontWeight="600"
-                  lineHeight="20px"
-                  padding="0 0 8px"
-                >
-                  Amount charged
-                </MjmlText>
-                <PaymentMethod />
+                {total}
+                {boxed ? <GapRow /> : <DividerRow />}
               </>
-            );
-          }
-          return null;
-        })()}
+            ) : null}
+            {summaryRows}
+            {totalPosition === "bottom" ? (
+              <>
+                {boxed ? <GapRow /> : <DividerRow />}
+                {total}
+              </>
+            ) : null}
+            {cardDetails ? (
+              <>
+                {boxed ? null : <DividerRow margin={16} />}
+                <CardDetailsRow alignment={alignment} boxed={boxed} />
+              </>
+            ) : null}
+          </tbody>
+        </MjmlTable>
       </MjmlColumn>
     </MjmlSection>
   );

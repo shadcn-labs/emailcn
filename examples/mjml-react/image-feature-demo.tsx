@@ -2,10 +2,5 @@ import { ImageFeature } from "@/registry/bases/mjml-react/components/marketing/f
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function ImageFeatureDemo() {
-  return (
-    <ImageFeature
-      placement="right"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <ImageFeature placement="right" theme={defaultTheme} />;
 }

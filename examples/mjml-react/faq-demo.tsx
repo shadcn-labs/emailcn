@@ -7,7 +7,7 @@ export default function FaqDemo() {
       layout="boxed"
       marker="number"
       answerPosition="stacked"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
+      theme={defaultTheme}
     />
   );
 }

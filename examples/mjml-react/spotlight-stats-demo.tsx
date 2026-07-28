@@ -2,10 +2,5 @@ import { SpotlightStats } from "@/registry/bases/mjml-react/components/marketing
 import { defaultTheme } from "@/registry/themes/default";
 
 export default function SpotlightStatsDemo() {
-  return (
-    <SpotlightStats
-      position="center"
-      theme={{ ...defaultTheme, containerWidth: "640px" }}
-    />
-  );
+  return <SpotlightStats position="center" theme={defaultTheme} />;
 }
