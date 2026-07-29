@@ -1,0 +1,539 @@
+import {
+  BoxIcon,
+  BracesIcon,
+  ChevronRightIcon,
+  PackageCheckIcon,
+  SparklesIcon,
+  TruckIcon,
+} from "lucide-react";
+import Image from "next/image";
+
+import { componentCatalog } from "@/components/landing-email-showcase-data";
+import type {
+  ComponentPartId,
+  EmailRecipeId,
+} from "@/components/landing-email-showcase-data";
+import { LogoMark } from "@/components/logo";
+import { cn } from "@/lib/utils";
+
+const productImages = [
+  {
+    alt: "Red sneaker on a red background",
+    src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=640&h=640&q=85",
+  },
+  {
+    alt: "White t-shirt on a neutral background",
+    src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=640&h=640&q=85",
+  },
+  {
+    alt: "Black t-shirt on a dark background",
+    src: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=640&h=640&q=85",
+  },
+] as const;
+
+const SelectableEmailPart = ({
+  children,
+  id,
+  selectedId,
+  onSelect,
+  className,
+}: {
+  children: React.ReactNode;
+  id: ComponentPartId;
+  selectedId: ComponentPartId;
+  onSelect: (id: ComponentPartId) => void;
+  className?: string;
+}) => {
+  const isSelected = selectedId === id;
+
+  return (
+    <button
+      type="button"
+      aria-label={`Inspect ${componentCatalog[id].label}`}
+      aria-pressed={isSelected}
+      className={cn(
+        "group/email-part relative block w-full cursor-pointer text-left outline-none transition-[box-shadow] duration-200",
+        "hover:z-10 hover:shadow-[inset_0_0_0_2px_rgb(96_165_250)]",
+        "focus-visible:z-10 focus-visible:shadow-[inset_0_0_0_3px_rgb(59_130_246)]",
+        isSelected &&
+          "z-10 shadow-[inset_0_0_0_2px_rgb(59_130_246),0_0_0_1px_rgb(59_130_246)]",
+        className
+      )}
+      onClick={() => onSelect(id)}
+    >
+      {children}
+      <span
+        className={cn(
+          "pointer-events-none absolute top-2 right-2 z-20 flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[9px] leading-none font-semibold tracking-wide text-white uppercase shadow-sm transition-opacity",
+          isSelected
+            ? "opacity-100"
+            : "opacity-0 group-hover/email-part:opacity-100 group-focus-visible/email-part:opacity-100"
+        )}
+      >
+        <BracesIcon className="size-2.5" aria-hidden="true" />
+        {id}
+      </span>
+    </button>
+  );
+};
+
+const ProductDropPreview = ({
+  selectedId,
+  onSelect,
+}: EmailPreviewContentProps) => (
+  <div className="w-full overflow-hidden bg-white font-sans text-slate-950">
+    <SelectableEmailPart
+      id="header-with-logo-and-menu"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-5 py-4 sm:px-7"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <span className="flex size-7 items-center justify-center rounded-lg bg-slate-950 text-white">
+            <LogoMark className="size-4" />
+          </span>
+          emailcn
+        </div>
+        <div className="flex items-center gap-4 text-[10px] font-medium text-slate-500 sm:gap-6 sm:text-xs">
+          <span>Components</span>
+          <span>Examples</span>
+          <span>Docs</span>
+        </div>
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="image-grid-hero"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-[#f6f6f2] px-5 py-8 sm:px-8 sm:py-10"
+    >
+      <div className="mx-auto max-w-md text-center">
+        <p className="mb-3 text-[9px] font-bold tracking-[0.24em] text-blue-600 uppercase">
+          The component drop · 01
+        </p>
+        <h3 className="text-[28px] leading-[1.05] font-semibold tracking-[-0.045em] text-balance sm:text-[38px]">
+          Design emails at component speed.
+        </h3>
+        <p className="mx-auto mt-4 max-w-sm text-[11px] leading-5 text-slate-500 sm:text-[13px]">
+          Production-ready sections for campaigns that look considered, without
+          starting from a blank canvas.
+        </p>
+      </div>
+
+      <div className="mt-7 grid grid-cols-[0.85fr_1.15fr_0.85fr] items-center gap-2 sm:gap-3">
+        {productImages.map((image, index) => (
+          <div
+            key={image.src}
+            className={cn(
+              "relative overflow-hidden rounded-md bg-slate-200",
+              index === 1 ? "aspect-[4/5]" : "aspect-square"
+            )}
+          >
+            <Image
+              fill
+              alt={image.alt}
+              className="object-cover"
+              loading={index === 1 ? "eager" : "lazy"}
+              sizes="(max-width: 640px) 28vw, 180px"
+              src={image.src}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-7 text-center">
+        <span className="inline-flex h-9 items-center rounded-md bg-slate-950 px-5 text-[11px] font-semibold text-white">
+          Explore the collection
+          <ChevronRightIcon className="ml-1.5 size-3" aria-hidden="true" />
+        </span>
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="product-list"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-5 py-8 sm:px-8 sm:py-10"
+    >
+      <div className="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <p className="text-[9px] font-bold tracking-[0.18em] text-blue-600 uppercase">
+            Featured
+          </p>
+          <h3 className="mt-1 text-lg font-semibold tracking-tight sm:text-xl">
+            This week&apos;s building blocks
+          </h3>
+        </div>
+        <span className="text-[10px] text-slate-400">View all →</span>
+      </div>
+
+      <div className="divide-y divide-slate-100">
+        {[
+          {
+            description: "Image-led campaign opening",
+            gradient: "from-blue-100 to-indigo-200",
+            name: "Image Grid Hero",
+            tag: "Marketing",
+          },
+          {
+            description: "Flexible catalog presentation",
+            gradient: "from-orange-100 to-rose-200",
+            name: "Product List",
+            tag: "Ecommerce",
+          },
+        ].map((product) => (
+          <div
+            key={product.name}
+            className="grid grid-cols-[64px_1fr_auto] items-center gap-3 py-3 sm:grid-cols-[72px_1fr_auto] sm:gap-4"
+          >
+            <div
+              className={cn(
+                "flex aspect-square items-center justify-center rounded-lg bg-linear-to-br",
+                product.gradient
+              )}
+            >
+              <BoxIcon className="size-5 text-slate-700" aria-hidden="true" />
+            </div>
+            <div className="min-w-0">
+              <p className="truncate text-xs font-semibold sm:text-sm">
+                {product.name}
+              </p>
+              <p className="mt-1 truncate text-[10px] text-slate-400 sm:text-[11px]">
+                {product.description}
+              </p>
+            </div>
+            <span className="rounded-full border border-slate-200 px-2 py-1 text-[9px] font-medium text-slate-500">
+              {product.tag}
+            </span>
+          </div>
+        ))}
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="call-to-action"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-blue-600 px-5 py-9 text-center text-white sm:px-8 sm:py-10"
+    >
+      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+        Ready to build the next one?
+      </h3>
+      <p className="mx-auto mt-2 max-w-sm text-[11px] leading-5 text-blue-100 sm:text-xs">
+        Add only the components you need. Own the code, customize every detail,
+        and ship.
+      </p>
+      <span className="mt-5 inline-flex h-9 items-center rounded-md bg-white px-5 text-[11px] font-semibold text-blue-700">
+        Browse components
+        <ChevronRightIcon className="ml-1.5 size-3" aria-hidden="true" />
+      </span>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="navigation-footer"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-slate-950 px-5 py-7 text-slate-400 sm:px-8"
+    >
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-semibold text-white">
+            <LogoMark className="size-4" />
+            emailcn
+          </div>
+          <p className="mt-3 max-w-xs text-[9px] leading-4">
+            Beautiful, customizable email components for React Email, MJML
+            React, and JSX Email.
+          </p>
+        </div>
+        <div className="flex gap-4 text-[9px] font-medium text-slate-300">
+          <span>Components</span>
+          <span>GitHub</span>
+          <span>Unsubscribe</span>
+        </div>
+      </div>
+    </SelectableEmailPart>
+  </div>
+);
+
+const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
+  <div className="w-full overflow-hidden bg-white font-sans text-slate-950">
+    <SelectableEmailPart
+      id="header-with-logo"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-6 py-5"
+    >
+      <div className="flex items-center justify-center gap-2 text-sm font-semibold">
+        <span className="flex size-7 items-center justify-center rounded-lg bg-blue-600 text-white">
+          <LogoMark className="size-4" />
+        </span>
+        emailcn
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="content"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-linear-to-b from-indigo-50 to-white px-6 py-10 text-center sm:px-12 sm:py-14"
+    >
+      <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-200">
+        <SparklesIcon className="size-6" aria-hidden="true" />
+      </span>
+      <p className="mt-6 text-[9px] font-bold tracking-[0.22em] text-blue-600 uppercase">
+        Welcome aboard
+      </p>
+      <h3 className="mx-auto mt-3 max-w-md text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
+        Your email workspace is ready.
+      </h3>
+      <p className="mx-auto mt-4 max-w-md text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">
+        Hi Jamie — start with a component, make it yours, and send confidently.
+        Everything you need is already waiting.
+      </p>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="progress"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-6 py-9 sm:px-10"
+    >
+      <p className="text-center text-[9px] font-bold tracking-[0.18em] text-slate-400 uppercase">
+        Three steps to your first send
+      </p>
+      <div className="relative mt-7 grid grid-cols-3 gap-2">
+        <div className="absolute top-4 right-[16.66%] left-[16.66%] h-px bg-slate-200" />
+        {[
+          ["01", "Choose a base"],
+          ["02", "Add components"],
+          ["03", "Send your email"],
+        ].map(([number, label], index) => (
+          <div key={number} className="relative text-center">
+            <span
+              className={cn(
+                "relative z-10 mx-auto flex size-8 items-center justify-center rounded-full border text-[9px] font-semibold",
+                index === 0
+                  ? "border-blue-600 bg-blue-600 text-white"
+                  : "border-slate-200 bg-white text-slate-500"
+              )}
+            >
+              {number}
+            </span>
+            <p className="mt-3 text-[9px] font-medium text-slate-600 sm:text-[11px]">
+              {label}
+            </p>
+          </div>
+        ))}
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="call-to-action"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-slate-950 px-6 py-10 text-center text-white"
+    >
+      <h3 className="text-xl font-semibold tracking-tight">
+        Build something people want to open.
+      </h3>
+      <p className="mx-auto mt-2 max-w-sm text-[11px] leading-5 text-slate-400">
+        Pick your base and add your first component in under a minute.
+      </p>
+      <span className="mt-5 inline-flex h-9 items-center rounded-md bg-blue-600 px-5 text-[11px] font-semibold text-white">
+        Build your first email
+        <ChevronRightIcon className="ml-1.5 size-3" aria-hidden="true" />
+      </span>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="utility-footer"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-slate-50 px-6 py-7 text-center text-slate-400"
+    >
+      <p className="text-[9px] leading-4">
+        Need help? Read the docs or reply to this email.
+        <br />© 2026 emailcn · Preferences · Unsubscribe
+      </p>
+    </SelectableEmailPart>
+  </div>
+);
+
+const OrderConfirmedPreview = ({
+  selectedId,
+  onSelect,
+}: EmailPreviewContentProps) => (
+  <div className="w-full overflow-hidden bg-white font-sans text-slate-950">
+    <SelectableEmailPart
+      id="header-with-logo"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="border-b border-slate-100 bg-white px-6 py-5 sm:px-8"
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 text-sm font-semibold">
+          <span className="flex size-7 items-center justify-center rounded-lg bg-slate-950 text-white">
+            <LogoMark className="size-4" />
+          </span>
+          Northstar
+        </div>
+        <span className="text-[10px] text-slate-400">Order #ECN-2048</span>
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="content"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-6 py-9 text-center sm:px-10 sm:py-11"
+    >
+      <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+        <PackageCheckIcon className="size-6" aria-hidden="true" />
+      </span>
+      <p className="mt-5 text-[9px] font-bold tracking-[0.2em] text-emerald-600 uppercase">
+        Order confirmed
+      </p>
+      <h3 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+        Thanks, Jamie. We&apos;ve got it.
+      </h3>
+      <p className="mx-auto mt-3 max-w-sm text-[11px] leading-5 text-slate-500 sm:text-xs">
+        We&apos;ll send another update as soon as your order leaves our studio.
+      </p>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="order-summary-table"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-6 pb-9 sm:px-10"
+    >
+      <div className="rounded-xl border border-slate-200">
+        <div className="border-b border-slate-100 px-4 py-3">
+          <p className="text-[10px] font-semibold">Order summary</p>
+        </div>
+        <div className="divide-y divide-slate-100 px-4">
+          {[
+            ["Canvas Runner", "Sand / EU 42", "$128.00", productImages[0]],
+            ["Everyday Tee", "Natural / M", "$42.00", productImages[1]],
+          ].map(([name, detail, price, image]) => (
+            <div
+              key={name as string}
+              className="grid grid-cols-[48px_1fr_auto] items-center gap-3 py-3"
+            >
+              <div className="relative size-12 overflow-hidden rounded-md bg-slate-100">
+                <Image
+                  fill
+                  alt={(image as (typeof productImages)[number]).alt}
+                  className="object-cover"
+                  sizes="48px"
+                  src={(image as (typeof productImages)[number]).src}
+                />
+              </div>
+              <div>
+                <p className="text-[11px] font-semibold">{name as string}</p>
+                <p className="mt-0.5 text-[9px] text-slate-400">
+                  {detail as string}
+                </p>
+              </div>
+              <p className="text-[10px] font-medium">{price as string}</p>
+            </div>
+          ))}
+        </div>
+        <div className="space-y-2 border-t border-slate-100 bg-slate-50 px-4 py-3 text-[10px]">
+          <div className="flex justify-between text-slate-500">
+            <span>Shipping</span>
+            <span>$12.00</span>
+          </div>
+          <div className="flex justify-between font-semibold text-slate-950">
+            <span>Total</span>
+            <span>$182.00</span>
+          </div>
+        </div>
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="billing-order-summary"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-slate-50 px-6 py-8 sm:px-10"
+    >
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <div className="flex items-center gap-1.5 text-[9px] font-semibold tracking-wide text-slate-400 uppercase">
+            <TruckIcon className="size-3" aria-hidden="true" />
+            Ship to
+          </div>
+          <p className="mt-2 text-[10px] leading-4 text-slate-600">
+            Jamie Chen
+            <br />
+            128 Flushing Ave
+            <br />
+            Brooklyn, NY 11205
+          </p>
+        </div>
+        <div>
+          <p className="text-[9px] font-semibold tracking-wide text-slate-400 uppercase">
+            Payment
+          </p>
+          <p className="mt-2 text-[10px] leading-4 text-slate-600">
+            Visa ending in 4242
+            <br />
+            Billing same as shipping
+          </p>
+        </div>
+      </div>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="call-to-action"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-white px-6 py-9 text-center"
+    >
+      <span className="inline-flex h-9 items-center rounded-md bg-slate-950 px-5 text-[11px] font-semibold text-white">
+        Track your order
+        <ChevronRightIcon className="ml-1.5 size-3" aria-hidden="true" />
+      </span>
+      <p className="mt-3 text-[9px] text-slate-400">
+        Estimated delivery: August 3–5
+      </p>
+    </SelectableEmailPart>
+
+    <SelectableEmailPart
+      id="utility-footer"
+      selectedId={selectedId}
+      onSelect={onSelect}
+      className="bg-slate-950 px-6 py-7 text-center text-slate-400"
+    >
+      <p className="text-[9px] leading-4">
+        Questions about your order? Contact support.
+        <br />© 2026 Northstar · Returns · Privacy
+      </p>
+    </SelectableEmailPart>
+  </div>
+);
+
+interface EmailPreviewContentProps {
+  selectedId: ComponentPartId;
+  onSelect: (id: ComponentPartId) => void;
+}
+
+export const LandingEmailPreview = ({
+  emailId,
+  selectedId,
+  onSelect,
+}: EmailPreviewContentProps & { emailId: EmailRecipeId }) => {
+  if (emailId === "welcome-onboarding") {
+    return <WelcomePreview selectedId={selectedId} onSelect={onSelect} />;
+  }
+  if (emailId === "order-confirmed") {
+    return (
+      <OrderConfirmedPreview selectedId={selectedId} onSelect={onSelect} />
+    );
+  }
+  return <ProductDropPreview selectedId={selectedId} onSelect={onSelect} />;
+};
