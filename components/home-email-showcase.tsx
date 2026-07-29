@@ -410,7 +410,7 @@ export const HomeEmailShowcase = () => {
           <CardContent className="p-0 lg:grid lg:h-[720px] lg:grid-cols-[14rem_minmax(0,1fr)_20rem]">
             <aside
               aria-label="Email examples"
-              className="hidden flex-col bg-muted/20 lg:flex lg:border-r"
+              className="hidden flex-col bg-card lg:flex lg:border-r"
             >
               <div className="flex h-12 shrink-0 items-center px-4">
                 <CardTitle className="text-sm">Emails</CardTitle>
@@ -449,7 +449,7 @@ export const HomeEmailShowcase = () => {
               onValueChange={(value) => setWorkspaceTab(value as WorkspaceTab)}
               className="min-w-0 gap-0 bg-muted/55 lg:h-full"
             >
-              <div className="flex h-12 shrink-0 items-center justify-between gap-3 bg-card/80 px-3 lg:hidden">
+              <div className="flex h-12 shrink-0 items-center justify-between gap-3 bg-card px-3 lg:hidden">
                 <Label htmlFor="home-email-template">Choose template</Label>
                 <Select
                   value={selectedEmailId}
@@ -477,7 +477,7 @@ export const HomeEmailShowcase = () => {
 
               <Separator className="lg:hidden" />
 
-              <div className="flex h-12 shrink-0 items-center justify-between gap-2 bg-card/80 px-4 backdrop-blur">
+              <div className="flex h-12 shrink-0 items-center justify-between gap-2 bg-card px-4">
                 <TabsList className="h-8 p-0.5">
                   <TabsTrigger
                     value="preview"
@@ -651,7 +651,7 @@ export const HomeEmailShowcase = () => {
                   __npm__={`npx shadcn@latest add ${registryItem}`}
                   __pnpm__={`pnpm dlx shadcn@latest add ${registryItem}`}
                   __yarn__={`yarn shadcn@latest add ${registryItem}`}
-                  className="mt-4 border border-border/70 bg-background/60"
+                  className="mt-4 border border-border/70 dark:bg-background/60"
                 />
               </CardContent>
             </aside>
