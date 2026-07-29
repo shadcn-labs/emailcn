@@ -22,7 +22,6 @@ import { cn } from "@/lib/utils";
 const viewportWidths: Record<EmailViewport, string> = {
   desktop: "100%",
   mobile: "375px",
-  tablet: "768px",
 };
 
 const CodeTab = ({
