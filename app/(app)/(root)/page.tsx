@@ -1,6 +1,6 @@
 import { CommandBox } from "@/components/command-box";
 import { HomeCtas } from "@/components/home-ctas";
-import { LandingEmailShowcase } from "@/components/landing-email-showcase";
+import { HomeEmailShowcase } from "@/components/home-email-showcase";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
 
 export const dynamic = "force-static";
@@ -31,7 +31,7 @@ export default function IndexPage() {
         </div>
       </section>
 
-      <LandingEmailShowcase />
+      <HomeEmailShowcase />
     </>
   );
 }

@@ -8,13 +8,234 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-import { componentCatalog } from "@/components/landing-email-showcase-data";
-import type {
-  ComponentPartId,
-  EmailRecipeId,
-} from "@/components/landing-email-showcase-data";
 import { LogoMark } from "@/components/logo";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+
+export const homeEmailComponentCatalog = {
+  "billing-order-summary": {
+    codeName: "BillingOrderSummary",
+    description:
+      "A structured billing and delivery summary for transactional emails.",
+    docsPath: "ecommerce/order-summary/billing-order-summary",
+    label: "Billing order summary",
+  },
+  "call-to-action": {
+    codeName: "CallToAction",
+    description:
+      "A focused call to action with a clear headline, supporting copy, and button.",
+    docsPath: "marketing/cta/call-to-action",
+    label: "Call to action",
+  },
+  content: {
+    codeName: "Content",
+    description:
+      "A flexible content section for headings, paragraphs, and supporting messages.",
+    docsPath: "marketing/content",
+    label: "Content",
+  },
+  "header-with-logo": {
+    codeName: "HeaderWithLogo",
+    description:
+      "A clean, responsive header that keeps the brand immediately recognizable.",
+    docsPath: "marketing/headers/header-with-logo",
+    label: "Header with logo",
+  },
+  "header-with-logo-and-menu": {
+    codeName: "HeaderWithLogoAndMenu",
+    description:
+      "A responsive brand header with a logo and configurable navigation links.",
+    docsPath: "marketing/headers/header-with-logo-and-menu",
+    label: "Header with logo & menu",
+  },
+  "image-grid-hero": {
+    codeName: "ImageGridHero",
+    description:
+      "A campaign-ready hero that pairs focused copy with a flexible image grid.",
+    docsPath: "marketing/heroes/image-grid-hero",
+    label: "Image grid hero",
+  },
+  "navigation-footer": {
+    codeName: "NavigationFooter",
+    description:
+      "A polished email footer with navigation, brand details, and legal links.",
+    docsPath: "marketing/footers/navigation-footer",
+    label: "Navigation footer",
+  },
+  "order-summary-table": {
+    codeName: "OrderSummaryTable",
+    description:
+      "A clear line-item summary with product details, totals, and payment context.",
+    docsPath: "ecommerce/order-summary/order-summary-table",
+    label: "Order summary table",
+  },
+  "product-list": {
+    codeName: "ProductList",
+    description:
+      "A structured product list with images, descriptions, pricing, and details.",
+    docsPath: "ecommerce/product-list",
+    label: "Product list",
+  },
+  progress: {
+    codeName: "Progress",
+    description:
+      "A visual sequence for onboarding steps, milestones, or delivery progress.",
+    docsPath: "ui-elements/progress",
+    label: "Progress",
+  },
+  "utility-footer": {
+    codeName: "UtilityFooter",
+    description:
+      "A compact footer for support, preferences, legal copy, and unsubscribe links.",
+    docsPath: "marketing/footers/utility-footer",
+    label: "Utility footer",
+  },
+} as const;
+
+export type ComponentPartId = keyof typeof homeEmailComponentCatalog;
+export type EmailRecipeId =
+  | "product-drop"
+  | "welcome-onboarding"
+  | "order-confirmed";
+export type CodeOutput = "react" | "html" | "text";
+export type HomeEmailBase = "react-email" | "mjml-react" | "jsx-email";
+
+export const homeEmailBases: {
+  id: HomeEmailBase;
+  label: string;
+}[] = [
+  { id: "react-email", label: "React Email" },
+  { id: "mjml-react", label: "MJML React" },
+  { id: "jsx-email", label: "JSX Email" },
+];
+
+export const homeEmailCodeOutputs: { id: CodeOutput; label: string }[] = [
+  { id: "react", label: "React" },
+  { id: "html", label: "HTML" },
+  { id: "text", label: "Plain text" },
+];
+
+export interface EmailRecipe {
+  actionHref: string;
+  actionLabel: string;
+  componentIds: readonly ComponentPartId[];
+  defaultComponentId: ComponentPartId;
+  description: string;
+  eyebrow: string;
+  filename: string;
+  heading: string;
+  id: EmailRecipeId;
+  name: string;
+  previewText: string;
+}
+
+export const homeEmailPreviews = [
+  {
+    actionHref: "https://emailcn.run/docs/components",
+    actionLabel: "Explore the collection",
+    componentIds: [
+      "header-with-logo-and-menu",
+      "image-grid-hero",
+      "product-list",
+      "call-to-action",
+      "navigation-footer",
+    ],
+    defaultComponentId: "image-grid-hero",
+    description:
+      "Production-ready sections for campaigns that look considered, without starting from a blank canvas.",
+    eyebrow: "The component drop · 01",
+    filename: "product-drop-email.tsx",
+    heading: "Design emails at component speed.",
+    id: "product-drop",
+    name: "Product drop",
+    previewText: "A new component collection from emailcn",
+  },
+  {
+    actionHref: "https://emailcn.run/docs/installation",
+    actionLabel: "Build your first email",
+    componentIds: [
+      "header-with-logo",
+      "content",
+      "progress",
+      "call-to-action",
+      "utility-footer",
+    ],
+    defaultComponentId: "content",
+    description:
+      "Start with a component, make it yours, and send confidently. Everything you need is ready.",
+    eyebrow: "Welcome aboard",
+    filename: "welcome-onboarding-email.tsx",
+    heading: "Your email workspace is ready.",
+    id: "welcome-onboarding",
+    name: "Welcome aboard",
+    previewText: "Welcome to your new email workspace",
+  },
+  {
+    actionHref: "https://example.com/orders/ECN-2048",
+    actionLabel: "Track your order",
+    componentIds: [
+      "header-with-logo",
+      "content",
+      "order-summary-table",
+      "billing-order-summary",
+      "call-to-action",
+      "utility-footer",
+    ],
+    defaultComponentId: "order-summary-table",
+    description:
+      "Order ECN-2048 is confirmed and is being prepared for delivery.",
+    eyebrow: "Order #ECN-2048",
+    filename: "order-confirmed-email.tsx",
+    heading: "Thanks, your order is confirmed.",
+    id: "order-confirmed",
+    name: "Order confirmed",
+    previewText: "Your Northstar order is confirmed",
+  },
+] as const satisfies readonly EmailRecipe[];
+
+export const getHomeEmailSource = (
+  recipe: EmailRecipe,
+  base: HomeEmailBase
+) => {
+  const shell =
+    base === "mjml-react"
+      ? {
+          close: "Mjml",
+          import: 'import { Mjml } from "@faire/mjml-react";',
+          open: "Mjml",
+        }
+      : {
+          close: "Html",
+          import: `import { Html } from "${
+            base === "jsx-email" ? "jsx-email" : "react-email"
+          }";`,
+          open: "Html",
+        };
+  const imports = recipe.componentIds
+    .map((id) => {
+      const component = homeEmailComponentCatalog[id];
+      return `import { ${component.codeName} } from "@/components/email/${id}";`;
+    })
+    .join("\n");
+  const components = recipe.componentIds
+    .map((id) => `      <${homeEmailComponentCatalog[id].codeName} />`)
+    .join("\n");
+  const functionName = recipe.id
+    .split("-")
+    .map((part) => `${part[0]?.toUpperCase()}${part.slice(1)}`)
+    .join("");
+
+  return `${shell.import}
+${imports}
+
+export function ${functionName}Email() {
+  return (
+    <${shell.open}>
+${components}
+    </${shell.close}>
+  );
+}`;
+};
 
 const productImages = [
   {
@@ -49,7 +270,7 @@ const SelectableEmailPart = ({
   return (
     <button
       type="button"
-      aria-label={`Inspect ${componentCatalog[id].label}`}
+      aria-label={`Inspect ${homeEmailComponentCatalog[id].label}`}
       aria-pressed={isSelected}
       className={cn(
         "group/email-part relative block w-full cursor-pointer text-left outline-none transition-[box-shadow] duration-200",
@@ -62,9 +283,9 @@ const SelectableEmailPart = ({
       onClick={() => onSelect(id)}
     >
       {children}
-      <span
+      <Badge
         className={cn(
-          "pointer-events-none absolute top-2 right-2 z-20 flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[9px] leading-none font-semibold tracking-wide text-white uppercase shadow-sm transition-opacity",
+          "pointer-events-none absolute top-2 right-2 z-20 bg-blue-600 py-1 text-[9px] leading-none font-semibold tracking-wide text-white uppercase shadow-sm transition-opacity",
           isSelected
             ? "opacity-100"
             : "opacity-0 group-hover/email-part:opacity-100 group-focus-visible/email-part:opacity-100"
@@ -72,7 +293,7 @@ const SelectableEmailPart = ({
       >
         <BracesIcon className="size-2.5" aria-hidden="true" />
         {id}
-      </span>
+      </Badge>
     </button>
   );
 };
@@ -522,7 +743,7 @@ interface EmailPreviewContentProps {
   onSelect: (id: ComponentPartId) => void;
 }
 
-export const LandingEmailPreview = ({
+export const HomeEmailPreview = ({
   emailId,
   selectedId,
   onSelect,

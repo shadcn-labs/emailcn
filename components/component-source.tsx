@@ -34,8 +34,11 @@ const ComponentCode = ({
       </figcaption>
     )}
     <CopyButton value={code} event="copy_primitive_code" />
-    {/* eslint-disable-next-line react/no-danger */}
-    <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+    <div
+      // Shiki returns trusted HTML generated from the provided source code.
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: highlightedCode }}
+    />
   </figure>
 );
 
