@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
+import type { ComponentType } from "react";
 
 import { demos } from "@/examples/__index__";
-import { renderEmailPreview } from "@/lib/render-email-preview";
+import { renderEmail } from "@/lib/render-email";
 import { BASE_NAMES } from "@/registry/bases";
 import type { BaseName } from "@/registry/bases";
 
@@ -35,11 +36,15 @@ const ViewPage = async ({ params }: ViewPageProps) => {
     notFound();
   }
 
-  const preview = await renderEmailPreview({ base, name });
+  const Demo = (demos[base] as Record<string, ComponentType | undefined>)[name];
 
-  if (!preview) {
+  if (!Demo) {
     notFound();
   }
+  const preview = await renderEmail({
+    base,
+    preview: <Demo />,
+  });
 
   return (
     <iframe

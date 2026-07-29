@@ -1,40 +1,10 @@
 import { CommandBox } from "@/components/command-box";
-import { ComponentPreview } from "@/components/component-preview";
 import { HomeCtas } from "@/components/home-ctas";
-import type { DemoName } from "@/examples/__index__";
+import { HomeEmailShowcase } from "@/components/home-email-showcase";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
 
 export const dynamic = "force-static";
 export const revalidate = false;
-
-interface ShowcaseItem {
-  className: string;
-  name: DemoName;
-  title: string;
-}
-
-export const showcaseItems: readonly ShowcaseItem[] = [
-  {
-    className: "md:col-span-2",
-    name: "testimonial-layout-full-width-alignment-left-avatar-treatment-overlapping-placement-bottom-example-demo",
-    title: "Testimonial",
-  },
-  {
-    className: "md:col-span-2",
-    name: "team-bios-with-right-images-example-demo",
-    title: "Team",
-  },
-  {
-    className: "md:col-span-2",
-    name: "product-list-demo",
-    title: "Product List",
-  },
-  {
-    className: "md:col-span-2",
-    name: "shopping-cart-demo",
-    title: "Shopping Cart",
-  },
-] as const;
 
 export default function IndexPage() {
   return (
@@ -61,23 +31,7 @@ export default function IndexPage() {
         </div>
       </section>
 
-      <section className="container-wrapper pb-8 lg:pb-12">
-        <div className="container grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {showcaseItems.map((item) => (
-            <ComponentPreview
-              key={item.name}
-              hideNav
-              hideCode
-              centerPreview
-              height={410}
-              name={item.name}
-              showTitleBar
-              title={item.title}
-              className={item.className}
-            />
-          ))}
-        </div>
-      </section>
+      <HomeEmailShowcase />
     </>
   );
 }

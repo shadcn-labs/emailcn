@@ -1,8 +1,11 @@
+import type { ComponentType } from "react";
+
 import { ComponentPreviewClient } from "@/components/component-preview-client";
 import { ComponentSource } from "@/components/component-source";
+import { demos } from "@/examples/__index__";
 import type { DemoName } from "@/examples/__index__";
 import { getEmailHtmlForColorMode } from "@/lib/email-color-mode";
-import { renderEmailPreview } from "@/lib/render-email-preview";
+import { renderEmail } from "@/lib/render-email";
 import type { BaseName } from "@/registry/bases";
 
 interface ComponentPreviewProps {
@@ -34,12 +37,19 @@ export const ComponentPreview = async ({
   let previewHeight = 640;
 
   try {
-    const preview = await renderEmailPreview({ base, centerPreview, name });
+    const Demo = (demos[base] as Record<string, ComponentType | undefined>)[
+      name
+    ];
 
-    if (!preview) {
+    if (!Demo) {
       throw new Error(`No demo named "${name}" for base "${base}"`);
     }
 
+    const preview = await renderEmail({
+      base,
+      centerPreview,
+      preview: <Demo />,
+    });
     ({ height: previewHeight, html, plainText } = preview);
     darkHtml = getEmailHtmlForColorMode(html, "dark");
     html = getEmailHtmlForColorMode(html, "light");
