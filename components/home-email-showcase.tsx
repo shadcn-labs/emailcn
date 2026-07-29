@@ -2,9 +2,9 @@
 
 import {
   ArrowUpRightIcon,
+  CodeXmlIcon,
   EyeIcon,
   FileIcon,
-  FileCode2Icon,
   MonitorIcon,
   SmartphoneIcon,
 } from "lucide-react";
@@ -366,7 +366,7 @@ export const HomeEmailShowcase = () => {
                     key={base.id}
                     value={base.id}
                     aria-label={base.label}
-                    className="h-7 gap-1.5 px-2 text-xs data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-xs data-[state=on]:hover:bg-background data-[state=on]:hover:text-foreground"
+                    className="h-7 gap-1.5 border border-transparent px-2 text-xs data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-sm data-[state=on]:hover:bg-background data-[state=on]:hover:text-foreground dark:data-[state=on]:border-input dark:data-[state=on]:bg-input/30 dark:data-[state=on]:hover:bg-input/30"
                   >
                     <EmailBaseIcon base={base.id} className="size-3.5" />
                     {base.label}
@@ -432,7 +432,7 @@ export const HomeEmailShowcase = () => {
                       className={cn(
                         "h-9 justify-start border px-2 text-left",
                         isSelected
-                          ? "border-border bg-muted text-foreground hover:bg-muted hover:text-foreground"
+                          ? "border-border bg-muted text-foreground hover:bg-muted hover:text-foreground dark:hover:bg-muted"
                           : "border-transparent text-muted-foreground hover:bg-muted/70 hover:text-foreground"
                       )}
                       onClick={() => handleEmailChange(email.id)}
@@ -492,7 +492,7 @@ export const HomeEmailShowcase = () => {
                     sound="toggleOn"
                     className="h-7 px-2.5 text-xs"
                   >
-                    <FileCode2Icon className="size-3.5" aria-hidden="true" />
+                    <CodeXmlIcon className="size-3.5" aria-hidden="true" />
                     Code
                   </TabsTrigger>
                 </TabsList>
@@ -538,7 +538,7 @@ export const HomeEmailShowcase = () => {
                 <div className="h-[520px] overflow-auto p-2 sm:h-[620px] sm:p-4 lg:h-[672px] lg:p-5">
                   <div
                     className={cn(
-                      "mx-auto w-full max-w-[375px] overflow-hidden bg-white shadow-[0_18px_60px_rgb(15_23_42/0.14)] transition-[width] duration-200",
+                      "mx-auto w-full max-w-[375px] bg-background shadow-xl transition-[width] duration-200",
                       viewport === "desktop"
                         ? "lg:w-[600px] lg:max-w-full"
                         : "lg:w-[375px]"
@@ -603,8 +603,8 @@ export const HomeEmailShowcase = () => {
                         className={cn(
                           "h-9 min-w-48 justify-start gap-2.5 border px-2 text-left lg:min-w-0",
                           isSelected
-                            ? "border-blue-500/40 bg-blue-500/10 text-blue-700 hover:bg-blue-500/10 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-300"
-                            : "border-transparent text-muted-foreground hover:bg-muted hover:text-foreground"
+                            ? "border-blue-500/40 bg-blue-500/10 text-blue-700 hover:bg-blue-500/10 hover:text-blue-700 dark:text-blue-300 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
+                            : "border-transparent text-muted-foreground hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-700 dark:hover:bg-blue-500/10 dark:hover:text-blue-300"
                         )}
                         onClick={() => handleComponentChange(componentId)}
                       >
@@ -651,7 +651,7 @@ export const HomeEmailShowcase = () => {
                   __npm__={`npx shadcn@latest add ${registryItem}`}
                   __pnpm__={`pnpm dlx shadcn@latest add ${registryItem}`}
                   __yarn__={`yarn shadcn@latest add ${registryItem}`}
-                  className="mt-4"
+                  className="mt-4 border border-border/70 bg-background/60"
                 />
               </CardContent>
             </aside>

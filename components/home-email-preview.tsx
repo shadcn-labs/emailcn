@@ -276,8 +276,7 @@ const SelectableEmailPart = ({
         "group/email-part relative block w-full cursor-pointer text-left outline-none transition-[box-shadow] duration-200",
         "hover:z-10 hover:shadow-[inset_0_0_0_2px_rgb(96_165_250)]",
         "focus-visible:z-10 focus-visible:shadow-[inset_0_0_0_3px_rgb(59_130_246)]",
-        isSelected &&
-          "z-10 shadow-[inset_0_0_0_2px_rgb(59_130_246),0_0_0_1px_rgb(59_130_246)]",
+        isSelected && "z-10 shadow-[inset_0_0_0_2px_rgb(59_130_246)]",
         className
       )}
       onClick={() => onSelect(id)}
@@ -285,7 +284,7 @@ const SelectableEmailPart = ({
       {children}
       <Badge
         className={cn(
-          "pointer-events-none absolute top-2 right-2 z-20 bg-blue-600 py-1 text-[9px] leading-none font-semibold tracking-wide text-white uppercase shadow-sm transition-opacity",
+          "pointer-events-none absolute top-0 right-3 z-20 -translate-y-1/2 bg-blue-600 py-1 text-[9px] leading-none font-semibold tracking-wide text-white uppercase shadow-sm transition-opacity",
           isSelected
             ? "opacity-100"
             : "opacity-0 group-hover/email-part:opacity-100 group-focus-visible/email-part:opacity-100"
@@ -302,21 +301,21 @@ const ProductDropPreview = ({
   selectedId,
   onSelect,
 }: EmailPreviewContentProps) => (
-  <div className="w-full overflow-hidden bg-white font-sans text-slate-950">
+  <div className="w-full bg-background font-sans text-foreground">
     <SelectableEmailPart
       id="header-with-logo-and-menu"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-5 py-4 sm:px-7"
+      className="bg-background px-5 py-4 sm:px-7"
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-sm font-semibold tracking-tight">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-slate-950 text-white">
+          <span className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <LogoMark className="size-4" />
           </span>
           emailcn
         </div>
-        <div className="flex items-center gap-4 text-[10px] font-medium text-slate-500 sm:gap-6 sm:text-xs">
+        <div className="flex items-center gap-4 text-[10px] font-medium text-muted-foreground sm:gap-6 sm:text-xs">
           <span>Components</span>
           <span>Examples</span>
           <span>Docs</span>
@@ -328,16 +327,16 @@ const ProductDropPreview = ({
       id="image-grid-hero"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-[#f6f6f2] px-5 py-8 sm:px-8 sm:py-10"
+      className="bg-muted/50 px-5 py-8 sm:px-8 sm:py-10"
     >
       <div className="mx-auto max-w-md text-center">
-        <p className="mb-3 text-[9px] font-bold tracking-[0.24em] text-blue-600 uppercase">
+        <p className="mb-3 text-[9px] font-bold tracking-[0.24em] text-blue-600 uppercase dark:text-blue-400">
           The component drop · 01
         </p>
         <h3 className="text-[28px] leading-[1.05] font-semibold tracking-[-0.045em] text-balance sm:text-[38px]">
           Design emails at component speed.
         </h3>
-        <p className="mx-auto mt-4 max-w-sm text-[11px] leading-5 text-slate-500 sm:text-[13px]">
+        <p className="mx-auto mt-4 max-w-sm text-[11px] leading-5 text-muted-foreground sm:text-[13px]">
           Production-ready sections for campaigns that look considered, without
           starting from a blank canvas.
         </p>
@@ -348,7 +347,7 @@ const ProductDropPreview = ({
           <div
             key={image.src}
             className={cn(
-              "relative overflow-hidden rounded-md bg-slate-200",
+              "relative overflow-hidden rounded-md bg-muted",
               index === 1 ? "aspect-[4/5]" : "aspect-square"
             )}
           >
@@ -365,7 +364,7 @@ const ProductDropPreview = ({
       </div>
 
       <div className="mt-7 text-center">
-        <span className="inline-flex h-9 items-center rounded-md bg-slate-950 px-5 text-[11px] font-semibold text-white">
+        <span className="inline-flex h-9 items-center rounded-md bg-primary px-5 text-[11px] font-semibold text-primary-foreground">
           Explore the collection
           <ChevronRightIcon className="ml-1.5 size-3" aria-hidden="true" />
         </span>
@@ -376,31 +375,31 @@ const ProductDropPreview = ({
       id="product-list"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-5 py-8 sm:px-8 sm:py-10"
+      className="bg-background px-5 py-8 sm:px-8 sm:py-10"
     >
       <div className="mb-6 flex items-end justify-between gap-4">
         <div>
-          <p className="text-[9px] font-bold tracking-[0.18em] text-blue-600 uppercase">
+          <p className="text-[9px] font-bold tracking-[0.18em] text-blue-600 uppercase dark:text-blue-400">
             Featured
           </p>
           <h3 className="mt-1 text-lg font-semibold tracking-tight sm:text-xl">
             This week&apos;s building blocks
           </h3>
         </div>
-        <span className="text-[10px] text-slate-400">View all →</span>
+        <span className="text-[10px] text-muted-foreground">View all →</span>
       </div>
 
-      <div className="divide-y divide-slate-100">
+      <div className="divide-y divide-border">
         {[
           {
             description: "Image-led campaign opening",
-            gradient: "from-blue-100 to-indigo-200",
+            gradient: "from-chart-1/20 to-chart-2/30",
             name: "Image Grid Hero",
             tag: "Marketing",
           },
           {
             description: "Flexible catalog presentation",
-            gradient: "from-orange-100 to-rose-200",
+            gradient: "from-chart-3/20 to-chart-4/30",
             name: "Product List",
             tag: "Ecommerce",
           },
@@ -415,17 +414,20 @@ const ProductDropPreview = ({
                 product.gradient
               )}
             >
-              <BoxIcon className="size-5 text-slate-700" aria-hidden="true" />
+              <BoxIcon
+                className="size-5 text-foreground/70"
+                aria-hidden="true"
+              />
             </div>
             <div className="min-w-0">
               <p className="truncate text-xs font-semibold sm:text-sm">
                 {product.name}
               </p>
-              <p className="mt-1 truncate text-[10px] text-slate-400 sm:text-[11px]">
+              <p className="mt-1 truncate text-[10px] text-muted-foreground sm:text-[11px]">
                 {product.description}
               </p>
             </div>
-            <span className="rounded-full border border-slate-200 px-2 py-1 text-[9px] font-medium text-slate-500">
+            <span className="rounded-full border px-2 py-1 text-[9px] font-medium text-muted-foreground">
               {product.tag}
             </span>
           </div>
@@ -456,11 +458,11 @@ const ProductDropPreview = ({
       id="navigation-footer"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-slate-950 px-5 py-7 text-slate-400 sm:px-8"
+      className="bg-primary px-5 py-7 text-primary-foreground/60 sm:px-8"
     >
       <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold text-white">
+          <div className="flex items-center gap-2 text-xs font-semibold text-primary-foreground">
             <LogoMark className="size-4" />
             emailcn
           </div>
@@ -469,7 +471,7 @@ const ProductDropPreview = ({
             React, and JSX Email.
           </p>
         </div>
-        <div className="flex gap-4 text-[9px] font-medium text-slate-300">
+        <div className="flex gap-4 text-[9px] font-medium text-primary-foreground/80">
           <span>Components</span>
           <span>GitHub</span>
           <span>Unsubscribe</span>
@@ -480,12 +482,12 @@ const ProductDropPreview = ({
 );
 
 const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
-  <div className="w-full overflow-hidden bg-white font-sans text-slate-950">
+  <div className="w-full bg-background font-sans text-foreground">
     <SelectableEmailPart
       id="header-with-logo"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-6 py-5"
+      className="bg-background px-6 py-5"
     >
       <div className="flex items-center justify-center gap-2 text-sm font-semibold">
         <span className="flex size-7 items-center justify-center rounded-lg bg-blue-600 text-white">
@@ -499,18 +501,18 @@ const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
       id="content"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-linear-to-b from-indigo-50 to-white px-6 py-10 text-center sm:px-12 sm:py-14"
+      className="bg-linear-to-b from-muted to-background px-6 py-10 text-center sm:px-12 sm:py-14"
     >
-      <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-200">
+      <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg">
         <SparklesIcon className="size-6" aria-hidden="true" />
       </span>
-      <p className="mt-6 text-[9px] font-bold tracking-[0.22em] text-blue-600 uppercase">
+      <p className="mt-6 text-[9px] font-bold tracking-[0.22em] text-blue-600 uppercase dark:text-blue-400">
         Welcome aboard
       </p>
       <h3 className="mx-auto mt-3 max-w-md text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
         Your email workspace is ready.
       </h3>
-      <p className="mx-auto mt-4 max-w-md text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">
+      <p className="mx-auto mt-4 max-w-md text-xs leading-5 text-muted-foreground sm:text-sm sm:leading-6">
         Hi Jamie — start with a component, make it yours, and send confidently.
         Everything you need is already waiting.
       </p>
@@ -520,13 +522,13 @@ const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
       id="progress"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-6 py-9 sm:px-10"
+      className="bg-background px-6 py-9 sm:px-10"
     >
-      <p className="text-center text-[9px] font-bold tracking-[0.18em] text-slate-400 uppercase">
+      <p className="text-center text-[9px] font-bold tracking-[0.18em] text-muted-foreground uppercase">
         Three steps to your first send
       </p>
       <div className="relative mt-7 grid grid-cols-3 gap-2">
-        <div className="absolute top-4 right-[16.66%] left-[16.66%] h-px bg-slate-200" />
+        <div className="absolute top-4 right-[16.66%] left-[16.66%] h-px bg-border" />
         {[
           ["01", "Choose a base"],
           ["02", "Add components"],
@@ -538,12 +540,12 @@ const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
                 "relative z-10 mx-auto flex size-8 items-center justify-center rounded-full border text-[9px] font-semibold",
                 index === 0
                   ? "border-blue-600 bg-blue-600 text-white"
-                  : "border-slate-200 bg-white text-slate-500"
+                  : "bg-background text-muted-foreground"
               )}
             >
               {number}
             </span>
-            <p className="mt-3 text-[9px] font-medium text-slate-600 sm:text-[11px]">
+            <p className="mt-3 text-[9px] font-medium text-muted-foreground sm:text-[11px]">
               {label}
             </p>
           </div>
@@ -555,12 +557,12 @@ const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
       id="call-to-action"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-slate-950 px-6 py-10 text-center text-white"
+      className="bg-primary px-6 py-10 text-center text-primary-foreground"
     >
       <h3 className="text-xl font-semibold tracking-tight">
         Build something people want to open.
       </h3>
-      <p className="mx-auto mt-2 max-w-sm text-[11px] leading-5 text-slate-400">
+      <p className="mx-auto mt-2 max-w-sm text-[11px] leading-5 text-primary-foreground/65">
         Pick your base and add your first component in under a minute.
       </p>
       <span className="mt-5 inline-flex h-9 items-center rounded-md bg-blue-600 px-5 text-[11px] font-semibold text-white">
@@ -573,7 +575,7 @@ const WelcomePreview = ({ selectedId, onSelect }: EmailPreviewContentProps) => (
       id="utility-footer"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-slate-50 px-6 py-7 text-center text-slate-400"
+      className="bg-muted/50 px-6 py-7 text-center text-muted-foreground"
     >
       <p className="text-[9px] leading-4">
         Need help? Read the docs or reply to this email.
@@ -587,21 +589,23 @@ const OrderConfirmedPreview = ({
   selectedId,
   onSelect,
 }: EmailPreviewContentProps) => (
-  <div className="w-full overflow-hidden bg-white font-sans text-slate-950">
+  <div className="w-full bg-background font-sans text-foreground">
     <SelectableEmailPart
       id="header-with-logo"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="border-b border-slate-100 bg-white px-6 py-5 sm:px-8"
+      className="border-b bg-background px-6 py-5 sm:px-8"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm font-semibold">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-slate-950 text-white">
+          <span className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <LogoMark className="size-4" />
           </span>
           Northstar
         </div>
-        <span className="text-[10px] text-slate-400">Order #ECN-2048</span>
+        <span className="text-[10px] text-muted-foreground">
+          Order #ECN-2048
+        </span>
       </div>
     </SelectableEmailPart>
 
@@ -609,18 +613,18 @@ const OrderConfirmedPreview = ({
       id="content"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-6 py-9 text-center sm:px-10 sm:py-11"
+      className="bg-background px-6 py-9 text-center sm:px-10 sm:py-11"
     >
-      <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+      <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400">
         <PackageCheckIcon className="size-6" aria-hidden="true" />
       </span>
-      <p className="mt-5 text-[9px] font-bold tracking-[0.2em] text-emerald-600 uppercase">
+      <p className="mt-5 text-[9px] font-bold tracking-[0.2em] text-emerald-600 uppercase dark:text-emerald-400">
         Order confirmed
       </p>
       <h3 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
         Thanks, Jamie. We&apos;ve got it.
       </h3>
-      <p className="mx-auto mt-3 max-w-sm text-[11px] leading-5 text-slate-500 sm:text-xs">
+      <p className="mx-auto mt-3 max-w-sm text-[11px] leading-5 text-muted-foreground sm:text-xs">
         We&apos;ll send another update as soon as your order leaves our studio.
       </p>
     </SelectableEmailPart>
@@ -629,13 +633,13 @@ const OrderConfirmedPreview = ({
       id="order-summary-table"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-6 pb-9 sm:px-10"
+      className="bg-background px-6 pt-6 pb-9 sm:px-10"
     >
-      <div className="rounded-xl border border-slate-200">
-        <div className="border-b border-slate-100 px-4 py-3">
+      <div className="rounded-xl border">
+        <div className="border-b px-4 py-3">
           <p className="text-[10px] font-semibold">Order summary</p>
         </div>
-        <div className="divide-y divide-slate-100 px-4">
+        <div className="divide-y divide-border px-4">
           {[
             ["Canvas Runner", "Sand / EU 42", "$128.00", productImages[0]],
             ["Everyday Tee", "Natural / M", "$42.00", productImages[1]],
@@ -644,7 +648,7 @@ const OrderConfirmedPreview = ({
               key={name as string}
               className="grid grid-cols-[48px_1fr_auto] items-center gap-3 py-3"
             >
-              <div className="relative size-12 overflow-hidden rounded-md bg-slate-100">
+              <div className="relative size-12 overflow-hidden rounded-md bg-muted">
                 <Image
                   fill
                   alt={(image as (typeof productImages)[number]).alt}
@@ -655,7 +659,7 @@ const OrderConfirmedPreview = ({
               </div>
               <div>
                 <p className="text-[11px] font-semibold">{name as string}</p>
-                <p className="mt-0.5 text-[9px] text-slate-400">
+                <p className="mt-0.5 text-[9px] text-muted-foreground">
                   {detail as string}
                 </p>
               </div>
@@ -663,12 +667,12 @@ const OrderConfirmedPreview = ({
             </div>
           ))}
         </div>
-        <div className="space-y-2 border-t border-slate-100 bg-slate-50 px-4 py-3 text-[10px]">
-          <div className="flex justify-between text-slate-500">
+        <div className="space-y-2 border-t bg-muted/50 px-4 py-3 text-[10px]">
+          <div className="flex justify-between text-muted-foreground">
             <span>Shipping</span>
             <span>$12.00</span>
           </div>
-          <div className="flex justify-between font-semibold text-slate-950">
+          <div className="flex justify-between font-semibold text-foreground">
             <span>Total</span>
             <span>$182.00</span>
           </div>
@@ -680,15 +684,15 @@ const OrderConfirmedPreview = ({
       id="billing-order-summary"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-slate-50 px-6 py-8 sm:px-10"
+      className="bg-muted/50 px-6 py-8 sm:px-10"
     >
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <div className="flex items-center gap-1.5 text-[9px] font-semibold tracking-wide text-slate-400 uppercase">
+          <div className="flex items-center gap-1.5 text-[9px] font-semibold tracking-wide text-muted-foreground uppercase">
             <TruckIcon className="size-3" aria-hidden="true" />
             Ship to
           </div>
-          <p className="mt-2 text-[10px] leading-4 text-slate-600">
+          <p className="mt-2 text-[10px] leading-4 text-muted-foreground">
             Jamie Chen
             <br />
             128 Flushing Ave
@@ -697,10 +701,10 @@ const OrderConfirmedPreview = ({
           </p>
         </div>
         <div>
-          <p className="text-[9px] font-semibold tracking-wide text-slate-400 uppercase">
+          <p className="text-[9px] font-semibold tracking-wide text-muted-foreground uppercase">
             Payment
           </p>
-          <p className="mt-2 text-[10px] leading-4 text-slate-600">
+          <p className="mt-2 text-[10px] leading-4 text-muted-foreground">
             Visa ending in 4242
             <br />
             Billing same as shipping
@@ -713,13 +717,13 @@ const OrderConfirmedPreview = ({
       id="call-to-action"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-white px-6 py-9 text-center"
+      className="bg-background px-6 py-9 text-center"
     >
-      <span className="inline-flex h-9 items-center rounded-md bg-slate-950 px-5 text-[11px] font-semibold text-white">
+      <span className="inline-flex h-9 items-center rounded-md bg-primary px-5 text-[11px] font-semibold text-primary-foreground">
         Track your order
         <ChevronRightIcon className="ml-1.5 size-3" aria-hidden="true" />
       </span>
-      <p className="mt-3 text-[9px] text-slate-400">
+      <p className="mt-3 text-[9px] text-muted-foreground">
         Estimated delivery: August 3–5
       </p>
     </SelectableEmailPart>
@@ -728,7 +732,7 @@ const OrderConfirmedPreview = ({
       id="utility-footer"
       selectedId={selectedId}
       onSelect={onSelect}
-      className="bg-slate-950 px-6 py-7 text-center text-slate-400"
+      className="bg-primary px-6 py-7 text-center text-primary-foreground/60"
     >
       <p className="text-[9px] leading-4">
         Questions about your order? Contact support.
