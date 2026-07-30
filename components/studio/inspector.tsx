@@ -36,12 +36,14 @@ export const Inspector = ({
 }: InspectorProps) => {
   if (!block) {
     return (
-      <div className="flex h-full flex-col items-center justify-center px-8 text-center">
-        <Box className="size-5 text-neutral-400" />
-        <p className="mt-3 text-[13px] font-medium text-neutral-900">
+      <div className="flex min-h-60 flex-1 flex-col items-center justify-center px-8 text-center">
+        <span className="flex size-9 items-center justify-center rounded-full bg-black/[.04]">
+          <Box className="size-4 text-neutral-400" />
+        </span>
+        <p className="mt-3 text-[12px] font-medium text-neutral-900">
           Select a layer
         </p>
-        <p className="mt-1 text-[11px] leading-5 text-neutral-500">
+        <p className="mt-1 max-w-48 text-[11px] leading-4 text-neutral-500">
           Choose any section on the canvas to edit its layout and style.
         </p>
       </div>
@@ -51,7 +53,7 @@ export const Inspector = ({
   return (
     <div className="min-h-0 flex-1 overflow-y-auto">
       <InspectorSection title="Layout">
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <InspectorRow label="Padding">
             <div className="flex gap-1.5">
               <ValueBox
@@ -62,13 +64,13 @@ export const Inspector = ({
                 type="number"
                 value={block.padding}
               />
-              <IconButton label="Uniform padding">
+              <IconButton className="size-7" label="Uniform padding">
                 <LayoutGrid className="size-3.5" />
               </IconButton>
             </div>
           </InspectorRow>
           <InspectorRow label="Align">
-            <div className="grid grid-cols-3 rounded-xl bg-neutral-100 p-0.5">
+            <div className="grid grid-cols-3 rounded-md bg-black/[.04] p-0.5">
               {(
                 [
                   ["left", AlignLeft],
@@ -78,7 +80,7 @@ export const Inspector = ({
               ).map(([value, Icon]) => (
                 <IconButton
                   active={block.alignment === value}
-                  className="h-8 w-full"
+                  className="h-6 w-full"
                   key={value}
                   label={`Align ${value}`}
                   onClick={() => onUpdate({ alignment: value })}
@@ -92,7 +94,7 @@ export const Inspector = ({
       </InspectorSection>
 
       <InspectorSection title="Layer">
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <InspectorRow label="Position">
             <div className="grid grid-cols-2 gap-1.5">
               <ValueBox prefix="X" readOnly value="0" />
@@ -120,7 +122,7 @@ export const Inspector = ({
       </InspectorSection>
 
       <InspectorSection title="Styles">
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <InspectorRow label="Radius">
             <ValueBox
               min="0"
@@ -142,7 +144,7 @@ export const Inspector = ({
                 value={block.borderWidth}
               />
               <label
-                className="size-9 shrink-0 cursor-pointer rounded-xl border border-neutral-200"
+                className="size-7 shrink-0 cursor-pointer rounded-md border border-black/[.08]"
                 style={{ backgroundColor: block.borderColor }}
                 title="Border color"
               >
@@ -161,7 +163,7 @@ export const Inspector = ({
           <InspectorRow label="Shadow">
             <button
               className={cn(
-                "h-9 rounded-xl bg-neutral-100 px-3 text-left text-[12px] text-neutral-500",
+                "h-7 rounded-md bg-black/[.04] px-2 text-left text-[11px] text-neutral-500",
                 block.shadow && "bg-neutral-900 text-white"
               )}
               onClick={() => onUpdate({ shadow: !block.shadow })}
@@ -180,7 +182,7 @@ export const Inspector = ({
                 value={block.background}
               />
               <label
-                className="size-9 shrink-0 cursor-pointer rounded-xl border border-neutral-200"
+                className="size-7 shrink-0 cursor-pointer rounded-md border border-black/[.08]"
                 style={{ backgroundColor: block.background }}
                 title="Fill color"
               >
@@ -200,7 +202,7 @@ export const Inspector = ({
       </InspectorSection>
 
       <InspectorSection title="Transforms">
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           <InspectorRow label="Rotate">
             <div className="flex gap-1.5">
               <ValueBox
@@ -211,12 +213,14 @@ export const Inspector = ({
                 value={block.rotation}
               />
               <IconButton
+                className="size-7"
                 label="Rotate left"
                 onClick={() => onUpdate({ rotation: block.rotation - 90 })}
               >
                 <RotateCcw className="size-3.5" />
               </IconButton>
               <IconButton
+                className="size-7"
                 label="Rotate right"
                 onClick={() => onUpdate({ rotation: block.rotation + 90 })}
               >
@@ -228,6 +232,7 @@ export const Inspector = ({
             <div className="flex justify-end gap-1.5">
               <IconButton
                 active={block.flipX}
+                className="size-7"
                 label="Flip horizontally"
                 onClick={() => onUpdate({ flipX: !block.flipX })}
               >
@@ -235,6 +240,7 @@ export const Inspector = ({
               </IconButton>
               <IconButton
                 active={block.flipY}
+                className="size-7"
                 label="Flip vertically"
                 onClick={() => onUpdate({ flipY: !block.flipY })}
               >
@@ -245,9 +251,9 @@ export const Inspector = ({
         </div>
       </InspectorSection>
 
-      <div className="p-5">
+      <div className="border-t border-black/[.06] p-3">
         <button
-          className="flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-red-200 text-[12px] font-medium text-red-600 transition-colors hover:bg-red-50"
+          className="flex h-8 w-full items-center justify-center gap-2 rounded-md border border-red-500/20 text-[11px] font-medium text-red-600 transition-colors hover:bg-red-500/[.06]"
           onClick={onDelete}
           type="button"
         >

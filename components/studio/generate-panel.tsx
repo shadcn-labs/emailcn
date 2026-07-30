@@ -13,16 +13,16 @@ export const GeneratePanel = ({
   onPromptChange,
   prompt,
 }: GeneratePanelProps) => (
-  <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-5">
-    <div className="mt-2 rounded-2xl border border-neutral-200 p-3">
+  <div className="min-h-0 flex-1 overflow-y-auto border-t border-black/[.06] p-2.5">
+    <div className="rounded-lg border border-black/[.08] bg-white/55 p-2">
       <textarea
-        className="h-28 w-full resize-none bg-transparent text-[12px] leading-5 outline-none placeholder:text-neutral-400"
+        className="h-24 w-full resize-none bg-transparent px-1 text-[12px] leading-5 outline-none placeholder:text-neutral-400"
         onChange={(event) => onPromptChange(event.target.value)}
         placeholder="Describe the email you want to compose…"
         value={prompt}
       />
       <button
-        className="mt-2 flex h-9 w-full items-center justify-center gap-2 rounded-xl bg-neutral-950 text-[12px] font-semibold text-white disabled:opacity-40"
+        className="mt-2 flex h-8 w-full items-center justify-center gap-2 rounded-md bg-neutral-950 text-[11px] font-medium text-white transition-opacity hover:opacity-85 disabled:opacity-40"
         disabled={!prompt.trim()}
         onClick={onGenerate}
         type="button"
@@ -31,13 +31,13 @@ export const GeneratePanel = ({
         Build composition
       </button>
     </div>
-    <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-neutral-400">
+    <p className="mt-5 px-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-neutral-400">
       Try a prompt
     </p>
-    <div className="mt-2 space-y-2">
+    <div className="mt-1.5 space-y-1">
       {STUDIO_GENERATE_PROMPTS.map((suggestion) => (
         <button
-          className="flex w-full items-center justify-between rounded-xl bg-neutral-50 px-3 py-3 text-left text-[11px] text-neutral-600 hover:bg-neutral-100"
+          className="flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-left text-[11px] text-neutral-600 transition-colors hover:bg-black/[.04]"
           key={suggestion}
           onClick={() => onPromptChange(suggestion)}
           type="button"

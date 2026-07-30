@@ -56,10 +56,11 @@ export const SortableBlock = ({
   return (
     <div
       className={cn(
-        "group outline outline-0 outline-blue-500 transition-[outline-width,opacity]",
-        isSelected && "z-10 outline-2",
+        "group outline outline-0 outline-sky-500 transition-[outline-width,opacity] duration-150 hover:outline-1 hover:outline-sky-500/40",
+        isSelected && "z-10 outline-2 outline-sky-500",
         isDragging && "opacity-25"
       )}
+      data-block-id={block.id}
       ref={setNodeRef}
       style={sortableStyle}
     >
@@ -72,7 +73,7 @@ export const SortableBlock = ({
         {...listeners}
       />
       {isSelected ? (
-        <div className="pointer-events-none absolute left-0 top-0 z-20 -translate-y-full bg-blue-600 px-2 py-1 text-[9px] font-semibold text-white">
+        <div className="pointer-events-none absolute left-0 top-0 z-20 -translate-y-full rounded-t-sm bg-sky-500 px-2 py-1 text-[9px] font-medium text-white shadow-sm">
           {block.label}
         </div>
       ) : null}

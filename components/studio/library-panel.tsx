@@ -25,9 +25,10 @@ const LibraryItem = ({
   return (
     <button
       className={cn(
-        "group flex w-full cursor-grab items-center gap-3 rounded-xl border border-transparent p-2 text-left transition-colors hover:border-neutral-200 hover:bg-neutral-50 active:cursor-grabbing",
+        "group flex w-full cursor-grab items-center gap-2.5 rounded-lg border border-transparent p-1.5 text-left transition-colors hover:border-black/[.06] hover:bg-black/[.035] active:cursor-grabbing",
         isDragging && "opacity-35"
       )}
+      data-library-slug={item.slug}
       onClick={() => onAdd(item)}
       ref={setNodeRef}
       type="button"
@@ -36,10 +37,10 @@ const LibraryItem = ({
     >
       <SectionThumbnail item={item} />
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-[13px] font-medium text-neutral-900">
+        <span className="block truncate text-[12px] font-medium text-neutral-900">
           {item.title}
         </span>
-        <span className="mt-0.5 block truncate text-[11px] text-neutral-500">
+        <span className="mt-0.5 block truncate text-[10px] text-neutral-500">
           {item.family}
         </span>
       </span>
@@ -66,24 +67,24 @@ export const LibraryPanel = ({
   query,
 }: LibraryPanelProps) => (
   <>
-    <div className="px-5 pb-3">
+    <div className="shrink-0 border-t border-black/[.06] px-2.5 pb-2 pt-2.5">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-neutral-400" />
+        <Search className="absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-neutral-400" />
         <input
-          className="h-10 w-full rounded-xl bg-neutral-100 pl-9 pr-3 text-[12px] outline-none placeholder:text-neutral-400 focus:ring-2 focus:ring-neutral-300"
+          className="h-8 w-full rounded-md bg-black/[.04] pl-8 pr-2.5 text-[11px] outline-none placeholder:text-neutral-400 focus:ring-2 focus:ring-sky-500/30"
           onChange={(event) => onQueryChange(event.target.value)}
           placeholder="Search 72 components"
           type="search"
           value={query}
         />
       </div>
-      <div className="no-scrollbar mt-3 flex gap-1 overflow-x-auto">
+      <div className="no-scrollbar mt-2 flex gap-1 overflow-x-auto">
         {STUDIO_CATEGORY_FILTERS.map((value) => (
           <button
             className={cn(
-              "h-7 shrink-0 rounded-lg px-2.5 text-[10px] font-medium text-neutral-500 hover:bg-neutral-100",
+              "h-6 shrink-0 rounded-md px-2 text-[10px] font-medium text-neutral-500 hover:bg-black/[.05]",
               category === value &&
-                "bg-neutral-950 text-white hover:bg-neutral-950"
+                "bg-sky-500/10 text-sky-600 hover:bg-sky-500/10"
             )}
             key={value}
             onClick={() => onCategoryChange(value)}
@@ -94,7 +95,7 @@ export const LibraryPanel = ({
         ))}
       </div>
     </div>
-    <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-5">
+    <div className="min-h-0 flex-1 overflow-y-auto border-t border-black/[.06] p-1">
       {items.map((item) => (
         <LibraryItem item={item} key={item.slug} onAdd={onAdd} />
       ))}

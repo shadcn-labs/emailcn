@@ -8,7 +8,7 @@ export const SectionThumbnail = ({ item }: { item: StudioCatalogItem }) => {
   const isElement = item.category === "Elements";
 
   return (
-    <div className="relative h-14 w-[72px] shrink-0 overflow-hidden rounded-lg border border-neutral-200 bg-white p-2">
+    <div className="relative h-12 w-16 shrink-0 overflow-hidden rounded-md border border-black/[.08] bg-white p-1.5 shadow-sm">
       {isHeader ? (
         <div className="flex h-full flex-col justify-between">
           <div className="flex items-center justify-between">

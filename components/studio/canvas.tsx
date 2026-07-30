@@ -29,9 +29,10 @@ export const Canvas = ({
   return (
     <div
       className={cn(
-        "relative min-h-[680px] overflow-visible bg-white shadow-[0_1px_2px_rgba(0,0,0,.04)] ring-1 ring-black/[.04] transition-shadow",
-        isOver && "shadow-[0_0_0_3px_rgba(59,130,246,.35)]"
+        "relative min-h-[680px] overflow-visible bg-white shadow-sm ring-1 ring-black/[.08] transition-[box-shadow,ring-color] duration-150",
+        isOver && "shadow-[0_0_0_2px_rgba(12,140,233,.35)] ring-sky-500/40"
       )}
+      data-testid="studio-canvas"
       ref={setNodeRef}
       style={{ width: canvasWidth }}
     >
