@@ -2,7 +2,6 @@
 
 import { SettingsIcon } from "lucide-react";
 import { useState } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
 
 import { HapticsSwitcher } from "@/components/haptics-switcher";
 import { ModeSwitcher } from "@/components/mode-switcher";
@@ -24,23 +23,19 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useHapticsEnabled } from "@/hooks/use-haptic-toggle";
+import { useHapticsToggle } from "@/hooks/use-haptic-toggle";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useSoundEnabled } from "@/hooks/use-sound-toggle";
+import { useSoundToggle } from "@/hooks/use-sound-toggle";
+import { useThemeToggle } from "@/hooks/use-theme-toggle";
 
 export const SiteSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
-  const [soundEnabled, setSoundEnabled] = useSoundEnabled();
-  const [hapticsEnabled, setHapticsEnabled] = useHapticsEnabled();
 
-  useHotkeys("s", () => {
-    setSoundEnabled((prev) => !prev);
-  });
-
-  useHotkeys("h", () => {
-    setHapticsEnabled((prev) => !prev);
-  });
+  // Hotkeys must stay mounted outside the popover content.
+  useThemeToggle();
+  useSoundToggle();
+  useHapticsToggle();
 
   const trigger = (
     <Button
@@ -67,17 +62,14 @@ export const SiteSettings = () => {
           <span className="w-12 text-sm">Sound</span>
           {!isMobile && <Kbd>S</Kbd>}
         </div>
-        <SoundSwitcher value={soundEnabled} onValueChange={setSoundEnabled} />
+        <SoundSwitcher />
       </div>
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <span className="w-12 text-sm">Haptics</span>
           {!isMobile && <Kbd>H</Kbd>}
         </div>
-        <HapticsSwitcher
-          value={hapticsEnabled}
-          onValueChange={setHapticsEnabled}
-        />
+        <HapticsSwitcher />
       </div>
     </div>
   );
@@ -103,7 +95,11 @@ export const SiteSettings = () => {
       ) : (
         <Popover open={isOpen} onOpenChange={setIsOpen} sounds>
           <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-          <PopoverContent className="w-56 p-2 dark:bg-black">
+          <PopoverContent
+            align="end"
+            className="w-56 p-2 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-100 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-100 dark:bg-black"
+            onOpenAutoFocus={(event) => event.preventDefault()}
+          >
             {content}
           </PopoverContent>
         </Popover>
