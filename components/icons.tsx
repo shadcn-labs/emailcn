@@ -12,6 +12,7 @@ export const ThemeIcon = ({
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
+    strokeWidth={2}
     className={cn("size-4", className)}
     {...props}
   >

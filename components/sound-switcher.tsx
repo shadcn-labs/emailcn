@@ -1,13 +1,11 @@
 "use client";
 
-import { MonitorIcon, SunIcon, MoonIcon } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { motion } from "motion/react";
-import { useTheme } from "next-themes";
 import type { JSX } from "react";
 import { useSyncExternalStore } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
 
-const ThemeOption = ({
+const SoundOption = ({
   icon,
   value,
   isActive,
@@ -16,21 +14,21 @@ const ThemeOption = ({
   icon: JSX.Element;
   value: string;
   isActive?: boolean;
-  onClick: (value: string) => void;
+  onClick: (value: boolean) => void;
 }) => (
   <button
     data-active={isActive}
     className="relative flex size-8 items-center justify-center rounded-full text-muted-foreground transition-[color] hover:text-foreground data-[active=true]:text-foreground [&_svg]:size-4"
     role="radio"
     aria-checked={isActive}
-    aria-label={`Switch to ${value} theme`}
-    onClick={() => onClick(value)}
+    aria-label={`Switch to ${value} sound`}
+    onClick={() => onClick(value === "on")}
   >
     {icon}
 
     {isActive && (
       <motion.span
-        layoutId="theme-option"
+        layoutId="sound-option"
         transition={{ bounce: 0.3, duration: 0.6, type: "spring" }}
         className="absolute inset-0 rounded-full border"
       />
@@ -38,36 +36,32 @@ const ThemeOption = ({
   </button>
 );
 
-const THEME_OPTIONS = [
+const SOUND_OPTIONS = [
   {
-    icon: <MonitorIcon />,
-    value: "system",
+    icon: <Volume2 />,
+    value: "on",
   },
   {
-    icon: <SunIcon />,
-    value: "light",
-  },
-  {
-    icon: <MoonIcon />,
-    value: "dark",
+    icon: <VolumeX />,
+    value: "off",
   },
 ];
 
-const ModeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
-
+const SoundSwitcher = ({
+  value,
+  onValueChange,
+}: {
+  value: boolean;
+  onValueChange: (value: boolean) => void;
+}) => {
   const isMounted = useSyncExternalStore(
     Function.prototype as () => () => void,
     () => true,
     () => false
   );
 
-  useHotkeys("d", () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  });
-
   if (!isMounted) {
-    return <div className="flex h-8 w-24" />;
+    return <div className="flex h-8 w-20" />;
   }
 
   return (
@@ -79,17 +73,17 @@ const ModeSwitcher = () => {
       className="inline-flex items-center overflow-clip rounded-full bg-background inset-ring-1 inset-ring-border"
       role="radiogroup"
     >
-      {THEME_OPTIONS.map((option) => (
-        <ThemeOption
+      {SOUND_OPTIONS.map((option) => (
+        <SoundOption
           key={option.value}
           icon={option.icon}
           value={option.value}
-          isActive={theme === option.value}
-          onClick={setTheme}
+          isActive={option.value === "on" ? value : !value}
+          onClick={onValueChange}
         />
       ))}
     </motion.div>
   );
 };
 
-export { ModeSwitcher };
+export { SoundSwitcher };

@@ -1,13 +1,12 @@
 "use client";
 
 import { SettingsIcon } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
-import type { VibrateIconHandle } from "@/components/animated-icons/vibrate";
-import { VibrateIcon } from "@/components/animated-icons/vibrate";
-import type { Volume2IconHandle } from "@/components/animated-icons/volume-2";
-import { Volume2Icon } from "@/components/animated-icons/volume-2";
+import { HapticsSwitcher } from "@/components/haptics-switcher";
+import { ModeSwitcher } from "@/components/mode-switcher";
+import { SoundSwitcher } from "@/components/sound-switcher";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -25,52 +24,23 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Toggle } from "@/components/ui/toggle";
 import { useHapticsEnabled } from "@/hooks/use-haptic-toggle";
-import { useIsMac } from "@/hooks/use-is-mac";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useSoundEnabled } from "@/hooks/use-sound-toggle";
 
 export const SiteSettings = () => {
-  const volumeIconRef = useRef<Volume2IconHandle>(null);
-  const vibrateIconRef = useRef<VibrateIconHandle>(null);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
-  const isMac = useIsMac();
   const [soundEnabled, setSoundEnabled] = useSoundEnabled();
   const [hapticsEnabled, setHapticsEnabled] = useHapticsEnabled();
 
-  useHotkeys(
-    "meta+s, ctrl+s",
-    () => {
-      setSoundEnabled((prev) => !prev);
-    },
-    { preventDefault: true }
-  );
+  useHotkeys("s", () => {
+    setSoundEnabled((prev) => !prev);
+  });
 
-  useHotkeys(
-    "meta+h, ctrl+h",
-    () => {
-      setHapticsEnabled((prev) => !prev);
-    },
-    { preventDefault: true }
-  );
-
-  const handleSoundMouseEnter = () => {
-    volumeIconRef.current?.startAnimation();
-  };
-
-  const handleSoundMouseLeave = () => {
-    volumeIconRef.current?.stopAnimation();
-  };
-
-  const handleHapticsMouseEnter = () => {
-    vibrateIconRef.current?.startAnimation();
-  };
-
-  const handleHapticsMouseLeave = () => {
-    vibrateIconRef.current?.stopAnimation();
-  };
+  useHotkeys("h", () => {
+    setHapticsEnabled((prev) => !prev);
+  });
 
   const trigger = (
     <Button
@@ -84,40 +54,30 @@ export const SiteSettings = () => {
   );
 
   const content = (
-    <div className="flex flex-col gap-1">
-      <div className="flex items-center justify-between gap-2 pl-1">
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm">Toggle Sound</span>
-          {!isMobile && <Kbd>{isMac ? "⌘" : "Ctrl"}+S</Kbd>}
+          <span className="w-12 text-sm">Theme</span>
+          {!isMobile && <Kbd>D</Kbd>}
         </div>
-        <Toggle
-          pressed={soundEnabled}
-          onPressedChange={setSoundEnabled}
-          aria-label="Toggle sound"
-          variant="ghost"
-          size="icon-sm"
-          onMouseEnter={handleSoundMouseEnter}
-          onMouseLeave={handleSoundMouseLeave}
-        >
-          <Volume2Icon ref={volumeIconRef} />
-        </Toggle>
+        <ModeSwitcher />
       </div>
-      <div className="flex items-center justify-between gap-2 pl-1">
+      <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm">Toggle Haptics</span>
-          {!isMobile && <Kbd>{isMac ? "⌘" : "Ctrl"}+H</Kbd>}
+          <span className="w-12 text-sm">Sound</span>
+          {!isMobile && <Kbd>S</Kbd>}
         </div>
-        <Toggle
-          pressed={hapticsEnabled}
-          onPressedChange={setHapticsEnabled}
-          aria-label="Toggle haptics"
-          variant="ghost"
-          size="icon-sm"
-          onMouseEnter={handleHapticsMouseEnter}
-          onMouseLeave={handleHapticsMouseLeave}
-        >
-          <VibrateIcon ref={vibrateIconRef} />
-        </Toggle>
+        <SoundSwitcher value={soundEnabled} onValueChange={setSoundEnabled} />
+      </div>
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <span className="w-12 text-sm">Haptics</span>
+          {!isMobile && <Kbd>H</Kbd>}
+        </div>
+        <HapticsSwitcher
+          value={hapticsEnabled}
+          onValueChange={setHapticsEnabled}
+        />
       </div>
     </div>
   );
@@ -143,7 +103,9 @@ export const SiteSettings = () => {
       ) : (
         <Popover open={isOpen} onOpenChange={setIsOpen} sounds>
           <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-          <PopoverContent className="p-1 w-fit">{content}</PopoverContent>
+          <PopoverContent className="p-2 w-56 dark:bg-black">
+            {content}
+          </PopoverContent>
         </Popover>
       )}
     </>
