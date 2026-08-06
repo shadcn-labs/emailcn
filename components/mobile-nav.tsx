@@ -179,9 +179,6 @@ export const MobileNav = ({
                   {item.label}
                 </MobileLink>
               ))}
-              <MobileLink href={ROUTES.DOCS_CHANGELOG} onOpenChange={setOpen}>
-                Changelog
-              </MobileLink>
             </div>
           </div>
           <div className="flex flex-col gap-4">
