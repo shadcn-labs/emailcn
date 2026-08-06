@@ -36,8 +36,8 @@ export const SiteHeader = () => (
             <Button
               asChild
               variant="ghost"
-              size="sm"
-              className="hover:bg-transparent focus-visible:bg-transparent dark:hover:bg-transparent lg:h-auto lg:py-1.5 lg:text-base"
+              size="icon-sm"
+              className="hover:bg-transparent focus-visible:bg-transparent dark:hover:bg-transparent lg:size-9"
               sound="click"
             >
               <Link
@@ -46,11 +46,10 @@ export const SiteHeader = () => (
                 rel="noopener noreferrer"
               >
                 <LogoMark className="size-5" />
-                <span className="hidden sm:inline">Shadcn Labs</span>
               </Link>
             </Button>
           </BrandContextMenu>
-          <span className="text-muted-foreground/50">/</span>
+          <span className="text-muted-foreground/50 ml-1">/</span>
           <LabsNav />
         </div>
         <MainNav items={navItems} className="hidden lg:flex" />
