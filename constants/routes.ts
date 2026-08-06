@@ -15,4 +15,5 @@ export const ROUTES = {
   OG: "/og",
   RSS: "/rss.xml",
   SPONSOR: "/sponsor",
+  STUDIO: "/studio",
 } as const;
