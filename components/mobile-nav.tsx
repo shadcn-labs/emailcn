@@ -12,6 +12,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
 import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import type { FolderItem } from "@/lib/page-tree";
@@ -151,9 +152,6 @@ export const MobileNav = ({
             </div>
             <span className="sr-only">Toggle Menu</span>
           </div>
-          <span className="flex h-8 items-center text-lg leading-none font-medium">
-            Menu
-          </span>
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -184,6 +182,18 @@ export const MobileNav = ({
               <MobileLink href={ROUTES.DOCS_CHANGELOG} onOpenChange={setOpen}>
                 Changelog
               </MobileLink>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="text-sm font-medium text-muted-foreground">
+              Sections
+            </div>
+            <div className="flex flex-col gap-3">
+              {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
+                <MobileLink key={name} href={href} onOpenChange={setOpen}>
+                  {name}
+                </MobileLink>
+              ))}
             </div>
           </div>
           {tree.children.map((item) => {
