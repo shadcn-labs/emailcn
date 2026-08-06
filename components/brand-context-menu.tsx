@@ -1,16 +1,11 @@
 "use client";
 
-import { DownloadIcon, ExternalLinkIcon } from "lucide-react";
+import { DownloadIcon, SquareDashedIcon, TypeIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useCallback } from "react";
 import { toast } from "sonner";
 
-import {
-  LogoMark,
-  LogoType,
-  getLogoMarkSVG,
-  getLogoTypeSVG,
-} from "@/components/logo";
+import { LogoMark, getLogoMarkSVG, getLogoTypeSVG } from "@/components/logo";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -53,7 +48,7 @@ export const BrandContextMenu = ({
         </ContextMenuItem>
 
         <ContextMenuItem onClick={handleCopyLogotype}>
-          <LogoType />
+          <TypeIcon />
           Copy Logotype as SVG
         </ContextMenuItem>
 
@@ -65,7 +60,7 @@ export const BrandContextMenu = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ExternalLinkIcon />
+            <SquareDashedIcon />
             Brand Guidelines
           </a>
         </ContextMenuItem>

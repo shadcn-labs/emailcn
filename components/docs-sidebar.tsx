@@ -23,6 +23,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
 import { EXCLUDED_SECTIONS, isComponentsFolder, PAGES_NEW } from "@/lib/docs";
 import type { FolderItem } from "@/lib/page-tree";
@@ -32,17 +33,6 @@ import {
   getFolderItems,
 } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
-
-const TOP_LEVEL_SECTIONS = [
-  { href: ROUTES.DOCS, name: "Introduction" },
-  { href: ROUTES.DOCS_INSTALLATION, name: "Installation" },
-  { href: ROUTES.DOCS_COMPONENTS, name: "Components" },
-  // { href: ROUTES.DOCS_BLOCKS, name: "Blocks" },
-  { href: ROUTES.DOCS_MCP, name: "MCP" },
-  { href: ROUTES.DOCS_REGISTRY, name: "Registry" },
-  { href: ROUTES.LLMS, name: "llms.txt" },
-  { href: ROUTES.DOCS_CHANGELOG, name: "Changelog" },
-];
 
 const MENU_BUTTON_CLS =
   "relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48";

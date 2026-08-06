@@ -1,94 +1,84 @@
 "use client";
 
-import { MonitorIcon, SunIcon, MoonIcon } from "lucide-react";
-import { motion } from "motion/react";
+import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import type { JSX } from "react";
-import { useSyncExternalStore } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
-const ThemeOption = ({
-  icon,
-  value,
-  isActive,
-  onClick,
-}: {
-  icon: JSX.Element;
-  value: string;
-  isActive?: boolean;
-  onClick: (value: string) => void;
-}) => (
-  <button
-    data-active={isActive}
-    className="relative flex size-8 items-center justify-center rounded-full text-muted-foreground transition-[color] hover:text-foreground data-[active=true]:text-foreground [&_svg]:size-4"
-    role="radio"
-    aria-checked={isActive}
-    aria-label={`Switch to ${value} theme`}
-    onClick={() => onClick(value)}
-  >
-    {icon}
-
-    {isActive && (
-      <motion.span
-        layoutId="theme-option"
-        transition={{ bounce: 0.3, duration: 0.6, type: "spring" }}
-        className="absolute inset-0 rounded-full border"
-      />
-    )}
-  </button>
-);
+import { useFeedback } from "@/hooks/use-feedback";
+import { useMounted } from "@/hooks/use-mounted";
+import { cn } from "@/lib/utils";
 
 const THEME_OPTIONS = [
-  {
-    icon: <MonitorIcon />,
-    value: "system",
-  },
-  {
-    icon: <SunIcon />,
-    value: "light",
-  },
-  {
-    icon: <MoonIcon />,
-    value: "dark",
-  },
-];
+  { icon: MonitorIcon, value: "system" },
+  { icon: SunIcon, value: "light" },
+  { icon: MoonIcon, value: "dark" },
+] as const;
 
 const ModeSwitcher = () => {
   const { theme, setTheme } = useTheme();
-
-  const isMounted = useSyncExternalStore(
-    Function.prototype as () => () => void,
-    () => true,
-    () => false
-  );
+  const isMounted = useMounted();
+  const feedbackOn = useFeedback({ sound: "toggleOn" });
+  const feedbackOff = useFeedback({ sound: "toggleOff" });
 
   useHotkeys("d", () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const next = theme === "dark" ? "light" : "dark";
+    if (next === "dark") {
+      feedbackOff();
+    } else {
+      feedbackOn();
+    }
+    setTheme(next);
   });
 
   if (!isMounted) {
     return <div className="flex h-8 w-24" />;
   }
 
+  const activeIndex = Math.max(
+    0,
+    THEME_OPTIONS.findIndex((option) => option.value === theme)
+  );
+
   return (
-    <motion.div
-      key={String(isMounted)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="inline-flex items-center overflow-clip rounded-full bg-background inset-ring-1 inset-ring-border"
+    <div
+      className="relative inline-flex items-center rounded-full bg-background inset-ring-1 inset-ring-border"
       role="radiogroup"
+      aria-label="Theme"
     >
-      {THEME_OPTIONS.map((option) => (
-        <ThemeOption
-          key={option.value}
-          icon={option.icon}
-          value={option.value}
-          isActive={theme === option.value}
-          onClick={setTheme}
-        />
-      ))}
-    </motion.div>
+      <span
+        aria-hidden
+        className="pointer-events-none absolute top-0 left-0 size-8 rounded-full border transition-transform duration-200 ease-out"
+        style={{ transform: `translateX(${activeIndex * 100}%)` }}
+      />
+      {THEME_OPTIONS.map((option) => {
+        const Icon = option.icon;
+        const isActive = theme === option.value;
+
+        return (
+          <button
+            key={option.value}
+            type="button"
+            data-active={isActive}
+            className={cn(
+              "relative z-10 flex size-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground [&_svg]:size-4"
+            )}
+            role="radio"
+            aria-checked={isActive}
+            aria-label={`Switch to ${option.value} theme`}
+            onClick={() => {
+              if (option.value === "dark") {
+                feedbackOff();
+              } else {
+                feedbackOn();
+              }
+              setTheme(option.value);
+            }}
+          >
+            <Icon />
+          </button>
+        );
+      })}
+    </div>
   );
 };
 

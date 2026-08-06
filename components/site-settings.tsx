@@ -103,7 +103,7 @@ export const SiteSettings = () => {
       ) : (
         <Popover open={isOpen} onOpenChange={setIsOpen} sounds>
           <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-          <PopoverContent className="p-2 w-56 dark:bg-black">
+          <PopoverContent className="w-56 p-2 dark:bg-black">
             {content}
           </PopoverContent>
         </Popover>
