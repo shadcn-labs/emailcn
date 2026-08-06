@@ -1,8 +1,10 @@
 "use client";
 
-import { ArrowUpRightIcon, ChevronDownIcon } from "lucide-react";
-import { useState } from "react";
+import { ChevronDownIcon } from "lucide-react";
+import { useCallback, useRef, useState } from "react";
 
+import type { ArrowUpRightIconHandle } from "@/components/animated-icons/arrow-up-right";
+import { ArrowUpRightIcon } from "@/components/animated-icons/arrow-up-right";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -33,15 +35,21 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 
 const ExternalLinkLabel = ({
   name,
+  iconRef,
+  size = 16,
   iconClassName,
 }: {
   name: string;
+  iconRef: React.RefObject<ArrowUpRightIconHandle | null>;
+  size?: number;
   iconClassName?: string;
 }) => (
   <>
     {name}
     <ArrowUpRightIcon
-      className={cn("size-[1em] shrink-0 text-foreground", iconClassName)}
+      ref={iconRef}
+      size={size}
+      className={cn("inline-flex shrink-0", iconClassName)}
     />
   </>
 );
@@ -49,6 +57,63 @@ const ExternalLinkLabel = ({
 /** Full-width row hit target — matches Chat SDK mega-menu outlines. */
 const desktopLinkClassName =
   "flex w-full flex-row items-center gap-1 whitespace-nowrap rounded-none bg-transparent p-0 text-base font-normal leading-normal underline-offset-4 decoration-muted-foreground/50 decoration-1 hover:bg-transparent hover:underline focus:bg-transparent focus:underline data-[active=true]:bg-transparent";
+
+const DesktopNavLink = ({ item }: { item: LabsNavLink }) => {
+  const iconRef = useRef<ArrowUpRightIconHandle>(null);
+
+  const handleMouseEnter = useCallback(() => {
+    iconRef.current?.startAnimation();
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    iconRef.current?.stopAnimation();
+  }, []);
+
+  return (
+    <NavigationMenuLink
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={desktopLinkClassName}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <ExternalLinkLabel name={item.name} iconRef={iconRef} size={16} />
+    </NavigationMenuLink>
+  );
+};
+
+const MobileNavLink = ({
+  item,
+  onNavigate,
+}: {
+  item: LabsNavLink;
+  onNavigate: () => void;
+}) => {
+  const iconRef = useRef<ArrowUpRightIconHandle>(null);
+
+  const handleMouseEnter = useCallback(() => {
+    iconRef.current?.startAnimation();
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    iconRef.current?.stopAnimation();
+  }, []);
+
+  return (
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onNavigate}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="inline-flex items-center gap-1 text-2xl font-medium"
+    >
+      <ExternalLinkLabel name={item.name} iconRef={iconRef} size={24} />
+    </a>
+  );
+};
 
 const DesktopSection = ({
   title,
@@ -64,14 +129,7 @@ const DesktopSection = ({
     <ul className="flex flex-col gap-1">
       {items.map((item) => (
         <li key={item.href} className="w-full">
-          <NavigationMenuLink
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={desktopLinkClassName}
-          >
-            <ExternalLinkLabel name={item.name} />
-          </NavigationMenuLink>
+          <DesktopNavLink item={item} />
         </li>
       ))}
     </ul>
@@ -112,16 +170,11 @@ const LabsNavMobile = () => {
               <SectionTitle>{section.title}</SectionTitle>
               <div className="flex flex-col gap-3">
                 {section.items.map((item) => (
-                  <a
+                  <MobileNavLink
                     key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
-                    className="inline-flex items-center gap-1 text-2xl font-medium"
-                  >
-                    <ExternalLinkLabel name={item.name} />
-                  </a>
+                    item={item}
+                    onNavigate={() => setOpen(false)}
+                  />
                 ))}
               </div>
             </div>
