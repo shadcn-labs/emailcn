@@ -149,6 +149,7 @@ const LabsNavDesktop = () => {
         value={value}
         onValueChange={setValue}
         viewport={false}
+        delayDuration={0}
         className="z-50 max-w-none justify-start"
       >
         <NavigationMenuList className="justify-start">
