@@ -22,8 +22,9 @@ import {
 // import { _LABS_LATEST, LABS_NAV_SECTIONS } from "@/constants/nav";
 import { LABS_NAV_SECTIONS } from "@/constants/nav";
 import type { LabsNavLink as LabsNavLinkItem } from "@/constants/nav";
-import { SITE } from "@/constants/site";
+import { SITE, UTM_PARAMS } from "@/constants/site";
 import { useIconAnimation } from "@/hooks/use-icon-animation";
+import { addQueryParams } from "@/lib/url";
 import { cn } from "@/lib/utils";
 
 type SectionId = (typeof LABS_NAV_SECTIONS)[number]["id"];
@@ -158,7 +159,7 @@ const DesktopSection = ({
           <LabsNavLink item={item}>
             {({ label, onMouseEnter, onMouseLeave }) => (
               <NavigationMenuLink
-                href={item.href}
+                href={addQueryParams(item.href, UTM_PARAMS)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -222,7 +223,7 @@ const LabsNavMobile = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={LABS_LATEST.href}
+                  href={addQueryParams(LABS_LATEST.href, UTM_PARAMS)}
                   className={cn(latestCardClassName, "w-full")}
                   onClick={close}
                   onMouseEnter={onMouseEnter}
@@ -243,7 +244,7 @@ const LabsNavMobile = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        href={item.href}
+                        href={addQueryParams(item.href, UTM_PARAMS)}
                         className="inline-flex items-center gap-1 text-2xl font-medium"
                         onClick={close}
                         onMouseEnter={onMouseEnter}
@@ -311,7 +312,7 @@ const LabsNavDesktop = () => {
                     <LatestCard item={LABS_LATEST} nameClassName="min-h-15">
                       {({ content, onMouseEnter, onMouseLeave }) => (
                         <NavigationMenuLink
-                          href={LABS_LATEST.href}
+                          href={addQueryParams(LABS_LATEST.href, UTM_PARAMS)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cn(latestCardClassName, "w-55 gap-2 p-3")}
