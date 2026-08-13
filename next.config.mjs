@@ -3,9 +3,6 @@ import { createMDX } from "fumadocs-mdx/next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
-  experimental: {
-    viewTransition: true,
-  },
   headers() {
     const link = [
       '</.well-known/api-catalog>; rel="api-catalog"',
@@ -30,9 +27,6 @@ const nextConfig = {
   },
   outputFileTracingIncludes: {
     "/*": ["./registry/**/*"],
-  },
-  typescript: {
-    ignoreBuildErrors: true,
   },
 };
 

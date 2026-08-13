@@ -14,11 +14,7 @@ import { DocsTocFooter } from "@/components/docs-toc-footer";
 import { PageTransition } from "@/components/page-transition";
 import { Badge } from "@/components/ui/badge";
 import { ROUTES } from "@/constants/routes";
-import {
-  formatTitleFromSlug,
-  isHiddenDocPath,
-  isHiddenDocUrl,
-} from "@/lib/docs";
+import { formatTitleFromSlug } from "@/lib/docs";
 import { source } from "@/lib/source";
 import { absoluteUrl } from "@/lib/utils";
 import { mdxComponents } from "@/mdx-components";
@@ -29,17 +25,12 @@ export const revalidate = false;
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-export const generateStaticParams = () =>
-  source.generateParams().filter(({ slug }) => !isHiddenDocPath(slug));
+export const generateStaticParams = () => source.generateParams();
 
 export const generateMetadata = async (props: {
   params: Promise<{ slug?: string[] }>;
 }) => {
   const params = await props.params;
-  if (isHiddenDocPath(params.slug)) {
-    notFound();
-  }
-
   const page = source.getPage(params.slug);
 
   if (!page) {
@@ -83,10 +74,6 @@ const buildBreadcrumbs = (
 // oxlint-disable-next-line complexity
 const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
   const params = await props.params;
-  if (isHiddenDocPath(params.slug)) {
-    notFound();
-  }
-
   const page = source.getPage(params.slug);
 
   if (!page) {
@@ -95,17 +82,7 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
 
   const doc = page.data;
   const MdxContent = doc.body;
-  const adjacent = findNeighbour(source.pageTree, page.url);
-  const neighbours = {
-    next:
-      adjacent.next && !isHiddenDocUrl(adjacent.next.url)
-        ? adjacent.next
-        : null,
-    previous:
-      adjacent.previous && !isHiddenDocUrl(adjacent.previous.url)
-        ? adjacent.previous
-        : null,
-  };
+  const neighbours = findNeighbour(source.pageTree, page.url);
   const raw = await page.data.getText("raw");
 
   const { links } = doc as { links?: { doc?: string; api?: string } };
