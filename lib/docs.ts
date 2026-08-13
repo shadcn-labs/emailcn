@@ -37,7 +37,6 @@ export const isFontsFolder = (folder: PageTreeFolder) =>
 
 export const homeContentRoute = `${ROUTES.LLMS_MDX}/content.md`;
 export const docsContentRoute = `${ROUTES.LLMS_MDX}${ROUTES.DOCS}`;
-export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
 
 const TITLE_OVERRIDES: Record<string, string> = {};
 

@@ -7,8 +7,6 @@ interface CreatePageMetadataOptions {
   description?: string;
   noIndex?: boolean;
   ogDescription?: string;
-  ogImage?: string;
-  ogImageAlt?: string;
   ogTitle?: string;
   ogType?: "article" | "website";
   path: string;
@@ -22,8 +20,6 @@ export const createPageMetadata = (
     description,
     noIndex = false,
     ogDescription,
-    ogImage,
-    ogImageAlt,
     ogTitle,
     ogType = "website",
     path,
@@ -31,7 +27,6 @@ export const createPageMetadata = (
   } = options;
 
   const canonical = path.startsWith("/") ? path : `/${path}`;
-  const resolvedOgImage = ogImage ?? `/og${canonical === "/" ? "" : canonical}`;
   const resolvedTitle = ogTitle ?? title;
 
   return {
@@ -43,9 +38,9 @@ export const createPageMetadata = (
       description: ogDescription ?? description,
       images: [
         {
-          alt: ogImageAlt ?? resolvedTitle,
+          alt: resolvedTitle,
           height: 630,
-          url: resolvedOgImage,
+          url: SITE.OG_IMAGE,
           width: 1200,
         },
       ],
@@ -60,7 +55,7 @@ export const createPageMetadata = (
       card: "summary_large_image",
       creator: SITE.AUTHOR.TWITTER,
       description: ogDescription ?? description,
-      images: [resolvedOgImage],
+      images: [SITE.OG_IMAGE],
       site: SITE.AUTHOR.TWITTER,
       title: resolvedTitle,
     },

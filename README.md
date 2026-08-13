@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/og.png" alt="emailcn banner" />
+  <img src="./.github/assets/gh.png" alt="emailcn banner" />
 </p>
 
 <h1 align="center">emailcn</h1>
