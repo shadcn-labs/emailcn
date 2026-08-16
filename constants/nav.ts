@@ -7,9 +7,9 @@ export interface LabsNavLink {
 }
 
 export const LABS_LATEST = {
-  description: "Beautiful emails, made simple",
-  href: "https://emailcn.run",
-  name: "emailcn",
+  description: "Beautiful PDFs, made simple",
+  href: "https://pdfcn.dev",
+  name: "pdfcn",
 } as const satisfies LabsNavLink;
 
 export const LABS_REGISTRIES = [
