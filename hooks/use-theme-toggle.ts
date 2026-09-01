@@ -29,16 +29,7 @@ export const useThemeToggle = () => {
     setTheme(nextResolved);
   }, [resolvedTheme, setTheme, feedbackOn, feedbackOff]);
 
-  useHotkeys(
-    "d",
-    () => toggleTheme(),
-    {
-      enableOnContentEditable: true,
-      enableOnFormTags: true,
-      preventDefault: true,
-    },
-    [toggleTheme]
-  );
+  useHotkeys("d", () => toggleTheme(), { preventDefault: true }, [toggleTheme]);
 
   return { toggleTheme };
 };

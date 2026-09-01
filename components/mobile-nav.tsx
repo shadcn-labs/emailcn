@@ -135,7 +135,7 @@ export const MobileNav = ({
             className
           )}
         >
-          <div className="relative flex size-8 items-center justify-center">
+          <div className="relative flex h-8 w-4 items-center justify-center">
             <div className="relative size-4">
               <span
                 className={cn(
@@ -162,19 +162,24 @@ export const MobileNav = ({
         sideOffset={14}
       >
         <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
-          <div className="flex flex-col gap-3">
-            <MobileLink href={ROUTES.HOME} onOpenChange={setOpen}>
-              Home
-            </MobileLink>
-            {items.map((item) => (
-              <MobileLink
-                key={item.href}
-                href={item.href}
-                onOpenChange={setOpen}
-              >
-                {item.label}
+          <div className="flex flex-col gap-4">
+            <div className="text-muted-foreground text-sm font-medium">
+              Menu
+            </div>
+            <div className="flex flex-col gap-3">
+              <MobileLink href={ROUTES.HOME} onOpenChange={setOpen}>
+                Home
               </MobileLink>
-            ))}
+              {items.map((item) => (
+                <MobileLink
+                  key={item.href}
+                  href={item.href}
+                  onOpenChange={setOpen}
+                >
+                  {item.label}
+                </MobileLink>
+              ))}
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="text-sm font-medium text-muted-foreground">

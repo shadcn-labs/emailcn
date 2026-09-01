@@ -35,16 +35,9 @@ export const useHapticsToggle = () => {
     }
   }, [hapticsEnabled, setHapticsEnabled, soundEnabled, hapticTrigger]);
 
-  useHotkeys(
-    "h",
-    () => toggleHaptics(),
-    {
-      enableOnContentEditable: true,
-      enableOnFormTags: true,
-      preventDefault: true,
-    },
-    [toggleHaptics]
-  );
+  useHotkeys("h", () => toggleHaptics(), { preventDefault: true }, [
+    toggleHaptics,
+  ]);
 
   return { hapticsEnabled, toggleHaptics };
 };

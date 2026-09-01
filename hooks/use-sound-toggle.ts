@@ -25,16 +25,7 @@ export const useSoundToggle = () => {
     }
   }, [soundEnabled, setSoundEnabled]);
 
-  useHotkeys(
-    "s",
-    () => toggleSound(),
-    {
-      enableOnContentEditable: true,
-      enableOnFormTags: true,
-      preventDefault: true,
-    },
-    [toggleSound]
-  );
+  useHotkeys("s", () => toggleSound(), { preventDefault: true }, [toggleSound]);
 
   return { soundEnabled, toggleSound };
 };
