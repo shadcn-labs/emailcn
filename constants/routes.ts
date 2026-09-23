@@ -14,4 +14,5 @@ export const ROUTES = {
   LLMS_MDX: "/llms.mdx",
   RSS: "/rss.xml",
   SPONSOR: "/sponsor",
+  STUDIO: "/studio",
 } as const;
